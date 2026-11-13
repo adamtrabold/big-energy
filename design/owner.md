@@ -231,3 +231,6 @@ Recorded as: DECISION — a public GitHub Pages site is fine (anyone with the ad
 Recorded as: (1) put the site on GitHub Pages first — done as far as a session can: build pushed to branch gh-pages; turning Pages on is blocked from sessions (owner does it in Settings → Pages). (2) The architecture doc's organisation is unclear — systems designer to rework it. (3) Docs, architecture and reviews must be ON THE WEBSITE (rendered pages), not markdown files he has to open. Markdown stays only as the source the site builds from.
 2026-11-13 16:40 Owner (verbatim): "gh pages is fine"
 Recorded as: DECISION — the site keeps deploying from the gh-pages branch. Sessions rebuild and push it after changes (site/publish.sh).
+
+2026-11-13 16:43 Owner (verbatim), on the live site: "every page here needs a point i literally have no idea what im looking at in "latest" for example. and where do i see the grille options and all of the other options"
+Recorded as: every page must state its point (what it is and why you are here) up front; "Latest" does not make sense to him. The site must show the open decisions waiting on him, with their options (e.g. the grille options) and images, in one obvious place.
