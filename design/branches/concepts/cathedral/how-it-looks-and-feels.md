@@ -19,7 +19,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 
 
 <figure>
 <img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of CATHEDRAL open flat: the lid above with evenly spaced rows and the centred slotted window, the base below with the symmetric played row and the keys.">
-<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. The section names (oscillators, mixer, contours) are back, in the hand, on one line between the voice block and the effects row, with "mixer" on the axis over the window. The maker's lozenge sits on the axis under the window, just above the seam. Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
+<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. The section names (oscillators, mixer, contours) are back, in the hand, on one line between the voice block and the effects row, with "mixer" on the axis over the window. The maker's lozenge sits on the axis under the window, just above the seam (blank in this render; see §6 for the name). Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
 </figure>
 
 <figure>
@@ -134,6 +134,7 @@ One round opening, concentric with the 50 mm CDS-5076-class driver, centred on t
   - **To remove it entirely (⚑ systems / director):** an offset pivot with a rabbeted seam (the halves overlap when open, so the axis can move inboard; kinematics UNVERIFIED), or back to v1.1 knuckles across the back, the owner's "if not these are fine".
 - **Feet:** four screw-through rubber feet (Ø 12, black, cap plug) at the corner screws; the two axis screws stay flush brass (no impost clash).
 - **Plates:** R 7.7 on all eight corners.
+- **The name, "Big Energy"** (owner: "name to come -- we're calling it big energy"): it goes **in the lozenge under the window, lowercase, in the panel's hand (Kalam 2.0, "big energy")**, the same voice as every legend on the instrument. It's ≈ 9 mm wide in a 15 mm field, with the descenders inside. Nothing louder: on a cathedral the foundation stone is small and sits on the axis. It's in the model (`Nave.NAME`) and appears from the next render pass, after his CATHEDRAL answer. **Later option:** a cast-brass name plate from the keys' service, letters raised 0.5 (Sculpteo's minimum embossed detail), if he wants the name in metal.
 - **Headings:** the lid's effects row carries "echo", "reverb" and "out" over its three groups (breaks at x 157 / 226). The base reads pitch | filter | mod.
 
 ## 7. Metal: what "brass" is now that nothing is machined (ruled: brass is the only visible metal)

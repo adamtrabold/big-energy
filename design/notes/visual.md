@@ -1,5 +1,11 @@
 # Visual designer notes (instrument; working name retired)
 
+## Name (2026-11-13, after turn 6): "Big Energy"
+- Owner: "name to come -- we're calling it big energy" (owner.md, naming.md).
+- My call: lowercase "big energy" in Kalam 2.0 inside the 16 × 5 lozenge under the window (`Nave.NAME`, drawn in `name_mark`), ≈ 9.2 wide in the 15.2 × 4.2 field. In the doc (§6). Option later: a cast-brass plate, raised letters ≥ 0.5.
+- **Not rendered yet** (coordinator): it goes into the next render pass after his CATHEDRAL answer. The current images show the lozenge blank.
+
+
 ## CATHEDRAL, turn 6 (2026-11-13 ~17:30): director's 8 → fixes 2 and 4, plus systems' 1 and 3 rendered
 - **Director scored 8:** (a) FX row off-centre, (b) R3 empty knob, (c) no lid section names, (d) hinge ear lobe past the back.
 - **Systems** re-centred the FX row (`FX_DX` −18.5, `FX_BREAKS` in layout_check.py) and removed R3 (base right MOD MIX 199 · DRIFT 230 · TAP 261). `Nave` now reads `FX_DX` / `FX_BREAKS` / the toggles' positions live; breaks left of the row are skipped.

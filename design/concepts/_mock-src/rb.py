@@ -1512,6 +1512,7 @@ MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE"
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
     route = "R-LOW"
+    NAME = "big energy"  # owner, after the score-8 pass; drawn from the next render pass
     EAR_R = 3.0          # score-8 fix 4 (see the look doc: the axis must sit at or behind the back face; this is the minimum)
 
     def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, **kw):
@@ -1527,8 +1528,13 @@ class Nave(Cathedral):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
         It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose."""
         nz = self.LY0 + 2.2
-        return (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
-                f'{rrect2d(135.4,nz+0.4,150.6,nz+4.6,2.1,2.1)} }}\n')
+        s = (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
+             f'{rrect2d(135.4,nz+0.4,150.6,nz+4.6,2.1,2.1)} }}\n')
+        # owner: "name to come -- we're calling it big energy". In the panel's own hand, lowercase, like every legend:
+        # Kalam 2.0 ≈ 9.2 wide in the 15.2 x 4.2 inner field (≥ 2.5 clear each side)
+        if self.NAME:
+            s += txt(143.0, nz + 2.6, gz + 0.01, self.NAME, 2.0, FO_INK, font=HAND)
+        return s
 
     def lid_face(self, controls=True):
         lc, D, L0 = self.lc, self.D, self.LY0
