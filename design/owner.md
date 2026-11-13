@@ -147,3 +147,6 @@ Recorded as:
 - All earlier owner rules and the locked spec still bind the branches unless he changes them.
 2026-11-13 11:58 Q: echo sync — A (automatic, hidden hold-TAP + turn-TIME override, $0) or B (FREE / SYNC toggle by TIME, ≈ $1)? → Owner: "B"
 DECISION: add a FREE / SYNC toggle near TIME (design/branches/echo-clock.md option B). FREE: TIME ≈ 20 ms–2 s, clock ignored. SYNC: TIME picks a note division; tempo from MIDI clock (USB or TRS) if present, else TAP. Applies to whichever concept is built (and the branches). Placement is the designers' call per concept.
+
+2026-11-13 12:33 Owner (verbatim): "why make anything on a3 at all? im not in europe and im not printing"
+Recorded as: drop A3 as the default format for mocks and sheets. Nothing is printed; images are viewed on screen (phone first, per the site's J14). The format is the designers' call, made for on-screen viewing. Locked versions stay as they are.

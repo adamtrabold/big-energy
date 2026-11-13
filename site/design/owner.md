@@ -27,3 +27,6 @@ Recorded as: the main viewer is the owner himself; design for him first.
 ## 2026-11-13 12:13 — on J14 (phone)
 Owner (verbatim): "why would i need to read an a3 sheet properly on my phone? i just need to see everything properly on my phone."
 Recorded as: J14 is broadened — EVERYTHING on the site must be properly viewable on a phone (sheets, diagrams, docs, tests, records). A3 sheets aren't a special job; they're one case of it. Don't over-invest in a sheet-specific reading mode.
+
+2026-11-13 12:33 Owner (verbatim): "why make anything on a3 at all? im not in europe and im not printing"
+Recorded as: drop A3 as the default format for mocks and sheets. Nothing is printed; images are viewed on screen (phone first, per the site's J14). The format is the designers' call, made for on-screen viewing. Locked versions stay as they are.
