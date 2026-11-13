@@ -152,3 +152,5 @@ DECISION: add a FREE / SYNC toggle near TIME (design/branches/echo-clock.md opti
 Recorded as: drop A3 as the default format for mocks and sheets. Nothing is printed; images are viewed on screen (phone first, per the site's J14). The format is the designers' call, made for on-screen viewing. Locked versions stay as they are.
 2026-11-13 12:39 Owner (verbatim): "dont do phone first -- do images that will be great on the site that i can view responsively"
 Recorded as: CORRECTION to 12:33 — not phone-first. Images are made to look great on the project site and to work responsively across screen sizes (phone through desktop).
+2026-11-13 12:41 Owner (verbatim): "i really only want images for things that need to be images -- text should be html and stuff"
+Recorded as: images only for what has to be visual (renders, drawings, diagrams, plots). Text (principles, specs, notes, labels, tables, scores) is real HTML on the site, not baked into images. This retires the "sheet" format (text plus pictures in one image) for new work.
