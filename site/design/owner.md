@@ -53,3 +53,5 @@ Recorded as: the Herbarium prototype's navigation (all · stage · kind · versi
 
 2026-11-13 16:23 Owner (verbatim): "im going to put the github on github pages so i can easily access it from there instead of here. i want all review and logs and documents there, not here"
 Recorded as: the owner will publish the repo with GitHub Pages and view everything there. ALL reviews, logs and documents go in the repo (and so on the Pages site), not as files sent in chat. Hosting for the project site moves from the claude.ai artifact to GitHub Pages (static; it updates when sessions commit and push).
+2026-11-13 16:24 Owner (verbatim): "ok thats fine if its not private"
+Recorded as: DECISION — a public GitHub Pages site is fine (anyone with the address can see it). Hosting: GitHub Pages from the repo root or a GitHub Action (not /docs).
