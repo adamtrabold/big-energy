@@ -529,17 +529,17 @@ def check_chamber_back():
                 if bad: fail(f"pitch 8.75: {fe} on a pipe")
 
 # ---------------------------------------------------------------- 9. CATHEDRAL (CHAMBER + FOLD v1.1), option B: every effect on one row
-def check_cathedral_b():
+def check_cathedral_b(row=None, brk=None, title="option B"):
     """Option B (moves controls: director, then owner): the lid back row carries every FX control + VOLUME + DRIFT;
     the base PLAY row's right section (was REPEATS, ECHO MIX, REVERB MIX, TAP) becomes the speaker (round grille).
     Same rules as fold_r5_check: pitch 20, gaps >= 1.5, knob/button >= 7 and toggle >= 3 from breaks, lid edge >= 16,
     far rim, closed landing (z over pegs with CATHEDRAL's +2.6 lid)."""
-    print("\n[9] CATHEDRAL option B: lid back row = DRIFT | ECHO type time repeats mix tap | REVERB type decay mix | VOLUME")
+    print(f"\n[9] CATHEDRAL {title}")
     D, dFX, dV2 = 108.0, 83.85, 60.85
-    row = [("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
+    row = row or [("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
            ("ECHO MIX", 122.5, KN, "k"), ("TAP", 142.5, 6.0, "b"), ("REVERB TYPE", 171.0, KN, "k"), ("REVERB DECAY", 191.0, KN, "k"),
            ("REVERB MIX", 211.0, KN, "k"), ("VOLUME", 240.0, KN, "k")]
-    brk = [48.0, 156.0, 225.5]
+    brk = brk or [48.0, 156.0, 225.5]
     sync = ("FREE/SYNC", 96.0, TGL, "t", 69.0)
     bad = 0
     items = [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")]
@@ -600,6 +600,10 @@ check_diptych()
 check_facade()
 check_chamber_back()
 check_cathedral_b()
+check_cathedral_b([("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
+                   ("ECHO MIX", 122.5, KN, "k"), ("TAP", 142.5, 6.0, "b"), ("REVERB TYPE", 171.0, KN, "k"), ("REVERB DECAY", 191.0, KN, "k"),
+                   ("REVERB MIX", 211.0, KN, "k"), ("FX PAN", 240.0, KN, "k"), ("VOLUME", 260.0, KN, "k")],
+                  [48.0, 156.0, 225.5], "option B + FX PAN (PAN 240 | VOLUME 260, one 'where it goes' group)")
 for _f in (check_render_collisions, check_cathedral_render):
     try:
         _f()

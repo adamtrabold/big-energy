@@ -197,3 +197,5 @@ Recorded as: grille in the lid band (P1 area implied): prefers VERTICAL lines (u
 Recorded as: asks whether to have two speakers (stereo) given stereo reverb/delay, and whether there is a stereo output. (Spec today: one mono PHONES/LINE jack via the LM386 and one speaker; the Daisy codec is stereo; stereo phones was noted as an optional wiring choice.) Grille choice (tower vs circle) still pending.
 2026-11-13 15:22 Owner (verbatim): "Stereo phones is fine but I need to pan the signal into the effects"
 Recorded as: DECISION — stereo phones: yes (one speaker; second speaker not taken). Line out stereo: not stated. NEW REQUEST: a way to pan the (mono) synth signal into the stereo effects. How (a pan control, its range, digital or analog, placement) is for the team; it likely adds a control.
+2026-11-13 15:23 Owner (verbatim): "Stereo line out"
+Recorded as: DECISION — line out is stereo too (TRS). Stereo phones + stereo line out, one speaker.
