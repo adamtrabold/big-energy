@@ -191,3 +191,5 @@ Recorded as: also acceptable — bought wooden caps on a shaft that is either bo
 
 2026-11-13 15:07 (layout decision) Owner (verbatim): "I don’t like the speaker on the key side but I also don’t like the eye shape"
 Recorded as: neither speaker solution. Rejects B's round speaker at the base (key side) AND A's lens ("eye") window in the band. He did not reject B's effects grouping; his earlier ask that FX sit with echo/reverb stands. A third speaker answer is needed.
+2026-11-13 15:12 Owner (verbatim): "I like the idea of the lines going up and down vs sideways. Or we could go back to a circle and maybe not centered?"
+Recorded as: grille in the lid band (P1 area implied): prefers VERTICAL lines (up and down) over horizontal. Alternative: a circle, possibly off-centre. Both open.
