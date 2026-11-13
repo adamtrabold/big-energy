@@ -1,5 +1,26 @@
 # Systems designer notes — Little D
 
+# CATHEDRAL (2026-11-13, owner 14:12–14:18): CHAMBER + FOLD v1.1; RAIN parked; round counts reset
+
+## Where things stand
+- `design/branches/concepts/cathedral/how-it-works.md` (turn 1, systems first). `branch_check.py` §9 checks option B's layout: 0 violations; TOTAL fails 0.
+
+## Findings (why)
+- **Assumed:** "effects & out" = the base PLAY right section (REPEATS, ECHO MIX, REVERB MIX, TAP). Its heading is stale: VOLUME left it in rev 7.2. "The screen" = the speaker grille.
+- **Hidden axis in the gap: impossible.** The axis must sit 10.7 above the plates (half the closed hollow). Soss hinges show their links when closed; dual-axis hinges leave a barrel gap; a 3-axis spine flops.
+  - **Possible:** side-wall pivots (brass leaves within x ≤ 4.05, blind pin, walnut plug): no barrels. Clear of the ribbon and the stays. Strength UNVERIFIED.
+- **The gap is the PLAY row's closed nest**, already rule-minimal (V2 lands 3.0 from CUTOFF).
+  - A: rose-window band (no moves).
+  - B ⚑ D+O: all FX + VOLUME on the lid back row (DRIFT 33.5 | echo ×4 + TAP | reverb ×3 | VOLUME 240; FREE/SYNC (96, d 69)), the speaker in the base PLAY right (round grille ≤ Ø 27 at (228, 68)). Costs: reach +126 mm for the amounts; reverses "amounts in front"; base board window; Daisy clash UNVERIFIED.
+- **Feet = screws:** screw-through recessed rubber feet at the 4 corner screws (part UNVERIFIED); a centre foot touches the impost unless Ø 10.
+- **Plates:** all corners R 7.7; pegs and controls clear.
+- **Spine removal** brings back the 21.9 × 266 slot (J6 ◐). Middle ground: a body-colour spine.
+
+## Next
+- Visual's turn; then the director weighs ⚑ B. With B: a model so §7 can check its labels.
+
+---
+
 # BRANCHES — coverage check (2026-11-13): CHAMBER 9, RAIN 9 (pending R1)
 - Wrote `design/branches/concepts/{chamber,rain}/coverage.md` against jobs rev 5 (J1–J28). Re-ran `branch_check.py`: 0 fails, 0 legend/tick collisions in both.
 - **CHAMBER: no unsupported jobs.** Weak spots: J22 park parts (sun, outdoor level, battery length, stays on soft grass), J11 (plug shank fit, relief fill, big printer), J4 paper card. The hinge slot (v1.1's J6 weakness) is closed by the spine.

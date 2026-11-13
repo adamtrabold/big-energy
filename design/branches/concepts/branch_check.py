@@ -528,6 +528,47 @@ def check_chamber_back():
                 bad = [q for q in Pm if abs(q[0] - fe[0]) < 3.2 + 6 and IMP - 6 < fe[1] < IMP + q[1] + 6]
                 if bad: fail(f"pitch 8.75: {fe} on a pipe")
 
+# ---------------------------------------------------------------- 9. CATHEDRAL (CHAMBER + FOLD v1.1), option B: every effect on one row
+def check_cathedral_b():
+    """Option B (moves controls: director, then owner): the lid back row carries every FX control + VOLUME + DRIFT;
+    the base PLAY row's right section (was REPEATS, ECHO MIX, REVERB MIX, TAP) becomes the speaker (round grille).
+    Same rules as fold_r5_check: pitch 20, gaps >= 1.5, knob/button >= 7 and toggle >= 3 from breaks, lid edge >= 16,
+    far rim, closed landing (z over pegs with CATHEDRAL's +2.6 lid)."""
+    print("\n[9] CATHEDRAL option B: lid back row = DRIFT | ECHO type time repeats mix tap | REVERB type decay mix | VOLUME")
+    D, dFX, dV2 = 108.0, 83.85, 60.85
+    row = [("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
+           ("ECHO MIX", 122.5, KN, "k"), ("TAP", 142.5, 6.0, "b"), ("REVERB TYPE", 171.0, KN, "k"), ("REVERB DECAY", 191.0, KN, "k"),
+           ("REVERB MIX", 211.0, KN, "k"), ("VOLUME", 240.0, KN, "k")]
+    brk = [48.0, 156.0, 225.5]
+    sync = ("FREE/SYNC", 96.0, TGL, "t", 69.0)
+    bad = 0
+    items = [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")]
+    items += [(n, x, dV2, F.KN if k == "k" else F.TGL, k) for n, x, r, k in F.v2]
+    items += [(n, x, 14.45, F.KN if k == "k" else F.TGL, k) for n, x, r, k in F.v1]
+    items += [(n, x, F.D_SW, F.TGL, "t") for n, x, r, k in F.sw]
+    for a, b in itertools.combinations(items, 2):
+        d = math.dist((a[1], a[2]), (b[1], b[2]))
+        if a[4] == b[4] == "k" and a[2] == b[2] and d < 20 - 1e-6: fail(f"B PITCH {a[0]} {b[0]}"); bad += 1
+        if d - a[3] - b[3] < 1.5 - 1e-6: fail(f"B GAP {a[0]} {b[0]} {d-a[3]-b[3]:.2f}"); bad += 1
+    for n, x, r, k in row:
+        for b0 in brk:
+            if abs(x - b0) - r < 7 - 1e-6: fail(f"B BREAK {n} {b0}"); bad += 1
+        if x - r < 16 - 1e-6 or 286 - (x + r) < 16 - 1e-6: fail(f"B EDGE {n}"); bad += 1
+    if dFX + KN + 12 + 4 > D + 1e-6: fail("B FAR RIM"); bad += 1
+    # closed landing over CATHEDRAL's pegs (lid +2.6 -> lid item bottoms at 21.5 + 2.6)
+    pegs = [(17 + 18 * n, 13.5) for n in range(15)] + [(8 + 18 * (i + 1), 36.0) for i in range(14) if [1, 1, 0, 1, 1, 1, 0][i % 7]]
+    for n, x, dd, r, k in [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")]:
+        yl = D - dd
+        if any(math.dist((x, yl), p) < r + PEG_R + 1.0 for p in pegs):
+            clr = (F.LID_FACE_CLOSED + 2.6 - F.KNOB_H) - (F.BASE_PLATE + PEG_TOP)
+            if clr < 2.0 - 1e-6: fail(f"B CLOSED Z {n} {clr:.2f}"); bad += 1
+    near = sorted((math.dist((sync[1], sync[4]), (c[1], c[2])) - c[3] - sync[2], c[0]) for c in items if c[0] != sync[0])[:3]
+    print(f"  back row x {row[0][1]}–{row[-1][1]}, breaks {brk}; FREE/SYNC at (96, d 69) between TIME and REPEATS, in front:"
+          f" nearest {', '.join(f'{n} {g:.2f}' for g, n in near)}")
+    print(f"  base PLAY right freed: x 186–270 between the break (184.5) and the edge; y 55–82 between the keys (54.6) and"
+          f" V1's closed landing (86.1) -> a round grille up to Ø 27 centred (228, 68), or a 60 x 30 speaker under a Ø 27 rose")
+    print(f"  violations {bad} (labels not yet checked: no model exists for option B)")
+
 for nm in ("FOLD", "ONE SHEET"):
     fr = check_sync(nm)
     check_scale(nm, fr)
@@ -537,5 +578,6 @@ check_pegs()
 check_diptych()
 check_facade()
 check_chamber_back()
+check_cathedral_b()
 check_render_collisions()
 print("\nTOTAL fails", TOTAL)
