@@ -32,8 +32,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .lamp.snapshot{width:10px;height:1.5px;border-radius:0;background:var(--rule)}
 .lampline.live .cap{color:var(--ink)}
 /* header */
-header.band{padding:18px var(--m) 12px}
-.hgrid{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+header.band{padding:18px var(--m) 14px}
+.hgrid{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px}
 .name{font-size:22px;font-weight:600;line-height:1.2;margin-top:2px}
 .sub{font-size:13px;color:var(--ink2)}
 .sub a{color:var(--ink);font-weight:500}
@@ -48,16 +48,15 @@ header.band{padding:18px var(--m) 12px}
 .strip a.early i{background:transparent;border:1px solid var(--ink2)}
 .strip a span{display:none}
 .stripline{font-size:12.5px;color:var(--ink2)}.stripline b{color:var(--ink);font-weight:600}
-nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:10px 0;border-top:1px solid var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
+nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:0;box-shadow:inset 0 -1px 0 var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
 .wrap:has(>nav.filters){margin-bottom:24px}
 @media(min-width:1024px){.wrap:has(>nav.filters){margin-bottom:36px}}
-@media(max-width:599px){nav.filters{flex-wrap:wrap;gap:4px 18px;white-space:normal}}
-nav.filters a{font-size:15px;color:var(--ink2);padding-bottom:4px}
-nav.filters a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
+@media(max-width:599px){nav.filters{gap:16px}nav.filters::after{content:"";flex:none;width:8px}nav.filters.fade{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}}
+nav.filters a{font-size:15px;color:var(--ink2);padding:6px 0 9px;border-bottom:2px solid transparent;flex:none}
+nav.filters a.on{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
 nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
 @media(min-width:1024px){
   :root{--m:48px}
-  .hgrid{grid-template-columns:minmax(0,1fr) auto;align-items:end}
   .waiting{justify-self:end}
   .name{font-size:26px}
   .strip a span{display:block;position:absolute;top:22px;left:0;right:0;font-size:11px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -356,8 +355,8 @@ const SECTIONS = [ // build-chain order; the site's whole structure
 function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
   return `<header class="band wrap"><div class="hgrid">
-    <div><div class="name">${esc(D.project.name)}</div>
-      <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a></div></div>
+    <div class="name">${esc(D.project.name)}</div>
+    <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a></div>
   </div></header>
   <div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
 }
@@ -759,6 +758,10 @@ window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); })
 
 /* ------- wiring per view */
 function wire(){
+  const nv = document.querySelector("nav.filters"), on = nv && nv.querySelector("a.on");
+  if (nv){ const fade = () => nv.classList.toggle("fade", nv.scrollLeft + nv.clientWidth < nv.scrollWidth - 4);
+    if (on && nv.scrollWidth > nv.clientWidth) nv.scrollLeft = Math.max(0, on.offsetLeft - nv.offsetLeft - 16);
+    fade(); nv.onscroll = fade; }
   document.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => {
     try { navigator.clipboard.writeText(location.href).then(() => { b.textContent = "copied"; }, () => { b.textContent = "copy the address bar"; }); } catch(e){ b.textContent = "copy the address bar"; }
   });
