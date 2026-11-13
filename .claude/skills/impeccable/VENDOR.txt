@@ -1,0 +1,4 @@
+tag: skill-v4.9.0
+date: 2026-11-13
+npm detector: impeccable@4.9.0
+source: https://github.com/pbakaus/impeccable (Apache-2.0)

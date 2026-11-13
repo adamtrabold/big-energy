@@ -11,7 +11,10 @@
 :root{--bg:#E6E4DF;--cell:#EFEDE9;--paper:#F8F7F4;--rule:#C4C1BA;--ink2:#5F5D58;--ink:#1B1B19;--on:#23863F;--m:16px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-feature-settings:"tnum";padding-bottom:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding-bottom:24px}
+.status,.stripline,.ev,.score,.tbl,.slip,.rows{font-variant-numeric:tabular-nums}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 a{color:inherit;text-decoration:none}
 a.u,.ref{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
@@ -29,7 +32,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .lamp.snapshot{width:10px;height:1.5px;border-radius:0;background:var(--rule)}
 .lampline.live .cap{color:var(--ink)}
 /* header */
-header.band{padding:18px 0 12px}
+header.band{padding:18px var(--m) 12px}
 .hgrid{display:grid;gap:10px}
 .name{font-size:22px;font-weight:600;line-height:1.2;margin-top:6px}
 .sub{font-size:13px;color:var(--ink2)}
@@ -52,7 +55,7 @@ nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
   :root{--m:48px}
   .hgrid{grid-template-columns:1.1fr .8fr 1fr;align-items:end}
   .name{font-size:26px}
-  .strip a span{display:block;position:absolute;top:22px;font-size:11px;color:var(--ink2);white-space:nowrap}
+  .strip a span{display:block;position:absolute;top:22px;left:0;right:0;font-size:11px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .strip a.now span,.strip a.done span{color:var(--ink)}.strip a.now span{font-weight:600}
   .strip{margin-bottom:16px}
 }
@@ -320,7 +323,7 @@ function updatedLine(){
 function header(sel){
   const stages = D.stages.map((s,i) => {
     const cls = i===0 ? "done" : s===D.project.now ? "now" : s==="Spec" ? "early" : "";
-    return `<a class="${cls}" href="#s-${s.toLowerCase()}" aria-label="${s}"><i></i><span>${s}</span></a>`;
+    return `<a class="${cls}" href="#s-${s.toLowerCase()}" aria-label="${s}" title="${s}"><i></i><span>${s}</span></a>`;
   }).join("");
   const n = unseenCount();
   const more = n ? `+ ${n} new since you last looked ›` : "";

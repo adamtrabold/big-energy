@@ -109,9 +109,21 @@ def label_cells(h):
             return re.sub(r"<td([^>]*)>", td, r.group(0))
         return re.sub(r"<tr>.*?</tr>", row, t, flags=re.S)
     return re.sub(r"<table>.*?</table>", table, h, flags=re.S)
+LIST_RE = re.compile(r"^\s*([-*+]|\d+[.)])\s")
+def loosen_lists(text):
+    """Python-Markdown needs a blank line before a list; GitHub doesn't. Add one so lists render as lists."""
+    out, fence, prev = [], False, ""
+    for line in text.splitlines():
+        if line.lstrip().startswith("```"): fence = not fence
+        if (not fence and LIST_RE.match(line) and prev.strip() and not LIST_RE.match(prev)
+                and not prev.startswith(("|", "    ", "\t")) and not prev.lstrip().startswith(">")):
+            out.append("")
+        out.append(line); prev = line
+    return "\n".join(out)
+
 def md(text, imap=None, src=None, status=False):
     _COPYSRC[0] = src
-    h = markdown.markdown(text, extensions=["tables", "fenced_code", "sane_lists"])
+    h = markdown.markdown(loosen_lists(text), extensions=["tables", "fenced_code", "sane_lists"])
     def pic(m):
         attrs = dict(re.findall(r'(\w+)="([^"]*)"', m.group(0)))
         base = os.path.splitext(os.path.basename(attrs.get("src", "")))[0]
@@ -171,7 +183,8 @@ def first_para(text):
     for blk in text.split("\n\n"):
         b = blk.strip()
         if b and not b.startswith("#") and not b.startswith("|"):
-            return re.sub(r"[*`]", "", b.replace("\n", " "))[:240]
+            t = re.sub(r"[*`]", "", b.replace("\n", " "))
+            return t if len(t) <= 240 else t[:240].rsplit(" ", 1)[0].rstrip(",;:(") + "…"
     return ""
 
 items, groups, order = {}, [], []
