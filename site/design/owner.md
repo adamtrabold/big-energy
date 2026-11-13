@@ -30,3 +30,5 @@ Recorded as: J14 is broadened — EVERYTHING on the site must be properly viewab
 
 2026-11-13 12:33 Owner (verbatim): "why make anything on a3 at all? im not in europe and im not printing"
 Recorded as: drop A3 as the default format for mocks and sheets. Nothing is printed; images are viewed on screen (phone first, per the site's J14). The format is the designers' call, made for on-screen viewing. Locked versions stay as they are.
+2026-11-13 12:39 Owner (verbatim): "dont do phone first -- do images that will be great on the site that i can view responsively"
+Recorded as: CORRECTION to 12:33 — not phone-first. Images are made to look great on the project site and to work responsively across screen sizes (phone through desktop).
