@@ -1,5 +1,15 @@
 # Systems designer notes — Little D
 
+# Speaker, round 2 (owner: no key-side speaker, no eye shape), 2026-11-13
+- cathedral §14:
+  - P1: band, fires up, rounded rect or an arcade of vertical tapered slots. Loudest everywhere, nothing moves; open area ≈ −35 % for the arcade.
+  - P2: through the lid back / façade. Loud to the listener standing, muffled flat. No controls move; band plain.
+  - P3: base underside. Quietest; base board change; out if "key side" means the base half.
+  - Rejected: end walls, far wall, hinge zone, two speakers.
+- With B and no base speaker, the base right (x 186–270) empties: VOLUME + TAP back / re-centre the row / lozenge + lights. ⚑ D+O.
+
+---
+
 # CATHEDRAL steer 1 rulings + tests (2026-11-13)
 - Rulings written at the top of cathedral/how-it-works.md: R 7.7 corners; feet at the corner screws, axis screws flush brass; cast-brass stays (black PETG 5 × 8 fallback); 316L only for the hidden hinge leaves; one carrier interface (Ø 9.6 × 3.3 cup / 9.53 × 3.2 tenon) for every head.
 - Owner tests: T1 a Cherry Tree Toys plug pack → head height H (H ≤ 4 keeps 52.7 closed); T2 one hollow cast-brass head on a carrier on one Choc V2 (top-out noise, wobble).

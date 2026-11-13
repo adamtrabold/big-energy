@@ -319,6 +319,35 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 - **Brass + black** reads as organ stops and pipes.
 - Colour is the visual designer's call; the numbers above hold for both.
 
+## 14. Speaker placement, round 2 (owner: "I don't like the speaker on the key side but I also don't like the eye shape")
+**Kept:** B's single effects row on the lid's back row (his "FX together" ask stands). **Ruled out:** a speaker grille on the base's top face (key side), and any lens or vesica.
+
+**The space facts** (v1.1 FOLD-105):
+- the lid's under-plate depth is **10.6 mm** (speaker 60 × 30 × 10.3 lies flat; it can't stand on edge);
+- the band is d 21.9–59.45, with **≈ 22 mm clear for a grille** between the "mixer" heading and V2's legends (visual's figure);
+- the lid end faces carry the stays (d 30–74.4);
+- the far wall carries the I/O board (x 60–230, d 92–104);
+- base under-plate space is ≈ 11.1.
+
+| | Placement | Sound path | Table / lap / grass | What moves | Checks |
+|---|---|---|---|---|---|
+| **P1. Band, fires up, non-lens grille** | the speaker stays where v1.1 has it: x 113–173, d 26.7–56.7, under the band plate. The grille is **(a) a rounded rectangle ≈ 56 × 18, r ≈ 6** or **(b) an arcade of vertical slots** (≈ 11 slots, pitch 5, width 2, lengths stepping ≈ 8 → 18 → 8: a pipe-tower silhouette, not a lens) | up through the lid plate. **Open flat:** straight up, at the player's chest. **Standing 120°:** the panel faces 30° up, so the speaker faces the player | best of the set: unobstructed in all three. On grass the lid is clear of it | **nothing** (speaker, board windows and ribbon as v1.1) | grille open area: (b) ≈ 290 mm² vs today's ≈ 440 (fewer slots → ≈ −35 %, UNVERIFIED acoustically; widen slots to 2.5 to recover); grille vs V2 legends and the mixer heading (§7 checker once modelled) |
+| **P2. Through the lid back (the façade speaks)** | the same speaker, same x / d, flipped: it fires **out through the lid back**. The openings are slots set into the façade, inside x 113–173, d 26.7–56.7, i.e. within the centre pipes (the owner draws the pipes; the openings follow his lines) | **Standing 120°:** the lid back faces back and up, so it fires at the listener across from you. The organ speaks from its façade; the player hears it by reflection. **Open flat:** the lid back sits on its feet (≈ 3 mm gap), firing into the table. **Closed:** faces up (off anyway) | standing: loud to the listener, softer to the player. Flat on a table: muffled and dark (boundary-loaded through a 3 mm gap, like ONE SHEET's bottom speaker). Lap: muffled. Grass: absorbed | **no controls.** The speaker mounts to the lid back's inner face instead of under the plate. The band plate becomes plain (no grille at all) | openings vs his pipe lines; dust/water path through the façade; feet height raised to ≥ 6 so flat-open isn't choked (UNVERIFIED gain) |
+| **P3. Base underside, fires down** | the speaker in the base's freed right end (B: x 186–270, y 55–82), lying on the floor, firing **through the base bottom**; nothing on the base top | down into whatever it's on, out through the feet gap | table: muffled and dark (as P2 flat). Lap: smothered. Grass: absorbed. **Weakest outdoors** | no controls. **Base board change** (speaker window); the **Daisy (rear right) clash is UNVERIFIED** | is "key side" visual (grille on top) or the base half at all? If the latter, P3 is out too |
+
+**Rejected, with reasons:**
+- **Lid end walls:** the speaker would have to stand on edge (30 > 10.6 under the plate), and the end faces carry the stays' grooves.
+- **Lid far wall:** the I/O board and jacks fill x 60–230; behind the wall are the FX pots.
+- **Hinge zone / base rear wall:** open, it faces the lid's hinge wall across a 2 mm gap.
+- **Two small speakers:** quieter in total, and no space either side of the band's cells.
+
+**A consequence of B with the speaker not in the base:** the base PLAY row's right end (x 186–270) is **empty**. ⚑ D+O, options:
+1. **VOLUME and TAP come back to the base right** (TAP is played in rhythm; VOLUME is "out"). The lid row is then DRIFT | echo ×4 | reverb ×3, and FREE / SYNC stays by TIME. His "together" holds for every effect control; out and tempo sit with the hands.
+2. **The PLAY row is re-centred** across 286 (pitch | filter only), leaving equal margins.
+3. **The maker's lozenge and the two lights** go there.
+
+**My read (not a pick):** P1 is the only placement that's as loud as today in every place he plays, and it moves nothing. P2 is the CATHEDRAL idea (the façade speaks) but trades the player's sound and flat-table loudness for the listener's. P3 is the quietest.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
