@@ -1,5 +1,52 @@
 # Systems designer notes — Little D
 
+# BRANCHES — concept turn 1 (2026-11-13): jam closed, 4 concepts started
+
+## Where things stand
+- Jam closed (director turn 3): **CHAMBER (FOLD), RAIN (ONE SHEET), BUTTERFLY (ONE SHEET), DIPTYCH (FOLD)**. Killed: PIERCED, GROUND (donors: status-light hood, high-contrast legends, finger pocket, "bottom as designed as the top").
+- **Owner decision 11:58: echo sync option "B"** (FREE / SYNC toggle by TIME). Recorded in `design/owner.md`; `echo-clock.md` rev 1.1.
+- `design/jobs.md` **rev 5**: J20–J28, F13–F15 and new state rows added; rev 4 kept.
+- Concept files (systems, first): `design/branches/concepts/common-how-it-works.md` + `{chamber,rain,butterfly,diptych}/how-it-works.md`.
+- Checker: `design/branches/concepts/branch_check.py` (imports v1.1 `fold_r5_check.py` read-only). TOTAL fails 0, plus one expected finding (DIPTYCH tips with cords alone). v1.1 checkers still 0.
+
+## Decisions and findings (why)
+- **FREE / SYNC:** ONE SHEET (128.0, 132.7), FOLD lid (133.0, d 70.6). The windows are ≈ 1 mm deep (control rules), so it's the only legal spot.
+  - TIME's legend was right under the toggle (v1.1 legends sit in front of their knobs), so TIME and DECAY legends move behind their knobs.
+  - The throw changes to left / right with words beside it (the visual designer's fore / aft has no room for words).
+  - ONE SHEET's MIXER heading moves to y 136.
+  - TIME's scales are printed over ±135° with a firmware clamp (at ±150° the end ticks hit the nut).
+- **BUTTERFLY:**
+  - the joint must be at y ≥ 164.9 → 165 (y 160 cuts four fan names);
+  - jacks can't go through the wood (plug reach, irregular face), so the walnut becomes a 6 mm top in a rebate overhanging the printed rear wall (tabletop over apron);
+  - jacks stay as v1.1, legends are lasered into the walnut;
+  - the leaves meet end-to-end (grain along x), so it's a butt match and the butterfly really carries it.
+- **RAIN pegs:** a 14 mm felt washer keeps 276 width (HUSH's 19 mm collar needs +5, not +8). Strip C limits the whites to y ≈ 14.
+  - No grooves, so the print split at x 122.5 has nowhere to hide: print in one piece on a 350 bed (UNVERIFIED), or split along a Voronoi seam.
+  - A power-off sound is impossible (hard switch); a power-on "drop" is free.
+- **CHAMBER:** pegs need +2.6 mm of lid wall → closed ≈ 52.7 (director estimated +4).
+  - Façade: 25 pipes, L 66 → 16.5, tower pitch 10, impost at d 18 on the d 12 screws.
+  - v1.1 front lid-back feet (d 30) land on pipes → move to d 6.
+  - The nameboard strip above the keys is ≈ 3 mm tall → use the lid lozenge.
+- **DIPTYCH:** cords alone tip at 0.8 N (model matches v1.1's 6.8 N with stays: 6.9). Needs base feet reaching ≥ 45 mm behind (proposal 59 → 6.9 N).
+  - Latitude cord at s 100 (director's) passes 24 mm above the base top in the stick hand's zone → pick s 60: anchor y 53, 110 mm, 13 N per cord.
+  - Feet-before-cords order hazard; proposed interlock slot.
+  - Red + black fills = two swaps.
+
+## Director's objections so far
+- None on systems' concept files yet (they're new). From turn 3: CHAMBER costume watch; DIPTYCH is cut first if it can't separate from CHAMBER.
+
+## Open questions
+- Owner: CHAMBER reversed keys; pegs' cost (now +0 width on ONE SHEET with washers, +2.6 closed on FOLD); park session length; tapped tempo out as clock; the furniture book's title.
+- Director: DIPTYCH cords + feet (one more part) vs keep v1.1 stays and lose the cords.
+- Visual: accept the left / right throw and moved legends? TIME dial numerals in the tight annulus; MIXER heading move; façade feet move; BUTTERFLY joint at 165.
+- Eng: strip C vs the main / base board line with pegs (both peg branches); walnut button plugs; engraved fill on wood-fill PETG; cord creep; feet pivot in PETG; Voron 350 at Vector Space; toggle lever height; outdoor speaker level; LiPo in sun.
+
+## Next
+- Visual's concept turn (looks, renders, the "must prove" lists).
+- React to the visual designer's changes to how things work. Then, for each concept the director scores 9+: a coverage check against jobs rev 5 (J1–J28), before the owner sees it.
+
+---
+
 # BRANCHES (started 2026-11-13): personality, a whole point of view, the park, MIDI-synced echo
 
 ## Where things stand (after jam turn 1)

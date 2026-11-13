@@ -1,6 +1,6 @@
 # Little D: jobs and flows
 
-Status: rev 4, 2026-11-13 (J19 echo + reverb added; all three concepts share common rev 7's balanced layout). Rev 3, 2026-11-12, systems designer (round 4: active concepts HUSH, FOLD, ONE SHEET; common rev 6 PLAY row + VOICE layout; owner deferred case work for HUSH and ONE SHEET). Rev 2: owner answers and director round 1; keys are bought Choc V2 switches with short tops. Drawn from the owner's words (`owner.md`, `instrument/owner.md`), the jam (`jam.md`, director's rules H1–H9), `eng/budget-variant.md` Part 1 and `eng/keys-answers.md`.
+Status: **rev 5, 2026-11-13 (branches)**: J20–J28 and flows F13–F15 added for the branches work (personality and emotion, the park, MIDI-synced echo with the owner's FREE / SYNC decision "B"); J19 now points at F13/F14. Everything in rev 4 stands. rev 4, 2026-11-13 (J19 echo + reverb added; all three concepts share common rev 7's balanced layout). Rev 3, 2026-11-12, systems designer (round 4: active concepts HUSH, FOLD, ONE SHEET; common rev 6 PLAY row + VOICE layout; owner deferred case work for HUSH and ONE SHEET). Rev 2: owner answers and director round 1; keys are bought Choc V2 switches with short tops. Drawn from the owner's words (`owner.md`, `instrument/owner.md`), the jam (`jam.md`, director's rules H1–H9), `eng/budget-variant.md` Part 1 and `eng/keys-answers.md`.
 
 Marks: **stated** = owner's words. **inferred** = mine (scope questions, not demands). **[ENG]** = eng figure. **[CALC]** = my arithmetic.
 
@@ -29,10 +29,20 @@ The checker walks every job below on the build. A job passes only if every step 
 | J15 | **Play it where he is**: table, lap, couch; tilted. | inferred (portable) |
 | J16 | **Find the main controls and keys without looking**, in a dim room. | inferred |
 | J17 | ~~Prove the full version's keys by building RAIL here once.~~ **Retired:** owner doesn't want to build custom keys; keys are bought switches | — |
-| J19 | **Add echo and reverb while playing**: set echo time and repeats, reverb amount, and the wet/dry mix with the free hand; choose the echo type and the reverb type, set the tempo by tapping (or follow MIDI clock), use echo, reverb or both; turn it fully off (mix at zero leaves the dry sound untouched); hear it on the speaker and the phones/line out. | stated ("Is there a way for us to build in some effects, mainly a delay and echo?"; "I want echo and reverb"); "while playing" and "fully off" inferred. Round 5 final (common rev 7.1, FOLD 5.3): echo TYPE (TAPE/BBD/CLEAN/PING-PONG), reverb TYPE (PLATE/HALL/SPRING/SHIMMER), TIME, REPEATS, ECHO MIX, DECAY, REVERB MIX, TAP (owner: "Full 8"). Amounts (REPEATS, both MIXes, VOLUME) in the PLAY row; kinds and times + TAP in the FX row. Steps: turn ECHO MIX up → set TYPE/TIME (or TAP in tempo) → REPEATS → REVERB TYPE/DECAY → REVERB MIX; both MIXes at zero = dry. Chip: Pico 2 core 1 + Teensy Audio Shield (eng `single-chip-research.md`) |
+| J19 | **Add echo and reverb while playing**: set echo time and repeats, reverb amount, and the wet/dry mix with the free hand; choose the echo type and the reverb type, set the tempo by tapping (or follow MIDI clock), use echo, reverb or both; turn it fully off (mix at zero leaves the dry sound untouched); hear it on the speaker and the phones/line out. | stated ("Is there a way for us to build in some effects, mainly a delay and echo?"; "I want echo and reverb"); "while playing" and "fully off" inferred. Round 5 final (common rev 7.1, FOLD 5.3): echo TYPE (TAPE/BBD/CLEAN/PING-PONG), reverb TYPE (PLATE/HALL/SPRING/SHIMMER), TIME, REPEATS, ECHO MIX, DECAY, REVERB MIX, TAP (owner: "Full 8"). Amounts (REPEATS, both MIXes, VOLUME) in the PLAY row; kinds and times + TAP in the FX row. Steps: turn ECHO MIX up → set TYPE/TIME (or TAP in tempo) → REPEATS → REVERB TYPE/DECAY → REVERB MIX; both MIXes at zero = dry. Chip: Pico 2 core 1 + Teensy Audio Shield (eng `single-chip-research.md`). **Rev 5:** chip is the Daisy Seed (owner); tempo, clock and the FREE / SYNC toggle are J23–J27, flows F13–F14 |
 | J18 | **Keep it out where it gets played** (hang on a wall or stand on a shelf), where the concept has a finished bottom. | inferred (director's donor); optional, not a blocker |
+| **J20** *(new, branches)* | **Feel one point of view in the object, and want to play it**: one idea drives form, material, graphics, making and feel, drawing on furniture, instruments, tools, art and emotion; the object has personality and puts him in a mood. Goes beyond J12 (logic) to feeling. | stated ("more personality"; "holistic *point of view* / concept"; "principles of design of furniture… instruments, tools… artistic inspirational forms and emotion"; "be inspired") |
+| **J21** *(new)* | **Play keys with character.** His example: HUSH's pegs; on FOLD maybe "organ like". An example, not a direction: a branch may answer it with flat keys. | stated as example ("i *love* the peg keys on the hush") |
+| **J22** *(new)* | **Take it to the park and play it there.** Its parts, all inferred: (a) carry it on a walk and be playing within a minute of sitting; (b) play on grass cross-legged, a bench or a lap, without sliding or tipping, damp grass no problem; (c) read the panel and the status light in bright sun and dappled shade; (d) hear it outdoors (no walls) or on phones; (e) last an afternoon on battery and know what's left; (f) survive sun on the body, grass, dust, a drop on turf, water nearby; (g) share it: a friend on the bench sees, hears, has a go. Stretches J5, J7, J15. | stated ("i want to take this to the park and be inspired"); (a)–(g) inferred. Session length: **owner question open** |
+| **J23** *(new)* | **The echo follows MIDI tempo when a clock is present**, from USB or TRS MIDI IN. | stated ("make sure the delay can be timed to the midi if there is midi tempo control") |
+| **J24** *(new)* | **Turn tempo sync on and off, and see which it's in**: the FREE / SYNC toggle by TIME; its position is the state. | stated (follow-up: "am i missing a control to turn that tempo sync on / off?"); **owner decision 11:58: "B"** |
+| **J25** *(new)* | **Pick the echo's note division in SYNC; set a free time in FREE**: TIME read on two printed scales (ms; 9 divisions). | stated by decision B ("SYNC: TIME picks a note division") |
+| **J26** *(new)* | **Nothing jumps or clicks** when the clock starts, stops, drops out or changes tempo. | inferred |
+| **J27** *(new)* | **Keep a tempo with no clock** (the park has no DAW): tap it on TAP and see it confirmed. | inferred (J19 already has TAP; the "see it" part is new) |
+| **J28** *(new)* | **Choose ONE SHEET or FOLD late** without the branch work being wasted: the board is the constant, the outside is the branch. | inferred ("the internals are probably the same eh?") |
 
 ### Scope notes
+- **Rev 5 (branches):** J20–J28 apply to the branch concepts in `design/branches/concepts/`. J23–J27 (echo sync) apply to whichever concept is built (owner: "B"). J22's parts are inferred; a branch may answer some weakly but must say which.
 - J4's "keep a patch on paper" and J18 are inferences; a concept may skip them without failing, but must say so.
 - J6's "survive a bag" without a separate sleeve is pending the owner (A4). Concepts that rely on a sleeve must say which sleeve and its cost.
 
@@ -133,6 +143,31 @@ Reading order (common rev 6 §1): **the VOICE (back two rows) left → right in 
 ### F12 Keep it out (J18, optional)
 1. **[concept]** hang from a keyhole slot / stand on a shelf; or say why not.
 
+### F13 Echo in time with a MIDI clock (J23, J24, J25, J26) *(new, rev 5)*
+Spec: `design/branches/echo-clock.md` (option B, owner-approved).
+1. Connect the clock: rear USB-C to a computer/DAW, or TRS MIDI IN from a drum machine or sequencer.
+2. FREE / SYNC toggle → **sync**.
+3. Start the clock. Status light: 2 green flashes = locked (after one beat, 24 ticks).
+4. ECHO MIX up; pick a division on TIME's **outer** scale (1/16 … 1/2; dotted marked by a dot, triplets by a triangle); REPEATS to taste.
+5. Change the tempo at the source: the echo follows. TAPE / BBD glide (≈ 150 ms, like a tape motor), CLEAN / PING-PONG crossfade (≈ 50 ms).
+6. Stop the clock (or it drops out for 500 ms): tails ring on; the echo holds the last tempo; 2 amber flashes.
+7. Free time again: toggle → **free**; TIME reads its **inner** scale (≈ 20 ms – 2 s); the clock is ignored.
+
+### F14 Tap a tempo with no clock (J27, J22) *(new, rev 5)*
+1. Toggle → **sync**. Tap TAP 2–4 times on the quarter note (taps > 2.5 s apart start over).
+2. The status light flashes the tempo 4 times (green, 40 ms). Pick a division on TIME.
+3. Or toggle → **free** and tap the echo length itself; moving TIME takes back over (jump-on-move).
+4. With a clock running in sync, TAP doesn't change the tempo: 1 short amber flash says the clock has it.
+
+### F15 A park session (J22, J20) *(new, rev 5)*
+1. **[concept]** carry: how it's held or bagged on a walk.
+2. **[concept]** sit: grass cross-legged, a bench, a lap; what touches the ground; how it's tilted to the eye.
+3. Power on (recessed switch); status light **ready**, readable in sun (the light sits under a short hood / light pipe, every branch).
+4. Play on the speaker (**[concept]**: which way it fires outdoors) or phones.
+5. Tap a tempo (F14); the echo is in time.
+6. A friend has a go: keys and stick reachable from beside; **[concept]** what the friend sees.
+7. Low battery warns before it stops (status light); power off; **[concept]** pack and walk.
+
 ---
 
 ## States the hardware must show
@@ -151,3 +186,8 @@ Reading order (common rev 6 §1): **the VOICE (back two rows) left → right in 
 | Bend at rest | stick | centred by its spring, visibly in the middle of its slot |
 | Mod depth | MOD dial | its pointer |
 | Carry vs play | body | **[concept]** closed / open, rolled / unrolled |
+| **Echo free or synced** *(rev 5)* | FREE / SYNC toggle by TIME | lever position (left = free, right = sync, legends beside it) |
+| **Which TIME scale to read** *(rev 5)* | TIME | inner ring = ms, outer ring = divisions; printed over 270°, the last 15° at each end clamp (firmware) |
+| **Clock locked / lost** *(rev 5)* | status light | 2 green flashes on the beat / 2 amber flashes (low priority: tune-failed and low battery win) |
+| **Tempo after a tap** *(rev 5)* | status light | 4 green flashes at the tempo |
+| **TAP ignored (clock has the tempo)** *(rev 5)* | status light | 1 short amber flash |

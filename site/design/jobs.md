@@ -48,7 +48,7 @@ Adam wants one link where he can look at everything the team has made for the sy
 | J11 | *(inferred)* **Know whether the team is working right now**, and on what. | "live" means nothing without it | The lamp and its line say ON with what, or STANDBY with the last event's time. |
 | J12 | *(inferred)* **See what changed since he last looked.** Signed-in only, per person. | "primarily me"; he comes back between sessions | Unseen items are marked; the landing says how many. |
 | J13 | *(inferred)* **Find one thing again quickly**, by stage, kind or version (one filter at a time), or by its code. | J2 at scale (90+ images today) | Any item is reachable in 4 taps or fewer from the landing. |
-| J14 | *(inferred)* **Look at an A3 sheet properly on a phone**: fit, step through read-mode crops, pinch to full res, swipe to the next sheet, download the original. | sheets are 4961×3508; he reads on a phone | FOLD-A is readable at detail level on a 390 px screen. |
+| J14 | **See everything properly on a phone**: every kind (sheet, diagram, doc, test, record) is fully viewable and usable on a phone. Owner (verbatim): "i just need to see everything properly on my phone." | owner, 12:13 | Every kind of item, and every screen, works at 390 px; large sheets can be zoomed to full detail. |
 
 Not jobs: giving feedback, approving, deciding, chatting (owner, 11:52).
 

@@ -23,3 +23,7 @@ Q: who gets the link; hide owner notes and scores from outside viewers? → Owne
 DECISION: one view for everyone; nothing hidden from link holders (owner record, scores, notes all visible).
 Owner (verbatim): "it is primarily me"
 Recorded as: the main viewer is the owner himself; design for him first.
+
+## 2026-11-13 12:13 — on J14 (phone)
+Owner (verbatim): "why would i need to read an a3 sheet properly on my phone? i just need to see everything properly on my phone."
+Recorded as: J14 is broadened — EVERYTHING on the site must be properly viewable on a phone (sheets, diagrams, docs, tests, records). A3 sheets aren't a special job; they're one case of it. Don't over-invest in a sheet-specific reading mode.

@@ -1,5 +1,11 @@
 # Echo under MIDI clock: how it behaves (systems, branches turn 1, 2026-11-13)
 
+> **Rev 1.1 (2026-11-13, concept turn 1).** Owner chose **option B** (11:58, `design/owner.md`). Placement checked with labels (`concepts/common-how-it-works.md` §2):
+> - ONE SHEET frame (128.0, 132.7); FOLD lid (133.0, d 70.6).
+> - **Throw left / right** ("free" left, "sync" right). Fore / aft has no room for its words.
+> - TIME's and DECAY's legends move behind their knobs.
+> - TIME's two scales are printed over **±135°**; firmware clamps the last 15° at each end.
+
 Applies to every branch and, if the owner wants, to the v1.1 concepts as a firmware + one-switch change (the locks themselves are not edited). Same firmware for ONE SHEET and FOLD; only where a new switch would sit differs.
 
 Owner (verbatim): "also i want to make sure the delay can be timed to the midi if there is midi tempo control" · follow-up: "am i missing a control to turn that tempo sync on / off?"
