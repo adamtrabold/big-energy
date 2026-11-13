@@ -27,19 +27,22 @@ L("DECAY tgl", 262.5, V2, TGL, "t", "decay", "behind")
 for n, x in [("OSC MOD", 23.5), ("OSC 3 CTL", 43.5), ("PARA", 63.5), ("SOURCE", 182.5), ("FILTER MOD", 202.5), ("VEL", 222.5),
              ("AFTERTOUCH", 242.5)]:
     L(n, x, SWL, TGL, "t", {"OSC 3 CTL": "osc 3", "VEL": "velocity", "AFTERTOUCH": "touch", "FILTER MOD": "filt mod", "PARA": "para"}.get(n, n.lower()), "above")
+FX_DX = -18.5    # director fix 1: the effects row re-centred on x 143 (span 44-242); groups, breaks and toggles move with it
 fx = [("ECHO TYPE", 62.5, "type", "front"), ("ECHO TIME", 82.5, "time", "behind"), ("ECHO REPEATS", 102.5, "repeats", "behind"),
       ("ECHO MIX", 122.5, "mix", "front"), ("DELAY PAN", 142.5, "delay pan", "front"), ("REVERB TYPE", 171.5, "type", "front"),
       ("REVERB DECAY", 191.5, "decay", "front"), ("REVERB MIX", 211.5, "mix", "front"), ("DRY PAN", 240.5, "dry pan", "behind"),
       ("VOLUME", 260.5, "volume", "behind")]
-for n, x, lab, w in fx: L(n, x, FX, KN, "k", lab, w)
-L("FREE/SYNC", 96.0, FX - 14.85, TGL, "t", "free|sync", "beside")
-L("FOLLOW", 250.5, FX - 11.55, TGL, "t", "off|follow", "beside")
+for n, x, lab, w in fx: L(n, x + FX_DX, FX, KN, "k", lab, w)
+FX_BREAKS = [48.0 + FX_DX, 157.0 + FX_DX, 226.0 + FX_DX]
+L("FREE/SYNC", 96.0 + FX_DX, FX - 14.85, TGL, "t", "free|sync", "beside")
+L("FOLLOW", 250.5 + FX_DX, FX - 11.55, TGL, "t", "off|follow", "beside")
 
 def base(hk, hstick, hcut=12.15, htap=8.0):
-    """PLAY row, symmetric about x 143: stick ↔ TAP, CUTOFF (hero) on the axis. R3 = director's call (counted as a knob)."""
+    """PLAY row, symmetric about x 143: stick 25 ↔ TAP 261, CUTOFF (hero) on the axis. Right group MOD MIX 199 · DRIFT 230 · TAP 261,
+    evenly spaced over the same extent as the left group (25-87 ↔ 199-261), so nothing reads as a missing knob."""
     return [("BEND stick", 25, 68, STK, hstick), ("MOD", 47, 68, KN, hk), ("TUNE", 67, 68, KN, hk), ("GLIDE", 87, 68, KN, hk),
             ("EMPHASIS", 119, 68, KN, hk), ("CUTOFF", 143, 68, CUT, hcut), ("CONTOUR AMT", 167, 68, KN, hk),
-            ("MOD MIX", 199, 68, KN, hk), ("DRIFT", 219, 68, KN, hk), ("R3 (open)", 239, 68, KN, hk), ("TAP", 261, 68, TAPR, htap)]
+            ("MOD MIX", 199, 68, KN, hk), ("DRIFT", 230, 68, KN, hk), ("TAP", 261, 68, TAPR, htap)]   # R3 removed (director fix 3)
 
 def tbox(x, d, s, size, where, r):
     w = len(s) * 0.50 * size; h = 0.85 * size
@@ -55,9 +58,18 @@ def gap_bb(a, b):
     dx = max(b[0] - a[2], a[0] - b[2], 0); dy = max(b[1] - a[3], a[1] - b[3], 0)
     return -1 if dx == 0 and dy == 0 else (math.hypot(dx, dy) if dx and dy else max(dx, dy))
 
+SW_LS = 1.55          # visual rule 1: switch-line legends go BESIDE their toggle (right, x + 6.2) at 1.55 (Kalam runs wide)
+BEHIND_EXTRA = 1.0    # visual rule 2: behind-legends sit 1.0 further back (they touched the knobs' top ticks)
+
 def labels():
     out = []
     for n, x, d, r, k, lab, w in lid:
+        if k == "t" and d == SWL:
+            wdt = len(lab) * 0.5 * SW_LS; h = 0.85 * SW_LS
+            out.append((n, (x + 6.2, d - h / 2, x + 6.2 + wdt, d + h / 2))); continue
+        if w == "behind":
+            b = tbox(x, d, lab, LS if k == "k" else LS * 0.85, w, r)
+            out.append((n, (b[0], b[1] + BEHIND_EXTRA, b[2], b[3] + BEHIND_EXTRA))); continue
         if w == "beside":
             a, b = lab.split("|"); s = LS * 0.72
             out.append((n + ":" + a, (x - 6.2 - len(a) * 0.5 * s, d - 0.43 * s * 1.0, x - 6.2, d + 0.43 * s)))
@@ -72,7 +84,10 @@ def check():
         dd = math.dist(a[1:3], b[1:3])
         if a[4] == b[4] == "k" and a[2] == b[2] and dd < 20 - 1e-6: bad.append(f"PITCH {a[0]}/{b[0]} {dd:.2f}")
         if dd - a[3] - b[3] < 1.5 - 1e-6: bad.append(f"GAP {a[0]}/{b[0]} {dd - a[3] - b[3]:.2f}")
+    xs = [x for n, x, d, r, k, *_ in lid if d == FX and k == "k"]
+    if abs((min(xs) + max(xs)) / 2 - 143) > 0.5: bad.append(f"FX ROW off-centre: {min(xs)}-{max(xs)}")
     for n, x, d, r, k, *_ in lid:
+        if d == FX and any(abs(x - b0) - r < 7 - 1e-6 for b0 in FX_BREAKS): bad.append(f"BREAK {n}")
         if math.dist((x, d), WIN[:2]) - r - WIN[2] < 1.5 - 1e-6: bad.append(f"WINDOW {n}")
         if x - r < 16 - 1e-6 or 286 - (x + r) < 16 - 1e-6: bad.append(f"EDGE {n}")
         if d - r < 7 - 1e-6: bad.append(f"SEAM {n}")

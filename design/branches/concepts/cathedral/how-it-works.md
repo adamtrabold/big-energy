@@ -530,7 +530,7 @@ reverb out (stereo) ─► L / R sums (REVERB MIX)
 - 1 SPI chip-select. A few mA.
 
 ## 16. Steer 2: resolving the band (owner 16:52: "there's a massive horizontal gap -- the speaker doesnt feel resolved. this may mean moving components")
-Checker: `layout_check.py` (this folder). Open layout + labels: **0 violations** (label sizes estimated for Kalam; re-run on the visual designer's model). Numbers marked [CHECK] come from it.
+Checker: `layout_check.py` (this folder), now with the visual designer's two legend rules (switch-line legends beside their toggles at 1.55; behind-legends 1.0 further back) and an FX-row centring rule: **0 violations**. On the visual model with real Kalam text (`branch_check` §7 collide on `rb.Nave`): **0** legend, tick and control collisions. Numbers marked [CHECK] come from these.
 
 ### 16.1 Root cause (what forces the gap)
 - Closed, a base point at y lands under lid d = 108 − y. The base PLAY row (y 68) lands at **lid d ≈ 40**.
@@ -546,8 +546,8 @@ Checker: `layout_check.py` (this folder). Open layout + labels: **0 violations**
 | **V1, d 14.45** | RANGE 1–3 23.5 / 43.5 / 63.5 · FREQ 2 83.5 · **OSC 1 103.5** | (opening) | **OSC 3 182.5** · F ATT / DEC / SUS 202.5 / 222.5 / 242.5 · KBD CTRL (t) 262.5 |
 | **switch line, d 32** | OSC MOD 23.5 · OSC 3 CTL 43.5 · PARA 63.5 | **Ø 46 opening, centre (143, d 32)** | SOURCE 182.5 · FILTER MOD 202.5 · VELOCITY 222.5 · AFTERTOUCH 242.5 |
 | **V2, d 49.5** | WAVE 1–3 · FREQ 3 83.5 · **OSC 2 103.5** | (opening) | **NOISE / EXT 182.5** · L ATT / DEC / SUS · DECAY (t) 262.5 |
-| **FX, d 84.55** | ECHO TYPE 62.5 · TIME 82.5 · REPEATS 102.5 · MIX 122.5 · DELAY PAN 142.5 | | REVERB TYPE 171.5 · DECAY 191.5 · MIX 211.5 · DRY PAN 240.5 · VOLUME 260.5 |
-| FX toggles | FREE / SYNC (96, d 69.7) | | FOLLOW (250.5, d 73) |
+| **FX, d 84.55** (re-centred on x 143: span 44–242) | ECHO TYPE 44 · TIME 64 · REPEATS 84 · MIX 104 · DELAY PAN 124 | | REVERB TYPE 153 · DECAY 173 · MIX 193 · DRY PAN 222 · VOLUME 242 |
+| FX toggles, breaks | FREE / SYNC (77.5, d 69.7) · breaks 29.5 / 138.5 / 207.5 | | FOLLOW (232, d 73) |
 
 - **Row pitch is 35.05 everywhere** (V1 → V2 → FX). The switch line sits midway between V1 and V2.
 - **The only knob-free area wider than a row gap is the round opening.**
@@ -555,16 +555,18 @@ Checker: `layout_check.py` (this folder). Open layout + labels: **0 violations**
 - **Legends:** V1 in front; V2 behind; switch toggles above; TIME, REPEATS, DRY PAN and VOLUME behind; FREE / SYNC and FOLLOW words beside.
 
 **Base PLAY row, symmetric about x 143:**
-- **BEND 25 · MOD 47 · TUNE 67 · GLIDE 87 | EMPHASIS 119 · CUTOFF 143 (hero, on the axis) · CONTOUR AMT 167 | MOD MIX 199 · DRIFT 219 · R3 239 · TAP 261**;
+- **BEND 25 · MOD 47 · TUNE 67 · GLIDE 87 | EMPHASIS 119 · CUTOFF 143 (hero, on the axis) · CONTOUR AMT 167 | MOD MIX 199 · DRIFT 230 · TAP 261**;
+- the right group's three controls are spaced evenly over the same extent as the left group's four (25–87 ↔ 199–261), so nothing reads as a missing knob. **R3 is removed** (director);
 - the stick and TAP mirror each other;
 - **CUTOFF moves to the axis** (it was at 119; EMPHASIS takes 119), so CUTOFF lands **entirely under the opening** when closed. EMPHASIS and CONTOUR AMT land partly under it [CHECK].
 
-**Moves (⚑ director, then owner):**
+**Moves (⚑ director, then owner; the R3 knob and the off-centre FX row are fixed):**
 - the mixer re-flowed round the opening;
 - the switches into one switch line;
 - **CUTOFF ↔ EMPHASIS** swapped;
 - **MOD MIX** (lid → base, beside the pitch controls it feeds) and **DRIFT** (lid FX row → base) moved;
-- **R3 (x 239) is open:** candidates are VOLUME by the hands, or ECHO MIX as a "throw". **Director's call.**
+- **R3 removed** (it had no function).
+- **The effects row is re-centred on x 144 ± 99 → 44–242**, so the lid's top-left corner isn't left empty after DRIFT moved (director fix 1).
 
 **The battery moves to the base.**
 - With rows evenly spaced, the under-plate clear zone between V1 and V2 shrinks from 37.55 to ≈ 21. FOLD-105's four 25 × 40 × 9.5 cells (PiShop 952540) no longer fit under the lid plate.
@@ -573,6 +575,14 @@ Checker: `layout_check.py` (this folder). Open layout + labels: **0 violations**
 - **Bonus:** the base gets heavier and the lid lighter, so the standing tip threshold rises from ≈ 6.9 N to **≈ 8.4 N** [CALC, cells ≈ 90 g ESTIMATE].
 
 ### 16.3 The two routes for closing [CHECK]
+**In plain words for the owner:**
+- **≈ 55.2 mm closed (R-LOW) holds only if two things are true:**
+  - the played row's pots are snap-in types (no nut above the plate), or the plate is counterbored over the nuts;
+  - the bend stick is seated 3.6 mm lower.
+- Otherwise it's **56.7 mm** (knobs sitting on nuts) up to **58.8 mm** (stick as is).
+- **R-LOW also shrinks the played row's knobs from Ø 14.9 to Ø 10** (8 mm tall). CUTOFF stays the big hero.
+- **His alternative is R-TALL:** keep today's big knobs everywhere and close at **≈ 59.7 mm**.
+
 Every lid item landing within 3 mm (plan) of a base item must clear it by 2.0. Today the lid face sits at closed z 37.6 (closed 52.7).
 
 | Route | Base row parts | Binding pair | Lid face | **Closed** |
