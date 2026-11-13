@@ -1,5 +1,51 @@
 # Director notes: Little D (budget instrument), physical design
 
+## BRANCHES, round 2 scores (2026-11-13): READ THIS FIRST
+- **Judged:** CHAMBER and RAIN looks docs rev 2 and how-it-works rev 2, plus the re-rendered images.
+  - CHAMBER: standing, closed-with-book, fallback pegs.
+  - RAIN: arm's length, close, 3-way pitch compare.
+  - `branch_check.py` §7/§8 reports 0 legend/tick collisions and 0 fails (systems; I didn't re-run it).
+- **The work really changed in both.** Each fix shows in the images, not only in the text, so the higher scores are earned.
+- **CHAMBER 9 → to the owner.**
+  - **Standing lid now reads cream.** A render correction, disclosed; the real plate is cream.
+  - **Hinge slot closed by a flexible oxblood bookcloth spine.**
+    - Taut closed, it's the case's back panel. Open, it folds into the seam gap, so R4 holds. Standing, it shows as a soft drape.
+    - It reads as a book joint, and it gives the case its one warm cloth note.
+  - **Fallback peg colours are drawn**, so his answer on reversed keys can't sink it.
+  - **The push-outs became two real pipe mouths** (pitch 8.75), so the decoration now does a job.
+  - Kalam throughout; both artefacts gone; walnut plugs sourced (~$0.32 each, shank fit UNVERIFIED).
+  - **Remaining owner objections (not likely enough to hold it):**
+    - 52.7 closed (+2.6 over v1.1);
+    - reversed keys (fallback ready);
+    - spine wear.
+  - **Pre-build checks, not score blockers:** plug shank fit (one sample), spine flex life, the ribbon loop sharing the seam gap, engraved/relief fill on wood-fill PETG.
+- **RAIN 9, conditional on one fix I check by eye (no re-score) → then to the owner.**
+  - **Decay works:** deep 0.4 rings hug each control, then shallow 1.8-pitch rings, then still water. Close up it reads as ripples dying out.
+  - **Section lanes** (3.0 between sections vs 1.0 inside) now draw the map at arm's length.
+  - **Palette** is warm stone with one mustard leaf; no longer concrete.
+  - **0 legend collisions.** The 3-way pitch compare is honest about 0.9 vs the loved 0.45.
+  - **Condition R1:** remove the "rings continue to the panel edge" exception. Let the decay finish everywhere, so the edge is still water like every seam.
+    - At arm's length the far-field rings at the rear corners and the rear band read as straight hatching, the busiest part of the face.
+    - This came from my round-1 "run to every edge" note, which conflicts with my own decay fix. The decay rule wins: one rule, no exceptions.
+    - Re-render arm's length only.
+  - **Pre-build checks:** the ring coupon (0.4/0.2 depths, seams, lily pads, under a tree), a one-piece print on a 350 bed, peg survival in a bag (case work is still his deferred topic), sun legibility.
+- **What kept blocking a 9 across rounds (branches):**
+  1. renders contradicting the concept (grey lids, an un-mirrored edge, snag cords);
+  2. legend collisions;
+  3. ideas living in a small part of the object (BUTTERFLY, DIPTYCH; both cut).
+  - Now: (1) is fixed by checking each view type; (2) is fixed by the checker counting legends; (3) is fixed by cutting.
+  - **New lesson:** my own round notes can conflict (edge vs decay), and the designers follow both literally. When I add a fix, re-read my earlier instructions for clashes.
+- **Questions to carry to the owner with the two concepts:**
+  1. Reversed keys or the fallback (CHAMBER, both drawn)?
+  2. Pegs worth +2.6 mm closed on FOLD (zero width cost on ONE SHEET)?
+  3. How long is a park session (battery)?
+  4. Send the tapped tempo out as MIDI clock?
+  5. The furniture book's title and author?
+  6. TIME has a dead 15° at each end to keep its scale honest: OK?
+  7. (RAIN) Does Vector Space have a 0.25–0.3 mm nozzle? It allows 0.6 mm rings, nearer the 0.45 he loved; otherwise 0.9.
+- **Next:** check RAIN R1 by eye → both go to the owner (CHAMBER for FOLD, RAIN for ONE SHEET). If he turns down either, record his reasons here: they are the best signal of what a 9 means to him.
+
+
 ## BRANCHES, steer 1 + first concept scores (2026-11-13): READ THIS FIRST
 - **Owner since my jam turn (format):** no A3, nothing printed; images made to look great on the site, viewed responsively (not phone-first); **images only for what must be visual, all text in HTML.** So concepts are now markdown + separate images; sheets are retired for new work.
   - My ruling: labels that point at geometry (dimensions, scale bars) may stay inside a drawing. Captions, principles, notes and comparisons ("v1.1 · 0.45 mm") go in the HTML.

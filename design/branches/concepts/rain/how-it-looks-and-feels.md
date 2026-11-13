@@ -2,7 +2,7 @@
 
 Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every control is a drop on still water; its rings spread and fade, and the still water between them draws the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `how-it-works.md` (systems rev 2) and `../common-how-it-works.md` (rev 2).
 
-**Rev 2, 2026-11-13 (round 1 scored 7; the director's six fixes).** Supersedes rev 1. Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout. Only the images the fixes needed were re-rendered.
+**Rev 2.1, 2026-11-13 (round 2 scored 9 on condition R1, now done: the edge is still water too).** Supersedes rev 1. Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout. Only the images the fixes needed were re-rendered.
 
 ## What changed in rev 2 (the director's fixes)
 1. **The ripples decay.** Built the way a face-down print can make it (systems R2.2):
@@ -19,7 +19,7 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
    - deep rings #b9ab93, shallow rings #cbbfaa;
    - pegs two warm stone greys (#aaa192 / #6e675b);
    - the one mustard leaf (CUTOFF) kept, no second accent.
-   - The field runs over the top chamfer to the outline: toward the panel's edge, rings continue to the edge rather than fading.
+   - **R1 (director): no exception at the edge.** The fade finishes everywhere: the panel's outline is a 1.5 mm still band, like the 3.0 seams between sections (half of it each side). The rings die out before the chamfer, so the shell's edge reads as the pond's still margin.
    - **The vertical walls can't carry modelled rings:** printed face down, their surface is layer lines. They're the warm stone, and their own fine horizontal ripple is the layer lines.
 4. **Legends: 0 collisions** in `branch_check.py` §7, inherited v1.1 ones included. Branch-only fixes:
    - type-name rows raised (inner 3.8, outer 6.6);
@@ -32,12 +32,12 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
 
 <figure>
 <img src="img/rain-arms-length.jpg" alt="RAIN at arm's length: warm stone panel, rings fading round every control, still-water lanes between sections, one mustard knob">
-<figcaption>Arm's length (the director's test: calm or not?). The rings fade into still water; the wide lanes between sections draw the map. Warm stone, two stone-grey key rows, one mustard leaf.</figcaption>
+<figcaption>Arm's length (the director's test: calm or not?). The rings fade into still water everywhere, at the seams and at the edge; the wide lanes between sections draw the map. Warm stone, two stone-grey key rows, one mustard leaf.</figcaption>
 </figure>
 
 <figure>
 <img src="img/rain-close.jpg" alt="RAIN close-up: deep rings hugging each knob and toggle, fading outward, words on smooth lily pads">
-<figcaption>Close: deep rings hug every knob and toggle, then open out and go shallow before the still band. Words sit on smooth lily pads.</figcaption>
+<figcaption>Close (rendered before R1, which changed only the outer edge, out of this frame): deep rings hug every knob and toggle, then open out and go shallow before the still band. Words sit on smooth lily pads.</figcaption>
 </figure>
 
 <figure>
@@ -52,12 +52,12 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
 
 <figure>
 <img src="img/rain-pegs-12.70px-per-mm.png" alt="Top-view detail of the stepping-stone pegs with fading rings">
-<figcaption>The stepping stones: pegs on felt washers in two warm stone greys, rippled like everything else (12.70 px per mm).</figcaption>
+<figcaption>The stepping stones: pegs on felt washers in two warm stone greys, rippled like everything else (12.70 px per mm). Rendered before R1: here the rings still reach the front edge; they now fade into a 1.5 mm still margin.</figcaption>
 </figure>
 
 <figure>
 <img src="img/rain-top-12.70px-per-mm.png" alt="RAIN orthographic top view">
-<figcaption>Exact top view, 12.70 px per mm: a reference for measuring, not "real size" on a screen.</figcaption>
+<figcaption>Exact top view, 12.70 px per mm: a reference for measuring, not "real size" on a screen. Rendered before R1 (the edge is now a still margin; only the arm's-length view was re-rendered, as asked).</figcaption>
 </figure>
 
 ## Principles
@@ -79,7 +79,7 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
     - stick 9.3;
     - TAP 7.6;
     - pegs 7.3.
-- **Bands:** 1.0 inside a section, 3.0 between (power diagram weighted by ring start, each edge pulled back by half its band).
+- **Bands:** 1.0 inside a section, 3.0 between, 1.5 at the panel's outline (power diagram weighted by ring start, each edge pulled back by half its band; the outline counts as an edge, R1).
 - **Knobs:** cream KN1250; CUTOFF mustard 1083 (#c9a032).
 - **Pegs:** HUSH's 12.7 button plugs in two warm stone greys on 14 mm felt washers; whites y 14, sharps y 36.5; width stays 276.
 - **FREE / SYNC:** one more stone; "FREE" / "SYNC" beside it on pads.

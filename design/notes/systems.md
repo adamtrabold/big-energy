@@ -1,5 +1,13 @@
 # Systems designer notes — Little D
 
+# BRANCHES — coverage check (2026-11-13): CHAMBER 9, RAIN 9 (pending R1)
+- Wrote `design/branches/concepts/{chamber,rain}/coverage.md` against jobs rev 5 (J1–J28). Re-ran `branch_check.py`: 0 fails, 0 legend/tick collisions in both.
+- **CHAMBER: no unsupported jobs.** Weak spots: J22 park parts (sun, outdoor level, battery length, stays on soft grass), J11 (plug shank fit, relief fill, big printer), J4 paper card. The hinge slot (v1.1's J6 weakness) is closed by the spine.
+- **RAIN: no unsupported jobs, conditional on R1** (it only touches J20's look). Weak spots: bottom speaker (J5 / J15 / J22d), bag with exposed pegs (J6, owner-deferred), one-piece print (J11), sun/battery (J22c/e), J18 not taken (a free keyhole slot would fix it).
+- Next: re-run the checker after R1's re-render if any geometry moves; answer the builder after the owner picks.
+
+---
+
 # BRANCHES — round 2 geometry (2026-11-13): CHAMBER 8, RAIN 7, BUTTERFLY retired, DIPTYCH killed
 
 ## Where things stand

@@ -394,6 +394,11 @@ def _cell(items, i, x0, y0, x1, y1, extra=0.0):
         poly = _clip(poly, a, b, cst)
         if not poly:
             break
+    # director R1: the panel's edge is still water like every seam, so the fade finishes there too
+    e = BAND_OUT / 2 + extra
+    for (a, b, cst) in ((-1, 0, -(x0 + e)), (1, 0, x1 - e), (0, -1, -(y0 + e)), (0, 1, y1 - e)):
+        if poly:
+            poly = _clip(poly, a, b, cst)
     return poly
 
 def _internal_reach(items, i, cell, W, D):

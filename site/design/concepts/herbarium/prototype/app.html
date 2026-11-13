@@ -228,7 +228,7 @@ details.jump a{display:block;padding:3px 0}
 <div id="app"></div>
 <div class="proto" id="proto"><div class="in">
   <button class="ptog" id="ptog" aria-expanded="false"><b>Prototype</b> ▴</button><b class="plab">Prototype</b>
-  <button id="p-sim">Replay: CHAMBER rev A lands (simulated ON)</button>
+  <button id="p-sim">Replay: CHAMBER rev B lands (simulated ON)</button>
   <button id="p-out">View signed out</button>
   <button id="p-last">Pretend my last visit was before the branches round</button>
   <a class="u" href="#i-P-001">what's real, what's faked</a>
@@ -292,7 +292,7 @@ function lampLine(){
   let st = S.signedOut ? "snapshot" : S.lamp;
   let txt = S.signedOut ? `Snapshot · ${D.project.published}` :
             S.lamp === "on" ? "On · branches round · since just now" :
-            `Standby · last ${D.project.last} · 13 Nov 13:09`;
+            `Standby · last ${D.project.last} · 13 Nov`;
   return `<div class="lampline${st==="on"?" live":""}"><i class="lamp ${st}${S.dip?" dip":""}" id="lamp"></i><span class="cap">${esc(txt)}</span></div>`;
 }
 function header(sel){
@@ -441,7 +441,7 @@ function vProto(it){
     <li>Decisions are parsed from <code>design/owner.md</code>, verbatim. Scores come from <code>design/scores.md</code> and the branches director's notes.</li>
     <li>The sounds are the sims' golden and perturbed WAVs (converted to 16-bit). “Show changes” areas come from a real pixel diff of v1 → v1.1.</li></ul>
     <h2>Faked or simplified</h2><ul>
-    <li>No live connection: the lamp shows Standby. “Replay” at the bottom simulates a session switching it On while CHAMBER rev A lands.</li>
+    <li>No live connection: the lamp shows Standby. “Replay” at the bottom simulates a session switching it On while CHAMBER rev B lands.</li>
     <li>“Signed out” is a toggle here; the real site knows.</li>
     <li>Codes (D-031, T-004…) and rev letters are illustrative until the real register exists.</li>
     <li>On a concept page the images sit where the group's “how it looks and feels” doc places them; “how it works” follows, folded.</li>

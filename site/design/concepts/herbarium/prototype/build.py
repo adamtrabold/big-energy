@@ -75,7 +75,19 @@ def md(text, imap=None):
             return (f'</p><figure><a href="#i-{it["code"]}"><img src="{it["src"]}" width="{it["w"]}" height="{it["h"]}" alt="{attrs.get("alt","")}" loading="lazy"></a>'
                     f'<figcaption>{attrs.get("alt","")} · {it["sub"]}</figcaption></figure><p>')
         return f'<span class="ref">[image: {attrs.get("alt","")}]</span>'
-    h = re.sub(r"<img [^>]*>", pic, h).replace("<p></p>", "")
+    def rawfig(m):
+        blk = m.group(0)
+        src = re.search(r'<img [^>]*src="([^"]+)"', blk)
+        base = os.path.splitext(os.path.basename(src.group(1)))[0] if src else ""
+        if not (imap and base in imap): return '<span class="ref">[image not on disk]</span>'
+        it = items[imap[base]]
+        alt = (re.search(r'alt="([^"]*)"', blk) or [None, ""])[1]
+        cap = re.search(r"<figcaption>(.*?)</figcaption>", blk, flags=re.S)
+        cap = cap.group(1).strip() if cap else alt
+        return (f'<figure><a href="#i-{it["code"]}"><img data-done src="{it["src"]}" width="{it["w"]}" height="{it["h"]}" alt="{alt}" loading="lazy"></a>'
+                f'<figcaption>{cap} · {it["sub"]}</figcaption></figure>')
+    h = re.sub(r"<figure>.*?</figure>", rawfig, h, flags=re.S)
+    h = re.sub(r"<img (?![^>]*data-done)[^>]*>", pic, h).replace("<p></p>", "")
     def link(m):
         href, inner = m.group(1), m.group(2)
         base = os.path.basename(href.split("#")[0])
@@ -139,11 +151,12 @@ for code, path, title, stage, status, slip in DOCS:
 
 # ------------------------------------------------------------------ branch groups (new format)
 BRANCH = [  # newest first; status from the branches director (design/notes/director.md, 13 Nov 13:09)
-    ("chamber", "CHAMBER", "exploring", "closed it's an organ case; open it's a console", "branches round 1: 8 · round 2 next", ["chamber-standing", "chamber-open", "chamber-closed-printed", "chamber-closed-with-book", "chamber-flat-from-above", "chamber-standing-from-behind", "chamber-reverse-pegs", "chamber-top-12.41px-per-mm", "chamber-pegs-12.41px-per-mm", "chamber-time-dial-12.41px-per-mm"]),
-    ("rain", "RAIN", "exploring", "a pond after rain", "branches round 1: 7 · round 2 next", ["rain", "rain-close", "rain-stepping-stones", "rain-arms-length", "rain-top-12.70px-per-mm", "rain-pegs-12.70px-per-mm", "rain-time-and-pads-12.70px-per-mm", "rain-ring-pitch-compare-40px-per-mm"]),
+    ("chamber", "CHAMBER", "exploring", "closed it's an organ case; open it's a console", "branches round 1: 8", ["chamber-standing", "chamber-open", "chamber-closed-printed", "chamber-closed-with-book", "chamber-flat-from-above", "chamber-standing-from-behind", "chamber-reverse-pegs", "chamber-top-12.41px-per-mm", "chamber-pegs-12.41px-per-mm", "chamber-time-dial-12.41px-per-mm"]),
+    ("rain", "RAIN", "exploring", "a pond after rain", "branches round 1: 7", ["rain", "rain-close", "rain-stepping-stones", "rain-arms-length", "rain-top-12.70px-per-mm", "rain-pegs-12.70px-per-mm", "rain-time-and-pads-12.70px-per-mm", "rain-ring-pitch-compare-40px-per-mm"]),
     ("butterfly", "BUTTERFLY", "dropped", "from tool to tree: exact at the playing edge, free at the rear", "branches round 1: 6 · retired by the branches director", ["butterfly", "butterfly-joint", "butterfly-from-behind", "butterfly-on-the-wall", "butterfly-top-11.49px-per-mm", "butterfly-rear-section-24px-per-mm", "butterfly-time-dial-11.49px-per-mm"]),
     ("diptych", "DIPTYCH", "dropped", "a scientific field instrument", "branches round 1: killed by the branches director", ["diptych-standing", "diptych-open", "diptych-closed", "diptych-standing-side-exact", "diptych-top-14.48px-per-mm"]),
 ]
+ROUND2 = {"CHAMBER", "RAIN"}   # round 2 fixes landed 13 Nov; re-score pending
 SEED = {"CHAMBER": "FOLD", "RAIN": "ONESHEET", "BUTTERFLY": "ONESHEET", "DIPTYCH": "FOLD"}
 def nice(stem, G):
     s = stem.replace(G.lower() + "-", "").replace(G.lower(), "the look")
@@ -154,7 +167,16 @@ def nice(stem, G):
 for folder, G, status, line, scoreline, _stems in BRANCH:
     base = f"design/branches/concepts/{folder}/"
     look = rd(base + "how-it-looks-and-feels.md")
-    refs = re.findall(r"!\[([^\]]*)\]\((img/[^)]+)\)", look)
+    refs = []
+    for m in re.finditer(r'!\[([^\]]*)\]\((img/[^)\s]+)\)|<figure>(.*?)</figure>|<img [^>]*src="(img/[^"]+)"[^>]*>', look, flags=re.S):
+        if m.group(2): refs.append((m.group(1), m.group(2)))
+        elif m.group(3):
+            blk = m.group(3); src = re.search(r'src="(img/[^"]+)"', blk)
+            if not src: continue
+            cap = re.search(r"<figcaption>(.*?)</figcaption>", blk, flags=re.S); alt = re.search(r'alt="([^"]*)"', blk)
+            refs.append(((cap.group(1) if cap else alt.group(1) if alt else "").strip(), src.group(1)))
+        elif m.group(4):
+            alt = re.search(r'alt="([^"]*)"', m.group(0)); refs.append((alt.group(1) if alt else "", m.group(4)))
     codes, imap = [], {}
     for alt, rel in refs:
         stem = os.path.splitext(os.path.basename(rel))[0]
@@ -162,8 +184,9 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
         code = f"{G}-{re.sub(r'[^a-z0-9]+', '-', title)}".rstrip("-")
         if code in items or not os.path.exists(P(base + rel)): continue   # the branches team is mid-round: skip files not on disk
         m = jpg(base + rel, code, 1400 if sub == "render" else 1600, 78 if sub == "render" else 82)
+        rv = "B" if G in ROUND2 else "A"
         add(code, kind="image", sub=sub, title=alt, short=title + scale, stage="Concept", status=status, date="13 Nov",
-            revs=[{"rev": "A", "line": "branches round 1", **m}], group=G, **m)
+            revs=[{"rev": rv, "line": "round 2" if rv == "B" else "branches round 1", **m}], group=G, **m)
         codes.append(code); imap[stem] = code
     _, hw, lf = BR[folder]
     docs = []
@@ -171,12 +194,13 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
         if os.path.exists(P(base + fn)):
             t = rd(base + fn)
             add(dcode, kind="doc", sub="doc", title=f"{G} · {nm}", stage="Concept", status=status, date="13 Nov",
-                revs=[{"rev": "A", "line": "branches round 1"}], path=base + fn, html=md(t, imap), lead=first_para(t),
+                revs=[{"rev": "B", "line": "round 2"}] if G in ROUND2 else [{"rev": "A", "line": "branches round 1"}], path=base + fn, html=md(t, imap), lead=first_para(t),
                 jump=[h for h, _ in sections(t) if h][:30], group=G)
             docs.append(dcode)
-    groups.append({"code": G, "title": G, "rev": "A", "status": status, "stage": "Concept", "date": "13 Nov", "new": True,
+    grevs = ([{"rev": "B", "line": "round 2 fixes · re-score pending"}] if G in ROUND2 else []) + [{"rev": "A", "line": scoreline}]
+    groups.append({"code": G, "title": G, "rev": grevs[0]["rev"], "status": status, "stage": "Concept", "date": "13 Nov", "new": True,
                    "line": line, "lead": codes[0] if codes else None, "images": codes, "docs": docs, "seed": SEED[G],
-                   "revs": [{"rev": "A", "line": scoreline}], "round": "Branches round 1"})
+                   "revs": grevs, "round": "Branches round 1"})
 
 # ------------------------------------------------------------------ legacy groups (A3 sheets, images as they are)
 SHEETS = {"FOLD": ("fold", "ABCDE", "C", "FOLD-105 · a hinge · walnut + white"), "HUSH": ("hush", "ABCD", "B", "nothing shouts: grey wool, natural maple, cream knobs"),
@@ -318,6 +342,7 @@ versions = [
 # ------------------------------------------------------------------ events (history), newest first; times where the records have them
 events = [
     {"d": "13 Nov", "t": "13:20", "k": "made", "line": "Herbarium prototype published as the site's first version", "codes": ["P-001"]},
+    {"d": "13 Nov", "t": None, "k": "revised", "line": "CHAMBER and RAIN rev B: round 2 fixes (re-score pending)", "codes": ["CHAMBER", "RAIN"], "round": "Branches round 2"},
     {"d": "13 Nov", "t": "13:09", "k": "scored", "line": "Branches round 1: CHAMBER 8, RAIN 7, BUTTERFLY 6 (retired), DIPTYCH killed", "codes": ["CHAMBER", "RAIN", "BUTTERFLY", "DIPTYCH"], "round": "Branches round 1"},
     {"d": "13 Nov", "t": "12:29", "k": "made", "line": "Branch concepts made: CHAMBER, RAIN, BUTTERFLY, DIPTYCH (rev A each)", "codes": ["CHAMBER", "RAIN", "BUTTERFLY", "DIPTYCH"], "round": "Branches round 1"},
     {"d": "13 Nov", "t": "11:47", "k": "decided", "line": "Branched creative rounds started", "round": "Branches round 1"},
@@ -333,7 +358,7 @@ events = [
 ]
 
 data = {"project": {"name": "( name to come )", "line": "a portable Model D", "waiting": "ONE SHEET or FOLD", "then": "then the name",
-                    "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev A"},
+                    "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,
         "events": events, "clouds": cl}
