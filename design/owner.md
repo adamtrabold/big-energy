@@ -179,3 +179,5 @@ Recorded as: the peg keys as drawn (HUSH, CHAMBER, CATHEDRAL, RAIN) assume a plu
 
 2026-11-13 14:33 Owner (verbatim): "I don’t know how to machine — the keys need to be printed or purchasable"
 Recorded as: NO MACHINING by the owner. Keys (and key tops) must be 3D-printed or bought. This RELAXES the earlier "keys must be real bought parts, never printed" rule: printed key tops are now allowed. It also bears on any part the design has him cut or drill from stock (e.g. brass stays and hinge leaves cut from flat bar): those must become bought or printed parts too. Laser cutting at Vector Space was allowed earlier and was not mentioned here.
+2026-11-13 14:34 Owner (verbatim): "They can be printed externally too - I know you can get metal prints"
+Recorded as: external print services are allowed, including metal printing (e.g. printed brass or steel parts ordered from a service). Parts may be printed by him or ordered printed.
