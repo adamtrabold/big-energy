@@ -45,3 +45,8 @@ Recorded as: render an image only when it is needed to judge or show something; 
 ## 2026-11-13 13:20
 Owner (verbatim): "prototypes should go on that webpage i am having you build -- whats the status on that"
 Recorded as: prototypes (web or otherwise) are a kind of item the site hosts and shows. Status asked.
+
+## 2026-11-13 13:43 — on the published prototype
+Owner (verbatim): "is this site on github or justhere" (answered: hosted on claude.ai; source in the repo)
+Owner (verbatim): "i dont understand the nav here"
+Recorded as: the Herbarium prototype's navigation (all · stage · kind · version · decisions · history, plus "+ n more") does not make sense to him. Specifics asked.
