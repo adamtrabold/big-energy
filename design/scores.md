@@ -537,3 +537,7 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - DIPTYCH (FOLD, pocket sundial): killed before scoring (cords tip at 0.8 N; the fix is worse than v1.1 stays; re-skin without cords). Its TIME dial is free for any branch.
 - Killed in jam: PIERCED, GROUND.
 - Nothing at 9; nothing to the owner. Round 2: CHAMBER and RAIN.
+
+## Branches — concept round 2 (2026-11-13, design director)
+- CHAMBER: **9** (was 8). Work really changed: cream standing lid, oxblood cloth spine closes the hinge-side slot, normal key colours drawn, push-out holes as pipe mouths, Kalam, artefacts fixed. Coverage: passes every job. → owner.
+- RAIN: **9 conditional on R1**, then withheld at the R1 check: far rings still read as hatching at the rear corners and behind the back row. R1 clarified (stop rings ~6–8 mm out). Checked by eye, no re-score.

@@ -1,5 +1,18 @@
 # Director notes: Little D (budget instrument), physical design
 
+## BRANCHES, R1 check (2026-11-13): READ THIS FIRST
+- **RAIN's 9 is WITHHELD.** R1 was checked by eye on the re-rendered `rain/img/rain-arms-length.jpg` (look doc rev 2.1).
+- **What changed:** only a 1.5 mm still margin at the outline.
+- **What didn't change:** the rear corners and the band behind the back row still show the same straight far-field hatching, the thing R1 was for. My R1 wording ("the decay finishes everywhere") was read as "the edge too". The real problem is that the far-field rings never finish.
+- **Re-issued fix (R1'):**
+  - cap each element's ring field at a fixed reach beyond its ring start: ≈ 6–8 mm (≈ 3 deep + 2–3 shallow rings);
+  - still water beyond, whatever the cell size, so big rear and corner cells become still pools instead of hatching;
+  - re-render arm's length only;
+  - I check by eye. If the hatching is gone, the 9 stands with no re-score.
+- **CHAMBER 9 stands.** It can go to the owner now, or wait to travel with RAIN. Systems' coverage says both pass every job (coverage.md); I didn't audit it.
+- Questions to carry: unchanged (round-2 section below).
+
+
 ## BRANCHES, round 2 scores (2026-11-13): READ THIS FIRST
 - **Judged:** CHAMBER and RAIN looks docs rev 2 and how-it-works rev 2, plus the re-rendered images.
   - CHAMBER: standing, closed-with-book, fallback pegs.
