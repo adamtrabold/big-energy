@@ -114,7 +114,7 @@ Reading order (common rev 6 §1): **the VOICE (back two rows) left → right in 
 4. **Which knobs can be overridden** is machine-marked on the panel (a small engraved dot by each Pico-read knob: RANGE ×3, FREQ ×2, TUNE, GLIDE, CUTOFF, MOD) (H6).
 5. If adopted: the **"not in control" light** beside CUTOFF is lit while any marked knob is under MIDI's value.
 6. Move a marked knob → it takes over (jump-on-move); the light goes off when none are overridden.
-7. Knobs send CC out over USB; unmarked (knob-only) controls send nothing; MIDI never flips toggles (stated).
+7. ~~Knobs send CC out over USB~~ **(superseded 2026-11-13: a team inference, not an owner decision; see `docs/features/midi.md`. Today only channel pressure sends.)** Unmarked (knob-only) controls send nothing; MIDI never flips toggles (stated).
 
 ### F8 Patch (J9)
 1. Cables into PITCH CV out, GATE out, FILTER CV in, EXT in (with SOURCE = ext and NOISE/EXT up).

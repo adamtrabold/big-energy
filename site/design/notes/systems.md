@@ -1,6 +1,14 @@
 # Systems designer notes: project site
 
-## Where things stand (2026-11-13, after E coverage check)
+## Where things stand (2026-11-13 16:30, hosting moved to GitHub Pages)
+- Owner: "i dont understand the nav here" (13:43, Herbarium prototype); Pages, public, all reviews/logs/docs in repo (16:23–16:24); prototypes are items (13:20); docs/ = architecture + feature docs (16:21).
+- `jobs.md` rev 3: Pages rules; lamp → "Updated <time>" + "Working" only from a pushed `site/status.json` < 30 min old; kinds add prototype; doc sets Docs + Reviews first-class; J3/J8/J11/J12 rewritten; new J16 docs, J17 reviews+logs ("logs" inferred), J18 prototypes; F10, F11; update path = push; build proposal.
+- **Build proposal:** GitHub Actions workflow (no generated files in git, can't be forgotten); risk: session may not be allowed to push `.github/workflows/` (tags got 403) → owner adds the file once, or fallback `gh-pages` branch built in-session. Not: output on main, or repo-root Jekyll.
+- `common-how-it-works.md` rev 3: §1 static data (manifest, status.json, events.jsonl), §4 status line (Updated / Working / stale / couldn't check / build failed), §5 no queued state, §8 real static paths + 404.html, §9 localStorage, §12 Docs/Reviews/logs/prototypes.
+- Not yet updated: `herbarium/how-it-works.md` + coverage (still lamp/SNAPSHOT; no Docs/Reviews frames) — do after the nav answer. E needs Docs + Reviews frames (J16, J17).
+- Nav confusion candidates given to orchestrator: filter row mixes filters and places; filters need a hidden second choice; team jargon (stage, kind, rev, codes); links that don't look like links (v1.1, strip, "grew from"); no clear way back/where am I; no home for docs/reviews.
+
+## Earlier: after E coverage check
 - Director scored **E Herbarium 9**, C Cabinet 7 (not going). I wrote `concepts/herbarium/coverage.md`: **PASS, all J1–J15 supported** (J12 both ways). Not drawn but spec'd (checker must walk on build): history grains, dropped item greyed, record + wide-table doc on phone, group rev row with >1 rev, strip-tap filter. Aligned HIW frame 1/2/9 text to BUTTERFLY rev A. Open at handoff: desktop group page text beside each image vs one right-column block; phone render ~1/3 of landing (drop tiles on phone?).
 - Next: once approved, write How it works + Why in `handoff.md`, check the whole handoff against jobs.md.
 

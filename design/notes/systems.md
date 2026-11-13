@@ -1,5 +1,12 @@
 # Systems designer notes — Little D
 
+# DOCS (2026-11-13, owner 16:21 + DAW-first MIDI)
+- Created `docs/README.md` (index + template), `docs/architecture.md` (overview, signal paths, control/data flow, power, the recounted budget table: mux 57–59 of 64 with a 4th mux, pins 29–30 of 31, DACs with PITCH CV OUT and PARA+4 open; decisions log; open items O1–O10 carrying the review's must-fixes), `docs/features/midi.md` (full, DAW-first), and 13 stubs.
+- jobs.md F7 step 7 (knobs send CC) marked superseded: only channel pressure sends today.
+- Next: features one at a time (suggest echo-sync and panning-and-stereo next, from existing specs).
+
+---
+
 # Dry pan / delay pan / FOLLOW (2026-11-13; owner: audio pans, "Follow dry")
 - DRY PAN: control pot → Daisy → MCP4251-103 dual digipot as complementary dividers (constant-sum) on the analog dry; CC 10. Fallback: a passive dual-gang (no MIDI). DELAY PAN in DSP (outputs + reverb input; stereo-in reverbs). FOLLOW 2-way toggle (delay = dry, same side). VOICE PAN merged into DRY PAN (the send follows the dry).
 - TS on LINE OUT now *requires* the 74HC4053 sum (the dry is panned in analog). Speaker constant. MIDI send = open with the owner (not assumed).
