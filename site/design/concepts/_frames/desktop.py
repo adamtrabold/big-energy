@@ -153,7 +153,7 @@ def cabinet_desktop():
     h = c.img("FOLD-D", dx + RX, dy + 66, RW)
     c.t(dx + RX, dy + 66 + h + 30, "FOLD-D · Front", 17, 600)
     cab_scrub(c, dx, dy)
-    c.save(os.path.join(ROOT, "site/design/concepts/cabinet/frames-desktop"))
+    c.save(os.path.join(ROOT, "site/design/concepts/cabinet/frames-desktop-r1"))
 
 # ======================= D · The Set =======================
 def set_title(c, x, y, w, state, st):
@@ -419,7 +419,7 @@ def herb_desktop():
     # 7
     dx, dy = pos[6]; shell(c, dx, dy, "7 · Landing, signed-out snapshot")
     herb_landing(c, dx, dy, "snapshot", "Snapshot · 13 Nov 14:02", "14:02 · round 6", "+ 6 more on 13 Nov ›")
-    c.save(os.path.join(ROOT, "site/design/concepts/herbarium/frames-desktop"))
+    c.save(os.path.join(ROOT, "site/design/concepts/herbarium/frames-desktop-r1"))
 
 if __name__ == "__main__":
     import sys

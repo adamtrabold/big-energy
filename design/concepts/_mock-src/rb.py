@@ -154,7 +154,7 @@ def butterfly_leaves(z0=18.0, z1=24.0):
     s += f'{c(SAP)} translate([0,0,{z1-0.6+0.002:.3f}]) linear_extrude(0.6) offset(delta=-0.7) {band}\n'
     s += box(137.85, JOINT_Y + 0.2, z1 - 0.01, 138.15, 186, z1 + 0.012, "#3a2616")             # the end butt seam
     # the butterfly: one key across the butt, inlaid half the leaf (3 mm), 20 x 10
-    bt = "polygon([[-10,-5],[-10,5],[-2.6,2.2],[2.6,2.2],[10,5],[10,-5],[2.6,-2.2],[-2.6,-2.2]]);"
+    bt = "polygon([[-8,-4],[-8,4],[-2.1,1.8],[2.1,1.8],[8,4],[8,-4],[2.1,-1.8],[-2.1,-1.8]]);"
     s += f'{c(BOG)} translate([138,{JOINT_Y+7.5},{z1-0.02:.2f}]) linear_extrude(0.04) {bt}\n'
     # engraved jack legends + ticks, located from the straight joint (one fence)
     for k, lab in enumerate(JACKS):
@@ -386,7 +386,7 @@ class Branch(Fold):
         super().__init__(105)
 
     def style(self):
-        return r5.fold_style()
+        return copy_style(r5.fold_style(), font=HAND)     # Kalam isn't installable here: same stand-in everywhere
 
     def lid_ink(self):
         return FO_INK
@@ -486,11 +486,14 @@ class Branch(Fold):
             ink = self.lid_ink()
             s += rows_branch(R, {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}, LID_PF, st, "proof", 143,
                              copy_style(st, ticks=False), BEHIND_FOLD - self.dFX, self.time_kw())
-            s += draw_row(R["SWF"], L0 + AT_FOLD_D, LID_PF, st, "proof", sw_in=False)
+            s += self.sw_row(R, L0, st)
             s += sync_toggle(SYNC_FOLD_D[0], L0 + SYNC_FOLD_D[1], LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper)
             s += self.lid_names(gz)
             s += self.lid_extra(gz)
         return s
+
+    def sw_row(self, R, L0, st):
+        return draw_row(R["SWF"], L0 + AT_FOLD_D, LID_PF, st, "proof", sw_in=False)
 
     def name_mark(self, gz):
         L0 = self.LY0
@@ -616,18 +619,40 @@ class Chamber(Branch):
         return s
 
     def lid_extra(self, gz):
-        """RANGE in feet, serif (graphics only)."""
+        """RANGE in feet, serif (graphics only). Round the knob the side labels collide at 20 pitch (found in the 1:1
+        crop), so, like the TYPE fan: 16' 8' in a low row above, 32' 4' in a higher row, lo and 2' under the end ticks."""
         L0 = self.LY0
         s = ""
-        labs = ["lo", "32'", "16'", "8'", "4'", "2'"]
-        angs = [-125, -75, -25, 25, 75, 125]
+        y0 = L0 + self.dV1
         for name, x, r, k in F.v1:
             if not name.startswith("RANGE"):
                 continue
-            for a, lab in zip(angs, labs):
+            R = 7.25
+            for a, lab, row in ((-25, "16'", 3.4), (25, "8'", 3.4), (-75, "32'", 6.0), (75, "4'", 6.0)):
                 th = math.radians(a)
-                rr = 7.25 + 3.6
-                s += txt(x + rr * math.sin(th), L0 + self.dV1 + rr * math.cos(th), LID_PF + 0.01, lab, 1.25, FO_INK, font=SERIF)
+                xo = 11.85 * math.sin(th) if abs(a) < 40 else 8.3 * (1 if a > 0 else -1)
+                s += txt(x + xo, y0 + R + row, LID_PF + 0.01, lab, 1.2, FO_INK, font=SERIF)
+            for a, lab in ((-148, "lo"), (148, "2'")):
+                th = math.radians(a)
+                s += txt(x + 10.4 * math.sin(th), y0 + 10.4 * math.cos(th), LID_PF + 0.01, lab, 1.2, FO_INK, font=SERIF)
+        return s
+
+    def lid_names(self, gz):
+        L0 = self.LY0
+        s = fx_heads(0, L0 + self.dFX + FO_HEAD_D + 1.2, LID_PF + 0.01, FO_INK, HAND, 2.0, False)
+        for (tx, name, ha) in [(14, "oscillators", "left"), (143, "mixer", "center"), (272, "contours", "right")]:
+            s += txt(tx, L0 + self.dV1 + 17.5, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)
+        return s
+
+    def sw_row(self, R, L0, st):
+        """PARA's legend moves above its toggle and shortens ("mono / para / +4"): beside it, it sat on RANGE 3's 4'."""
+        s = ""
+        for name, lab, x, kind, midi, yo in R["SWF"]:
+            y = L0 + AT_FOLD_D
+            if name.startswith("PARA"):
+                s += toggle(x, y, LID_PF) + txt(x, y + 7.4, LID_PF, "mono / para / +4", st.lsize * 0.72, st.ink, font=st.font)
+            else:
+                s += item5(name, lab, x, y, "t", False, LID_PF, st, "proof", None, False, 143, False)
         return s
 
 # ------------------------------------------------------------------ DIPTYCH: a pocket instrument for reading the day

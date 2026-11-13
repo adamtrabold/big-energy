@@ -1,6 +1,22 @@
 # Visual designer notes: project site
 
-## Where things stand (2026-11-13, after concept turn 1)
+## Where things stand (2026-11-13, after concept building round 2) — read this first
+- **Director steer 1:** D killed. Five must-dos for visual: (1) C and E frames 1, 2, 8 with a new-format item as the newest; (2) a new frame 9, the concept group in the new format; (3) E doc tiles as real text; (4) C phone: collapse the not-yet rows, show the newest at full width; (5) both: show-changes clouds in frame 3, D's decisions register in frame 5. **All five done.**
+- Systems rev 2: `jobs.md` (J15, 9 frames, each at phone and desktop), `common-how-it-works.md` §3 (concept groups: images + HTML docs, group revs, legacy groups), cabinet/herbarium how-it-works rev 2 (asked me to test C's wide Concept row).
+- **Round 2 frames:** `concepts/{cabinet,herbarium}/frames.png` (phone 1–7 + 9 as a full scrolled page 390 × 1900; C adds the scrubbed-R2 phone) and `frames-desktop.png` (desktop 1–7 + 9; 8 = desktop 1). Source `concepts/_frames/round2.py` (`python3 round2.py [c|e]`). Round 1 scripts now write `*-r1`. D's round 1 frames stay as the record.
+- **New-format newest = BUTTERFLY rev A** (branches round), real renders in `design/branches/concepts/butterfly/img/` (made from `_mock-src/out/rb_bf_*.png` by `figs_rb.py`): `butterfly.jpg` lead, plus joint, on-the-wall, from-behind, top drawing, rear-section drawing. I used a real group instead of the steer's example "FOLD rev D" (which doesn't exist). Newest-of-each-kind image tile = CHAMBER's render; desktop below-fold = CHAMBER, DIPTYCH, RAIN.
+- Docs: `cabinet/how-it-looks-and-feels.md` rev 2, `herbarium/how-it-looks-and-feels.md` rev 2, `common-how-it-looks-and-feels.md` rev 2 (D removed; group page, doc tiles, decisions register, show changes added). `the-set/how-it-looks-and-feels.md` marked KILLED.
+
+### Round 2 decisions and findings
+- **C's wide Concept row works:** "18 concepts · 3 locked · 4 exploring" (+ "11 dropped ›" on desktop). My count: 3 locked (HUSH, ONE SHEET, FOLD), 4 exploring (BUTTERFLY, CHAMBER, DIPTYCH, RAIN), 11 dropped (FOLD113, TYPE CASE, HYMNAL, UNDER GLASS + 7 full-instrument). Kind labels sit just above the Spec row. It reads as a status panel more than a grid. That's honest; it fills as stages start.
+- **C's collapsed not-yet line holds;** the newest render fits at 358 × 224 inside 714 px along with the scrubber.
+- **C desktop:** the left panel's lower half is now empty grey (wide rows). Acceptable; possible use is the two newest decisions there (not drawn).
+- **E:** the render is about a third of the phone screen; dropping the three tiles on phone would add ~100 px. Offered for next round.
+- **Group page (frame 9, shared):** label → one line → doc as HTML in its order, images where placed, captions as text under them; desktop E puts text beside images, C stacks them in the 792 work side. Drawings with baked-in callouts (rear section) are fine as drawings; renders carry no text.
+- **Flag for systems/orchestrator:** the branch `how-it-works.md` files don't place their images yet (no `![…](img/…)`), so under the group rule nothing in `img/` is an item. Someone has to add the image lines.
+- Tests now T-004, stage Spec (early), per systems/director.
+
+## Earlier state (after concept turn 1)
 - Jam: turn 1 systems (jobs, A/B/C), turn 2 me (shared visual system, B dropped, C → Panel+Cabinet, new D The Set), turn 3 director (A and B retired; C, D and a new E Herbarium to concepts; 8-frame test; settled artifact, self-hosted Inter, no dark mode, tests as a kind, Breadboard stage, archive greyed), turn 4 systems (model, numbering rule, `jobs.md`, `common-how-it-works.md`, per-concept how-it-works).
 - **Concept turn 1 (me), done:** `concepts/common-how-it-looks-and-feels.md`, `concepts/{cabinet,the-set,herbarium}/how-it-looks-and-feels.md`, frames for each at phone and desktop, 1:1: `frames.png` (phone 1–7 + desktop landing; C also has an extra phone scrubbed to R2) and `frames-desktop.png` (desktop 1–7). Sources: `concepts/_frames/*.py` (`lib.py` kit; `python3 cabinet.py`, `the_set.py`, `herbarium.py`, `desktop.py`).
 - **My recommendation: E first, C second, kill D.**
@@ -31,7 +47,9 @@
 4. Remove read mode from common-how-it-works §5.
 5. C's scrubbed state URL (`#/h/round/2`)?
 
-## Director's objections (from turn 3; how I answered)
+## Director's objections
+- Steer 1 (concept building): every landing led with a legacy A3 sheet (FOLD-D), the thing the owner had just retired. Answered in round 2: BUTTERFLY's real render leads everywhere; legacy sheets only in frames 3 and 6, labelled.
+- Turn 3 (jam), how I answered in concept turn 1:
 - C "spreadsheet": 3 columns, Newest strip, newest open on the desktop's right; honest limit on the phone noted.
 - C empty rows: level line, "not yet" once per row.
 - C scrubber: real R2 case; kept.
@@ -43,5 +61,11 @@
 - Builder: claude.ai artifact chrome height on a phone.
 - Director: kill D? Move D's Go to field and clouds into E (or C)?
 
+## Open (round 2)
+- Owner: J12 dot vs "newest first" (the director's question, asked via the orchestrator).
+- Branch docs must place their images for the group model to show them.
+- Builder: claude.ai artifact chrome height on a phone.
+
 ## Next
-- Director scores C, D, E against the frames. Then a second concept round on the survivors (likely E with C's scrubbed history as a grain), then the handoff's "How it looks and feels" for the approved one.
+- Director: READY check and scores for C and E (9 frames each, both sizes). Then the handoff's "How it looks and feels" for the approved one.
+- (Old:) Director scores C, D, E against the frames. Then a second concept round on the survivors (likely E with C's scrubbed history as a grain), then the handoff's "How it looks and feels" for the approved one.

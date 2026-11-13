@@ -233,5 +233,5 @@ for t_ in ["Reshaped (owner: responsive, no size leads): the fixed 600 px column
            "Below the fold: everything else, newest first, three across (two on tablet, one on phone).",
            "All seven desktop frames: frames-desktop.png."]:
     y2 = c.wrap(nx, y2, t_, 520, 14, 400, INK2, lh=21) + 12
-c.save(os.path.join(ROOT, "site/design/concepts/herbarium/frames"))
+c.save(os.path.join(ROOT, "site/design/concepts/herbarium/frames-r1"))
 print("herbarium ok")

@@ -1,5 +1,7 @@
 # D · The Set — how it looks and feels
 
+**KILLED** (director, concept building steer 1, 2026-11-13). Kept as the record. Its parts went: show-changes clouds → the shared viewer; the decisions register → C and E; codes → `common-how-it-works.md`. The Go to field, issues and Δ marks were dropped.
+
 Product designer (visual focus), concept turn 1, 2026-11-13. Read with `how-it-works.md` (systems) and `../common-how-it-looks-and-feels.md`. Frames: `frames.png` (phone 1–7, desktop landing), `frames-desktop.png` (desktop 1–7). All at 1:1.
 
 ## I propose killing D. Here's why, then the full look anyway so the director can judge.

@@ -297,5 +297,5 @@ for n in ["Drag to R2 and the records say: the two concepts he's choosing betwee
           "Detents: rounds + locks only. Decisions show in the history list, not as ticks."]:
     yy = c.wrap(px + PW + 24, yy, n, 300, 13, 400, INK2, lh=19) + 10
 
-c.save(os.path.join(ROOT, "site/design/concepts/cabinet/frames"))
+c.save(os.path.join(ROOT, "site/design/concepts/cabinet/frames-r1"))
 print("cabinet ok")

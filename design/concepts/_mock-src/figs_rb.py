@@ -144,12 +144,12 @@ def rain_ring_compare(ppm=40):
     d = ImageDraw.Draw(im)
     S = ppm * 2
     for k, (pitch, groove, base, line, cap) in enumerate((
-            (0.45, 0.30, (236, 226, 202), (205, 189, 156), "v1.1 ONE SHEET · first-layer rings, 0.45 pitch"),
-            (0.90, 0.45, (217, 214, 202), (180, 176, 161), "RAIN · modelled grooves, 0.9 pitch"))):
+            (0.45, 0.30, (236, 226, 202), (205, 189, 156), "v1.1 · 0.45 mm"),
+            (0.90, 0.45, (217, 214, 202), (180, 176, 161), "RAIN · 0.9 mm"))):
         cx, cy = (16 + 32 * k) * S, 15 * S
         d.rectangle([(2 + 32 * k) * S, 2 * S, (30 + 32 * k) * S, 28 * S], fill=base)
         r = 7.75
-        while r < 14:
+        while r < 12.4:
             d.ellipse([cx - (r + groove / 2) * S, cy - (r + groove / 2) * S, cx + (r + groove / 2) * S, cy + (r + groove / 2) * S], outline=line, width=max(1, int(groove * S)))
             r += pitch
         d.ellipse([cx - 7.43 * S, cy - 7.43 * S, cx + 7.43 * S, cy + 7.43 * S], fill=(236, 230, 214), outline=(140, 130, 112), width=int(0.2 * S))
@@ -162,20 +162,64 @@ def rain_ring_compare(ppm=40):
     out.save(p, optimize=True)
     return p
 
-def butterfly_end():
-    """right-end elevation, exact: the 6 mm walnut top over the printed apron, its live edge overhanging 0-12."""
-    a0, a1, b0, b1 = -2, 196, -1, 40
-    im = Image.open(os.path.join(OUT, "rb_bf_end.png")).convert("RGB")
-    s = im.width / (a1 - a0)
-    P = lambda y, z: ((y - a0) * s, (b1 - z) * s)
+def butterfly_section(ppm=24):
+    """section at x 200 through the rear band: the walnut top in its rebate over the printed apron; jacks below."""
+    from PIL import ImageFilter
+    y0, y1, z0, z1 = 122.0, 222.0, -4.0, 32.0
+    S = ppm * 2
+    W, H = int((y1 - y0) * S), int((z1 - z0) * S)
+    im = Image.new("RGB", (W, H), PAPER)
     d = ImageDraw.Draw(im)
-    lw = max(2, int(s * 0.2))
-    d.line([P(165, 33), P(165, 25)], fill=ACC, width=lw)
-    dim_text(d, *P(165, 35.5), "joint y 165", s * 2.6, ACC)
-    d.line([P(180, 2), P(180, 16)], fill=INK, width=lw)
-    dim_text(d, *P(180, -0.5), "printed rear wall, jacks below the walnut", s * 2.4, INK, "lm" if False else "mm")
-    p = dest("butterfly", "butterfly-end-exact.png")
-    im.save(p, optimize=True)
+    P = lambda y, z: ((y - y0) * S, (z1 - z) * S)
+    BONE, WAL, DARK = (226, 218, 203), (110, 70, 40), (40, 34, 30)
+    _rect = d.rectangle
+    class _D:   # rectangles given as two corners in any order
+        pass
+    def rect(xy, fill):
+        x0_, y0_, x1_, y1_ = xy
+        _rect([min(x0_, x1_), min(y0_, y1_), max(x0_, x1_), max(y0_, y1_)], fill=fill)
+    d.rectangle = rect
+    # printed shell: top 2.4 thick to the joint, rebate floor at z 18 to the rear wall, rear wall 2.4
+    d.rectangle([*P(140, 24), *P(165, 21.6)], fill=BONE)
+    d.rectangle([*P(162.6, 21.6), *P(165, 15.6)], fill=BONE)
+    d.rectangle([*P(165, 18), *P(180, 15.6)], fill=BONE)
+    d.rectangle([*P(177.6, 15.6), *P(180, 0.5)], fill=BONE)
+    d.rectangle([*P(140, 3.5), *P(180, 0.5)], fill=(206, 196, 178))           # back panel
+    # walnut leaf: 6 thick, flush at z 24, live edge out to 190 here
+    d.polygon([P(165, 24), P(189, 24), P(190.2, 23.0), P(190.6, 20.5), P(189.6, 18), P(165, 18)], fill=WAL)
+    d.rectangle([*P(165, 24), *P(165.3, 18)], fill=(60, 38, 22))
+    # screw up through the rebate floor, slotted hole (front to back)
+    d.rectangle([*P(171.2, 21.5), *P(172.8, 15.6)], fill=(120, 120, 124))
+    d.rectangle([*P(170.0, 15.6), *P(174.0, 14.6)], fill=(120, 120, 124))
+    d.rectangle([*P(170.4, 18), *P(173.6, 18.25)], fill=PAPER)
+    # jack on the I/O board inside the rear wall, plug socket through the wall
+    d.rectangle([*P(168, 13.5), *P(177.4, 6.5)], fill=(30, 30, 30))
+    d.rectangle([*P(177.6, 11.3), *P(180, 8.7)], fill=(12, 12, 12))
+    d.rectangle([*P(160, 5.0), *P(177.4, 3.6)], fill=(47, 107, 79))         # I/O board
+    # a plug, under the overhang
+    d.rectangle([*P(180, 10.75), *P(186, 9.25)], fill=(170, 170, 172))
+    d.rectangle([*P(186, 12.5), *P(197, 7.5)], fill=(25, 25, 25))
+    im = im.resize((W // 2, H // 2), Image.LANCZOS)
+    s = ppm
+    P = lambda y, z: ((y - y0) * s, (z1 - z) * s)
+    d = ImageDraw.Draw(im)
+    lw = 2
+    def lab(y, z, t, ty, tz, anchor="lm"):
+        d.line([P(y, z), P(ty, tz)], fill=INK, width=lw)
+        d.text(P(ty + (0.6 if anchor == "lm" else -0.6), tz), t, font=F(s * 1.25), fill=INK, anchor=anchor)
+    lab(180, 22, "walnut 6 mm", 196, 29.0)
+    lab(165.1, 22, "joint y 165", 156, 29.0, "rm")
+    lab(172, 16.8, "screw, slotted hole", 156, 11.0, "rm")
+    lab(192, 10, "plug, under the live edge", 197, 3.0)
+    lab(150, 22.8, "printed face", 140, 29.0, "rm")
+    lab(178.8, 6, "rear wall + jacks (v1.1)", 156, 6.0, "rm")
+    d.line([P(180, 26), P(190.6, 26)], fill=ACC, width=lw)
+    d.text(P(185, 26.6), "0–12", font=F(s * 1.1, True), fill=ACC, anchor="mb")
+    out = Image.new("RGB", (im.width, im.height + int(s * 4)), PAPER)
+    out.paste(im, (0, 0))
+    scale_bar(ImageDraw.Draw(out), s * 2, im.height + s * 1.2, s, 10)
+    p = dest("butterfly", f"butterfly-rear-section-{ppm}px-per-mm.png")
+    out.save(p, optimize=True)
     return p
 
 if __name__ == "__main__":
@@ -210,4 +254,4 @@ if __name__ == "__main__":
     print(detail("rb_bf_top.png", (-2, -2, 278, 194), (92, 120, 170, 165), "butterfly", "butterfly-time-dial-{ppm}.png"))
     print(detail("rb_dp_top.png", (-2, -2, 288, OPEN + 2), (0, 110, 143, 218), "diptych", "diptych-lid-left-graduations-{ppm}.png"))
     # ---------------- annotated exact drawings
-    print(diptych_side()); print(chamber_closed_front()); print(rain_ring_compare()); print(butterfly_end())
+    print(diptych_side()); print(chamber_closed_front()); print(rain_ring_compare()); print(butterfly_section())

@@ -173,12 +173,21 @@ SRC = {
     "PLOT-pluck": "eng/sim/reference/out/golden/plots/voice_bass_pluck.png",
     "PLOT-vco": "eng/sim/reference/out/golden/plots/vco_tracking.png",
     "SKETCH": "design/concepts/jam-visual-sketches.png",
+    "BF-main": "design/branches/concepts/butterfly/img/butterfly.jpg",
+    "BF-behind": "design/branches/concepts/butterfly/img/butterfly-from-behind.jpg",
+    "BF-joint": "design/branches/concepts/butterfly/img/butterfly-joint.jpg",
+    "BF-wall": "design/branches/concepts/butterfly/img/butterfly-on-the-wall.jpg",
+    "BF-top": "design/branches/concepts/butterfly/img/butterfly-top-11.49px-per-mm.png",
+    "BF-rear": "design/branches/concepts/butterfly/img/butterfly-rear-section-24px-per-mm.png",
+    "CH-standing": "design/branches/concepts/chamber/img/chamber-standing.jpg",
+    "DP-standing": "design/branches/concepts/diptych/img/diptych-standing.jpg",
+    "RN-main": "design/branches/concepts/rain/img/rain.jpg",
 }
 _img, _uri = {}, {}
 def IMG(key):
     if key not in _img:
         im = Image.open(os.path.join(ROOT, SRC[key])).convert("RGB")
-        im.thumbnail((1400, 1000)); _img[key] = im
+        im.thumbnail((1800, 1400)); _img[key] = im
     return _img[key]
 def URI(key):
     if key not in _uri:

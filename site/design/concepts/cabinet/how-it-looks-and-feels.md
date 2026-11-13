@@ -1,52 +1,47 @@
 # C · Cabinet — how it looks and feels
 
-Product designer (visual focus), concept turn 1, 2026-11-13. Read with `how-it-works.md` (systems) and `../common-how-it-looks-and-feels.md`. Frames: `frames.png` (phone 1–7, desktop landing, an extra phone scrubbed to Round 2), `frames-desktop.png` (desktop 1–7). All at 1:1.
+Product designer (visual focus). **Rev 2**, concept building round 2, 2026-11-13. Read with `how-it-works.md` (systems, rev 2) and `../common-how-it-looks-and-feels.md`.
 
-**The idea in one line:** the landing is a reading, like a meter on a panel: where the build stands, how full each stage is, and the one newest thing to look at.
+**Frames (rev 2, all 1:1):** `frames.png` = phone frames 1–7 and 9 (frame 9 drawn as the full scrolled page, 390 × 1900, with the fold marked), plus the extra phone scrubbed to Round 2. `frames-desktop.png` = desktop frames 1–7 and 9 (frame 8 is desktop frame 1). Source: `../_frames/round2.py` (`python3 round2.py c`). Round 1 frames are superseded; their scripts now write `frames-r1*`.
 
-## Reshapes I take, and one I add
-- Systems: records out of the grid, Lock and Handoff as single wide drawers, the newest strip, the level line, the scrubber over records. **Agree with all of it.**
-- **Added: three columns, not four: images · docs · tests.** Owner, 13 Nov: "text should be html", images only "for things that need to be images". Sheets and diagrams are both images to him. Three columns are wider cells (90 px on a phone), the counts read faster, and the grid stops looking like a spreadsheet.
-- **Scrubber detents: rounds and locks only** (8: R1–R5, v1, v1.1, now). Decisions aren't ticks: there are 45 in about 30 hours, which would put ticks 7 px apart on a phone.
+**The idea in one line:** the landing is a reading of where the build stands, with the newest work shown beside it.
 
-## Director's must-proves
-1. **Not a spreadsheet; it says what to look at.** The Newest strip (96 × 68 image, code, rev and time, kind and stage) sits right under the cabinet on the phone. On desktop the newest item is **open on the right at 792 px wide**, so the biggest thing on the screen is the work (frame 8 / desktop 1). Three columns instead of five and "not yet" written once per empty row, not a dot per cell, take away most of the table feel. Verdict from drawing it: on desktop the cabinet reads as a panel beside the work. On a phone it's still mostly words and numbers above one small image. That's this concept's honest limit.
-2. **Empty rows read as level, not unfinished.** Rows above the 1.5 px ink level line (under Lock, the "now" stage) have filled `cell` drawers. Below it: outlines, ink 2, "not yet" once. Handoff reads "next · starts when you pick", which ties the road ahead to the one thing waiting on him. Spec's 19 docs sit below the level in ink 2, marked "early": work begun out of order, shown honestly rather than raising the level.
-3. **The scrubber earns its cost: a real case** (extra phone, `frames.png`, right of the desktop). Drag to **R2 · 12 Nov**. A solid ink bar replaces the lamp line: "As it stood · Round 2 · 12 Nov · back to now ›". The cabinet gives way to that round's record: TYPE CASE 9, HYMNAL 9, HUSH 8, **FOLD 7, ONE SHEET 7**, UNDER GLASS 6. Each row has its fate today ("set aside later", "locked in v1, v1.1", **"now: one of your two"**). The two concepts he's choosing between were both 7s in round 2, and both 9s were later set aside. That's worth one gesture, and it's built from `scores.md`, not lost images. Keep it.
-4. **Fewer columns:** done (above).
+## What changed in rev 2 (director steer 1, systems rev 2)
+1. **New-format work leads.** The newest work is **BUTTERFLY rev A**, a concept group from the branches round. Its lead image is `design/branches/concepts/butterfly/img/butterfly.jpg` (made from `_mock-src/out/rb_bf_main.png`): a real standalone render with no baked-in text. Its label and slip are HTML. FOLD-D (legacy sheet) no longer appears on any landing. Legacy sheets show only in frames 3 and 6, labelled `legacy sheet`.
+2. **The wide Concept row works** (systems asked me to test it). Concept is one wide drawer: "18 concepts · 3 locked · 4 exploring" with "11 dropped ›" (desktop) or "›" (phone). I counted the groups: 3 locked (HUSH, ONE SHEET, FOLD), 4 exploring (BUTTERFLY, CHAMBER, DIPTYCH, RAIN), 11 dropped (FOLD113, TYPE CASE, HYMNAL, UNDER GLASS, 7 full-instrument concepts). The kind columns (images · docs · tests) start at Spec, with their labels sitting just above that row, so they never float over a wide drawer. **Verdict:** it reads as a status panel more than a grid, and that's honest for today. The grid's columns grow as stages start. Keeping a group in one drawer instead of splitting it across images and docs is right: it's what the owner asked to see together.
+3. **Not-yet stages on one line** (director item 4): "BOM · Breadboard · Boards · Prints · Assembly — not yet ›" in ink 2. **It holds.** The level line under Lock and "Handoff · next · starts when you pick" keep the road ahead readable, and the line frees about 140 px.
+4. **The newest work at full width on a phone**, in the space that line freed: the lead render at its own shape (358 × 224), then "BUTTERFLY rev A · 14:02" and "concept group · Concept · exploring · open ›". Everything still fits the 714 px no-scroll area with the scrubber. The round 1 weak spot ("the work is a 96 px image under a table") is fixed.
+5. **Frame 3:** "Show changes" clouds on the compare (shared viewer, off by default, on in the frame).
+6. **Frame 5:** D's decisions register, reached by "decisions ›" above the scrubber, next to "history ›".
+7. **New frame 9:** the concept group page (shared with E; see common).
+8. Stage = the stage served: tests sit under **Spec (early)** (T-004 Bass pluck). Now = Lock.
 
 ## Phone (390, 714 px usable), top to bottom
-1. **Lamp line** (10.5 caps, +0.9 tracking): ring + "Standby · last FOLD-D rev C · 14:02", or green dot + "On · round 6 sheets · since 13:40", or a rule + "Snapshot · 13 Nov 14:02".
-2. **Name** 22/600 "( name to come )", then 13 ink 2 "a portable Model D · v1.1 current".
-3. Hairline, then **Waiting on you** label + "ONE SHEET or FOLD" 16/600, "then the name" right-aligned in ink 2.
-4. **Cabinet**: column labels (caps), 9 rows × 34 px. Stage names 13.5 in an 88 px gutter. The now row is 600 weight with a 3 px ink bar in the margin. Drawers are 90 × 28 with 1 px rule outlines; filled ones are `cell` with a 16/500 tabular count. An unseen dot sits 10 px in from a drawer's top-right corner. The level line runs under Lock, full width.
-5. **Newest** strip: label, image, code 15/600, "rev C · 14:02" 13, kind and stage 12.5 ink 2, `›`. "3 unseen" right-aligned on the label line when there are any.
-6. **Scrubber** in the thumb zone: 1.5 px line, short ticks for rounds, long for locks and now, a 14 × 28 ink handle, labels 12 under. "history ›" sits above its right end (frame 5's way in).
-
-Drawer open (phone): back line "‹ Concept · images". Images show as a 2-up grid grouped by concept (current first, dropped greyed after), docs and tests as rows (code 600, title, rev, status). Item and test screens: see the common viewer.
+Lamp line (10.5 caps) → name 22/600 → "a portable Model D · **v1.1 current**" (underlined link) → hairline → "WAITING ON YOU  ONE SHEET or FOLD" on one line (label + 15/600) → **cabinet**: Concept (wide, `cell`) · Lock (wide, `cell`, "now", 3 px ink bar, then the 1.5 px level line) · Handoff (wide, outline, ink 2) · column labels · Spec early (3 outline cells, 19 docs, 7 tests in ink 2) · the not-yet line → **Newest** label ("1 unseen" right-aligned when there is any) → the lead render at full width → code 15/700 + "rev A · 14:02" → kind line → "history ›  decisions ›" → scrubber (rounds short, locks and now long, ink handle).
 
 ## Desktop (1440 × 900)
-Master–detail: the cabinet panel (name, waiting on you, grid at 92 × 50 px cells) fills the left 520 px. A 1 px rule divides it from the **detail side (792 px)**, which shows the newest item by default, then whatever he opens: drawer, item, test, history, version. The scrubber runs the full width at the bottom with dated labels ("R2 12 Nov"). Nothing moves on the left when the right changes. **Tablet (600–1023):** the same, cabinet 44% / detail 56%; under 600 the phone layout.
+The cabinet panel stays on the left (520 px) and never moves. The right side (792 px) holds the work: on the landing, the newest group's lead render (792 × ~470), the group label + slip at the left under it, its one line on the right, then three more of its images small and "+ 3 more images · open group ›". Drawers, items, tests, decisions, versions and the group page all open on the right side. The scrubber runs the full width with dated detents. **Tablet:** cabinet 44% / work 56%.
 
-## Frames and taps (same on phone and desktop)
-| Frame | What it shows | Taps |
+What showed up when I drew it: under the cabinet, the left panel's lower half is empty grey on desktop now that the rows are wide. That's acceptable (it fills as stages start). If the director wants it used, the decisions list's newest two entries could sit there. I haven't drawn that.
+
+## Frames and taps
+| # | Phone and desktop | Taps |
 |---|---|---|
-| 1 Standby | as above | 0 |
-| 2 On, FOLD-D rev C lands | lamp mid-dip; unseen dots on Concept·images and Concept·docs; Newest swaps (180 ms cross-fade) to "rev C · just now"; "3 unseen". Counts don't change: a rev isn't a new item | 0 |
-| 3 FOLD-A v1.1 → v1 | phone wipe / desktop side by side; lineage row rev A (archive) · r1–r4 not kept · rev B · rev C | 3 |
-| 4 Bass pluck A/B | RAN · osc 110.0 Hz · env. peak 87 / 69 ms; perturbed playing at 0:00.6; plot below | 2 |
-| 5 "Switch to Daisy Seed" | history, Day grain, 13 Nov: the ask (ink 2) → the decision 17/600 "time not recorded" → "It caused": D-031 (before), D-032 (after), D-019 rev 13 | 2 + scroll |
-| 6 What's in v1.1 | lock rule, "v1.1" 26/600, the one line, sheets as letter targets (44 × 38) on phone / thumbnails on desktop, docs as a list, v1 below | 1 |
-| 7 Snapshot | no lamp, no dots, no unseen count; everything else works | 0 |
-| 8 Desktop | master–detail, newest open | 0 |
+| 1 | Standby; newest = BUTTERFLY rev A render | 0 |
+| 2 | On; lamp mid-dip; unseen dot on the Concept drawer and on Newest; "1 unseen"; Newest cross-fades in | 0 |
+| 3 | FOLD-A (legacy) v1.1 ↔ v1: wipe on phone, side by side on desktop, clouds on; label + slips; lineage rev A · not kept · rev B · rev C | 3 (4 via the cabinet) |
+| 4 | T-004 Bass pluck: RAN, sound block, A/B, plot | 2 |
+| 5 | Decisions register → "Switch to Daisy Seed": the question asked, his words 16/600, "time not recorded", before D-031 · after D-032, D-019 rev 13 | 2 + scroll |
+| 6 | v1.1: lock rule, cover line, groups FOLD@C / HUSH@B / ONE SHEET@B with legacy sheets, shared docs as rows | 1 |
+| 7 | Snapshot: no lamp, no dots | 0 |
+| 8 | = desktop 1 | 0 |
+| 9 | BUTTERFLY rev A group page | 1 |
+| extra | Scrubbed to R2 (`#/h/round/2`): the round's scores and each concept's fate today | drag |
 
 ## How it feels
-An instrument. Every control does one thing: the lamp says whether anyone's working, the cabinet says where things are, the scrubber says when. It's quiet between sessions, and STANDBY is a full reading, not a waiting room. The scrubber is the one tactile moment: it follows the finger with no easing and snaps to detents, with a haptic tick where the browser supports one (not iOS Safari).
+An instrument with the work beside it. The lamp says whether anyone's working, the cabinet says where things stand, the scrubber says when, and the newest work is now the largest thing on both sizes.
 
-## Weak spots (said plainly)
-- On a phone the work is one 96 px image. If the owner opens the site mainly to *look at what was made*, C makes him tap for it every time.
-- Liveness on the phone is small: one dot, a lamp dip and a strip swap.
-- The past state (scrubbed) is a different layout from the cabinet (a round's record, not the grid), because the records hold scores, not file counts. That's honest, but it's a second visual mode.
-
-## Open
-- Does the scrubbed state need its own URL (`#/h/round/2`)? I'd say yes; systems to confirm.
+## Weak spots
+- On desktop the left panel's lower half is empty.
+- On a phone the Spec row and the not-yet line are the only "grid" left; C's instrument character depends on the build moving on.
+- The scrubbed past is a second visual mode (a round's record, not the cabinet).
