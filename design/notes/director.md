@@ -1,5 +1,48 @@
 # Director notes: Little D (budget instrument), physical design
 
+## CATHEDRAL, steer 1 (2026-11-13; round counts reset): READ THIS FIRST
+- **Owner (owner.md 14:12–14:41):**
+  - lock in on CATHEDRAL (= CHAMBER, renamed as the point of view) with FOLD v1.1 as the middle ground;
+  - no spine; hidden hinges if possible; the speaker gap; FX together with echo/reverb; feet = screws; woodier fine line texture (he designs the pipe lines himself);
+  - consistent plate rounding; fewer colours (the brown pegs out of place); a rounded grille;
+  - no machining (keys printed or bought; external and metal printing OK); brass + black or all-brass keys; bought wood caps on a shaft also OK.
+  - RAIN parked.
+- **Judged:** how-it-works (§0–13) and how-it-looks-and-feels rev 2, plus images (6 key colours, A/B standing, grille options).
+- **Not scored.** Two reasons:
+  1. the standing and closed renders still show the retired spine and rev 1 keys;
+  2. four owner decisions change the form (layout, hinge, back slot, keys).
+  - I score after his answers and one re-render pass. Nothing to him at a score yet; the decisions go now.
+- **Team rulings (no owner needed):**
+  1. All 8 plate corners R 7.7: yes.
+  2. Screw-through rubber feet at the 4 corner screws; the axis screws stay flush brass (no impost clash): yes.
+  3. Grille: tapered horizontal slots (his first option). Vesica 66 × 16 in A (the Ø 34 circle hits labels); Ø 27 circle in B. Concentric arcs dropped.
+  4. **Fine-line woody texture is built, not deferred.** Visual's "leave the print plain" doesn't deliver his ask on the only build he'll make (real walnut = machining, now out).
+     - Model sparse cathedral-grain arches as shallow relief/grooves on the printed walnut-tone body (sides, base underside, lid-back field), at about the old line count.
+     - The lid back's figure waits for his façade, so leave the field ready.
+  5. One visible metal: brass. Stays cast brass from the keys' service (fallback: matte-black PETG 5 × 8, never grey 316L in view). Hidden hinge leaves 316L. Axis screws brass. Feet black.
+  6. Palette: walnut, cream, black, red CUTOFF, brass. No other colour; TAP is made of the key material.
+  7. Option A heading → "effects".
+  8. Keys use one carrier interface (Ø 9.6 cup / 9.53 × 3.2 tenon) so the head choice stays swappable after the build.
+     - Buy one Cherry Tree Toys pack and measure head height H before fixing the lid height.
+     - Test one hollow cast-brass head (2.5–3 g) on one Choc V2 before ordering.
+  9. **Brass can't be judged from a flat-yellow render** (it reads as mustard plastic). Before he chooses keys, show brass with a metal shader/specular, or a real photo of polished brass domes as reference.
+- **Owner decisions (worded in my reply):**
+  - Q1 layout A vs B (moves controls; the gap itself can't go because it's where the base knobs sleep closed; B leaves the band plain; B costs reach for the FX amounts and TAP);
+  - Q2 hidden pins vs cables-through-hinge (mutually exclusive);
+  - Q3 the back slot with no spine;
+  - Q4 keys (B reversed: black naturals + brass sharps, rec; A normal-reading: brass naturals + black sharps; C all brass).
+  - **Recommendations:** B layout, hidden pins, slot left open but finished dark inside (S1), keys B.
+- **Likely objections when scored:**
+  - B: the FX amounts and TAP are far from the hands while playing; the band stays blank.
+  - A: the split remains.
+  - Brass looking toy-like in renders.
+  - +2.6–4 mm closed with pegs, depending on H.
+  - The open back slot.
+- **Next:**
+  - Designers, in parallel with the owner's answers: radii, feet, grille, woody relief, the brass material look, measure H, one brass head test.
+  - After his answers: re-render closed, standing (chosen layout) and keys, with no spine; then I score.
+
+
 ## BRANCHES, R1' check (2026-11-13): READ THIS FIRST
 - **RAIN 9 CONFIRMED.** Checked by eye on the re-rendered `rain/img/rain-arms-length.jpg` (look doc rev 2.2).
   - Rings stop ≈ 7 mm out (deep to 3.5, shallow to 7), and the far-field hatching is gone.
