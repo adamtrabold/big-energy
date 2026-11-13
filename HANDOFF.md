@@ -6,7 +6,7 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 
 ## Where the files are
 - **Working home: the GitHub repo `adamtrabold/big-energy`** (plain files, `main`). Attach it and clone it, then work and commit there. Pushing tags from these sessions was refused (403); the `locked/` folders are the record.
-- The artifact "Model D — locked v1 + handoff" (https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD) is for viewing and sharing the sheets. It's not the working copy.
+- The artifact "Model D — locked v1.1 + handoff" (https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD) is for viewing and sharing the sheets. It's not the working copy.
 - Left out of the repo (bulky, can be regenerated): ngspice raw `.dat`, `_mock-src/out/`, `_mock-src-*-backup/`, and `ref/ca-72` (clone instructions are in `ref/README.md`).
 - **Locked official versions:** `design/little-d/locked/v1.1-2026-11-13/` (current; supersedes `v1-2026-11-13/`). Don't edit these. New work goes in `design/little-d/concepts/` or a new branch folder.
 - **Owner record (authoritative, verbatim):** `design/little-d/owner.md`. Newest entries are at the bottom. Append every owner decision verbatim, and mirror the file to `model-d/owner-requirements-budget.md`.
@@ -16,7 +16,7 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 - **Full instrument (paused):** `design/instrument/`. Leave it alone unless Adam brings it up.
 
 ## Status
-- **Locked v1:** HUSH (290 × 187 mm), ONE SHEET (276 × 180 mm) and FOLD-105 (halves 286 × 108 mm, closes at about 50 mm, stands at 120°). All three scored 9 in round 5 and held 9 at the v1.1 check. Key edge A ("keys at the edge").
+- **Locked:** HUSH (290 × 187 mm), ONE SHEET (276 × 180 mm) and FOLD-105 (halves 286 × 108 mm, closes at about 50 mm, stands at 120°). All three scored 9 in round 5 and held 9 at the v1.1 check. Key edge A ("keys at the edge").
 - **Adam's lean:** he wants to move forward with **ONE SHEET or FOLD** and hasn't decided which. He noted the internals are probably the same. Mostly true: the electronics and spec are shared (see `common-how-it-works.md`), but the board split differs. FOLD carries a hinge cable between its halves; ONE SHEET is a single deck.
 - **v1.1 (current lock):** FOLD stands at **120°** (Adam: "less steep so the front face catches more light"): stays are 44.4 mm, it tips at about 6.8 N, and it can't fall backward. **Bend** is a one-axis, spring-to-centre mini thumbstick, now drawn unmistakably as a joystick in every view: a round opening, a stem and a cap, plus a callout on each B sheet. Mod is a separate knob that stays put. FOLD sheet D now shows MIDI IN. The director checked these changes and all three concepts still score 9.
 - **Adam withdrew a request** ("forget i said that"): creative rounds on personality for branched versions. Don't start that unless he brings it up again.
