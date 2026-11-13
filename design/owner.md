@@ -209,3 +209,5 @@ Recorded as: an independent expert review (audio engineer / synth designer) of t
 Recorded as: wants the DELAY panned into the REVERB separately from the dry signal's pan, and wants that pan to be syncable (most likely a tempo-synced auto-pan; being confirmed). Supersedes the single FX PAN design as stated.
 2026-11-13 15:53 Owner (verbatim): "No the pan would be audio signal. Basically I’d like to pan just the delay separately from the full dry but also I’d like to be able to have the pan signals sync"
 Recorded as: NOT a tempo auto-pan. Wants two audio pans: (1) the full DRY signal panned on the outputs, (2) the DELAY panned separately; plus the option to have the two pans "sync" — most likely linked so they move together (exact meaning being confirmed).
+2026-11-13 15:54 Owner (verbatim): "Follow dry"
+Recorded as: DECISION — when the pans are synced/linked, the delay pan FOLLOWS the dry pan (same direction). MIDI send question (knobs receive-only? keys send notes?) still open.
