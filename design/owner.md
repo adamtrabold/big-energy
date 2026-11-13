@@ -188,3 +188,6 @@ Recorded as:
 - KEYS: explore brass + black keys, or all brass. Could be 3D printed (metal printing is allowed); brass reminds him of a cathedral.
 2026-11-13 14:41 Owner (verbatim): "Premade wooden caps on a shaft that also is premade or part of the key is fine too just thinking"
 Recorded as: also acceptable — bought wooden caps on a shaft that is either bought or part of the (printed) key. Thinking out loud; an option, not a decision.
+
+2026-11-13 15:07 (layout decision) Owner (verbatim): "I don’t like the speaker on the key side but I also don’t like the eye shape"
+Recorded as: neither speaker solution. Rejects B's round speaker at the base (key side) AND A's lens ("eye") window in the band. He did not reject B's effects grouping; his earlier ask that FX sit with echo/reverb stands. A third speaker answer is needed.
