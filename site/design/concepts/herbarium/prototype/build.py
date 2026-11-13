@@ -523,7 +523,7 @@ except Exception:
 docs_index = {"intro": md("\n".join(l for l in readme.split("## Index")[0].splitlines()[1:]), src="docs/README.md"),
               "template": md("## Template" + readme.split("## Template", 1)[1], src="docs/README.md") if "## Template" in readme else ""}
 
-data = {"project": {"name": "( name to come )", "line": "a portable Model D", "waiting": "ONE SHEET or FOLD", "then": "then the name",
+data = {"project": {"name": "Big Energy", "line": "a portable Model D", "waiting": "CATHEDRAL approval", "then": "then the handoff",
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,

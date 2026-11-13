@@ -28,7 +28,7 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 
 ## Next decisions that are Adam's
 1. Build ONE SHEET or FOLD.
-2. The name (still open; `naming.md` top picks are HOLLER, WREN and WALLOP).
+2. ~~The name~~ — decided 2026-11-13: **Big Energy**.
 
 ## Then
 - `handoff.md` for the chosen concept. The director checks it against `owner.md`.

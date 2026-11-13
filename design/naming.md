@@ -157,3 +157,7 @@ instruments) before printing.
 - Holler search: no instrument found (generic eurorack listings returned)
 - Wallop search: no instrument found (unrelated pedal listings returned)
 - Bantam module: https://modulargrid.net/e/modules/view/12519
+
+## Decided 2026-11-13 17:37
+Owner (verbatim): "name to come -- we're calling it big energy"
+The instrument is called **Big Energy**.

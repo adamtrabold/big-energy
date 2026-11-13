@@ -237,3 +237,6 @@ Recorded as: every page must state its point (what it is and why you are here) u
 
 2026-11-13 16:52 Owner (verbatim): "ok i dont think you're really thinking here — off center in that middle section is bad looking. aso consider the sound of the speaker and the shape... which will work best and give me the best sound out of the chosen speaker. in fact none of my feedback on why it's a problem have been addressed. there's a massive horizontal gap -- the speaker doesnt feel resolved. this may mean moving components. i'd rather have more brass than black re: keys too."
 Recorded as: REJECTS the off-centre circle (bad looking in the middle section). Neither option resolves his real complaint: the massive horizontal gap in the lid band; the speaker does not feel resolved. Moving components is allowed to fix it. Choose the grille shape and size for the BEST SOUND from the chosen speaker, not to fit leftover space. KEYS: more brass than black.
+
+2026-11-13 17:37 Owner (verbatim): "name to come -- we're calling it big energy"
+Recorded as: DECISION — the instrument is named **Big Energy**. Replace "( name to come )" on the site and in new work; locked versions stay as they were.
