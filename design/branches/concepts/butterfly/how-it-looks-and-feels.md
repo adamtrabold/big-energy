@@ -5,16 +5,22 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: furniture. **Point of view: from tool 
 **Rev 1, 2026-11-13, concept turn 1 (visual).** Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`).
 
 ## Images
-| | |
-|---|---|
-| The look (3/4): bone print + oiled walnut | `img/butterfly.jpg` |
-| From behind: the walnut overhang, jacks sheltered under it | `img/butterfly-from-behind.jpg` |
-| The joint and the butterfly, close | `img/butterfly-joint.jpg` |
-| On the wall, tree side up (straight elevation) | `img/butterfly-on-the-wall.jpg` |
-| Section through the rear band (how it's made) | `img/butterfly-rear-section-24px-per-mm.png` |
-| True-scale top | `img/butterfly-top-11.49px-per-mm.png` |
-| Joint, native resolution | `img/butterfly-joint-top-11.49px-per-mm.png` |
-| TIME + FREE / SYNC, native resolution | `img/butterfly-time-dial-11.49px-per-mm.png` |
+
+![BUTTERFLY: the look, bone print beside oiled walnut](img/butterfly.jpg)
+
+![From behind: the walnut top overhangs the printed rear wall, the jacks sheltered under its live edge](img/butterfly-from-behind.jpg)
+
+![The joint and the butterfly key, close](img/butterfly-joint.jpg)
+
+![On the wall, tree side up: a straight elevation](img/butterfly-on-the-wall.jpg)
+
+![Section through the rear band: 6 mm walnut in a rebate over the printed apron, screws in slotted holes, v1.1 jacks below (24 px per mm)](img/butterfly-rear-section-24px-per-mm.png)
+
+![The joint from above, native resolution (11.49 px per mm)](img/butterfly-joint-top-11.49px-per-mm.png)
+
+![TIME's two scales and FREE / SYNC, ONE SHEET style (11.49 px per mm)](img/butterfly-time-dial-11.49px-per-mm.png)
+
+![BUTTERFLY true-scale top view: 11.49 px per mm](img/butterfly-top-11.49px-per-mm.png)
 
 ## Systems' changes: I accept them
 - **The walnut is a 6 mm top laid in a rebate over the printed apron, with the v1.1 jacks below it** (systems §3).

@@ -1,5 +1,44 @@
 # Director notes: project site
 
+## Status (2026-11-13, end of concept building, round 2 scored)
+READY: C, E. Scored in one pass. E 9 (goes to owner). C 7 (does not).
+
+### Round 2 scores
+Based on: herbarium/frames.png + frames-desktop.png (frames 1-9), cabinet/frames.png + frames-desktop.png (1-9 + R2 extra), look docs rev 2, common-how-it-works §3 (concept groups), jobs.md rev 2 (J15).
+
+**E Herbarium: 9.**
+- Desktop 1/8: BUTTERFLY's render at ~940 px is the biggest thing on the screen; label + slip + one line bottom right as HTML; waiting on you, level strip and filter row in a quiet top band. That's what he asked for: see the work, images great, text as text.
+- Phone 1: render full width, label, slip, "+6 more", newest of each kind (doc tile now real text). Fits 714.
+- Frame 9 group page: images at their own shapes, the how-it-works as real HTML in its own order. That's the clearest answer to 12:41 anywhere in the work.
+- Frames 3-6: show-changes clouds, A/B, decisions register, v1.1 cover + groups: all hold.
+- Likely owner objections, weighed: "is it just a gallery?" No: label, slips, lineage and the decisions view make it a record. "Where does the build stand?" The level strip + waiting on you on every landing. "Too much on the landing?" Newest of each kind is the one extra; small, defensible. Nothing I think he'd likely raise. Hard on my own favourite: what kept it from 9 in round 1 (legacy A3 leading, 7 px doc pictures, 600 px column) is all gone.
+- Watch at build: legacy groups are a lot of similar brown; the archive below the fold has to stay tidy; J12 still unanswered (fallback "+6 more on 13 Nov" exists).
+
+**C Cabinet: 7.**
+- Phone 1 is now good (the not-yet line freed space; render full width).
+- But the cabinet has collapsed into a status list: Concept, Lock and Handoff are single wide drawers; only Spec has cells. Visual says it plainly: "reads as a status panel more than a grid". The idea C was chosen for, a grid reading of stage x kind, isn't there today.
+- Desktop: the 520 px panel stays on every screen and its lower half is empty grey. It squeezes the work to 792 px on the group page (frame 9), compare (3) and v1.1 (6). Owner asked for images that are "great on the site"; E gives the same work ~940+ px.
+- The scrubber is a permanent band on every screen for one good case (R2: FOLD and ONE SHEET were both 7s).
+- Likely owner objection: "why is that panel always there?" Likely, so under 9.
+- Why it can't reach 9 as C: the fixes (panel folds away when work opens; scrubber moves into history) leave a landing panel over E's layout. That's E. Its best part, the round "as it stood" view (scores then + fate now), could become E's Round grain in history at build; it's an add-on, not a reason to show C.
+
+### What blocked a 9 across rounds, and why
+- Round 1 (steer 1): every landing led with a legacy A3 sheet, the format the owner retired between jam and concepts. Cause: the brief moved under the work (owner 12:13-12:41) and the frames were drawn from the archive, the only content there was. Fixed by the concept-group model + real renders.
+- C's recurring block: structure-first assumes there is structure to show. At this stage nearly everything is in Concept, so the grid has nothing to read. It may become a good view later (Spec through Assembly), not a good landing now.
+
+### Did the work change?
+Yes, substantially: new lead content, new frame 9, new data model (concept groups), D's parts merged, E's doc tiles, C's phone layout. Scores are first scores, so nothing was raised.
+
+### Next
+- Orchestrator shows E to the owner (frames 1/8 desktop, 1 phone, 9 group page are the ones to lead with).
+- Ask J12 again with the owner review, or settle on the fallback.
+- If approved: check handoff.md against owner.md (no A3, text as HTML, responsive, one view for everyone, primarily him).
+- Optional at build: C's R2 "as it stood" view as E's Round grain.
+
+---
+
+## Earlier: steer 1
+
 ## Status (2026-11-13, concept building, steer 1)
 Designers did concept turn 1 (C Cabinet, D The Set, E Herbarium: docs + phone/desktop frames). I steered: D killed, C and E sent round again. No scores yet. Steer text at the bottom of jam.md.
 

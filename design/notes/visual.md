@@ -1,5 +1,88 @@
 # Visual designer notes (instrument; working name retired)
 
+## BRANCHES, concept turn 1 (2026-11-13): looks for CHAMBER, RAIN, BUTTERFLY, DIPTYCH + site images
+Context: the director closed the jam (turn 3). PIERCED and GROUND are killed (GROUND's donors went to every branch: status hood, high-contrast type). Four concepts, each with a "must prove" list. Systems wrote jobs rev 5, `common-how-it-works.md` and four `how-it-works.md` files, checked with `branch_check.py`.
+
+**Owner rules on images, new this turn (all in `design/owner.md`):**
+- no A3 sheets;
+- not phone-first either: images that look great on the project site at any width;
+- **images only for what must be visual** (renders, drawings, diagrams, sections);
+- words stay in markdown;
+- labels in an image only where the drawing needs them (dimensions, part callouts);
+- **an image shows on the site only if a concept doc links it**, in reading order, with a caption.
+
+**Done this turn:**
+- **Models:** `design/concepts/_mock-src/rb.py`.
+  - Classes `Branch(Fold)`, `Chamber`, `Diptych`; functions `butterfly()`, `rain()` with `rain_field()` (a power-diagram ring field computed from the real layout).
+  - Shared helpers: `sync_toggle`, `time_dial`, `status_hood`, `rows_branch` (TIME / DECAY legends behind, OSC 2 / NOISE top ticks dropped), `relight` (lifts the standing lid's grey), `hanging`.
+  - Run `python3 rb.py` (≈ 3 min, all jobs) or `python3 rb.py "rb_ch*"`.
+- **Web figures:** `figs_rb.py` → `design/branches/concepts/<c>/img/`.
+  - Renders as JPEG q90 at ≤ 2400 px.
+  - Exact views as PNG, **with the measured px/mm in the file name** (top4's real scale is 11.49–14.48 px/mm, not the requested 12/14; it's measured from the crop).
+  - Detail crops are native-resolution with a 10 mm bar.
+  - Dimensioned drawings: DIPTYCH standing side, CHAMBER closed front, RAIN ring-pitch compare, BUTTERFLY rear section.
+- **Docs:** `design/branches/concepts/{chamber,rain,butterfly,diptych}/how-it-looks-and-feels.md`. Every image is linked in order with a caption; the must-prove tables give my honest read.
+- **Environment:** installed OpenSCAD + Xvfb (apt), EB Garamond, a handwriting stand-in (DkgHandwriting Bold).
+  - **Kalam is not installable here** (GitHub fonts URL blocked by the proxy policy). CHAMBER's hand-lettering is a stand-in that runs wider than Kalam. **Re-render with Kalam before the owner sees final art.**
+
+**Accepted from systems, and why:**
+- FREE / SYNC thrown left / right ("the lever points at the word"): there's no room for words fore / aft.
+- TIME / DECAY legends behind their knobs.
+- TIME printed over ±135° with a firmware clamp: the scale tells the truth.
+- MIXER heading to y 136 (flat).
+- BUTTERFLY as a 6 mm walnut top over the printed apron, v1.1 jacks below, joint at y 165, end match: honest furniture.
+- DIPTYCH's fold-out feet: physics (0.8 N without them).
+
+**Pushed back or found:**
+1. **"free" / "sync" sit on OSC 2's and NOISE / EXT's top ticks.** Systems' label check doesn't count tick rings. Fixed set-wide: the top tick is dropped; DIPTYCH's graduations stop ±35° from the top. The checker should model tick rings.
+2. **v1.1's 32 × 6 name lozenge no longer fits** between the moved TIME and DECAY legends. It's now 16 × 5 on the axis at lid d 94.6 (CHAMBER lozenge; DIPTYCH notched red cartouche).
+3. **CHAMBER:**
+   - RANGE feet set round the knob collided at 20 pitch, so I went to fan rows (16'/8' low, 32'/4' high, lo/2' under the end ticks). Section names moved up to dV1 + 17.5.
+   - PARA's legend moved above its toggle, shortened to "mono / para / +4" (wording: systems / owner).
+   - v1.1's push-out holes (x 110 / 176, d 54) land on pipes; proposed d 90.
+   - **v1.1's lid model is open on the hinge side**: closed, seen from behind, you see the knobs. Systems: spine wall or real slot?
+   - Closed, seen from the front, the façade's pipes point toward you: the price of facing the listener when standing.
+4. **RAIN:**
+   - full "ECHO TIME" / "REVERB DECAY" behind ran into the type-name fans, so the back row is ECHO TYPE / REVERB TYPE in front and TIME / DECAY behind;
+   - the field doesn't cover the side chamfer yet (the director asked for every edge).
+5. **BUTTERFLY:** the butterfly shrank to 16 × 8 (clears PHONES by ≈ 1.6). The live edge drawn with an axis crown so POWER sits behind the butterfly; with a real offcut, pick it or engrave POWER at y 178.
+6. **DIPTYCH:**
+   - **the cord as modelled is 38.4°, not 37.4°**; the drawing says so; systems to reconcile;
+   - the stand (2 cords + 2 feet + 4 eyes, order-dependent) is the concept's weakest part. Alternative for the director: v1.1 stays, no cords. My view: the faces (dial, graduations, red / black, roman caps) carry DIPTYCH.
+   - **It separates from CHAMBER:** dark outside + hand vs engraved red/black inside, pegs vs flat keys.
+
+**Visual decisions per concept (detail in each doc):**
+- **CHAMBER:**
+  - façade = 25 pipes as 0.6 mm brass-tone line work (relief + wax fill on the first print);
+  - walnut naturals / maple sharps on 14 mm felt washers;
+  - closed 52.7;
+  - serif only on RANGE and the name.
+- **RAIN:**
+  - stone #d9d6ca, grooves 0.45 at 0.9 pitch, 0.64 smooth seams, lily pads (0.85 margin, R 1.2);
+  - mustard 1083 CUTOFF, the only colour; two stone-grey pegs;
+  - no grooves, no headings;
+  - optional power-on "drop".
+- **BUTTERFLY:**
+  - matte bone #e2dacb + oiled walnut, sapwood band kept;
+  - jack legends engraved, located from the joint;
+  - hung tree side up.
+- **DIPTYCH:**
+  - EB Garamond caps, red italic section names, thin red rules;
+  - 31 red hairlines + 11 black majors on every knob;
+  - TIME: black ms with "20" / "2s", red divisions with 1/16, 1/8, 1/4, 1/2;
+  - red braid cords, brass feet;
+  - two swaps.
+
+**Director's objections:** none on concepts yet (first build turn).
+
+**Open:**
+- Kalam re-render.
+- Coupons: RAIN grooves + pad under a tree; DIPTYCH TIME dial at 1:1; CHAMBER relief fill on wood-fill; BUTTERFLY bone print beside a real oiled offcut.
+- RAIN on the chamfer.
+- Systems' items above.
+
+**Next:** the director scores the four. Then fix what's objected to. After an approval, write "How it looks and feels" in `handoff.md`.
+
 ## BRANCHES, jam turn 2 (2026-11-13): personality + point of view; FREE/SYNC placed
 Context: the owner wants branched creative rounds from v1.1 (he leans ONE SHEET or FOLD) with more personality and a whole point of view. His sources: furniture, instruments, tools, art, emotion; "take this to the park and be inspired". Pegs are loved, "organ like" is an example only. **Owner decided echo sync option B (11:58): a FREE / SYNC toggle near TIME, in every branch.** Shared rule (systems, accepted): the board is the constant, only the outside changes.
 - **My turn:** `design/branches/jam.md` "Turn 2". Draw script `design/branches/draw-visual.py` (my own decks; every earlier-used Oblique card removed); results recorded in the jam §1.

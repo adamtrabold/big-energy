@@ -7,13 +7,29 @@ Seed: FOLD-105 (v1.1). Kind: an instrument case. **Point of view: closed, it's a
 ## The three states, in the order you use them
 Closed, you carry the façade. Flat, it's just a console and the façade is face down. Standing, the façade faces the listener and the console faces you.
 
-| State | Image |
-|---|---|
-| Closed, beside a 400-page hardback (real walnut, seen from behind so the pipes stand upright) | `img/chamber-closed-with-book.jpg` |
-| Closed, first print (walnut-tone wood-fill) | `img/chamber-closed-printed.jpg` |
-| Open flat: the console | `img/chamber-open.jpg`, `img/chamber-flat-from-above.jpg` |
-| Standing at 120°: the console side | `img/chamber-standing.jpg` |
-| Standing at 120°: what the friend on the bench sees | `img/chamber-standing-from-behind.jpg` |
+![CHAMBER closed, beside a 400-page hardback: real walnut, seen from behind so the pipes stand upright](img/chamber-closed-with-book.jpg)
+
+![CHAMBER open flat: the console, reverse peg keys](img/chamber-open.jpg)
+
+![CHAMBER standing at 120°: the console side, lid on v1.1's brass stays](img/chamber-standing.jpg)
+
+![CHAMBER standing at 120°, seen from behind: what the friend on the bench sees](img/chamber-standing-from-behind.jpg)
+
+![CHAMBER closed, exact front elevation: 52.7 mm with the pegs inside (v1.1 FOLD: 50.1)](img/chamber-closed-front-exact.png)
+
+![The reverse pegs: walnut naturals cut from the body's walnut, maple sharps, each on a felt washer](img/chamber-reverse-pegs.jpg)
+
+![Pegs at native resolution, 12.41 px per mm, with a 10 mm bar](img/chamber-pegs-12.41px-per-mm.png)
+
+![RANGE in feet, serif: 16' and 8' low, 32' and 4' higher, lo and 2' under the end ticks (12.41 px per mm)](img/chamber-range-feet-12.41px-per-mm.png)
+
+![TIME's two scales and the FREE / SYNC toggle in front, in the FOLD hand (12.41 px per mm)](img/chamber-time-dial-12.41px-per-mm.png)
+
+![CHAMBER closed, first print in walnut-tone wood-fill](img/chamber-closed-printed.jpg)
+
+![CHAMBER open, from above](img/chamber-flat-from-above.jpg)
+
+![CHAMBER open, true-scale top view: 12.41 px per mm, so it shows at real size at that ratio](img/chamber-top-12.41px-per-mm.png)
 
 ## Principles (each follows from the idea)
 1. **The façade is the instrument's own scale.**

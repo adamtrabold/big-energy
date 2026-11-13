@@ -5,16 +5,22 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
 **Rev 1, 2026-11-13, concept turn 1 (visual).** Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout, not drawn by hand.
 
 ## Images
-| | |
-|---|---|
-| The look (3/4) | `img/rain.jpg` |
-| Arm's length (director's test a) | `img/rain-arms-length.jpg` |
-| Close (test a) | `img/rain-close.jpg` |
-| Stepping stones | `img/rain-stepping-stones.jpg` |
-| True-scale top view | `img/rain-top-12.70px-per-mm.png` (12.70 px per mm: at that ratio it shows at real size) |
-| TIME, FREE / SYNC and lily pads, native resolution | `img/rain-time-and-pads-12.70px-per-mm.png` |
-| Pegs, native resolution | `img/rain-pegs-12.70px-per-mm.png` |
-| Ring pitch vs v1.1, at 40 px per mm (test c) | `img/rain-ring-pitch-compare-40px-per-mm.png` |
+
+![RAIN: the look, 3/4](img/rain.jpg)
+
+![RAIN at arm's length (the director's test a: is it calm?)](img/rain-arms-length.jpg)
+
+![RAIN close: rings round every knob, smooth seams where they meet, words on lily pads](img/rain-close.jpg)
+
+![The stepping stones: pegs in two stone greys on felt washers, rippled like everything else](img/rain-stepping-stones.jpg)
+
+![Ring pitch at 40 px per mm: v1.1's 0.45 first-layer rings beside RAIN's 0.9 modelled grooves (test c)](img/rain-ring-pitch-compare-40px-per-mm.png)
+
+![TIME, FREE / SYNC and the lily pads, at native resolution: 12.70 px per mm, 10 mm bar](img/rain-time-and-pads-12.70px-per-mm.png)
+
+![Pegs at native resolution (12.70 px per mm)](img/rain-pegs-12.70px-per-mm.png)
+
+![RAIN true-scale top view: 12.70 px per mm, so it shows at real size at that ratio](img/rain-top-12.70px-per-mm.png)
 
 ## Principles
 1. **Everything that breaks the surface ripples.**

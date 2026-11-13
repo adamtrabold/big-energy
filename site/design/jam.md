@@ -424,3 +424,12 @@ Its anchor is the drawing set, the format the owner retired twice. Once new work
 After this round I expect to end building with READY: C, E and score them.
 
 NEXT: product designer (systems focus) — update `jobs.md` and the common doc for the owner's directions and define the new-work model (concept group) that visual's new frames depend on; then visual redraws.
+
+---
+
+## Concept building — director, end of building, 2026-11-13
+
+READY: C Cabinet, E Herbarium. Both redrawn to steer 1 (9 frames each, phone + desktop; BUTTERFLY rev A, a real render plus HTML text, leads; doc tiles are real text; "show changes" and D's decisions register are in). Building ends here. Scores go to the orchestrator for `scores.md`; detail in `notes/director.md`.
+
+- **E Herbarium: 9.** Goes to the owner.
+- **C Cabinet: 7.** Doesn't go. Its fixes would turn it into E (reasons in the notes).
