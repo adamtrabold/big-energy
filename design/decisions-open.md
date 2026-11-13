@@ -57,3 +57,12 @@ Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team reco
 - Should a DAW be able to automate the echo and reverb amounts? Those two knobs would get the MIDI dot and the "held by MIDI" light.
 - Channel 1, or respond on any channel (omni)?
 - Should the knobs ever send MIDI (off by default), or receive only?
+
+---
+
+## 6. Aftertouch switch label
+**Unblocks:** the panel legend.
+The pressure switch adds modulation amount: vibrato when OSC MOD is on, a filter wobble when FILTER MOD is on, or a brighter filter on FILT.
+
+- **MOD / OFF / FILT:** says what it really does. *Team recommends.*
+- **VIB / OFF / FILT:** your earlier word, but it's only vibrato when OSC MOD is on.
