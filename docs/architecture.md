@@ -80,10 +80,22 @@ One table for every shared resource.
 | Resource | Capacity | Today | + decided | + proposed | Action |
 |---|---|---|---|---|---|
 | **Mux inputs** (keys, knobs, switches) | 48 (3 muxes) | 48 | **53** | **57–59** | **Add a 4th mux → 64** (open item 1) |
-| **Daisy pins** | 31 | 27 | 28 (MIDI out) | 29–30 | fits; 1 spare left |
-| **Pitch / CV DACs** | 8 + 2 | 10 of 10 | 10 | 10 + digipot (dry pan) | **PITCH CV OUT has no channel** (open item 7) |
+| **Daisy pins** | 31 | 27 | 28 (MIDI out) | 30–31 | tight: digipot CS, 5th DAC CS, 4053 (0 with two jacks) |
+| **Pitch / CV DACs** | 8 + 2 | 10 of 10 | 10 | 10 + 2 (a 5th MCP4822 takes velocity and mod) + digipot | frees the Seed's 2 DACs: OUT1 → PARA+4 oscillator, OUT2 → **PITCH CV OUT** (open items 3, 7) |
 | **Codec** (stereo in / out) | 2 in, 2 out | all used | all used | — | **PARA+4 has no audio path** (open item 3) |
 | **Power** | 22 Wh (11 Wh in FOLD-105) | ≈ 2.0–3.6 W, ≈ 4–8 h on 22 Wh, ≈ 2–4 h on 11 Wh | + stereo stage (few mA) | + speaker when loud (≈ 0.5–0.8 W, unverified) | count the speaker (open item 8) |
+
+<details><summary>The 4th mux (open item 1), with the recounted allocation</summary>
+
+- **Part:** a 4th **CD74HC4067** sharing S0–S3 (PC9–PC12), its output on **D20 (PC1, ADC3)**. The battery divider moves from D20 onto mux D. ≈ $0.60.
+- **Conversion:** ADC3 converts **mux C then mux D** in each mux step (scan mode, 2 ranks). The keys' ADC1 + ADC2 are untouched. Eng: confirm both conversions fit the ≈ 3 µs step (UNVERIFIED; at 1 Msps each takes ≈ 1 µs).
+- **Allocation (64):**
+  - **mux A** = keys 1–16;
+  - **mux B** = keys 17–25, 4 controls, Hall-rail monitor, AT toggle, AT FSR;
+  - **mux C** = 16 controls;
+  - **mux D** = PARA, FREE / SYNC, DRY PAN, DELAY PAN, FOLLOW, OSC 3 CTL, PHONES sense, TS sense (or spare with two jacks), battery, charger STAT, VBUS, WAVE 1 (for PARA+4's matched waveform), **4 spare**.
+- **D16** stays the last direct analog spare.
+</details>
 
 <details><summary>What fills the mux (53 → 59)</summary>
 
@@ -107,13 +119,13 @@ One table for every shared resource.
 ---
 
 ## Open items
-1. **The mux is full.** Add a 4th mux on pin D20 and move the battery reading onto it. *Eng: confirm the timing.*
-2. **Mono on a TS cable can't work as drawn.** Two jacks (L / MONO + R) need the owner's OK (one more hole). The alternative is a low-bias rework that eng benches.
-3. **PARA+4 has no audio path.** Route the 4th oscillator through the filter (effects go mono in that mode), or make the switch 2-way. *Owner.*
-4. **Peg keys rub the floating key strip.** Widen the holes to ≥ 1 mm clearance, or slim the necks.
-5. **TAP gestures collide** (one could open the bootloader). Give each its own gesture. *Owner.*
+1. **The mux is full.** Add a 4th mux on pin D20 and move the battery reading onto it (allocation above). *Eng: confirm the timing.*
+2. **Mono on a TS cable can't work as drawn.** Owner's choice: two jacks (L / MONO + R) or a reworked single jack. See [panning and stereo outputs](features/panning-and-stereo-outputs.md).
+3. **PARA+4 has no audio path.** Proposed: a 5th DAC chip takes velocity and mod, freeing the Daisy's own DACs to play the 4th oscillator into the filter. No behaviour change. See [paraphonic](features/paraphonic.md).
+4. **Peg keys rub the floating key strip.** Widen the holes to ≥ 1 mm clearance (see [keys and velocity](features/keys-and-velocity.md)).
+5. **TAP gestures collide** (one could open the bootloader). Split proposed in [firmware update and gestures](features/firmware-update-and-gestures.md).
 6. **Stale pin table and a ghost part** in older eng files. Mark them superseded.
-7. **Missing pieces:** PITCH CV OUT needs a DAC channel; OSC 3 CTL must be read; keyboard tracking can't reach "full".
+7. **Missing pieces:** PITCH CV OUT: proposed on the freed Seed DAC OUT2 (12-bit, ≈ 1.5 cents/step over 5 V, buffered to 1 V/oct). OSC 3 CTL must be read (mux D). Keyboard tracking can't reach "full".
 8. **Power:** the speaker isn't in the power budget; loudness outdoors is untested.
 9. **Pops** in phones and line at power-on. Add an output mute.
 10. **MIDI questions for the owner** (CC 10, effect-amount CCs, channel, extras): see [MIDI](features/midi.md).
