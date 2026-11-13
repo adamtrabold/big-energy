@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#E6E4DF;--cell:#EFEDE9;--paper:#F8F7F4;--rule:#C4C1BA;--ink2:#5F5D58;--ink:#1B1B19;--on:#23863F;--m:16px}
+:root{--bg:#EBEBEB;--cell:#F3F3F3;--paper:#FBFBFB;--rule:#C6C6C6;--ink2:#5A5A5A;--ink:#1A1A1A;--on:#23863F;--m:16px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding-bottom:24px}
@@ -217,7 +217,7 @@ details.jump a{display:block;padding:3px 0}
 .vtitle{font-size:28px;font-weight:700}
 .wide{max-width:900px}
 /* prototype bar */
-.proto{position:fixed;left:0;right:0;bottom:0;background:#D6D4CF;border-top:1px solid var(--rule);font-size:12px;z-index:20}
+.proto{position:fixed;left:0;right:0;bottom:0;background:#D6D6D6;border-top:1px solid var(--rule);font-size:12px;z-index:20}
 .proto .in{display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap;padding:7px var(--m);max-width:1440px;margin:0 auto}
 .proto b{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;color:var(--ink2)}
 .proto button{text-decoration:underline;text-underline-offset:3px;font-size:12px}
@@ -481,7 +481,7 @@ function vImage(it, revSel, back){
 function vTest(it, back){
   const vars = it.audio ? Object.keys(it.audio) : [];
   const sound = vars.length ? `<div class="sound" id="sound" data-code="${it.code}">
-      <button class="play" id="play" aria-label="play"><svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1B1B19"/></svg></button>
+      <button class="play" id="play" aria-label="play"><svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1A1A1A"/></svg></button>
       <div class="wave" id="wave">${waveBars(it.audio[vars[0]].peaks, 160)}<span class="ph" id="ph"></span></div>
       <div class="meta"><span id="tm">0:00.0 / ${it.audio[vars[0]].dur.toFixed(2)}</span><span id="pk">${it.audio[vars[0]].peak_v != null ? "peak " + it.audio[vars[0]].peak_v.toFixed(2) + " V" : ""}</span></div>
       ${vars.length > 1 ? `<div class="ab">${vars.map((v,i)=>`<button data-var="${v}" class="${i===0?"on":""}">${v}</button>`).join("")}<span class="ink2" style="margin-left:auto;font-size:12.5px">switching keeps the playhead</span></div>` : ""}
@@ -559,7 +559,7 @@ function scallop(x, y, w, h){
   const b = 9; let d = `M${x.toFixed(1)},${y.toFixed(1)}`;
   const edge = (x0,y0,x1,y1) => { const L = Math.hypot(x1-x0,y1-y0), n = Math.max(1, Math.round(L/(b*2))); for (let i=1;i<=n;i++){ d += ` A${b},${b} 0 0 1 ${(x0+(x1-x0)*i/n).toFixed(1)},${(y0+(y1-y0)*i/n).toFixed(1)}`; } };
   edge(x,y,x+w,y); edge(x+w,y,x+w,y+h); edge(x+w,y+h,x,y+h); edge(x,y+h,x,y);
-  return `<path d="${d}" fill="none" stroke="#1B1B19" stroke-width="2.4" vector-effect="non-scaling-stroke"/>`;
+  return `<path d="${d}" fill="none" stroke="#1A1A1A" stroke-width="2.4" vector-effect="non-scaling-stroke"/>`;
 }
 function vDecisions(){
   let h = "", day = "";
@@ -701,7 +701,7 @@ function wireSound(){
   if (!audio) audio = new Audio();
   audio.src = it.audio[cur].src; audio.preload = "auto";
   const play = document.getElementById("play"), ph = document.getElementById("ph"), tm = document.getElementById("tm"), wave = document.getElementById("wave"), pk = document.getElementById("pk");
-  const icon = p => play.innerHTML = p ? '<svg viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" fill="#1B1B19"/><rect x="9.5" y="2" width="3.5" height="12" fill="#1B1B19"/></svg>' : '<svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1B1B19"/></svg>';
+  const icon = p => play.innerHTML = p ? '<svg viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" fill="#1A1A1A"/><rect x="9.5" y="2" width="3.5" height="12" fill="#1A1A1A"/></svg>' : '<svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1A1A1A"/></svg>';
   const tick = () => { const d = audio.duration || it.audio[cur].dur; ph.style.left = (100 * audio.currentTime / d).toFixed(2) + "%"; tm.textContent = fmt(audio.currentTime) + " / " + d.toFixed(2); if (!audio.paused) raf = requestAnimationFrame(tick); };
   play.onclick = () => { if (audio.paused) audio.play().then(() => { icon(true); tick(); }, () => {}); else { audio.pause(); icon(false); } };
   audio.onended = () => { icon(false); tick(); };
