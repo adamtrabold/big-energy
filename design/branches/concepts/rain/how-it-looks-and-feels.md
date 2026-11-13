@@ -2,7 +2,7 @@
 
 Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every control is a drop on still water; its rings spread and fade, and the still water between them draws the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `how-it-works.md` (systems rev 2) and `../common-how-it-works.md` (rev 2).
 
-**Rev 2.1, 2026-11-13 (round 2 scored 9 on condition R1, now done: the edge is still water too).** Supersedes rev 1. Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout. Only the images the fixes needed were re-rendered.
+**Rev 2.2, 2026-11-13 (R1 as the director meant it: every element's rings die out about 7 mm from its skirt, leaving still pools beyond; the outline is also still).** Supersedes rev 1. Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout. Only the images the fixes needed were re-rendered.
 
 ## What changed in rev 2 (the director's fixes)
 1. **The ripples decay.** Built the way a face-down print can make it (systems R2.2):
@@ -32,7 +32,7 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
 
 <figure>
 <img src="img/rain-arms-length.jpg" alt="RAIN at arm's length: warm stone panel, rings fading round every control, still-water lanes between sections, one mustard knob">
-<figcaption>Arm's length (the director's test: calm or not?). The rings fade into still water everywhere, at the seams and at the edge; the wide lanes between sections draw the map. Warm stone, two stone-grey key rows, one mustard leaf.</figcaption>
+<figcaption>Arm's length (the director's test: calm or not?). Every element's rings die out about 7 mm from its skirt, leaving still pools in the big rear and corner areas; the wide lanes between sections draw the map. Warm stone, two stone-grey key rows, one mustard leaf.</figcaption>
 </figure>
 
 <figure>
@@ -72,6 +72,7 @@ Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every co
 - **Rings:** modelled grooves 0.45 wide.
   - **Deep zone:** 0.4 deep at 0.9 pitch. It reaches at least 2.4 mm past the ring start, or half the way to the band, whichever is larger.
   - **Shallow zone:** 0.2 deep at 1.8 pitch, ending short of the band by 14 % of the span.
+  - **Reach (R1):** deep rings stop 3.5 mm past the ring start, shallow rings 7.0 mm past it. Beyond that, whatever the cell size, it's a still pool. No long straight hatching in the big rear and corner cells.
   - Ring starts:
     - knobs 7.75;
     - CUTOFF 10.9;

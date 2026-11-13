@@ -438,9 +438,11 @@ def rain_field(z, pitch=RAIN_PITCH, groove=0.45):
         zA = _cell(items, i, 0, 0, W, D, extra=max(0.0, span - max(min(span, 2.4), 0.5 * span)))   # deep: >= 2-3 rings hug every stone
         zB = _cell(items, i, 0, 0, W, D, extra=0.14 * span)        # shallow zone ends short of the band
         rmax = max(math.hypot(px - x, py - y) for px, py in base) + 1
+        REACH = {"deep": 3.5, "shallow": 7.0}     # director R1: rings die out ~7 mm out; beyond is a still pool
         def rings(p):
+            lim = min(rmax, r0 + (REACH["deep"] if p == pitch else REACH["shallow"]))
             rs, r = [], r0 + 0.25 + groove / 2
-            while r < rmax:
+            while r < lim:
                 rs.append(r); r += p
             return "union(){ " + " ".join(f"difference(){{ circle(r={r + groove/2:.3f}); circle(r={r - groove/2:.3f}); }}" for r in rs) + " }"
         if len(zA) >= 3:

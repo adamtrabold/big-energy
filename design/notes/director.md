@@ -1,5 +1,16 @@
 # Director notes: Little D (budget instrument), physical design
 
+## BRANCHES, R1' check (2026-11-13): READ THIS FIRST
+- **RAIN 9 CONFIRMED.** Checked by eye on the re-rendered `rain/img/rain-arms-length.jpg` (look doc rev 2.2).
+  - Rings stop ≈ 7 mm out (deep to 3.5, shallow to 7), and the far-field hatching is gone.
+  - Big rear and corner cells are now still pools. It reads as drops on still water: the calmest, truest version.
+- **Watch item for the owner's reaction, not a blocker:** at arm's length RAIN now sits closer to v1.1 ONE SHEET.
+  - The section map comes from still lanes and clustering, not seams.
+  - What differs is the whole point of view: every element ripples (keys as stones, toggles, stick, TAP), no grooves or headings, the warm stone, and the one mustard leaf.
+  - If he says "this is just ONE SHEET", that's the reason.
+- **Both concepts go to the owner: CHAMBER 9 (FOLD) and RAIN 9 (ONE SHEET),** with the 7 questions in the round-2 section below.
+
+
 ## BRANCHES, R1 check (2026-11-13): READ THIS FIRST
 - **RAIN's 9 is WITHHELD.** R1 was checked by eye on the re-rendered `rain/img/rain-arms-length.jpg` (look doc rev 2.1).
 - **What changed:** only a 1.5 mm still margin at the outline.

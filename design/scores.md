@@ -541,3 +541,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 ## Branches — concept round 2 (2026-11-13, design director)
 - CHAMBER: **9** (was 8). Work really changed: cream standing lid, oxblood cloth spine closes the hinge-side slot, normal key colours drawn, push-out holes as pipe mouths, Kalam, artefacts fixed. Coverage: passes every job. → owner.
 - RAIN: **9 conditional on R1**, then withheld at the R1 check: far rings still read as hatching at the rear corners and behind the back row. R1 clarified (stop rings ~6–8 mm out). Checked by eye, no re-score.
+- RAIN: R1 confirmed by eye → **9**. Watch: at arm's length it now reads closer to v1.1 ONE SHEET. → owner.
