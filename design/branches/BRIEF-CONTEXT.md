@@ -22,13 +22,13 @@ Follow-up (verbatim): "am i missing a control to turn that tempo sync on / off?"
 **Settled (binding unless the owner changes it):**
 - The locked spec in `HANDOFF.md` and `eng/budget-variant.md`: voice, 25 velocity keys on Kailh Choc V2 silent switches with pressed-on tops and Hall sensing, aftertouch strip, bend joystick (one axis, springs to centre), mod knob that stays put, switches, DRIFT, Daisy Seed echo and reverb with all 8 controls on the panel, MIDI over USB plus TRS in and out, internal LiPo, single rear USB-C.
 - The owner's rules: nothing raised among the knobs or between the keys and the controls; no screens or encoders; keys and knobs are real bought parts, never printed, and no custom key mechanism the owner has to build; 3D-printed enclosures welcome; unibody, screws from the back (ideal, flexible); keys run to the front edge (edge A); cost is his main concern; portable; internal battery.
+- Owner DECISION 2026-11-13: echo sync option B, a FREE / SYNC toggle near TIME (`design/branches/echo-clock.md`). Every branch places it.
 - The v1.1 locks are never edited. Branches are new concepts in `design/branches/concepts/`.
 
 **Open (the team's to explore):**
 - Each branch's point of view: the one idea that generates form, material, graphics, making and feel, drawing on furniture design principles, instruments, tools, artistic forms and emotion.
 - Personality. Peg keys (the owner loves HUSH's) and an "organ like" feel are the owner's examples, explicitly not a direction.
 - What "take this to the park and be inspired" asks of the object.
-- How the echo behaves under MIDI clock, and whether that needs a control (systems designer).
 - Which v1.1 concept(s) a branch grows from. The owner leans ONE SHEET or FOLD, but said "take these versions".
 - The book: the owner mentioned "a great book on this called principles of design". Which book isn't confirmed. Don't attribute specific content to a book you can't confirm; use furniture design principles you can stand behind.
 

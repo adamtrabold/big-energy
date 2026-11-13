@@ -145,3 +145,5 @@ Recorded as:
 - "i want to take this to the park and be inspired": playing it outdoors, away from a desk, is a use the design should serve and inspire.
 - The echo must sync to MIDI tempo when MIDI clock is present. (The spec already parses USB and TRS MIDI clock into the FX tempo. What the controls do under clock isn't designed yet; the systems designer defines it.)
 - All earlier owner rules and the locked spec still bind the branches unless he changes them.
+2026-11-13 11:58 Q: echo sync — A (automatic, hidden hold-TAP + turn-TIME override, $0) or B (FREE / SYNC toggle by TIME, ≈ $1)? → Owner: "B"
+DECISION: add a FREE / SYNC toggle near TIME (design/branches/echo-clock.md option B). FREE: TIME ≈ 20 ms–2 s, clock ignored. SYNC: TIME picks a note division; tempo from MIDI clock (USB or TRS) if present, else TAP. Applies to whichever concept is built (and the branches). Placement is the designers' call per concept.

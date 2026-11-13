@@ -1,5 +1,41 @@
 # Systems designer notes — Little D
 
+# BRANCHES (started 2026-11-13): personality, a whole point of view, the park, MIDI-synced echo
+
+## Where things stand (after jam turn 1)
+- Task: owner's 2026-11-13 11:47 entry (`design/owner.md`). Branched creative rounds from the v1.1 locks (never edited); new concepts go in `design/branches/concepts/`. Shared brief: `design/branches/BRIEF-CONTEXT.md`.
+- I took jam turn 1 (`design/branches/jam.md`): branch jobs B-J1–B-J17, draws, shared structure, flows F13–F15, four branch directions, echo-under-clock spec.
+- Draw script: `design/branches/draw-systems.py` (extends the old list with furniture / instruments / tools / art / emotions / park moments). Two first-run oblique cards repeated earlier jams by chance; redrawn excluding all earlier cards. Draws are recorded in the jam.
+- Echo spec: `design/branches/echo-clock.md`.
+
+## Decisions so far and why
+- **The board is the constant; the outside is the branch** (B-J17: he may pick ONE SHEET or FOLD late, "internals are probably the same"). Branches change enclosure, key tops (bought), underside, handle/hole outside the board outline, graphics, jack wall; not rows, Daisy, mux plan.
+- **Sync on/off = "does TIME read in ms or beats?"** Option B (FREE / SYNC mini toggle, TIME with two machine-marked scales, 9 divisions) recommended over Option A (automatic + hidden hold-TAP+TIME gesture). B is a new control → **owner decision, not settled.** Under clock TAP has no tempo job; clock lost → hold last tempo; TAPE/BBD glide, CLEAN/PING-PONG crossfade; 500 ms loss timeout; USB wins over TRS while ticking (proposal). Feedback on the one status light (H7); a lit TAP is the alternative (director's call).
+- Pegs are portable to any branch (HUSH's bought button plug + arm), but stand ≈ 6.5 proud: they can't meet R4's 3 mm, and on FOLD they cost closed height.
+
+## Branch directions proposed (visual may reshape or kill)
+1. BUTTERFLY (ONE SHEET; furniture): true playing edge, live rear edge, butterfly key across the x 122.5 print seam, French cleat to hang. Grows ≈ 10–15 mm deep.
+2. CHAMBER (FOLD; organ): RANGE in organ feet as heritage, reverse keyboard in walnut/maple pegs, grille as pipe façade on the standing lid. Pegs vs closed height open.
+3. PIERCED (HUSH drawn, show on ONE SHEET; carried tool): 40 mm through-hole at the right end to carry/hang, throws light; one brass ring. Costs ≈ +55 mm length. Carry handle, not a play grip.
+4. GROUND (either; posture): designed wedge underside for playing on grass, sun-first status light and legends. Speaker path conflict on ONE SHEET.
+
+## Director's objections
+- None yet (turn 1).
+
+## Open questions
+- Owner: sync Option A vs B; tapped tempo as clock out?; park session length (FOLD-105's ≈ 11 Wh → ≈ 1.9–3.9 h [CALC]); reversed key colours OK (CHAMBER)?
+- Eng: pegs on FOLD closed height; FREE range 20 ms–2 s and the divisions; tempo limits 30–300 BPM; PLA vs PETG/ASA in sun; mux channel 46 per concept.
+- Director: H7 vs lit TAP (sun readability).
+- Unconfirmed: which "principles of design" book he means. Don't attribute content to it.
+
+## What comes next
+- Visual's turn on the branches; then react to their changes to how things work.
+- After the jam: `design/jobs.md` rev 5 (add B-J1–B-J17 marked stated/inferred, F13–F15, sync states table rows), then concepts in `design/branches/concepts/<name>/`.
+- Coverage check for each 9+ branch against jobs rev 5 (park jobs and sync jobs included).
+
+---
+
+
 # UPDATE for visual — FOLD standing angle (2026-11-13). DRAW
 - **The lid now stands at 120°** (panel 30° up; was 105°).
 - **Brass stays:** shorter, **44.4 mm**, same pivot (d 30). They stand at 60° to the table, with tips 59 mm behind the base.
