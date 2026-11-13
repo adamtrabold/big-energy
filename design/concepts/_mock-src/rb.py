@@ -1476,6 +1476,7 @@ def _lc():
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     return m
 
+NV_UD_GAP = 1.75           # up / down toggle words: systems' 1.6 left real Kalam 1.37-1.42 from the toggle
 NV_SECTION_D = 67.5        # lid section names' line
 NV_SW_LS = 1.55            # switch-line legends beside their toggles (Kalam is wide: 1.69 left "osc mod" 0.85 from OSC 3 CTL)
 NV_BEHIND_EXTRA = 1.0      # behind-legends 1.0 further back: at systems' spacing they sat on the knobs' top tick (0.08-0.67)
@@ -1509,6 +1510,34 @@ def stick_low(x, y, z, ink, drop=3.6):
 LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
 MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
 
+def nv_overrides(lc):
+    """visual's steer-3 changes on top of systems' P (applied identically by the render and by visual's check):
+    - "contours" (one heading on the axis) -> "filter contour" and "loudness contour", each flush left at its group's
+      first knob edge, at d 65 (between the contour legends and the A' switches; centred over the group they'd hit
+      PARA); the director's brief asks for one heading per group;
+    - the switch legend "osc 3" -> "osc 3 ctl" (brief: not to be confused with the "osc 3" level);
+    - range / wave legends carry their VCO's number (the row is one run of eight knobs; the numbers show where each
+      VCO starts, since a break can't fit between 20-pitch knobs);
+    - the oscillators | mixer break starts at d 68 (was A' - 6 = 64), so "loudness contour" passes under its end."""
+    def lab_of(n, lab):
+        if n == "OSC 3 CTL":
+            return "osc 3 ctl"
+        if n[:-2] in ("RANGE", "WAVE") and n[-1] in "123":
+            return f"{lab} {n[-1]}"       # "range 1 · wave 1 | range 2 · freq 2 · wave 2 | ...": which VCO, at a glance
+        return lab
+    lid = [(n, x, d, r, k, lab_of(n, lab), w) for n, x, d, r, k, lab, w in lc.lid]
+    breaks = [(bx, max(d0, 68.0) if abs(bx - 183.0) < 0.1 else d0, d1) for bx, d0, d1 in lc.BREAKS]
+    sections = []
+    for t, x, d in lc.SECTIONS:
+        if t == "contours" and getattr(lc, "VARIANT", "P") == "P":
+            for name, x0 in (("filter contour", 16.0), ("loudness contour", 175.05)):
+                sections.append((name, x0 + len(name) * 0.5 * lc.HS / 2, 65.5))   # centre of a flush-left box
+        elif abs(d - (lc.A + 16.0)) < 0.01:
+            sections.append((t, x, d + 0.5))     # real Kalam: "oscillators" sat 1.26 from "freq 2"; 0.5 higher clears it
+        else:
+            sections.append((t, x, d))
+    return lid, breaks, sections
+
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
     route = "R-LOW"
@@ -1537,55 +1566,59 @@ class Nave(Cathedral):
         return s
 
     def lid_face(self, controls=True):
+        """steer 3: everything (rows, legends, breaks, headings) from systems' layout_check.py, with visual's
+        overrides (nv_overrides): two contour headings instead of one, "osc 3 ctl", a shortened osc | mixer break."""
         lc, D, L0 = self.lc, self.D, self.LY0
+        lid, breaks, sections = nv_overrides(lc)
         s = pg_layers(self.lid_plate2d(), LID_PF)
         gz = LID_PF + 0.02
-        for xb in (93.5, 192.5):                                 # voice breaks, symmetric about the axis (± 49.5)
-            s += box(xb - self.RULE_HW, L0 + 0.8, gz, xb + self.RULE_HW, L0 + 63.0, gz + 0.03, self.rule_col())
-        fx_x0 = min(x for n, x, d, r, k, lab, w in lc.lid if d == lc.FX)
-        for xb in [b for b in getattr(lc, "FX_BREAKS", [157.0, 226.0]) if b > fx_x0]:   # echo | reverb | out (none left of the row)
-            s += box(xb - self.RULE_HW, L0 + lc.FX - 9, gz, xb + self.RULE_HW, L0 + lc.FX + 9, gz + 0.03, self.rule_col())
+        for xb, d0, d1 in breaks:
+            s += box(xb - self.RULE_HW, L0 + d0, gz, xb + self.RULE_HW, L0 + d1, gz + 0.03, self.rule_col())
         s += speaker_window(143.0, L0 + lc.WIN[1], LID_PF, D=2 * lc.WIN[2], w=1.8, pitch=3.0)
         s += self.name_mark(gz)
         if not controls:
             return s
-        st = self.style()
+        st = self.style(); ink = self.lid_ink()
         rows_ = {}
-        for n, x, d, r, k, lab, where in lc.lid:
-            if n in ("FREE/SYNC", "FOLLOW"):
-                continue
+        for n, x, d, r, k, lab, where in lid:
             kind = "t" if k == "t" else LID_KIND.get(n.rsplit(" ", 1)[0], LID_KIND.get(n, "k"))
             rows_.setdefault(d, []).append((n, "", x, kind, n in MIDI_NAMES, 0))
         ry = {d: L0 + d for d in rows_}
-        tg = {n: (x, d) for n, x, d, r, k, lab, w in lc.lid if n in ("FREE/SYNC", "FOLLOW")}
-        toggles = [(tg["FREE/SYNC"][0], L0 + tg["FREE/SYNC"][1]), (tg["FOLLOW"][0], L0 + tg["FOLLOW"][1])]
-        nuts = toggle_nuts(rows_, ry, toggles)
+        # an up / down toggle's words clear the neighbours' ticks they'd sit on (e.g. FOLLOW's "off" on VOLUME's top tick)
+        words = []
+        for n, x, d, r, k, lab, where in lid:
+            if where == "updown":
+                h = 0.85 * lc.LS * 0.72
+                words += [(x, L0 + d + r + NV_UD_GAP + h / 2), (x, L0 + d - r - NV_UD_GAP - h / 2)]
+        # ticks that would run into the window's circle are dropped too (DELAY PAN's 50° tick reached it by 0.15)
+        wx, wd, wr = lc.WIN
+        for n, x, d, r, k, lab, where in lid:
+            dd = math.dist((x, d), (wx, wd))
+            if k == "k" and dd - r - wr < 4.0:
+                f = (wr + 1.0) / dd
+                words.append((wx + (x - wx) * f, L0 + wd + (d - wd) * f))
+        nuts = toggle_nuts(rows_, ry, words)
         s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
                          nuts=nuts, back=())
-        ink = self.lid_ink()
-        s += sync_toggle(*toggles[0], LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, dy=0.0)
-        s += sync_toggle(*toggles[1], LID_PF, ("off", "follow"), st.lsize * 0.72, ink, st.font, dy=0.0, gap=6.4)
-        # legends exactly where the checker measures them (layout_check.tbox centres)
-        for n, x, d, r, k, lab, where in lc.lid:
-            if where == "beside":
-                continue
-            if k == "t" and d == lc.SWL:
-                # visual (steer 2): switch-line legends go BESIDE their toggles (right, at FREE / SYNC's size), not
-                # above: above, they sat just under the V2 knobs and read as those knobs' names
-                s += txt(x + 6.2, L0 + d, LID_PF + 0.01, lab, NV_SW_LS, ink, font=st.font, halign="left")
-                continue
-            b = lc.tbox(x, d, lab, lc.LS if k == "k" else lc.LS * 0.85, where, r)
-            cy = (b[1] + b[3]) / 2 + (NV_BEHIND_EXTRA if where == "behind" else 0.0)
-            s += txt(x, L0 + cy, LID_PF + 0.01, lab, lc.LS if k == "k" else lc.LS * 0.85, ink, font=st.font)
-        # section names restored (director, score 8 fix 2): one line at d 67.5 between the voice block and the FX row,
-        # in the hand: "oscillators" (left), "mixer" (on the axis, over the window), "contours" (right)
-        for tx, name, ha in ((14.0, "oscillators", "left"), (143.0, "mixer", "center"), (272.0, "contours", "right")):
-            s += txt(tx, L0 + NV_SECTION_D, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)
-        # FX group headings above the row (old FOLD positions)
-        hd = L0 + lc.FX + FO_HEAD_D + 1.2 - 0.7
-        dx = getattr(lc, "FX_DX", 0.0)
-        for name, x in (("echo", 102.5 + dx), ("reverb", 191.5 + dx), ("out", 250.5 + dx)):
-            s += txt(x, hd, LID_PF + 0.01, name, 2.0, FO_INK, font=HAND, valign="baseline")
+        z = LID_PF + 0.01
+        for n, x, d, r, k, lab, where in lid:          # legends exactly where the checker measures them
+            if where == "right":
+                s += txt(x + 6.2, L0 + d, z, lab, lc.SW_LS, ink, font=st.font, halign="left")
+            elif where == "updown":
+                a, b = lab.split("|"); sz = lc.LS * 0.72; h = 0.85 * sz
+                s += txt(x, L0 + d + r + NV_UD_GAP + h / 2, z, a, sz, ink, font=st.font)
+                s += txt(x, L0 + d - r - NV_UD_GAP - h / 2, z, b, sz, ink, font=st.font)
+            elif where == "beside":
+                a, b = lab.split("|"); sz = lc.LS * 0.72
+                s += txt(x - 6.2, L0 + d, z, a, sz, ink, font=st.font, halign="right")
+                s += txt(x + 6.2, L0 + d, z, b, sz, ink, font=st.font, halign="left")
+            else:
+                sz = lc.LS if k == "k" else lc.LS * 0.85
+                bx = lc.tbox(x, d, lab, sz, where, r)
+                cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
+                s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
+        for t, x, d in sections:                         # one heading per group, in the hand
+            s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND)
         return s
 
     # ---- base: the played row, symmetric about x 143
@@ -1663,6 +1696,7 @@ def jobs(SZ):
         **{f"rb_ct3_{sp}_band": (lambda sp=sp: shot4(Cathedral("B", speaker=sp, centre_play=True).model("stand"), fp_rect(0, 0, W, D + 64), f"rb_ct3_{sp}_band", size=SZ, az=-32, el=24, dist=260, center=Cathedral("B").stand_point(150.0, 38.0), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_ct3_{sp}_band.png"), ymax=1.0))
            for sp in ("P1b", "P1c")},
         "rb_nv_stand": lambda: shot4(Nave().model("stand"), fp_rect(0, 0, W, D + 64), "rb_nv_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 52), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv_stand.png")),
+        "rb_nv_lidtop": lambda: top4(Nave().model(True), "rb_nv_lidtop", -2, Nave().LY0 - 2, W + 2, Nave().LY0 + D + 2, px_per_mm=15, grain_classes=()),
         "rb_nv_top": lambda: top4(Nave().model(True), "rb_nv_top", -2, -2, W + 2, OPEN + 2, px_per_mm=8, grain_classes=()),
         "rb_nv_closed_side": lambda: shot_ortho(Nave().model(False), "rb_nv_closed_side", "right", -4, D + 4, -1, 60, wmax=W + 2, wood=True),
         "rb_nv_closed": lambda: ld.shot(Nave().model(False, walnut=WAL_R), fp_rect(0, 0, W, D), "rb_nv_closed", size=SZ, az=-28, el=30, dist=700, center=(143, D / 2, 24), grain_classes=()),

@@ -1,5 +1,15 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, steer 3 (2026-11-13 ~18:40): the lid in signal order (systems §17 P)
+- **Owner 18:00** (verbatim in director.md / brief; screenshot `design/owner-refs/2026-11-13-1800-top-panel.png`): no logical grouping; effects at the top confuse; signal order synth → fx → output.
+- **Systems P:** band A sources (oscillators by VCO ‖ mixer), A' their switches; band B contours (filter left, loudness right) with B' switches; band C echo (+FREE/SYNC) · window · reverb; out column DRY PAN / FOLLOW / VOLUME at x 262.5. All in `layout_check.py` (BREAKS, SECTIONS, "right" / "updown" legends).
+- **rb.py:** `Nave.lid_face` rewritten to read lid / BREAKS / SECTIONS / legend placements from the checker; `nv_overrides(lc)` holds my changes: "filter contour" / "loudness contour" headings flush left at d 65.5 (replacing "contours"); "osc 3 ctl"; range / wave numbered by VCO; A-row headings +0.5; osc|mixer break from d 68. `NV_UD_GAP` 1.75 for up/down words; ticks under up/down words and into the window dropped (extra nuts). Job `rb_nv_lidtop` (px_per_mm 15 → measured 8.7). "big energy" now drawn in the lozenge.
+- **Checks:** `/tmp/scr/nv_check3.py` (systems' rules on my overrides): 0. `/tmp/scr/nv_kalam.py` (real Kalam, ticks, window, pegs): 0.
+- **Image:** `img/cathedral-lid-signal-order-8.7px-per-mm.png` (only render this pass; composed by `/tmp/scr/lid_fig.py`). Steer 2 standing / top captions marked superseded.
+- **Doc:** rev 5, new top section with the signal walk paragraph, figure, my overrides, opens (heading size 2.0 < legends 2.35; standing re-render after approval; systems to fold overrides).
+- **Not published** (wait for the director's 9).
+
+
 ## Name (2026-11-13, after turn 6): "Big Energy"
 - Owner: "name to come -- we're calling it big energy" (owner.md, naming.md).
 - My call: lowercase "big energy" in Kalam 2.0 inside the 16 × 5 lozenge under the window (`Nave.NAME`, drawn in `name_mark`), ≈ 9.2 wide in the 15.2 × 4.2 field. In the doc (§6). Option later: a cast-brass plate, raised letters ≥ 0.5.
