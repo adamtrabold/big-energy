@@ -4,55 +4,42 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL speaker grille: tower or circle
-**Unblocks:** the final CATHEDRAL renders and the director's score.
-**Context:** you rejected the speaker on the key side and the eye shape, and asked for vertical lines or an off-centre circle. Both sit in the lid band, with the effects together on the lid's top row (layout B).
+## 1. CATHEDRAL: approve it, or send it back
+**Scored 9 by the director; passes every job.** Your 16:52 notes are resolved: no dead band, a centred speaker sized for the driver, brass-led keys.
 
-- **Tower:** vertical slots stepping 8 → 18 → 8 mm, like a row of organ pipes. *Visual designer's pick.*
-- **Off-centre circle:** Ø 25 mm, 17 mm right of the axis, vertical slots inside. It only fits in that one spot.
+- **Lid:** three evenly spaced rows; all effects, both pans, FOLLOW and VOLUME together on the top row, centred.
+- **Speaker:** one Ø 46 mm round window on the centre line above CUTOFF, 15 vertical slots, ≈ 75 % of the cone open (was 21–35 %), foam seal and sealed back box. Mixer mirrored around it.
+- **Base row:** symmetric: bend stick far left, TAP far right, CUTOFF centred; MOD MIX and DRIFT moved here.
+- **Keys:** brass naturals, black-plated brass sharps (lead); all brass (alternate).
+- **Closed thickness:** ≈ 55.2 mm, *only* with snap-in pots and the bend stick seated 3.6 mm lower (otherwise 56.7–58.8). The played-row knobs shrink from Ø 14.9 to Ø 10 gold. Keeping the big knobs instead: ≈ 59.7 mm.
+- **Hinge:** hidden pins; a 4 mm round bump shows at each back corner from the side.
+- **Costs:** batteries move to the back of the base (board window, eng check); stand tip force ≈ 6.9 → 8.4 N.
 
-Both clear every label, and both open about the same area (≈ 265–290 mm², about a third less than today; loudness not yet checked).
+![Standing](branches/concepts/cathedral/img/cathedral-nave-standing.jpg)
+![Top, exact](branches/concepts/cathedral/img/cathedral-nave-top-8.3px-per-mm.png)
+![Closed, side: 55.2 mm](branches/concepts/cathedral/img/cathedral-nave-closed-side-14px-per-mm.png)
+![Speaker window, front and section](branches/concepts/cathedral/img/cathedral-nave-speaker-window-20px-per-mm.png)
+![Keys A (brass naturals) and C (all brass), ray-traced](branches/concepts/cathedral/img/cathedral-keys-brass-A-C.jpg)
 
-![Left: slot tower. Right: off-centre circle. Close-ups below. Not scored; keys shown as a colour swap only.](branches/concepts/cathedral/img/cathedral-speaker-options-standing.jpg)
-
----
-
-## 2. CATHEDRAL hinges: hidden pins or cables through the hinge
-**Unblocks:** the hinge design and the board layout.
-
-- **Hidden pins inside the side walls:** no visible hinge barrels; the ribbon cable stays in the gap. *Team recommends.* (Strength in printed plastic needs one test print; if it fails, today's knuckles stay.)
-- **Cables through the hinge:** the ribbon becomes two round cables through hollow pins; the hinge barrels get bigger and more visible, and both boards change.
-
-You can't have both.
+**Also yours within it:** keys A or C; small knobs (55 mm) or big knobs (60 mm).
 
 ---
 
-## 3. CATHEDRAL back opening, now there's no spine
-**Unblocks:** the closed-view renders.
-Closed, there's a 22 × 266 mm opening along the back where you can see the knobs inside.
+## 2. CATHEDRAL back opening, now there's no spine
+Closed, there's a 22 × 266 mm opening along the back where the knobs inside show.
 
 - **Leave it open, inside finished dark,** so the knob tops read as shadow. *Team recommends.*
 - **Deal with it later** with a sleeve or case.
 
-A rigid lip can't work: open, it would stand up among the knobs.
+---
+
+## 3. Buy-and-test (cheap, before building)
+- **T1:** one pack of [Cherry Tree Toys 3/8" plugs](https://cherrytreetoys.com/3-8-mushroom-plugs/): measure head height and tenon on 5.
+- **T2:** one hollow cast-brass key head on one switch: 20 presses slow and fast next to a wood plug; pass = no clack, wobble or sticking.
 
 ---
 
-## 4. CATHEDRAL keys
-**Unblocks:** the key parts and the final renders. All options fit one swappable mount, so this can change later.
-
-- **B: black naturals, brass sharps** (reversed, like an old organ). *Team recommends.*
-- **A: brass naturals, black sharps** (reads like a normal keyboard).
-- **C: all brass.**
-- **Cheaper:** birch plugs (stock part), or printed pegs in any colour.
-
-Brass can be cast brass from a print service (cold, heavy, stays bright where you touch it) or brass-filled filament you print yourself (lighter, satin).
-
-![Brass keys A / B / C, polished and aged. Ray-traced metal.](branches/concepts/cathedral/img/cathedral-brass-keys-metal.jpg)
-
----
-
-## 5. Line-out jacks (from the expert review)
+## 4. Line-out jacks (from the expert review)
 **Unblocks:** the output circuit.
 The mono-cable detection on LINE OUT can't work as drawn.
 
@@ -65,7 +52,7 @@ Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team reco
 
 ---
 
-## 6. MIDI (see Features → MIDI for the full page)
+## 5. MIDI (see Features → MIDI for the full page)
 - Should the dry pan stay on CC 10? DAWs send "pan = centre" on CC 10 every time a project opens, so the pan would jump to centre on its own. The team recommends moving it to an unused number.
 - Should a DAW be able to automate the echo and reverb amounts? Those two knobs would get the MIDI dot and the "held by MIDI" light.
 - Channel 1, or respond on any channel (omni)?
@@ -73,5 +60,5 @@ Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team reco
 
 ---
 
-## 7. Site navigation
+## 6. Site navigation
 What lost you on the site: (a) not knowing what the words along the top do, (b) not finding where something lives, or (c) not knowing how to get back?

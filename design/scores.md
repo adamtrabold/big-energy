@@ -545,3 +545,6 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 
 ## CATHEDRAL — round 1 after new direction (2026-11-13, director)
 - CATHEDRAL: **8**. Work really changed (no band, even rows, Ø46 centred window, mirrored base row, brass naturals, ≈55.2 mm). Fixes: re-centre FX row (DRIFT gap top-left); restore lid section names; remove R3, re-space MOD MIX/DRIFT/TAP; hidden hinge bump in closed side view; label check on visual model; doc states 55.2 mm conditions + Ø14.9→Ø10 knobs + 59.7 mm alternative. Director checks by eye, no re-score.
+
+## CATHEDRAL — fix check (2026-11-13, director, by eye)
+- CATHEDRAL: **9**. Jobs coverage passes (cathedral/coverage.md). → owner.
