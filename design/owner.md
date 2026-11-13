@@ -201,3 +201,5 @@ Recorded as: DECISION — stereo phones: yes (one speaker; second speaker not ta
 Recorded as: DECISION — line out is stereo too (TRS). Stereo phones + stereo line out, one speaker.
 2026-11-13 15:24 Owner (verbatim): "Left channel should be mono tho if stereo isn’t plugged in"
 Recorded as: REQUIREMENT — with a mono (TS) cable plugged in, the left/tip output carries the full mono sum (L+R), not just the left channel. Applies to the stereo outputs.
+2026-11-13 15:44 Owner (verbatim): "Yea sure on midi. And is it sending the delay through the pan too or just the dry"
+Recorded as: DECISION — FX PAN receives MIDI pan (CC 10). Asked what the pan affects; answered: it pans the signal going INTO the echo and reverb (so the delay and reverb come out from that side); the dry voice is not panned and stays centred.
