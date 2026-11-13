@@ -453,7 +453,12 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
   - **centre detent:** a 9 mm centre-detent pot if one exists in the T18 spline (**part UNVERIFIED**);
   - otherwise a **firmware dead zone of ±3 % at centre**, no part needed.
   - Fully left or right: the send enters one side only, so on PING-PONG the repeats then alternate from that side.
-- **MIDI:** knob-only, so **it sends nothing and receives nothing** (rule: knob-only controls send no MIDI). **Open for him:** receive CC 10 (pan) with jump-on-move, like the other MIDI-controllable params? Firmware only.
+- **MIDI (owner: "Yea sure on midi"): FX PAN receives CC 10, jump-on-move as usual.**
+  - It joins the MIDI-controllable set, so it gets the engraved MIDI dot, it lights the not-in-control light while CC 10 holds it, and it **sends CC 10 out when moved**, like the other marked knobs (jobs F7 step 7).
+  - The Daisy reads it anyway, so it costs firmware only.
+  - **What it pans** (owner asked: "is it sending the delay through the pan too or just the dry"): **the send into echo and reverb.** The repeats and the reverb come out panned; the dry voice stays centred.
+    - The reverb is stereo, so its tail **spreads around** the panned position rather than sitting hard on one side.
+    - PING-PONG starts on the panned side and then alternates.
 - **Where it sits (layout B's effects row, d 83.85):** **FX PAN 240 | VOLUME 260**, one "where it goes" group after the reverb break (225.5).
   - The logical spot, the start of the chain before ECHO, has no room: it would shift the echo group +10 and push FREE / SYNC onto OSC 3 CTL (−0.4).
   - **[CHECK §9, second run]: 0 violations** (pitch, gaps, breaks, edges, far rim, closed landing over pegs). VOLUME's edge sits 18.55 from the outside (rule ≥ 16).
