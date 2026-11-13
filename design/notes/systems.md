@@ -1,5 +1,12 @@
 # Systems designer notes — Little D
 
+# Feature docs, batch 1 (2026-11-13)
+- Published: panning-and-stereo-outputs, effects. Partial: paraphonic (O3: recommend a 5th MCP4822 → Seed DACs free; OUT1 = PARA+4 oscillator into the ladder input, OUT2 = PITCH CV OUT), firmware-update-and-gestures (O5 split). Architecture: 4th mux allocation (mux D, 4 spare); pins 30–31 of 31.
+- Owner questions out: line-out jacks (two vs one), LINE OUT mutes the speaker?, CC 10, FX MIX CCs.
+- Next: echo-sync, keys-and-velocity (O4: deck hole Ø 13.2; heads ≥ Ø 14 cover it, the 12.7 plug shows a 0.25 ring), aftertouch.
+
+---
+
 # Architecture page reworked (2026-11-13, owner: "unclear"; "on website")
 - docs/architecture.md is now a web page in a fixed order:
   1. one-screen block picture + two rules;
