@@ -350,7 +350,7 @@ function updatedLine(){
   return `<div class="status" title="${esc(u.what)}">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
 const SECTIONS = [ // build-chain order; the site's whole structure
-  ["decide","#home","To decide"],["architecture","#doc-architecture","Architecture"],["features","#features","Features"],
+  ["decide","./","To decide"],["architecture","#architecture","Architecture"],["features","#features","Features"],
   ["physical","#physical","Physical"],["electronics","#electronics","Electronics"],["parts","#parts","Parts"],["tests","#tests","Tests"],["history","#history","History"]];
 function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
@@ -561,7 +561,7 @@ function backBar(href, text, copy, pt){
 }
 function vItem(code, revSel){
   const it = I[code]; if (!it) return vMissing(code);
-  const back = it.group ? ["#g-" + it.group, G[it.group] ? G[it.group].title : it.group] : ["#home", "all"];
+  const back = it.group ? ["#g-" + it.group, G[it.group] ? G[it.group].title : it.group] : ["./", "all"];
   if (it.kind === "image") return vImage(it, revSel, back);
   if (it.kind === "test") return vTest(it, back);
   if (it.kind === "prototype") return vProto(it);
@@ -609,7 +609,7 @@ function vDoc(it, back){
   </main>`;
 }
 function vProto(it){
-  return backBar("#home", "Latest") + `<main class="wrap item"><article class="doc-html">
+  return backBar("./", "To decide") + `<main class="wrap item"><article class="doc-html">
     <h1>${esc(it.title)}</h1><p>${esc(it.lead)} A prototype is a kind of item the site hosts: a page you open and use, with a label like any other item.</p>
     <h2>How it's made</h2><ul>
     <li><code>build.py</code> reads the repo and writes this page plus <code>media/</code>. Markdown stays the source; what you read here is HTML.</li>
@@ -718,15 +718,16 @@ function vVersion(code){
   return header("history") + `<main class="wrap">${point("A locked set of the design: what's in it. A version never changes.")}<div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
     <div class="lh"><span class="vtitle">${v.name}</span><span class="ink2">${v.current?"current · ":""}locked ${v.date}</span></div><p class="wide">${esc(v.line)}</p>${gs}${docs}</main>`;
 }
-function vMissing(code){ return header("") + `<main class="wrap"><p>${esc(code)} isn't in the register. <a class="u" href="#home">Back to the landing</a></p></main>`; }
+function vMissing(code){ return header("") + `<main class="wrap"><p>${esc(code)} isn't in the register. <a class="u" href="./">Back to the landing</a></p></main>`; }
 
 /* ------- router */
 let audio = null, raf = 0;
 function route(){
-  const h = (location.hash || "#home").slice(1);
+  const h = (location.hash || "").slice(1);
   let html, m;
   if (h === "" || h === "home") html = vWaiting();
   else if ((m = h.match(/^wait-(\d+)$/))) { html = vWaiting(); setTimeout(() => { const e = document.getElementById("wait-" + m[1]); if (e) e.scrollIntoView(); }, 30); }
+  else if (h === "architecture") html = vDocPage("architecture");
   else if (h === "features" || h === "docs") html = vFeatures();
   else if (h === "physical") html = vPhysical();
   else if (h === "electronics") html = vElectronics();

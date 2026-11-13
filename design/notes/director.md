@@ -1,5 +1,23 @@
 # Director notes: Little D (budget instrument), physical design
 
+## CATHEDRAL top panel, steer 3 (2026-11-13 ~18:05): READ THIS FIRST
+- **Owner did NOT approve the 9.** Verbatim (screenshot design/owner-refs/2026-11-13-1800-top-panel.png): "lets focus on top panel first -- the items do not appear to be grouped or ordered in a way that makes logical sense. have the team break down which concepts belong together, and reorient accordingly.  there are tons of examples on the internet of good organization beyond the model d itself for the add'l functionality. also i dont like the effects controls at the top ... when i think of signal order it's synth stuff -> fx stuff -> output stuff like volume. so it at the top of the layout is confusing"
+- **His reasons (what a 9 means to him):** panel logic = signal order and whole groups, not just symmetry and geometry. I scored balance, the band and acoustics; I didn't test "can he read the signal path at a glance". **New test for every layout from now on:** trace the signal on the image; every group must be contiguous and in signal order.
+- **My diagnosis of the screenshot:**
+  1. FX at the top: standing or flat, the lid reads top → bottom, so FX reads first.
+  2. The mixer is split round the window and out of order (osc 2 top-left, osc 1 bottom-left, noise top-right, osc 3 bottom-right).
+  3. The switch line mixes four groups (source = mixer, filt mod = filter, velocity, touch = aftertouch).
+  4. The two contours are unlabelled as filter vs loudness, and sit far from the filter (base).
+  5. The "osc 3" toggle vs the "osc 3" level: same words for different things.
+  6. The decay/kbd toggles are isolated at the far right.
+- **Fixed constraint I found:** the window must stay at CUTOFF's closed landing (143, d ≈ 32–40), because CUTOFF is the base's one tall knob (R-LOW). So any arrangement flows around a fixed centre window, unless CUTOFF gets a low hero (none bought exists).
+- **Director's lead proposal ("page order") for systems to test against 1–2 alternatives:**
+  - upper two rows = synth, left → right: OSCILLATORS (block) → MIXER (osc 1, osc 2, osc 3, noise/ext in order, top row centre, over the window) → CONTOURS (filter then loudness, labelled), with each group's switches inside it;
+  - bottom row (nearest the hinge) = ECHO (left of the window, FREE/SYNC by TIME) → REVERB → OUT (pans, FOLLOW, volume) right of the window;
+  - reads top-left → bottom-right like a page; FX next to the hands; output ends at the corner beside TAP.
+- **Briefs sent via the orchestrator** (systems: concept breakdown + references + 2–3 arrangements with checks; visual: lid top view of the chosen one only). Then I score.
+
+
 ## CATHEDRAL fix check (2026-11-13 ~17:40): READ THIS FIRST
 - **CATHEDRAL 9 CONFIRMED → publish and show the owner.** Checked by eye on the re-rendered nave-top, nave-standing and nave-closed-side.
   - Fix 1: FX row centred on the axis. ✓
