@@ -279,3 +279,157 @@ Both concepts he leans to are covered: ONE SHEET ×2 (+ GROUND), FOLD ×1 (+ GRO
 5. **Maker:** the ring coupon (smooth + rings) now also decides RAIN, ideally viewed under a tree.
 
 NEXT: design director — four live branches (one reshaped, one pushed, one given a voice, one new) and one kill need steering before systems and I build them into concepts; the SYNC placement needs systems' label check, which can run in parallel.
+
+---
+
+## Turn 3 — design director (new director, taking over), 2026-11-13
+
+I read the owner record to the bottom (11:47 brief, 11:58 "B"), my predecessor's notes, turns 1–2, `echo-clock.md`, the four sketches and the v1.1 A sheets. My test for this round is the owner's own phrase: **a holistic point of view**. One sentence has to decide form, material, graphics, making and feel. It also has to make him want to carry the thing to the park. A detail he'd like on any of the concepts isn't a point of view.
+
+### 1. My draws (`secrets.SystemRandom`, `design/branches/draw-director.py`, fresh decks, every earlier-used Oblique card removed, run once)
+- **Director:** "Be extravagant" · own-direction field: **sundial / gnomon** · emotion: **wonder** · park: **a bandstand** · forced-connection field: hand-cranked coffee grinder.
+- **Per branch (twist · Oblique):**
+  - BUTTERFLY: "it is lighter than it looks" · "From nothing to more than nothing";
+  - CHAMBER: "it has a place for your own mark" · "Look at the order in which you do things";
+  - GROUND: "you can tell it from 30 m away" · "Lost in useless territory";
+  - RAIN: "it makes a sound when you close it" · "Courage!".
+- **Kill test (d20, ≤ 4 = argue seriously to kill):** BUTTERFLY 9 · CHAMBER 11 · **GROUND 2** · RAIN 7. My own direction, rolled after I'd written it: DIPTYCH 15.
+- **Unused, honestly:** the coffee grinder. I tried the crank as a gesture and the box mill's "wood box + metal top plate" vernacular. The vernacular is FOLD's walnut + white already, and a crank is a raised moving part. Dropped. The bandstand only reinforces CHAMBER (music faces outward to passers-by) and doesn't generate anything new.
+
+### 2. Rulings on kills
+- **PIERCED: kill upheld.** +55 mm of length for one gesture goes the wrong way on his top two concerns (cost, portable), and the carry job doesn't need a hole. I agree with the visual designer's reasoning, and with not rescuing it as a slot.
+- **GROUND: killed** (my ruling; the roll of 2 made me argue it seriously, and the argument holds on judgement):
+  1. **A posture is a stand, not a point of view.** It answers "how does it sit on grass?", not "what is this thing?". The persimmon underside is its only personality, and that's a colour.
+  2. **It goes the wrong way on thickness and portability.** By the visual designer's own numbers, the wedge adds ≈ 25–37 mm at the back. His working figure is ≈ 36 mm for the whole body.
+  3. **The horn is unverified**, and outdoors a small horn mostly buys mids and directivity, not loudness. If it measures as nothing, the branch is just a block.
+  4. **FOLD's standing lid already tilts the panel to the eye**, and it's the concept he leans to.
+  - **Donors (any branch may take them):**
+    - the **status-light hood / light pipe** for sun (I'm adopting it for every branch, §5);
+    - high-contrast legends at low sun angles;
+    - the felt-lined finger pocket for carrying, where an outline already has the room;
+    - "the bottom is as designed as the top", as a principle.
+  - The horn stays an eng curiosity, not a branch.
+
+### 3. Pushing the live branches
+
+#### BUTTERFLY (ONE SHEET), "from tool to tree": goes forward, with two changes
+The spectrum (exact at the front, free at the back) is a real one-sentence idea, and it's the only branch with a real material in the first build. Two things stop it being whole yet:
+1. **The butterfly has to do a job.** As drawn, it bridges printed PETG and walnut, and the screws do the holding. That's decoration dressed as construction, which is the one dishonesty a Nakashima reference can't carry.
+   - **Fix: make the rail from two short, bookmatched live-edge offcuts** (≈ 140 mm each), joined on the axis (x 138) by the butterfly, so the butterfly really holds wood to wood.
+   - This also gives three free wins:
+     - short offcuts are cheaper and easier to find (his own walnut, ESTIMATE);
+     - each piece fits a small bench;
+     - **bookmatching mirrors the wild edge about the centre axis**, so the tree's freedom gets the order that balance needs. That's the "balance" he asked for on FOLD, met on the free side.
+   - Each instrument's edge is still unique.
+2. **"From nothing to more than nothing" has to show in the side view, not only the plan.**
+   - The front edge stays exact and sharp (nothing).
+   - The rail's top edge is eased by hand, oiled, with the bark line kept (more than nothing).
+   - The side walls are where the change shows: printed and exact up to the joint, wood behind it.
+   - **Lighter than it looks:** keep the rail at ≈ 20 mm of wood behind the joint. The shell stays hollow, and the object should surprise in the hand. Don't let the wood grow into a slab.
+- **What it must prove as a concept:**
+  - (a) a believable 3/4 render in which **printed cream beside real oiled walnut looks intended, not like a kit**. This is the biggest risk: real wood can make the print look more plastic. Try a matte bone/stone filament against the walnut;
+  - (b) the depth cost of the joint at y 160 with a live edge (systems: deepest notch ≥ 12 from the FX knob edges);
+  - (c) the slotted-screw joint for wood movement and the jack-drilling jig keyed to the straight joint;
+  - (d) the French cleat, drawn hanging, tree side up.
+- Keys stay v1.1 flat tops: **BUTTERFLY is the set's non-peg answer**, on purpose, for breadth.
+
+#### CHAMBER (FOLD), "closed an organ case, open a console": goes forward; the strongest branch, so held hardest
+The façade on the lid's back is the best move in the jam:
+- it means something (the keyboard's real scale, laid out in the organ builders' tower);
+- it lives on the face that's public when closed and when standing;
+- it gives the friend on the bench the organ front.
+
+The order of use is the concept, which is where "Look at the order in which you do things" points:
+- **closed:** you carry the façade;
+- **open flat (180°):** the façade is face-down and hidden, and it's just a console;
+- **standing (120°):** the façade faces the listener and the console faces you.
+
+The concept sheet should show the three states as a strip, in that order.
+- **"A place for your own mark" = the organ builder's nameboard.** Organs and harpsichords carry the maker's name on a board just above the keys. Here it's flush (the "nothing raised" rule holds): a hand-cut walnut cartouche on the axis, the owner's own maker's mark and the date.
+  - **No name on the façade or anywhere until he picks one. "little d" in the sketch must go: he said the name "sounds like little penis".** Use a blank cartouche.
+- **Costume watch (this is CHAMBER's kill risk):** brass pipes on dark walnut can tip into steampunk or a Victorian souvenir.
+  - Keep the pipes as **line work** (engraved/filled, or printed relief in the first build), with no shading, no fake 3D, and no gothic tracery.
+  - The serif goes only on the RANGE feet and the nameboard; everything else stays in the v1.1 type.
+  - No ornament that doesn't come from the keyboard's numbers.
+- **What it must prove:**
+  - (a) the closed bar in 3/4 reads as "an organ case", not "a decorated box". Show it beside the book, as v1.1 did;
+  - (b) the peg height against FOLD's closed landing rule. Closed height with pegs vs v1.1's ≈ 50; if it's +4 mm, say so on the sheet;
+  - (c) the reversed pegs drawn real (walnut naturals out of the body walnut, maple sharps) at 1:1 on sheet B;
+  - (d) whether engraved fill reads on wood-fill PLA, or the first build is a printed relief (eng);
+  - (e) the standing view with the façade facing a viewer (camera from behind the lid).
+
+#### RAIN (ONE SHEET), "a pond after rain": goes forward
+- It's the most generative idea in the jam:
+  - one rule ("everything that breaks the surface ripples") makes the finish, the section map, the legend pads and the keys;
+  - it's built straight from the thing he said he loves, inside his two-finish rule;
+  - it costs nothing new.
+- The drawn emotion, calm, is right, and so is the dappled light.
+- **"Courage!":** commit to it.
+  - Drop the sunk section grooves entirely and let the Voronoi seams be the only section marks (the sketch shows they already read).
+  - Don't hedge with a smooth rear band or a framed border: the field runs to every edge, including the side walls' top chamfer.
+  - A half-rippled RAIN is just v1.1 ONE SHEET with more texture.
+- **"Makes a sound when you close it":** ONE SHEET has nothing to close, so taken literally it doesn't apply. The honest version is **a single soft "drop" at power-off** (firmware, the Daisy's digital voice, $0, off by a key combo). Optional, and I won't hold the concept to it.
+- **What it must prove:**
+  - (a) **at arm's length it's calm; up close it's alive.** Render it at two distances; if the far view shimmers or looks dizzy, it fails;
+  - (b) the legends on lily pads are readable at the S1 sizes, in sun;
+  - (c) modelled ring geometry at ≥ 0.9 pitch still looks like the v1.1 rings he loved (0.45), not a coarse record groove. Show a 1:1 crop beside the v1.1 coupon art;
+  - (d) the pegs on ONE SHEET: +≈ 8 mm of width or a tighter pitch (systems), and the white/black distinction kept in two stone greys;
+  - (e) the mustard CUTOFF earns its place as the one leaf. Don't add a second accent.
+
+#### NEW, the director's direction: **DIPTYCH (FOLD), "a pocket instrument for reading the day outdoors"**
+*Draws: sundial / gnomon, wonder, "Be extravagant". Kind: a scientific/field instrument, which differs from furniture (BUTTERFLY), instrument case (CHAMBER) and landscape (RAIN).*
+- **The forced connection is literal:**
+  - 16th–17th-century **diptych sundials** (Nuremberg) were two hinged leaves of ivory or boxwood, carried in a pocket and opened outdoors to read the time;
+  - a **string gnomon** stretched between the leaves fixed the opening angle;
+  - their faces were covered in fine engraved scales filled red and black, often **several hour systems on one face**, with the maker's mark;
+  - **FOLD already is a diptych**, and he wants to take it to the park.
+- **Point of view:** you open it outdoors, it sets itself to home, and its scales tell time two ways.
+  1. **The string is the stay.** Two braided cords, one at each end face, run from the lid's top corner to the base's end face and set the 120° standing angle. They replace v1.1's brass flat stays.
+     - That also removes **v1.1's open must-fix**: the right stay's groove ran through the lid-wall jacks. A cord needs no groove.
+     - The cord unclips at one end to close.
+  2. **The cords sit at the latitude of home.** In a real diptych the string's angle to the lower leaf equals the latitude. Here the anchor is placed so the standing cord sits at **37.4° (Lynchburg)**.
+     - [CALC, rough, ignoring wall and hinge offsets: a 108 mm lid at 60° to the table → anchor ≈ 68 mm forward of the hinge on the base end face; cord ≈ 154 mm.] The 120° stand he approved doesn't change.
+     - It's a hidden fact, not a gimmick: no working sundial is claimed. It's the sort of thing he'd tell a friend on the bench.
+  3. **Two hour systems = TIME's two scales.** His newest feature becomes the centrepiece. The FREE / SYNC toggle in front of TIME picks the scale, exactly as a diptych carries Italian and common hours on one dial.
+     - The TIME dial is drawn as the instrument's one full engraved dial: the ms arc, the division arc, and fine graduations.
+  4. **"Be extravagant" for $0: graduations everywhere.** Every knob gets a fine engraved scale, and the scales stay legible.
+     - **Red and black fill on the white pickguards, which become the two leaves.** The walnut block stays, keeping his FOLD colourway (Proof walnut + white).
+     - The plate already prints face down with a colour swap, so engraving is a swap pattern, not a new process.
+  5. **The maker's mark** in a small cartouche on the lid's axis (the v1.1 lozenge, given its history).
+- **Why I'm putting my own idea through (and how to be hard on it):** it's the only branch where the **new tempo feature, the park and the fold are one idea**.
+- **Its risks, plainly:**
+  - **next to CHAMBER, two historic-instrument FOLDs with engraving can read as one family.** They must stay apart: CHAMBER = dark, brass, outside, joy, pegs; DIPTYCH = the inside faces, red/black line on white, cords, wonder, v1.1 flat keys;
+  - cords near the bend stick (left end) and TAP (right end) could snag a thumb (systems: exact anchor heights and clearances);
+  - fine scales can turn fussy, and his panel has ≈ 40 controls.
+- **What it must prove:**
+  - (a) a standing 3/4 render with the cords that reads as "field instrument", not "boat rigging";
+  - (b) a 1:1 crop of the TIME dial with both scales legible at ≥ 1.05 mm type;
+  - (c) cord geometry, tension and tip stability vs the brass stays (eng: the v1.1 tip figure was 6.8 N);
+  - (d) the whole panel with graduations stays calm at arm's length (the RAIN test again).
+- If it can't separate from CHAMBER at concept stage, **I cut DIPTYCH, not CHAMBER.**
+
+### 4. Which branches become concepts
+**Going to concepts (4): CHAMBER, RAIN, BUTTERFLY, DIPTYCH.** (This closes the jam; `READY:` comes later, after the building turns.)
+- Two ONE SHEET, two FOLD: his lean is covered evenly, so the late ONE SHEET vs FOLD choice stays open.
+- Four kinds: case, landscape, furniture, field instrument.
+- Four emotions: joy, calm, longing, wonder.
+- Two peg branches (CHAMBER, RAIN) and two flat-key branches.
+- This is under the R6 cap of 5. If any branch fails its "must prove" list at the first build pass, it's cut there, not carried to the owner.
+- **Ownership:** visual leads the look of all four. Systems leads the geometry checks (BUTTERFLY joint depth, CHAMBER closed height with pegs, RAIN peg width, DIPTYCH cord anchors). Every concept gets the 3/4 + top + front + one detail sheet at 1:1. The owner judges from pictures.
+
+### 5. Set-wide rulings
+- **FREE / SYNC:** I accept the visual designer's placement **in front of TIME, in the pot's dead zone**, with a fore-aft throw (toward TIME = sync) and two printed scales. It's pending systems' checker run with labels.
+  - **No mirror partner**, because echo is the only effect that cares about time. The asymmetry is the information.
+  - DIPTYCH makes this the hero; the other branches draw it in their own type.
+- **H7 (one light) stands.** I won't add a lit TAP. For sun, **every branch recesses the status light under a short hood or light pipe** (GROUND's donor; a recess, so nothing is raised). If a park test shows it's unreadable, revisit.
+- **No name on any branch** until he picks one. Use blank cartouches/lozenges.
+- **Branch rule (systems' rule, endorsed):** the board is the constant and the outside is the branch. No branch may move a control.
+
+### 6. Questions only the owner can answer (worded for him)
+1. **CHAMBER's keys are reversed, like an old organ: dark naturals, light sharps.** Would that bother you when you play, or is it part of the charm?
+2. **Pegs cost a little:** about +8 mm of width on ONE SHEET, and about +4 mm of closed thickness on FOLD (≈ 50 → 54 mm). Worth it for the pegs you love?
+3. **How long is a park afternoon for you** (2 h? 4 h?)? It decides whether FOLD's slim battery is enough.
+4. **When you tap a tempo, should the instrument also send it out as MIDI clock**, so a drum machine on the bench follows it? (Firmware only.)
+5. **The furniture book:** what's the exact title and author? We'd like to read what you're pointing at instead of guessing.
+
+NEXT: product designer (visual focus) — the jam closes with four branches going to concepts (CHAMBER, RAIN, BUTTERFLY, DIPTYCH) with a "must prove" list each; the looks lead now, and the cord, peg and joint geometry go to systems in parallel.

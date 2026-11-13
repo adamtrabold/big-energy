@@ -1,6 +1,14 @@
 # Systems designer notes: project site
 
-## Where things stand (2026-11-13, after jam turn 4)
+## Where things stand (2026-11-13, after concept turn 1)
+- Concept turn 1 (mine, first): wrote `concepts/common-how-it-works.md` (shared data, lamp incl. Connecting + Live lost states, events/queued, J12 conditional, item viewer, lineage/compare, hash routes, shared states table, session steps) and `concepts/{cabinet,the-set,herbarium}/how-it-works.md` (structure, flows, 8-frame table with tap counts, concept states, weak spots). Visual designer's turn next.
+- jobs.md went to the owner; orchestrator asked him about J12. Answer pending: concepts treat J12 as conditional (common §4 says what replaces it).
+- Concept reshapes (mine): Cabinet 4 columns (records out; decisions = scrubber ticks), Lock/Handoff rows one wide cell, level line + "not yet" per row, newest strip, scrubber scrubs decisions/locks (real case Round 2: HUSH, ONE SHEET, FOLD, TYPE CASE, HYMNAL, UNDER GLASS). Set: sections = stages + Records; issue/rev/version kept apart; revision table lists locks + named issues only; Δ = unseen issue (signed out: latest issue); revision clouds from build.py pixel diffs ("unacceptable colour" draw); "go to" code field. Herbarium: decisions are specimens (words + caused items mounted); stage strip; versions = filtered set with cover; slips show 2 + "+n earlier"; one-of-each-kind row ("only one element of each kind" draw); records off main column.
+- Taps frame 3: all three = 2 to v1.1, 3 to v1. Frame 5: C 2+scroll, D 3, E 2+scroll.
+- Fact fix: "Switch to Daisy Seed" is 13 Nov (after the 13 Nov 09:02 entry), not 12 Nov. Corrected in jam turn 4 and concepts.
+- Open for builder: how open pages move to a new artifact version ("next quiet moment") — page saves route/scroll in artifact state; fallback fetch manifest. Cloud diffs need threshold for re-render noise.
+
+## Earlier: after jam turn 4
 - Jam done (turns 1 systems, 2 visual, 3 director, 4 systems). `site/design/jobs.md` written: problem sentence, settled rules, shared model, J1–J14 with "done when", flows F1–F8, update path, backfill, the 8-frame test mapped to jobs.
 - Director's rulings (turn 3): A Lab Book retired (parts absorbed: Day/Round/Version history grains, decisions verbatim at body size, lock = ruled signed line); B Shelf dropped (track list → version page; detents → C scrubber). **Three concepts: C Cabinet (structure-first), D The Set (document-first), E Herbarium (work-first).** Tests are a kind, stage renamed Breadboard. Artifact not GH Pages. Self-host subset Inter via assets. No dark mode in concepts. FAIL in words only. Region sidecars yes. Archive included, greyed. publish.sh automatic. Lineage by repetition is the compare answer.
 - Owner 12:06: "anyone that gets the link is fine to see everything" (one view, nothing hidden) and "it is primarily me" (design for Adam first; tie-break rule).

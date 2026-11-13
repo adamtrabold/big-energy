@@ -1,5 +1,63 @@
 # Director notes: Little D (budget instrument), physical design
 
+## BRANCHES, jam turn 3 (2026-11-13, new director taking over): READ THIS FIRST
+- **Task:** the owner's branched creative rounds (owner.md 11:47). He wants more personality and a holistic point of view; sources: furniture principles, instruments, tools, art, emotion, "take this to the park". He loves the pegs; "organ like" on FOLD is an example only. **Echo sync DECIDED: B, a FREE / SYNC toggle near TIME** (11:58). The v1.1 locks are never edited.
+- **My turn:** the bottom of `design/branches/jam.md`. Draws: `design/branches/draw-director.py` (fresh decks; used Oblique cards removed). Results:
+  - director: "Be extravagant", sundial / gnomon, wonder, a bandstand;
+  - per branch: BUTTERFLY "lighter than it looks" / "From nothing to more than nothing"; CHAMBER "a place for your own mark" / "Look at the order in which you do things"; GROUND "tell it from 30 m" / "Lost in useless territory"; RAIN "makes a sound when you close it" / "Courage!";
+  - d20 kill test: BUTTERFLY 9, CHAMBER 11, GROUND 2, RAIN 7, DIPTYCH 15;
+  - unused: coffee grinder.
+- **Kills:**
+  - **PIERCED, upheld:** +55 mm for one gesture, against cost and portability.
+  - **GROUND, killed by me:**
+    - a posture is a stand, not a point of view;
+    - +25–37 mm at the back against the ≈ 36 body;
+    - the horn is unverified;
+    - FOLD's lid already tilts.
+  - GROUND's donors: the status-light hood (now set-wide), high-contrast sun type, the felt finger pocket, and "the bottom is as designed as the top".
+- **Going to concepts (4), each with a "must prove" list in the jam §3:**
+  - **CHAMBER (FOLD):** the strongest branch, so held hardest.
+    - The order of use is the concept: closed façade → flat console → standing façade to the listener.
+    - Flush nameboard cartouche on the axis for his maker's mark.
+    - **Costume watch:** line work only, serif only on the RANGE feet and the nameboard.
+    - The sketch's "little d" must go (the owner hates the name).
+    - Must prove: the closed bar reads as an organ case, the closed height with pegs, reversed pegs at 1:1, engraved fill vs printed relief, a standing view from behind.
+  - **RAIN (ONE SHEET):** the most generative.
+    - "Courage!": drop the section grooves and let the Voronoi seams be the only section marks; the field runs to every edge.
+    - Optional: a power-off "drop" sound ($0, firmware).
+    - Must prove: calm at arm's length and alive up close, legends on the lily pads, 0.9-pitch rings that still feel like v1.1's, peg width (+8 mm), one mustard accent only.
+  - **BUTTERFLY (ONE SHEET):**
+    - The butterfly must do a job, so the rail is **two bookmatched live-edge offcuts joined by the butterfly on the axis**. That makes the joint honest, uses cheaper short pieces, and mirrors the wild edge, which gives it balance.
+    - Rail ≈ 20 mm of wood, "lighter than it looks".
+    - The set's flat-key branch.
+    - Must prove: printed cream beside real walnut reads as intended, not a kit (biggest risk; try a matte bone/stone filament); joint depth; slotted screws and the drilling jig; the cleat hanging.
+  - **DIPTYCH (FOLD), my own:** a Nuremberg diptych sundial.
+    - Cords at the end faces are the stay. They replace the brass stays and remove v1.1's stay-groove/jack clash.
+    - The cords are set at Lynchburg's latitude, 37.4° [CALC rough: anchor ≈ 68 mm forward of the hinge, cord ≈ 154 mm, at the approved 120°].
+    - TIME's two scales are its "two hour systems" (the FREE/SYNC feature becomes the hero).
+    - Red and black engraved graduations on the white leaves; the walnut stays.
+    - **I'm hard on it:** if it can't separate from CHAMBER at concept stage, cut DIPTYCH, not CHAMBER. Cord snag risk near the stick and TAP.
+- **Set-wide rulings:**
+  - FREE/SYNC placement accepted: in front of TIME, in the dead zone, fore-aft throw (toward TIME = sync), two scales, no mirror partner. Pending systems' label check.
+  - **H7 stands** (no lit TAP); a hooded or light-piped status light in every branch.
+  - No name on any branch.
+  - The board is the constant; no branch moves a control.
+- **Calibration carried from my predecessor:** a 9 = every visible choice traces to one idea, the owner rules are met, there's a lean cost default, the owner's hand has a place, and it's the most interesting version of itself.
+  - For the branches I add: **a whole point of view (one sentence decides form, material, graphics, making and feel), and a picture that makes him want to take it to the park.** A nice detail isn't a point of view.
+  - The owner has paused 9s (TYPE CASE, HYMNAL) to narrow the set, but he has never sent one back on quality. His pattern: he reacts to specific physical annoyances (dividers, lip, slot-as-fader, balance) and to cost and name; he rewards texture he can feel (rings, pegs, felt).
+- **Likely owner objections, by branch:**
+  - CHAMBER: costume, +4 mm closed, reversed keys;
+  - RAIN: busy or dizzy, +8 mm width;
+  - BUTTERFLY: plastic next to real wood looks cheap, "just a plank on ONE SHEET";
+  - DIPTYCH: too close to CHAMBER, fussy scales, cords in the way.
+- **Owner questions (in the jam §6):**
+  1. CHAMBER's reversed keys OK?
+  2. Pegs worth +8 mm width (ONE SHEET) / +4 mm closed (FOLD)?
+  3. Park session length (battery)?
+  4. Tapped tempo sent out as MIDI clock?
+  5. The furniture book's exact title and author?
+- **Not scored yet.** **Next:** visual leads the concept builds, with systems on the geometry in parallel. I steer after every pair of their turns, then score all four in one pass and name the owner objections first.
+
 ## Status (fix check, 2026-11-13 ~11:35): READ THIS FIRST
 - Both must-fixes verified by eye: the slot is gone. A round opening now shows in the 3/4 views (A on all three, FOLD E). FOLD D's end view shows three ports (MIDI IN, MIDI OUT, USB-C), and its note is corrected. I saw no regressions in the changed sheets: labels, stand and callouts are unchanged.
 - **HUSH 9, ONE SHEET 9, FOLD-105 9 hold.** The 3/4 joystick reads unmistakably now. Next: the owner picks a concept, then I check handoff.md. The nice-to-haves below are still open.
