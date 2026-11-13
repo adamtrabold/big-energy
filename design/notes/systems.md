@@ -1,5 +1,12 @@
 # Systems designer notes — Little D
 
+# Dry pan / delay pan / FOLLOW (2026-11-13; owner: audio pans, "Follow dry")
+- DRY PAN: control pot → Daisy → MCP4251-103 dual digipot as complementary dividers (constant-sum) on the analog dry; CC 10. Fallback: a passive dual-gang (no MIDI). DELAY PAN in DSP (outputs + reverb input; stereo-in reverbs). FOLLOW 2-way toggle (delay = dry, same side). VOICE PAN merged into DRY PAN (the send follows the dry).
+- TS on LINE OUT now *requires* the 74HC4053 sum (the dry is panned in analog). Speaker constant. MIDI send = open with the owner (not assumed).
+- Row: DELAY PAN 142.5; DRY PAN 240.5 | VOLUME 260.5; FOLLOW at (250.5, d 73); TAP to base 261. §9: 0 violations. ≈ $4–5, +3 mux channels. ⚑ D+O.
+
+---
+
 # Two pans (draft, 2026-11-13): voice pan into the effects + echo pan (syncable)
 - ECHO PAN knob, one new control: FREE = still position; SYNC = auto-pan at the echo's division (width = distance from centre), TAP / clock tempo. VOICE PAN = the old FX PAN (CC 10). Constant-sum law: the speaker and TS mono hear no pumping. Reverbs need stereo input (+10–15 % for the plate etc.).
 - Row: ECHO PAN in TAP's slot (142.5), reverb +0.5, VOICE PAN 240.5 | VOLUME 260.5, TAP back to the base x 261. §9: 0 violations. ⚑ D+O; waiting on the owner's meaning of "sync"; CC 102 proposed; send = open.

@@ -454,7 +454,7 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
   - otherwise a **firmware dead zone of ±3 % at centre**, no part needed.
   - Fully left or right: the send enters one side only, so on PING-PONG the repeats then alternate from that side.
 - **MIDI (owner: "Yea sure on midi"): FX PAN receives CC 10, jump-on-move as usual.**
-  - It joins the MIDI-controllable set, so it gets the engraved MIDI dot, it lights the not-in-control light while CC 10 holds it, and it **sends CC 10 out when moved**, like the other marked knobs (jobs F7 step 7).
+  - It joins the MIDI-controllable set, so it gets the engraved MIDI dot and lights the not-in-control light while CC 10 holds it. **Whether it also sends CC 10 when moved is open with the owner** (jobs F7 step 7 assumed knobs send; he hasn't confirmed). §15.5 moves CC 10 to DRY PAN.
   - The Daisy reads it anyway, so it costs firmware only.
   - **What it pans** (owner asked: "is it sending the delay through the pan too or just the dry"): **the send into echo and reverb.** The repeats and the reverb come out panned; the dry voice stays centred.
     - The reverb is stereo, so its tail **spreads around** the panned position rather than sitting hard on one side.
@@ -466,53 +466,68 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
   - Legend: **"fx pan"**, so nobody reads it as a master pan.
 - **Consequence:** the base PLAY row's right end (x 186–270) is still empty (§14 options 2–3). Option 1 (VOLUME and TAP back to the base) would split PAN from VOLUME.
 
-### 15.5 Two pans, the echo's syncable (DRAFT; owner: "pan the delay into the reverb separately from the dry signal but also would want to be able to sync that") ⚑ D+O
-Drafted under the coordinator's reading while he confirms it: **"sync" = a tempo-synced auto-pan** that moves the echo back and forth with the clock or TAP.
+### 15.5 Dry pan, delay pan, and FOLLOW ⚑ D+O (owner: "No the pan would be audio signal… pan just the delay separately from the full dry… have the pan signals sync"; then "Follow dry")
+**What he wants:**
+1. a pan for the **full dry voice on the outputs**;
+2. a **separate pan for the delay**;
+3. a link so the **delay pan follows the dry pan, same side**.
+
+No tempo auto-pan (the earlier draft is withdrawn).
 
 **Signal flow:**
 ```
-voice (mono, analog) ─┬─ dry ──────────────────────────────► outputs, centred (L = R)
-                      └─ FX send → [VOICE PAN] ─┬─────────────► reverb in (stereo)
-                                                └→ ECHO ─► [ECHO PAN: still, or moving in tempo] ─┬► reverb in (stereo)
-                                                                                                   └► outputs (ECHO MIX)
-reverb out (stereo) ─► outputs (REVERB MIX)
+voice (mono, analog) ─► [DRY PAN: dual digital pot, analog audio] ─► L sum / R sum ─► phones, line out (stereo), speaker (mono sum)
+            └─ FX send (follows DRY PAN in DSP) ─► reverb in (stereo)
+               └─► ECHO ─► [DELAY PAN, DSP; = DRY PAN when FOLLOW] ─┬► L / R sums (ECHO MIX)
+                                                                     └► reverb in (stereo)
+reverb out (stereo) ─► L / R sums (REVERB MIX)
 ```
-- **VOICE PAN** (today's FX PAN, renamed) places the **voice's send** where it enters the effects.
-- **ECHO PAN** places the **echo's repeats**, both on the outputs and where they enter the reverb.
-- **The dry voice stays centred.** It's analog after a mono VCA. Panning it on the outputs would need an analog pan pot into the two summing nodes: 1 pot, passive, no MIDI. That's a separate option if he meant "the dry to the outputs".
 
-**The fewest controls: one new knob, no new switch (rides FREE / SYNC).**
-- **ECHO PAN knob,** centre detent (part UNVERIFIED; firmware dead zone otherwise).
-  - **FREE / SYNC at "free":** ECHO PAN is a **still position**, L ↔ R.
-  - **At "sync":** ECHO PAN becomes an **auto-pan in tempo**:
-    - its distance from centre = the swing width;
-    - the side it's turned to = which side the swing starts on;
-    - the rate = **the echo's own division** (TIME's outer scale), so each repeat lands on the other side and the pan is always in time with the echo.
-  - **TAP** sets the tempo when there's no clock, as now. **No rate knob.**
-- **Cost of riding the switch:** he can't have a synced echo with a still pan, or a free echo with a moving pan.
-- **The independent alternative:** 1 knob + 1 toggle (STILL / MOVE). The toggle has no legal slot in the row as it stands, so it would need another move.
-- **Pan law: constant sum (L + R = 1)**, for both pans.
-  - **The speaker** (mono sum) **and a TS cable in LINE OUT** (mono on the tip, §15.4) hear **no level change and no pumping**: the auto-pan vanishes in mono.
-  - **Phones and stereo line out** hear it move.
-- **The reverb must take stereo input**, or the pan into it is lost.
-  - A Dattorro plate sums its input to mono. Eng's HALL (FDN / CloudSeed class) is stereo-in.
-  - Give PLATE / SPRING / SHIMMER **two input diffusers**: ≈ +10–15 % of one reverb's load (ESTIMATE, inside eng's 40–60 % budget).
-  - The pans and the LFO are a few multiplies per sample: negligible.
+**1. DRY PAN: analog audio, set by the Daisy (recommended route).**
+- The **knob is a plain control pot on a mux channel** (DC, read by the Daisy). The **audio goes through a dual digital potentiometer** wired as two complementary dividers into the L and R summing nodes: L = a, R = 1 − a, a **constant-sum law**.
+- **Part:** Microchip **MCP4251-103** (dual 10 k, 257 steps, SPI, DIP-14). **UNVERIFIED** this session (part, price ≈ $1.5, stock).
+  - It runs at 5 V, so the audio is AC-coupled and biased at mid-rail (eng: headroom, THD, wiper noise).
+  - One SPI chip-select: a spare Daisy pin or the 74HC595 latch (control rate is fine).
+- **The dry stays analog.** No converter touches it; the digipot is a resistor network. It does add a part in the dry path, so eng should confirm it meets "the dry path analog and never switched" (`daisy-first-principles.md` §6.1) in spirit.
+- **Why not a passive pan pot:**
+  - a passive pot (a dual-gang: one gang audio, one gang DC so the Daisy knows its position for FOLLOW) works, but **can't take MIDI**;
+  - the pan's CC 10 was already decided. The digipot gives CC 10, FOLLOW and jump-on-move from one knob.
+  - **Fallback:** the passive dual-gang, knob-only, with FOLLOW still possible.
+
+**2. DELAY PAN: in the DSP.**
+- It places the echo's output on the outputs **and** where it enters the reverb, so the reverb image follows the repeats.
+- Reverbs take **stereo input** (PLATE / SPRING / SHIMMER get two input diffusers: ≈ +10–15 % of one reverb's load, ESTIMATE). The pans cost nothing measurable.
+- **PING-PONG:** the repeats alternate starting on the pan's side.
+
+**3. FOLLOW: one 2-way toggle, OFF / FOLLOW.**
+- **FOLLOW:** the delay pan takes the dry pan's position (same side, his answer). The DELAY PAN knob is inactive.
+- **OFF:** the delay pan goes back to its own knob. The toggle's position shows the state; no jump surprises beyond that.
+- **The old VOICE PAN** (the send into the effects) **merges into DRY PAN.** The Daisy places the voice's send where the dry sits, so the dry's reverb starts on its side. No extra knob.
+
+**What each output hears** (constant-sum laws throughout):
+- **Speaker** (mono sum (L + R)/2): **no level change** as either pan moves.
+- **Phones / line out with a stereo plug:** both pans as set.
+- **LINE OUT with a TS (mono) plug:** the tip must carry L + R. With the dry now panned in analog, the firmware wet-mono trick (§15.4) **isn't enough** (a dry panned right would vanish from the tip). So the **74HC4053 analog-switch route becomes required**: on TS it sums R into the LINE OUT's left driver. Generic part ≈ $0.50, UNVERIFIED.
+- **Phones with a TS plug:** L only, as stated in §15.4 (a dry panned right is quiet there). Accepted.
 
 **MIDI:**
-- VOICE PAN: **CC 10 receive (decided)**.
-- ECHO PAN: **receive on an undefined CC** (proposal **CC 102**), jump-on-move. Both get the engraved MIDI dot and the not-in-control light.
-- **Open for him:** should moving them **send** their CCs out? (The other marked knobs do, jobs F7 step 7.)
-- **Clock:** with MIDI clock in sync mode, the auto-pan follows the clock exactly as the echo does (`echo-clock.md`). It glides to a new tempo and holds on clock loss.
+- DRY PAN **receives CC 10**, jump-on-move (the digipot makes this possible).
+- DELAY PAN **receives CC 102** (proposal, undefined CC), jump-on-move.
+- **FOLLOW is a switch: MIDI never flips switches**, as the rule says.
+- **Whether moving these knobs (or any MIDI-controllable knob, or the keys) *sends* MIDI is open with the owner.** It's not assumed here.
 
-**Placement (layout B's effects row, d 83.85) [CHECK §9, third run: 0 violations]:**
-- **DRIFT 33.5 | ECHO: TYPE 62.5 · TIME 82.5 · REPEATS 102.5 · MIX 122.5 · ECHO PAN 142.5 | REVERB: TYPE 171.5 · DECAY 191.5 · MIX 211.5 | VOICE PAN 240.5 · VOLUME 260.5**;
-- breaks 48 / 157 / 226 (reverb group shifted +0.5 so the break clears both edges);
-- FREE / SYNC unchanged at (96, d 69).
-- **TAP moves back to the base PLAY row's right end, x 261** (its v1.1 spot, mirroring the bend stick). That fills part of the empty base right; TAP is played by hand in rhythm.
-- **⚑:** that takes TAP out of the "effects together" row he asked for.
-- **The only other layout that fits two pans** pushes FREE / SYNC into OSC 3 CTL, or VOLUME past the edge (checked: no legal slot).
-- Labels: the model needs ECHO PAN / VOICE PAN for §7 (visual).
+**Placement (layout B's effects row, d 83.85) [CHECK §9, fourth run: 0 violations]:**
+- **DRIFT 33.5 | ECHO: TYPE 62.5 · TIME 82.5 · REPEATS 102.5 · MIX 122.5 · DELAY PAN 142.5 | REVERB: TYPE 171.5 · DECAY 191.5 · MIX 211.5 | DRY PAN 240.5 · VOLUME 260.5**;
+- **FOLLOW toggle at (250.5, d 73)**, in front, between DRY PAN and VOLUME (nearest: L SUSTAIN 2.50, DRY PAN 2.71, VOLUME 2.71);
+- breaks 48 / 157 / 226; FREE / SYNC unchanged.
+- **DRY PAN and VOLUME legends go behind their knobs** (the toggle sits where their legends were); words "off" / "follow" beside the toggle.
+- The model needs these for §7's label check (visual).
+- **TAP moves back to the base, x 261** (v1.1 spot) ⚑.
+
+**Cost, power, mux (ESTIMATE, UNVERIFIED):**
+- digipot ≈ $1.5, two pots + knobs ≈ $1.8, toggle ≈ $0.5, 74HC4053 ≈ $0.5: **≈ $4–5** over §15.1's stereo stage.
+- Mux: **+3 channels** (2 pots, 1 toggle) on top of B's moves (eng: lid mux count).
+- 1 SPI chip-select. A few mA.
 
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?

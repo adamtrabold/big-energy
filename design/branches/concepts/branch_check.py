@@ -529,7 +529,7 @@ def check_chamber_back():
                 if bad: fail(f"pitch 8.75: {fe} on a pipe")
 
 # ---------------------------------------------------------------- 9. CATHEDRAL (CHAMBER + FOLD v1.1), option B: every effect on one row
-def check_cathedral_b(row=None, brk=None, title="option B"):
+def check_cathedral_b(row=None, brk=None, title="option B", extra_t=()):
     """Option B (moves controls: director, then owner): the lid back row carries every FX control + VOLUME + DRIFT;
     the base PLAY row's right section (was REPEATS, ECHO MIX, REVERB MIX, TAP) becomes the speaker (round grille).
     Same rules as fold_r5_check: pitch 20, gaps >= 1.5, knob/button >= 7 and toggle >= 3 from breaks, lid edge >= 16,
@@ -543,6 +543,7 @@ def check_cathedral_b(row=None, brk=None, title="option B"):
     sync = ("FREE/SYNC", 96.0, TGL, "t", 69.0)
     bad = 0
     items = [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")]
+    items += [(n, x, dd, TGL, "t") for n, x, dd in extra_t]
     items += [(n, x, dV2, F.KN if k == "k" else F.TGL, k) for n, x, r, k in F.v2]
     items += [(n, x, 14.45, F.KN if k == "k" else F.TGL, k) for n, x, r, k in F.v1]
     items += [(n, x, F.D_SW, F.TGL, "t") for n, x, r, k in F.sw]
@@ -557,7 +558,7 @@ def check_cathedral_b(row=None, brk=None, title="option B"):
     if dFX + KN + 12 + 4 > D + 1e-6: fail("B FAR RIM"); bad += 1
     # closed landing over CATHEDRAL's pegs (lid +2.6 -> lid item bottoms at 21.5 + 2.6)
     pegs = [(17 + 18 * n, 13.5) for n in range(15)] + [(8 + 18 * (i + 1), 36.0) for i in range(14) if [1, 1, 0, 1, 1, 1, 0][i % 7]]
-    for n, x, dd, r, k in [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")]:
+    for n, x, dd, r, k in [(n, x, dFX, r, k) for n, x, r, k in row] + [(sync[0], sync[1], sync[4], sync[2], "t")] + [(n, x, dd, TGL, "t") for n, x, dd in extra_t]:
         yl = D - dd
         if any(math.dist((x, yl), p) < r + PEG_R + 1.0 for p in pegs):
             clr = (F.LID_FACE_CLOSED + 2.6 - F.KNOB_H) - (F.BASE_PLATE + PEG_TOP)
@@ -567,6 +568,9 @@ def check_cathedral_b(row=None, brk=None, title="option B"):
           f" nearest {', '.join(f'{n} {g:.2f}' for g, n in near)}")
     print(f"  base PLAY right freed: x 186–270 between the break (184.5) and the edge; y 55–82 between the keys (54.6) and"
           f" V1's closed landing (86.1) -> a round grille up to Ø 27 centred (228, 68), or a 60 x 30 speaker under a Ø 27 rose")
+    for n, x, dd in extra_t:
+        nn = sorted((math.dist((x, dd), (c[1], c[2])) - c[3] - TGL, c[0]) for c in items if c[0] != n)[:3]
+        print(f"  {n} at ({x}, d {dd}): nearest {', '.join(f'{m} {g:.2f}' for g, m in nn)}")
     print(f"  violations {bad} (labels not yet checked: no model exists for option B)")
 
 def check_cathedral_render():
@@ -608,6 +612,11 @@ check_cathedral_b([("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECH
                    ("ECHO MIX", 122.5, KN, "k"), ("ECHO PAN", 142.5, KN, "k"), ("REVERB TYPE", 171.5, KN, "k"), ("REVERB DECAY", 191.5, KN, "k"),
                    ("REVERB MIX", 211.5, KN, "k"), ("VOICE PAN", 240.5, KN, "k"), ("VOLUME", 260.5, KN, "k")],
                   [48.0, 157.0, 226.0], "two pans (ECHO PAN in TAP's slot 142.5; VOICE PAN 240.5 | VOLUME 260.5; TAP back to the base, x 261)")
+check_cathedral_b([("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
+                   ("ECHO MIX", 122.5, KN, "k"), ("DELAY PAN", 142.5, KN, "k"), ("REVERB TYPE", 171.5, KN, "k"), ("REVERB DECAY", 191.5, KN, "k"),
+                   ("REVERB MIX", 211.5, KN, "k"), ("DRY PAN", 240.5, KN, "k"), ("VOLUME", 260.5, KN, "k")],
+                  [48.0, 157.0, 226.0], "dry pan + delay pan + LINK (DELAY PAN 142.5; DRY PAN 240.5 | VOLUME 260.5; LINK toggle in front between them)",
+                  extra_t=[("LINK", 250.5, 73.0)])
 for _f in (check_render_collisions, check_cathedral_render):
     try:
         _f()
