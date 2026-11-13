@@ -6,3 +6,8 @@
 - The systems designer also defines echo behaviour under MIDI clock (the owner asked for it; eng parses clock but the control behaviour is undefined).
 - Open with the owner: which "principles of design" book he means (not blocking).
 - Next decisions that are the owner's (from the handoff): ONE SHEET or FOLD; the name. Both are on hold while the branches run.
+
+## 2026-11-13 11:51: second loop, the project site
+- Owner asked for a web landing page and interaction hub (site/design/owner.md). Design loop, concept phase. Folder site/design/. Separate agents from the branches team.
+- Facts given to the team: artifact capabilities list, no fitting type, "live update" needs a session to publish.
+- Asked the owner: how much interaction he means (view only vs. feedback/decisions there).
