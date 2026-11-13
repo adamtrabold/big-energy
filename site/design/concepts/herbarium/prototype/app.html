@@ -49,6 +49,8 @@ header.band{padding:18px var(--m) 12px}
 .strip a span{display:none}
 .stripline{font-size:12.5px;color:var(--ink2)}.stripline b{color:var(--ink);font-weight:600}
 nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:10px 0;border-top:1px solid var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
+.wrap:has(>nav.filters){margin-bottom:24px}
+@media(min-width:1024px){.wrap:has(>nav.filters){margin-bottom:36px}}
 @media(max-width:599px){nav.filters{flex-wrap:wrap;gap:4px 18px;white-space:normal}}
 nav.filters a{font-size:15px;color:var(--ink2);padding-bottom:4px}
 nav.filters a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
@@ -126,7 +128,7 @@ h2.sec{font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppe
 .rows .c{font-weight:600;min-width:74px}
 .rows .x{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right}
 /* item */
-.back{display:flex;justify-content:space-between;align-items:center;padding:14px var(--m) 10px;font-size:14px;color:var(--ink2)}
+.back{display:flex;justify-content:space-between;align-items:center;padding:0 var(--m) 10px;font-size:14px;color:var(--ink2)}
 .back button{font-size:13px;color:var(--ink2)}
 .item{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-bottom:30px}
 @media(min-width:1024px){.item{grid-template-columns:minmax(0,1fr) 372px;gap:32px}.item .aside{align-self:end;position:sticky;bottom:72px}}
@@ -247,7 +249,8 @@ details.jump a{display:block;padding:3px 0}
 .nofig figure{display:none}
 /* page point, waiting list, about */
 .sub a,.back a,.back button,[data-copy],.link a,.dec .cz a,h2.sec a{display:inline-block;padding-top:5px;padding-bottom:5px;margin-top:-5px;margin-bottom:-5px}
-.purpose{font-size:15px;margin:14px 0 16px;max-width:70ch}
+.purpose{font-size:15px;margin:0 0 20px;max-width:70ch}
+main>.status{margin-bottom:12px}
 .wlist{margin:0 0 10px;padding-left:22px}.wlist li{padding:6px 0;border-top:1px solid var(--rule)}
 .wsec{border-top:1.5px solid var(--ink);padding-top:10px;margin-top:26px}.wsec h2{font-size:19px;font-weight:600;margin:0 0 6px}
 .about{margin-top:40px;padding-top:12px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink2)}.about b{color:var(--ink);font-weight:600}
