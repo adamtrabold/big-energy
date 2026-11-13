@@ -1,5 +1,7 @@
 # BUTTERFLY: how it works (systems)
 
+> **Status 2026-11-13: RETIRED (director, round 1: 6).** Kept for the record. Donors to other branches: the tabletop-over-apron rear (jacks sheltered under an overhang) and the live edge as a horizon.
+
 Seed: **ONE SHEET** (v1.1, 276 × 180). Kind: furniture. Point of view: **from tool to tree, front to back**: exact at the playing edge, free at the rear. Emotion: longing. Flat keys (the set's non-peg answer, director). Read with `../common-how-it-works.md`, `versions/v1.1/one-sheet/how-it-works.md`, `versions/v1.1/common-how-it-works.md` and `design/jobs.md` rev 5.
 
 **Rev 1, 2026-11-13, concept turn 1 (systems first).** Numbers marked [CHECK] come from `../branch_check.py` §3.

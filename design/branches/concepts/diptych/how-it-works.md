@@ -1,5 +1,7 @@
 # DIPTYCH: how it works (systems)
 
+> **Status 2026-11-13: KILLED (director, round 1).** The spine failed physically (§1: 0.8 N with cords alone). Donor: the red/black TIME dial with written divisions; any branch may adopt it. Common §2's geometry applies.
+
 Seed: **FOLD-105** (v1.1). Kind: a field instrument. Point of view (director): **a pocket instrument for reading the day outdoors.** It opens, stands on its cords, and its TIME dial tells time two ways. Emotion: wonder. Flat keys (v1.1). Read with `../common-how-it-works.md`, `versions/v1.1/fold/how-it-works.md` (rev 5.7) and `design/jobs.md` rev 5.
 
 **Rev 1, 2026-11-13, concept turn 1 (systems first).** Numbers marked [CHECK] come from `../branch_check.py` §5.

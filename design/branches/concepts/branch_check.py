@@ -280,6 +280,254 @@ def check_facade(Lmax=66.0, impost=18.0, pitch=10.0):
     print("  screws on d 12 = the impost line (under the pipe feet); d 96 screws above the tallest top"
           f" (d {impost + Lmax:.0f}) -> clear")
 
+# ---------------------------------------------------------------- 7. legends, tick rings, controls: what the renderer really draws
+# Instruments the visual designer's models (design/concepts/_mock-src/rb.py: Chamber, rain) by recording every txt()
+# and tick the model emits on the playing faces, then measures each text's exact ink box with OpenSCAD (SVG export,
+# cached in /tmp). Rules (S1 + director, round 1): legend-legend >= 1.5 (hard overlap < 0), legend-tick >= 1.0,
+# legend-control >= 1.5, tick-to-another-control >= 0.5. Controls are the layout circles (+ pegs, FREE/SYNC).
+import json, subprocess, tempfile, hashlib, concurrent.futures as cf
+MOCK = os.path.join(HERE, "..", "..", "concepts", "_mock-src")
+CACHE = "/tmp/branch_check_textbox.json"
+
+def _scad_box(key):
+    s, size, font, ha, va = key
+    esc = s.replace('"', '\\"')
+    with tempfile.TemporaryDirectory() as td:
+        src = os.path.join(td, "t.scad"); out = os.path.join(td, "t.svg")
+        open(src, "w").write(f'text("{esc}", size={size}, font="{font}", halign="{ha}", valign="{va}", $fn=24);')
+        subprocess.run(["openscad", "-o", out, src], capture_output=True, timeout=120)
+        if not os.path.exists(out):
+            return None
+        import re
+        num = r"-?[\d.]+(?:[eE][-+]?\d+)?"
+        pts = [(float(a), float(b)) for a, b in re.findall(rf"({num}),({num})", open(out).read())]
+    if not pts:
+        return None
+    xs = [a for a, b in pts]; ys = [-b for a, b in pts]           # SVG y is down
+    return (min(xs), min(ys), max(xs), max(ys))
+
+def text_boxes(keys):
+    cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
+    todo = [k for k in keys if json.dumps(k) not in cache]
+    if todo:
+        with cf.ThreadPoolExecutor(8) as ex:
+            for k, b in zip(todo, ex.map(_scad_box, todo)):
+                cache[json.dumps(k)] = b
+        json.dump(cache, open(CACHE, "w"))
+    return {tuple(json.loads(k)): v for k, v in cache.items()}
+
+def record(build, face_z_min):
+    """run build() with txt / ticks / _tick patched; return (texts, ticks) drawn at z >= face_z_min."""
+    sys.path.insert(0, MOCK)
+    with contextlib.redirect_stdout(io.StringIO()):
+        import ld, r4, r5, rb
+    T, K = [], []
+    o_txt, o_ticks, o_tick = ld.txt, ld.ticks, rb._tick
+    def p_txt(x, y, z, s, size, col, font="Inter:style=SemiBold", halign="center", valign="center", rot=0, h=0.12):
+        if z >= face_z_min and s.strip():
+            T.append((x, y, s, size, font, halign, valign, rot))
+        return o_txt(x, y, z, s, size, col, font=font, halign=halign, valign=valign, rot=rot, h=h)
+    def p_ticks(x, y, z, r, n_or_angles, col, length=1.4, width=0.45, span=300):
+        if z >= face_z_min:
+            angs = ([-span / 2 + span * i / (n_or_angles - 1) for i in range(n_or_angles)]
+                    if isinstance(n_or_angles, int) else n_or_angles)
+            for a in angs:
+                K.append((x, y, r, r + length, a, (x, y)))
+        return o_ticks(x, y, z, r, n_or_angles, col, length=length, width=width, span=span)
+    def p_tick(x, y, z, r, a, L, w, col):
+        if z >= face_z_min:
+            K.append((x, y, r, r + L, a, (x, y)))
+        return o_tick(x, y, z, r, a, L, w, col)
+    mods = [ld, r4, r5, rb]
+    saved = [(m, getattr(m, "txt", None), getattr(m, "ticks", None)) for m in mods]
+    try:
+        for m in mods:
+            if hasattr(m, "txt"): m.txt = p_txt
+            if hasattr(m, "ticks"): m.ticks = p_ticks
+        rb._tick = p_tick
+        with contextlib.redirect_stdout(io.StringIO()):
+            build(rb)
+    finally:
+        for m, t, k in saved:
+            if t: m.txt = t
+            if k: m.ticks = k
+        rb._tick = o_tick
+    return T, K
+
+def rot_box(b, x, y, rot):
+    if not rot:
+        return (x + b[0], y + b[1], x + b[2], y + b[3])
+    a = math.radians(rot); cs, sn = math.cos(a), math.sin(a)
+    pts = [(x + px * cs - py * sn, y + px * sn + py * cs) for px in (b[0], b[2]) for py in (b[1], b[3])]
+    return (min(p[0] for p in pts), min(p[1] for p in pts), max(p[0] for p in pts), max(p[1] for p in pts))
+
+def seg_box_gap(p, q, b, n=8):
+    return min(box_circle_gap(b, p[0] + (q[0] - p[0]) * i / n, p[1] + (q[1] - p[1]) * i / n, 0) for i in range(n + 1))
+
+FINAL_FONT = {"DkgHandwriting:style=Bold": "Kalam:style=Bold"}   # rb.py's stand-in -> the final art's font
+
+def collide(name, T, K, ctl, final=True, base=None, quiet=False):
+    if final:   # measure with the font the owner will see (Kalam), not the render stand-in
+        T = [(x, y, s, sz, FINAL_FONT.get(f, f), ha, va, rot) for x, y, s, sz, f, ha, va, rot in T]
+    keys = sorted({(s, sz, f, ha, va) for x, y, s, sz, f, ha, va, rot in T})
+    tb = text_boxes(keys)
+    L = []
+    for x, y, s, sz, f, ha, va, rot in T:
+        b = tb.get((s, sz, f, ha, va))
+        if b: L.append((s, rot_box(b, x, y, rot), (x, y)))
+    out = {"legend-legend": [], "legend-tick": [], "legend-control": [], "tick-control": []}
+    for (a, ba, pa), (b, bb, pb) in itertools.combinations(L, 2):
+        g = box_box_gap(ba, bb)
+        if g < 1.5 - 1e-6: out["legend-legend"].append((g, f'"{a}" | "{b}"', pa))
+    for s, b, p in L:
+        for x, y, r0, r1, a, own in K:
+            th = math.radians(a)
+            P = (x + r0 * math.sin(th), y + r0 * math.cos(th)); Q = (x + r1 * math.sin(th), y + r1 * math.cos(th))
+            g = seg_box_gap(P, Q, b)
+            if g < 1.0 - 1e-6: out["legend-tick"].append((g, f'"{s}" | tick of the control at ({x:.1f}, {y:.1f}) @{a:.0f}°', p))
+        for cn, cx, cy, cr in ctl:
+            g = box_circle_gap(b, cx, cy, cr)
+            if g < 1.5 - 1e-6: out["legend-control"].append((g, f'"{s}" | {cn}', p))
+    for x, y, r0, r1, a, own in K:
+        th = math.radians(a)
+        Q = (x + r1 * math.sin(th), y + r1 * math.cos(th))
+        for cn, cx, cy, cr in ctl:
+            if math.dist((cx, cy), own) < 0.5: continue
+            g = math.dist(Q, (cx, cy)) - cr
+            if g < 0.5 - 1e-6: out["tick-control"].append((g, f"tick of ({x:.1f}, {y:.1f}) @{a:.0f}° | {cn}", Q))
+    # one line per pair (ticks repeat per angle): keep the worst
+    if not quiet:
+        print(f"\n[7] {name}{' [Kalam, final font]' if final else ' [as rendered]'}: {len(L)} legends, {len(K)} ticks, {len(ctl)} controls measured"
+              + ("; (v1.1) = the same clash is in the locked v1.1 model" if base is not None else ""))
+    n_all = 0; keys = set()
+    for kind, lst in out.items():
+        best = {}
+        for g, what, p in lst:
+            k = what.split(" @")[0] if kind != "tick-control" else what.split(" | ")[1] + what.split(" @")[0]
+            if k not in best or g < best[k][0]: best[k] = (g, what, p)
+        items = sorted(best.values())
+        n_all += len(items)
+        keys |= {k for k in best}
+        if quiet: continue
+        print(f"  {kind}: {len(items)}")
+        for k, (g, what, p) in sorted(best.items(), key=lambda kv: kv[1][0]):
+            tag = "  (v1.1)" if base is not None and k in base else ""
+            print(f"    {g:6.2f}  {what}   at ({p[0]:.1f}, {p[1]:.1f}){tag}")
+    return (n_all, keys) if quiet else n_all
+
+def ctl_fold(D=108.0):
+    L0 = D + 2.0
+    K = lambda k, r: {"k": KN, "t": TGL, "b": 6.0, "stick": 6.0, "l": r}.get(k, r)
+    c = [(e[0], e[1], e[4] if len(e) > 4 else F.P, (F.CUT if e[0] == "CUTOFF" else K(e[3], e[2]))) for e in F.play]
+    for off, src in ((F.VARIANTS["FOLD-105 (slim battery)"]["dV1"], F.v1), (F.VARIANTS["FOLD-105 (slim battery)"]["dV2"], F.v2),
+                     (F.VARIANTS["FOLD-105 (slim battery)"]["dFX"], F.fx)):
+        c += [(n, x, L0 + off, K(k, r)) for n, x, r, k in src]
+    c += [(n, x, L0 + F.D_SW, TGL) for n, x, r, k in F.sw]
+    c.append(("FREE/SYNC", 133.0, L0 + 70.6, TGL))
+    return c
+
+def ctl_flat(dx=-5.0):
+    K = lambda k, r: {"k": KN, "t": TGL, "b": 6.0, "stick": 6.0, "l": r}.get(k, r)
+    c = [(e[0], e[1] + dx, e[4] if len(e) > 4 else F.P, (F.CUT if e[0] == "CUTOFF" else K(e[3], e[2]))) for e in F.play]
+    for yy, src in ((100, F.v1), (123, F.v2), (146, F.fx)):
+        c += [(n, x + dx, yy, K(k, r)) for n, x, r, k in src]
+    c += [(n, x + dx, 111.5, TGL) for n, x, r, k in F.sw_flat]
+    c.append(("FREE/SYNC", 128.0, 132.7, TGL))
+    return c
+
+def check_render_collisions():
+    if subprocess.run(["which", "openscad"], capture_output=True).returncode:
+        print("\n[7] skipped: openscad not installed"); return
+    tot = 0
+    T, Kt = record(lambda rb: rb.Chamber().model(True), 15.0)
+    pegs = [("peg", 17 + 18 * n, 13.5, PEG_R) for n in range(15)]
+    pegs += [("peg", 8 + 18 * (i + 1), 36.0, PEG_R) for i in [i for i in range(14) if [1, 1, 0, 1, 1, 1, 0][i % 7]]]
+    have_kalam = "Kalam" in subprocess.run(["fc-list"], capture_output=True, text=True).stdout
+    if not have_kalam:
+        print("\n[7] Kalam not installed: CHAMBER measured with rb.py's stand-in (runs larger)")
+    Tb, Kb = record(lambda rb: rb.Fold(105).model(True), 15.0)
+    _, base_fold = collide("v1.1 FOLD-105", Tb, Kb, ctl_fold()[:-1], final=have_kalam, quiet=True)
+    tot += collide("CHAMBER (open, both faces)", T, Kt, ctl_fold() + pegs, final=have_kalam, base=base_fold)
+    T, Kt = record(lambda rb: rb.rain(field=False), 23.5)
+    sys.path.insert(0, MOCK)
+    import rb as _rb
+    w, sh = _rb.rain_pegs()
+    Tb, Kb = record(lambda rb: rb.r5.one_sheet(), 23.5)
+    _, base_os = collide("v1.1 ONE SHEET", Tb, Kb, ctl_flat()[:-1], quiet=True)
+    tot += collide("RAIN (top face)", T, Kt, ctl_flat() + [("peg", x, y, PEG_R) for x, y in w + sh], base=base_os)
+    print(f"  collisions listed (CHAMBER + RAIN): {tot}  (reported, not counted in TOTAL fails: they are the visual designer's to fix)")
+
+# ---------------------------------------------------------------- 8. CHAMBER: the hinge-side slot, and the push-out holes
+def check_chamber_back():
+    print("\n[8a] CHAMBER hinge-side slot (closed, seen from behind)")
+    AXY = 109.0; AXZ = 25.0 + 1.3          # lid walls +2.6 -> the hinge axis rises 1.3 (rb.py Chamber.AXZ)
+    BASE, LIDPF, RIM_OPEN = F.BASE_PLATE, 15.1, 34.5 + 2.6
+    rot = lambda p, a: (AXY + (p[0] - AXY) * math.cos(a) - (p[1] - AXZ) * math.sin(a),
+                        AXZ + (p[0] - AXY) * math.sin(a) + (p[1] - AXZ) * math.cos(a))
+    lid_face_closed = rot((110.0, LIDPF), math.pi)[1]
+    rim_closed = rot((150.0, RIM_OPEN), math.pi)[1]
+    print(f"  v1.1 has no lid wall on the hinge edge (R4: open, a wall there would stand {RIM_OPEN-LIDPF:.1f} mm between PLAY and V1).")
+    print(f"  closed: base plate z {BASE}, lid plate z {lid_face_closed:.1f}, lid rims land at z {rim_closed:.1f} (on the base plate)"
+          f" -> slot {lid_face_closed-BASE:.1f} mm tall x 266 wide (x 10-276, between the knuckles). Real.")
+    B = (108.0, BASE)                           # base rear-top edge
+    P = (110.0, LIDPF)                          # lid hinge-edge top (plate level), open
+    for nm, a in (("open 180", 0.0), ("standing 120", math.radians(60)), ("closed", math.pi)):
+        q = rot(P, a)
+        print(f"  spine anchors {nm}: lid edge at (y {q[0]:.1f}, z {q[1]:.1f}), {math.dist(B, q):.1f} mm from the base edge")
+    Ls = math.dist(B, rot(P, math.pi))
+    print(f"  -> a flexible spine {Ls:.1f} mm wide is taut closed; open it folds into the 2.0 mm seam gap as a loop "
+          f"≈ {(Ls-2.0)/2:.1f} mm deep (to z ≈ {BASE-(Ls-2.0)/2:.1f}), nothing above the plates (R4 kept)")
+
+    print("[8b] CHAMBER push-out holes (lid back): pipes, screws, feet, and what the pin lands on inside")
+    D, IMP = 108.0, 18.0
+    screws = [(16, 12), (270, 12), (143, 12), (16, 96), (270, 96), (143, 96)]
+    feet = [(40, 6), (246, 6), (40, 78), (246, 78)]
+    bridges = [(103, 113), (173, 183)]                         # lid board bridges between the cell / speaker windows (v1.1)
+    band = (21.9, 59.45)
+    no_go = [("V1 toggle bodies OSC MOD / FILTER MOD (ESTIMATE d 8-21)", 103, 113, 8, 21),
+             ("V1 toggle bodies", 173, 183, 8, 21),
+             ("ECHO TYPE rotary tails (ESTIMATE body ≥ 16: d 76-92)", 100.5, 116.5, 75.9, 91.9),
+             ("REVERB TYPE rotary tails", 169.5, 185.5, 75.9, 91.9),
+             ("far-wall I/O board (d 92-104, x 60-230)", 60, 230, 92, 104)]
+    def pipes(pitch):
+        order = [0] + [k for i in range(1, 13) for k in (i, -i)]
+        return [(143 + pitch * k, 66.0 * 2 ** (-n / 12)) for n, k in enumerate(order[:25])]
+    def pipe_gap(hx, hd, hr, P):
+        g = 99
+        for px, L in P:
+            # body: x +-3.2 from d IMP+9 to IMP+L; foot cone from +-1.0 at IMP to +-3.2 at IMP+9; line 0.6
+            for d in [IMP + t * L / 40 for t in range(41)]:
+                if abs(d - hd) > hr + 1: continue
+                half = 3.2 if d >= IMP + 9 else 1.0 + 2.2 * (d - IMP) / 9
+                for ex in (px - half, px + half):
+                    g = min(g, math.dist((hx, hd), (ex, d)) - hr - 0.3)
+            if abs(hx - px) < 3.2 and IMP + 9 <= hd <= IMP + L:
+                g = min(g, -1)        # inside a pipe body
+        return g
+    for label, holes, hr, pitch, mouth in (("v1.1 (110 / 176, d 54)", [(110, 54), (176, 54)], 3.0, 10.0, False),
+                                           ("visual's d 90", [(110, 90), (176, 90)], 3.0, 10.0, False),
+                                           ("PROPOSED: pipe mouths, pitch 8.75 (108 / 178, d 28.3, Ø 4)", [(108, 28.3), (178, 28.3)], 2.0, 8.75, True)):
+        P = pipes(pitch)
+        print(f"  {label}:")
+        for hx, hd in holes:
+            sg = min(math.dist((hx, hd), sc) - hr - 2.7 for sc in screws)
+            fg = min(math.dist((hx, hd), fe) - hr - 6.0 for fe in feet)
+            pg = pipe_gap(hx, hd, hr, P)
+            on_bridge = any(a + hr <= hx <= b - hr for a, b in bridges) and band[0] <= hd <= band[1]
+            hits = [n for n, x0, x1, d0, d1 in no_go if x0 - hr < hx < x1 + hr and d0 - hr < hd < d1 + hr]
+            pipe_txt = "the hole IS the pipe's mouth" if mouth else (f"{pg:.1f} to a pipe line" if pg > -1 else "inside a pipe")
+            print(f"    ({hx}, d {hd}): screws {sg:.1f} clear, feet {fg:.1f}, {pipe_txt}; inside lands on "
+                  + ("a bare board bridge ✓" if on_bridge and not hits else ("; ".join(hits) if hits else "board, off the bridges")))
+        if mouth:
+            Pm = pipes(8.75)
+            for hx, hd in holes:
+                k = min(Pm, key=lambda q: abs(q[0] - hx))
+                print(f"    pipe at x {k[0]:.2f} (L {k[1]:.1f}): mouth zone d {IMP+9:.0f}-{IMP+9+2.6:.1f}; hole centre d {hd} -> mouth = hole")
+            print(f"    field at pitch 8.75: x {min(q[0] for q in Pm)-3.2:.1f}-{max(q[0] for q in Pm)+3.2:.1f}; gaps between pipes {8.75-6.4:.2f}")
+            for fe in feet + screws:
+                bad = [q for q in Pm if abs(q[0] - fe[0]) < 3.2 + 6 and IMP - 6 < fe[1] < IMP + q[1] + 6]
+                if bad: fail(f"pitch 8.75: {fe} on a pipe")
+
 for nm in ("FOLD", "ONE SHEET"):
     fr = check_sync(nm)
     check_scale(nm, fr)
@@ -288,4 +536,6 @@ for nm in ("FOLD", "ONE SHEET"):
 check_pegs()
 check_diptych()
 check_facade()
+check_chamber_back()
+check_render_collisions()
 print("\nTOTAL fails", TOTAL)

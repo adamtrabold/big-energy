@@ -2,6 +2,33 @@
 
 Seed: **ONE SHEET** (v1.1, 276 × 180). Kind: a landscape. Point of view: **every control is a drop on still water; its rings spread until they meet the next drop's, and the meeting lines draw the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `../common-how-it-works.md`, `versions/v1.1/one-sheet/how-it-works.md`, `versions/v1.1/common-how-it-works.md` and `design/jobs.md` rev 5.
 
+**Rev 2, 2026-11-13 (round 1 scored 7; director's fixes).** Numbers marked [CHECK] are from `../branch_check.py` §7 (the current `rb.rain()` model, legends measured with OpenSCAD).
+
+> ### R2.1 Legend and tick collisions, as the model stands now [CHECK §7]
+> - **No legend overlaps.** The director's REVERB TYPE ↔ VELOCITY and ECHO TYPE ↔ OSC 3 CTL clashes don't appear in today's `rb.rain()`; they were fixed in parallel.
+> - **One branch-new hit:** OSC 2's +50° tick and NOISE/EXT's −50° tick sit **0.05 mm** from the FREE / SYNC nut (rule 0.5; real nut ≈ 9.2 across corners). **Drop both** (same fix as CHAMBER).
+> - **Inherited from v1.1 (in the locked ONE SHEET too):**
+>   - STATUS ↔ MOD MIX legend 1.38;
+>   - STATUS ↔ its LED 1.33;
+>   - ±100° ticks ↔ OSC MOD / FILTER MOD / OSC 3 CTL nuts 0.22.
+> - **Re-run the checker after every legend move.** Ripple decay and wider section bands move the lily pads, not the legends, so the counts should hold.
+>
+> ### R2.2 Making the decaying ripples (director fix 1), from what a printer can do
+> - First layers face down at 0.2 mm, with a 0.4 nozzle:
+>   - **depth has only two steps** (0.4 → 0.2 → 0);
+>   - **a groove can't be narrower than one line** (≈ 0.4).
+> - So "amplitude decays toward the seam" has to be built from:
+>   1. **ring spacing that opens up** toward the seam, e.g. pitch 0.9 at the stone → ≈ 1.8 at the outer third, then none;
+>   2. the **depth step** (0.4 near the stone, 0.2 outside);
+>   3. the last ring stopping short of the seam, so the still band is smooth.
+>
+>   Still two finishes (smooth / rings). The coupon decides whether 0.2-deep rings read at all (**UNVERIFIED**).
+> - **Wider section bands (fix 2):**
+>   - a power diagram with weights set so a seam between sections is ≈ 3× one inside (e.g. still band ≈ 1.0 inside a section, ≈ 3.0 between);
+>   - the bands are where the rings stop, not extra grooves.
+>   - Check after: every legend's lily pad still sits inside its own cell (the visual designer's code computes the pads).
+> - **Pitch compare (fix 5):** 0.45 is v1.1's first-layer line pitch (rings from the slicer's concentric fill, impossible per Voronoi cell). Modelled grooves can go to ≈ 0.8–0.9 at a 0.4 nozzle (groove + land ≥ 2 lines). **A 0.6 pitch would need a 0.25–0.3 nozzle: a nozzle swap at Vector Space (UNVERIFIED that they have one).**
+
 **Rev 1, 2026-11-13, concept turn 1 (systems first).**
 
 ## 1. What changes from ONE SHEET, and what doesn't

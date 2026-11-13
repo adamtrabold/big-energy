@@ -1,5 +1,12 @@
 # Branches: shared "how it works" (systems, concept turn 1, 2026-11-13)
 
+> **Rev 2 (2026-11-13, round 1 rulings + render check).**
+> - Accepted by the director: the left / right throw, ±135° plus the clamp, and PARA's wording "mono / para / +4".
+> - New from measuring the real render models in Kalam (`branch_check.py` §7):
+>   - "free" / "sync" sit **0.5 behind** the toggle centre (1.92 / 1.88 to the knobs; was 1.42 / 1.38);
+>   - OSC 2's **+50°** and NOISE/EXT's **−50°** ticks are dropped as well as their top ticks (0.29 / 0.05 to the toggle nut otherwise).
+> - The checker now counts legend-vs-legend, legend-vs-tick, legend-vs-control and tick-vs-control on what `rb.py` actually draws, and marks clashes inherited from locked v1.1.
+
 Read with `design/jobs.md` rev 5 (J20–J28, F13–F15), `design/branches/echo-clock.md` (owner: option "B") and the v1.1 locks in `versions/v1.1/` (never edited). Each branch folder has its own `how-it-works.md`; the visual designer adds how each looks.
 
 Checker: `design/branches/concepts/branch_check.py` (imports the v1.1 `fold_r5_check.py`, read-only). **TOTAL fails 0.** It reports one expected finding: DIPTYCH as briefed tips over with cords alone (see `diptych/`). The v1.1 checkers still pass (`fold_r5_check.py` 0, `flat_r5_check.py` 0).

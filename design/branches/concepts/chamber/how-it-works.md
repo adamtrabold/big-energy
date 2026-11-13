@@ -2,6 +2,62 @@
 
 Seed: **FOLD-105** (v1.1). Kind: an instrument case. Point of view (director, turn 3): **closed it's an organ case; open it's a console.** Emotion: joy. Read with `../common-how-it-works.md`, `versions/v1.1/fold/how-it-works.md` (rev 5.7) and `design/jobs.md` rev 5.
 
+**Rev 2, 2026-11-13 (round 1 scored 8; director's fixes).** Supersedes rev 1 where they differ. Numbers marked [CHECK] are from `../branch_check.py` §7, §8a and §8b.
+
+> ### R2.1 The hinge-side slot is real, and a spine closes it [CHECK §8a]
+> - **Real, by design since v1.1** (`fold/how-it-works.md`, "Closed from the back"). The lid has no wall on its hinge edge, because open, a wall there would stand between the PLAY row and V1. That breaks the owner's "nothing raised among the knobs" (R4).
+>   - In CHAMBER the slot grows with the lid walls: **21.9 mm tall × 266 wide** (x 10–276, between the knuckles). Closed: base plate z 15.6, lid plate z 37.5. The rims land on the base plate at z 15.5, because the hinge axis rises 1.3 to z 26.3, as rb.py already has.
+> - **A rigid spine wall or lid lip can't work.** Fixed, it stands 22 mm above the plates when open. Folded flat, it lies on the plate. Either way it breaks R4.
+> - **Fix: a flexible spine, the way a book closes** (FOLD already "folds like a book").
+>   - A strip of bookcloth or thin leather on a 0.8 mm TPU core, **21.9 mm wide, x 10.5–275.5**.
+>   - Glued along the base's rear-top edge (y 108, z 15.6) and the lid's hinge-top edge (open y 110, z 15.1).
+>   - **Closed:** the two edges are 21.9 apart, so the spine is taut and closes the back. It becomes the organ case's back panel; colour is the visual designer's call.
+>   - **Open flat:** the edges are 2.1 apart, so the spine folds down into the 2.0 mm seam gap as a loop ≈ 9.9 deep (to z ≈ 5.7). **Nothing above the plates: R4 holds.**
+>   - **Standing (120°):** 12.7 apart, so ≈ 9 mm of slack shows as a soft drape in the opened gap behind the PLAY row, like a book's joint.
+> - **Eng / maker:**
+>   - the hinge ribbon's rolling loop shares that gap at x 176–227. Route the loop inboard of the spine; v1.1's TPU flap over the ribbon becomes part of the spine;
+>   - a doubled 0.8 mm TPU loop in a 2.0 mm gap is tight;
+>   - flex life of a TPU or leather spine is **UNVERIFIED** (bookbinding precedent only).
+> - Cost ≈ $2–5 (ESTIMATE).
+>
+> ### R2.2 Push-out holes [CHECK §8b]
+> - **The visual designer's d 90 clears the d 96 screws** (27.8 mm from the nearest), the pipes and the feet. **But inside the lid it lands in the wrong place.**
+>   - The pin passes the lid back and meets the main board's underside behind the **ECHO TYPE / REVERB TYPE rotary switches' solder tails** (centres d 83.85; body ≥ 16 mm, ESTIMATE, so tails to d ≈ 92).
+>   - It also lands 1 mm from the far-wall I/O board (d 92–104).
+>   - Pushing on solder tails: **rejected.**
+> - **Why v1.1 put them at (110 / 176, d 54):** that's the bare board bridges between the cell and speaker windows (x 103–113, 173–183, in the band d 21.9–59.45). CHAMBER's pipes sit there now.
+> - **Proposal: the push-outs become the mouths of two pipes.**
+>   - Façade pitch **10 → 8.75**, so pipes 7 and 8 stand at **x 108 / 178**, on the bridges.
+>   - Their mouths (d 27–29.6) become **real Ø 4 holes at (108, d 28.3) and (178, d 28.3)**.
+>   - Checked: screws 33.9 clear, feet 63.6, on the bare bridges, ≥ 5 mm past the V1 toggle bodies (ESTIMATE, d ≤ 21).
+>   - New field at pitch 8.75: x 34.8–251.2, 2.35 between pipes. Feet and screws still clear [CHECK].
+>   - Two pipes really speak with a mouth, and the decoration does a job. **Visual: redraw at pitch 8.75.**
+>
+> ### R2.3 Legends and ticks, measured on the render model in Kalam [CHECK §7]
+> - **Kalam Bold is now installed** (`~/.local/share/fonts/kalam/`, OFL, from the google/fonts repo on raw.githubusercontent.com). The checker measures the final font, not the stand-in.
+>   - With the stand-in (DkgHandwriting), CHAMBER showed 53 hits. **In Kalam: no overlaps, 17 near-misses under the rules, 9 of them already in locked v1.1.**
+>   - **Visual: re-render with Kalam now.**
+> - **New in CHAMBER, and the geometry fix for each:**
+>
+>   | Hit | Measured | Fix |
+>   |---|---|---|
+>   | "free" ↔ OSC 2 knob | 1.42 (rule 1.5) | set "free" / "sync" **0.5 behind** the toggle centre → 1.92 / 1.88; toggle gap stays 1.6 |
+>   | "sync" ↔ NOISE/EXT knob | 1.38 | as above |
+>   | OSC 2's +50° tick / NOISE/EXT's −50° tick ↔ FREE/SYNC nut | **0.29** (rule 0.5) | **drop these two ticks too** (OSC 2 keeps −150 −100 −50 100 150; NOISE keeps −150 −100 50 100 150) |
+>   | "range" ↔ "lo" / "2'" (RANGE 1 and 3 feet) | 1.18 / 1.29 (rule 1.5) | put "lo" / "2'" at ±152° r 10.8, or "range" 0.4 lower |
+>   | "velocity" ↔ VEL nut | 1.34 | its above-legend at 7.7 from centre (was 7.4) |
+>   | "spring" ↔ "shimmer" (REVERB TYPE fan) | 1.36 | outer fan row 6.5 → 6.8 (both fans) |
+> - **Inherited from v1.1, also in the locked model (low priority, reported):**
+>   - "clean" ↔ "ping-pong" 1.20;
+>   - fan names ↔ their detent ticks 0.70–0.89;
+>   - ±100° ticks ↔ OSC MOD / FILTER MOD / OSC 3 CTL nuts 0.40;
+>   - "status" ↔ its LED 1.25.
+> - **Render note:** `ld.toggle` draws every toggle nut Ø 6. The spec's nut is ≈ 9.2 across corners, and the checker uses that. So ticks that look clear in the render sit under the real nut. Real-size nuts would make the 3/4s honest.
+> - **PARA "mono / para / +4"** above its toggle: **passes** in Kalam. Accepted, as the owner and director did.
+>
+> ### R2.4 Unchanged from rev 1
+> Pegs and closed height (+2.6 → ≈ 52.7); the feet at d 6; the lozenge for the name; the states table. The **fallback colouring (maple naturals, walnut sharps)** is geometry-identical: only the bought plugs swap.
+
 **Rev 1, 2026-11-13, concept turn 1 (systems first).** Numbers marked [CHECK] come from `../branch_check.py` §4b and §6.
 
 ## 1. What changes from FOLD-105, and what doesn't

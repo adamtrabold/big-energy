@@ -1,5 +1,38 @@
 # Systems designer notes — Little D
 
+# BRANCHES — round 2 geometry (2026-11-13): CHAMBER 8, RAIN 7, BUTTERFLY retired, DIPTYCH killed
+
+## Where things stand
+- Director steer + scores: `design/notes/director.md` top, `design/scores.md`. Live: **CHAMBER, RAIN**.
+- `branch_check.py` now has:
+  - **§7:** instruments `rb.py`, records every txt and tick on the playing faces, measures text ink boxes with OpenSCAD (cache `/tmp/branch_check_textbox.json`), checks legend-legend ≥ 1.5, legend-tick ≥ 1.0, legend-control ≥ 1.5, tick-control ≥ 0.5, and tags clashes also in locked v1.1;
+  - **§8a:** the slot; **§8b:** the push-outs.
+  - TOTAL fails 0; the collisions are listed, not failed. v1.1 checkers still 0.
+- **Kalam Bold installed** (`~/.local/share/fonts/kalam/`, from raw.githubusercontent google/fonts; jsdelivr and gstatic are blocked). The checker substitutes it for rb.py's stand-in. The visual designer can render with it now.
+
+## Findings (why)
+- **CHAMBER slot is real** (v1.1 has no lid hinge wall, because of R4): 21.9 × 266. A rigid wall or lip breaks R4 open.
+  - **Fix: a flexible book spine**, 21.9 wide, bookcloth/leather on 0.8 TPU, glued along the base rear-top edge and the lid hinge-top edge.
+  - It folds into the 2 mm seam gap open (loop ≈ 9.9 deep) and is taut closed.
+  - Eng: shared gap with the ribbon loop (x 176–227); flex life.
+- **Push-outs at d 90:** clear the d 96 screws (27.8) and the pipes, but land behind the TYPE rotaries' tails and next to the I/O board. Rejected.
+  - Proposed: façade pitch 8.75, holes Ø 4 as the mouths of pipes at x 108 / 178 (d 28.3), on the bare board bridges like v1.1.
+- **Collisions (Kalam):**
+  - CHAMBER: 17 near-misses, 0 overlaps, 9 inherited. New: free/sync vs knobs (move 0.5 behind), the ±50° ticks under the toggle nut (drop), RANGE "lo"/"2'" vs "range", VEL above-legend, REVERB fan.
+  - RAIN: one new hit (±50° ticks, 0.05); the rest inherited. The director's RAIN legend clashes are gone in today's model.
+- **Render understates toggle nuts** (Ø 6 drawn vs ≈ 9.2 spec): ticks look clearer than they are.
+- **RAIN ripple decay** must be built from printable steps: 2 depth levels (0.2 layers), groove ≥ 1 line, so the decay comes from ring spacing opening toward the seam. Section bands ≈ 3× via power weights. A 0.6 pitch needs a smaller nozzle (UNVERIFIED at Vector Space).
+
+## Open questions
+- Eng: spine vs ribbon loop; TYPE rotary body size (RS16211); flex life; nozzle availability.
+- Visual: accept pitch 8.75 + mouth push-outs; the spine's colour; Kalam re-render; the tick and legend fixes in chamber rev 2 §R2.3.
+- Owner (via director): reversed keys (fallback geometry identical), +2.6 closed, TIME's dead 15°, park session, clock out, the book.
+
+## Next
+- Re-run `branch_check.py` §7 after the visual designer's round-2 renders. Then the coverage check vs jobs rev 5 for any concept scored 9+.
+
+---
+
 # BRANCHES — concept turn 1 (2026-11-13): jam closed, 4 concepts started
 
 ## Where things stand
