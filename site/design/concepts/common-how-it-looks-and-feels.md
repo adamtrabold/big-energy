@@ -1,4 +1,4 @@
-# How it looks and feels: shared by every concept (C Cabinet, D The Set, E Herbarium)
+# How it looks and feels: shared by every concept (C Cabinet, E Herbarium; D The Set killed, see common-how-it-works.md)
 
 Product designer (visual focus), concept turn 1, 2026-11-13. Read with `common-how-it-works.md` (systems). Each concept's own `how-it-looks-and-feels.md` covers its landing and its screens; everything here is the same in all three. The shared system from jam turn 2 (palette, Inter, the lamp, greyed-never-removed, A/B that keeps the playhead) is settled and only restated where it changed.
 

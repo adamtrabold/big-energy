@@ -11,3 +11,4 @@
 - Owner asked for a web landing page and interaction hub (site/design/owner.md). Design loop, concept phase. Folder site/design/. Separate agents from the branches team.
 - Facts given to the team: artifact capabilities list, no fitting type, "live update" needs a session to publish.
 - Asked the owner: how much interaction he means (view only vs. feedback/decisions there).
+- Found (not fixed): design/concepts/_mock-src/out/ is tracked in git (120 files) though HANDOFF says it is not; .gitignore line points at an old path. No backlog file exists; mention to owner at handback.

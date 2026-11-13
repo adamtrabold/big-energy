@@ -1,3 +1,5 @@
+> **Killed (director steer 1, 2026-11-13).** Its anchor was the drawing set, the format the owner retired ("why make anything on a3 at all?", "text should be html and stuff"). Parts carried: "show changes" (revision clouds) → shared viewer, `../common-how-it-works.md` §6; the decisions register → the shared decisions list, §7; codes and numbering → §2. Dropped: issues, Δ marks, the "go to" field. Kept below for the record only.
+
 # D · The Set — how it works
 
 Product designer (systems focus), concept turn 1, 2026-11-13. Document-first: the site is a drawing set. Every publish is an issue; every item has a number and revs; the landing is a title block and a revision table. Shared viewer, lamp, links and states are in `../common-how-it-works.md`.

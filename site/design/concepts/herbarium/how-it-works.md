@@ -1,55 +1,72 @@
 # E · Herbarium — how it works
 
-Product designer (systems focus), concept turn 1, 2026-11-13. Work-first: every item is mounted as itself, with one label in the same corner, revisions as slips on the label, and lineage by repetition beneath. One column, max 600 px, at every size. The word "herbarium" never appears on screen. Shared viewer, lamp, links and states are in `../common-how-it-works.md`.
+Product designer (systems focus). Rev 2, concept building systems turn 2, 2026-11-13. Rewritten to match the visual designer's reshaped layout (`how-it-looks-and-feels.md`) and the director's steer 1. Shared viewer, codes, concept groups, lamp, links and states: `../common-how-it-works.md`. The word "herbarium" never appears on screen.
 
-Draw for this turn (Python `SystemRandom`): Oblique "Only one element of each kind". Applied: under the newest specimen, the landing shows **one of each kind**: the latest sheet, diagram, doc and test, small. So the first screen answers "is there a new test?" without scrolling a feed of sheets. (Records aren't in the row; decisions have their own way in, below.)
+**The idea:** every piece of work is shown as itself, as large as its shape and the screen allow, with one label in the same place and the same fields for every kind. Revisions are slips on that label. Work first.
 
-## Reshaped from the jam (and why)
-1. **Decisions are specimens too.** A decision isn't a file, but it's the thing that explains the work. A decision specimen = his words, verbatim, on the label (body size, per the ruling), with the items it caused mounted small underneath. It sits in the column at its date like any other specimen. That answers frame 5 and keeps "history lives on the thing" honest.
-2. **Stage gets a strip** (director must-prove 2): the nine stage words in one line under the lamp, the current one marked, done ones in ink, future in ink 2. Tap a word → the column filtered to that stage. It's the only stage display; it's always there.
-3. **Versions are filtered sets with a cover** (must-prove 1): "v1.1" in the line under the name is a link. The v1.1 view opens with a cover label (version · date · one line · what changed from v1) then its items as small specimens grouped by concept: the track list, as specimens.
-4. **Slips show 2, fold the rest** (must-prove 4): at landing size the label shows the current rev slip and one older slip, then "+4 earlier". That keeps "it's a record, not a gallery" visible without a tall label.
+**Changed since rev 1:**
+- The 600 px column is gone (visual: it wasted desktop and shrank images; owner 12:39 "images that will be great on the site that i can view responsively"). No standard mount shape: the label is the standard, not the box.
+- Newest of each kind is three tiles (image · doc · test); the doc tile is **real text** (code, title, one line), never a shrunk page.
+- Stage is a level strip.
+- Decisions use the shared decisions list (common §7), not doc cards or decision specimens.
+- **The newest work is usually a concept group**, not a single sheet.
 
 ## Structure
-Landing, phone, no scroll:
-1. Lamp line (common §2).
-2. Name; "v1.1 current · waiting on you: ONE SHEET or FOLD".
-3. Stage strip.
-4. **Newest specimen, large**: the work at column width (sheet fit-width, test as waveform with play, doc as its first page set as text, diagram as image), label in its corner: code · title · kind · stage · rev · date · status; top slip "rev H · 14:02 · stands at 120°", one older slip, "+n earlier".
-5. "+ 6 more since you last looked" (J12; becomes "+ 6 more today" if J12 goes).
-6. **One of each kind** row: sheet · diagram · doc · test, small, each with its code.
-Scroll: the column continues, newest first, one specimen per item (an item appears once, at its latest rev; earlier revs live on its slips and lineage). Dropped items appear at the date they were dropped, greyed, labelled.
 
-**Filter row** (sticks under the lamp line after scrolling): `all · stage · kind · version · decisions · history`. One at a time. Each has its own URL. `history` turns the column into the three-grain history: switch **Day · Round · Version** at the bottom, dividers by day / round / lock, locks as ruled signed lines, decisions as decision specimens.
+**What "the newest work" is.** The subject of the newest event: for a group revised event, the **group**, shown by its lead image (the first image its main doc places); otherwise the item (an eng doc, a test, a diagram). A group's label is the group's: `FOLD · rev D · Concept · exploring`, its one line; its slips are group revs. Tapping opens the group (F9). Legacy sheets never lead unless a session revises one, and nothing new is made as a sheet.
 
-Item opened: the specimen at full width, the common viewer, slips unfolded (all revs), lineage row below. Desktop: the 600 px column centred on the ground; opening a sheet widens just that sheet to the viewport (up to 1600 px) with the label staying in the column's corner; compare puts two forms side by side at that width.
+**Landing**, top to bottom (layout per size below):
+1. Lamp line (common §4).
+2. Name; "a portable Model D · v1.1 current" (v1.1 links to the version).
+3. Waiting on you: "ONE SHEET or FOLD".
+4. **Level strip**: nine segments: done (ink), now (ink + underline), early (outline), not yet (rule grey); line under it: "Lock · 2 of 9 · Spec begun early · next Handoff". Tap a segment → filter by that stage.
+5. **The newest work**: lead image at its own shape, full available width, height capped ~60% of the viewport. A docs-only group shows its doc's opening text on paper ground at readable size instead.
+6. **Label**: code + title; kind/sub-type · stage · status; then **slips**: top slip filled ("rev D · 14:02 · round 6 · stands at 120°, new hinge"), next in ink 2 ("rev C · 13 Nov · v1.1"), then "+ rev B, A · r1–r4 not kept".
+7. "+ 6 more since you last looked ›" (J12; "+ 6 more today" if J12 goes) → the list filtered to those.
+8. **Newest of each kind**: image tile, doc tile (real text), test tile (waveform + result word).
 
-## Flows and the 8 frames
+Below the fold: everything else, newest first, **one entry per group or loose item** at its latest rev (a group appears once, not once per image). Dropped things appear at their drop date, greyed.
+
+**Filter row** (sticks to the top once scrolled): `all · stage · kind · version · decisions · history`. One at a time, each with its own URL. `kind → image` lists images individually, for finding one picture. `history` = the three grains (Day · Round · Version switch), locks as ruled signed lines, decisions inline. `decisions` = the shared list.
+
+**Group open (F9, frame 9):** group label (code, rev, stage, status, one line, slips) → the **main doc rendered as HTML, with its images where the doc places them**, each at its own shape → further docs (looks-and-feels, coverage) as text sections, collapsed after their first paragraph on phone → **group rev row**: rev D · C · B · A · "r1–r4 not kept"; tap one → the group as it was (legacy revs show their sheets) → tap any image → image viewer with its own lineage, compare and "show changes".
+
+**Item open:** the work as large as it goes, label beside (desktop) or under (phone, tablet) with all slips unfolded, lineage row, compare (common §6).
+
+## Sizes
+| | Phone < 600 | Tablet 600–1023 | Desktop ≥ 1024 |
+|---|---|---|---|
+| Landing | one column: lamp, name, waiting on you, strip, work full width, label under, "+ n more", three tiles in a row | work full width; label under with the three tiles beside it | top band (name left, waiting on you centre, strip right); work ~940 px left; tiles above the label in the right 372 px, label bottom-aligned to the image |
+| Below the fold | one per row | two across | three across |
+| Group open | label, then images and text interleaved as the doc has them | same, wider | images left up to 940 px; each doc section in the right column beside the image it follows; label and slips top right |
+| Item open | work, label under | work, label under | work left (up to 1600 for wide images), label right |
+
+## Flows and the 9 frames
 | Frame | Path | Taps |
 |---|---|---|
-| 1 STANDBY | Ring lamp "Standby · last 14:02"; name; waiting on you; stage strip (Lock marked done, Concept current until handoff); newest specimen FOLD-D rev H; one-of-each row. | 0 |
-| 2 ON, event lands | Lamp ON dips. The new rev slides in as the **newest specimen** (the old newest drops to the column), slip "rev H · just now". If not yet published: the specimen frame holds the label and "image arriving with the next publish" (no fake image). "+ 7 more since…" ticks. | 0 |
-| 3 FOLD-A v1.1 → v1 | "v1.1" link (1) → FOLD-A in the set (2) → lineage row: v1 (3) → compare. | 2 to v1.1, 3 to v1 |
-| 4 Bass pluck A/B | One-of-each "test" tile, if it's the latest test (1); otherwise filter kind → test (1, 2) → Bass pluck (3) → play, A/B. | 1–3 |
-| 5 "Switch to Daisy Seed" | Filter "decisions" (1) → scroll to 13 Nov → decision specimen with its caused items mounted under it → tap one (2). Also: opening D-0xx daisy-first-principles shows "caused by: 'Switch to Daisy Seed' · 13 Nov" on its label. | 2 + scroll |
-| 6 What's in v1.1 | "v1.1" (1) → cover + track list as specimens. | 1 |
-| 7 Snapshot | No lamp; "Snapshot · 13 Nov 14:02"; no "since you last looked" line; the rest identical. | 0 |
-| 8 Desktop | The column centred on wide grey; newest specimen large; nothing in the side fields. | 0 |
+| 1 STANDBY | Ring lamp "Standby · last: FOLD rev D · 14:02"; waiting on you; strip at Lock; **newest work = a new-format group, its lead render large** (real candidates in `design/concepts/_mock-src/out/`: `r5_os_main.png`, `rb_bf_main.png`; visual to confirm which concept each belongs to); label + two slips; three tiles. | 0 |
+| 2 ON, group rev lands | Lamp dips; image cross-fades; slip "rev D · just now" lands on top, old top slip steps down; dot; "+ 7 more". Not yet published → label + slip + "images arriving with the next publish". | 0 |
+| 3 FOLD-A v1.1 → v1 | "v1.1" (1) → in the set, FOLD's legacy sheets are shown individually under its heading: FOLD-A (2) → lineage: v1 (3) → compare, "show changes". | 2 to v1.1, 3 to v1 |
+| 4 Bass pluck A/B | If it's the newest test: tile (1). Otherwise filter kind → test (1, 2) → T-004 (3). Play; A/B keeps the playhead. Stage: Spec, early. | 1–3 |
+| 5 "Switch to Daisy Seed" | Filter `decisions` (1) → "13 Nov · time not recorded · 'Switch to Daisy Seed'", the ask above in ink 2, "before: D-031 · after: D-032, D-019 rev 13" → tap D-032 (2); its label shows "caused by: 'Switch to Daisy Seed' · 13 Nov". | 2 + scroll |
+| 6 What's in v1.1 | "v1.1" (1) → cover (lock rule, v1.1, locked 13 Nov · current, one line, "changed from v1: …") → the set by group: HUSH@B, ONESHEET@B, FOLD@C (sheets as images, labelled legacy sheet), then shared docs and spec rev 14 as text rows. | 1 |
+| 7 Snapshot | No lamp, no dots; "Snapshot · 13 Nov 14:02"; "+ 6 more on 13 Nov". | 0 |
+| 8 Desktop | Top band; newest group's lead render ~940 px left; tiles + label right. | 0 |
+| 9 Concept group | From the newest work (1): the group: renders at their own shapes, its `how-it-works` as HTML beside (desktop) or between (phone) them, group rev row. | 1 |
 
-Other jobs: J2 all items in the column, archive greyed at their drop date. J8 copy link on every label. J9 status on every label. J13 stage/kind/version filters; by code via link only.
+Other jobs: J2 everything is in the list or a filter, archive greyed at its drop date. J6 strip + `#/s/<stage>`. J8 copy link on every label and group. J9 status on every label. J13 filters; links by code. J14 phone layouts above. J15 frame 9.
 
 ## States specific to the Herbarium
-- **Doc as a specimen**: first heading + first ~12 lines set as text on a sheet-shaped ground, "D-014 · doc · 3 pages" on the label. Must look like a mounted page, not a text snippet.
-- **Record as a specimen**: same as a doc. Records don't appear in the main column (they'd flood it each time owner.md changes); they show under `kind → record` and in history.
-- **Test with no sound** (plots only): the plot is the specimen.
-- **Missing old forms**: lineage row shows "r1–r4 not kept" as one gap; the slips list starts at the earliest kept rev with a slip "earlier revs not kept".
-- **Empty stage tapped in the strip**: column says "Boards · not yet · PCB layouts, board photos and test results will go here".
-- **Filter with nothing in it** (e.g. kind=diagram at Spec): "nothing here yet" + the filter stays.
-- **Long day of events**: the column groups same-session revs of one item into one specimen (latest rev) with slips for each.
-- **Wide screens**: column stays 600 px. Tablet the same.
+- **Docs-only group** (a branch with no images yet): the newest work is its doc's opening text at readable size; label says "no images yet".
+- **Lead image dropped in the new rev:** the next image in doc order leads; the dropped one shows greyed in the group's rev history.
+- **Records** don't enter the main list (owner.md changes too often); they're under `kind → record` and in history.
+- **Test with plots only:** the plot leads.
+- **Missing old forms:** slips start at the earliest kept rev with "earlier revs not kept"; lineage shows one gap.
+- **Empty stage tapped:** "Boards · not yet · PCB layouts, board photos and test results will go here".
+- **Filter with nothing in it:** "nothing here yet"; the filter stays.
+- **Many revs of one group in a session:** one entry, latest rev, a slip per rev.
 
-## Weak spots I see
-- J6 rests on one line of words; it never shows the level the way C does.
-- Scrolling is the main way to browse; finding something old means filters, not position.
-- Doc specimens may read as text boxes; the visual designer needs to prove a doc looks mounted.
-- Many revs to one sheet in a session could make the column feel repetitive; grouping by item (latest rev only) is what stops it.
+## Weak spots
+- J6 is a strip: where the build stands, not how much is in each stage.
+- Finding something old is by filter, not by place.
+- Today's archive is mostly legacy sheets that look alike (walnut on cream); codes do the telling until new-format work builds up.

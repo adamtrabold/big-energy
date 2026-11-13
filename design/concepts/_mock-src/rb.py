@@ -741,8 +741,8 @@ def jobs(SZ):
         "rb_bf_main": lambda: ld.shot(butterfly(), fp_rect(0, 0, OS_W, 190), "rb_bf_main", size=SZ, az=-30, el=36, dist=700, center=(138, 88, 12), grain_classes=("walnut",), grain_angle=-21),
         "rb_bf_rear": lambda: ld.shot(butterfly(), fp_rect(0, 0, OS_W, 190), "rb_bf_rear", size=SZ, az=-152, el=26, dist=430, center=(150, 160, 14), grain_classes=("walnut",), grain_angle=8),
         "rb_bf_joint": lambda: ld.shot(butterfly(), fp_rect(0, 0, OS_W, 190), "rb_bf_joint", size=SZ, az=-20, el=40, dist=170, center=(140, 168, 22), grain_classes=("walnut",), grain_angle=-4),
-        "rb_bf_wall": lambda: ld.shot(butterfly_hanging(), box(-1, -1, -1, 0, 0, 0, "#000"), "rb_bf_wall", size=SZ, az=-24, el=8, dist=820, center=(138, -10, 100), grain_classes=("walnut",), grain_angle=80),
         "rb_bf_top": lambda: top4(butterfly(), "rb_bf_top", -2, -2, OS_W + 2, 194, px_per_mm=12, grain_classes=("walnut",), grain_angle=0),
+        "rb_bf_wall": lambda: hanging(os.path.join(OUT, "rb_bf_top.png"), os.path.join(OUT, "rb_bf_wall.png"), 12),
         "rb_bf_end": lambda: shot_ortho(butterfly(), "rb_bf_end", "right", -2, 196, -1, 40, wmax=OS_W),
         # RAIN
         "rb_rn_main": lambda: ld.shot(rain(), fp_rect(0, 0, OS_W, OS_D), "rb_rn_main", size=SZ, az=-30, el=38, dist=700, center=(138, 84, 12), grain_classes=()),
@@ -755,19 +755,57 @@ def jobs(SZ):
         "rb_ch_closed": lambda: ld.shot(ch.model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ch_closed", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=("walnut",), grain_angle=25),
         "rb_ch_closed_p": lambda: shot4(ch.model(False), fp_rect(0, 0, W, D), "rb_ch_closed_p", size=SZ, az=160, el=50, dist=640, center=(143, D / 2, 22), grain_classes=(), wood=True),
         "rb_ch_stand_back": lambda: ld.shot(ch.model("stand", walnut=WAL_R), fp_rect(0, 0, W, D + 64), "rb_ch_stand_back", size=SZ, az=160, el=14, dist=820, center=(143, D * 0.8, 60), grain_classes=("walnut",), grain_angle=30),
-        "rb_ch_stand": lambda: shot4(ch.model("stand"), fp_rect(0, 0, W, D + 64), "rb_ch_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True),
+        "rb_ch_stand": lambda: shot4(ch.model("stand"), fp_rect(0, 0, W, D + 64), "rb_ch_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ch_stand.png")),
         "rb_ch_flat_under": lambda: shot4(ch.model(True), fp_rect(0, 0, W, OPEN), "rb_ch_flat", size=SZ, az=-20, el=62, dist=900, center=(143, OPEN / 2, 12), grain_classes=(), wood=True),
         "rb_ch_keys": lambda: shot4(ch.model(True), fp_rect(0, 0, W, OPEN), "rb_ch_keys", size=SZ, az=-36, el=20, dist=200, center=(60, 28, 18), grain_classes=(), wood=True),
         "rb_ch_top": lambda: top4(ch.model(True), "rb_ch_top", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         "rb_ch_front_closed": lambda: shot_ortho(ch.model(False), "rb_ch_front_closed", "front", -2, W + 2, -1, 56, wood=True),
         # DIPTYCH
-        "rb_dp_stand": lambda: shot4(dp.model("stand"), fp_rect(0, 0, W, 175), "rb_dp_stand", size=SZ, az=-38, el=22, dist=800, center=(143, 80, 50), grain_classes=(), wood=True),
+        "rb_dp_stand": lambda: shot4(dp.model("stand"), fp_rect(0, 0, W, 175), "rb_dp_stand", size=SZ, az=-38, el=22, dist=800, center=(143, 80, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_dp_stand.png")),
         "rb_dp_main": lambda: shot4(dp.model(True), fp_rect(0, 0, W, OPEN), "rb_dp_main", size=SZ, az=-30, el=44, dist=880, center=(143, OPEN / 2, 12), grain_classes=(), wood=True),
-        "rb_dp_side": lambda: shot_ortho(dp.model("stand"), "rb_dp_side", "right", -4, 180, -4, D + 40, wmax=W + 2, wood=True),
+        "rb_dp_side": lambda: shot_ortho(dp.model("stand"), "rb_dp_side", "right", -4, 200, -4, D + 64, wmax=W + 2, wood=True),
         "rb_dp_top": lambda: top4(dp.model(True), "rb_dp_top", -2, -2, W + 2, OPEN + 2, px_per_mm=14, grain_classes=()),
         "rb_dp_closed": lambda: shot4(dp.model(False), fp_rect(0, 0, W, D), "rb_dp_closed", size=SZ, az=-28, el=30, dist=640, center=(143, D / 2, 22), grain_classes=(), wood=True),
     }
     return J
+
+
+# ------------------------------------------------------------------ post: OpenSCAD's fixed light renders faces turned away
+# from it as mid-grey (the standing lid's cream plate looks grey). Lift low-saturation mid-greys back toward the intended
+# cream. Only used on views where a cream face points away from the light; noted in the docs.
+def relight(png, lo=105, hi=192, gain=1.55, ymax=0.6):
+    import numpy as np
+    from PIL import Image
+    im = np.asarray(Image.open(png).convert("RGB")).astype(np.float32)
+    mx, mn = im.max(axis=2), im.min(axis=2)
+    sat = (mx - mn) / np.maximum(mx, 1)
+    bg = np.all(np.abs(im - im[2, 2]) < 4, axis=2)
+    m = (~bg) & (sat < 0.09) & (mx > lo) & (mx < hi)
+    m[int(m.shape[0] * ymax):, :] = False       # the lid only: keep the ground shadow (also a low-saturation grey) as is
+    warm = np.array([1.0, 0.975, 0.92], np.float32)
+    out = np.where(m[..., None], np.clip(im * gain * warm, 0, 248), im)
+    Image.fromarray(out.astype(np.uint8)).save(png)
+    return png
+
+def hanging(top_png, out_png, px_per_mm):
+    """BUTTERFLY hung on a wall, tree side up: the exact top view IS the elevation; plaster, a soft shadow, the cleat."""
+    from PIL import Image, ImageFilter, ImageDraw
+    import numpy as np
+    obj = Image.open(top_png).convert("RGB")
+    a = np.asarray(obj).astype(np.int16)
+    mask = ~np.all(np.abs(a - np.array([243, 239, 232])) <= 1, axis=2)
+    m = Image.fromarray((mask * 255).astype(np.uint8))
+    pad = int(60 * px_per_mm)
+    W, H = obj.size[0] + 2 * pad, obj.size[1] + 2 * pad
+    wall = Image.new("RGB", (W, H), (233, 228, 219))
+    sh = Image.new("L", (W, H), 0)
+    sh.paste(m, (pad + int(4 * px_per_mm), pad + int(7 * px_per_mm)))
+    sh = sh.filter(ImageFilter.GaussianBlur(5 * px_per_mm))
+    dark = Image.new("RGB", (W, H), (150, 142, 130))
+    wall = Image.composite(dark, wall, sh.point(lambda v: int(v * 0.55)))
+    wall.paste(obj, (pad, pad), m)
+    wall.save(out_png)
+    return out_png
 
 if __name__ == "__main__":
     SZ = (5200, 3500)
