@@ -199,3 +199,5 @@ Recorded as: asks whether to have two speakers (stereo) given stereo reverb/dela
 Recorded as: DECISION — stereo phones: yes (one speaker; second speaker not taken). Line out stereo: not stated. NEW REQUEST: a way to pan the (mono) synth signal into the stereo effects. How (a pan control, its range, digital or analog, placement) is for the team; it likely adds a control.
 2026-11-13 15:23 Owner (verbatim): "Stereo line out"
 Recorded as: DECISION — line out is stereo too (TRS). Stereo phones + stereo line out, one speaker.
+2026-11-13 15:24 Owner (verbatim): "Left channel should be mono tho if stereo isn’t plugged in"
+Recorded as: REQUIREMENT — with a mono (TS) cable plugged in, the left/tip output carries the full mono sum (L+R), not just the left channel. Applies to the stereo outputs.
