@@ -1283,11 +1283,17 @@ class Cathedral(Chamber):
         if part != "b":
             return ""
         s = ""
+        r_ear = getattr(self, "EAR_R", 5.2)
         for x0 in (0.0, FO_W - 4.05):
-            s += (f'{c(walnut)} hull(){{ translate([{x0},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=4.05,r=5.2,$fn=48); '
-                  f'translate([{x0},{self.AX_Y-9},{BASE_H-1}]) cube([4.05,13,1]); }}\n')
+            if r_ear >= 5.0:      # rev 1-4: ear hulled down to the base top (a lobe past the back in side view)
+                s += (f'{c(walnut)} hull(){{ translate([{x0},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=4.05,r={r_ear},$fn=48); '
+                      f'translate([{x0},{self.AX_Y-9},{BASE_H-1}]) cube([4.05,13,1]); }}\n')
+            else:                 # score-8 fix 4: the smallest ear that holds a Ø 3 pin (1.5 wall); its web runs inside the
+                # walls (not drawn), so only the part past the back face shows
+                s += (f'{c(walnut)} hull(){{ translate([{x0},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=4.05,r={r_ear},$fn=48); '
+                      f'translate([{x0},{self.AX_Y-8},{self.AXZ-r_ear}]) cube([4.05,1,{2*r_ear}]); }}\n')
             xp = x0 - 0.04 if x0 == 0 else x0 + 4.05
-            s += f'{c("#5a3a22")} translate([{xp},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=0.08,r=1.6,$fn=24);\n'   # walnut plug over the pin
+            s += f'{c("#5a3a22")} translate([{xp},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=0.08,r={min(1.6, r_ear - 1.4)},$fn=24);\n'   # walnut plug over the pin
         return s
 
     # ---- feet that are the case screws (systems §3): 4 corner screw-feet, the 2 axis screws flush brass
@@ -1470,6 +1476,7 @@ def _lc():
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     return m
 
+NV_SECTION_D = 67.5        # lid section names' line
 NV_SW_LS = 1.55            # switch-line legends beside their toggles (Kalam is wide: 1.69 left "osc mod" 0.85 from OSC 3 CTL)
 NV_BEHIND_EXTRA = 1.0      # behind-legends 1.0 further back: at systems' spacing they sat on the knobs' top tick (0.08-0.67)
 GOLD_K = "#cfa65a"          # Tayda 3010 gold aluminium (anodised), the played row: what the hands play is brass-toned
@@ -1505,6 +1512,7 @@ MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE"
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
     route = "R-LOW"
+    EAR_R = 3.0          # score-8 fix 4 (see the look doc: the axis must sit at or behind the back face; this is the minimum)
 
     def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, **kw):
         super().__init__("B", palette=palette, **kw)
@@ -1515,13 +1523,21 @@ class Nave(Cathedral):
         self.LIDH = Chamber.LIDH + lift
 
     # ---- lid
+    def name_mark(self, gz):
+        """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
+        It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose."""
+        nz = self.LY0 + 2.2
+        return (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
+                f'{rrect2d(135.4,nz+0.4,150.6,nz+4.6,2.1,2.1)} }}\n')
+
     def lid_face(self, controls=True):
         lc, D, L0 = self.lc, self.D, self.LY0
         s = pg_layers(self.lid_plate2d(), LID_PF)
         gz = LID_PF + 0.02
         for xb in (93.5, 192.5):                                 # voice breaks, symmetric about the axis (± 49.5)
             s += box(xb - self.RULE_HW, L0 + 0.8, gz, xb + self.RULE_HW, L0 + 63.0, gz + 0.03, self.rule_col())
-        for xb in (157.0, 226.0):                                # echo | reverb | out
+        fx_x0 = min(x for n, x, d, r, k, lab, w in lc.lid if d == lc.FX)
+        for xb in [b for b in getattr(lc, "FX_BREAKS", [157.0, 226.0]) if b > fx_x0]:   # echo | reverb | out (none left of the row)
             s += box(xb - self.RULE_HW, L0 + lc.FX - 9, gz, xb + self.RULE_HW, L0 + lc.FX + 9, gz + 0.03, self.rule_col())
         s += speaker_window(143.0, L0 + lc.WIN[1], LID_PF, D=2 * lc.WIN[2], w=1.8, pitch=3.0)
         s += self.name_mark(gz)
@@ -1535,13 +1551,14 @@ class Nave(Cathedral):
             kind = "t" if k == "t" else LID_KIND.get(n.rsplit(" ", 1)[0], LID_KIND.get(n, "k"))
             rows_.setdefault(d, []).append((n, "", x, kind, n in MIDI_NAMES, 0))
         ry = {d: L0 + d for d in rows_}
-        toggles = [(96.0, L0 + lc.FX - 14.85), (250.5, L0 + lc.FX - 11.55)]
+        tg = {n: (x, d) for n, x, d, r, k, lab, w in lc.lid if n in ("FREE/SYNC", "FOLLOW")}
+        toggles = [(tg["FREE/SYNC"][0], L0 + tg["FREE/SYNC"][1]), (tg["FOLLOW"][0], L0 + tg["FOLLOW"][1])]
         nuts = toggle_nuts(rows_, ry, toggles)
         s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
                          nuts=nuts, back=())
         ink = self.lid_ink()
-        s += sync_toggle(96.0, L0 + lc.FX - 14.85, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, dy=0.0)
-        s += sync_toggle(250.5, L0 + lc.FX - 11.55, LID_PF, ("off", "follow"), st.lsize * 0.72, ink, st.font, dy=0.0, gap=6.4)
+        s += sync_toggle(*toggles[0], LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, dy=0.0)
+        s += sync_toggle(*toggles[1], LID_PF, ("off", "follow"), st.lsize * 0.72, ink, st.font, dy=0.0, gap=6.4)
         # legends exactly where the checker measures them (layout_check.tbox centres)
         for n, x, d, r, k, lab, where in lc.lid:
             if where == "beside":
@@ -1554,9 +1571,14 @@ class Nave(Cathedral):
             b = lc.tbox(x, d, lab, lc.LS if k == "k" else lc.LS * 0.85, where, r)
             cy = (b[1] + b[3]) / 2 + (NV_BEHIND_EXTRA if where == "behind" else 0.0)
             s += txt(x, L0 + cy, LID_PF + 0.01, lab, lc.LS if k == "k" else lc.LS * 0.85, ink, font=st.font)
+        # section names restored (director, score 8 fix 2): one line at d 67.5 between the voice block and the FX row,
+        # in the hand: "oscillators" (left), "mixer" (on the axis, over the window), "contours" (right)
+        for tx, name, ha in ((14.0, "oscillators", "left"), (143.0, "mixer", "center"), (272.0, "contours", "right")):
+            s += txt(tx, L0 + NV_SECTION_D, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)
         # FX group headings above the row (old FOLD positions)
         hd = L0 + lc.FX + FO_HEAD_D + 1.2 - 0.7
-        for name, x in (("echo", 102.5), ("reverb", 191.5), ("out", 250.5)):
+        dx = getattr(lc, "FX_DX", 0.0)
+        for name, x in (("echo", 102.5 + dx), ("reverb", 191.5 + dx), ("out", 250.5 + dx)):
             s += txt(x, hd, LID_PF + 0.01, name, 2.0, FO_INK, font=HAND, valign="baseline")
         return s
 

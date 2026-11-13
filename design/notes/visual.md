@@ -1,5 +1,18 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 6 (2026-11-13 ~17:30): director's 8 → fixes 2 and 4, plus systems' 1 and 3 rendered
+- **Director scored 8:** (a) FX row off-centre, (b) R3 empty knob, (c) no lid section names, (d) hinge ear lobe past the back.
+- **Systems** re-centred the FX row (`FX_DX` −18.5, `FX_BREAKS` in layout_check.py) and removed R3 (base right MOD MIX 199 · DRIFT 230 · TAP 261). `Nave` now reads `FX_DX` / `FX_BREAKS` / the toggles' positions live; breaks left of the row are skipped.
+- **Mine:**
+  - section names restored at d 67.5 (`NV_SECTION_D`), Kalam 2.4, oscillators x 14 left / mixer x 143 / contours x 272 right.
+  - the name lozenge moved under the window (d 2.2–7.2, axis): at d 94.6 it sat in REVERB TYPE's fan after the re-centre.
+  - hinge ear: `Nave.EAR_R = 3.0`, a small ear hulled to a 1 mm web stub (the rev 1–4 r 5.2 lobe stays for `Cathedral`). Pushed back with a proof: flat-open needs Ay ≥ 108 (109 with the seam), so the ear can't be fully inside; ≈ 4 mm nub remains. Options for systems: offset pivot + rabbet, or knuckles.
+  - doc honesty: Ø 10 vs 14.9 knobs; 55.2 conditions (else 56.7–58.8); R-TALL offered.
+- **Checks:** nv_check (layout_check rules + my legend changes) 0; nv_kalam (real Kalam, ticks, window, pegs) 0. Lozenge not in either checker (ink outline, clear by eye: 1.8 below the window's lowest slot tip).
+- **Re-rendered:** `rb_nv_stand`, `rb_nv_top`, `rb_nv_closed_side`; figures via `/tmp/scr/nv_figs.py`. Window drawing and keys unchanged.
+- **Next:** director checks by eye; publish only after a 9.
+
+
 ## CATHEDRAL, turn 5 (2026-11-13 ~17:10): steer 2 "nave and rose" rendered from systems §16
 - **Owner 16:52** (verbatim in director.md steer 2): off-centre is bad, the gap is unresolved, size the speaker for sound, moving components is OK, more brass than black.
 - **Look doc → rev 4**: opening answers his three complaints; "The whole" (standing, top, closed side); §1 keys A lead / C alt; §2 played row (low gold knobs: "what the hands play is brass-toned, what you set is black"); §3 window Ø 46; §4 texture; §5–7 kept; Open rewritten. Removed §2 (A/B) and §2b (tower / off-centre circle).

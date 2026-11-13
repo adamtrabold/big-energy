@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 4: steer 2, "nave and rose")
+# CATHEDRAL: how it looks and feels (visual, rev 4.1: steer 2, "nave and rose", after the director's 8)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 16:52). Read with `how-it-works.md`, where systems owns the geometry; **§16** is this revision's layout, closing routes and acoustics. The director's steer 2 is in `design/notes/director.md`.
 
@@ -7,22 +7,24 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 
 2. **"there's a massive horizontal gap -- the speaker doesnt feel resolved."** The gap was never the speaker's. Closed, the base's played row lands under the lid's middle, and the knobs were too tall for anything to sit over them. So the played row now uses **low knobs (Ø 10 × 8, bought)**, and the lid's rows are **evenly spaced, 35 mm apart**, with one switch line between the voice rows. **The only open area left on the lid is the round window itself.** The mixer is mirrored around it: osc 1 / osc 2 on the left, osc 3 / noise on the right.
 3. **"i'd rather have more brass than black re: keys."** The lead is now **brass naturals with black sharps** (15 brass, 10 black). The alternate is **all brass**. Both are shown in real metal below. The played row's small knobs are gold aluminium, so what the hands play reads as brass, and what you set on the lid reads as black.
 
-**Moves this costs (⚑ director, then owner):** the mixer re-flowed round the window; CUTOFF and EMPHASIS swapped, so CUTOFF sits on the axis; MOD MIX and DRIFT down to the base; the switches gathered into one line; closed +2.5 mm (≈ 55.2). The alternative route, R-TALL, keeps today's knobs at ≈ 59.7 closed. It looks the same from above, so I haven't rendered it.
+**Moves this costs (⚑ director, then owner):** the mixer re-flowed round the window; CUTOFF and EMPHASIS swapped, so CUTOFF sits on the axis; MOD MIX and DRIFT down to the base; the switches gathered into one line; the effects row re-centred on the axis (x 44–242).
+
+**What it costs in feel and size, plainly:** the played row's knobs shrink from Ø 14.9 to **Ø 10** (bought low knobs), and closed grows to **≈ 55.2 mm**. That 55.2 holds only if the played row's pots are snap-in or counterbored (a 1.0 seat) *and* the bend stick seats 3.6 deeper; otherwise it's **56.7–58.8** (systems §16.3). **If he'd rather keep today's full-size knobs, R-TALL does it at ≈ 59.7 closed**; from above it looks the same apart from the knob size, so it isn't rendered.
 
 ## The whole
 <figure>
 <img src="img/cathedral-nave-standing.jpg" alt="CATHEDRAL standing at 120 degrees: the lid holds three evenly spaced rows of black knobs, a line of small toggles, and a centred round window of vertical slots; the base holds a row of small gold knobs either side of a red CUTOFF dial on the axis, the bend stick at the left end and a brass TAP at the right, above brass natural keys and black sharps.">
-<figcaption><b>Standing, 120°.</b> Lid: three evenly spaced rows (oscillators and contours, the switch line, then the effects row on top). The Ø 46 window is centred over CUTOFF. Base: the played row is symmetric, with the bend stick at the left end and TAP at the right, and CUTOFF (the one tall, red dial) on the axis. The small gold knobs are the low-profile route (R-LOW). The third gold knob right of drift is systems' open slot R3 (VOLUME or ECHO MIX, director's call), so it has no legend yet. Brass is a tone re-map of the OpenSCAD render; see §1 for the true metal.</figcaption>
+<figcaption><b>Standing, 120°.</b> Lid: three evenly spaced rows (oscillators and contours, the switch line, then the effects row on top). The Ø 46 window is centred over CUTOFF. Base: the played row is symmetric, with the bend stick at the left end and TAP at the right, and CUTOFF (the one tall, red dial) on the axis. The small gold knobs are the low-profile route (R-LOW). The effects row is centred on the axis (x 44–242), so neither top corner is empty, and the base's right section is MOD MIX · DRIFT · TAP: TAP mirrors the stick and MOD MIX mirrors GLIDE about CUTOFF (the left section has one knob more, so DRIFT sits between, not opposite TUNE). Brass is a tone re-map of the OpenSCAD render; see §1 for the true metal.</figcaption>
 </figure>
 
 <figure>
 <img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of CATHEDRAL open flat: the lid above with evenly spaced rows and the centred slotted window, the base below with the symmetric played row and the keys.">
-<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
+<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. The section names (oscillators, mixer, contours) are back, in the hand, on one line between the voice block and the effects row, with "mixer" on the axis over the window. The maker's lozenge sits on the axis under the window, just above the seam. Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
 </figure>
 
 <figure>
 <img src="img/cathedral-nave-closed-side-14px-per-mm.png" alt="Exact side elevation of CATHEDRAL closed, from the right end: the lid on top with three nested arched grain grooves on its end face and the stowed brass stay, the base below with USB-C and two MIDI jacks, overall body height dimensioned 55.2 mm.">
-<figcaption><b>Closed, right end, exact.</b> 55.2 mm body (R-LOW), plus the screw-feet. The lid's end face carries the arched grain grooves (three nested growth-ring arcs) and the stowed brass stay; the side-pivot ear is at the hinge corner. The base end shows USB-C and the two MIDI jacks; its 6 mm flat band is left plain (arcs clipped that small read as stray marks).</figcaption>
+<figcaption><b>Closed, right end, exact.</b> 55.2 mm body (R-LOW), plus the screw-feet. The lid's end face carries the arched grain grooves (three nested growth-ring arcs) and the stowed brass stay. At the hinge corner, the side-pivot ear is now the smallest that holds a Ø 3 pin. It still stands ≈ 4 mm past the back (§6 says why it can't go fully inside). The base end shows USB-C and the two MIDI jacks; its 6 mm flat band is left plain (arcs clipped that small read as stray marks).</figcaption>
 </figure>
 
 ## What CATHEDRAL does to the ideas
@@ -75,13 +77,14 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 
 TAP keeps the rule that it's made of the key material, because it's played in rhythm like a key. With A or C, **TAP is a brass dome** (the naturals' cast head, on a printed cap that fits TAP's switch; part UNVERIFIED) in its black bezel: more brass, and it's played like a key. In steer 2 it moves to the base row's right end, mirroring the bend stick. With D / E, it's a birch plug; with F, printed cream.
 
 ## 2. The played row: low, gold, symmetric
-- **Low knobs:** Tayda aluminium Ø 10 × 8 (6 mm 18T), bought, on a 1.0 seat (systems §16.3). **Gold** (a Tayda colour) for MOD, TUNE, GLIDE, EMPHASIS, AMOUNT, MOD MIX, DRIFT and R3.
+- **Low knobs:** Tayda aluminium Ø 10 × 8 (6 mm 18T), bought, on a 1.0 seat (systems §16.3). **Gold** (a Tayda colour) for MOD, TUNE, GLIDE, EMPHASIS, AMOUNT, MOD MIX and DRIFT. They're smaller under the fingers than today's Ø 14.9; R-TALL keeps the big knobs at +4.5 mm closed.
+- **The row, anchored on CUTOFF:** BEND 25 · MOD 47 · TUNE 67 · GLIDE 87 | EMPHASIS 119 · CUTOFF 143 · AMOUNT 167 | MOD MIX 199 · DRIFT 230 · TAP 261. R3 is gone (director fix 3).
   - **Why gold:** a rule the eye can read. **What the hands play is brass-toned** (keys, TAP, the played row's knobs). **What you set on the lid is black.** CUTOFF stays the one red hero. Black low knobs are the quieter alternative, also a Tayda colour.
   - **Honest risk:** anodised gold aluminium is usually yellower and more even than polished cast brass. **Order one of each and put them beside a cast key** before committing; if the gold reads as a different metal, go black.
 - **CUTOFF** keeps its tall red hero dial, because no low, wide hero exists as a bought part. Closed, it sits under the window.
 - **Bend stick** at the left end, its cap lowered to plate + 9 (systems: module seated deeper). **TAP** at the right end: a brass dome in a black bezel, the mirror of the stick.
 - **Two lights** either side of CUTOFF (x 131 / 155), symmetric about the axis.
-- **Section names:** pitch | filter | mod. On the lid the old "oscillators / mixer / contours" names are gone for now: the evenly spaced rows leave no 5 mm strip that clears both the knobs' ticks and the toggles. The breaks (x 93.5 / 192.5, mirrored) carry the grouping. **Open:** if the director wants names back, they'd go in the switch line's ends.
+- **Section names:** base: pitch | filter | mod. Lid: **oscillators | mixer | contours**, restored at d 67.5. That line is the one strip that clears both the V2 legends and the effects row, so it's where the names live: "oscillators" left-aligned at x 14, "mixer" on the axis above the window, "contours" right-aligned at x 272.
 
 ## 3. The speaker window: sized for sound, then drawn
 One round opening, concentric with the 50 mm CDS-5076-class driver, centred on the axis at lid (143, d 32), above CUTOFF (systems §16.4).
@@ -126,7 +129,9 @@ One round opening, concentric with the 50 mm CDS-5076-class driver, centred on t
 
 ## 6. Small things in every render (all ruled, all in the model)
 - **Hinges:** systems' side pivots. A round "ear" at each rear corner inside the wall's thickness, with a flush walnut plug over the blind pin. The knuckles are gone. The leaves are hidden inside the walls, so their material doesn't show (see §7).
-  - Honest: the axis sits 1 mm behind the base's back face, so each ear still shows as a small round boss at the rear corners when closed, quieter than a knuckle.
+  - **Director fix 4 asked for the ear inside the outline. It can't go fully inside, and here's why:** for the lid to lie flat open with the seam closed, the axis has to sit at or behind the back face. A lid point at y maps to 2·Ay − y, so the lid's back face lands at 2·Ay − 108, which must be ≥ 108: Ay ≥ 108 (109 with the 2 mm seam). Any ear around a pin at y 109 sticks out past y 108. The R 12 plan corners also cut the end walls back to y ≈ 102 at the very corner.
+  - **What I did:** the ear is now the smallest that holds a Ø 3 pin (r 3.0, a 1.5 wall). It's a 6 mm round nub ≈ 4 mm past the back at mid-height, down from a 5.2 radius hulled to the base top (≈ 6 mm and a lobe). Its web runs inside the wall.
+  - **To remove it entirely (⚑ systems / director):** an offset pivot with a rabbeted seam (the halves overlap when open, so the axis can move inboard; kinematics UNVERIFIED), or back to v1.1 knuckles across the back, the owner's "if not these are fine".
 - **Feet:** four screw-through rubber feet (Ø 12, black, cap plug) at the corner screws; the two axis screws stay flush brass (no impost clash).
 - **Plates:** R 7.7 on all eight corners.
 - **Headings:** the lid's effects row carries "echo", "reverb" and "out" over its three groups (breaks at x 157 / 226). The base reads pitch | filter | mod.
@@ -152,12 +157,12 @@ Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 31
 - **The brass on the stays doesn't need plating or paint** if it's cast. Plating printed 316L to look like brass is possible but it's a finish that wears off a part you handle every time you stand the lid up.
 
 ## Open
-1. **⚑ Director, then owner:** the steer 2 moves (mixer re-flowed round the window, CUTOFF ↔ EMPHASIS, MOD MIX and DRIFT to the base, the switch line); R-LOW (≈ 55.2 closed, small gold knobs) vs R-TALL (≈ 59.7, today's knobs); **R3** at base x 239 (VOLUME or ECHO MIX).
-2. **Owner:** keys A (lead) or C; lacquered or unlacquered brass; gold or black low knobs.
-3. **Systems / eng:**
+1. **⚑ Director, then owner:** the steer 2 moves (mixer re-flowed, CUTOFF ↔ EMPHASIS, MOD MIX and DRIFT to the base, the switch line, the effects row centred); R-LOW (≈ 55.2 closed with snap-in pots and the lowered stick, else 56.7–58.8; Ø 10 knobs) vs R-TALL (≈ 59.7, today's knobs).
+2. **Director:** the hinge ear: accept the 4 mm nub, or ask systems for the offset pivot / knuckles (§6).
+3. **Owner:** keys A (lead) or C; lacquered or unlacquered brass; gold or black low knobs.
+4. **Systems / eng:**
    - brass head mass on the Choc V2 silent switch; one cast head first;
-   - R-LOW's dependencies: snap-in or counterbored pots (1.0 seat), bought shaft length, the stick seated 3.6 deeper;
+   - R-LOW's dependencies (seat, shaft length, stick depth);
    - cast-brass stays at 3 × 8;
-   - update `layout_check.py` with visual's two legend changes: switch-line legends **beside** their toggles (right, 1.55), and behind-legends **+1.0** further back (they sat on the knobs' top tick). With those, my run of its rules: 0; with real Kalam metrics and ticks: 0.
-4. **Maker / to buy:** one Cherry Tree Toys birch pack (measure head height H); one Sculpteo quote (hollow brass head, a stay); one Tayda gold and one black 3010 knob, to set beside a cast key; a groove patch (0.25 / 0.35); bench the window + back box against today's grille.
-5. **Not rendered:** R-TALL (looks the same from above); a closed 3/4 (the side elevation carries the height and the grooves).
+   - fold visual's legend changes into `layout_check.py` (switch legends beside at 1.55; behind-legends +1.0; section-name line at d 67.5; lozenge at d 2.2–7.2 on the axis). With them, my run of its rules: 0; real Kalam metrics with ticks: 0.
+5. **Maker / to buy:** one Cherry Tree Toys birch pack (measure head height H); one Sculpteo quote (hollow brass head, a stay); one Tayda gold and one black 3010 knob, beside a cast key; a groove patch (0.25 / 0.35); bench the window + back box against today's grille.
