@@ -219,3 +219,5 @@ Recorded as:
 - NEW WORK: architecture documentation plus one clear doc per feature set, written one at a time, clearly separated, so architectural decisions can be checked as sound across the whole device. These docs live on the project site.
 - MIDI stance: "pretty definitively not a midi controller". Sending MIDI means thinking about ALL features, so send only "if it's free". Today the spec sends only channel pressure (aftertouch); notes and knobs sending is not specified.
 - The expert review's fixes go to the team.
+2026-11-13 16:22 Owner (verbatim): "the workflow im much more interested in is controlling it from another device or mainly a DAW. im not so worried about using it as a controller for other things. but if it's free we could explore it"
+Recorded as: PRIMARY MIDI WORKFLOW = the instrument is CONTROLLED from another device, mainly a DAW (MIDI in). Using it as a controller for other gear is secondary; explore sending only where it is free.
