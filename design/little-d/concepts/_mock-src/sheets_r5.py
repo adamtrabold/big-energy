@@ -244,8 +244,8 @@ def _stick_side(cx, py, ang, sc, ink=INK):
     px, pz = cx, py + 6 * sc                      # pivot (sheet y grows downward)
     def P(r, off=0.0):                            # point r mm up the stem, off mm across it
         return (px + r * sc * math.sin(a) + off * sc * math.cos(a), pz - r * sc * math.cos(a) + off * sc * math.sin(a))
-    out.append(line(cx - 14 * sc, py, cx - 5.6 * sc, py, ink, 0.6))          # panel, cut at the gate slot (11.2 long)
-    out.append(line(cx + 5.6 * sc, py, cx + 14 * sc, py, ink, 0.6))
+    out.append(line(cx - 14 * sc, py, cx - 3.75 * sc, py, ink, 0.6))         # panel, cut at the round opening (Ø 7.5)
+    out.append(line(cx + 3.75 * sc, py, cx + 14 * sc, py, ink, 0.6))
     out.append(rect(cx - 6 * sc, pz - 1.6 * sc, 12 * sc, 5.6 * sc, "#e4ddd0", MUTE, 0.2, rx=0.8))   # the #2765 body under the panel
     out.append(circ(px, pz, 0.9 * sc, "#ffffff", ink, 0.25))
     x1, y1 = P(0); x2, y2 = P(14.6)
@@ -607,7 +607,7 @@ def sheet_c_fold(c):
     fy = 140 + D * pl_sc
     s.append(rect(210, fy, 198, 24, "#f3eaf6", FLAG, 0.35))
     s.append(t(213, fy + 4.5, "DAISY SEED: IN THE BASE (systems rev 5.6) · HEIGHT UNVERIFIED", 2.4, FLAG, weight="bold"))
-    msg = ("The Daisy Seed (51 × 18) moves to the base's rear right strip (x ≈ 200–272, y 80 to D − 4), on the floor in a board cutout, with its USB-C facing the base's right end face. USB-C and the TRS MIDI out sit in that end face (y 80–100). The audio/CV jacks and the power switch move to the lid's far wall (x 60–230), so neither lid end face carries I/O and the stays stay symmetric. Open: the Seed's seated height (8–8.4 + socket) against 11.1 mm floor to plate; the spike must measure it.")
+    msg = ("The Daisy Seed (51 × 18) moves to the base's rear right strip (x ≈ 200–272, y 80 to D − 4), on the floor in a board cutout, with its USB-C facing the base's right end face. USB-C (y 90–99) and TRS MIDI IN (y 70) and OUT (y 80) sit in that end face. The audio/CV jacks and the power switch move to the lid's far wall (x 60–230), so neither lid end face carries I/O and the stays stay symmetric. Open: the Seed's seated height (8–8.4 + socket) against 11.1 mm floor to plate; the spike must measure it.")
     p, _ = para(213, fy + 8.5, msg, 104, 2.05)
     s.append(p)
     i, b = img(os.path.join(OUT, f"r5_fo{c['v']}_exploded.png"), 22, 216, 180, 64)
@@ -724,11 +724,13 @@ def sheet_d_fold(c):
         s.append(line(X(143), y + 4 + hz + 1, X(143), y + 4 + hz + 4, ACC, 0.25))
         s.append(t(X(143), y + 4 + hz + 6.5, "axis x 143 · brass pin" if nm == "front_open" else "axis x 143", 1.9, ACC, "middle"))
         y += hz + 13
-    s.append(t(ox, y + 2, "RIGHT END · 1:1 · front at the left (USB-C + MIDI out in the base's right end; jacks in the lid's far wall)", 2.8, INK, weight="bold"))
+    s.append(t(ox, y + 2, "RIGHT END · 1:1 · front at the left (USB-C + MIDI in / out in the base's right end; jacks in the lid's far wall)", 2.8, INK, weight="bold"))
     sc_end = min(1.0, 386 / (OP + 4 + D + 10))
     ox = 12
     i, b = img(os.path.join(OUT, f"r5_fo{v}_end_open.png"), ox, y + 4, (OP + 4) * sc_end, 41 * sc_end, exact=True)
     s.append(i)
+    for yw_, lab_ in ((r5.FO_MIDI_IN_Y, "midi in"), (r5.FO_MIDI_Y, "midi out"), (r5.FO_USB_Y, "usb-c")):   # rev 5.6 base end face
+        s.append(t(ox + (yw_ + 2) * sc_end, y + 4 + 41 * sc_end + 2.6, lab_, 1.7, ACC, "middle"))
     s.append(t(ox, y + 4 + 41 * sc_end + 4, f"open, {OP:.0f} deep" + (f" (shown at {sc_end:.2f}:1 to fit)" if sc_end < 1 else ""), 2.2, ACC, weight="bold"))
     x2 = ox + (OP + 4) * sc_end + 10
     i, _ = img(os.path.join(OUT, f"r5_fo{v}_end_closed.png"), x2, y + 4 - 14 * sc_end, (D + 10) * sc_end, 55 * sc_end, exact=True)
@@ -750,7 +752,7 @@ def sheet_d_fold(c):
         s.append(t(ox + 6 + j * 92, y + 50, "pressed" if pr else "at rest", 2.2, ACC, weight="bold"))
     s.append(rect(ox + 192, y + 30, 186, 22, "#f3eaf6", FLAG, 0.35))
     s.append(t(ox + 195, y + 34.5, "I/O MOVED (systems rev 5.6) · stay clash resolved", 2.3, FLAG, weight="bold"))
-    pf, _ = para(ox + 195, y + 38.5, "Audio/CV jacks + power switch: the lid's far wall, x 60–230 (on the bar's front face when closed, above). USB-C + TRS MIDI out: the base's right end face, y 80–100, off the Daisy Seed. Both lid end faces carry only the stays. Open: rev 5.6 lists no MIDI IN; drawn as listed.", 100, 2.0)
+    pf, _ = para(ox + 195, y + 38.5, "Audio/CV jacks + power switch: the lid's far wall, x 60–230 (on the bar's front face when closed, above). USB-C (y 90–99) + TRS MIDI IN (y 70) and MIDI OUT (y 80): the base's right end face, off the Daisy Seed. Both lid end faces carry only the stays.", 100, 2.0)
     s.append(pf)
     p, _ = para(ox + 192, y + 4, "The rim (y 0–4) is flush with the base plate (15.6) and the keys stand 1.9 above it: you feel the keys over a low lip, and closed, the rim and the lid's rim meet so the key tops are guarded. A raised-skirt option A is possible for FOLD (keys +0.6 to 18.1, skirt over a lowered wall), but B is the default: it is the base's own meeting edge. Keys are button keys (≈ 3 mm straight down), not pivoting levers.", 70, 2.15)
     s.append(p)
@@ -801,7 +803,7 @@ def sheet_e_fold(c):
         p, yy = para(12, yy, f"{k}. {txt_}", 125, 2.3); s.append(p); yy += 1
     yy2 = 212
     s.append(rect(12, 262, 190, 16, "#f3eaf6", FLAG, 0.35))
-    pf, _ = para(15, 266.5, "Resolved (systems rev 5.6): the jacks and power switch moved to the lid's far wall, USB-C and MIDI out to the base's right end. Both lid end faces carry only their stays, symmetric.", 120, 2.1, fill=FLAG)
+    pf, _ = para(15, 266.5, "Resolved (systems rev 5.6): the jacks and power switch moved to the lid's far wall, USB-C and MIDI in / out to the base's right end. Both lid end faces carry only their stays, symmetric.", 120, 2.1, fill=FLAG)
     s.append(pf)
     xr = 210; yr = oy + (b1 - b0) + 14
     s.append(t(xr, yr, "HOW IT LOOKS AND FEELS", 3.0, ACC, weight="bold")); yr += 5.5

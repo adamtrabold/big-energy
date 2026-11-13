@@ -101,15 +101,16 @@ def tap_cap(x, y, z, style):
 def joystick(x, y, z, ink, tilt=0.0):
     """BEND (round 5 S2): a one-axis spring-to-centre thumbstick (#2765 class, cap UNVERIFIED in hand), drawn so it
     reads as a joystick, not a fader. Ink: a round gate ring (15 / 13.4) with two bezel pointers at 12 and 6 o'clock
-    (the tilt axis; watch-bezel idea). Panel: a short fore-aft gate slot 4.0 x 11.2 (stem + clearance + throw), dark.
+    (the tilt axis; watch-bezel idea). Panel: a round dark opening Ø 7.5; the one-axis gate sits under the panel.
     Part: a 3.2 stem standing 8 mm clear of the plate, a flared 10 mm cap with a grip rim and a dished centre.
     Top at z + 12.6 (was 13.5): no clearance changes. tilt: degrees about x (+ = away), for diagrams only."""
     s = (f'{c(ink)} translate([{x:.3f},{y:.3f},{z+0.01:.3f}]) linear_extrude(0.1) difference(){{ circle(d=15,$fn=72); circle(d=13.4,$fn=72); }}\n')
     for sg in (1, -1):
         s += (f'{c(ink)} translate([{x:.3f},{y + sg * 7.3:.3f},{z+0.01:.3f}]) linear_extrude(0.1) '
               f'polygon([[-0.85,0],[0.85,0],[0,{sg * 1.15:.2f}]]);\n')
-    s += (f'{c("#0e0d0c")} translate([{x:.3f},{y:.3f},{z-0.4:.3f}]) linear_extrude(0.46) '
-          f'hull(){{ translate([0,{-3.6:.2f}]) circle(d=4.0,$fn=24); translate([0,{3.6:.2f}]) circle(d=4.0,$fn=24); }}\n')
+    # S2b (director): a ROUND opening, Ø 7.5 (stem 3.2 + its ± 2.1 sweep at panel level + clearance); the one-axis
+    # gate is under the panel, not a slot in it, so nothing in any view reads as a fader track
+    s += cyl(x, y, z - 0.4, 0.46, 7.5, "#0e0d0c", fn=48)
     part = cyl(0, 0, -0.4, 8.6, 3.2, "#4a4a4f", fn=24)                       # stem, seen in every side / 3/4 view
     part += cyl(0, 0, 8.2, 3.0, 8.4, "#2f2f33", fn=48, d2=10.0)              # flared cap body
     part += cyl(0, 0, 11.2, 1.0, 10.0, "#2f2f33", fn=48)
@@ -386,7 +387,7 @@ AX_Z = 25.0
 FO_DX = 0.0
 FO_IO_PWR = 66.0                                     # rev 5.6: power switch, then 6 jacks along the lid's far wall
 FO_IO_JACKS = [90.0 + 25.0 * k for k in range(6)]    # phones, line out, EXT in, filter CV in, pitch CV out, gate out (x 90-215)
-FO_USB_Y, FO_MIDI_Y = 94.0, 83.0                      # base right end face, y 80-100
+FO_USB_Y, FO_MIDI_Y, FO_MIDI_IN_Y = 94.5, 80.0, 70.0   # base right end face (rev 5.6): MIDI IN 70, MIDI OUT 80, USB-C 90-99
 FO_HEAD_D = 16.2       # S1: echo / reverb baseline, this far behind the back row
 VAR = {105: dict(D=108.0, dV1=14.45, dV2=60.85, dFX=83.85, spk=(26.7, 56.7), grille=(28.0, 46.0),
                  cells=[(15, 103, 28.2, 55.2), (183, 271, 28.2, 55.2)]),
@@ -435,9 +436,10 @@ class Fold:
         s += f'{c("#c9a77c")} translate([143,{D-0.2},8]) rotate([-90,0,0]) cylinder(h=0.3,d=1.2,$fn=12);\n'
         s += r4.keys_flat(8, 4.5, 17.5 + KEY_LIFT, bed_z=12.6)
         s += f'{c("#c2a25e")} translate([142.6,-0.1,7.5]) cube([0.8,0.3,4]);\n'       # brass pin on the front rim: the axis
-        # base right end face (rev 5.6): USB-C + TRS MIDI out, straight off the Daisy Seed (base rear right)
+        # base right end face (rev 5.6): USB-C + TRS MIDI in + out, straight off the Daisy Seed (base rear right)
         s += box(FO_W - 0.3, FO_USB_Y - 4.5, 4.8, FO_W + 0.1, FO_USB_Y + 4.5, 8.2, "#1a1a1a")
-        s += f'{c("#151515")} translate([{FO_W-0.25},{FO_MIDI_Y},6.5]) rotate([0,90,0]) cylinder(h=0.4,d=4.6,$fn=24);\n'
+        for my in (FO_MIDI_IN_Y, FO_MIDI_Y):     # TRS MIDI IN (y 70) and OUT (y 80), centre z = 6.5 as drawn since rev 5.6
+            s += f'{c("#151515")} translate([{FO_W-0.25},{my},6.5]) rotate([0,90,0]) cylinder(h=0.4,d=4.6,$fn=24);\n'
         return s
 
     def lid(self, walnut=WAL_P, plate=True, back_detail=True, controls=True, lift=0.0, stowed=True):

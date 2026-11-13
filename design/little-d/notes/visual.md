@@ -23,6 +23,10 @@ Context: the owner locked HUSH / ONE SHEET / FOLD-105 as v1 (`locked/v1-2026-11-
   - one-sheet: A, B, C, D.
   - C changed only in the footer (no stick in its sections). I opened every one, with 1:1 crops of the stick in B, D and E.
   - FOLD-113 is dropped and not re-rendered; its stale sheets and round 4's unsuffixed FOLD sheets are still in `fold/` (delete when convenient). `mock-E-standing-105-r5old.png` is kept for comparison.
+### S2b: director fixes (same day)
+- **Slot gone:** the panel opening under the stick is now a **round dark hole Ø 7.5** (stem 3.2 + its ± 2.1 sweep at panel level + clearance) in every view. The one-axis gate is under the panel. The callout's side views cut the panel at ± 3.75 to match. Checked in 1:1 crops of A (all three) and E.
+- **FOLD MIDI IN drawn** (systems rev 5.6 does list it): base right end face, MIDI IN y 70, MIDI OUT y 80, USB-C y 90–99 (`FO_MIDI_IN_Y`, `FO_MIDI_Y`, `FO_USB_Y` in r5.py). Labelled under the open end view on D. Notes on C, D and E corrected. My earlier "rev 5.6 lists no MIDI IN" was wrong.
+- **Re-rendered:** hush A, B, D; one-sheet A, B, D; fold A, B, C, D, E (all -105). Checkers 0.
 - **Open:**
   1. #2765 cap size and height still UNVERIFIED in hand (drawn 10 / 12.6).
   2. `fold/`, `hush/` and `one-sheet/` `how-it-looks-and-feels.md` don't yet describe the gate ring / round surround or 120°. Add these when handoff starts.
@@ -41,7 +45,7 @@ Context: the owner locked HUSH / ONE SHEET / FOLD-105 as v1 (`locked/v1-2026-11-
   - FOLD I/O: power switch + 6 jacks in the lid's far wall (x 66, then 90–215 at 25 pitch). USB-C (y 94) + TRS MIDI out (y 83) in the base's right end face. The lid end faces carry only the stays, so the stay FLAG on D and E is now marked resolved.
   - Daisy Seed is in the base, rear right (`Fold.fx_shield()` now returns base coordinates). It's gone from the lid plan and exploded view; a far-wall I/O board is drawn instead.
 - **FLAG (systems): there's no room for PARA's legend in the flat concepts.** It's drawn bare, with a flag on sheet B. There's 2.3 mm between its nut and OSC 2's legend, and the break is 3 mm to its left. The three words need ≈ 15. It needs a new spot or fewer words.
-- **Open (systems): rev 5.6 lists no MIDI IN for FOLD.** I drew it as listed.
+- ~~Open (systems): rev 5.6 lists no MIDI IN~~: wrong, rev 5.6 adds it; drawn in S2b.
 - **Perspective views (A):** in the 3/4 views, front knobs still hide parts of some back-row legends. Short labels reduce this but can't remove it, and the top and front views are exact.
 
 ## Where things stand (end of concept round 5, 2026-11-13; new visual designer this round)
