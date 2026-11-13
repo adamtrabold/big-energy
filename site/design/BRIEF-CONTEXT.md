@@ -5,6 +5,8 @@ Every teammate on the site work gets this file. Repo root: `/home/claude/big-ene
 ## The owner's words for this task (verbatim)
 > "rather than interact through here, i'd like to interact through a web interface that is built on the fly for the versioning and serves as a landing page for the project. can you have a team spec this out? it should live update there as things from here are made and explored, and i want to be able to see the history and versions and see anything that's created (explorations, mocks, layotus, diagrams, etc). it should be shareable and minimal ui in the style of dieter rams / braun"
 
+Owner follow-up (verbatim, answers the interaction question): "chatting here is fine; i just want there to be a site for me to view all the stuff from the team / the versions / the tests / etc as we get further down the build chain"
+
 ## Who and what
 - Owner: Adam, Director of Product Design (and designer, musician, MFA). He often reads on a phone. He wants short, plain words. He gets asked open questions one at a time.
 - The project: designing and building a portable Model D-style synth ("big energy" repo; the name is still open, see `design/naming.md`). Work is done by Claude sessions running a design team (orchestrator, designers, director, etc.) and committed to this git repo.
@@ -26,7 +28,8 @@ Every teammate on the site work gets this file. Repo root: `/home/claude/big-ene
 
 ## Settled vs. open
 - Settled: the owner's words above. Minimal UI in the Dieter Rams / Braun style. Shareable. Shows history, versions and everything created. Live-updating. It's the project's landing page.
-- Open: everything else, including how much he interacts there (view only, or also feedback, decisions and answering questions), structure, how updates flow from sessions, what "anything that's created" includes, and how it looks. The orchestrator will put the interaction-depth question to the owner; design for the range until he answers.
+- Settled by the follow-up: it's a VIEWING site; chat stays the place for conversation and decisions. It must grow with the build chain (tests, spec, BOM, boards, prints, assembly).
+- Open: everything else, including structure, how updates flow from sessions, what "anything that's created" includes, and how it looks.
 - The phase: CONCEPT (spec). Prototypes outside the real thing are allowed and encouraged when an idea only shows when used. Nothing is published as the real site until the owner approves a concept.
 
 ## Work files

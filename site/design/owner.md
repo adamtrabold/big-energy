@@ -11,3 +11,9 @@ Recorded as:
 - Minimal UI in the style of Dieter Rams / Braun.
 - Ask: a team SPECS it out (concept phase first; build after approval).
 - Open: how much interaction he means (viewing only, or also giving feedback and answering questions there).
+
+## 2026-11-13 11:52 — interaction depth answered
+Owner (verbatim): "chatting here is fine; i just want there to be a site for me to view all the stuff from the team / the versions / the tests / etc as we get further down the build chain"
+Recorded as:
+- VIEWING site. Conversation and decisions stay in chat; the site doesn't need to take feedback or decisions.
+- Must show: everything from the team, the versions, the tests, and more as the project moves down the build chain (spec, BOM, breadboard tests, boards, prints, assembly).
