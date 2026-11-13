@@ -207,3 +207,5 @@ Recorded as: DECISION — FX PAN receives MIDI pan (CC 10). Asked what the pan a
 Recorded as: an independent expert review (audio engineer / synth designer) of the whole instrument's audio, control and MIDI behaviour, including today's additions. Reports to the owner; decides nothing. MIDI pan "send" question still open.
 2026-11-13 15:50 Owner (verbatim): "I think I’d like to pan the delay into the reverb separately from the dry signal but also would want to be able to sync that"
 Recorded as: wants the DELAY panned into the REVERB separately from the dry signal's pan, and wants that pan to be syncable (most likely a tempo-synced auto-pan; being confirmed). Supersedes the single FX PAN design as stated.
+2026-11-13 15:53 Owner (verbatim): "No the pan would be audio signal. Basically I’d like to pan just the delay separately from the full dry but also I’d like to be able to have the pan signals sync"
+Recorded as: NOT a tempo auto-pan. Wants two audio pans: (1) the full DRY signal panned on the outputs, (2) the DELAY panned separately; plus the option to have the two pans "sync" — most likely linked so they move together (exact meaning being confirmed).
