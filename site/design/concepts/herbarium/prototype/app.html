@@ -34,12 +34,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* header */
 header.band{padding:18px var(--m) 12px}
 .hgrid{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
-.name{font-size:22px;font-weight:600;line-height:1.2;margin-top:6px}
+.name{font-size:22px;font-weight:600;line-height:1.2;margin-top:2px}
 .sub{font-size:13px;color:var(--ink2)}
 .sub a{color:var(--ink);font-weight:500}
 .waiting{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .waiting b{font-size:15px;font-weight:600}
-.waiting a b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--on);margin-right:8px;vertical-align:1px}
+.sig{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--on);margin-right:7px;vertical-align:2px}
 .strip{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:4px}
 .strip a{display:block;height:20px;position:relative}
 .strip a i{position:absolute;left:0;right:0;top:6px;height:6px;background:var(--rule)}
@@ -246,8 +246,8 @@ details.jump a{display:block;padding:3px 0}
 .gdocd{border-top:1px solid var(--rule);padding:10px 0}.gdocd summary{cursor:pointer;font-weight:600}
 .nofig figure{display:none}
 /* page point, waiting list, about */
-.sub a,.back a,.back button,[data-copy],.waiting a,.dec .cz a,h2.sec a{display:inline-block;padding-top:5px;padding-bottom:5px;margin-top:-5px;margin-bottom:-5px}
-.purpose{font-size:16px;margin:14px 0 16px;max-width:70ch}
+.sub a,.back a,.back button,[data-copy],.link a,.dec .cz a,h2.sec a{display:inline-block;padding-top:5px;padding-bottom:5px;margin-top:-5px;margin-bottom:-5px}
+.purpose{font-size:15px;margin:14px 0 16px;max-width:70ch}
 .wlist{margin:0 0 10px;padding-left:22px}.wlist li{padding:6px 0;border-top:1px solid var(--rule)}
 .wsec{border-top:1.5px solid var(--ink);padding-top:10px;margin-top:26px}.wsec h2{font-size:19px;font-weight:600;margin:0 0 6px}
 .about{margin-top:40px;padding-top:12px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink2)}.about b{color:var(--ink);font-weight:600}
@@ -353,11 +353,10 @@ const SECTIONS = [ // build-chain order; the site's whole structure
 function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
   return `<header class="band wrap"><div class="hgrid">
-    <div>${updatedLine()}<div class="name">${esc(D.project.name)}</div>
+    <div><div class="name">${esc(D.project.name)}</div>
       <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a></div></div>
-    <div class="waiting"><a href="#home"><b>${n} decision${n==1?"":"s"} waiting on you</b></a></div>
   </div></header>
-  <div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
+  <div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
 }
 function point(t){ return `<p class="purpose">${esc(t)}</p>`; }
 function about(){
@@ -369,13 +368,13 @@ function about(){
     <b>History</b> ← design/owner.md, VERSIONS.md, design/scores.md, design/reviews/.
     Markdown is the source; site/publish.sh rebuilds this site from the repo.</p></footer>`;
 }
-function notYet(what, when, where){ return `<div class="drow stub"><span class="t">${esc(what)}</span><span class="c">Not yet: arrives ${esc(when)}.</span><span class="ink2" style="font-size:13px">goes in ${esc(where)}</span></div>`; }
-function docRow(code, note){ const it = I[code]; if (!it) return ""; return `<a class="drow" href="#i-${code}"><span class="t">${esc(it.title)}</span><span class="c">${esc(note || it.lead || "")}</span><span class="ink2" style="font-size:13px">${esc(it.path)}</span></a>`; }
+function notYet(what, when, where){ return `<div class="drow stub"><span class="t">${esc(what)}</span><span class="c">Not yet: arrives ${esc(when)}.</span></div>`; }
+function docRow(code, note){ const it = I[code]; if (!it) return ""; return `<a class="drow" href="#i-${code}"><span class="t">${esc(it.title)}</span><span class="c">${esc(note || it.lead || "")}</span></a>`; }
 function groupRow(gc, note){ const g = G[gc]; if (!g) return ""; const m = g.lead && I[g.lead];
   return `<a class="drow${g.status==="dropped"?" dropped":""}" href="#g-${gc}"><span class="t">${esc(g.title)} <span class="ink2" style="font-weight:400">rev ${esc(g.rev)}</span></span><span class="c">${esc(note || g.line)}</span><span class="ink2" style="font-size:13px">${esc(g.status)}${m?" · "+g.images.length+" images":""}</span></a>`; }
 function vWaiting(){
   const W = D.waiting || {items:[]};
-  return header("decide") + `<main class="wrap wide">${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
+  return header("decide") + `<main class="wrap wide">${updatedLine()}${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
     ${W.items.length ? `<ol class="wlist">${W.items.map(it=>`<li><a href="#wait-${it.n}"><b>${esc(it.title)}</b>${it.unblocks?`<span class="ink2"> · unblocks ${esc(it.unblocks)}</span>`:""}</a></li>`).join("")}</ol>` : "<p>Nothing is waiting on you.</p>"}
     ${W.items.map(it=>`<section class="wsec" id="wait-${it.n}"><h2>${esc(it.n)}. ${esc(it.title)}</h2><div class="doc-html">${it.html}</div></section>`).join("")}
   </main>${about()}`;
@@ -516,9 +515,9 @@ function vDocPage(slug){
   const i = D.docs.indexOf(d), prev = D.docs[i-1], next = D.docs[i+1];
   const arch = d.slug === "architecture";
   return header(arch ? "architecture" : "features") + `<div class="wrap">${point(arch ? "How the whole instrument fits together: signal paths, control and data, power, budgets, and what's decided or still open." : "One feature set: what it does, your decisions, how it works, and what's still open.")}</div><div class="back wrap">${arch?"<span></span>":'<a href="#features">‹ Features</a>'}<button data-copy="1">copy link</button></div><main class="wrap item">
-    <article class="doc-html" id="doc">${d.stub?'<p class="note">Not yet written. The headings below are the template it will fill.</p>':""}${jumpList(d.jump)}${d.html}
+    <article class="doc-html" id="doc">${d.stub?`<p><b>Not written yet.</b>${d.covers?` It will cover ${esc(d.covers)}.`:""}</p>`:jumpList(d.jump)+d.html}
       <div class="chips" style="margin-top:28px">${prev?`<a href="#doc-${prev.slug}">‹ ${esc(prev.title)}</a>`:""}${next?`<a href="#doc-${next.slug}">${esc(next.title)} ›</a>`:""}</div></article>
-    <div class="aside"><div class="label"><div class="lh"><b>${esc(d.title)}</b></div><div class="lf">doc · ${esc(d.written)}</div>${d.stub?"":counts(d.counts)}</div>${LEGEND}<div class="hint">source: ${esc(d.path)}</div></div></main>`;
+    <div class="aside"><div class="label"><div class="lh"><b>${esc(d.title)}</b></div><div class="lf">doc · ${esc(d.written)}</div>${d.stub?"":counts(d.counts)}</div>${d.stub?"":LEGEND}</div></main>`;
 }
 function vReviews(){
   return header("reviews") + `<main class="wrap wide"><div class="lh" style="margin:12px 0 10px"><b style="font-size:24px;font-weight:600">Reviews</b><span class="ink2" style="margin-left:auto;font-size:13px">independent critics · they decide nothing</span></div>
@@ -528,7 +527,7 @@ function vReview(slug){
   const r = D.reviews.find(x => x.slug === slug); if (!r) return vMissing(slug);
   return header("history") + `<div class="wrap">${point("An independent review of the design: what it found, item by item. Reviewers decide nothing.")}</div><div class="back wrap"><a href="#history-reviews">‹ Reviews</a><button data-copy="1">copy link</button></div><main class="wrap item">
     <article class="doc-html" id="doc">${jumpList(r.jump)}${r.html}</article>
-    <div class="aside"><div class="label"><div class="lh"><b>Review</b><span>${esc(r.date)}</span></div><div class="lf">${r.score?esc(r.score)+" · ":""}independent critic</div></div><div class="hint">source: ${esc(r.path)}</div></div></main>`;
+    <div class="aside"><div class="label"><div class="lh"><b>Review</b><span>${esc(r.date)}</span></div><div class="lf">${r.score?esc(r.score)+" · ":""}independent critic</div></div></div></main>`;
 }
 function vFilter(kind){
   const kinds = ["all","image","doc","test","record","prototype"];
@@ -578,7 +577,7 @@ function vImage(it, revSel, back){
   const caused = it.causedBy ? `<div class="more">caused by: “${esc(it.causedBy)}”</div>` : "";
   return header("physical") + backBar(back[0], back[1], true, "One image from the team's work, with its label and revisions. Tap it for full size.") + `<main class="wrap item">
     <div><div class="viewer" id="viewer"><img src="${r.src}" width="${r.w}" height="${r.h}" alt="${esc(it.title)}"></div>
-      <div class="hint">Tap to see it at full size; pinch to zoom. ${r.orig ? "Original " + esc(r.orig) + " · " + esc(r.path) : ""}</div>
+      <div class="hint">Tap to see it at full size; pinch to zoom. ${r.orig ? "Original " + esc(r.orig) : ""}</div>
       ${sibs.length > 1 ? `<div class="chips" style="margin-top:12px">${idx>0?`<a href="#i-${sibs[idx-1]}">‹ ${esc(sibs[idx-1])}</a>`:""}${idx<sibs.length-1?`<a href="#i-${sibs[idx+1]}">${esc(sibs[idx+1])} ›</a>`:""}</div>` : ""}</div>
     <div class="aside">${label({code:it.code, title:it.short||it.title, fields:statusLine(it) + (g ? " · " + g.title : ""), revs:it.revs, max:9, extra:caused})}${it.short?`<p style="font-size:14px;margin:10px 0 0">${esc(it.title)}</p>`:""}${lin}</div>
   </main>`;
@@ -604,7 +603,7 @@ function vDoc(it, back){
   const sec = it.path && it.path.startsWith("eng/") ? "electronics" : it.path && it.path.startsWith("design/branches") ? "physical" : "history";
   return header(sec) + backBar(sec === "history" ? "#history" : "#" + sec, sec[0].toUpperCase() + sec.slice(1), true, it.kind === "record" ? "A record the team keeps, rendered from the repo." : "A document from the repo, rendered as a page.") + `<main class="wrap item">
     <article class="doc-html" id="doc">${jump}${it.html}</article>
-    <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3, extra:caused})}<div class="hint">${esc(it.path)}</div></div>
+    <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3, extra:caused})}</div>
   </main>`;
 }
 function vProto(it){
@@ -620,7 +619,7 @@ function vProto(it){
     <li>Only FOLD-A and HUSH-A carry earlier forms. Some events have no recorded time.</li>
     <li>The full-instrument archive isn't included.</li>
     <li>Navigation is kept simple until you say how you want it.</li></ul>
-    </article><div class="aside">${label({code:it.code, title:"", fields:statusLine(it), revs:it.revs})}<div class="hint">${esc(it.path)}</div></div></main>`;
+    </article><div class="aside">${label({code:it.code, title:"", fields:statusLine(it), revs:it.revs})}</div></main>`;
 }
 function vGroup(code){
   const g = G[code]; if (!g) return vMissing(code);

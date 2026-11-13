@@ -65,7 +65,7 @@ Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team reco
 
 ---
 
-## 6. MIDI (see Docs → MIDI for the full page)
+## 6. MIDI (see Features → MIDI for the full page)
 - Should the dry pan stay on CC 10? DAWs send "pan = centre" on CC 10 every time a project opens, so the pan would jump to centre on its own. The team recommends moving it to an unused number.
 - Should a DAW be able to automate the echo and reverb amounts? Those two knobs would get the MIDI dot and the "held by MIDI" light.
 - Channel 1, or respond on any channel (omni)?
