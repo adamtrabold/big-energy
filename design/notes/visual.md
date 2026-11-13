@@ -1,5 +1,48 @@
 # Visual designer notes (instrument; working name retired)
 
+## BRANCHES, jam turn 2 (2026-11-13): personality + point of view; FREE/SYNC placed
+Context: the owner wants branched creative rounds from v1.1 (he leans ONE SHEET or FOLD) with more personality and a whole point of view. His sources: furniture, instruments, tools, art, emotion; "take this to the park and be inspired". Pegs are loved, "organ like" is an example only. **Owner decided echo sync option B (11:58): a FREE / SYNC toggle near TIME, in every branch.** Shared rule (systems, accepted): the board is the constant, only the outside changes.
+- **My turn:** `design/branches/jam.md` "Turn 2". Draw script `design/branches/draw-visual.py` (my own decks; every earlier-used Oblique card removed); results recorded in the jam §1.
+- **Sketches:** `design/branches/concepts/jam-sketches/`, source `sketch_turn2.py` (layout read live from `fold_r5_check.py`):
+  - `t2-rain-top.png`: computed ripple field;
+  - `t2-chamber-closed-facade.png`;
+  - `t2-ground-horn-section.png`;
+  - `t2-butterfly-real-rail.png`.
+- **Decisions and why:**
+  - **BUTTERFLY (ONE SHEET), reshaped, "from tool to tree".**
+    - Killed the printed scanned live edge: fake, and the first idea.
+    - The rear band is a real live-edge walnut rail. One straight joint at y 160 (153.5 sat on the back-row knob edges), one butterfly on axis x 138; the jacks are drilled in the wood.
+    - Precision runs as a spectrum from front to back (draw: "Spectrum analysis"). Emotion: longing. The French cleat stays.
+  - **CHAMBER (FOLD), pushed, "closed an organ case, open a console".**
+    - The façade goes on the lid's back: the closed top, and what the friend across from you sees when it's standing. The speaker stays put.
+    - 25 pipe lengths ∝ 2^(−n/12), laid out the organ builders' way (alternating from a centre tower). Draw: "Humanize something free of error".
+    - Reverse pegs, naturals in body walnut. Brass screws as impost rivets. RANGE in feet, in serif. Emotion: joy.
+  - **PIERCED, killed as a branch** (+55 mm for a gesture is the wrong way on cost and portability). Draws: "Disconnect from desire", shyness. The carry job moved into GROUND as a felt-lined finger pocket. A +32 mm slot middle path was tried and dropped.
+  - **GROUND (either), "calm on top, loud underneath; the wedge is a horn".**
+    - The speaker fires into a folded horn inside the wedge; mouth at the rear and sides. Draw: "Listen to the quiet voice". Horn gain UNVERIFIED.
+    - Persimmon underside (exuberance), finger pocket, high-contrast type, a hood over the status light.
+    - 12° over 180 ≈ 37 mm (systems' rough figure was 15–25); 8° ≈ 25.
+  - **NEW: RAIN (ONE SHEET), "a pond after rain".**
+    - The v1.1 rings with no outer radius. Fields meet at smooth Voronoi seams that draw the sections, so the grooves go. It keeps his two-finish rule.
+    - Pegs become stepping stones that also ripple ("everything that breaks the surface ripples"). Legends sit on smooth "lily pads".
+    - Mustard CUTOFF = a ginkgo leaf; pale wet-slate shell.
+    - Draws: Riley, calm, under a tree in dappled light, mustard, "Don't be afraid of things because they're easy to do". Unused: stretcher, concertina, binoculars (TRAY held in reserve: a worn neck-strap tray).
+  - **FREE/SYNC (all branches): in front of TIME, in the pot's dead zone.**
+    - FOLD (≈133, d ≈71); ONE SHEET (≈128, y ≈133).
+    - Fore-aft throw: toward the player = free, toward TIME = sync.
+    - TIME gets two scales: inner ms ("20 ms", "2 s"); outer 9 division marks with only 1/16, 1/8, 1/4, 1/2 written, a dot for dotted, a triangle for triplet.
+    - No mirror partner (the reason: echo is the only effect that cares about time).
+    - The beside-TIME spot is ruled out by margins (7.05 to the break; 5.1 gap vs ≈ 12.2 needed). The behind-TIME spot collides with the ECHO heading and type fan.
+    - d6 "jack wall" tested and rejected on B-J13 (not visible from the seat).
+    - **My check was by margins only, in scratch (`/tmp`), not in the repo. Systems must run it with labels.**
+- **Open questions:**
+  - Owner: reversed key colours; pegs cost ONE SHEET ≈ +8 mm of width (the last peg is 0.65 from the 276 edge) and FOLD closed height.
+  - Eng: horn gain; wood/PETG joint movement; engraved fill on wood-fill PLA; ring grooves ≥ 0.9 pitch face down.
+  - Systems: SYNC label check; BUTTERFLY depth; GROUND rake; mouth/pocket layout.
+  - Maker: the ring coupon now also decides RAIN (view it under a tree).
+- **Director objections:** none yet on branches (first steer pending).
+- **Next:** the director steers. Then build concepts with systems in `design/branches/concepts/<name>/`: real r5-based renders (A look + park scene, B 1:1), not sketches. RAIN first if chosen: its idea only shows in a render with raking light.
+
 ## S2: 120° stand + bend reads as a joystick (2026-11-13, new visual designer; owner: "oh do those first")
 Context: the owner locked HUSH / ONE SHEET / FOLD-105 as v1 (`versions/v1/`, untouched by me). These two fixes were in progress at lock time. The sheets in `concepts/<concept>/` are the post-lock S2 redraws; they were locked as `versions/v1.1/` (owner, 2026-11-13).
 - **Owner's words:** "the fold's angle should be a bit less steep so the front face catches more light. also i want the bend slider to be a joystick (is it a snap to center fader or what?...)".

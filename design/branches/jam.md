@@ -237,7 +237,7 @@ Sketch: `t2-rain-top.png`. That's the real round-5 layout; the ripple field is c
 
 ### 7. The FREE / SYNC toggle, every branch (owner: "B")
 **Where it fits (my scratch check, same margins as `fold_r5_check.py`, FOLD-105; labels not yet checked by systems):**
-- **Not beside TIME in the back row.** TIME's knob edge is already only 7.05 from the centre break (rule ≥ 7). The gap to ECHO TYPE is 5.1, and a toggle needs ≈ 10.7.
+- **Not beside TIME in the back row.** TIME's knob edge is already only 7.05 from the centre break (rule ≥ 7). The gap to ECHO TYPE is 5.1, and a toggle between two knobs needs ≈ 12.2 (1.5 + 9.2 + 1.5).
 - **Not behind TIME.** It fits by margins at x ≈ 119–122, d ≈ 93–96, but that's where the ECHO heading and the type-name fan live. Rejected.
 - **In front of TIME: fits.**
   - FOLD x ≈ 133, d ≈ 71 (≈ 12.9 in front of TIME's centre, slightly inboard);

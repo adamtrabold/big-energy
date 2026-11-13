@@ -17,3 +17,7 @@ Owner (verbatim): "chatting here is fine; i just want there to be a site for me 
 Recorded as:
 - VIEWING site. Conversation and decisions stay in chat; the site doesn't need to take feedback or decisions.
 - Must show: everything from the team, the versions, the tests, and more as the project moves down the build chain (spec, BOM, breadboard tests, boards, prints, assembly).
+
+## 2026-11-13 12:06 — sharing
+Q: who gets the link; hide owner notes and scores from outside viewers? → Owner (verbatim): "anyone that gets the link is fine to see everything"
+DECISION: one view for everyone; nothing hidden from link holders (owner record, scores, notes all visible).
