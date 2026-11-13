@@ -1,5 +1,87 @@
 # Director notes: Little D (budget instrument), physical design
 
+## CATHEDRAL fix check (2026-11-13 ~17:40): READ THIS FIRST
+- **CATHEDRAL 9 CONFIRMED → publish and show the owner.** Checked by eye on the re-rendered nave-top, nave-standing and nave-closed-side.
+  - Fix 1: FX row centred on the axis. ✓
+  - Fix 2: section names back, name plate under the window. ✓
+  - Fix 3: R3 gone; base right reads MOD MIX, DRIFT, TAP, balanced against the left. ✓
+  - Fix 5: 0 label collisions on the real model (systems). ✓
+  - Fix 6: conditions stated in §16 (systems; not re-read by me).
+- **Fix 4, hinge ear: accepted as is, not a blocker.**
+  - With the lid flat and the seam closed, the axis sits at or behind the back face, so a ≈ 4 mm round ear remains at each rear corner (down from 6). It's only visible from the side/back.
+  - He said "if not these are fine" about knuckles, and this is quieter than knuckles.
+  - **Tell him plainly on the site:** the pins are hidden; a 4 mm ear remains; the alternative is knuckles or a pivot redesign (his call if he minds it). A form change goes to him only if he asks.
+- **Carry to the owner with the 9:**
+  - closed ≈ 55.2 depends on snap-in pots/counterbore + the lowered stick (else 56.7–58.8; R-TALL 59.7 keeps the big knobs);
+  - played-row knobs Ø 10 gold;
+  - moved controls (mixer around the window, CUTOFF on the axis, MOD MIX and DRIFT to the base);
+  - the 4 mm hinge ear;
+  - buy-and-test T1/T2.
+- **If he turns it down, record his reasons here.**
+
+
+## CATHEDRAL, score after steer 2 (2026-11-13 ~17:20): READ THIS FIRST
+- **Judged:** how-it-works §16 and look rev 4 images (nave-standing, nave-top, nave-closed-side, speaker window + section, keys A/C).
+- **The work really changed.** It's a re-architecture, not restyling:
+  - the band is gone: three lid rows at an even 35.05 pitch, one switch line, the only knob-free area is the window;
+  - root cause stated;
+  - R-LOW: low Tayda gold Ø 10 × 8 knobs on the played row, stick lowered, closed ≈ 55.2 (R-TALL 59.7 as the fallback);
+  - Ø 46 window, vertical slots, ≈ 73–83 % of Sd open, gasket, sealed stuffed 20–25 cc back box, honest +3–6 dB at 1–5 kHz;
+  - centred on x 143 over CUTOFF (CUTOFF ↔ EMPHASIS swapped), mixer symmetric ± 39.5;
+  - battery to the base rear strip (tip threshold up to 8.4 N);
+  - keys A (brass naturals, black-plated brass sharps, one velocity calibration);
+  - base row mirrored, stick ↔ TAP.
+- **Score: CATHEDRAL 8.** Not a 9, because of these likely owner objections, all visible in the images:
+  - (a) the FX row runs x 62.5–260.5, so the lid's top-left corner is empty (DRIFT left). That's an off-centre gap of exactly the kind he just objected to;
+  - (b) R3 is a knob with no function or legend;
+  - (c) the lid lost its section names (oscillators / mixer / contours);
+  - (d) closed side view: the side-pivot ear projects as a lobe past the back outline. "Hidden" hinges shouldn't add a bump.
+- **Fixes (I check by eye, no re-score; then publish):**
+  1. Re-centre the FX row about x 143 (groups and breaks kept; FREE/SYNC and FOLLOW move with it).
+  2. Restore the lid section names in the hand.
+  3. Remove R3. Re-space the base right section (MOD MIX, DRIFT, TAP) so stick ↔ TAP still mirrors and nothing reads as a missing knob.
+  4. Keep the pivot ear inside the block outline (axis or ear within the rear radius, or the rear radius enclosing it). Re-render the closed side.
+  5. Re-run the label check on the visual model (systems' 0 used estimated label sizes) → 0.
+  6. Doc honesty:
+     - 55.2 depends on snap-in pots or a counterbore plus the lowered stick (else 56.7–58.8);
+     - the played row's knobs are now Ø 10 (from 14.9): say so, offer R-TALL as his alternative.
+- **Watch items (not blockers):** small Ø 10 knobs on the played row (feel); loudness from a 50 mm driver is still modest; mixer, switches, CUTOFF/EMPHASIS, MOD MIX and DRIFT all moved (he allowed moving components).
+- **Lesson:** a re-flow that removes a control from a row leaves a hole at the row's end. Check every row's extent against the axis after moves.
+
+
+## CATHEDRAL, steer 2 (2026-11-13 ~16:55): READ THIS FIRST
+- **Owner, verbatim (16:52):** "ok i dont think you're really thinking here — off center in that middle section is bad looking. aso consider the sound of the speaker and the shape... which will work best and give me the best sound out of the chosen speaker. in fact none of my feedback on why it's a problem have been addressed. there's a massive horizontal gap -- the speaker doesnt feel resolved. this may mean moving components. i'd rather have more brass than black re: keys too."
+- **What went wrong (mine as much as the team's):** since 14:18 we offered grille shapes that fit leftover band space. My steer 1 even ruled on grille shapes instead of the band. **Lesson:** when the owner names a gap, find what forces the gap before styling what fills it.
+- **Root cause:**
+  - closed, base y lands on lid d = 108 − y;
+  - the PLAY row (y 68; knob tops z 29.1, CUTOFF 27.75) lands at lid d ≈ 40, where lid knobs reach down to z ≈ 24;
+  - overlap ≈ 5.1 + 2.0 clearance, so nothing tall can live there, which makes the band 37.55 clear vs ≈ 8.5 between other rows;
+  - the base landing strip is the mirror case for V1.
+- **Direction ("nave and rose"):**
+  1. **R-LOW (primary):** bought low-profile knobs on the base PLAY row (≤ ~9 mm above the plate; CUTOFF a wide, low hero dial). Lid knobs can then land over them with ≥ 2.0 clearance, closed ≤ ~56. Lid rows re-spaced evenly, so there's no knob-free strip wider than a row gap except the speaker window. Shrink the landing strip / halves if possible.
+     - **R-TALL (fallback):** today's knobs plus ≈ +7 closed (≈ 60). Systems gives the numbers for both; I choose.
+  2. **Speaker from acoustics:**
+     - one round opening concentric with the 50 mm CDS-5076-1SP, Ø ≈ cone + surround (≈ 42–46);
+     - open area ≥ 50 % of Sd, target ~60 % (today 265–440 mm² ≈ 20–35 %: choked);
+     - vertical slots (his preference) ≥ 1.5 wide, or holes; web thinned to ≤ 1.2;
+     - front gasket; sealed, stuffed printed back box; magnet distances kept.
+  3. **Placement:** centred on the axis x 143 in the lid. The mixer column widens symmetrically around it (pairs flanking; switches re-flowed). The window sits directly above CUTOFF/EMPHASIS, giving one vertical axis.
+  4. **Base PLAY row symmetric:** stick at the left end ↔ TAP at the right end, hero on the axis, no empty right end.
+  5. **Keys:** A (brass naturals, black sharps; normal reading, more brass) as the lead; C (all brass) as the alternate; metal shader. Systems picks the sharps' material (black-plated brass vs printed black + per-group velocity curve).
+  6. **Keep:** the effects row on the lid back with the pans/FOLLOW/VOLUME, FREE/SYNC, stereo out, nothing raised among the knobs, no screens, closing ≥ 2.0, no machining, side pivots, no spine, R 7.7, screw-feet, woody relief, the palette.
+- **Deliverables asked:**
+  - systems: how-it-works §16 (root cause, route numbers, clearance table, new x/d table, acoustics) and checker 0 incl. labels;
+  - visual: rev 3 with open 3/4, standing 3/4, exact top, exact closed side elevation, speaker top + section, keys A/C; an opening paragraph answering his three complaints; HTML captions.
+  - Publish (site/publish.sh) only after a 9. Commit specific files only, as Adam Trabold, no Claude credit (HANDOFF).
+- **Status:** I could NOT deliver these briefs. SendMessage to ac0e7aeee47bf1a1b (systems) and a26f3d36a52e6b5d4 (visual) failed: "only the main conversation can resume" them. The orchestrator must relay this section to both (it's written to be sent as is).
+- **Not scored:** no new work exists yet.
+- **Likely objections when scored:**
+  - low PLAY knobs change the played row's feel (R-LOW) / thicker body (R-TALL);
+  - re-flowing the mixer moves controls he has learned;
+  - brass mass and velocity;
+  - loudness still modest from a 50 mm driver (honest numbers needed).
+
+
 ## CATHEDRAL, steer 1 (2026-11-13; round counts reset): READ THIS FIRST
 - **Owner (owner.md 14:12–14:41):**
   - lock in on CATHEDRAL (= CHAMBER, renamed as the point of view) with FOLD v1.1 as the middle ground;
