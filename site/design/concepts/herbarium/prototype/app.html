@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>( name to come ) · project site · Herbarium prototype</title>
+<title>( name to come ) · project site</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -224,6 +224,11 @@ details.jump a{display:block;padding:3px 0}
 .proto button.on{font-weight:700}
 .ptog{display:none;text-decoration:none!important}
 @media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
+/* page point, waiting list, about */
+.purpose{font-size:16px;margin:14px 0 16px;max-width:70ch}
+.wlist{margin:0 0 10px;padding-left:22px}.wlist li{padding:6px 0;border-top:1px solid var(--rule)}
+.wsec{border-top:1.5px solid var(--ink);padding-top:10px;margin-top:26px}.wsec h2{font-size:19px;font-weight:600;margin:0 0 6px}
+.about{margin-top:40px;padding-top:12px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink2)}.about b{color:var(--ink);font-weight:600}
 /* status line */
 .status{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
 .status b{color:var(--ink);font-weight:600}
@@ -320,22 +325,89 @@ function updatedLine(){
   const u = D.updated || {};
   return `<div class="status">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
+const SECTIONS = [ // build-chain order; the site's whole structure
+  ["decide","#home","To decide"],["architecture","#doc-architecture","Architecture"],["features","#features","Features"],
+  ["physical","#physical","Physical"],["electronics","#electronics","Electronics"],["parts","#parts","Parts"],["tests","#tests","Tests"],["history","#history","History"]];
 function header(sel){
-  const stages = D.stages.map((s,i) => {
-    const cls = i===0 ? "done" : s===D.project.now ? "now" : s==="Spec" ? "early" : "";
-    return `<a class="${cls}" href="#s-${s.toLowerCase()}" aria-label="${s}" title="${s}"><i></i><span>${s}</span></a>`;
-  }).join("");
-  const n = unseenCount();
-  const more = n ? `+ ${n} new since you last looked ›` : "";
-  const F = [["latest","#home"],["docs","#docs"],["reviews","#reviews"],["decisions","#decisions"],["history","#history-day"],["versions","#version-v1-1"]];
-  const NAMES = {latest:"Latest", docs:"Docs", reviews:"Reviews", decisions:"Decisions", history:"History", versions:"Versions"};
+  const n = (D.waiting && D.waiting.items.length) || 0;
   return `<header class="band wrap"><div class="hgrid">
     <div>${updatedLine()}<div class="name">${esc(D.project.name)}</div>
-      <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 current</a></div></div>
-    <div class="waiting"><span class="cap">Waiting on you</span><b>${esc(D.project.waiting)}</b><span class="ink2" style="font-size:13px">${esc(D.project.then)}</span></div>
-    <div><div class="strip">${stages}</div><div class="stripline"><b>Lock</b> · 2 of 9 · Spec begun early · next Handoff</div></div>
+      <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a></div></div>
+    <div class="waiting"><a href="#home"><b>${n} decision${n==1?"":"s"} waiting on you</b></a></div>
   </div></header>
-  <div class="wrap"><nav class="filters">${F.map(([f,h])=>`<a href="${h}" class="${f===sel?"on":""}">${NAMES[f]}</a>`).join("")}${more ? `<a class="more" href="#f-all">${more}</a>` : ""}</nav></div>`;
+  <div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
+}
+function point(t){ return `<p class="purpose">${esc(t)}</p>`; }
+function about(){
+  return `<footer class="wrap about"><div class="cap">Where things live</div><p>
+    <b>To decide</b> ← design/decisions-open.md · <b>Architecture</b> ← docs/architecture.md · <b>Features</b> ← docs/features/ ·
+    <b>Physical</b> ← design/branches/concepts/ (now), design/concepts/, versions/, archive/; 3D models later in design/models/ ·
+    <b>Electronics</b> ← eng/, eng/sim/; boards and schematics later in eng/boards/ · <b>Parts</b> ← eng/cost-estimate.md, eng/key-sourcing.md; the BOM later in eng/bom/ ·
+    <b>Tests</b> ← owner checks in the CATHEDRAL doc; bench results later in eng/tests/, print checks in design/prints/ ·
+    <b>History</b> ← design/owner.md, VERSIONS.md, design/scores.md, design/reviews/.
+    Markdown is the source; site/publish.sh rebuilds this site from the repo.</p></footer>`;
+}
+function notYet(what, when, where){ return `<div class="drow stub"><span class="t">${esc(what)}</span><span class="c">Not yet: arrives ${esc(when)}.</span><span class="ink2" style="font-size:13px">goes in ${esc(where)}</span></div>`; }
+function docRow(code, note){ const it = I[code]; if (!it) return ""; return `<a class="drow" href="#i-${code}"><span class="t">${esc(it.title)}</span><span class="c">${esc(note || it.lead || "")}</span><span class="ink2" style="font-size:13px">${esc(it.path)}</span></a>`; }
+function groupRow(gc, note){ const g = G[gc]; if (!g) return ""; const m = g.lead && I[g.lead];
+  return `<a class="drow${g.status==="dropped"?" dropped":""}" href="#g-${gc}"><span class="t">${esc(g.title)} <span class="ink2" style="font-weight:400">rev ${esc(g.rev)}</span></span><span class="c">${esc(note || g.line)}</span><span class="ink2" style="font-size:13px">${esc(g.status)}${m?" · "+g.images.length+" images":""}</span></a>`; }
+function vWaiting(){
+  const W = D.waiting || {items:[]};
+  return header("decide") + `<main class="wrap wide">${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
+    ${W.items.length ? `<ol class="wlist">${W.items.map(it=>`<li><a href="#wait-${it.n}"><b>${esc(it.title)}</b>${it.unblocks?`<span class="ink2"> · unblocks ${esc(it.unblocks)}</span>`:""}</a></li>`).join("")}</ol>` : "<p>Nothing is waiting on you.</p>"}
+    ${W.items.map(it=>`<section class="wsec" id="wait-${it.n}"><h2>${esc(it.n)}. ${esc(it.title)}</h2><div class="doc-html">${it.html}</div></section>`).join("")}
+  </main>${about()}`;
+}
+function vFeatures(){
+  const feats = D.docs.filter(d => d.slug !== "architecture");
+  const row = d => `<a class="drow${d.stub?" stub":""}" href="#doc-${d.slug}"><span class="t">${esc(d.title)}</span><span class="c">${esc(d.covers)}</span><span>${d.stub ? '<span class="ink2" style="font-size:13px">not yet written</span>' : counts(d.counts)}</span></a>`;
+  return header("features") + `<main class="wrap wide" style="max-width:1100px">${point("How the instrument works, one feature set per page, with what's decided and what's still open.")}
+    <div class="ink2" style="font-size:13px">${feats.filter(d=>!d.stub).length} of ${feats.length} written</div>${LEGEND}
+    ${feats.filter(d=>!d.stub).map(row).join("")}${feats.filter(d=>d.stub).map(row).join("")}</main>${about()}`;
+}
+function vPhysical(){
+  return header("physical") + `<main class="wrap wide" style="max-width:1100px">${point("The physical instrument: the enclosure concept, its renders and drawings, and the locked versions it grew from.")}
+    <h2 class="sec">Current concept</h2>${docRow("D-109","CATHEDRAL: the middle ground of CHAMBER and FOLD-105 you asked for. Its renders and drawings are on this page.")}${docRow("D-110","Hinges, feet, plates, the key carrier, layouts A and B.")}
+    <h2 class="sec">Physical architecture diagrams</h2>${notYet("Physical architecture diagrams","at Handoff, once CATHEDRAL is chosen","docs/physical/ (markdown + images)")}
+    <h2 class="sec">3D models</h2>${notYet("3D models (STL / STEP) and print files","at the Prints stage","design/models/")}
+    <h2 class="sec">Concepts that led here</h2>${["CHAMBER","RAIN","BUTTERFLY","DIPTYCH"].map(g=>groupRow(g)).join("")}
+    <h2 class="sec">Locked in v1.1 (legacy sheets)</h2>${["FOLD","HUSH","ONESHEET"].map(g=>groupRow(g)).join("")}
+    <h2 class="sec">Archive</h2>${["FOLD113","TYPECASE","HYMNAL","UNDERGLASS"].map(g=>groupRow(g)).join("")}
+  </main>${about()}`;
+}
+function vElectronics(){
+  const eng = D.order.filter(c => I[c].path && I[c].path.startsWith("eng/") && I[c].kind !== "test" && !["E-cost-estimate","E-key-sourcing"].includes(c));
+  const tests = D.order.filter(c => I[c].kind === "test");
+  return header("electronics") + `<main class="wrap wide" style="max-width:1100px">${point("The electronics: the spec, the engineering notes behind it, and the circuit simulations with their plots and sounds.")}
+    <h2 class="sec">Boards and schematics</h2>${notYet("Board layouts and schematics","after Handoff (layout starts after the breadboard spike)","eng/boards/ (KiCad files + exported PDFs and PNGs)")}
+    <h2 class="sec">Simulations</h2>${tests.map(c=>`<a class="drow" href="#i-${c}"><span class="t">${esc(c)} · ${esc(I[c].title)}</span><span class="c">${esc(I[c].line)}</span><span><b>${esc(I[c].result)}</b>${I[c].audio?' <span class="ink2" style="font-size:13px">· has sound</span>':""}</span></a>`).join("")}
+    <h2 class="sec">Spec and engineering notes</h2>${eng.map(c=>docRow(c)).join("")}
+  </main>${about()}`;
+}
+function vParts(){
+  return header("parts") + `<main class="wrap wide" style="max-width:1100px">${point("What it's made of: the parts list with links and prices, and the cost so far.")}
+    <h2 class="sec">Parts list (BOM)</h2>${notYet("Bill of materials with links and prices","at the BOM stage, after Handoff","eng/bom/ (bom.csv + bom.md)")}
+    <h2 class="sec">Cost and sourcing so far</h2>${docRow("E-cost-estimate")}${docRow("E-key-sourcing")}
+  </main>${about()}`;
+}
+function vTests(){
+  return header("tests") + `<main class="wrap wide" style="max-width:1100px">${point("Checks on real parts: things for you to buy and try, breadboard results and test prints.")}
+    <h2 class="sec">For you to buy and test</h2>${D.ownertests ? `<div class="doc-html" style="max-width:none">${D.ownertests}</div><p class="hint">From the <a class="u" href="#i-D-110">CATHEDRAL how-it-works doc</a>.</p>` : "<p class='ink2'>Nothing right now.</p>"}
+    <h2 class="sec">Breadboard</h2>${notYet("Breadboard results (photos, scope plots, recordings)","at the Breadboard stage: the Daisy spike comes first","eng/tests/")}
+    <h2 class="sec">Prints</h2>${notYet("Test prints and fit checks","at the Prints stage","design/prints/")}
+    <p class="hint" style="margin-top:16px">Circuit simulations are under <a class="u" href="#electronics">Electronics</a>.</p>
+  </main>${about()}`;
+}
+function vHistoryHub(tab){
+  const tabs = [["decisions","Decisions"],["versions","Versions"],["reviews","Reviews"],["day","By day"],["round","By round"]];
+  const nav = `<div class="grain">${tabs.map(([k,t])=>`<a class="${k===tab?"on":""}" href="#history-${k}">${t}</a>`).join("")}</div>`;
+  let body = "";
+  if (tab === "decisions") body = decisionsBody();
+  else if (tab === "versions") body = D.versions.map(v => `<div class="lockrule"></div><div class="lh"><a href="#version-${v.code}"><b style="font-size:20px">${v.name}</b></a><span class="ink2">${v.date}${v.current?" · current":""}</span></div><p>${esc(v.line)} <a class="u" href="#version-${v.code}">What's in it ›</a></p>`).join("");
+  else if (tab === "reviews") body = D.reviews.map(r=>`<a class="drow" href="#review-${r.slug}"><span class="t">${esc(r.title)}</span><span class="c">${esc(r.lead)}</span><span class="ink2" style="font-size:13px">${esc(r.date)}${r.score?" · "+esc(r.score):""}</span></a>`).join("") || "<p class='ink2'>No reviews yet.</p>";
+  else body = historyBody(tab);
+  const P_ = {decisions:"Everything you've decided, in your words, and what it changed.", versions:"Locked sets of the design. A version never changes.", reviews:"Independent reviews of the design and what they found. Reviewers decide nothing.", day:"What happened, day by day.", round:"Each design round and how the concepts scored."};
+  return header("history") + `<main class="wrap wide">${point("What happened and why: your decisions, the locked versions and the reviews.")}${nav}<p class="ink2" style="margin:0 0 10px">${esc(P_[tab])}</p>${body}</main>${about()}`;
 }
 function entry(e){
   const [t, code] = e.split(":");
@@ -410,7 +482,8 @@ function jumpList(j){ return (j && j.length > 3) ? `<details class="jump"><summa
 function vDocPage(slug){
   const d = D.docs.find(x => x.slug === slug); if (!d) return vMissing(slug);
   const i = D.docs.indexOf(d), prev = D.docs[i-1], next = D.docs[i+1];
-  return header("docs") + `<div class="back wrap"><a href="#docs">‹ Docs</a><button data-copy="1">copy link</button></div><main class="wrap item">
+  const arch = d.slug === "architecture";
+  return header(arch ? "architecture" : "features") + `<div class="wrap">${point(arch ? "How the whole instrument fits together: signal paths, control and data, power, budgets, and what's decided or still open." : "One feature set: what it does, your decisions, how it works, and what's still open.")}</div><div class="back wrap">${arch?"<span></span>":'<a href="#features">‹ Features</a>'}<button data-copy="1">copy link</button></div><main class="wrap item">
     <article class="doc-html" id="doc">${d.stub?'<p class="note">Not yet written. The headings below are the template it will fill.</p>':""}${jumpList(d.jump)}${d.html}
       <div class="chips" style="margin-top:28px">${prev?`<a href="#doc-${prev.slug}">‹ ${esc(prev.title)}</a>`:""}${next?`<a href="#doc-${next.slug}">${esc(next.title)} ›</a>`:""}</div></article>
     <div class="aside"><div class="label"><div class="lh"><b>${esc(d.title)}</b></div><div class="lf">doc · ${esc(d.written)}</div>${d.stub?"":counts(d.counts)}</div>${LEGEND}<div class="hint">source: ${esc(d.path)}</div></div></main>`;
@@ -421,7 +494,7 @@ function vReviews(){
 }
 function vReview(slug){
   const r = D.reviews.find(x => x.slug === slug); if (!r) return vMissing(slug);
-  return header("reviews") + `<div class="back wrap"><a href="#reviews">‹ Reviews</a><button data-copy="1">copy link</button></div><main class="wrap item">
+  return header("history") + `<div class="wrap">${point("An independent review of the design: what it found, item by item. Reviewers decide nothing.")}</div><div class="back wrap"><a href="#history-reviews">‹ Reviews</a><button data-copy="1">copy link</button></div><main class="wrap item">
     <article class="doc-html" id="doc">${jumpList(r.jump)}${r.html}</article>
     <div class="aside"><div class="label"><div class="lh"><b>Review</b><span>${esc(r.date)}</span></div><div class="lf">${r.score?esc(r.score)+" · ":""}independent critic</div></div><div class="hint">source: ${esc(r.path)}</div></div></main>`;
 }
@@ -450,8 +523,8 @@ function vStage(stage){
   else body = `<div class="grid">${gs.map(g=>entry("g:"+g.code)).join("")}${its.map(c=>entry("i:"+c)).join("")}</div>`;
   return header("latest") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${chips}</div>${S_==="Spec"?'<p class="note">Spec began early: the engineering notes and sims were made before Handoff.</p>':""}${body}</main>`;
 }
-function backBar(href, text, copy){
-  return `<div class="back wrap"><a href="${href}">‹ ${esc(text)}</a>${copy!==false?`<button data-copy="${esc(location.href)}">copy link</button>`:""}</div>`;
+function backBar(href, text, copy, pt){
+  return `${pt?`<div class="wrap">${point(pt)}</div>`:""}<div class="back wrap"><a href="${href}">‹ ${esc(text)}</a>${copy!==false?`<button data-copy="${esc(location.href)}">copy link</button>`:""}</div>`;
 }
 function vItem(code, revSel){
   const it = I[code]; if (!it) return vMissing(code);
@@ -471,7 +544,7 @@ function vImage(it, revSel, back){
       (it.gap ? "" : "")}</div>${it.gap?`<div class="hint">${esc(it.gap)}</div>`:""}
       <p style="margin-top:12px"><a class="btn" href="#compare-${it.code}">Compare forms</a></p>` : (it.gap ? `<div class="hint">${esc(it.gap)}</div>` : "");
   const caused = it.causedBy ? `<div class="more">caused by: “${esc(it.causedBy)}”</div>` : "";
-  return backBar(back[0], back[1]) + `<main class="wrap item">
+  return header("physical") + backBar(back[0], back[1], true, "One image from the team's work, with its label and revisions. Tap it for full size.") + `<main class="wrap item">
     <div><div class="viewer" id="viewer"><img src="${r.src}" width="${r.w}" height="${r.h}" alt="${esc(it.title)}"></div>
       <div class="hint">Tap to see it at full size; pinch to zoom. ${r.orig ? "Original " + esc(r.orig) + " · " + esc(r.path) : ""}</div>
       ${sibs.length > 1 ? `<div class="chips" style="margin-top:12px">${idx>0?`<a href="#i-${sibs[idx-1]}">‹ ${esc(sibs[idx-1])}</a>`:""}${idx<sibs.length-1?`<a href="#i-${sibs[idx+1]}">${esc(sibs[idx+1])} ›</a>`:""}</div>` : ""}</div>
@@ -486,7 +559,7 @@ function vTest(it, back){
       <div class="meta"><span id="tm">0:00.0 / ${it.audio[vars[0]].dur.toFixed(2)}</span><span id="pk">${it.audio[vars[0]].peak_v != null ? "peak " + it.audio[vars[0]].peak_v.toFixed(2) + " V" : ""}</span></div>
       ${vars.length > 1 ? `<div class="ab">${vars.map((v,i)=>`<button data-var="${v}" class="${i===0?"on":""}">${v}</button>`).join("")}<span class="ink2" style="margin-left:auto;font-size:12.5px">switching keeps the playhead</span></div>` : ""}
     </div>` : "";
-  return backBar("#f-test", "tests") + `<main class="wrap item">
+  return header("electronics") + backBar("#electronics", "Electronics", true, "One circuit simulation: its result, its plots and, where there is one, its sound. Golden is the design as drawn; perturbed has parts off-value.") + `<main class="wrap item">
     <div>${sound}<div class="plots">${it.plots.map(p=>`<img src="${p.src}" width="${p.w}" height="${p.h}" alt="plot" loading="lazy">`).join("")}</div></div>
     <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3})}
       <div class="result" style="margin-top:12px"><b>${esc(it.result)}</b></div><div class="ink2" style="font-size:13px">${esc(it.line)}</div>
@@ -496,7 +569,8 @@ function vTest(it, back){
 function vDoc(it, back){
   const jump = (it.jump && it.jump.length > 3) ? `<details class="jump"><summary>Contents (${it.jump.length})</summary>${it.jump.map(h=>`<a href="#" data-h="${esc(h)}">${esc(h)}</a>`).join("")}</details>` : "";
   const caused = it.causedBy ? `<div class="more">caused by: “${esc(it.causedBy)}”</div>` : "";
-  return backBar(back[0], back[1]) + `<main class="wrap item">
+  const sec = it.path && it.path.startsWith("eng/") ? "electronics" : it.path && it.path.startsWith("design/branches") ? "physical" : "history";
+  return header(sec) + backBar(sec === "history" ? "#history" : "#" + sec, sec[0].toUpperCase() + sec.slice(1), true, it.kind === "record" ? "A record the team keeps, rendered from the repo." : "A document from the repo, rendered as a page.") + `<main class="wrap item">
     <article class="doc-html" id="doc">${jump}${it.html}</article>
     <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3, extra:caused})}<div class="hint">${esc(it.path)}</div></div>
   </main>`;
@@ -530,7 +604,7 @@ function vGroup(code){
   }
   const revRow = `<h2 class="sec">Revisions</h2><div class="rows">${g.revs.map(r=>`<div class="r"><span class="c">rev ${r.rev}</span><span>${esc(r.line)}</span></div>`).join("")}${g.code==="FOLD"?'<div class="r ink2"><span class="c">—</span><span>r1–r4 not kept</span></div>':""}</div>`;
   const lead = I[g.lead];
-  return backBar("#home", "all") + `<main class="wrap"><div class="gtop">
+  return header("physical") + backBar("#physical", "Physical", true, g.legacy ? "A concept from an earlier round, as its A3 sheets (legacy images)." : "One concept: its images where its doc places them, and its words.") + `<main class="wrap"><div class="gtop">
       <div><div class="name" style="margin:0">${esc(g.title)}</div><div class="oneline">${esc(g.line)}</div></div>
       <div>${glabel(g,{max:3,dot})}</div></div>
       
@@ -542,7 +616,7 @@ function vCompare(code, a, b){
   const key = A.rev + B.rev, areas = (D.clouds[code] || {})[key];
   const chips = it.revs.filter(r=>r.rev!==A.rev).map(r=>`<a class="${r.rev===B.rev?"on":""}" href="#compare-${code}-rev-${A.rev}-${r.rev}">rev ${r.rev} · ${esc(r.where)}</a>`).join("");
   const cloudsSvg = r => areas ? `<svg class="cl" viewBox="0 0 1000 ${Math.round(1000*r.h/r.w)}" preserveAspectRatio="none">${areas.map(q=>scallop(q[0]*1000, q[1]*1000*r.h/r.w, q[2]*1000, q[3]*1000*r.h/r.w)).join("")}</svg>` : "";
-  return backBar("#i-" + code, code) + `<main class="wrap cmp">
+  return header("physical") + backBar("#i-" + code, code, true, "Two forms of the same sheet side by side (drag on a phone). Show changes marks where they differ.") + `<main class="wrap cmp">
     <div class="lh" style="font-size:17px"><b>${code}</b><span>${esc(it.title)} · rev ${A.rev} (${esc(A.where)}) against</span></div><div class="chips">${chips}</div>
     <div class="toggle"><button class="sw${S.changes?" on":""}" id="chg" aria-label="show changes"><i></i></button><span>Show changes from rev ${B.rev}</span>
       <span class="ink2" style="font-weight:400">${areas ? areas.length + " changed areas, from a pixel diff" : "no diff for this pair"}</span></div>
@@ -561,7 +635,8 @@ function scallop(x, y, w, h){
   edge(x,y,x+w,y); edge(x+w,y,x+w,y+h); edge(x+w,y+h,x,y+h); edge(x,y+h,x,y);
   return `<path d="${d}" fill="none" stroke="#1A1A1A" stroke-width="2.4" vector-effect="non-scaling-stroke"/>`;
 }
-function vDecisions(){
+function decisionsBody(){ return vDecisions(true); }
+function vDecisions(bare){
   let h = "", day = "";
   D.decisions.forEach((d, i) => {
     if (d.date !== day){ day = d.date; h += `<h2 class="sec">${esc(day)}</h2>`; }
@@ -571,9 +646,11 @@ function vDecisions(){
       <div class="cz">${d.time ? esc(d.time) : "time not recorded"}${cz && !open ? " · " + cz : ""}</div>
       ${open ? `<div class="rowsc">${d.caused.map(c=>`<a href="#i-${c.code}"><span>${c.ba}</span><b>${c.code}</b><u>${esc(I[c.code] ? I[c.code].title : c.code)}${c.note?" · "+esc(c.note):""}</u></a>`).join("")}</div>` : ""}</div>`;
   });
-  return header("decisions") + `<main class="wrap wide"><div class="lh" style="margin:10px 0"><b style="font-size:22px;font-weight:600">Decisions</b><span class="ink2" style="margin-left:auto;font-size:13px">${D.decisions.length} · newest first · from the owner record</span></div>${h}</main>`;
+  if (bare) return `<div class="ink2" style="font-size:13px;margin-bottom:6px">${D.decisions.length} · newest first · from the owner record</div>${h}`;
+  return vHistoryHub("decisions");
 }
-function vHistory(grain){
+function historyBody(grain){ return vHistory(grain, true); }
+function vHistory(grain, bare){
   const gr = ["day","round","version"].map(x=>`<a class="${x===grain?"on":""}" href="#history-${x}">${x[0].toUpperCase()+x.slice(1)}</a>`).join("");
   let h = "";
   if (grain === "day"){
@@ -597,7 +674,8 @@ function vHistory(grain){
     D.versions.forEach(v => { h += `<div class="lockrule"></div><div class="lh"><a href="#version-${v.code}"><b style="font-size:20px">${v.name}</b></a><span class="ink2">${v.date}${v.current?" · current":""}</span></div><p>${esc(v.line)}</p>`; });
     h += `<h2 class="sec">Stages</h2><div class="ev"><span class="t">13 Nov</span><span>Lock reached (v1). Next: Handoff, when you pick.</span></div><div class="ev"><span class="t">12 Nov</span><span>Concept began (round 1).</span></div>`;
   }
-  return header("history") + `<main class="wrap wide"><div class="grain">${gr}</div>${h}</main>`;
+  if (bare) return h;
+  return vHistoryHub(grain);
 }
 function vVersion(code){
   const v = D.versions.find(x => x.code === code); if (!v) return vMissing(code);
@@ -611,7 +689,7 @@ function vVersion(code){
   });
   const docs = `<h2 class="sec">Shared docs, spec and records</h2><div class="rows">${v.docs.map(c=>`<a href="#i-${c}"><span class="c">${c}</span><span>${esc(I[c].title)}</span></a>`).join("")}</div>`;
   const vs = D.versions.map(x=>`<a class="${x.code===code?"on":""}" href="#version-${x.code}">${x.name}</a>`).join("");
-  return header("versions") + `<main class="wrap"><div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
+  return header("history") + `<main class="wrap">${point("A locked set of the design: what's in it. A version never changes.")}<div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
     <div class="lh"><span class="vtitle">${v.name}</span><span class="ink2">${v.current?"current · ":""}locked ${v.date}</span></div><p class="wide">${esc(v.line)}</p>${gs}${docs}</main>`;
 }
 function vMissing(code){ return header("") + `<main class="wrap"><p>${esc(code)} isn't in the register. <a class="u" href="#home">Back to the landing</a></p></main>`; }
@@ -621,7 +699,16 @@ let audio = null, raf = 0;
 function route(){
   const h = (location.hash || "#home").slice(1);
   let html, m;
-  if (h === "" || h === "home") html = vHome();
+  if (h === "" || h === "home") html = vWaiting();
+  else if ((m = h.match(/^wait-(\d+)$/))) { html = vWaiting(); setTimeout(() => { const e = document.getElementById("wait-" + m[1]); if (e) e.scrollIntoView(); }, 30); }
+  else if (h === "features" || h === "docs") html = vFeatures();
+  else if (h === "physical") html = vPhysical();
+  else if (h === "electronics") html = vElectronics();
+  else if (h === "parts") html = vParts();
+  else if (h === "tests") html = vTests();
+  else if (h === "history") html = vHistoryHub("decisions");
+  else if ((m = h.match(/^history-(decisions|versions|reviews)$/))) html = vHistoryHub(m[1]);
+  else if (h === "reviews") html = vHistoryHub("reviews");
   else if ((m = h.match(/^f-(\w+)$/))) html = vFilter(m[1]);
   else if ((m = h.match(/^s-(\w+)$/))) html = vStage(m[1]);
   else if (h === "decisions") html = vDecisions();
@@ -629,7 +716,8 @@ function route(){
   else if ((m = h.match(/^doc-([\w-]+)$/))) html = vDocPage(m[1]);
   else if (h === "reviews") html = vReviews();
   else if ((m = h.match(/^review-([\w-]+)$/))) html = vReview(m[1]);
-  else if ((m = h.match(/^history-(day|round|version)$/))) html = vHistory(m[1]);
+  else if ((m = h.match(/^history-(day|round)$/))) html = vHistoryHub(m[1]);
+  else if (h === "history-version") html = vHistoryHub("versions");
   else if ((m = h.match(/^version-([\w-]+)$/))) html = vVersion(m[1]);
   else if ((m = h.match(/^g-([\w]+)$/))) html = vGroup(m[1]);
   else if ((m = h.match(/^compare-([\w-]+?)(?:-rev-(\w)-(\w))?$/))) html = vCompare(m[1], m[2], m[3]);

@@ -1,6 +1,11 @@
 # Visual designer notes: project site
 
-## Where things stand (13 Nov ~16:35, the public site) — read this first
+## Where things stand (13 Nov ~17:00, site sections) — read this first
+- Owner: "every page here needs a point", "i dont need a latest feed", then "put whatever else i do need in there too". The Latest feed is gone. The site is now eight sections in build-chain order: **To decide** (landing, from design/decisions-open.md; count in the header) · **Architecture** · **Features** · **Physical** (CATHEDRAL docs with their images, branch concepts, v1.1 legacy groups, archive; diagrams and 3D models "not yet") · **Electronics** (sims, every eng/ note; boards and schematics "not yet") · **Parts** (cost estimate, key sourcing; BOM "not yet") · **Tests** (owner's T1/T2 buy-and-test checks from the CATHEDRAL doc; breadboard and prints "not yet") · **History** (Decisions · Versions · Reviews · By day · By round).
+- Every page opens with a one-line point (`.purpose`). A "Where things live" footer maps each section to repo folders, including where future boards, BOM, models, tests and prints go.
+- Another agent restyles the site (Impeccable; neutral grey palette). I merged on top of their commits and kept their styling; my changes are structure and content only.
+
+## Earlier (16:35): the public site
 - The Herbarium build is now the public site (gh-pages). Owner: "i dont want a bunch of .md docs, i want this stuff on website". `build.py` now also renders **Docs** (`#docs` index from `docs/README.md`, `#doc-architecture`, `#doc-<feature>` for all 14 feature docs, stubs marked "not yet written") and **Reviews** (`#reviews`, `#review-<file>` from `design/reviews/`). decided / proposed / open are tagged in table cells and bold runs (filled / outlined / dashed), counted per doc on the index, with a legend. Markdown stays the source.
 - Links are resolved by path (relative to the source file, then repo-root): docs ↔ features ↔ reviews ↔ eng items ↔ owner record all go to `#hash` views; no unresolved internal hash (138 checked).
 - Phone tables stack as label/value rows (data-label from the header); ASCII diagrams shrink to fit down to 9.5 px, then scroll with a hint; mermaid renders via jsdelivr (falls back to source text offline).

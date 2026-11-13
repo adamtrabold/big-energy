@@ -210,6 +210,15 @@ DOCS = [
     ("R-004", "site/design/owner.md", "Owner record (the project site)", "Concept", "current", "13 Nov"),
 ]
 BR = {"chamber": ("CHAMBER", "D-101", "D-102"), "rain": ("RAIN", "D-103", "D-104"), "diptych": ("DIPTYCH", "D-105", "D-106"), "butterfly": ("BUTTERFLY", "D-107", "D-108")}
+_have = {p for _, p, *_ in DOCS}
+ENG_TITLES = {"cost-estimate": "Cost estimate", "key-sourcing": "Key sourcing", "battery": "Battery", "effects": "Effects (eng)", "single-chip-research": "Single-chip research",
+              "open-items": "Open engineering items", "architecture": "Architecture (eng, full instrument)", "architecture-v2": "Architecture v2 (eng)", "daisy-switch-notes": "Daisy switch notes",
+              "velocity-and-keys-v2": "Velocity and keys v2", "fold-answers": "FOLD answers", "keys-answers": "Keys answers", "little-d-design-answers": "Little D design answers",
+              "round4-answers": "Round 4 answers", "answers-E1-E10": "Answers E1–E10"}
+for f in sorted(os.listdir(P("eng"))):
+    if f.endswith(".md") and "eng/" + f not in _have:
+        slug = f[:-3]
+        DOCS.append(("E-" + slug, "eng/" + f, ENG_TITLES.get(slug, slug.replace("-", " ").capitalize()), "Spec", "current", "13 Nov"))
 for code, path, *_ in DOCS:
     DOCMAP[os.path.basename(path)] = code; PATHMAP[os.path.normpath(path)] = "#i-" + code
 # docs/ and design/reviews/ become pages of their own
@@ -469,6 +478,11 @@ for part in wparts[1:]:
     rec = re.search(r"([^\n]*?)\s*\*(?:Team recommends|Visual designer's pick)[^*]*\*", body)
     waiting["items"].append({"n": n, "title": title, "unblocks": unb.group(1).strip() if unb else "",
                              "html": md(body.replace("\n---", "").strip(), src="design/decisions-open.md")})
+ownertests = ""
+_cw = rd("design/branches/concepts/cathedral/how-it-works.md") if os.path.exists(P("design/branches/concepts/cathedral/how-it-works.md")) else ""
+_m = re.search(r"### Two buy-and-test checks[^\n]*\n(.*?)(?=\n>\s*###|\n## )", _cw, flags=re.S)
+if _m:
+    ownertests = md("\n".join(l[1:].lstrip() if l.startswith(">") else l for l in _m.group(1).splitlines()), src="design/branches/concepts/cathedral/how-it-works.md")
 import subprocess
 try:
     gl = subprocess.run(["git", "-C", ROOT, "log", "-1", "--format=%ad|%s", "--date=format:%d %b %H:%M"], capture_output=True, text=True).stdout.strip().split("|", 1)
@@ -482,7 +496,7 @@ data = {"project": {"name": "( name to come )", "line": "a portable Model D", "w
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,
-        "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated, "waiting": waiting}
+        "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated, "waiting": waiting, "ownertests": ownertests}
 
 tpl = open(os.path.join(HERE, "app.html"), encoding="utf-8").read()
 js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
