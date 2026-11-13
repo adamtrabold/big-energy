@@ -176,3 +176,6 @@ Recorded as:
 
 2026-11-13 14:30–14:32 Owner asked (verbatim): "Are these pegs sourceable?" / "What about the brass ones?" / "The Wooden ones you linked do not have shafts that match the prototype"
 Recorded as: the peg keys as drawn (HUSH, CHAMBER, CATHEDRAL, RAIN) assume a plug shank that stock button plugs do not have. The peg mount must be redesigned around a real, buyable part with known head and tenon sizes, or the peg approach revisited.
+
+2026-11-13 14:33 Owner (verbatim): "I don’t know how to machine — the keys need to be printed or purchasable"
+Recorded as: NO MACHINING by the owner. Keys (and key tops) must be 3D-printed or bought. This RELAXES the earlier "keys must be real bought parts, never printed" rule: printed key tops are now allowed. It also bears on any part the design has him cut or drill from stock (e.g. brass stays and hinge leaves cut from flat bar): those must become bought or printed parts too. Laser cutting at Vector Space was allowed earlier and was not mentioned here.

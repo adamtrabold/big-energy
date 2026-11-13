@@ -869,6 +869,28 @@ B_FX = [("DRIFT", "DRIFT", 33.5, "k"), ("ECHO TYPE", "TYPE", 62.5, "y"), ("ECHO 
         ("VOLUME", "VOLUME", 240.0, "k")]          # systems cathedral §2 option B [CHECK §9]; labels unchecked
 B_MOVED = {"ECHO REPEATS", "ECHO MIX", "REVERB MIX", "TAP"}
 
+def vesica_slots(cx, cy, z, W=50.0, H=19.0, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
+    """option A's grille, his tapered lines in the band's real room (≈ 22 mm between the mixer heading and the V2
+    legends): a vesica (pointed lens, the cathedral's own figure) whose slots are shortest at top and bottom."""
+    a, b = W / 2, H / 2
+    Rc = (a * a + b * b) / (2 * b); cc = Rc - b                  # two circles at (0, ±cc) meet in the lens
+    s = ""
+    n = int((H - w) / pitch) + 1
+    y0 = -(n - 1) * pitch / 2
+    for k in range(n):
+        yk = y0 + k * pitch
+        yy = abs(yk) + w / 2
+        half = math.sqrt(max(Rc * Rc - (cc + yy) ** 2, 0)) - w / 2 - 0.6
+        if half < 0.8:
+            continue
+        s += (f'{c(col)} hull(){{ translate([{cx-half:.3f},{cy+yk:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); '
+              f'translate([{cx+half:.3f},{cy+yk:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); }}\n')
+    if ring:
+        lens = f"intersection(){{ translate([0,{cc}]) circle(r={Rc},$fn=180); translate([0,{-cc}]) circle(r={Rc},$fn=180); }}"
+        s += (f'{c(ring)} translate([{cx},{cy},{z+0.02}]) linear_extrude(0.03) difference(){{ offset(delta=1.6) {lens} '
+              f'offset(delta=1.1) {lens} }}\n')
+    return s
+
 def rose_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
     """the grille as a rose window, his first option: horizontal slots whose lengths follow a circle
     (shortest at the top and bottom, longest through the middle)."""
@@ -889,7 +911,13 @@ def rose_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
 
 class Cathedral(Chamber):
     """CATHEDRAL: CHAMBER's case and façade on FOLD's layout, with the owner's 14:18 notes applied."""
-    SPINE = "#2a1d16"             # body-dark bookcloth (keeps the slot closed, loses the accent)
+    SPINE = "#5a3923"             # walnut-matched leather / bookcloth: keeps the slot closed, loses the accent.
+                                  # (a near-black spine read as the opening itself in the closed render)
+
+    def spine_closed(self):
+        """with side pivots there are no knuckles, so the spine runs wall to wall (x 4.1-281.9)."""
+        top = 2 * self.AXZ - (LID_PF - 2.5)
+        return box(4.1, self.AX_Y - 1.2, BASE_H - 0.4, FO_W - 4.1, self.AX_Y - 0.4, top, self.SPINE)
 
     def __init__(self, layout="A", palette="ebony-maple", spine="dark"):
         super().__init__()
@@ -944,7 +972,7 @@ class Cathedral(Chamber):
     def grille(self, L0):
         if self.layout == "B":
             return ""                                   # the band is the crossing: a quiet rest
-        return rose_slots(143.0, L0 + 41.0, LID_PF, 17.0, ring="#d3cab8")
+        return vesica_slots(143.0, L0 + 37.6, LID_PF, W=66.0, H=16.0, ring="#d3cab8")   # ring clear of "noise / ext" and "mixer"
 
     def base_extra(self, walnut):
         if self.layout != "B":
