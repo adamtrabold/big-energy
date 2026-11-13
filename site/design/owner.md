@@ -41,3 +41,7 @@ Recorded as: site concepts are shown to the owner as working web prototypes, not
 
 2026-11-13 13:13 Owner (verbatim): "dont render a bunch of images unnecessarily"
 Recorded as: render an image only when it is needed to judge or show something; no image sets made by habit, no pictures of web pages.
+
+## 2026-11-13 13:20
+Owner (verbatim): "prototypes should go on that webpage i am having you build -- whats the status on that"
+Recorded as: prototypes (web or otherwise) are a kind of item the site hosts and shows. Status asked.
