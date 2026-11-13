@@ -221,3 +221,6 @@ Recorded as:
 - The expert review's fixes go to the team.
 2026-11-13 16:22 Owner (verbatim): "the workflow im much more interested in is controlling it from another device or mainly a DAW. im not so worried about using it as a controller for other things. but if it's free we could explore it"
 Recorded as: PRIMARY MIDI WORKFLOW = the instrument is CONTROLLED from another device, mainly a DAW (MIDI in). Using it as a controller for other gear is secondary; explore sending only where it is free.
+
+2026-11-13 16:23 Owner (verbatim): "im going to put the github on github pages so i can easily access it from there instead of here. i want all review and logs and documents there, not here"
+Recorded as: the owner will publish the repo with GitHub Pages and view everything there. ALL reviews, logs and documents go in the repo (and so on the Pages site), not as files sent in chat. Hosting for the project site moves from the claude.ai artifact to GitHub Pages (static; it updates when sessions commit and push).
