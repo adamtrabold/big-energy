@@ -1,139 +1,119 @@
-# Architecture: the whole device on one page
-Status: **started 2026-11-13** (systems) · sources:
-- owner record: [`../design/owner.md`](../design/owner.md);
-- master spec: [`../eng/budget-variant.md`](../eng/budget-variant.md) rev 14;
-- Daisy design: [`../eng/daisy-first-principles.md`](../eng/daisy-first-principles.md) (DFP);
-- [`../eng/aftertouch.md`](../eng/aftertouch.md);
-- [`../design/branches/echo-clock.md`](../design/branches/echo-clock.md);
-- CATHEDRAL: [`../design/branches/concepts/cathedral/how-it-works.md`](../design/branches/concepts/cathedral/how-it-works.md);
-- expert review: [`../design/reviews/2026-11-13-audio-synth-review.md`](../design/reviews/2026-11-13-audio-synth-review.md).
+# Architecture
 
-Words: **decided** = recorded in owner.md · **proposed** = team or review, awaiting the owner · **open** = unknown or unchosen. **[ENG]** eng figure · **[CALC]** arithmetic · **UNVERIFIED**.
+An analog synth voice with one small computer beside it. The **sound is analog** from the oscillators to the outputs. A **Daisy Seed** reads the keys and knobs, tunes the oscillators, speaks MIDI, and adds **digital echo and reverb** that are mixed back in.
+
+*Updated 2026-11-13 · systems designer · "Decided" means recorded in the [owner record](../design/owner.md); everything else is proposed.*
 
 ---
 
-## 1. System overview
-A portable, battery-powered **analog Model D-style mono / paraphonic synth** with **one digital brain** (Daisy Seed) for control, tuning, MIDI and **digital echo + reverb**. The dry voice is **analog and never converted**. The effects return wet-only and are mixed back in analog.
+## The device at a glance
 
 ```
- keys (Hall) ─┐                     ┌─► MCP4822 ×4 ─► VCO 1–3 pitch (coarse+fine), keytrack, CUTOFF CV
- pots/switches┼─► 3 (→4) muxes ─► Daisy Seed ─┼─► Seed DACs ─► velocity CV, mod-depth CV
- FSR (AT) ────┘   (ADC1/2/3)       │  ▲        ├─► gate out, LEDs, enables
- VCO 1–3 ───────────────► TIM5 ────┘  │        └─► USB-MIDI / TRS MIDI out
- MIDI in (USB, TRS) ──────────────────┘
-                                      codec IN L ◄── post-VCA send      codec IN R ◄── ladder tap (filter cal)
- VCO 1–3 + noise/EXT ─► mixer ─► ladder ─► VCA ─┬─► dry ─► output sums ─► VOLUME ─► phones / line / LM386 + speaker
-                                                └─► FX send ─► Daisy: echo → reverb ─► codec OUT L/R (wet) ─┘
+        ┌──────────── CONTROL ────────────┐
+ keys ──┤                                 │
+ knobs ─┤  muxes ─► DAISY SEED ─► DACs ───┼──► pitch, cutoff, velocity, mod CVs
+ MIDI ──┤            │    ▲               │
+        └────────────┼────┼───────────────┘
+                     │    │ (tuning: counts each oscillator)
+        ┌──────────── SOUND ──────────────────────────────────────────────┐
+        │  3 oscillators ─► mixer ─► filter ─► VCA ─┬─► dry ──────────┐   │
+        │                                           │                 ▼   │
+        │                         Daisy: echo → reverb ◄─ send   OUTPUTS  │
+        │                                           └──► wet ───► (mix)   │
+        └─────────────────────────────────────────────────────────────────┘
+                                         OUTPUTS: stereo phones · stereo line out · one speaker
 ```
 
-## 2. Signal paths
-| Path | Route | Status |
+**Two rules shape everything:**
+- the dry sound never passes through the computer;
+- the computer never flips a switch.
+
+---
+
+## The blocks
+
+| Block | What it is | Feature doc |
 |---|---|---|
-| **Analog voice** | 3 VCOs (AS3046 expo) → mixer (OSC 1–3, NOISE / EXT, SOURCE) → 4-pole ladder → AS3360 VCA (analog contours) | decided (locked spec) |
-| **Dry** | VCA out → output sums, **never switched, never converted** | decided (DFP §6.1, owner: "Delay and verb can be digital") |
-| **FX send** | post-VCA → TL072 (−6 dBFS, soft clip, AA) → codec IN L. **Gate-aware mute** (DFP §6.2) → **review item 8: gate on level instead** (proposed) | send decided; gating proposed |
-| **FX** | echo (TAPE / BBD / CLEAN / PING-PONG) → reverb (PLATE / HALL / SPRING / SHIMMER), stereo wet out | decided ("Full 8") |
-| **Wet return** | codec OUT L/R → summing R → output sums. **Wet only** (no dry copy, so no comb filtering) | decided (DFP) |
-| **Outputs** | stereo **phones** + stereo **line out** (TRS); **one speaker** (mono sum via LM386) | decided (15:22, 15:23) |
-| **Mono on TS** | a TS plug in the stereo outputs carries L + R on the tip | decided as a requirement (15:24); method **open** (open item O2) |
-| **Pans** | **dry pan** on the analog dry (digipot, proposed), **delay pan** in DSP, **FOLLOW** link (delay follows dry) | pans and FOLLOW decided (15:53, 15:54); implementation proposed (cathedral §15.5) |
-| **Filter cal** | ladder tap → codec IN R | decided (DFP §2) |
-| **PARA+4 4th oscillator** | **no audio path specified** | **open (O3, review MUST)** |
-| **PITCH CV OUT** | **no DAC channel assigned** | **open (review item 9)** |
+| Voice | 3 VCOs, mixer, 4-pole ladder filter, analog contours, VCA | [voice](features/voice.md) |
+| Keys | 25 silent Choc V2 keys, Hall-sensed velocity, printed or bought key heads | [keys and velocity](features/keys-and-velocity.md) |
+| Aftertouch | pressure strip under the keys, MOD / OFF / FILT | [aftertouch](features/aftertouch.md) |
+| Bend and mod | sprung one-axis stick, MOD knob | [bend and mod](features/bend-and-mod.md) |
+| Paraphonic | MONO / PARA / PARA+4 | [paraphonic](features/paraphonic.md) |
+| Tuning | autotune, held-note correction, DRIFT | [autotune and drift](features/autotune-and-drift.md) |
+| Effects | echo (4 types) → reverb (4 types), wet-only return | [effects](features/effects.md) |
+| Echo sync | FREE / SYNC, TAP, MIDI clock | [echo sync](features/echo-sync.md) |
+| Outputs and panning | stereo phones and line, one speaker, dry pan, delay pan, FOLLOW | [panning and stereo outputs](features/panning-and-stereo-outputs.md) |
+| MIDI | played and automated from a DAW | [MIDI](features/midi.md) |
+| Power | internal battery, one USB-C | [power and battery](features/power-and-battery.md) |
+| Firmware and gestures | updates, boot and settings gestures | [firmware update and gestures](features/firmware-update-and-gestures.md) |
+| Connections | jacks, USB-C, CV / gate | [I/O](features/io.md) |
+| Body | CATHEDRAL / FOLD enclosure | [enclosure](features/enclosure.md) |
 
-## 3. Control and data flow
-- **Scan:** a timer-paced 8–10 kHz frame. Keys on ADC1 + ADC2 (simultaneous, through muxes A / B); controls on ADC3 (mux C); 4× oversampling (DFP §1, §3). Controls go through average → 1 kHz → 1-pole → deadband.
-- **Jump-on-move** (decided): MIDI or a stored state takes a marked knob; the "not in control" LED lights; moving the knob > 1.5 % takes it back.
-- **Owner rules** (decided): knob-only controls send no MIDI; **MIDI never flips switches**.
-- **Pitch:** firmware sums key note, RANGE, FREQ, glide, bend, DRIFT and the held-note loop correction into coarse + fine DAC pairs per VCO (DFP §2.3, §4).
-- **FX controls** are read by the Daisy (mux). TYPE rotaries are ladders. TAP is a mux channel (and the boot / settings gestures: open item O6).
-- **MIDI:** USB-MIDI (Seed's own port via the rear USB-C) + TRS in (6N138) + TRS out (decided: "Add MIDI out"). Clock from both feeds the echo tempo. See [`features/midi.md`](features/midi.md).
+---
 
-## 4. Power
-- Internal LiPo (decided), single rear USB-C for charge + MIDI + firmware (decided).
-- **Draw** [ENG, ESTIMATE, DFP §7.1]: ≈ 2.0–3.6 W total. On the 22.2 Wh pack ≈ 6.0–7.8 h (low end) / 3.7–4.3 h (high end). **FOLD-105's slim ≈ 11 Wh** pack gives about half: ≈ 1.9–3.9 h [CALC].
-- **Not yet counted:**
-  - **speaker playback** (review item 20: ≈ 0.5–0.8 W loud, UNVERIFIED);
-  - the stereo stage's headphone driver quiescent current (review: it runs always unless switched).
-- Hall group gating (≈ −0.45 to −0.95 W, bench-gated) is the biggest saving.
+## How sound flows
+1. **Oscillators → mixer → filter → VCA:** all analog.
+2. After the VCA the signal splits:
+   - **dry** goes straight to the outputs;
+   - a **send** goes to the Daisy's input.
+3. The Daisy runs **echo, then reverb**, and returns **only the effect** (stereo).
+4. **Outputs** mix dry + effect: stereo phones, stereo line out, and a mono mix for the speaker.
 
-## 5. Budgets — one recounted table (2026-11-13)
-### 5.1 Mux channels (16 per CD74HC4067)
-Baseline from `aftertouch.md` §2 (corrected tally):
-- mux A = keys 1–16;
-- mux B = keys 17–25, 4 controls, Hall-rail monitor, AT toggle, AT FSR;
-- mux C = 16 controls.
+Details: [effects](features/effects.md) · [panning and stereo outputs](features/panning-and-stereo-outputs.md)
 
-**48 / 48 used.**
+## How control flows
+1. **Keys, knobs and switches** → multiplexers → the Daisy's converters, about 10,000 times a second.
+2. **MIDI** (USB or TRS) → the Daisy. A DAW can move any knob marked with a MIDI dot; that knob's light shows it's held until you touch it.
+3. **The Daisy** → DACs → pitch for each oscillator, cutoff, velocity and mod depth. It also counts each oscillator's frequency to keep it in tune.
 
-| Item | Channels | Status | Running total |
-|---|---|---|---|
-| Baseline (25 keys + 20 controls + Hall-rail monitor + AT toggle + AT FSR) | 48 | decided features | 48 |
-| PARA toggle (MONO / PARA / PARA+4) | +1 | decided (paraphonic approved) | 49 |
-| FREE / SYNC toggle | +1 | decided (11:58, "B") | 50 |
-| DRY PAN pot | +1 | decided feature (15:53); pot read proposed | 51 |
-| DELAY PAN pot | +1 | decided feature (15:53) | 52 |
-| FOLLOW toggle | +1 | decided link (15:54); toggle form proposed | 53 |
-| OSC 3 CTL read by firmware | +1 | proposed (review 11) | 54 |
-| PHONES-inserted sense (speaker mute) | +1 | proposed (review 16) | 55 |
-| TS sense on LINE OUT | +1 (0 if two jacks) | proposed; method open (O2) | 56 |
-| Battery divider moved from D20 onto a mux | +1 | proposed (review 1) | 57 |
-| Charger STAT + VBUS moved onto a mux (frees D29 / D30) | +2 | proposed, optional | 59 |
-| **Capacity with a 4th mux (D20, ADC3)** | **64** | **proposed (O1)** | **57–59 of 64** |
+Details: [MIDI](features/midi.md) · [autotune and drift](features/autotune-and-drift.md)
 
-**Not counted as channels:** RANGE as detented rotaries (same channel, review 13); VOLUME's second gang (analog).
+---
 
-### 5.2 Daisy Seed pins (31)
-DFP §9 tally: 27 required + 3 optional + 1 spare.
+## Budgets
 
-| Change | Pins | Status | Total required |
-|---|---|---|---|
-| DFP §9 required | 27 | decided design | 27 |
-| D13 TRS MIDI out (was "optional") | +1 | decided ("Add MIDI out") | 28 |
-| 4th mux on D20 (ADC3); battery moves onto it | 0 net | proposed (O1) | 28 |
-| Digipot CS (dry pan) | +1 (D29, if STAT goes to the mux) | proposed | 29 |
-| 74HC4053 control (TS mono, fix (b)) | +1 (D30, if VBUS goes to the mux); 0 with two jacks | proposed / open (O2) | 29–30 |
-| Output mute (phones / line) | 0 (shares D12 with the LM386 enable) | proposed (review 7) | 29–30 |
-| **Spare** | **D16** (+ D30 if fix (a)) | | **29–30 of 31** |
+One table for every shared resource.
+- **Today:** the locked spec plus aftertouch.
+- **Decided:** adds what the owner has approved since.
+- **Proposed:** adds the team's and the review's fixes.
 
-### 5.3 DAC channels
-| Channel | Use | Status |
-|---|---|---|
-| MCP4822 #1–#3 (6 ch) | VCO 1–3 pitch, coarse + fine (fine at 1/64) | decided design (DFP §4) |
-| MCP4822 #4 A | keytrack | decided design |
-| MCP4822 #4 B | CUTOFF (+ aftertouch FILT, + velocity FILT, summed in firmware) | decided design |
-| Seed DAC1_OUT1 / OUT2 | velocity CV / mod-depth CV | decided design |
-| TIM3 PWM (D4) | static VCA balance | decided design |
-| **PITCH CV OUT** | **none assigned**: review 9 proposes sharing #4 A, buffered to 1 V/oct ahead of KBD CTRL | open |
-| **PARA+4 4th oscillator audio** | **none**: codec OUT L/R are the wet return | open (O3) |
-| Dual digipot MCP4251-103 (proposed) | dry pan (analog audio) | proposed (cathedral §15.5) |
+| Resource | Capacity | Today | + decided | + proposed | Action |
+|---|---|---|---|---|---|
+| **Mux inputs** (keys, knobs, switches) | 48 (3 muxes) | 48 | **53** | **57–59** | **Add a 4th mux → 64** (open item 1) |
+| **Daisy pins** | 31 | 27 | 28 (MIDI out) | 29–30 | fits; 1 spare left |
+| **Pitch / CV DACs** | 8 + 2 | 10 of 10 | 10 | 10 + digipot (dry pan) | **PITCH CV OUT has no channel** (open item 7) |
+| **Codec** (stereo in / out) | 2 in, 2 out | all used | all used | — | **PARA+4 has no audio path** (open item 3) |
+| **Power** | 22 Wh (11 Wh in FOLD-105) | ≈ 2.0–3.6 W, ≈ 4–8 h on 22 Wh, ≈ 2–4 h on 11 Wh | + stereo stage (few mA) | + speaker when loud (≈ 0.5–0.8 W, unverified) | count the speaker (open item 8) |
 
-### 5.4 Codec (stereo in / out)
-IN L = FX send · IN R = filter cal · OUT L / R = wet return. **Fully used**, which is why PARA+4 has no path (O3).
+<details><summary>What fills the mux (53 → 59)</summary>
 
-## 6. Decisions log (owner.md, newest last; verbatim lives there)
-| When (owner.md) | Decision |
-|---|---|
-| 2026-11-12, "Decisions already made" | USB-MIDI + TRS MIDI in; MIDI-controllable params per eng; **knob-only controls send no MIDI; MIDI never flips switches**; mod depth MIDI-controllable (jump-on-move) |
-| 2026-11-12 22:30 → 11-13 | Echo **and** reverb, digital allowed, great models, several types; **full 8 FX controls**; **Daisy Seed**; DRIFT controllable; **MIDI out** added; channel **aftertouch** with its own switch, sent on MIDI out; **paraphonic** MONO / PARA / PARA+4 |
-| 2026-11-13 11:58 | Echo sync **option B**: FREE / SYNC toggle by TIME |
-| 2026-11-13 14:12–14:41 | CATHEDRAL (CHAMBER + FOLD); no spine; **no machining**; keys printed or bought; external and metal printing OK |
-| 2026-11-13 15:22–15:24 | **Stereo phones + stereo line out, one speaker**; **mono on the tip with a TS cable** |
-| 2026-11-13 15:44 | the (then single) pan **receives CC 10** |
-| 2026-11-13 15:53–15:54 | **Dry pan + separate delay pan**; linked = delay **follows** dry |
-| 2026-11-13 16:21 | **Architecture + feature docs**, one at a time; MIDI stance: "pretty definitively not a midi controller", send only "if it's free" |
-| 2026-11-13 (latest) | MIDI organising principle: **played and automated from another device, mainly a DAW**; sending only if free |
+- **Decided additions:** PARA toggle, FREE / SYNC, DRY PAN, DELAY PAN, FOLLOW (+5).
+- **Proposed:** OSC 3 CTL read, phones-in sense, TS sense on line out, the battery divider moved onto the mux (+4), and optionally charger STAT / VBUS (+2).
+</details>
 
-## 7. Open items (must-fixes from the expert review, plus related)
-| # | Item | Why | Proposed fix | Owner / eng |
-|---|---|---|---|---|
-| **O1** | **Mux full:** ≈ 54–59 needed vs 48 (§5.1) | no channels for SYNC, pans, PARA, sensing | **4th CD74HC4067** sharing S0–S3 on **D20 (ADC3)**, battery divider onto it. ADC3 converts mux C + D per step. ≈ $0.60. **Eng: confirm two ADC3 conversions fit the ≈ 3 µs step (UNVERIFIED)** | eng |
-| **O2** | **TS sensing on LINE OUT can't work as drawn** (cathedral §15.4): a 100 Ω-driven ring never reads high; adding a coupling cap thumps a mixer on plug-in; a TS plug shorts the live R driver | the decided mono-on-TS requirement has no working circuit | **(a) two jacks, L / MONO + R** (the R jack's switch normals R into L; analog, no pops; +1 hole, not a patch point), **or (b)** one TRS with a ≤ 50–100 mV ring bias, 470 Ω–1 kΩ build-outs, and a 74HC4053 that cuts R and sums into L. Either way, line build-out 470 Ω–1 kΩ. **(a) needs the owner** (one more hole against "no new jacks") | owner (a) / eng (b) |
-| **O3** | **PARA+4's digital 4th oscillator has no audio path** | an approved mode can't sound | (a) the 4th osc on codec OUT R → NOISE / EXT input (through the ladder), wet goes mono in PARA+4; (b) re-plan the Seed DACs; (c) make the toggle 2-way until a path exists | owner |
-| **O4** | **Peg necks vs the floating key strip:** deck hole clearance 0.4 / side vs aftertouch's ≥ 1 mm | rubbing steals aftertouch force, changes velocity, squeaks | deck hole ≥ Ø 13.2 (the 12.7 head no longer covers it: a dark ring shows), or a slimmer neck (≤ Ø 10.7 with a Ø 12.7 hole; the tenon cup's wall is then ≈ 0.55 mm, thin for FDM, UNVERIFIED), or a positive strip locator that carries no vertical load | visual + eng |
-| **O5** | **TAP gestures collide:** "hold TAP at power-on" = full autotune **and** DFU; "EMPHASIS full + hold TAP" = filter cal live; "hold TAP" = battery | an accidental bootloader; a filter cal mid-song | DFU = hold TAP + bend stick up at power-on (or the Seed's BOOT button behind the service panel); autotune keeps "hold TAP at power-on"; filter cal **at power-on only**; battery = double-tap-and-hold or shown at boot | owner (gestures) |
-| O6 | Ghost 74HC595 in cathedral §15.4; budget-variant §v1.11.6 pin list superseded by DFP §9 | schematic capture could put the LDO enable on a DAC pin | mark §v1.11.6 superseded; drive the 4053 from D29 / D30 (§5.2) | eng |
-| O7 | Phones / line unmuted at power-on, off and the boot VCA null | thumps in headphones and a PA | shunt mute on phones L / R and line L / R, held at reset, released after boot cal + 200 ms (shares D12) | eng |
-| O8 | PITCH CV OUT unassigned; OSC 3 CTL not read; KBD CTRL can't reach full | locked I/O without a source; LFO mode and PARA can't work right | review items 9, 11, 12 | eng / owner |
-| O9 | Speaker draw not in the power budget; loudness outdoors | runtime and the park | count it; bench with the real grille; consider PAM8302 | eng |
-| O10 | MIDI: CC map, channel, local off, DAW echo, CC 10 at project load | DAW workflow (owner's priority) | [`features/midi.md`](features/midi.md) | owner |
+---
+
+## Where decisions live
+- **The owner's decisions, word for word:** [owner record](../design/owner.md). Nothing is "decided" unless it's there.
+- **Each feature's decisions, proposals and open questions:** its feature doc (above), always under the same headings.
+- **Engineering sources:**
+  - [master spec](../eng/budget-variant.md);
+  - [Daisy design](../eng/daisy-first-principles.md);
+  - [aftertouch](../eng/aftertouch.md);
+  - [echo sync](../design/branches/echo-clock.md);
+  - [CATHEDRAL](../design/branches/concepts/cathedral/how-it-works.md);
+  - [expert review](../design/reviews/2026-11-13-audio-synth-review.md).
+
+---
+
+## Open items
+1. **The mux is full.** Add a 4th mux on pin D20 and move the battery reading onto it. *Eng: confirm the timing.*
+2. **Mono on a TS cable can't work as drawn.** Two jacks (L / MONO + R) need the owner's OK (one more hole). The alternative is a low-bias rework that eng benches.
+3. **PARA+4 has no audio path.** Route the 4th oscillator through the filter (effects go mono in that mode), or make the switch 2-way. *Owner.*
+4. **Peg keys rub the floating key strip.** Widen the holes to ≥ 1 mm clearance, or slim the necks.
+5. **TAP gestures collide** (one could open the bootloader). Give each its own gesture. *Owner.*
+6. **Stale pin table and a ghost part** in older eng files. Mark them superseded.
+7. **Missing pieces:** PITCH CV OUT needs a DAC channel; OSC 3 CTL must be read; keyboard tracking can't reach "full".
+8. **Power:** the speaker isn't in the power budget; loudness outdoors is untested.
+9. **Pops** in phones and line at power-on. Add an output mute.
+10. **MIDI questions for the owner** (CC 10, effect-amount CCs, channel, extras): see [MIDI](features/midi.md).

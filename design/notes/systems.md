@@ -1,5 +1,17 @@
 # Systems designer notes — Little D
 
+# Architecture page reworked (2026-11-13, owner: "unclear"; "on website")
+- docs/architecture.md is now a web page in a fixed order:
+  1. one-screen block picture + two rules;
+  2. blocks table linking each feature doc;
+  3. sound flow (4 steps) and control flow (3 steps);
+  4. one budget table (today / + decided / + proposed / action), mux detail folded;
+  5. where decisions live;
+  6. open items 1–10 as a plain list.
+- Removed: pin-by-pin and DAC-by-channel detail, the decisions log, the long fix tables. Those details live in the eng files and the review, and move into the feature docs as each is written (power, I/O, paraphonic, gestures, panning).
+
+---
+
 # DOCS (2026-11-13, owner 16:21 + DAW-first MIDI)
 - Created `docs/README.md` (index + template), `docs/architecture.md` (overview, signal paths, control/data flow, power, the recounted budget table: mux 57–59 of 64 with a 4th mux, pins 29–30 of 31, DACs with PITCH CV OUT and PARA+4 open; decisions log; open items O1–O10 carrying the review's must-fixes), `docs/features/midi.md` (full, DAW-first), and 13 stubs.
 - jobs.md F7 step 7 (knobs send CC) marked superseded: only channel pressure sends today.
