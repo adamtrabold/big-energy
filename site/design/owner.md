@@ -21,3 +21,5 @@ Recorded as:
 ## 2026-11-13 12:06 — sharing
 Q: who gets the link; hide owner notes and scores from outside viewers? → Owner (verbatim): "anyone that gets the link is fine to see everything"
 DECISION: one view for everyone; nothing hidden from link holders (owner record, scores, notes all visible).
+Owner (verbatim): "it is primarily me"
+Recorded as: the main viewer is the owner himself; design for him first.
