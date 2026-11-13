@@ -201,15 +201,13 @@ DOCS = [
     ("D-011", "versions/v1.1/fold/how-it-works.md", "FOLD · how it works", "Lock", "locked in v1.1", "13 Nov"),
     ("D-013", "versions/v1.1/hush/how-it-works.md", "HUSH · how it works", "Lock", "locked in v1.1", "13 Nov"),
     ("D-015", "versions/v1.1/one-sheet/how-it-works.md", "ONE SHEET · how it works", "Lock", "locked in v1.1", "13 Nov"),
-    ("D-109", "design/branches/concepts/cathedral/how-it-looks-and-feels.md", "CATHEDRAL · how it looks and feels", "Concept", "exploring", "13 Nov"),
-    ("D-110", "design/branches/concepts/cathedral/how-it-works.md", "CATHEDRAL · how it works", "Concept", "exploring", "13 Nov"),
     ("D-040", "design/branches/echo-clock.md", "Echo clock (FREE / SYNC)", "Spec", "current", "13 Nov"),
     ("R-001", "design/owner.md", "Owner record (the instrument)", "Concept", "current", "13 Nov"),
     ("R-002", "design/scores.md", "Director scores, rounds 1–5", "Concept", "current", "13 Nov"),
     ("R-003", "VERSIONS.md", "Versions", "Lock", "current", "13 Nov"),
     ("R-004", "site/design/owner.md", "Owner record (the project site)", "Concept", "current", "13 Nov"),
 ]
-BR = {"chamber": ("CHAMBER", "D-101", "D-102"), "rain": ("RAIN", "D-103", "D-104"), "diptych": ("DIPTYCH", "D-105", "D-106"), "butterfly": ("BUTTERFLY", "D-107", "D-108")}
+BR = {"cathedral": ("CATHEDRAL", "D-110", "D-109"), "chamber": ("CHAMBER", "D-101", "D-102"), "rain": ("RAIN", "D-103", "D-104"), "diptych": ("DIPTYCH", "D-105", "D-106"), "butterfly": ("BUTTERFLY", "D-107", "D-108")}
 _have = {p for _, p, *_ in DOCS}
 ENG_TITLES = {"cost-estimate": "Cost estimate", "key-sourcing": "Key sourcing", "battery": "Battery", "effects": "Effects (eng)", "single-chip-research": "Single-chip research",
               "open-items": "Open engineering items", "architecture": "Architecture (eng, full instrument)", "architecture-v2": "Architecture v2 (eng)", "daisy-switch-notes": "Daisy switch notes",
@@ -227,7 +225,7 @@ for slug, path in SITE_DOCS: PATHMAP[path] = "#doc-" + slug
 PATHMAP["docs/README.md"] = "#docs"
 REVIEWS = [(os.path.splitext(f)[0], "design/reviews/" + f) for f in sorted(os.listdir(P("design/reviews")), reverse=True) if f.endswith(".md")] if os.path.isdir(P("design/reviews")) else []
 for slug, path in REVIEWS: PATHMAP[path] = "#review-" + slug
-for c, (G, a, b) in {"chamber": ("CHAMBER", "D-102", "D-101"), "rain": ("RAIN", "D-104", "D-103"), "diptych": ("DIPTYCH", "D-106", "D-105"), "butterfly": ("BUTTERFLY", "D-108", "D-107")}.items():
+for c, (G, a, b) in {"cathedral": ("CATHEDRAL", "D-109", "D-110"), "chamber": ("CHAMBER", "D-102", "D-101"), "rain": ("RAIN", "D-104", "D-103"), "diptych": ("DIPTYCH", "D-106", "D-105"), "butterfly": ("BUTTERFLY", "D-108", "D-107")}.items():
     PATHMAP[f"design/branches/concepts/{c}/how-it-looks-and-feels.md"] = "#g-" + G
     PATHMAP[f"design/branches/concepts/{c}/how-it-works.md"] = "#i-" + b
 for c, (G, a, b) in BR.items():
@@ -240,14 +238,19 @@ for code, path, title, stage, status, slip in DOCS:
         jump=[h for h, _ in sections(t) if h][:30])
 
 # ------------------------------------------------------------------ branch groups (new format)
-BRANCH = [  # newest first; status from the branches director (design/notes/director.md, 13 Nov 13:09)
+BRANCH = [  # newest first
+  # status from the branches director (design/notes/director.md, 13 Nov 13:09)
+    ("cathedral", "CATHEDRAL", "exploring", "CHAMBER and FOLD-105 meet: the middle ground you asked for (14:12). The current case.", "current · round in progress", []),
     ("chamber", "CHAMBER", "exploring", "closed it's an organ case; open it's a console", "branches round 1: 8", ["chamber-standing", "chamber-open", "chamber-closed-printed", "chamber-closed-with-book", "chamber-flat-from-above", "chamber-standing-from-behind", "chamber-reverse-pegs", "chamber-top-12.41px-per-mm", "chamber-pegs-12.41px-per-mm", "chamber-time-dial-12.41px-per-mm"]),
     ("rain", "RAIN", "exploring", "a pond after rain", "branches round 1: 7", ["rain", "rain-close", "rain-stepping-stones", "rain-arms-length", "rain-top-12.70px-per-mm", "rain-pegs-12.70px-per-mm", "rain-time-and-pads-12.70px-per-mm", "rain-ring-pitch-compare-40px-per-mm"]),
     ("butterfly", "BUTTERFLY", "dropped", "from tool to tree: exact at the playing edge, free at the rear", "branches round 1: 6 · retired by the branches director", ["butterfly", "butterfly-joint", "butterfly-from-behind", "butterfly-on-the-wall", "butterfly-top-11.49px-per-mm", "butterfly-rear-section-24px-per-mm", "butterfly-time-dial-11.49px-per-mm"]),
     ("diptych", "DIPTYCH", "dropped", "a scientific field instrument", "branches round 1: killed by the branches director", ["diptych-standing", "diptych-open", "diptych-closed", "diptych-standing-side-exact", "diptych-top-14.48px-per-mm"]),
 ]
-ROUND2 = {"CHAMBER", "RAIN"}   # round 2 fixes landed 13 Nov; re-score pending
-SEED = {"CHAMBER": "FOLD", "RAIN": "ONESHEET", "BUTTERFLY": "ONESHEET", "DIPTYCH": "FOLD"}
+ROUND2 = {"CHAMBER", "RAIN"}
+LEAD = {"CATHEDRAL": "cathedral-B-standing"}   # a standing 3/4 view leads the visual index
+STATUS = {"CATHEDRAL": "current", "CHAMBER": "scored 9 · grew into CATHEDRAL", "RAIN": "scored 7 · re-score pending",
+          "BUTTERFLY": "dropped · retired at 6", "DIPTYCH": "dropped · killed"}   # round 2 fixes landed 13 Nov; re-score pending
+SEED = {"CATHEDRAL": "CHAMBER", "CHAMBER": "FOLD", "RAIN": "ONESHEET", "BUTTERFLY": "ONESHEET", "DIPTYCH": "FOLD"}
 def nice(stem, G):
     s = stem.replace(G.lower() + "-", "").replace(G.lower(), "the look")
     m = re.search(r"-([\d.]+)px-per-mm", s)
@@ -271,7 +274,7 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
     for alt, rel in refs:
         stem = os.path.splitext(os.path.basename(rel))[0]
         title, sub, scale = nice(stem, G)
-        code = f"{G}-{re.sub(r'[^a-z0-9]+', '-', title)}".rstrip("-")
+        code = f"{G}-{re.sub(r'[^a-z0-9]+', '-', title.lower())}".rstrip("-")
         if code in items or not os.path.exists(P(base + rel)): continue   # the branches team is mid-round: skip files not on disk
         m = jpg(base + rel, code, 1400 if sub == "render" else 1600, 78 if sub == "render" else 82)
         rv = "B" if G in ROUND2 else "A"
@@ -287,10 +290,12 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
                 revs=[{"rev": "B", "line": "round 2"}] if G in ROUND2 else [{"rev": "A", "line": "branches round 1"}], path=base + fn, html=md(t, imap, src=base + fn), lead=first_para(t),
                 jump=[h for h, _ in sections(t) if h][:30], group=G)
             docs.append(dcode)
+    if G in LEAD:
+        if imap.get(LEAD[G]) in codes: codes.remove(imap[LEAD[G]]); codes.insert(0, imap[LEAD[G]])
     grevs = ([{"rev": "B", "line": "round 2 fixes · re-score pending"}] if G in ROUND2 else []) + [{"rev": "A", "line": scoreline}]
     groups.append({"code": G, "title": G, "rev": grevs[0]["rev"], "status": status, "stage": "Concept", "date": "13 Nov", "new": True,
                    "line": line, "lead": codes[0] if codes else None, "images": codes, "docs": docs, "seed": SEED[G],
-                   "revs": grevs, "round": "Branches round 1"})
+                   "revs": grevs, "round": "Branches round 1", "statusLabel": STATUS.get(G, status)})
 
 # ------------------------------------------------------------------ legacy groups (A3 sheets, images as they are)
 SHEETS = {"FOLD": ("fold", "ABCDE", "C", "FOLD-105 · a hinge · walnut + white"), "HUSH": ("hush", "ABCD", "B", "nothing shouts: grey wool, natural maple, cream knobs"),
@@ -332,6 +337,32 @@ for G, path, line in [("FOLD113", "archive/fold-superseded/mock-A-look-113.png",
     groups.append({"code": G, "title": {"TYPECASE": "TYPE CASE", "UNDERGLASS": "UNDER GLASS"}.get(G, G), "rev": "A", "status": "dropped", "stage": "Concept",
                    "date": "12 Nov" if G != "FOLD113" else "13 Nov", "line": line, "lead": code, "images": [code], "docs": [], "legacy": True,
                    "revs": [{"rev": "A", "line": "archive"}]})
+
+FULL = [("case", "CASE"), ("dock", "DOCK"), ("dish", "DISH"), ("motto", "MOTTO"), ("slab", "SLAB")]
+for folder, G in FULL:
+    base = f"archive/full-instrument/concepts/{folder}/"
+    if not os.path.isdir(P(base)): continue
+    pngs = sorted((f for f in os.listdir(P(base)) if f.endswith(".png")), key=lambda f: ("exploded" in f, f))
+    codes = []
+    for f in pngs:
+        code = f"FULL-{G}-{'exploded' if 'exploded' in f else 'look'}"
+        m = jpg(base + f, code, 1600, 74)
+        add(code, kind="image", sub="legacy sheet", title=("exploded" if "exploded" in f else "the look"), stage="Concept", status="dropped", date="12 Nov",
+            revs=[{"rev": "A", "line": "full instrument (paused)", **m}], group="FULL" + G, **m)
+        codes.append(code)
+    docs = []
+    if os.path.exists(P(base + "how-it-works.md")):
+        t = rd(base + "how-it-works.md"); dc = "D-F" + G
+        add(dc, kind="doc", sub="doc", title=f"{G} (full instrument) · how it works", stage="Concept", status="dropped", date="12 Nov",
+            revs=[{"rev": "A", "line": "full instrument (paused)"}], path=base + "how-it-works.md", html=md(t, src=base + "how-it-works.md"), lead=first_para(t), group="FULL" + G)
+        docs.append(dc)
+    if codes:
+        groups.append({"code": "FULL" + G, "title": G, "rev": "A", "status": "dropped", "stage": "Concept", "date": "12 Nov", "legacy": True, "full": True,
+                       "line": "the full-size Model D clone, paused when Little D began", "lead": codes[0], "images": codes, "docs": docs,
+                       "revs": [{"rev": "A", "line": "full instrument (paused)"}], "statusLabel": "dropped · full instrument, paused"})
+for g in groups:
+    if "statusLabel" not in g:
+        g["statusLabel"] = {"locked in v1.1": "locked in v1.1"}.get(g["status"], "dropped · earlier round" if g["status"] == "dropped" else g["status"])
 
 # ------------------------------------------------------------------ tests (sims serve Spec, early)
 G_ = "eng/sim/reference/out/golden/"; X_ = "eng/sim/reference/out/example_perturbed/"

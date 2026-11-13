@@ -228,6 +228,23 @@ details.jump a{display:block;padding:3px 0}
 .proto button.on{font-weight:700}
 .ptog{display:none;text-decoration:none!important}
 @media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
+/* physical: case index + gallery */
+.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:26px 22px}
+@media(min-width:700px){.cases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.cases{grid-template-columns:repeat(3,minmax(0,1fr))}.cases.big{grid-template-columns:minmax(0,1fr)}}
+.case{display:block}.case .cimg{background:var(--paper);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cases.big .case .cimg{aspect-ratio:auto;max-height:70vh}.cases.big .case img{max-height:70vh;width:auto;max-width:100%}
+.case img{width:100%;height:100%;object-fit:contain;display:block}
+.cmeta{display:flex;gap:10px;align-items:baseline;margin-top:8px;font-size:17px}.cmeta b{font-weight:700}
+.cst{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--rule);padding:1px 6px;vertical-align:middle}
+.cline{font-size:14px;margin:2px 0}
+.case.gone .cimg{opacity:.55}
+.gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;margin:10px 0 8px}
+@media(min-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery figure:first-child{grid-column:1/3}}
+.gallery figure{margin:0}.gallery img{width:100%;height:auto;display:block;background:var(--paper)}
+.gallery figcaption{font-size:12.5px;color:var(--ink2);margin-top:6px}
+.gdocd{border-top:1px solid var(--rule);padding:10px 0}.gdocd summary{cursor:pointer;font-weight:600}
+.nofig figure{display:none}
 /* page point, waiting list, about */
 .sub a,.back a,.back button,[data-copy],.waiting a,.dec .cz a,h2.sec a{display:inline-block;padding-top:5px;padding-bottom:5px;margin-top:-5px;margin-bottom:-5px}
 .purpose{font-size:16px;margin:14px 0 16px;max-width:70ch}
@@ -370,14 +387,24 @@ function vFeatures(){
     <div class="ink2" style="font-size:13px">${feats.filter(d=>!d.stub).length} of ${feats.length} written</div>${LEGEND}
     ${feats.filter(d=>!d.stub).map(row).join("")}${feats.filter(d=>d.stub).map(row).join("")}</main>${about()}`;
 }
+function caseCard(gc){
+  const g = G[gc]; if (!g || !g.lead) return "";
+  const m = I[g.lead];
+  return `<a class="case${g.status==="dropped"?" gone":""}" href="#g-${gc}">
+    <div class="cimg"><img src="${m.src}" width="${m.w}" height="${m.h}" alt="${esc(g.title)}" loading="lazy"></div>
+    <div class="cmeta"><b>${esc(g.title)}</b><span class="cst">${esc(g.statusLabel || g.status)}</span></div>
+    <div class="cline">${esc(g.line)}</div><div class="ink2" style="font-size:12.5px">${g.images.length} image${g.images.length==1?"":"s"}${g.docs.length?" · "+g.docs.length+" doc"+(g.docs.length>1?"s":""):""}</div></a>`;
+}
 function vPhysical(){
-  return header("physical") + `<main class="wrap wide" style="max-width:1100px">${point("The physical instrument: the enclosure concept, its renders and drawings, and the locked versions it grew from.")}
-    <h2 class="sec">Current concept</h2>${docRow("D-109","CATHEDRAL: the middle ground of CHAMBER and FOLD-105 you asked for. Its renders and drawings are on this page.")}${docRow("D-110","Hinges, feet, plates, the key carrier, layouts A and B.")}
-    <h2 class="sec">Physical architecture diagrams</h2>${notYet("Physical architecture diagrams","at Handoff, once CATHEDRAL is chosen","docs/physical/ (markdown + images)")}
-    <h2 class="sec">3D models</h2>${notYet("3D models (STL / STEP) and print files","at the Prints stage","design/models/")}
-    <h2 class="sec">Concepts that led here</h2>${["CHAMBER","RAIN","BUTTERFLY","DIPTYCH"].map(g=>groupRow(g)).join("")}
-    <h2 class="sec">Locked in v1.1 (legacy sheets)</h2>${["FOLD","HUSH","ONESHEET"].map(g=>groupRow(g)).join("")}
-    <h2 class="sec">Archive</h2>${["FOLD113","TYPECASE","HYMNAL","UNDERGLASS"].map(g=>groupRow(g)).join("")}
+  const sec = (t, list, big) => `<h2 class="sec">${t}</h2><div class="cases${big?" big":""}">${list.map(caseCard).join("")}</div>`;
+  return header("physical") + `<main class="wrap">${point("Every case version, with pictures. Tap one to see all its images large, then its docs.")}
+    ${sec("Current", ["CATHEDRAL"], true)}
+    ${sec("Branches it grew from", ["CHAMBER","RAIN"])}
+    ${sec("Locked in v1.1", ["FOLD","ONESHEET","HUSH"])}
+    ${sec("Dropped branches", ["BUTTERFLY","DIPTYCH"])}
+    ${sec("Earlier concepts", ["FOLD113","TYPECASE","HYMNAL","UNDERGLASS"])}
+    ${sec("Full instrument (paused)", ["FULLCASE","FULLDOCK","FULLDISH","FULLMOTTO","FULLSLAB"])}
+    <h2 class="sec">Not yet</h2>${notYet("Physical architecture diagrams","at Handoff, once CATHEDRAL is chosen","docs/physical/ (markdown + images)")}${notYet("3D models (STL / STEP) and print files","at the Prints stage","design/models/")}
   </main>${about()}`;
 }
 function vElectronics(){
@@ -597,23 +624,16 @@ function vProto(it){
 }
 function vGroup(code){
   const g = G[code]; if (!g) return vMissing(code);
-  const dot = unseen("g:" + code);
-  let body = "";
-  if (g.legacy){
-    body = `<h2 class="sec">${g.images.length} legacy sheet${g.images.length>1?"s":""} · images as they were made (A3)</h2><div class="thumbs">${g.images.map(c=>`<a href="#i-${c}">${img(I[c],"th",c)}<span>${c} · ${esc(I[c].title)}</span></a>`).join("")}</div>
-      ${g.docs.length ? `<h2 class="sec">Docs</h2><div class="rows">${g.docs.map(c=>`<a href="#i-${c}"><span class="c">${c}</span><span>${esc(I[c].title)}</span><span class="x">${esc(I[c].status)}</span></a>`).join("")}</div>` : ""}`;
-  } else {
-    const main = I[g.docs[0]];
-    body = `<article class="doc-html gdoc">${main.html}</article>`;
-    if (g.docs[1]) body += `<details class="jump" style="margin-top:20px"><summary>${esc(I[g.docs[1]].title)}</summary><div class="doc-html">${I[g.docs[1]].html}</div></details>`;
-  }
-  const revRow = `<h2 class="sec">Revisions</h2><div class="rows">${g.revs.map(r=>`<div class="r"><span class="c">rev ${r.rev}</span><span>${esc(r.line)}</span></div>`).join("")}${g.code==="FOLD"?'<div class="r ink2"><span class="c">—</span><span>r1–r4 not kept</span></div>':""}</div>`;
-  const lead = I[g.lead];
-  return header("physical") + backBar("#physical", "Physical", true, g.legacy ? "A concept from an earlier round, as its A3 sheets (legacy images)." : "One concept: its images where its doc places them, and its words.") + `<main class="wrap"><div class="gtop">
-      <div><div class="name" style="margin:0">${esc(g.title)}</div><div class="oneline">${esc(g.line)}</div></div>
-      <div>${glabel(g,{max:3,dot})}</div></div>
-      
-      ${body}${revRow}</main>`;
+  const gallery = `<div class="gallery">${g.images.map(c=>{ const it = I[c]; return `<figure><a href="#i-${c}"><img src="${it.src}" width="${it.w}" height="${it.h}" alt="${esc(it.title)}" loading="lazy"></a><figcaption>${esc(it.title)}${it.sub?" · "+esc(it.sub):""}</figcaption></figure>`; }).join("")}</div>`;
+  const docs = g.docs.map((c,i) => `<details class="gdocd"${i===0&&!g.legacy?" open":""}><summary>${esc(I[c].title)}</summary><div class="doc-html nofig">${I[c].html}</div></details>`).join("");
+  const seed = g.seed && G[g.seed] ? `<a class="u" href="#g-${g.seed}">grew from ${esc(G[g.seed].title)}</a>` : "";
+  return header("physical") + backBar("#physical", "Physical", true, "One case version: all its images large, then its docs.") + `<main class="wrap">
+    <div class="gtop"><div><div class="name" style="margin:0">${esc(g.title)} <span class="cst">${esc(g.statusLabel||g.status)}</span></div><div class="oneline">${esc(g.line)}</div><div style="font-size:13px;margin-top:4px">${seed}</div></div>
+      <div>${glabel(g,{max:3})}</div></div>
+    ${gallery}
+    ${docs ? `<h2 class="sec">Docs</h2>${docs}` : ""}
+    <h2 class="sec">Revisions</h2><div class="rows">${g.revs.map(r=>`<div class="r"><span class="c">rev ${r.rev}</span><span>${esc(r.line)}</span></div>`).join("")}</div>
+  </main>${about()}`;
 }
 function vCompare(code, a, b){
   const it = I[code]; if (!it || it.revs.length < 2) return vMissing(code);
