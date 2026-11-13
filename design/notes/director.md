@@ -1,5 +1,67 @@
 # Director notes: Little D (budget instrument), physical design
 
+## BRANCHES, steer 1 + first concept scores (2026-11-13): READ THIS FIRST
+- **Owner since my jam turn (format):** no A3, nothing printed; images made to look great on the site, viewed responsively (not phone-first); **images only for what must be visual, all text in HTML.** So concepts are now markdown + separate images; sheets are retired for new work.
+  - My ruling: labels that point at geometry (dimensions, scale bars) may stay inside a drawing. Captions, principles, notes and comparisons ("v1.1 · 0.45 mm") go in the HTML.
+  - True-scale "px per mm" files are fine as references, but never claim "real size" on a screen.
+- **What I judged:** each branch's how-it-works + how-it-looks-and-feels and its images (looked at the 3/4s, states, close-ups, 1:1 crops, the DIPTYCH side elevation). Not the designers' notes.
+- **Kill: DIPTYCH (my own; the d20 had said 15, judgement overrides).**
+  - Its spine failed physically: cords alone tip at 0.8 N, while a knob turn pushes 1–3 N.
+  - The fix (fold-out brass feet + 4 eyes + a feet-before-cords order, which tips if done wrong) is worse than v1.1's two stays that do both jobs. That's a regression on cost, simplicity and his "blend into the case" stand.
+  - Without the cords, at arm's length it's v1.1 FOLD with serif type and red hairlines: a graphics variant, not a point of view.
+  - The 3/4 also drew the cords at the snag geometry (to the base front corner), contradicting the s 60 elevation, and the standing lid rendered grey.
+  - **Donor:** the red/black TIME dial with written divisions (1/16, 1/8, 1/4, 1/2) is the best TIME dial in the set. Any branch may adopt it.
+  - Its open points (cords vs stays, 38.4° vs 37.4°) are moot.
+- **READY: CHAMBER, RAIN, BUTTERFLY. Scores (concept phase, judged on the idea):**
+  - **CHAMBER 8.**
+    - The idea holds. The façade from the keyboard's numbers reads as pipes in plain line work, not costume. The three states work. The reverse pegs make the standing view read as a chamber organ, the best picture in the set.
+    - Below 9 because of likely owner objections:
+      - (a) the standing lid face renders grey, the exact thing he asked about (FOLD's face should catch light);
+      - (b) closed, the hinge-side slot shows the knobs and keys, so the "case" doesn't read as closed;
+      - (c) reversed colours: an owner question that could sink the concept on one answer;
+      - (d) +2.6 mm closed (52.7): minor.
+  - **RAIN 7.**
+    - Close up it's beautiful (raked garden, rings, lily pads). At arm's length it reads as crazed or cracked grey stone, not still water.
+    - Grey shell, grey stones, grey walls, grey bats: calm becomes drab.
+    - Every knob is its own cell, so a seam inside a section looks the same as one between sections. The seams don't yet draw the *map*.
+    - Legends collide (REVERB TYPE/VELOCITY, ECHO TYPE/OSC 3 CTL): the set lesson again.
+    - The 0.9 grooves are coarser than the 0.45 he loved.
+  - **BUTTERFLY 6: replace (retire), not fix.**
+    - The point of view governs a 15 mm, 6 mm-thick strip. The rest is v1.1 ONE SHEET in bone, so the owner's line will be "ONE SHEET with a plank".
+    - The branch rule (the board is constant, legends reach y 165) caps it: there's no honest way for "tool to tree" to reach the face.
+    - The 3/4 and from-behind renders also show an un-mirrored edge, contradicting the end-match.
+    - **Donors:** the tabletop-over-apron rear (jacks sheltered under an overhang), and the wall elevation's live edge reading as a horizon.
+    - I'm not replacing it: CHAMBER (FOLD) + RAIN (ONE SHEET) cover both of his leans.
+- **Rulings on open points:**
+  - FREE/SYNC left/right throw (systems' fix; "the lever points at the word") accepted over my fore-aft.
+  - ±135° printed sweep + firmware clamp accepted (dead 15° at each end; tell him).
+  - Set-wide: drop the top ticks of OSC 2 / NOISE-EXT under "free"/"sync"; the checker counts tick rings and legend-vs-legend.
+  - CHAMBER: "mono / para / +4" accepted; push-out holes to d 90 accepted if clear of the d 96 screws (systems); a spine wall or lid lip closes the hinge slot (systems to say whether the slot is real).
+  - RAIN: power-on drop sound optional (power-off is impossible on the hard switch).
+- **Fixes for round 2:**
+  - **CHAMBER:**
+    1. re-light the standing renders so the lid face reads cream (check like v1.1 E);
+    2. close the hinge-side slot (spine wall / lip) and re-render closed;
+    3. one image of the fallback peg colouring (maple naturals, walnut sharps), so his answer on reversed keys can't sink the concept;
+    4. push-outs to d 90, PARA legend, Kalam (not the stand-in) before he sees it;
+    5. fix the white streak artefact on the walnut pegs and the pale band on the base front face in the close render;
+    6. the walnut button-plug source (or maple stained dark as the fallback, priced).
+  - **RAIN:**
+    1. **the ripples decay**: groove depth/width taper to nothing toward each seam (real ripples lose amplitude with distance; still two finishes), so seams are still-water bands, not drawn lines;
+    2. **sections are wider still bands**: weight the power diagram so a seam between sections is ≈ 3× a seam inside one, which makes the map;
+    3. warm the palette off concrete (pale wet stone with warmth; the walls carry the field over the chamfer; keep two stone greys and the one mustard leaf);
+    4. fix every legend collision, with the checker counting legend-vs-legend;
+    5. a 3-way pitch compare (0.45 / 0.6 / 0.9) in HTML, with only the drawing as the image;
+    6. re-render at arm's length and close.
+- **What keeps blocking a 9 (carried from v1 rounds and now in the branches):**
+  - (1) an idea that lives in a small part of the object (ONE SHEET r1–4, BUTTERFLY now; DIPTYCH's faces);
+  - (2) renders inheriting old geometry or lighting that contradicts the concept (the joystick slot in v1.1; now the un-mirrored edge, the snag cords, the grey lids);
+  - (3) legend collisions whenever text changes.
+  - Why it keeps happening: the render pipeline is shared and models are reused across branches, so each view type needs its own check against the concept's words.
+- **Owner questions (from the jam, still open):** reversed keys; pegs worth +2.6 mm closed on FOLD (width on ONE SHEET is now 0 with the 14 mm washer); park session length; tap tempo as MIDI clock out; the book's title. **Plus new:** TIME has a dead 15° at each end (to keep its scale honest): OK?
+- **Next:** CHAMBER and RAIN round 2 on the fixes above, then I re-score both. Nothing goes to the owner below 9.
+
+
 ## BRANCHES, jam turn 3 (2026-11-13, new director taking over): READ THIS FIRST
 - **Task:** the owner's branched creative rounds (owner.md 11:47). He wants more personality and a holistic point of view; sources: furniture principles, instruments, tools, art, emotion, "take this to the park". He loves the pegs; "organ like" on FOLD is an example only. **Echo sync DECIDED: B, a FREE / SYNC toggle near TIME** (11:58). The v1.1 locks are never edited.
 - **My turn:** the bottom of `design/branches/jam.md`. Draws: `design/branches/draw-director.py` (fresh decks; used Oblique cards removed). Results:

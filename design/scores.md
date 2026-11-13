@@ -529,3 +529,11 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 **Questions to carry:**
 1. Key edge A or B, per concept, from the front views.
 2. Names (`naming.md`): still open.
+
+## Branches — concept round 1 (2026-11-13, design director, new)
+- CHAMBER (FOLD, organ case): **8**. Objections: standing lid renders grey; hinge-side slot shows knobs when closed; reversed key colours unconfirmed by owner; 52.7 mm closed. Fixes 1–6 in design/notes/director.md.
+- RAIN (ONE SHEET, pond after rain): **7**. Objections: seams read as cracked stone at arm's length; drab all-grey; seams don't group sections; legend collisions; grooves coarser than v1.1 rings. Fixes 1–6.
+- BUTTERFLY (ONE SHEET, tool to tree): **6**. Retired, not replaced: the idea lives in a 15 mm strip; reads "ONE SHEET with a plank".
+- DIPTYCH (FOLD, pocket sundial): killed before scoring (cords tip at 0.8 N; the fix is worse than v1.1 stays; re-skin without cords). Its TIME dial is free for any branch.
+- Killed in jam: PIERCED, GROUND.
+- Nothing at 9; nothing to the owner. Round 2: CHAMBER and RAIN.
