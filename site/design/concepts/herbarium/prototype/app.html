@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>( name to come ) · project site · Herbarium prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6E4DF;--cell:#EFEDE9;--paper:#F8F7F4;--rule:#C4C1BA;--ink2:#5F5D58;--ink:#1B1B19;--on:#23863F;--m:16px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-feature-settings:"tnum";padding-bottom:64px}
+a{color:inherit;text-decoration:none}
+a.u,.ref{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--m)}
+.cap{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.ink2{color:var(--ink2)}
+.rule{border-top:1px solid var(--rule)}
+/* lamp */
+.lampline{display:flex;align-items:center;gap:10px;min-height:20px}
+.lamp{width:10px;height:10px;border-radius:50%;flex:none;transition:background 1s,box-shadow .6s,border-color 1s}
+.lamp.standby{border:1.2px solid var(--ink2);background:transparent}
+.lamp.on{background:var(--on);border:0}
+.lamp.dip{animation:dip .6s ease-in-out}
+@keyframes dip{50%{opacity:.4;box-shadow:0 0 0 6px rgba(35,134,63,.18)}}
+.lamp.snapshot{width:10px;height:1.5px;border-radius:0;background:var(--rule)}
+.lampline.live .cap{color:var(--ink)}
+/* header */
+header.band{padding:18px 0 12px}
+.hgrid{display:grid;gap:10px}
+.name{font-size:22px;font-weight:600;line-height:1.2;margin-top:6px}
+.sub{font-size:13px;color:var(--ink2)}
+.sub a{color:var(--ink);font-weight:500}
+.waiting{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.waiting b{font-size:15px;font-weight:600}
+.strip{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:4px}
+.strip a{display:block;height:20px;position:relative}
+.strip a i{position:absolute;left:0;right:0;top:6px;height:6px;background:var(--rule)}
+.strip a.done i,.strip a.now i{background:var(--ink)}
+.strip a.now::after{content:"";position:absolute;left:0;right:0;top:15px;height:2px;background:var(--ink)}
+.strip a.early i{background:transparent;border:1px solid var(--ink2)}
+.strip a span{display:none}
+.stripline{font-size:12.5px;color:var(--ink2)}.stripline b{color:var(--ink);font-weight:600}
+nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:10px 0;border-top:1px solid var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
+nav.filters a{font-size:14px;color:var(--ink2);padding-bottom:4px}
+nav.filters a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
+nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
+@media(min-width:1024px){
+  :root{--m:48px}
+  .hgrid{grid-template-columns:1.1fr .8fr 1fr;align-items:end}
+  .name{font-size:26px}
+  .strip a span{display:block;position:absolute;top:22px;font-size:11px;color:var(--ink2);white-space:nowrap}
+  .strip a.now span,.strip a.done span{color:var(--ink)}.strip a.now span{font-weight:600}
+  .strip{margin-bottom:16px}
+}
+/* label + slips */
+.label{border-top:1px solid var(--ink);padding-top:8px}
+.lh{display:flex;align-items:baseline;gap:8px;font-size:15px}
+.lh b{font-weight:700}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ink);display:inline-block;margin-left:auto;align-self:center;flex:none}
+.lf{font-size:12.5px;color:var(--ink2);margin:2px 0 8px}
+.slip{border:1px solid var(--rule);padding:3px 8px;font-size:12px;color:var(--ink2);margin-bottom:3px;display:flex;gap:10px}
+.slip b{font-weight:500;min-width:42px}
+.slip.top{background:var(--paper);color:var(--ink);font-weight:500}.slip.top b{font-weight:700}
+.slip.new{animation:land .4s ease-out}
+@keyframes land{from{transform:translateY(-8px);opacity:0}}
+.more{font-size:12px;color:var(--ink2);padding:2px 8px}
+.link{font-size:12.5px;font-weight:500}
+/* landing */
+.feature{display:grid;gap:14px;padding:6px 0 18px}
+.feature figure{margin:0}
+.feature img{width:100%;height:auto;display:block;max-height:62vh;object-fit:contain;background:var(--paper)}
+.feature img.in{animation:fade .18s ease-out}
+@keyframes fade{from{opacity:0}}
+.side{display:flex;flex-direction:column;gap:14px}
+.side .kinds{order:2}.side .glab{order:1}
+@media(min-width:1024px){.side .kinds{order:1}.side .glab{order:2}}
+.oneline{font-size:15px}
+.since{font-size:13px;font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile{display:block}
+.tile .box{height:86px;background:var(--cell);overflow:hidden;position:relative}
+.tile .box img{width:100%;height:100%;object-fit:cover;display:block}
+.tile .doc{background:var(--paper);border:1px solid var(--rule);padding:7px 9px}
+.tile .doc .c{font-size:11px;font-weight:700;color:var(--ink2)}
+.tile .doc .t{font-size:12px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tile .k{font-size:11px;font-weight:600;margin-top:4px}
+.wavemini{position:absolute;inset:8px 8px 20px 8px;display:flex;align-items:center;gap:1px}
+.wavemini i{flex:1;background:var(--ink);min-height:1px}
+.tile .w{position:absolute;left:8px;bottom:4px;font-size:10.5px;font-weight:700}
+@media(min-width:600px){.tiles{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1024px){
+  .feature{grid-template-columns:minmax(0,1fr) 372px;gap:32px;align-items:stretch}
+  .feature img{max-height:calc(100vh - 260px)}
+  .side{justify-content:space-between}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+}
+/* lists */
+h2.sec{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin:22px 0 10px}
+.grid{display:grid;grid-template-columns:1fr;gap:22px 18px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+.entry .pic{aspect-ratio:16/10;background:var(--paper);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.entry .pic img{width:100%;height:100%;object-fit:contain}
+.entry .pic.doc{display:block;border:1px solid var(--rule);padding:12px 14px}
+.entry .pic.doc .t{font-weight:600;font-size:15px;line-height:1.3}
+.entry .pic.doc p{font-size:13px;color:var(--ink2);margin:6px 0 0;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.entry .pic.test{background:var(--cell);position:relative;display:block}
+.entry .label{margin-top:8px}
+.dropped{opacity:.4}
+.dropped:hover{opacity:.7}
+.thumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:1024px){.thumbs{grid-template-columns:repeat(5,1fr)}}
+.thumbs a img{width:100%;aspect-ratio:1.414;object-fit:contain;background:var(--paper);display:block}
+.thumbs a span{font-size:11.5px;font-weight:700;display:block;margin-top:4px}
+.rows a,.rows div.r{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--rule);font-size:14px;align-items:baseline}
+.rows .c{font-weight:600;min-width:74px}
+.rows .x{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right}
+/* item */
+.back{display:flex;justify-content:space-between;align-items:center;padding:14px 0 10px;font-size:14px;color:var(--ink2)}
+.back button{font-size:13px;color:var(--ink2)}
+.item{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-bottom:30px}
+@media(min-width:1024px){.item{grid-template-columns:minmax(0,1fr) 372px;gap:32px}.item .aside{align-self:end;position:sticky;bottom:72px}}
+.viewer{background:var(--paper);overflow:auto;max-height:80vh;cursor:zoom-in;position:relative}
+.viewer img{display:block;width:100%;height:auto}
+.viewer.z{cursor:zoom-out}.viewer.z img{width:auto;max-width:none}
+.hint{font-size:12px;color:var(--ink2);margin-top:6px}
+.lineage{display:flex;gap:12px;align-items:flex-start;overflow-x:auto;padding:4px 2px}
+.lineage a{flex:none;width:96px;font-size:11.5px}
+.lineage a img{width:96px;height:68px;object-fit:cover;display:block;border:2px solid transparent}
+.lineage a.on img{border-color:var(--ink)}
+.lineage .gap{flex:none;width:58px;font-size:11.5px;color:var(--ink2);padding-top:30px;border-top:1px dashed var(--rule);margin-top:34px}
+.btn{display:inline-block;border:1px solid var(--ink);padding:6px 12px;font-size:13px;font-weight:500}
+/* compare */
+.cmp{display:grid;gap:16px}
+.cmp .pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cmp figure{margin:0;position:relative;background:var(--paper)}
+.cmp figure img{display:block;width:100%;height:auto}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wipe{position:relative;touch-action:none;user-select:none;background:var(--paper)}
+.wipe img{display:block;width:100%;height:auto;pointer-events:none}
+.wipe .top{position:absolute;inset:0}
+.wipe .bar{position:absolute;top:0;bottom:0;width:1.5px;background:var(--ink)}
+.wipe .knob{position:absolute;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#fff;border:1.5px solid var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.toggle{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600}
+.sw{width:44px;height:22px;border:1px solid var(--ink);position:relative;flex:none}
+.sw i{position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--ink);transition:left .15s}
+.sw.on{background:var(--ink)}.sw.on i{left:25px;background:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips a,.chips button{border:1px solid var(--rule);padding:4px 10px;font-size:13px}
+.chips .on{border-color:var(--ink);font-weight:600}
+/* test */
+.sound{background:var(--cell);padding:14px 16px;display:grid;grid-template-columns:48px 1fr;gap:6px 16px;align-items:center}
+.play{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center}
+.play svg{width:16px;height:16px}
+.wave{position:relative;height:90px;display:flex;align-items:center;gap:1px;cursor:pointer}
+.wave i{flex:1;background:var(--ink);min-height:1px}
+.wave .ph{position:absolute;top:0;bottom:0;width:1.5px;background:var(--ink);left:0}
+.sound .meta{grid-column:2;display:flex;justify-content:space-between;font-size:12px;color:var(--ink2)}
+.ab{grid-column:1/3;display:flex;gap:18px;font-size:14px;margin-top:4px}
+.ab button{color:var(--ink2);padding-bottom:3px}
+.ab button.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
+.result{font-size:15px}.result b{font-weight:700;margin-right:8px}
+.plots img{width:100%;height:auto;display:block;background:#fff;margin-top:12px}
+/* docs */
+.doc-html{max-width:68ch;font-size:15px;line-height:1.55;overflow-wrap:anywhere}
+.doc-html figure{margin:14px 0}.doc-html figure img{width:100%;height:auto;display:block;background:var(--paper)}
+.doc-html figcaption{font-size:12px;font-weight:500;color:var(--ink2);margin-top:6px;line-height:1.4}
+.gdoc{max-width:none}
+.gcols{display:grid;grid-template-columns:minmax(0,1fr) 372px;column-gap:32px;align-items:start}
+.gcols .figs figure{margin:0 0 22px}.gcols .text{position:sticky;top:60px;max-height:calc(100vh - 120px);overflow:auto}
+.doc-html h1{font-size:22px;line-height:1.25;font-weight:600}
+.doc-html h2{font-size:17px;font-weight:600;margin:26px 0 8px}
+.doc-html h3{font-size:15px;font-weight:600}
+.doc-html code{font-size:13px;background:var(--cell);padding:0 3px}
+.doc-html pre{overflow:auto;background:var(--cell);padding:10px}
+.tbl{overflow-x:auto;margin:10px 0;border-top:1px solid var(--rule)}
+.tbl table{border-collapse:collapse;font-size:13px;min-width:100%}
+.tbl th,.tbl td{text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+details.jump{margin:6px 0 16px;font-size:13px}
+details.jump summary{cursor:pointer;color:var(--ink2)}
+details.jump a{display:block;padding:3px 0}
+/* group page */
+.gtop{display:grid;gap:14px;padding:4px 0 10px}
+@media(min-width:1024px){.gtop{grid-template-columns:minmax(0,1fr) 372px;gap:32px;align-items:end}}
+.gsec{display:grid;gap:12px;padding:18px 0;border-top:1px solid var(--rule)}
+.gsec figure{margin:0}.gsec figure img{width:100%;height:auto;display:block;background:var(--paper)}
+.gsec figcaption{font-size:11.5px;font-weight:500;color:var(--ink2);margin-top:6px}
+@media(min-width:1024px){.gsec{grid-template-columns:minmax(0,1fr) 372px;gap:32px;align-items:start}.gsec .txt{order:2}.gsec figure{order:1}}
+.note{font-size:12px;color:var(--ink2);border-left:2px solid var(--rule);padding:2px 10px;margin:10px 0}
+/* decisions + history */
+.dec{border-top:1px solid var(--rule);padding:12px 0}
+.dec .ask{font-size:12.5px;color:var(--ink2)}
+.dec .w{font-size:15px;color:var(--ink2)}
+.dec.open .w{font-size:17px;font-weight:600;color:var(--ink)}
+.dec .cz{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.dec .cz a{color:var(--ink);font-weight:600}
+.dec .rowsc{margin-top:8px}
+.dec .rowsc a{display:flex;gap:10px;padding:4px 0;font-size:14px}
+.dec .rowsc a span:first-child{color:var(--ink2);min-width:44px}
+.dec .rowsc a b{min-width:52px}
+.dec .rowsc a u{text-underline-offset:3px}
+.grain{display:flex;gap:22px;font-size:14px;margin:6px 0 10px}
+.grain a{color:var(--ink2);padding-bottom:3px}.grain a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
+.ev{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--rule);font-size:14px}
+.ev .t{color:var(--ink2);font-size:12.5px}
+.lock{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:3px 0;margin:6px 0}
+.lockrule{height:8px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:10px 0 14px}
+.score{display:flex;gap:10px;font-size:14px;padding:4px 0;border-top:1px solid var(--rule)}
+.score b{min-width:28px}
+.vtitle{font-size:28px;font-weight:700}
+.wide{max-width:900px}
+/* prototype bar */
+.proto{position:fixed;left:0;right:0;bottom:0;background:#D6D4CF;border-top:1px solid var(--rule);font-size:12px;z-index:20}
+.proto .in{display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap;padding:7px var(--m);max-width:1440px;margin:0 auto}
+.proto b{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;color:var(--ink2)}
+.proto button{text-decoration:underline;text-underline-offset:3px;font-size:12px}
+.proto button.on{font-weight:700}
+.ptog{display:none;text-decoration:none!important}
+@media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="proto" id="proto"><div class="in">
+  <button class="ptog" id="ptog" aria-expanded="false"><b>Prototype</b> ▴</button><b class="plab">Prototype</b>
+  <button id="p-sim">Replay: CHAMBER rev A lands (simulated ON)</button>
+  <button id="p-out">View signed out</button>
+  <button id="p-last">Pretend my last visit was before the branches round</button>
+  <a class="u" href="#i-P-001">what's real, what's faked</a>
+</div></div>
+<script type="application/json" id="data">/*DATA*/</script>
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("data").textContent);
+const I = D.items, G = {}; D.groups.forEach(g => G[g.code] = g);
+const $app = document.getElementById("app");
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* ------- state */
+const S = {lamp:"standby", signedOut:false, sim:null, justNow:false, dip:false};
+// "since you last looked": entries carry a seq (higher = newer). First visit: no marks.
+const ENTRIES = [ // newest first: groups and loose items (a group appears once)
+  "g:CHAMBER","i:P-001","g:RAIN","g:BUTTERFLY","g:DIPTYCH","i:T-004","i:T-005","i:T-003","i:T-001","i:T-002","i:T-006","i:T-007",
+  "i:D-034","i:D-032","i:D-031","i:D-019","g:FOLD","g:HUSH","g:ONESHEET","i:D-003","g:FOLD113","g:TYPECASE","g:HYMNAL","g:UNDERGLASS"];
+const SEQ = {}; ENTRIES.forEach((e,i) => SEQ[e] = ENTRIES.length - i);
+const MAXSEQ = ENTRIES.length;
+let lastSeen = parseInt(store.get("herb-lastSeen") || "", 10);
+const firstVisit = isNaN(lastSeen);
+if (firstVisit) { lastSeen = MAXSEQ; }
+window.addEventListener("pagehide", () => store.set("herb-lastSeen", String(MAXSEQ)));
+if (firstVisit) store.set("herb-lastSeen", String(MAXSEQ));
+const unseen = e => !S.signedOut && SEQ[e] > lastSeen;
+const unseenCount = () => ENTRIES.filter(e => visible(e) && unseen(e)).length;
+const visible = e => !(S.sim === "before" && e === "g:CHAMBER");
+
+/* ------- small builders */
+const statusLine = it => [it.sub === "doc" ? "doc" : it.sub, (it.stage + (it.early ? " (early)" : "")), it.status].join(" · ");
+function slips(revs, max, justNow){
+  let h = "";
+  revs.slice(0, max).forEach((r,i) => {
+    const line = (i === 0 && justNow) ? "just now · " + r.line : r.line;
+    h += `<div class="slip${i===0?" top":""}${i===0&&justNow?" new":""}"><b>rev ${esc(r.rev)}</b><span>${esc(line)}</span></div>`;
+  });
+  if (revs.length > max) h += `<div class="more">+ ${revs.slice(max).map(r=>"rev "+r.rev).join(", ")}</div>`;
+  return h;
+}
+function label(o){ // {code,title,fields,revs,max,dot,justNow,extra}
+  return `<div class="label"><div class="lh"><b>${esc(o.code)}</b><span>${esc(o.title||"")}</span>${o.dot?'<i class="dot" title="new since you last looked"></i>':""}</div>
+  <div class="lf">${esc(o.fields)}</div>${slips(o.revs||[], o.max||2, o.justNow)}${o.extra||""}</div>`;
+}
+function glabel(g, opts){
+  opts = opts || {};
+  const seed = g.seed ? `<div class="link" style="margin-top:6px"><a class="u" href="#g-${g.seed}">grew from ${esc(G[g.seed].title)} · v1.1 (legacy sheets)</a></div>` : "";
+  const n = g.images.length, nd = g.docs.length;
+  return label({code:g.title, title:"rev " + g.rev, fields:`concept group · ${n} image${n==1?"":"s"} · ${nd} doc${nd==1?"":"s"} · ${g.stage} · ${g.status}`,
+    revs:g.revs, max:opts.max||2, dot:opts.dot, justNow:opts.justNow, extra:seed});
+}
+const img = (m, cls, alt) => `<img ${cls?`class="${cls}"`:""} src="${m.thumb && cls==="th" ? m.thumb : m.src}" width="${m.w}" height="${m.h}" alt="${esc(alt||"")}" loading="lazy">`;
+function waveBars(peaks, n){
+  const step = peaks.length / n; let h = "";
+  for (let i=0;i<n;i++){ const p = peaks[Math.floor(i*step)]; h += `<i style="height:${Math.max(1,p*100).toFixed(1)}%"></i>`; }
+  return h;
+}
+function lampLine(){
+  let st = S.signedOut ? "snapshot" : S.lamp;
+  let txt = S.signedOut ? `Snapshot · ${D.project.published}` :
+            S.lamp === "on" ? "On · branches round · since just now" :
+            `Standby · last ${D.project.last} · 13 Nov 13:09`;
+  return `<div class="lampline${st==="on"?" live":""}"><i class="lamp ${st}${S.dip?" dip":""}" id="lamp"></i><span class="cap">${esc(txt)}</span></div>`;
+}
+function header(sel){
+  const stages = D.stages.map((s,i) => {
+    const cls = i===0 ? "done" : s===D.project.now ? "now" : s==="Spec" ? "early" : "";
+    return `<a class="${cls}" href="#s-${s.toLowerCase()}" aria-label="${s}"><i></i><span>${s}</span></a>`;
+  }).join("");
+  const n = unseenCount();
+  const more = S.signedOut ? "+ " + (ENTRIES.length - 1) + " more on 13 Nov ›" : n ? `+ ${n} more since you last looked ›` : "newest first ›";
+  const F = [["all","#home"],["stage","#s-lock"],["kind","#f-image"],["version","#version-v1-1"],["decisions","#decisions"],["history","#history-day"]];
+  return `<header class="band wrap"><div class="hgrid">
+    <div>${lampLine()}<div class="name">${esc(D.project.name)}</div>
+      <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 current</a></div></div>
+    <div class="waiting"><span class="cap">Waiting on you</span><b>${esc(D.project.waiting)}</b><span class="ink2" style="font-size:13px">${esc(D.project.then)}</span></div>
+    <div><div class="strip">${stages}</div><div class="stripline"><b>Lock</b> · 2 of 9 · Spec begun early · next Handoff</div></div>
+  </div></header>
+  <div class="wrap"><nav class="filters">${F.map(([f,h])=>`<a href="${h}" class="${f===sel?"on":""}">${f}</a>`).join("")}<a class="more" href="#f-all">${more}</a></nav></div>`;
+}
+function entry(e){
+  const [t, code] = e.split(":");
+  const dot = unseen(e);
+  if (t === "g"){
+    const g = G[code], m = I[g.lead];
+    return `<a class="entry${g.status==="dropped"?" dropped":""}" href="#g-${code}"><div class="pic">${img(m,"th",g.title)}</div>${glabel(g,{max:1,dot})}</a>`;
+  }
+  const it = I[code];
+  let pic;
+  if (it.kind === "test") pic = `<div class="pic test"><div class="wavemini">${it.audio ? waveBars(it.audio[Object.keys(it.audio)[0]].peaks, 60) : ""}</div>${it.audio?"":`<img src="${it.plots[0].thumb}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff">`}<span class="w" style="position:absolute;left:10px;bottom:6px;font-size:11px;font-weight:700">${esc(it.result)}</span></div>`;
+  else if (it.kind === "prototype") pic = `<div class="pic doc"><div class="t">${esc(it.title)}</div><p>${esc(it.lead)}</p></div>`;
+  else pic = `<div class="pic doc"><div class="t">${esc(it.title)}</div><p>${esc(it.lead)}</p></div>`;
+  return `<a class="entry${it.status==="dropped"?" dropped":""}" href="#i-${code}">${pic}${label({code, title:"", fields:statusLine(it), revs:it.revs, max:1, dot})}</a>`;
+}
+
+/* ------- views */
+function vHome(){
+  const newest = S.sim === "before" ? G.RAIN : G.CHAMBER;
+  const lead = I[newest.lead];
+  const justNow = S.justNow && newest.code === "CHAMBER";
+  const dot = unseen("g:" + newest.code) || justNow;
+  const n = unseenCount();
+  const since = S.signedOut ? `+ ${ENTRIES.length - 1} more on 13 Nov ›` : n ? `+ ${n} more since you last looked ›` : `+ ${ENTRIES.length - 1} more · newest first ›`;
+  const tile = (href, box, k) => `<a class="tile" href="${href}"><div class="box">${box}</div><div class="k">${k}</div></a>`;
+  const T4 = I["T-004"], D32 = I["D-032"], P1 = I["P-001"], rainLead = I[G.RAIN.lead];
+  const tiles = [
+    tile("#i-" + rainLead.code, img(rainLead,"th","RAIN"), "image · " + esc(rainLead.code)),
+    tile("#i-D-032", `<div class="doc" style="height:100%"><div class="c">D-032</div><div class="t">${esc(D32.title)}</div></div>`, "doc · 13 Nov"),
+    tile("#i-T-004", `<div class="wavemini">${waveBars(T4.audio.golden.peaks, 40)}</div><span class="w">${esc(T4.result)}</span>`, "test · T-004 " + esc(T4.title)),
+    tile("#i-P-001", `<div class="doc" style="height:100%"><div class="c">P-001</div><div class="t">${esc(P1.title)}</div></div>`, "prototype · this page"),
+  ].join("");
+  return header("all") + `<main class="wrap">
+    <section class="feature">
+      <a href="#g-${newest.code}"><figure><img class="in" src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="${esc(newest.title)} · ${esc(lead.title)}"></figure></a>
+      <div class="side">
+        <div class="kinds"><div class="cap" style="margin-bottom:8px">Newest of each kind</div><div class="tiles">${tiles}</div></div>
+        <div class="glab">${glabel(newest,{max:2,dot,justNow})}
+          <div class="oneline" style="margin-top:10px">${esc(newest.line)}</div>
+          <div class="since" style="margin-top:12px"><a href="#f-all">${since}</a></div></div>
+      </div>
+    </section>
+    <h2 class="sec">Everything, newest first</h2>
+    <div class="grid">${ENTRIES.filter(visible).filter(e => e !== "g:" + newest.code).map(entry).join("")}</div>
+  </main>`;
+}
+function vFilter(kind){
+  const kinds = ["all","image","doc","test","record","prototype"];
+  let body;
+  if (kind === "image"){
+    const imgs = D.order.filter(c => I[c].kind === "image");
+    body = `<div class="grid">${imgs.map(c => { const it = I[c]; return `<a class="entry${it.status==="dropped"?" dropped":""}" href="#i-${c}"><div class="pic">${img(it,"th",it.title)}</div>${label({code:c,title:it.short||it.title,fields:statusLine(it),revs:it.revs,max:1})}</a>`; }).join("")}</div>`;
+  } else if (kind === "all") {
+    body = `<div class="grid">${ENTRIES.filter(visible).map(entry).join("")}</div>`;
+  } else {
+    const list = D.order.filter(c => I[c].kind === kind);
+    body = `<div class="grid">${list.map(c => entry("i:" + c)).join("")}</div>`;
+  }
+  return header(kind === "all" ? "all" : "kind") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${kinds.map(k=>`<a class="${k===kind?"on":""}" href="#f-${k}">${k}</a>`).join("")}</div>${body}</main>`;
+}
+function vStage(stage){
+  const S_ = D.stages.find(s => s.toLowerCase() === stage) || "Lock";
+  const gs = D.groups.filter(g => g.stage === S_);
+  const its = D.order.filter(c => I[c].stage === S_ && !I[c].group);
+  const WILL = {Handoff:"the chosen concept's handoff: how it works, how it looks and feels, checked against the owner record", BOM:"the bill of materials, with links and prices", Breadboard:"bench tests: photos, scope plots, recordings", Boards:"PCB layouts, board photos and test results", Prints:"printed parts: files, photos, fit checks", Assembly:"assembly photos and notes"};
+  const chips = D.stages.map(s => `<a class="${s===S_?"on":""}" href="#s-${s.toLowerCase()}">${s}</a>`).join("");
+  let body = "";
+  if (!gs.length && !its.length) body = `<p class="ink2">${S_} · not yet${WILL[S_] ? " · " + WILL[S_] + " will go here." : ""}</p>`;
+  else body = `<div class="grid">${gs.map(g=>entry("g:"+g.code)).join("")}${its.map(c=>entry("i:"+c)).join("")}</div>`;
+  return header("stage") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${chips}</div>${S_==="Spec"?'<p class="note">Spec began early: the engineering notes and sims were made before Handoff.</p>':""}${body}</main>`;
+}
+function backBar(href, text, copy){
+  return `<div class="back wrap"><a href="${href}">‹ ${esc(text)}</a>${copy!==false?`<button data-copy="${esc(location.href)}">copy link</button>`:""}</div>`;
+}
+function vItem(code, revSel){
+  const it = I[code]; if (!it) return vMissing(code);
+  const back = it.group ? ["#g-" + it.group, G[it.group] ? G[it.group].title : it.group] : ["#home", "all"];
+  if (it.kind === "image") return vImage(it, revSel, back);
+  if (it.kind === "test") return vTest(it, back);
+  if (it.kind === "prototype") return vProto(it);
+  return vDoc(it, back);
+}
+function vImage(it, revSel, back){
+  const r = it.revs.find(x => x.rev === revSel) || it.revs[0];
+  const g = it.group && G[it.group];
+  const sibs = g ? g.images : [];
+  const idx = sibs.indexOf(it.code);
+  const lin = it.revs.length > 1 ? `<div class="cap" style="margin:16px 0 8px">Lineage</div><div class="lineage">${
+      it.revs.slice().reverse().map(x => `<a class="${x.rev===r.rev?"on":""}" href="#i-${it.code}-rev-${x.rev}"><img src="${x.thumb}" alt=""><b>rev ${x.rev}</b><div class="ink2">${esc(x.where||"")}</div></a>`).join("") +
+      (it.gap ? "" : "")}</div>${it.gap?`<div class="hint">${esc(it.gap)}</div>`:""}
+      <p style="margin-top:12px"><a class="btn" href="#compare-${it.code}">Compare forms</a></p>` : (it.gap ? `<div class="hint">${esc(it.gap)}</div>` : "");
+  const caused = it.causedBy ? `<div class="more">caused by: “${esc(it.causedBy)}”</div>` : "";
+  return backBar(back[0], back[1]) + `<main class="wrap item">
+    <div><div class="viewer" id="viewer"><img src="${r.src}" width="${r.w}" height="${r.h}" alt="${esc(it.title)}"></div>
+      <div class="hint">Tap to see it at full size; pinch to zoom. ${r.orig ? "Original " + esc(r.orig) + " · " + esc(r.path) : ""}</div>
+      ${sibs.length > 1 ? `<div class="chips" style="margin-top:12px">${idx>0?`<a href="#i-${sibs[idx-1]}">‹ ${esc(sibs[idx-1])}</a>`:""}${idx<sibs.length-1?`<a href="#i-${sibs[idx+1]}">${esc(sibs[idx+1])} ›</a>`:""}</div>` : ""}</div>
+    <div class="aside">${label({code:it.code, title:it.short||it.title, fields:statusLine(it) + (g ? " · " + g.title : ""), revs:it.revs, max:9, extra:caused})}${it.short?`<p style="font-size:14px;margin:10px 0 0">${esc(it.title)}</p>`:""}${lin}</div>
+  </main>`;
+}
+function vTest(it, back){
+  const vars = it.audio ? Object.keys(it.audio) : [];
+  const sound = vars.length ? `<div class="sound" id="sound" data-code="${it.code}">
+      <button class="play" id="play" aria-label="play"><svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1B1B19"/></svg></button>
+      <div class="wave" id="wave">${waveBars(it.audio[vars[0]].peaks, 160)}<span class="ph" id="ph"></span></div>
+      <div class="meta"><span id="tm">0:00.0 / ${it.audio[vars[0]].dur.toFixed(2)}</span><span id="pk">${it.audio[vars[0]].peak_v != null ? "peak " + it.audio[vars[0]].peak_v.toFixed(2) + " V" : ""}</span></div>
+      ${vars.length > 1 ? `<div class="ab">${vars.map((v,i)=>`<button data-var="${v}" class="${i===0?"on":""}">${v}</button>`).join("")}<span class="ink2" style="margin-left:auto;font-size:12.5px">switching keeps the playhead</span></div>` : ""}
+    </div>` : "";
+  return backBar("#f-test", "tests") + `<main class="wrap item">
+    <div>${sound}<div class="plots">${it.plots.map(p=>`<img src="${p.src}" width="${p.w}" height="${p.h}" alt="plot" loading="lazy">`).join("")}</div></div>
+    <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3})}
+      <div class="result" style="margin-top:12px"><b>${esc(it.result)}</b></div><div class="ink2" style="font-size:13px">${esc(it.line)}</div>
+      <div class="hint">From eng/sim/reference/out (golden and example_perturbed).</div></div>
+  </main>`;
+}
+function vDoc(it, back){
+  const jump = (it.jump && it.jump.length > 3) ? `<details class="jump"><summary>Contents (${it.jump.length})</summary>${it.jump.map(h=>`<a href="#" data-h="${esc(h)}">${esc(h)}</a>`).join("")}</details>` : "";
+  const caused = it.causedBy ? `<div class="more">caused by: “${esc(it.causedBy)}”</div>` : "";
+  return backBar(back[0], back[1]) + `<main class="wrap item">
+    <article class="doc-html" id="doc">${jump}${it.html}</article>
+    <div class="aside">${label({code:it.code, title:it.title, fields:statusLine(it), revs:it.revs, max:3, extra:caused})}<div class="hint">${esc(it.path)}</div></div>
+  </main>`;
+}
+function vProto(it){
+  return backBar("#home", "all") + `<main class="wrap item"><article class="doc-html">
+    <h1>${esc(it.title)}</h1><p>${esc(it.lead)} You're using it now. A prototype is a kind of item the site hosts: a page you open and use, with a label like any other item.</p>
+    <h2>Real</h2><ul>
+    <li>Every image is a downscaled copy of a file in the repo (branch renders and drawings, v1.1 legacy sheets, sim plots). Nothing was rendered for this page.</li>
+    <li>Docs and records are the repo's markdown, rendered as HTML.</li>
+    <li>Decisions are parsed from <code>design/owner.md</code>, verbatim. Scores come from <code>design/scores.md</code> and the branches director's notes.</li>
+    <li>The sounds are the sims' golden and perturbed WAVs (converted to 16-bit). “Show changes” areas come from a real pixel diff of v1 → v1.1.</li></ul>
+    <h2>Faked or simplified</h2><ul>
+    <li>No live connection: the lamp shows Standby. “Replay” at the bottom simulates a session switching it On while CHAMBER rev A lands.</li>
+    <li>“Signed out” is a toggle here; the real site knows.</li>
+    <li>Codes (D-031, T-004…) and rev letters are illustrative until the real register exists.</li>
+    <li>On a concept page the images sit where the group's “how it looks and feels” doc places them; “how it works” follows, folded.</li>
+    <li>Only FOLD-A and HUSH-A carry earlier forms (to keep the page small). Most times are from git; some events have no time recorded.</li>
+    <li>The full-instrument archive isn't included.</li></ul>
+    </article><div class="aside">${label({code:it.code, title:"", fields:statusLine(it), revs:it.revs})}<div class="hint">${esc(it.path)}</div></div></main>`;
+}
+function vGroup(code){
+  const g = G[code]; if (!g) return vMissing(code);
+  const dot = unseen("g:" + code);
+  let body = "";
+  if (g.legacy){
+    body = `<h2 class="sec">${g.images.length} legacy sheet${g.images.length>1?"s":""} · images as they were made (A3)</h2><div class="thumbs">${g.images.map(c=>`<a href="#i-${c}">${img(I[c],"th",c)}<span>${c} · ${esc(I[c].title)}</span></a>`).join("")}</div>
+      ${g.docs.length ? `<h2 class="sec">Docs</h2><div class="rows">${g.docs.map(c=>`<a href="#i-${c}"><span class="c">${c}</span><span>${esc(I[c].title)}</span><span class="x">${esc(I[c].status)}</span></a>`).join("")}</div>` : ""}`;
+  } else {
+    const main = I[g.docs[0]];
+    body = `<article class="doc-html gdoc">${main.html}</article>`;
+    if (g.docs[1]) body += `<details class="jump" style="margin-top:20px"><summary>${esc(I[g.docs[1]].title)}</summary><div class="doc-html">${I[g.docs[1]].html}</div></details>`;
+  }
+  const revRow = `<h2 class="sec">Revisions</h2><div class="rows">${g.revs.map(r=>`<div class="r"><span class="c">rev ${r.rev}</span><span>${esc(r.line)}</span></div>`).join("")}${g.code==="FOLD"?'<div class="r ink2"><span class="c">—</span><span>r1–r4 not kept</span></div>':""}</div>`;
+  const lead = I[g.lead];
+  return backBar("#home", "all") + `<main class="wrap"><div class="gtop">
+      <div><div class="name" style="margin:0">${esc(g.title)}</div><div class="oneline">${esc(g.line)}</div></div>
+      <div>${glabel(g,{max:3,dot})}</div></div>
+      
+      ${body}${revRow}</main>`;
+}
+function vCompare(code, a, b){
+  const it = I[code]; if (!it || it.revs.length < 2) return vMissing(code);
+  const A = it.revs.find(r=>r.rev===a) || it.revs[0], B = it.revs.find(r=>r.rev===b) || it.revs[1];
+  const key = A.rev + B.rev, areas = (D.clouds[code] || {})[key];
+  const chips = it.revs.filter(r=>r.rev!==A.rev).map(r=>`<a class="${r.rev===B.rev?"on":""}" href="#compare-${code}-rev-${A.rev}-${r.rev}">rev ${r.rev} · ${esc(r.where)}</a>`).join("");
+  const cloudsSvg = r => areas ? `<svg class="cl" viewBox="0 0 1000 ${Math.round(1000*r.h/r.w)}" preserveAspectRatio="none">${areas.map(q=>scallop(q[0]*1000, q[1]*1000*r.h/r.w, q[2]*1000, q[3]*1000*r.h/r.w)).join("")}</svg>` : "";
+  return backBar("#i-" + code, code) + `<main class="wrap cmp">
+    <div class="lh" style="font-size:17px"><b>${code}</b><span>${esc(it.title)} · rev ${A.rev} (${esc(A.where)}) against</span></div><div class="chips">${chips}</div>
+    <div class="toggle"><button class="sw${S.changes?" on":""}" id="chg" aria-label="show changes"><i></i></button><span>Show changes from rev ${B.rev}</span>
+      <span class="ink2" style="font-weight:400">${areas ? areas.length + " changed areas, from a pixel diff" : "no diff for this pair"}</span></div>
+    <div id="cmpview" data-a="${A.src}" data-b="${B.src}"></div>
+    <div class="pair" id="pair">
+      <figure><img src="${A.src}" alt="rev ${A.rev}">${S.changes?cloudsSvg(A):""}<figcaption class="cap" style="padding:6px 0">rev ${A.rev} · ${esc(A.where)}</figcaption></figure>
+      <figure><img src="${B.src}" alt="rev ${B.rev}">${S.changes?cloudsSvg(B):""}<figcaption class="cap" style="padding:6px 0">rev ${B.rev} · ${esc(B.where)}</figcaption></figure>
+    </div>
+    <div class="wipe" id="wipe"><img src="${B.src}" alt="rev ${B.rev}"><div class="top" id="wtop"><img src="${A.src}" alt="rev ${A.rev}"></div>${S.changes?cloudsSvg(A).replace('class="cl"','class="cl" style="position:absolute;inset:0;width:100%;height:100%"'):""}<div class="bar" id="wbar"></div><div class="knob" id="wknob">‹›</div></div>
+    <div class="hint" id="wipehint">Drag across the image: left of the line is rev ${A.rev}, right is rev ${B.rev}.</div>
+  </main>`;
+}
+function scallop(x, y, w, h){
+  const b = 9; let d = `M${x.toFixed(1)},${y.toFixed(1)}`;
+  const edge = (x0,y0,x1,y1) => { const L = Math.hypot(x1-x0,y1-y0), n = Math.max(1, Math.round(L/(b*2))); for (let i=1;i<=n;i++){ d += ` A${b},${b} 0 0 1 ${(x0+(x1-x0)*i/n).toFixed(1)},${(y0+(y1-y0)*i/n).toFixed(1)}`; } };
+  edge(x,y,x+w,y); edge(x+w,y,x+w,y+h); edge(x+w,y+h,x,y+h); edge(x,y+h,x,y);
+  return `<path d="${d}" fill="none" stroke="#1B1B19" stroke-width="2.4" vector-effect="non-scaling-stroke"/>`;
+}
+function vDecisions(){
+  let h = "", day = "";
+  D.decisions.forEach((d, i) => {
+    if (d.date !== day){ day = d.date; h += `<h2 class="sec">${esc(day)}</h2>`; }
+    const open = d.words === "Switch to Daisy Seed";
+    const cz = d.caused.map(c => `${c.ba} <a href="#i-${c.code}">${c.code}</a>${c.note?" "+esc(c.note):""}`).join(" · ");
+    h += `<div class="dec${open?" open":""}" id="dec-${i}">${d.ask?`<div class="ask">asked: ${esc(d.ask)}</div>`:""}<div class="w">“${esc(d.words)}”</div>
+      <div class="cz">${d.time ? esc(d.time) : "time not recorded"}${cz && !open ? " · " + cz : ""}</div>
+      ${open ? `<div class="rowsc">${d.caused.map(c=>`<a href="#i-${c.code}"><span>${c.ba}</span><b>${c.code}</b><u>${esc(I[c.code] ? I[c.code].title : c.code)}${c.note?" · "+esc(c.note):""}</u></a>`).join("")}</div>` : ""}</div>`;
+  });
+  return header("decisions") + `<main class="wrap wide"><div class="lh" style="margin:10px 0"><b style="font-size:22px;font-weight:600">Decisions</b><span class="ink2" style="margin-left:auto;font-size:13px">${D.decisions.length} · newest first · from the owner record</span></div>${h}</main>`;
+}
+function vHistory(grain){
+  const gr = ["day","round","version"].map(x=>`<a class="${x===grain?"on":""}" href="#history-${x}">${x[0].toUpperCase()+x.slice(1)}</a>`).join("");
+  let h = "";
+  if (grain === "day"){
+    let day = "";
+    D.events.forEach(e => {
+      if (e.d !== day){ day = e.d; h += `<h2 class="sec">${esc(day)}</h2>`;
+        const ds = D.decisions.filter(x => x.date === day); if (ds.length) h += `<div class="ev"><span class="t">—</span><a class="u" href="#decisions">${ds.length} decisions in your words this day ›</a></div>`; }
+      const codes = (e.codes||[]).map(c => G[c] ? `<a class="u" href="#g-${c}">${esc(G[c].title)}</a>` : I[c] ? `<a class="u" href="#i-${c}">${c}</a>` : c).join(" · ");
+      h += e.k === "locked" ? `<div class="lock"><div class="ev" style="border:0"><span class="t">${e.t||""}</span><span><b>${esc(e.line)}</b></span></div></div>`
+                            : `<div class="ev"><span class="t">${e.t || "—"}</span><span>${esc(e.line)}${codes?`<div class="ink2" style="font-size:12.5px">${codes}</div>`:""}</span></div>`;
+    });
+  } else if (grain === "round"){
+    D.rounds.slice().reverse().forEach(r => {
+      h += `<h2 class="sec">${esc(r.name)} · ${esc(r.date)}</h2>` + r.scores.map(([n,s]) => {
+        const code = n.replace(/[^A-Z0-9]/g,""), note = (r.notes||{})[n];
+        const g = G[code] || G[code.replace("105","")];
+        return `<div class="score"><b>${s||"—"}</b>${g?`<a class="u" href="#g-${g.code}">${esc(n)}</a>`:`<span>${esc(n)}</span>`}${note?`<span class="ink2">${note}</span>`:""}</div>`;
+      }).join("");
+    });
+  } else {
+    D.versions.forEach(v => { h += `<div class="lockrule"></div><div class="lh"><a href="#version-${v.code}"><b style="font-size:20px">${v.name}</b></a><span class="ink2">${v.date}${v.current?" · current":""}</span></div><p>${esc(v.line)}</p>`; });
+    h += `<h2 class="sec">Stages</h2><div class="ev"><span class="t">13 Nov</span><span>Lock reached (v1). Next: Handoff, when you pick.</span></div><div class="ev"><span class="t">12 Nov</span><span>Concept began (round 1).</span></div>`;
+  }
+  return header("history") + `<main class="wrap wide"><div class="grain">${gr}</div>${h}</main>`;
+}
+function vVersion(code){
+  const v = D.versions.find(x => x.code === code); if (!v) return vMissing(code);
+  let gs = "";
+  v.groups.forEach(([gc, rev]) => {
+    const g = G[gc];
+    const shown = g.images.map(c => { const it = I[c]; const r = it.revs.find(x => x.where === (v.code === "v1-1" ? "v1.1" : "v1")); return r ? [c, r] : null; }).filter(Boolean);
+    gs += `<h2 class="sec"><a href="#g-${gc}">${esc(g.title)} · rev ${rev} · legacy sheets</a></h2>` +
+      (shown.length ? `<div class="thumbs">${shown.map(([c,r])=>`<a href="#i-${c}-rev-${r.rev}"><img src="${r.thumb}" alt="${c}" loading="lazy"><span>${c}</span></a>`).join("")}</div>` : "") +
+      (shown.length < g.images.length ? `<p class="hint">${v.code === "v1" ? "Only FOLD-A and HUSH-A carry their v1 form in this prototype; the rest are in versions/v1." : ""}</p>` : "");
+  });
+  const docs = `<h2 class="sec">Shared docs, spec and records</h2><div class="rows">${v.docs.map(c=>`<a href="#i-${c}"><span class="c">${c}</span><span>${esc(I[c].title)}</span></a>`).join("")}</div>`;
+  const vs = D.versions.map(x=>`<a class="${x.code===code?"on":""}" href="#version-${x.code}">${x.name}</a>`).join("");
+  return header("version") + `<main class="wrap"><div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
+    <div class="lh"><span class="vtitle">${v.name}</span><span class="ink2">${v.current?"current · ":""}locked ${v.date}</span></div><p class="wide">${esc(v.line)}</p>${gs}${docs}</main>`;
+}
+function vMissing(code){ return header("") + `<main class="wrap"><p>${esc(code)} isn't in the register. <a class="u" href="#home">Back to the landing</a></p></main>`; }
+
+/* ------- router */
+let audio = null, raf = 0;
+function route(){
+  const h = (location.hash || "#home").slice(1);
+  let html, m;
+  if (h === "" || h === "home") html = vHome();
+  else if ((m = h.match(/^f-(\w+)$/))) html = vFilter(m[1]);
+  else if ((m = h.match(/^s-(\w+)$/))) html = vStage(m[1]);
+  else if (h === "decisions") html = vDecisions();
+  else if ((m = h.match(/^history-(day|round|version)$/))) html = vHistory(m[1]);
+  else if ((m = h.match(/^version-([\w-]+)$/))) html = vVersion(m[1]);
+  else if ((m = h.match(/^g-([\w]+)$/))) html = vGroup(m[1]);
+  else if ((m = h.match(/^compare-([\w-]+?)(?:-rev-(\w)-(\w))?$/))) html = vCompare(m[1], m[2], m[3]);
+  else if ((m = h.match(/^i-([\w-]+?)(?:-rev-(\w))?$/))) html = vItem(m[1], m[2]);
+  else html = vMissing(h);
+  if (audio){ audio.pause(); cancelAnimationFrame(raf); }
+  $app.innerHTML = html;
+  wire();
+}
+function rerender(keepScroll){ const y = window.scrollY; route(); if (keepScroll) window.scrollTo(0, y); }
+window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); });
+
+/* ------- wiring per view */
+function wire(){
+  document.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => {
+    try { navigator.clipboard.writeText(location.href).then(() => { b.textContent = "copied"; }, () => { b.textContent = "copy the address bar"; }); } catch(e){ b.textContent = "copy the address bar"; }
+  });
+  const v = document.getElementById("viewer"); if (v) v.onclick = () => v.classList.toggle("z");
+  document.querySelectorAll("[data-h]").forEach(a => a.onclick = ev => { ev.preventDefault();
+    const t = [...document.querySelectorAll("#doc h1,#doc h2,#doc h3")].find(x => x.textContent.trim() === a.dataset.h); if (t) t.scrollIntoView(); });
+  const chg = document.getElementById("chg"); if (chg) chg.onclick = () => { S.changes = !S.changes; rerender(true); };
+  wireCompare(); wireSound(); wireGroup();
+}
+function wireGroup(){
+  const d = document.querySelector(".gdoc"); if (!d || !window.matchMedia("(min-width: 1024px)").matches) return;
+  const figs = document.createElement("div"), text = document.createElement("div");
+  figs.className = "figs"; text.className = "text doc-html";
+  [...d.children].forEach(el => (el.tagName === "FIGURE" ? figs : text).appendChild(el));
+  d.classList.add("gcols"); d.appendChild(figs); d.appendChild(text);
+}
+let rz = 0, wasWide = window.matchMedia("(min-width: 1024px)").matches;
+window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { const w = window.matchMedia("(min-width: 1024px)").matches; if (w !== wasWide){ wasWide = w; rerender(true); } else wireCompare(); }, 200); });
+function wireCompare(){
+  const pair = document.getElementById("pair"), wipe = document.getElementById("wipe"); if (!pair) return;
+  const wide = window.matchMedia("(min-width: 900px)").matches;
+  pair.style.display = wide ? "grid" : "none"; wipe.style.display = wide ? "none" : "block";
+  document.getElementById("wipehint").style.display = wide ? "none" : "block";
+  const top = document.getElementById("wtop"), bar = document.getElementById("wbar"), knob = document.getElementById("wknob");
+  const set = f => { f = Math.min(1, Math.max(0, f)); top.style.clipPath = `inset(0 ${(100 - f*100).toFixed(2)}% 0 0)`; bar.style.left = knob.style.left = (f*100).toFixed(2) + "%"; };
+  set(.5);
+  let drag = false;
+  const at = e => { const r = wipe.getBoundingClientRect(); set((e.clientX - r.left) / r.width); };
+  wipe.addEventListener("pointerdown", e => { drag = true; wipe.setPointerCapture(e.pointerId); at(e); });
+  wipe.addEventListener("pointermove", e => { if (drag) at(e); });
+  wipe.addEventListener("pointerup", () => drag = false);
+}
+function fmt(t){ const m = Math.floor(t/60), s = t - m*60; return m + ":" + (s < 10 ? "0" : "") + s.toFixed(1); }
+function wireSound(){
+  const box = document.getElementById("sound"); if (!box) return;
+  const it = I[box.dataset.code], vars = Object.keys(it.audio);
+  let cur = vars[0];
+  if (!audio) audio = new Audio();
+  audio.src = it.audio[cur].src; audio.preload = "auto";
+  const play = document.getElementById("play"), ph = document.getElementById("ph"), tm = document.getElementById("tm"), wave = document.getElementById("wave"), pk = document.getElementById("pk");
+  const icon = p => play.innerHTML = p ? '<svg viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" fill="#1B1B19"/><rect x="9.5" y="2" width="3.5" height="12" fill="#1B1B19"/></svg>' : '<svg viewBox="0 0 16 16"><path d="M3 1 L14 8 L3 15 Z" fill="#1B1B19"/></svg>';
+  const tick = () => { const d = audio.duration || it.audio[cur].dur; ph.style.left = (100 * audio.currentTime / d).toFixed(2) + "%"; tm.textContent = fmt(audio.currentTime) + " / " + d.toFixed(2); if (!audio.paused) raf = requestAnimationFrame(tick); };
+  play.onclick = () => { if (audio.paused) audio.play().then(() => { icon(true); tick(); }, () => {}); else { audio.pause(); icon(false); } };
+  audio.onended = () => { icon(false); tick(); };
+  wave.onclick = e => { const r = wave.getBoundingClientRect(); const d = audio.duration || it.audio[cur].dur; audio.currentTime = d * (e.clientX - r.left) / r.width; tick(); };
+  box.querySelectorAll("[data-var]").forEach(b => b.onclick = () => {
+    if (b.dataset.var === cur) return;
+    const t = audio.currentTime, playing = !audio.paused; cur = b.dataset.var;
+    box.querySelectorAll("[data-var]").forEach(x => x.classList.toggle("on", x === b));
+    audio.src = it.audio[cur].src;
+    audio.addEventListener("loadedmetadata", function f(){ audio.removeEventListener("loadedmetadata", f); audio.currentTime = Math.min(t, audio.duration - 0.01); if (playing) audio.play().then(tick, () => {}); else tick(); });
+    wave.querySelectorAll("i").forEach((el, i, all) => { const p = it.audio[cur].peaks[Math.floor(i * it.audio[cur].peaks.length / all.length)]; el.style.height = Math.max(1, p * 100).toFixed(1) + "%"; });
+    pk.textContent = it.audio[cur].peak_v != null ? "peak " + it.audio[cur].peak_v.toFixed(2) + " V" : "";
+  });
+  icon(false);
+}
+
+/* ------- prototype controls */
+const $sim = document.getElementById("p-sim"), $out = document.getElementById("p-out"), $last = document.getElementById("p-last");
+$sim.onclick = () => {
+  if (S.sim) return;
+  S.signedOut = false; $out.classList.remove("on"); $out.textContent = "View signed out";
+  S.sim = "before"; S.lamp = "on"; if (location.hash && location.hash !== "#home") location.hash = "#home"; else rerender(true);
+  setTimeout(() => { S.sim = "landed"; S.justNow = true; S.dip = true; lastSeen = Math.min(lastSeen, SEQ["g:CHAMBER"] - 1); rerender(true);
+    setTimeout(() => { S.dip = false; }, 700); }, 2600);
+  setTimeout(() => { S.lamp = "standby"; S.sim = null; S.justNow = false; rerender(true); }, 16000);
+};
+$out.onclick = () => { S.signedOut = !S.signedOut; $out.classList.toggle("on", S.signedOut); $out.textContent = S.signedOut ? "View signed in" : "View signed out"; rerender(true); };
+$last.onclick = () => { lastSeen = SEQ["i:D-019"]; store.set("herb-lastSeen", String(lastSeen)); rerender(true); };
+const $pt = document.getElementById("ptog"); $pt.onclick = () => { const o = document.getElementById("proto").classList.toggle("open"); $pt.setAttribute("aria-expanded", o); $pt.innerHTML = "<b>Prototype</b> " + (o ? "▾" : "▴"); };
+route();
+})();
+</script>
+</body>
+</html>

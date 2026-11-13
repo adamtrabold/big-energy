@@ -1,81 +1,98 @@
 # RAIN: how it looks and feels (visual)
 
-Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every control is a drop on still water; its rings spread until they meet the next drop's, and the meeting lines draw the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `how-it-works.md` (systems rev 1) and `../common-how-it-works.md`.
+Seed: ONE SHEET (v1.1, 276 × 180). Kind: a landscape. **Point of view: every control is a drop on still water; its rings spread and fade, and the still water between them draws the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `how-it-works.md` (systems rev 2) and `../common-how-it-works.md` (rev 2).
 
-**Rev 1, 2026-11-13, concept turn 1 (visual).** Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout, not drawn by hand.
+**Rev 2, 2026-11-13 (round 1 scored 7; the director's six fixes).** Supersedes rev 1. Images in `img/` (from `_mock-src/rb.py` + `figs_rb.py`). The ring field is computed from the real layout. Only the images the fixes needed were re-rendered.
 
-## Images
+## What changed in rev 2 (the director's fixes)
+1. **The ripples decay.** Built the way a face-down print can make it (systems R2.2):
+   - near each stone, **deep rings (0.4) at 0.9 pitch**, at least 2–3 hugging every element;
+   - further out, **shallow rings (0.2) at 1.8 pitch**;
+   - then smooth water up to the band.
+   - The depth step and the opening spacing *are* the decay. Still two finishes (smooth, rings).
+2. **Sections are wider still bands:**
+   - **1.0 mm inside a section, 3.0 between sections.** Each cell's edges are pulled back by half the band toward that neighbour.
+   - Sections are the v1.1 map: keys; PLAY pitch / filter / fx; VOICE oscillators / mixer / contours; back row drift / echo / reverb / volume. FREE / SYNC belongs to echo.
+   - The wide bands now read as lanes of still water between the sections. The seams draw the map.
+3. **Warm palette, off concrete:**
+   - shell pale warm stone #ddd3c1;
+   - deep rings #b9ab93, shallow rings #cbbfaa;
+   - pegs two warm stone greys (#aaa192 / #6e675b);
+   - the one mustard leaf (CUTOFF) kept, no second accent.
+   - The field runs over the top chamfer to the outline: toward the panel's edge, rings continue to the edge rather than fading.
+   - **The vertical walls can't carry modelled rings:** printed face down, their surface is layer lines. They're the warm stone, and their own fine horizontal ripple is the layer lines.
+4. **Legends: 0 collisions** in `branch_check.py` §7, inherited v1.1 ones included. Branch-only fixes:
+   - type-name rows raised (inner 3.8, outer 6.6);
+   - ticks under toggle nuts dropped;
+   - "FREE" / "SYNC" 0.5 behind the toggle centre;
+   - STATUS beside its hood;
+   - the back row says ECHO TYPE / REVERB TYPE in front, TIME / DECAY behind (no headings in RAIN).
+5. **Pitch compare, three ways:** the drawing below. The words are here, not in it.
+6. **Re-rendered at arm's length and close.**
 
-![RAIN: the look, 3/4](img/rain.jpg)
+<figure>
+<img src="img/rain-arms-length.jpg" alt="RAIN at arm's length: warm stone panel, rings fading round every control, still-water lanes between sections, one mustard knob">
+<figcaption>Arm's length (the director's test: calm or not?). The rings fade into still water; the wide lanes between sections draw the map. Warm stone, two stone-grey key rows, one mustard leaf.</figcaption>
+</figure>
 
-![RAIN at arm's length (the director's test a: is it calm?)](img/rain-arms-length.jpg)
+<figure>
+<img src="img/rain-close.jpg" alt="RAIN close-up: deep rings hugging each knob and toggle, fading outward, words on smooth lily pads">
+<figcaption>Close: deep rings hug every knob and toggle, then open out and go shallow before the still band. Words sit on smooth lily pads.</figcaption>
+</figure>
 
-![RAIN close: rings round every knob, smooth seams where they meet, words on lily pads](img/rain-close.jpg)
+<figure>
+<img src="img/rain-ring-pitch-045-06-09-40px-per-mm.png" alt="Three ring patches around the same knob, ring pitch 0.45, 0.6 and 0.9 mm, with a 10 mm scale bar">
+<figcaption>Ring pitch, left to right: 0.45 (v1.1's first-layer rings, the ones he loved: slicer fill, impossible per cell); 0.6 (modelled grooves, needs a 0.25–0.3 nozzle: systems R2.2); 0.9 (modelled grooves on the standard 0.4 nozzle, as drawn).</figcaption>
+</figure>
 
-![The stepping stones: pegs in two stone greys on felt washers, rippled like everything else](img/rain-stepping-stones.jpg)
+<figure>
+<img src="img/rain-time-and-pads-12.70px-per-mm.png" alt="Top-view detail around TIME, FREE / SYNC and DECAY, rings and lily pads, 10 mm scale bar">
+<figcaption>TIME, FREE / SYNC and the lily pads from above at native resolution (12.70 px per mm): the 1.0 band inside the echo section, the 3.0 band to its neighbours.</figcaption>
+</figure>
 
-![Ring pitch at 40 px per mm: v1.1's 0.45 first-layer rings beside RAIN's 0.9 modelled grooves (test c)](img/rain-ring-pitch-compare-40px-per-mm.png)
+<figure>
+<img src="img/rain-pegs-12.70px-per-mm.png" alt="Top-view detail of the stepping-stone pegs with fading rings">
+<figcaption>The stepping stones: pegs on felt washers in two warm stone greys, rippled like everything else (12.70 px per mm).</figcaption>
+</figure>
 
-![TIME, FREE / SYNC and the lily pads, at native resolution: 12.70 px per mm, 10 mm bar](img/rain-time-and-pads-12.70px-per-mm.png)
-
-![Pegs at native resolution (12.70 px per mm)](img/rain-pegs-12.70px-per-mm.png)
-
-![RAIN true-scale top view: 12.70 px per mm, so it shows at real size at that ratio](img/rain-top-12.70px-per-mm.png)
+<figure>
+<img src="img/rain-top-12.70px-per-mm.png" alt="RAIN orthographic top view">
+<figcaption>Exact top view, 12.70 px per mm: a reference for measuring, not "real size" on a screen.</figcaption>
+</figure>
 
 ## Principles
-1. **Everything that breaks the surface ripples.**
-   - Knobs, CUTOFF, the TYPE switches, toggles, the stick, TAP, the status hood, the 25 pegs and FREE / SYNC: each starts its own rings just outside its skirt or washer.
-   - *Because* one sentence then decides the whole face.
-2. **Where two ripples meet, the water is still.**
-   - Each element's rings are clipped to its cell (a power diagram of the elements, weighted by size), with a 0.64 mm smooth seam where cells meet.
-   - **The seams are the only section marks:** no grooves, no headings (director: "Courage!"). The sketch's promise holds in the render: the rows and the three columns read from the seam web alone.
-3. **Words float on lily pads.**
-   - Every printed word sits on a smooth rounded pad cut out of the field (0.85 mm margin, R 1.2).
-   - *Because* type on ripples is unreadable, and a pad says "this is a word" without a box.
-4. **Two finishes, still.** Smooth and rings, his rule. RAIN just lets the rings run to every edge.
-5. **One leaf.** CUTOFF in mustard (a 1083 hero knob in mustard) is the only colour on a stone pond. No second accent (director).
+1. **Everything that breaks the surface ripples.** Knobs, CUTOFF, the TYPE switches, toggles, the stick, TAP, the status hood, the 25 pegs and FREE / SYNC.
+2. **Ripples lose amplitude.** Deep and close near the stone, shallow and open further out, then still. *Because* real water does, and because a uniform field read as crazed stone at arm's length (round 1).
+3. **The still water is the map.** A narrow still band between two controls of one section, a wide one between sections. No grooves, no headings.
+4. **Words float on lily pads:** smooth rounded pads (0.85 margin, R 1.2) cut out of the field.
+5. **One leaf.** CUTOFF in mustard is the only colour.
 
-## Look
-- **Shell:** pale wet-slate stone PETG (#d9d6ca drawn), printed face down on smooth PEI. One filament, one swap (legends dark #2e2924).
-- **Rings:** modelled grooves 0.45 wide at **0.9 pitch** (systems §3), drawn at true pitch in every render. Groove tone #b4b0a1 (a sheen difference in reality, not a colour).
-  - 1:1 compare: v1.1's first-layer rings (0.45) are finer and silkier; RAIN's 0.9 grooves read as a deliberate engraving, nearer a record than a silk.
-  - **My call:** at 0.9 it's still "rings", not "record grooves", because the rings stop at the seams and never run long. The coupon decides.
-- **Ring starts:**
-  - knobs r 7.75 (just under the KN1250 skirt);
-  - CUTOFF 10.9;
-  - toggles and hood 3.7;
-  - stick 9.3 (outside its gate ring);
-  - TAP 7.6;
-  - pegs 7.3 (outside the 14 mm felt washer).
-- **Knobs:** cream KN1250 ×31 + MOD; CUTOFF **mustard** 1083 (#c9a032 drawn) with a dark line.
-- **Pegs (stepping stones):** HUSH's 12.7 button plugs in two stone greys: naturals #a19e94, sharps #66645e. Each sits on a dark felt washer in the deck.
-  - The key window closes into a deck (systems §2): whites y 14, sharps y 36.5, x 12 + 18n. **Width stays 276** with the 14 mm washer (systems).
-- **Legends:**
-  - v1.1 ONE SHEET type (Inter SemiBold caps, 1.9);
-  - with no section headings, the back row says what it is in front: **ECHO TYPE / REVERB TYPE**;
-  - TIME and DECAY (short) sit behind their knobs (common §2);
-  - I tried the full "ECHO TIME" behind first; it ran into the type-name fans, so it's back to TIME / DECAY.
-- **FREE / SYNC:** one more stone, so it ripples; "FREE" left, "SYNC" right, on pads.
-- **TIME:** two scales over ±135°: ms ticks inner, division marks outer (tick, dot = dotted, triangle = triplet), no numbers.
-- **Jacks:** rear wall as v1.1; the legend row on pads in the field.
-- **Status light:** hooded (common §3), and rippled like everything else.
+## Look (spec for the build)
+- **Shell:** warm stone PETG (#ddd3c1 drawn), face down on smooth PEI. One filament, one swap (legends dark #2e2924, Inter SemiBold caps 1.9).
+- **Rings:** modelled grooves 0.45 wide.
+  - **Deep zone:** 0.4 deep at 0.9 pitch. It reaches at least 2.4 mm past the ring start, or half the way to the band, whichever is larger.
+  - **Shallow zone:** 0.2 deep at 1.8 pitch, ending short of the band by 14 % of the span.
+  - Ring starts:
+    - knobs 7.75;
+    - CUTOFF 10.9;
+    - toggles and hood 3.7;
+    - stick 9.3;
+    - TAP 7.6;
+    - pegs 7.3.
+- **Bands:** 1.0 inside a section, 3.0 between (power diagram weighted by ring start, each edge pulled back by half its band).
+- **Knobs:** cream KN1250; CUTOFF mustard 1083 (#c9a032).
+- **Pegs:** HUSH's 12.7 button plugs in two warm stone greys on 14 mm felt washers; whites y 14, sharps y 36.5; width stays 276.
+- **FREE / SYNC:** one more stone; "FREE" / "SYNC" beside it on pads.
+- **TIME:** two scales over ±135° (ticks inner, division marks outer). No numbers. DIPTYCH's numbered dial is available as a donor.
+- **Status:** hooded LED, legend beside it.
+- **Sound (optional):** a soft "drop" at power-on (firmware, $0; power-off is impossible on the hard switch).
 
-## Motion, feedback, sound
-- Pegs ≈ 2.5 mm onto felt, silent.
-- The light: as v1.1 (H7 tempo flash).
-- **A single soft "drop" at power-on**, when the status light reaches ready: firmware, $0, off by a key combo (systems §4: power-off is impossible on the hard switch). Optional.
-
-## What it had to prove (director)
-| Must prove | Where | Status, my honest read |
-|---|---|---|
-| (a) calm at arm's length, alive up close | `rain-arms-length.jpg`, `rain-close.jpg` | Close: yes, the rings catch the light round every knob and the seams draw the map. At arm's length the field reads as a soft texture with a visible web. It's busiest at the rear, where the type-name pads, the jack pads and the back row crowd into one band. Not dizzy in these renders, but renders flatten sheen, so **the coupon under a tree is the real test.** |
-| (b) legends on pads readable at S1 sizes, in sun | `rain-time-and-pads-…png` | Readable at 1:1 on screen. The smallest (TYPE names, 1.05) sit on the tightest pads. Sun: UNVERIFIED (coupon). |
-| (c) 0.9 pitch still looks like the rings he loved | `rain-ring-pitch-compare-40px-per-mm.png` | Coarser, honestly. Shown side by side so he can judge. A 0.6 pitch would sit between (render: `RB_RAIN_PITCH=0.6 python3 rb.py rb_rn_main`), if the groove can be printed. |
-| (d) pegs on ONE SHEET, white / black kept | `rain-pegs-…png`, `rain-stepping-stones.jpg` | Width 276 kept (systems). Two greys read as two rows; the contrast is gentle on purpose. |
-| (e) mustard earns its place as the only leaf | `rain.jpg` | It's the one warm thing on the pond, on the instrument's most important knob. Nothing else is coloured. |
+## Honest read of the round-2 renders
+- **Arm's length:** the crazed-stone look is gone. What reads now is soft rings round each control and pale lanes between the sections. It's calmer, and the map is visible. It's still the busiest of the concepts: the rear band (type names, jack pads, the back row) carries the most texture. Renders flatten sheen, so the coupon under a tree is still the real test.
+- **Close:** the best it has looked; the rings now "land" on each control.
+- **0.9 vs 0.45:** coarser, shown honestly side by side. 0.6 needs a finer nozzle.
 
 ## Open
-- **The coupon** (smooth + 0.9 grooves + a seam + a lily pad) under a tree. It decides RAIN.
-- **The field doesn't yet run over the side walls' top chamfer** in the model (top face only). The director asked for it to run to every edge, chamfer included; to add.
-- One-piece print on a 350 bed (systems §3): the field must be unbroken.
-- Render-time note: the full grooved face renders in seconds as 2D geometry; the STL for printing will be heavier (UNVERIFIED).
+- **The coupon:** deep + shallow rings, a 1.0 and a 3.0 band, a lily pad, at 0.9 pitch, seen under a tree. Does a 0.2-deep ring read at all (systems: UNVERIFIED)?
+- A 0.25–0.3 nozzle at Vector Space for 0.6 pitch (systems: UNVERIFIED).
+- One-piece print on a 350 bed (the field must be unbroken).

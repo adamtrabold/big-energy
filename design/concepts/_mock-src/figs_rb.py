@@ -137,28 +137,27 @@ def chamber_closed_front():
     return p
 
 def rain_ring_compare(ppm=40):
-    """1:1 ring pitch: v1.1 ONE SHEET first-layer rings (0.45) vs RAIN's modelled grooves (0.9), round a 14.86 knob."""
-    from PIL import ImageFilter
-    W, H = int(ppm * 64), int(ppm * 34)
-    im = Image.new("RGB", (W * 2, H * 2), PAPER)            # supersampled
-    d = ImageDraw.Draw(im)
+    """three ring pitches round a 14.86 knob, at 40 px per mm, left to right 0.45 / 0.6 / 0.9 (director fix 5).
+    No words in the image: the captions live in the doc (director ruling). Only a 10 mm bar."""
+    W, H = int(ppm * 94), int(ppm * 32)
     S = ppm * 2
-    for k, (pitch, groove, base, line, cap) in enumerate((
-            (0.45, 0.30, (236, 226, 202), (205, 189, 156), "v1.1 · 0.45 mm"),
-            (0.90, 0.45, (217, 214, 202), (180, 176, 161), "RAIN · 0.9 mm"))):
-        cx, cy = (16 + 32 * k) * S, 15 * S
-        d.rectangle([(2 + 32 * k) * S, 2 * S, (30 + 32 * k) * S, 28 * S], fill=base)
-        r = 7.75
-        while r < 12.4:
-            d.ellipse([cx - (r + groove / 2) * S, cy - (r + groove / 2) * S, cx + (r + groove / 2) * S, cy + (r + groove / 2) * S], outline=line, width=max(1, int(groove * S)))
+    im = Image.new("RGB", (W * 2, H * 2), PAPER)
+    d = ImageDraw.Draw(im)
+    base, line, knob = (221, 211, 193), (185, 171, 147), (236, 230, 214)
+    for k, (pitch, groove) in enumerate(((0.45, 0.30), (0.60, 0.30), (0.90, 0.45))):
+        cx, cy = (16 + 31 * k) * S, 15 * S
+        d.rectangle([(2 + 31 * k) * S, 2 * S, (30 + 31 * k) * S, 28 * S], fill=base)
+        r = 7.75 + groove / 2
+        while r < 12.6:
+            d.ellipse([cx - (r + groove / 2) * S, cy - (r + groove / 2) * S, cx + (r + groove / 2) * S, cy + (r + groove / 2) * S],
+                      outline=line, width=max(1, int(groove * S)))
             r += pitch
-        d.ellipse([cx - 7.43 * S, cy - 7.43 * S, cx + 7.43 * S, cy + 7.43 * S], fill=(236, 230, 214), outline=(140, 130, 112), width=int(0.2 * S))
-        d.text(((2 + 32 * k) * S, 30.5 * S), cap, font=F(S * 1.5), fill=INK, anchor="lm")
+        d.ellipse([cx - 7.43 * S, cy - 7.43 * S, cx + 7.43 * S, cy + 7.43 * S], fill=knob, outline=(140, 130, 112), width=int(0.2 * S))
     im = im.resize((W, H), Image.LANCZOS)
-    out = Image.new("RGB", (W, H + int(ppm * 5)), PAPER)
+    out = Image.new("RGB", (W, H + int(ppm * 4)), PAPER)
     out.paste(im, (0, 0))
-    scale_bar(ImageDraw.Draw(out), ppm * 2, H + ppm * 1.2, ppm, 10)
-    p = dest("rain", "rain-ring-pitch-compare-40px-per-mm.png")
+    scale_bar(ImageDraw.Draw(out), ppm * 2, H + ppm * 0.8, ppm, 10)
+    p = dest("rain", "rain-ring-pitch-045-06-09-40px-per-mm.png")
     out.save(p, optimize=True)
     return p
 
@@ -227,10 +226,8 @@ if __name__ == "__main__":
     for src, con, name in [
         ("rb_ch_main.png", "chamber", "chamber-open.jpg"), ("rb_ch_closed.png", "chamber", "chamber-closed-with-book.jpg"),
         ("rb_ch_stand_back.png", "chamber", "chamber-standing-from-behind.jpg"), ("rb_ch_stand.png", "chamber", "chamber-standing.jpg"),
-        ("rb_ch_flat.png", "chamber", "chamber-flat-from-above.jpg"), ("rb_ch_keys.png", "chamber", "chamber-reverse-pegs.jpg"),
-        ("rb_ch_closed_p.png", "chamber", "chamber-closed-printed.jpg"),
-        ("rb_rn_main.png", "rain", "rain.jpg"), ("rb_rn_far.png", "rain", "rain-arms-length.jpg"),
-        ("rb_rn_near.png", "rain", "rain-close.jpg"), ("rb_rn_keys.png", "rain", "rain-stepping-stones.jpg"),
+        ("rb_ch_keys.png", "chamber", "chamber-reverse-pegs.jpg"), ("rb_ch_keys_fallback.png", "chamber", "chamber-pegs-fallback-colours.jpg"),
+        ("rb_rn_far.png", "rain", "rain-arms-length.jpg"), ("rb_rn_near.png", "rain", "rain-close.jpg"),
         ("rb_bf_main.png", "butterfly", "butterfly.jpg"), ("rb_bf_rear.png", "butterfly", "butterfly-from-behind.jpg"),
         ("rb_bf_joint.png", "butterfly", "butterfly-joint.jpg"), ("rb_bf_wall.png", "butterfly", "butterfly-on-the-wall.jpg"),
         ("rb_dp_stand.png", "diptych", "diptych-standing.jpg"), ("rb_dp_main.png", "diptych", "diptych-open.jpg"),

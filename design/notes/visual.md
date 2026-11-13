@@ -1,5 +1,60 @@
 # Visual designer notes (instrument; working name retired)
 
+## BRANCHES, round 2 (2026-11-13): CHAMBER and RAIN fixes (scores r1: CHAMBER 8, RAIN 7; BUTTERFLY retired, DIPTYCH killed)
+**Where things stand:**
+- Two live concepts: **CHAMBER** (FOLD) and **RAIN** (ONE SHEET). Docs:
+  - `design/branches/concepts/{chamber,rain}/how-it-looks-and-feels.md` (rev 2);
+  - images in `<figure>` with `<figcaption>`, in reading order;
+  - every image in `img/` is linked; stale ones were deleted (chamber-flat-from-above, chamber-closed-printed, rain.jpg, rain-stepping-stones, the old 2-way compare).
+- BUTTERFLY and DIPTYCH folders are left as they were (retired / killed); I didn't touch them.
+
+**Owner rules this round:**
+- images only where they must be visual, words in HTML;
+- images responsive for the site;
+- **"dont render a bunch of images unnecessarily"**: render only what a fix needs.
+- Director ruling: in-image labels only for geometry (dimensions, scale bars); no "real size" claims on screen.
+
+**CHAMBER fixes done (director's 1–6):**
+1. Standing lid re-lit: `relight()` scales the lid plate's median grey to (241, 236, 224), lid region only (ymax 0.6), to keep the ground shadow.
+2. Spine (systems R2.1), oxblood bookcloth #6b2c23:
+   - closed: `spine_closed()` runs up over the lid plate's edge, so no white line shows;
+   - standing: `spine_stand()` drapes in the opened joint.
+3. Fallback pegs: `Chamber(fallback=True)` → `chamber-pegs-fallback-colours.jpg`.
+4. Façade pitch 8.75, with Ø 4 push-out holes as the mouths of the pipes at x 108 / 178, d 28.3 (systems R2.2). PARA "mono / para / +4" above its toggle. **Kalam is installed** (systems, `~/.local/share/fonts/kalam`); HAND = Kalam.
+5. Artefacts:
+   - the peg streak was a mesh crack: each head is now one hull (RAIN too);
+   - the "pale band" was OpenSCAD's near clip plane: the close-up camera moved to dist 300.
+6. Plugs: Woodpeckers 1/2" walnut button plug $0.35 ($0.32 at 25+); Midwest via Zoro $43.55 per 100. Shank dimensions unstated (UNVERIFIED fit). Fallback: maple stained dark.
+
+**RAIN fixes done:**
+1. Decay = deep rings (0.9 pitch) in an inner zone (≥ 2.4 mm past the ring start, or half the span), shallow rings (1.8 pitch, lighter tone) out to 14 % short of the band (systems R2.2's printable route).
+2. Bands 1.0 inside a section, 3.0 between. `_cell()` pulls each internal half-plane back by half its band; sections come from `rain_section()`.
+3. Warm palette: shell #ddd3c1, rings #b9ab93 / #cbbfaa, pegs #aaa192 / #6e675b, mustard CUTOFF. The field runs to the outline over the chamfer. Vertical walls can't carry modelled rings (face-down print = layer lines) — say so if asked.
+4. 0 collisions (checker §7).
+5. 3-way pitch drawing, no words in it.
+6. Re-rendered at arm's length and close.
+
+**Set-wide label fixes (branch renders only; r5 / the locks untouched; patched at import in rb.py):**
+- `r5.type_fan` replaced by `_type_fan`: inner row 3.8, outer Kalam 7.2 / Inter 6.6;
+- knob ticks dropped wherever they run under a toggle nut (`_ticks_clear`, nut r 4.6 + 0.5);
+- "free" / "sync" 0.5 behind the toggle centre;
+- RANGE "lo" / "2'" at ±138°, r 10.4;
+- VEL legend at 7.7 (CHAMBER);
+- STATUS legend beside its hood.
+- **Checker result: CHAMBER 0, RAIN 0** (inherited v1.1 clashes included; TOTAL fails 0).
+
+**Renders this round (only what the fixes needed):**
+- CHAMBER: main, closed, stand, stand_back, keys, keys_fallback, top;
+- RAIN: far, near, top.
+- Then `figs_rb.py` exports (it now takes only the current files).
+
+**Open:**
+- **Owner:** reversed keys vs the fallback; the TIME dead 15° (director's list).
+- **Eng / maker:** spine flex life; the ribbon loop in the seam gap; relief / engraved fill coupon; plug shank fit; RAIN coupon (does 0.2 deep read?); 0.25–0.3 nozzle for 0.6 pitch.
+- RAIN's busiest zone is the rear band at arm's length; if the director objects, the next lever is fewer type-name pads (the fans could lose their outer names to a legend line).
+
+**Next:** the director re-scores CHAMBER and RAIN. On approval, write "How it looks and feels" in `handoff.md`.
+
 ## BRANCHES, concept turn 1 (2026-11-13): looks for CHAMBER, RAIN, BUTTERFLY, DIPTYCH + site images
 Context: the director closed the jam (turn 3). PIERCED and GROUND are killed (GROUND's donors went to every branch: status hood, high-contrast type). Four concepts, each with a "must prove" list. Systems wrote jobs rev 5, `common-how-it-works.md` and four `how-it-works.md` files, checked with `branch_check.py`.
 

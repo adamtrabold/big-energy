@@ -15,7 +15,8 @@ from r5 import (rows, breaks, item5, draw_row, joystick, keys_raised, fx_heads, 
                 fp_rect, shot_ortho, Fold)
 
 OUT = ld.OUT
-HAND = "DkgHandwriting:style=Bold"     # stand-in for Kalam Bold (not installable here); final art uses Kalam
+HAND = "Kalam:style=Bold"              # installed by systems (~/.local/share/fonts/kalam, OFL)
+r5.FAN_OUT_K, r5.FAN_OUT_I = 7.2, 6.6     # outer type-name rows (v1.1 6.5 / 6.2): clear of the raised inner row (checker)
 SERIF = "EB Garamond:style=Regular"
 SERIF_I = "EB Garamond:style=Italic"
 
@@ -31,8 +32,8 @@ def sync_toggle(x, y, z, words, size, ink, font, up=False, lever_to="right"):
     sg = 1 if lever_to == "right" else -1
     s += f'{c("#b9bcbf")} translate([{x:.3f},{y:.3f},{z+2.5:.3f}]) rotate([0,{18*sg},0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);\n'
     a, b = words
-    s += txt(x - 6.2, y, z, a.upper() if up else a, size, ink, font=font, halign="right")
-    s += txt(x + 6.2, y, z, b.upper() if up else b, size, ink, font=font, halign="left")
+    s += txt(x - 6.2, y + 0.5, z, a.upper() if up else a, size, ink, font=font, halign="right")   # 0.5 behind (common rev 2)
+    s += txt(x + 6.2, y + 0.5, z, b.upper() if up else b, size, ink, font=font, halign="left")
     return s
 
 def _tick(x, y, z, r, a, L, w, col):
@@ -77,7 +78,7 @@ def status_hood(x, y, z):
     """status LED 3-4 mm down a printed tube (common §3): a dark well with the light deep inside."""
     return cyl(x, y, z - 0.02, 0.06, 6.0, "#121110", fn=36) + cyl(x, y, z - 0.01, 0.05, 3.0, "#7fbf55", fn=24)
 
-def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, legend_size=None, skip=()):
+def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, legend_size=None, skip=(), nuts=()):
     """v1.1 rows, with: TIME's ticks replaced by the two scales; TIME and DECAY legends moved behind their knobs;
     the status light hooded. row_y: {row: y}. behind: y offset of the moved legends from the FX row."""
     s = ""
@@ -93,21 +94,55 @@ def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, le
             elif name == "REVERB DECAY":
                 s += item5(name, "", x, yy, kind, midi, z, st, tap_style, None, True, centre)
                 s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
-            elif name in NO_TOP_TICK and kind == "k":
-                if st.ticks:
-                    s += item5(name, lab, x, yy + yo, kind, midi, z, copy_style(st, ticks=False), tap_style, None, True, centre)
-                    s += ticks(x, yy, z, st.knob_r + 0.9, [-150, -100, -50, 50, 100, 150], st.scale_ink or st.ink, length=1.0, width=0.35)
-                else:
-                    s += item5(name, lab, x, yy + yo, kind, midi, z, st, tap_style, None, True, centre)
+            elif kind == "k" and st.ticks and (name in NO_TOP_TICK or nuts):
+                angs = [-150, -100, -50, 0, 50, 100, 150]
+                if name == "OSC 2":
+                    angs = [-150, -100, -50, 100, 150]
+                elif name == "NOISE/EXT":
+                    angs = [-150, -100, 50, 100, 150]
+                angs = _ticks_clear(x, yy, angs, st.knob_r + 0.9, st.knob_r + 1.9, nuts)
+                s += item5(name, lab, x, yy + yo, kind, midi, z, copy_style(st, ticks=False), tap_style, None, True, centre)
+                s += ticks(x, yy, z, st.knob_r + 0.9, angs, st.scale_ink or st.ink, length=1.0, width=0.35)
             elif name == "status":
-                s += status_hood(x, yy + yo, z)
-                s += txt(x, yy + yo + 4.6, z, lab if st.upper else lab.lower(), st.lsize * 0.8, st.ink, font=st.font)
+                s += status_hood(x, yy + yo, z)       # legend beside the hood, not above: above, it crowded MOD MIX (v1.1 near-miss)
+                s += txt(x + 4.4, yy + yo, z, lab if st.upper else lab.lower(), st.lsize * 0.8, st.ink, font=st.font, halign="left")
             else:
                 tp = r5.ECHO_POS if name == "ECHO TYPE" else r5.VERB_POS
                 s += item5(name, lab, x, yy + yo, kind, midi, z, st, tap_style, tp, True, centre)
     return s
 
-NO_TOP_TICK = ("OSC 2", "NOISE/EXT")    # their top ticks sit under "free" / "sync" (found in the 1:1 crops)
+NO_TOP_TICK = ("OSC 2", "NOISE/EXT")    # top tick under "free"/"sync"; OSC 2's +50 and NOISE's -50 under the nut (common rev 2)
+
+FAN_IN = 3.8          # inner type-name row (v1.1: 3.4; names sat 0.7-0.9 from their detent ticks, rule 1.0)
+
+def _type_fan(x, y, z, r, pos, ink, font, size, upper, bib=None):
+    s = ticks(x, y, z, r + 0.9, [a for a, _ in pos], ink, length=1.5, width=0.5)
+    sz = 1.05 if "Inter" in font else 1.3
+    for a, w in pos:
+        th = math.radians(a)
+        row = FAN_IN if abs(a) < 40 else (r5.FAN_OUT_K if "Kalam" in font else r5.FAN_OUT_I)
+        s += txt(x + 11.85 * math.sin(th), y + r + row, z, w.upper() if upper else w, sz, ink, font=font)
+    return s
+r5.type_fan = _type_fan     # branch renders only (rb imports r5; the locked v1.1 renders run r5 directly)
+
+TGL_NUT = 4.6 + 0.5   # spec nut ≈ 9.2 across corners (systems) + the 0.5 tick rule
+
+def _ticks_clear(x, y, angles, r_in, r_out, nuts):
+    """keep only ticks whose span stays clear of every toggle nut."""
+    keep = []
+    for a in angles:
+        th = math.radians(a)
+        ok = True
+        for (nx, ny) in nuts:
+            for rr in (r_in, (r_in + r_out) / 2, r_out):
+                if math.hypot(x + rr * math.sin(th) - nx, y + rr * math.cos(th) - ny) < TGL_NUT:
+                    ok = False
+        if ok:
+            keep.append(a)
+    return keep
+
+def toggle_nuts(R, row_y, extra=()):
+    return [(x, yy + yo) for key, yy in row_y.items() for name, lab, x, kind, midi, yo in R[key] if kind == "t"] + list(extra)
 
 def copy_style(st, **kw):
     d = dict(st.__dict__); d.update(kw)
@@ -216,9 +251,10 @@ def butterfly_hanging():
     return s
 
 # =================================================================== RAIN (ONE SHEET): a pond after rain
-STONE = "#d9d6ca"      # pale wet-slate stone PETG
-STONE_LN = "#b4b0a1"   # ring groove (drawn at the real >= 0.9 pitch)
-PEG_W, PEG_S = "#a19e94", "#66645e"   # two stone greys (director: keep the white / black distinction)
+STONE = "#ddd3c1"      # round 2: pale wet stone with warmth (director fix 3: off concrete)
+STONE_LN = "#b9ab93"   # deep ring (0.4 deep, near the stone)
+STONE_LN2 = "#cbbfaa"  # shallow ring (0.2 deep, outer zone): the depth step is the decay (systems R2.2)
+PEG_W, PEG_S = "#aaa192", "#6e675b"   # two warm stone greys (white / black kept)
 MUSTARD = "#c9a032"
 RAIN_PITCH = float(os.environ.get("RB_RAIN_PITCH", 0.9))
 
@@ -227,17 +263,33 @@ def rain_pegs():
     sharps = [(3 + 18 * (i + 1), 36.5) for i in r4.sharps_after()]
     return whites, sharps
 
+def rain_section(x, y, name=""):
+    """which part of the map an element belongs to: keys; PLAY pitch / filter / fx; VOICE osc / mixer / contours;
+    back row drift / echo / reverb / volume (the v1.1 break lines, ONE SHEET x = FOLD x - 5)."""
+    if name == "SYNC":
+        return "fx-echo"
+    if y < 52:
+        return "keys"
+    vb = [b + OS_DX for b in F.vb_play]
+    col = 0 if x < vb[0] else (1 if x < vb[1] else 2)
+    if y < 85.4:
+        return "play-%d" % col
+    if y < 138.5:
+        return "voice-%d" % col
+    fb = [b + OS_DX for b in F.vb_fx]
+    return "fx-" + ["drift", "echo", "reverb", "volume"][sum(x > b for b in fb)]
+
 def rain_items():
-    """every element that breaks the surface: (x, y, r0 = where its ripples start)."""
+    """every element that breaks the surface: (x, y, r0 = where its ripples start, section)."""
     R = rows(OS_DX)
     out = []
     for key, yy in (("P", 68), ("V1", 100), ("V2", 123), ("FX", 146), ("SW", AT_FLAT_Y)):
         for name, lab, x, kind, midi, yo in R[key]:
             r0 = {"h": 10.9, "t": 3.7, "s": 9.3, "l": 3.7, "b": 7.6}.get(kind, 7.75)
-            out.append((x, yy + yo, r0))
-    out.append((SYNC_FLAT[0], SYNC_FLAT[1], 3.7))
+            out.append((x, yy + yo, r0, rain_section(x, yy + yo, name)))
+    out.append((SYNC_FLAT[0], SYNC_FLAT[1], 3.7, "fx-echo"))
     w, sh = rain_pegs()
-    out += [(x, y, 7.3) for x, y in w + sh]
+    out += [(x, y, 7.3, "keys") for x, y in w + sh]
     return out
 
 def _clip(poly, a, b, cst):
@@ -254,15 +306,24 @@ def _clip(poly, a, b, cst):
             out.append((P[0] + t * (Q[0] - P[0]), P[1] + t * (Q[1] - P[1])))
     return out
 
-def power_cells(items, x0, y0, x1, y1):
+BAND_IN, BAND_OUT = 1.0, 3.0      # still bands: inside a section / between sections (director fix 2: ~3x)
+
+def power_cells(items, x0, y0, x1, y1, bands=True):
+    """each element's cell in a power diagram (weights = ring start r0), each edge pulled back by half its still
+    band, so the band between two sections is 3x the band inside one: the seams draw the map."""
     cells = []
-    for i, (xi, yi, ri) in enumerate(items):
+    for i, it in enumerate(items):
+        xi, yi, ri, si = it
         poly = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
-        for j, (xj, yj, rj) in enumerate(items):
+        for j, jt in enumerate(items):
             if i == j:
                 continue
+            xj, yj, rj, sj = jt
             a, b = 2 * (xj - xi), 2 * (yj - yi)
             cst = (xj * xj + yj * yj - rj * rj) - (xi * xi + yi * yi - ri * ri)
+            if bands:
+                half = (BAND_IN if si == sj else BAND_OUT) / 2
+                cst -= half * math.hypot(a, b)
             poly = _clip(poly, a, b, cst)
             if not poly:
                 break
@@ -307,7 +368,7 @@ def rain_legends():
             elif kind == "s":
                 L.append((x, yy - 11.5, lab.upper(), st_l, "center"))
             elif kind == "l" and lab:
-                L.append((x, yy + yo + 4.6, lab.upper(), st_l * 0.8, "center"))
+                L.append((x + 4.4, yy + yo, lab.upper(), st_l * 0.8, "left"))
     L.append((SYNC_FLAT[0] - 6.2, SYNC_FLAT[1], "FREE", st_l * 0.72, "right"))
     L.append((SYNC_FLAT[0] + 6.2, SYNC_FLAT[1], "SYNC", st_l * 0.72, "left"))
     for k, lab in enumerate(JACKS):
@@ -320,24 +381,75 @@ def pad2d(x, y, s, size, ha, m=0.85):
     x0 = x - w / 2 if ha == "center" else (x if ha == "left" else x - w)
     return rrect2d(x0 - m, y - size / 2 - m, x0 + w + m, y + size / 2 + m, 1.2, 1.2)
 
-def rain_field(z, pitch=RAIN_PITCH, groove=None):
-    """the ring field: rings round every element, clipped to its power cell, seams left smooth, lily pads cut out."""
-    groove = groove or pitch / 2
-    items = rain_items()
-    cells = power_cells(items, 0.0, 0.0, OS_W, OS_D)
-    parts = []
-    for (x, y, r0), cell in zip(items, cells):
-        if len(cell) < 3:
+def _cell(items, i, x0, y0, x1, y1, extra=0.0):
+    """element i's cell; every internal edge pulled back by half its still band + `extra` (the outer edge isn't)."""
+    xi, yi, ri, si = items[i]
+    poly = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+    for j, (xj, yj, rj, sj) in enumerate(items):
+        if i == j:
             continue
-        rmax = max(math.hypot(px - x, py - y) for px, py in cell) + pitch
-        poly = "polygon([" + ",".join(f"[{px:.3f},{py:.3f}]" for px, py in cell) + "]);"
-        n = int((rmax - r0) / pitch) + 1
-        parts.append(f"intersection(){{ offset(delta=-0.32) {poly} translate([{x:.3f},{y:.3f}]) "
-                     f"for(r=[{r0+groove/2:.3f}:{pitch}:{r0+groove/2+n*pitch:.3f}]) difference(){{ circle(r=r+{groove/2:.3f}); circle(r=r-{groove/2:.3f}); }} }}")
+        a, b = 2 * (xj - xi), 2 * (yj - yi)
+        cst = (xj * xj + yj * yj - rj * rj) - (xi * xi + yi * yi - ri * ri)
+        cst -= ((BAND_IN if si == sj else BAND_OUT) / 2 + extra) * math.hypot(a, b)
+        poly = _clip(poly, a, b, cst)
+        if not poly:
+            break
+    return poly
+
+def _internal_reach(items, i, cell, W, D):
+    """median distance from the element to its cell's internal edges (edges not on the panel's outline)."""
+    x, y = items[i][0], items[i][1]
+    ds = []
+    n = len(cell)
+    for k in range(n):
+        (ax, ay), (bx, by) = cell[k], cell[(k + 1) % n]
+        on_edge = (abs(ax - bx) < 1e-6 and (abs(ax) < 1e-6 or abs(ax - W) < 1e-6)) or \
+                  (abs(ay - by) < 1e-6 and (abs(ay) < 1e-6 or abs(ay - D) < 1e-6))
+        if on_edge:
+            continue
+        L = math.hypot(bx - ax, by - ay)
+        if L < 1e-6:
+            continue
+        ds.append(abs((bx - ax) * (ay - y) - (by - ay) * (ax - x)) / L)
+    ds.sort()
+    return ds[len(ds) // 2] if ds else 20.0
+
+def _poly(cell):
+    return "polygon([" + ",".join(f"[{px:.3f},{py:.3f}]" for px, py in cell) + "]);"
+
+def rain_field(z, pitch=RAIN_PITCH, groove=0.45):
+    """ripples that lose amplitude toward the still bands (director fix 1, built the way a printer can: systems R2.2):
+    near each stone, deep rings (0.4) at `pitch`; further out, shallow rings (0.2) at 2 x pitch; then smooth water
+    up to the band. Bands: 1.0 inside a section, 3.0 between sections (fix 2). Toward the panel's outline the rings
+    run on to the edge, over the chamfer (fix 3). Two finishes only: smooth, and rings."""
+    items = rain_items()
+    W, D = OS_W, OS_D
+    deep_p, shal_p = [], []
+    for i, (x, y, r0, sec) in enumerate(items):
+        base = _cell(items, i, 0, 0, W, D)
+        if len(base) < 3:
+            continue
+        span = max(_internal_reach(items, i, base, W, D) - r0, 0.5)
+        zA = _cell(items, i, 0, 0, W, D, extra=max(0.0, span - max(min(span, 2.4), 0.5 * span)))   # deep: >= 2-3 rings hug every stone
+        zB = _cell(items, i, 0, 0, W, D, extra=0.14 * span)        # shallow zone ends short of the band
+        rmax = max(math.hypot(px - x, py - y) for px, py in base) + 1
+        def rings(p):
+            rs, r = [], r0 + 0.25 + groove / 2
+            while r < rmax:
+                rs.append(r); r += p
+            return "union(){ " + " ".join(f"difference(){{ circle(r={r + groove/2:.3f}); circle(r={r - groove/2:.3f}); }}" for r in rs) + " }"
+        if len(zA) >= 3:
+            deep_p.append(f"intersection(){{ {_poly(zA)} translate([{x:.3f},{y:.3f}]) {rings(pitch)} }}")
+        if len(zB) >= 3:
+            outer = f"difference(){{ {_poly(zB)} {_poly(zA)} }}" if len(zA) >= 3 else _poly(zB)
+            shal_p.append(f"intersection(){{ {outer} translate([{x:.3f},{y:.3f}]) {rings(2 * pitch)} }}")
     pads = "".join(pad2d(*L) for L in rain_legends())
-    outline = rrect2d(1.2, 1.2, OS_W - 1.2, OS_D - 1.2, 5, 5)
-    field = f"intersection(){{ {outline} difference(){{ union(){{ {' '.join(parts)} }} union(){{ {pads} }} }} }}"
-    return f'{c(STONE_LN)} translate([0,0,{z:.3f}]) linear_extrude(0.03) {field}\n'
+    outline = rrect2d(0.25, 0.25, W - 0.25, D - 0.25, 5.8, 5.8)
+    out = ""
+    for col, ps in ((STONE_LN2, shal_p), (STONE_LN, deep_p)):
+        field = f"intersection(){{ {outline} difference(){{ union(){{ {' '.join(ps)} }} union(){{ {pads} }} }} }}"
+        out += f'{c(col)} translate([0,0,{z:.3f}]) linear_extrude(0.03) {field}\n'
+    return out
 
 def rain(field=True):
     W, D, Z = OS_W, OS_D, OS_Z
@@ -345,7 +457,7 @@ def rain(field=True):
     s = f'{c(STONE)} translate([0,0,0.5]) linear_extrude({Z-2-0.5:.2f}) {shell2d}\n'
     for zz, inset, hh in ((Z - 2, 0.6, 0.6), (Z - 1.4, 0.0, 0.8), (Z - 0.6, 0.9, 0.6)):
         s += f'{c(STONE)} translate([0,0,{zz:.2f}]) linear_extrude({hh}) {rrect2d(inset, inset, W-inset, D-inset, 6-inset, 6-inset)}\n'
-    s += f'{c("#9f9b8d")} linear_extrude(0.5) offset(delta=-2.6) {shell2d}\n'
+    s += f'{c("#a39784")} linear_extrude(0.5) offset(delta=-2.6) {shell2d}\n'
     if field:
         s += rain_field(Z + 0.01)
     # pegs: stepping stones, on 14 mm felt washers in the deck
@@ -354,8 +466,8 @@ def rain(field=True):
         for x, y in pts:
             s += cyl(x, y, Z - 0.15, 0.2, 14.0, "#4a4844", fn=48)
             s += cyl(x, y, Z, 2.6, 7.0, "#8b877b", fn=24)
-            s += cyl(x, y, Z + 2.5, 2.2, 12.7, col, fn=48)
-            s += f'{c(col)} translate([{x},{y},{Z+4.7}]) scale([1,1,0.28]) sphere(d=12.7,$fn=48);\n'
+            s += (f'{c(col)} hull(){{ translate([{x},{y},{Z+2.5}]) cylinder(h=2.2,d=12.7,$fn=48); '
+                  f'translate([{x},{y},{Z+4.7}]) scale([1,1,0.28]) sphere(d=12.7,$fn=48); }}\n')
     st = Style(ink=OS_LEG, lsize=1.9, hero=lambda x, y, z, a: ld.knob_hero(x, y, z, a, col=MUSTARD, line="#3b2f12"))
     s += cyl(25 + OS_DX, 68, Z - 0.1, 0.16, 18.6, "#e6e3d8", fn=72)
     R = rows(OS_DX)
@@ -364,7 +476,8 @@ def rain(field=True):
         R[k] = [(n, {"ECHO TYPE": "ECHO TYPE", "REVERB TYPE": "REVERB TYPE"}.get(n, lab), x, kind, midi, yo)
                 for n, lab, x, kind, midi, yo in R[k]]
     s += rows_branch(R, {"P": 68, "V1": 100, "V2": 123, "FX": 146, "SW": AT_FLAT_Y}, Z + 0.06, st, "acryl", 138,
-                     copy_style(st, ticks=False), BEHIND_FLAT - 146, dict(ink_ms=OS_LEG, ink_div=OS_LEG))
+                     copy_style(st, ticks=False), BEHIND_FLAT - 146, dict(ink_ms=OS_LEG, ink_div=OS_LEG),
+                     nuts=toggle_nuts(R, {"P": 68, "V1": 100, "V2": 123, "FX": 146, "SW": AT_FLAT_Y}, [SYNC_FLAT]))
     s += sync_toggle(*SYNC_FLAT, Z + 0.06, ("free", "sync"), 1.9 * 0.72, OS_LEG, "Inter:style=SemiBold", up=True)
     tz = Z + 0.04
     for k, lab in enumerate(JACKS):
@@ -484,8 +597,9 @@ class Branch(Fold):
             st = self.style()
             R = rows(0)
             ink = self.lid_ink()
-            s += rows_branch(R, {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}, LID_PF, st, "proof", 143,
-                             copy_style(st, ticks=False), BEHIND_FOLD - self.dFX, self.time_kw())
+            ry = {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}
+            nuts = toggle_nuts(R, ry, [(SYNC_FOLD_D[0], L0 + SYNC_FOLD_D[1])] + [(x, L0 + AT_FOLD_D) for n, l, x, k, m, yo in R["SWF"]])
+            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), BEHIND_FOLD - self.dFX, self.time_kw(), nuts=nuts)
             s += self.sw_row(R, L0, st)
             s += sync_toggle(SYNC_FOLD_D[0], L0 + SYNC_FOLD_D[1], LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper)
             s += self.lid_names(gz)
@@ -556,6 +670,19 @@ class Branch(Fold):
 class Chamber(Branch):
     AXZ = AX_Z + 1.3          # lid walls +2.6 (systems §3): closed 52.7
     LIDH = LID_H + 2.6
+    SPINE = "#6b2c23"         # bookcloth spine (systems R2.1), oxblood: the cloth an organ case shows behind its pipes
+
+    def __init__(self, fallback=False):
+        super().__init__()
+        self.fallback = fallback          # director fix 3: maple naturals, walnut sharps (geometry identical)
+
+    def lid_face(self, controls=True):
+        old = r5.ABOVE_GAP
+        r5.ABOVE_GAP = 7.7                # systems R2.3: "velocity" clear of the VEL nut
+        try:
+            return super().lid_face(controls)
+        finally:
+            r5.ABOVE_GAP = old
 
     def pegs(self):
         return True
@@ -564,19 +691,21 @@ class Chamber(Branch):
         """reverse pegs (systems §2): naturals walnut (the body's own), sharps maple; 14 mm felt washers; head top +6.5."""
         z = BASE_H
         s = ""
+        nat_c, sh_c = (MAPLE, WAL_DK) if self.fallback else (walnut, MAPLE)
         for n in range(15):
             x, y = 17 + 18 * n, 13.5
-            s += self.peg(x, y, z, walnut, nat=True)
+            s += self.peg(x, y, z, nat_c, nat=not self.fallback)
         for i in r4.sharps_after():
-            s += self.peg(8 + 18 * (i + 1), 36.0, z, MAPLE, nat=False)
+            s += self.peg(8 + 18 * (i + 1), 36.0, z, sh_c, nat=self.fallback)
         return s
 
     @staticmethod
     def peg(x, y, z, col, nat):
         s = cyl(x, y, z - 0.15, 0.2, 14.0, "#3e3b38", fn=48)
         s += cyl(x, y, z, 2.6, 7.0, "#c7a679" if not nat else "#4e311d", fn=24)
-        s += cyl(x, y, z + 2.5, 2.2, 12.7, col, fn=48)
-        s += f'{c(col)} translate([{x},{y},{z+4.7}]) scale([1,1,0.28]) sphere(d=12.7,$fn=48);\n'
+        # head + dome as ONE hull: two touching meshes left a hairline crack that rendered as a white streak (director fix 5)
+        s += (f'{c(col)} hull(){{ translate([{x},{y},{z+2.5}]) cylinder(h=2.2,d=12.7,$fn=48); '
+              f'translate([{x},{y},{z+4.7}]) scale([1,1,0.28]) sphere(d=12.7,$fn=48); }}\n')
         return s
 
     def lid_back(self, walnut):
@@ -587,13 +716,15 @@ class Chamber(Branch):
         brass = "#e2bf6a"
         s = ""
         IMP = L0 + 18.0
-        s += box(20, IMP - 0.35, z - 0.03, 266, IMP + 0.35, z, brass)          # impost line
-        s += box(20, IMP - 8.35, z - 0.03, 266, IMP - 7.65, z, brass)          # plinth line (the screws sit between)
+        s += box(30, IMP - 0.35, z - 0.03, 256, IMP + 0.35, z, brass)          # impost line
+        s += box(30, IMP - 8.35, z - 0.03, 256, IMP - 7.65, z, brass)          # plinth line (the screws sit between)
         for n in range(25):
             k = (n + 1) // 2 * (1 if n % 2 else -1)
-            x = 143 + 10 * k
+            x = 143 + 8.75 * k                       # systems R2.2: pitch 10 -> 8.75, pipes 7 / 8 on the board bridges
             L = 66.0 * 2 ** (-n / 12)
             s += self.pipe(x, IMP, L, z, brass)
+        for x in (108.0, 178.0):                     # their mouths are the push-out holes: real, Ø 4
+            s += cyl(x, L0 + 28.3, -0.2, 0.3, 4.0, "#0f0b08", fn=32)
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (143, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12), (143, L0 + D - 12)]:
             s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
         for (x, y) in [(40, L0 + 6), (FO_W - 40, L0 + 6), (40, L0 + D - 30), (FO_W - 40, L0 + D - 30)]:   # front feet moved to d 6
@@ -618,6 +749,35 @@ class Chamber(Branch):
         s += seg(x - 1.9, ym, x, ym + 2.6) + seg(x, ym + 2.6, x + 1.9, ym)            # the mouth's upper lip
         return s
 
+    def spine_closed(self):
+        """closed: the taut spine closes the hinge-side slot (x 10.5-275.5, from the base plate z 15.6 to the lid plate)."""
+        top = 2 * self.AXZ - (LID_PF - 2.5)       # up over the plate's edge to the lid body, so no white line shows
+        return box(10.5, self.AX_Y - 1.2, BASE_H - 0.4, 275.5, self.AX_Y - 0.4, top, self.SPINE)
+
+    def spine_stand(self):
+        """standing: ~9 mm of slack drapes in the opened gap behind the PLAY row, like a book's joint."""
+        a = math.radians(self.STAND)
+        vy, vz = self.LY0 - self.AX_Y, LID_PF - self.AXZ        # lid hinge-top edge, rotated up with the lid
+        p1 = (self.AX_Y + vy * math.cos(a) - vz * math.sin(a), self.AXZ + vy * math.sin(a) + vz * math.cos(a))
+        p0 = (self.D, BASE_H)
+        mid = ((p0[0] + p1[0]) / 2 + 1.0, min(p0[1], p1[1]) - 6.5)
+        pts = []
+        for i in range(13):
+            t = i / 12
+            pts.append(((1 - t) ** 2 * p0[0] + 2 * (1 - t) * t * mid[0] + t * t * p1[0],
+                        (1 - t) ** 2 * p0[1] + 2 * (1 - t) * t * mid[1] + t * t * p1[1]))
+        prof = pts + [(y, z - 0.8) for y, z in reversed(pts)]
+        poly = ",".join(f"[{y:.3f},{z:.3f}]" for y, z in prof)
+        return f'{c(self.SPINE)} translate([10.5,0,0]) rotate([90,0,90]) linear_extrude(265) polygon([{poly}]);\n'
+
+    def model(self, state=True, walnut=WAL_P, book=False):
+        s = super().model(state, walnut, book)
+        if state is False:
+            s += self.spine_closed()
+        elif state == "stand":
+            s += self.spine_stand()
+        return s
+
     def lid_extra(self, gz):
         """RANGE in feet, serif (graphics only). Round the knob the side labels collide at 20 pitch (found in the 1:1
         crop), so, like the TYPE fan: 16' 8' in a low row above, 32' 4' in a higher row, lo and 2' under the end ticks."""
@@ -632,7 +792,7 @@ class Chamber(Branch):
                 th = math.radians(a)
                 xo = 11.85 * math.sin(th) if abs(a) < 40 else 8.3 * (1 if a > 0 else -1)
                 s += txt(x + xo, y0 + R + row, LID_PF + 0.01, lab, 1.2, FO_INK, font=SERIF)
-            for a, lab in ((-148, "lo"), (148, "2'")):
+            for a, lab in ((-138, "lo"), (138, "2'")):      # beside the end ticks, clear of "range" (checker R2 run)
                 th = math.radians(a)
                 s += txt(x + 10.4 * math.sin(th), y0 + 10.4 * math.cos(th), LID_PF + 0.01, lab, 1.2, FO_INK, font=SERIF)
         return s
@@ -640,8 +800,8 @@ class Chamber(Branch):
     def lid_names(self, gz):
         L0 = self.LY0
         s = fx_heads(0, L0 + self.dFX + FO_HEAD_D + 1.2, LID_PF + 0.01, FO_INK, HAND, 2.0, False)
-        for (tx, name, ha) in [(14, "oscillators", "left"), (143, "mixer", "center"), (272, "contours", "right")]:
-            s += txt(tx, L0 + self.dV1 + 17.5, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)
+        for (tx, name, ha, dd) in [(14, "oscillators", "left", 17.5), (143, "mixer", "center", 11.3), (272, "contours", "right", 17.5)]:
+            s += txt(tx, L0 + self.dV1 + dd, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)   # mixer stays under the grille
         return s
 
     def sw_row(self, R, L0, st):
@@ -782,7 +942,8 @@ def jobs(SZ):
         "rb_ch_stand_back": lambda: ld.shot(ch.model("stand", walnut=WAL_R), fp_rect(0, 0, W, D + 64), "rb_ch_stand_back", size=SZ, az=160, el=14, dist=820, center=(143, D * 0.8, 60), grain_classes=("walnut",), grain_angle=30),
         "rb_ch_stand": lambda: shot4(ch.model("stand"), fp_rect(0, 0, W, D + 64), "rb_ch_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ch_stand.png")),
         "rb_ch_flat_under": lambda: shot4(ch.model(True), fp_rect(0, 0, W, OPEN), "rb_ch_flat", size=SZ, az=-20, el=62, dist=900, center=(143, OPEN / 2, 12), grain_classes=(), wood=True),
-        "rb_ch_keys": lambda: shot4(ch.model(True), fp_rect(0, 0, W, OPEN), "rb_ch_keys", size=SZ, az=-36, el=20, dist=200, center=(60, 28, 18), grain_classes=(), wood=True),
+        "rb_ch_keys": lambda: shot4(ch.model(True), fp_rect(0, 0, W, OPEN), "rb_ch_keys", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True),
+        "rb_ch_keys_fallback": lambda: shot4(Chamber(fallback=True).model(True), fp_rect(0, 0, W, OPEN), "rb_ch_keys_fallback", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True),
         "rb_ch_top": lambda: top4(ch.model(True), "rb_ch_top", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         "rb_ch_front_closed": lambda: shot_ortho(ch.model(False), "rb_ch_front_closed", "front", -2, W + 2, -1, 56, wood=True),
         # DIPTYCH
@@ -798,7 +959,7 @@ def jobs(SZ):
 # ------------------------------------------------------------------ post: OpenSCAD's fixed light renders faces turned away
 # from it as mid-grey (the standing lid's cream plate looks grey). Lift low-saturation mid-greys back toward the intended
 # cream. Only used on views where a cream face points away from the light; noted in the docs.
-def relight(png, lo=105, hi=192, gain=1.55, ymax=0.6):
+def relight(png, lo=105, hi=200, gain=None, ymax=0.6, target=(241, 236, 224)):
     import numpy as np
     from PIL import Image
     im = np.asarray(Image.open(png).convert("RGB")).astype(np.float32)
@@ -807,8 +968,11 @@ def relight(png, lo=105, hi=192, gain=1.55, ymax=0.6):
     bg = np.all(np.abs(im - im[2, 2]) < 4, axis=2)
     m = (~bg) & (sat < 0.09) & (mx > lo) & (mx < hi)
     m[int(m.shape[0] * ymax):, :] = False       # the lid only: keep the ground shadow (also a low-saturation grey) as is
-    warm = np.array([1.0, 0.975, 0.92], np.float32)
-    out = np.where(m[..., None], np.clip(im * gain * warm, 0, 248), im)
+    if gain is None:      # scale the plate's median grey to the intended cream (v1.1 E's "visibly lighter" plate)
+        med = float(np.median(mx[m])) if m.any() else 150.0
+        gain = target[0] / max(med, 1.0)
+    warm = np.array([1.0, target[1] / target[0], target[2] / target[0]], np.float32)
+    out = np.where(m[..., None], np.clip(im * gain * warm, 0, 250), im)
     Image.fromarray(out.astype(np.uint8)).save(png)
     return png
 
