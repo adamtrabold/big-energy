@@ -205,3 +205,5 @@ Recorded as: REQUIREMENT — with a mono (TS) cable plugged in, the left/tip out
 Recorded as: DECISION — FX PAN receives MIDI pan (CC 10). Asked what the pan affects; answered: it pans the signal going INTO the echo and reverb (so the delay and reverb come out from that side); the dry voice is not panned and stays centred.
 2026-11-13 15:50 Owner (verbatim): "Run this all through a dedicated audio engineer / synth expert for gotchas and unexpected functionality that doesn’t make sense"
 Recorded as: an independent expert review (audio engineer / synth designer) of the whole instrument's audio, control and MIDI behaviour, including today's additions. Reports to the owner; decides nothing. MIDI pan "send" question still open.
+2026-11-13 15:50 Owner (verbatim): "I think I’d like to pan the delay into the reverb separately from the dry signal but also would want to be able to sync that"
+Recorded as: wants the DELAY panned into the REVERB separately from the dry signal's pan, and wants that pan to be syncable (most likely a tempo-synced auto-pan; being confirmed). Supersedes the single FX PAN design as stated.
