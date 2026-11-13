@@ -1,5 +1,17 @@
 # Systems designer notes — Little D
 
+# Stereo line out + mono-on-TS (2026-11-13)
+- Owner: stereo line out too. LINE OUT gets its own stereo driver.
+- TS → mono on the tip (required for LINE OUT): 1 MΩ ring bias + 100k / 1 µF LPF → mux ADC; TS ≈ 0 V vs TRS ≥ 33 mV; Daisy sends wet (L+R)/2 on both outputs (the phones go mono meanwhile), or a 74HC4053 keeps the phones stereo. Jack: any TRS (CUI SJ1-3523N, UNVERIFIED). Not for phones (32 Ω looks like a short).
+
+---
+
+# FX PAN (2026-11-13): stereo phones decided, one speaker; line out stereo = open question
+- DSP pan on the mono FX send, before echo / reverb; 1 pot / 1 mux channel (lid mux count after B: eng); dry stays centred; constant-sum law so the mono speaker hears no level change; centre detent part UNVERIFIED (firmware ±3 % dead zone otherwise); knob-only, no MIDI (CC 10 = open question).
+- Placement: FX PAN 240 | VOLUME 260 after the reverb break; §9 second run: 0 violations; the model needs PAN for labels. ⚑ D+O.
+
+---
+
 # Stereo (2026-11-13), cathedral §15
 - Stereo output: codec already wet L/R (0 pins); 2 summing nodes; dry voice centred (mono VCA); dual-gang VOLUME; stereo headphone driver; LM386 keeps the mono sum for the speaker; PHONES / LINE become TRS stereo (no new jacks); a mono plug hears L only unless a switched jack. ≈ $3–5. ⚑ D+O.
 - Two speakers: ≈ 20–25° span at 0.5 m → slight width close up, mono at 1–2 m and outdoors; mostly +3 dB; they'd displace the battery cells. Recommend no.

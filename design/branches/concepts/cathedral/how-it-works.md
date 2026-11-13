@@ -411,11 +411,55 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 - A little more draw at the same loudness per driver.
 - The real cost is **battery capacity and a lid board change**.
 
-### 15.3 Recommendation
+### 15.3 Recommendation (superseded in part by 15.4: decided stereo phones + stereo line out, one speaker)
 - **Yes to stereo output, no to a second speaker.**
 - Stereo phones and line out give him the real stereo echo and reverb wherever stereo can be heard (headphones, a recorder, a PA), for ≈ $3–5, with no new jack and no control moved.
 - A second speaker in this box gives little stereo beyond arm's length, nothing outdoors, and costs battery he may need in the park.
 - **Spec change for the director, then the owner:** stereo TRS outputs + dual-gang VOLUME + a headphone driver. The speaker stays mono (P1 / circle per §14).
+
+### 15.4 Owner decision and the FX pan (owner: "Stereo phones is fine but I need to pan the signal into the effects")
+**Decided:** stereo **phones**, **one speaker**.
+**Decided (owner: "Stereo line out"):** **stereo PHONES and stereo LINE OUT (both TRS), one speaker.** No new jacks; LINE OUT gets its own stereo line driver (the second half of the summing TL072 pair, or a second TL072: ESTIMATE ≈ +$0.50).
+
+**Mono on a TS cable (owner: "Left channel should be mono tho if stereo isn't plugged in"): LINE OUT, required.**
+- **Why a switched jack can't do it alone:** a jack's normal contacts open for *any* plug. A TS plug differs only in that its sleeve **grounds the ring contact**. So the jack can't tell TS from TRS mechanically; the circuit has to sense the grounded ring.
+- **Sensing (proposal):**
+  - The ring is driven through its usual series resistor (≈ 100 Ω, so a short is harmless).
+  - On the jack side, a **1 MΩ bias to 3.3 V** goes through a **100 k / 1 µF low-pass** (≈ 0.1 s, strips the audio) into a **spare mux channel** (an ADC read, 0 Daisy pins) or a spare ADC pin.
+  - Readings [CALC]: **TS plug ≈ 0 V**; TRS into an AC-coupled input or an empty jack ≈ 3.3 V; TRS into a DC-coupled 10 k input ≈ 33 mV.
+  - **Threshold ≈ 10 mV, 50 ms debounce, with hysteresis.** The 1 MΩ bias puts at most ≈ 33 mV of DC into someone's DC-coupled input; a stronger bias would read more cleanly but leak more DC.
+  - **UNVERIFIED** (eng: bench it with a real TS and a real TRS cable into a mixer and an interface).
+- **Action:** on TS, the Daisy sends the wet as **(L + R)/2 on both codec outputs**. The tip (L = dry + wet) then carries the full mono mix; the ring is shorted and silent.
+  - Cost: the stereo phones go mono too while a TS cable sits in LINE OUT (they share the wet outputs). That's a firmware-only route.
+  - The analog alternative that keeps the phones stereo: a **74HC4053** analog switch (generic part, ≈ $0.50, UNVERIFIED stock) adds R into the LINE OUT's left driver when the sense trips. The Daisy flips it from the same reading (1 GPIO via the 74HC595 latch, eng).
+- **Jack:** any 3.5 mm stereo (TRS) PCB jack; switches aren't needed for this. For example **CUI Devices SJ1-3523N** (part number not checked this session: **UNVERIFIED**), the same part as PHONES.
+- **Phones: not applied.** A 32 Ω headphone on the ring looks like a short to this sensor, so it can't tell TS from TRS. Mono TS headphones are rare. With a TS plug in PHONES you hear L only (dry + wet L); the FX PAN's centre still puts the effects in L.
+- **⚑ D+O:** part of §15's output-stage change.
+
+**FX PAN ⚑ D+O (adds one control):**
+- **Where the pan happens: in the Daisy, on the effects input.**
+  - The FX send is mono: the post-VCA voice into codec IN L (`daisy-first-principles.md` §6.2).
+  - The DSP places it in the stereo field **before** echo and reverb.
+  - Cost: **one 9 mm pot on one mux channel**, 0 Daisy pins. In layout B the four moved controls already shift mux load from base to lid (base −4, lid +5 with PAN), so **eng to confirm the lid mux count**. PAN can be read on a base mux channel through a ribbon spare if the lid mux is full.
+  - **Analog pan rejected:** the dry voice never enters the DSP, and panning it would need a stereo analog path after a mono VCA (a pan pot feeding the two summing nodes). That's more parts, and it isn't what he asked for: "pan the signal **into the effects**".
+- **What it pans:** **only the effects send.**
+  - The dry voice stays centred on the phones (mono VCA).
+  - What moves is where the echoes and reverb start: PING-PONG's first repeat, and the reverb's image.
+- **Pan law: constant sum (L + R = 1, −6 dB at centre).**
+  - **The speaker hears no change of effect level as he pans**, because it plays the mono sum.
+  - On phones the centre sounds ≈ 3 dB quieter than an equal-power law would. Eng can soften it to −4.5 dB; that's a firmware constant.
+- **Range and centre:**
+  - full left ↔ full right;
+  - **centre detent:** a 9 mm centre-detent pot if one exists in the T18 spline (**part UNVERIFIED**);
+  - otherwise a **firmware dead zone of ±3 % at centre**, no part needed.
+  - Fully left or right: the send enters one side only, so on PING-PONG the repeats then alternate from that side.
+- **MIDI:** knob-only, so **it sends nothing and receives nothing** (rule: knob-only controls send no MIDI). **Open for him:** receive CC 10 (pan) with jump-on-move, like the other MIDI-controllable params? Firmware only.
+- **Where it sits (layout B's effects row, d 83.85):** **FX PAN 240 | VOLUME 260**, one "where it goes" group after the reverb break (225.5).
+  - The logical spot, the start of the chain before ECHO, has no room: it would shift the echo group +10 and push FREE / SYNC onto OSC 3 CTL (−0.4).
+  - **[CHECK §9, second run]: 0 violations** (pitch, gaps, breaks, edges, far rim, closed landing over pegs). VOLUME's edge sits 18.55 from the outside (rule ≥ 16).
+  - **Labels:** "pan" (legend in front, d ≈ 73) clears L SUSTAIN's knob by ≈ 3.7 and the DECAY toggle by more [CALC]. The model needs PAN added so §7 can measure it (visual).
+  - Legend: **"fx pan"**, so nobody reads it as a master pan.
+- **Consequence:** the base PLAY row's right end (x 186–270) is still empty (§14 options 2–3). Option 1 (VOLUME and TAP back to the base) would split PAN from VOLUME.
 
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
