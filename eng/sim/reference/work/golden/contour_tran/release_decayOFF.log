@@ -1,0 +1,104 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * bench contour_tran: both contour generators, one gate.
+
+Doing analysis at TEMP = 25.000000 and TNOM = 25.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vp15                                        15
+vp10                                        10
+vn10                                       -10
+gate                                         0
+xc.trig                                    -10
+xc.t2                                      -10
+xc.strig                               2.95288
+xc.fatt                               0.378188
+xc.fcap                               0.378188
+xc.fdec                               0.663248
+xc.latt                               0.378203
+xc.lcap                               0.378203
+xc.ldec                               0.663248
+xc.fsus                                     10
+xc.lsus                                     10
+xc.ffin                              0.0528609
+xc.vtrig                             0.0528592
+xc.lfin                              0.0528609
+xc.fdump                             0.0599654
+xc.ldump                             0.0599673
+xc.x1.c26                              14.8317
+xc.x1.b26                              9.98757
+xc.x1.p93                              9.27239
+xc.x1.rst                              2.95288
+xc.x1.n60                             -9.99999
+xc.x1.n7                              -9.99999
+xc.x1.b20                             -9.99999
+xc.x1.b12                             0.715741
+xc.x1.set                              2.34041
+xc.x1.f_n1                             2.34041
+xc.x1.f_b1                           0.0171436
+xc.x1.f_c1                             8.32128
+xc.x1.f_c4                           0.0171435
+xc.x1.f_b4                            0.702444
+xc.x1.f_b5                             9.13441
+xc.x1.f_pk                            -2.58639
+fout                                 -0.129868
+xc.x1.f_r35                           0.911691
+xc.x1.f_c5                            0.378188
+xc.x1.f_cx                            0.378188
+xc.x1.f_da1                           0.378188
+xc.x1.f_da2                           0.378188
+xc.x1.f_da3                           0.378188
+xc.x1.f_e6                             7.62164
+xc.x1.f_b7                             1.38732
+xc.x1.f_e7                            0.656525
+xc.x1.f_c8                         3.73101e-10
+xc.x1.f_b8                             3.72851
+xc.x1.f_b22                           0.378044
+xc.x1.f_b21                            8.41584
+xc.x1.f_e21                             9.0413
+xc.x1.l_n1                             2.34041
+xc.x1.l_b25                          0.0171436
+xc.x1.l_c25                            8.32128
+xc.x1.l_c15                          0.0171435
+xc.x1.l_b15                           0.702444
+xc.x1.l_b16                            9.13441
+xc.x1.l_pk                            -3.41733
+lout                                 -0.768746
+xc.x1.l_r36                           0.911691
+xc.x1.l_c16                           0.378203
+xc.x1.l_cx                            0.378203
+xc.x1.l_da1                           0.378203
+xc.x1.l_da2                           0.378203
+xc.x1.l_da3                           0.378203
+xc.x1.l_e17                            7.62164
+xc.x1.l_b18                            1.38732
+xc.x1.l_e18                           0.656525
+xc.x1.l_c19                         5.0025e-10
+xc.x1.l_b19                                  5
+xc.x1.l_b3                            0.378074
+xc.x1.l_c3                              9.0545
+xc.x1.l_b2                           -0.126511
+vgate#branch                                 0
+vn10#branch                         0.00444403
+vp10#branch                        -0.00643585
+vp15#branch                         -0.0112175
+
+ Reference value :  4.35180e-01
+ Reference value :  9.30429e-01
+ Reference value :  1.39673e+00
+ Reference value :  1.79243e+00
+ Reference value :  2.27683e+00
+ Reference value :  2.70308e+00
+ Reference value :  3.20463e+00
+ Reference value :  3.70273e+00
+ Reference value :  4.22573e+00
+No. of Data Rows : 90681
+ngspice-42 done
+Using SPARSE 1.3 as Direct Linear Solver

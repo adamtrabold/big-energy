@@ -1,0 +1,31 @@
+* velocity CV step (0 -> 10 V eq., 0.5 ms ramp) into EXT LOUDNESS with the loudness contour at 0 V: output thump
+.include ../../../ref/ca-72/circuits/models/mm-devices.lib
+.include ../../../ref/ca-72/circuits/boards/board4-vca.lib
+.param r12v=0.496 vlo=1
+vp vp 0 10
+vn vn 0 -10
+vin vin 0 0
+vcont cont 0 0
+vcvs ncv 0 pwl(0 {vlo} 300m {vlo} 300.5m 10)
+rs ncv ext 33k
+va a440 0 0
+x1 vin cont ext a440 main ph vp vn mm_vca r12={r12v}
+rl main 0 10k
+rph ph 0 10k
+.options reltol=1e-4 method=gear
+.control
+foreach lo 1 5
+foreach r 0.496 0.45 0.30
+  alterparam r12v = $r
+  alterparam vlo = $lo
+  reset
+  tran 20u 500m 280m
+  meas tran vmax MAX v(main) from=299m to=500m
+  meas tran vmin MIN v(main) from=299m to=500m
+  meas tran vpre AVG v(main) from=290m to=299m
+  echo "lo $lo r12 $r pre $&vpre max $&vmax min $&vmin" >> vel_step_thump.txt
+end
+end
+quit
+.endc
+.end

@@ -1,0 +1,1680 @@
+{
+ "meta": {
+  "adapter": "adapters/example_perturbed.inc",
+  "tag": "example_perturbed",
+  "ngspice": "** ngspice-42 : Circuit level simulation program",
+  "date": "2026-11-12 16:05"
+ },
+ "vco_calibration": {
+  "procedure": "Folkman 1973 on 2': key 4 -> 440 Hz, key 40 -> 3520 Hz (joint Newton)",
+  "ca72_committed_trims": {
+   "r11": 183.6307,
+   "a8": 0.135178
+  },
+  "error_with_ca72_committed_trims_cents": {
+   "lowA_440": 70.72931257865201,
+   "highA_3520": 70.91198012761758
+  },
+  "r11": 149.99148920260686,
+  "a8": 0.13517704488693535,
+  "final_error_cents": [
+   -0.00018020153093822506,
+   -0.00010606983336215555
+  ],
+  "iterations": [
+   {
+    "r11": 183.6307,
+    "a8": 0.135178,
+    "err_cents": [
+     70.72931257865201,
+     70.91198012761758
+    ]
+   },
+   {
+    "r11": 149.89601699673918,
+    "a8": 0.13522531459011908,
+    "err_cents": [
+     -0.21621845133865436,
+     -0.1993309212553383
+    ]
+   },
+   {
+    "r11": 149.99148920260686,
+    "a8": 0.13517704488693535,
+    "err_cents": [
+     -0.00018020153093822506,
+     -0.00010606983336215555
+    ]
+   }
+  ]
+ },
+ "stage_seconds": {
+  "cal": 38.5,
+  "filter": 7.9,
+  "contour": 4.4,
+  "voice": 86.6
+ },
+ "filter_ac": {
+  "-9": {
+   "fc_minus3db_hz": 29.2864456,
+   "passband_gain_db": -10.2719969,
+   "slope_db_per_oct_1to3oct_above_fc": -20.48989808943923,
+   "slope_db_per_oct_3to5oct_above_fc": -21.58854581612909,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 14.6779927,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -6.755984700000001,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 29.2864456,
+     "peak_db_re_passband": -1.9601933999999996,
+     "gain_at_fc_over_8_db_re_passband": -7.280901500000001,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 36.8694506,
+     "peak_db_re_passband": -1.5247430000000008,
+     "gain_at_fc_over_8_db_re_passband": -6.637949600000001,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 39.8107171,
+     "peak_db_re_passband": -1.1349096999999997,
+     "gain_at_fc_over_8_db_re_passband": -6.4069248000000005,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 42.9866235,
+     "peak_db_re_passband": 0.040347299999998754,
+     "gain_at_fc_over_8_db_re_passband": -5.956977400000001,
+     "seconds": 0.01
+    }
+   }
+  },
+  "-6": {
+   "fc_minus3db_hz": 73.5642254,
+   "passband_gain_db": -5.79037757,
+   "slope_db_per_oct_1to3oct_above_fc": -20.56852692709984,
+   "slope_db_per_oct_3to5oct_above_fc": -22.636047498704627,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 31.6227766,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -3.027144309999999,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 85.7695899,
+     "peak_db_re_passband": -1.3707872699999992,
+     "gain_at_fc_over_8_db_re_passband": -7.133790229999999,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 107.977516,
+     "peak_db_re_passband": 2.5211960600000003,
+     "gain_at_fc_over_8_db_re_passband": -9.517617829999999,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 112.201845,
+     "peak_db_re_passband": 5.058735253,
+     "gain_at_fc_over_8_db_re_passband": -9.99875733,
+     "seconds": 0.02
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 121.152766,
+     "peak_db_re_passband": 20.70152277,
+     "gain_at_fc_over_8_db_re_passband": -10.74890263,
+     "seconds": 0.01
+    }
+   }
+  },
+  "-3": {
+   "fc_minus3db_hz": 192.014194,
+   "passband_gain_db": -3.81528937,
+   "slope_db_per_oct_1to3oct_above_fc": -20.29300459745449,
+   "slope_db_per_oct_3to5oct_above_fc": -22.952625760719666,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 63.0957344,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -0.7953630700000001,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 241.731548,
+     "peak_db_re_passband": -1.0826995299999997,
+     "gain_at_fc_over_8_db_re_passband": -7.409827329999999,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 304.321989,
+     "peak_db_re_passband": 6.4571703199999995,
+     "gain_at_fc_over_8_db_re_passband": -11.44718633,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 316.227766,
+     "peak_db_re_passband": 13.358386320000001,
+     "gain_at_fc_over_8_db_re_passband": -12.401360930000001,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 341.454887,
+     "peak_db_re_passband": 6.34838482,
+     "gain_at_fc_over_8_db_re_passband": -14.11768933,
+     "seconds": 0.01
+    }
+   }
+  },
+  "0": {
+   "fc_minus3db_hz": 541.169527,
+   "passband_gain_db": -3.09456409,
+   "slope_db_per_oct_1to3oct_above_fc": -20.276502657672367,
+   "slope_db_per_oct_3to5oct_above_fc": -22.85149415942123,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 116.59144,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -0.08720220000000012,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 707.945784,
+     "peak_db_re_passband": -0.9082954700000001,
+     "gain_at_fc_over_8_db_re_passband": -7.112805209999999,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 891.250938,
+     "peak_db_re_passband": 8.58337317,
+     "gain_at_fc_over_8_db_re_passband": -11.46327531,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 926.118728,
+     "peak_db_re_passband": 16.34821609,
+     "gain_at_fc_over_8_db_re_passband": -12.523733309999999,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 962.350626,
+     "peak_db_re_passband": 2.473436605,
+     "gain_at_fc_over_8_db_re_passband": -14.49341981,
+     "seconds": 0.01
+    }
+   }
+  },
+  "3": {
+   "fc_minus3db_hz": 1525.22296,
+   "passband_gain_db": -2.86317131,
+   "slope_db_per_oct_1to3oct_above_fc": -20.247864011277283,
+   "slope_db_per_oct_3to5oct_above_fc": -22.296802605832223,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 199.526231,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -0.0002345800000003173,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 1995.26231,
+     "peak_db_re_passband": -0.8388981000000002,
+     "gain_at_fc_over_8_db_re_passband": -6.983219269999999,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 2511.88643,
+     "peak_db_re_passband": 10.23727383,
+     "gain_at_fc_over_8_db_re_passband": -11.360562589999999,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 2610.15722,
+     "peak_db_re_passband": 20.45570651,
+     "gain_at_fc_over_8_db_re_passband": -12.43474409,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 2712.27258,
+     "peak_db_re_passband": 1.3166201799999997,
+     "gain_at_fc_over_8_db_re_passband": -14.441454689999999,
+     "seconds": 0.01
+    }
+   }
+  },
+  "6": {
+   "fc_minus3db_hz": 4136.8204,
+   "passband_gain_db": -2.83282093,
+   "slope_db_per_oct_1to3oct_above_fc": -20.10469512420459,
+   "slope_db_per_oct_3to5oct_above_fc": -22.43284323642202,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 341.454887,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -0.007404880000000169,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 5623.41325,
+     "peak_db_re_passband": -0.8357043700000002,
+     "gain_at_fc_over_8_db_re_passband": -6.95860111,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 6812.92069,
+     "peak_db_re_passband": 10.46789163,
+     "gain_at_fc_over_8_db_re_passband": -11.33226367,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 7079.45784,
+     "peak_db_re_passband": 17.573479029999998,
+     "gain_at_fc_over_8_db_re_passband": -12.40705197,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 7644.22274,
+     "peak_db_re_passband": 1.32612079,
+     "gain_at_fc_over_8_db_re_passband": -14.416841769999998,
+     "seconds": 0.01
+    }
+   }
+  },
+  "9": {
+   "fc_minus3db_hz": 10797.7516,
+   "passband_gain_db": -2.94038625,
+   "slope_db_per_oct_1to3oct_above_fc": -20.065325633197645,
+   "slope_db_per_oct_3to5oct_above_fc": null,
+   "emphasis": {
+    "0": {
+     "r14_ohm": 50000.0,
+     "valid_small_signal": true,
+     "peak_hz": 541.169527,
+     "peak_db_re_passband": 0.0,
+     "gain_at_fc_over_8_db_re_passband": -0.01583658000000021,
+     "seconds": 0.01
+    },
+    "5": {
+     "r14_ohm": 5000.0,
+     "valid_small_signal": true,
+     "peak_hz": 14677.9927,
+     "peak_db_re_passband": -0.8602264900000001,
+     "gain_at_fc_over_8_db_re_passband": -6.8870960100000005,
+     "seconds": 0.01
+    },
+    "7": {
+     "r14_ohm": 1710.7455117790953,
+     "valid_small_signal": true,
+     "peak_hz": 17782.7941,
+     "peak_db_re_passband": 10.32030273,
+     "gain_at_fc_over_8_db_re_passband": -11.237035950000001,
+     "seconds": 0.01
+    },
+    "7.5": {
+     "r14_ohm": 1250.0,
+     "valid_small_signal": false,
+     "peak_hz": 18478.498,
+     "peak_db_re_passband": 18.19536105,
+     "gain_at_fc_over_8_db_re_passband": -12.30785335,
+     "seconds": 0.01
+    },
+    "8.5": {
+     "r14_ohm": 583.2387780823518,
+     "valid_small_signal": false,
+     "peak_hz": 19952.6231,
+     "peak_db_re_passband": 1.45799499,
+     "gain_at_fc_over_8_db_re_passband": -14.31175215,
+     "seconds": 0.01
+    }
+   }
+  }
+ },
+ "filter_selfosc": {
+  "20Hz": {
+   "cutoff_v": -9.0,
+   "fc_em0_hz_target": 20.0,
+   "onset_dial": null,
+   "onset_r14_ohm": null,
+   "runs": [
+    {
+     "dial": 6.0,
+     "r14_ohm": 2999.716334247056,
+     "growth_np_per_cycle": -0.0972382816447407,
+     "final_amp_v": 9.662922018094378e-09,
+     "final_freq_hz": 17.87609855851455,
+     "seconds": 0.1
+    },
+    {
+     "dial": 6.5,
+     "r14_ohm": 2284.710451091299,
+     "growth_np_per_cycle": -0.16824204940583698,
+     "final_amp_v": 9.837703096593486e-09,
+     "final_freq_hz": 41.893154341912165,
+     "seconds": 0.11
+    },
+    {
+     "dial": 7.0,
+     "r14_ohm": 1710.7455117790953,
+     "growth_np_per_cycle": -0.12696147004263067,
+     "final_amp_v": 9.812734180769667e-09,
+     "final_freq_hz": 17.549950780039264,
+     "seconds": 0.1
+    },
+    {
+     "dial": 7.5,
+     "r14_ohm": 1250.0,
+     "growth_np_per_cycle": -0.11463451052215322,
+     "final_amp_v": 9.750312113254722e-09,
+     "final_freq_hz": 15.778946487626099,
+     "seconds": 0.1
+    },
+    {
+     "dial": 8.0,
+     "r14_ohm": 880.1404283004322,
+     "growth_np_per_cycle": -0.1739230271416916,
+     "final_amp_v": 9.95006255166686e-09,
+     "final_freq_hz": null,
+     "seconds": 0.11
+    },
+    {
+     "dial": 8.5,
+     "r14_ohm": 583.2387780823518,
+     "growth_np_per_cycle": -0.12625611916746413,
+     "final_amp_v": 9.837703096593486e-09,
+     "final_freq_hz": 14.436258146511314,
+     "seconds": 0.1
+    },
+    {
+     "dial": 9.0,
+     "r14_ohm": 344.9034836970997,
+     "growth_np_per_cycle": -0.10580873482553398,
+     "final_amp_v": 9.650436894048653e-09,
+     "final_freq_hz": 15.26274796183037,
+     "seconds": 0.11
+    },
+    {
+     "dial": 10.0,
+     "r14_ohm": 0.0,
+     "growth_np_per_cycle": -0.1211173728431427,
+     "final_amp_v": 9.812734180769667e-09,
+     "final_freq_hz": 11.208561112431784,
+     "seconds": 0.11
+    }
+   ]
+  },
+  "100Hz": {
+   "cutoff_v": -5.039999999380789,
+   "fc_em0_hz_target": 100.0,
+   "onset_dial": 8.28125,
+   "onset_r14_ohm": 705.1507999317624,
+   "runs": [
+    {
+     "dial": 6.0,
+     "r14_ohm": 2999.716334247056,
+     "growth_np_per_cycle": -0.12361811121065518,
+     "final_amp_v": 1.3133582221769302e-08,
+     "final_freq_hz": null,
+     "seconds": 0.12
+    },
+    {
+     "dial": 6.5,
+     "r14_ohm": 2284.710451091299,
+     "growth_np_per_cycle": -0.10995595842079145,
+     "final_amp_v": 5.032459426956848e-08,
+     "final_freq_hz": null,
+     "seconds": 0.11
+    },
+    {
+     "dial": 7.0,
+     "r14_ohm": 1710.7455117790953,
+     "growth_np_per_cycle": -0.12214551158020323,
+     "final_amp_v": 9.637952569363506e-08,
+     "final_freq_hz": null,
+     "seconds": 0.13
+    },
+    {
+     "dial": 7.5,
+     "r14_ohm": 1250.0,
+     "growth_np_per_cycle": -0.15734076941619932,
+     "final_amp_v": 1.8737827733872336e-07,
+     "final_freq_hz": null,
+     "seconds": 0.11
+    },
+    {
+     "dial": 8.0,
+     "r14_ohm": 880.1404283004322,
+     "growth_np_per_cycle": -0.16502241898011005,
+     "final_amp_v": 5.263295883572994e-07,
+     "final_freq_hz": 152.63631704271208,
+     "seconds": 0.12
+    },
+    {
+     "dial": 8.5,
+     "r14_ohm": 583.2387780823518,
+     "growth_np_per_cycle": 0.12546761795266004,
+     "final_amp_v": 0.30862166287520143,
+     "final_freq_hz": 164.4995822857769,
+     "seconds": 0.36
+    },
+    {
+     "dial": 9.0,
+     "r14_ohm": 344.9034836970997,
+     "growth_np_per_cycle": 0.3746307656557685,
+     "final_amp_v": 0.49443380704308604,
+     "final_freq_hz": 162.45797398658164,
+     "seconds": 0.26
+    },
+    {
+     "dial": 10.0,
+     "r14_ohm": 0.0,
+     "growth_np_per_cycle": 0.007340466415818337,
+     "final_amp_v": 0.6411706664984558,
+     "final_freq_hz": 160.82366391674842,
+     "seconds": 0.29
+    },
+    {
+     "dial": 8.25,
+     "r14_ohm": 723.543299984121,
+     "growth_np_per_cycle": -0.017191163290880832,
+     "bisection": true,
+     "seconds": 0.15
+    },
+    {
+     "dial": 8.375,
+     "r14_ohm": 651.4647699658443,
+     "growth_np_per_cycle": 0.05527945375259871,
+     "bisection": true,
+     "seconds": 0.29
+    },
+    {
+     "dial": 8.3125,
+     "r14_ohm": 687.0091513412591,
+     "growth_np_per_cycle": 0.020197176878016178,
+     "bisection": true,
+     "seconds": 0.2
+    }
+   ]
+  },
+  "200Hz": {
+   "cutoff_v": -2.882022253196212,
+   "fc_em0_hz_target": 200.0,
+   "onset_dial": 7.78125,
+   "onset_r14_ohm": 1032.0100058293267,
+   "runs": [
+    {
+     "dial": 6.0,
+     "r14_ohm": 2999.716334247056,
+     "growth_np_per_cycle": -0.07375762674225739,
+     "final_amp_v": 6.508739081034776e-07,
+     "final_freq_hz": null,
+     "seconds": 0.13
+    },
+    {
+     "dial": 6.5,
+     "r14_ohm": 2284.710451091299,
+     "growth_np_per_cycle": -0.08852718336155227,
+     "final_amp_v": 8.425468167594374e-07,
+     "final_freq_hz": null,
+     "seconds": 0.12
+    },
+    {
+     "dial": 7.0,
+     "r14_ohm": 1710.7455117790953,
+     "growth_np_per_cycle": -0.1307833240786772,
+     "final_amp_v": 1.0594382024997628e-06,
+     "final_freq_hz": null,
+     "seconds": 0.12
+    },
+    {
+     "dial": 7.5,
+     "r14_ohm": 1250.0,
+     "growth_np_per_cycle": -0.19388793572996435,
+     "final_amp_v": 1.2738327090922041e-06,
+     "final_freq_hz": null,
+     "seconds": 0.11
+    },
+    {
+     "dial": 8.0,
+     "r14_ohm": 880.1404283004322,
+     "growth_np_per_cycle": 0.1400109511826505,
+     "final_amp_v": 0.361879750663888,
+     "final_freq_hz": 336.2659285265034,
+     "seconds": 0.29
+    },
+    {
+     "dial": 8.5,
+     "r14_ohm": 583.2387780823518,
+     "growth_np_per_cycle": 0.42332969367720236,
+     "final_amp_v": 0.599500859831013,
+     "final_freq_hz": 330.2295623961516,
+     "seconds": 0.26
+    },
+    {
+     "dial": 9.0,
+     "r14_ohm": 344.9034836970997,
+     "growth_np_per_cycle": 0.00894972888641951,
+     "final_amp_v": 0.7098107475001081,
+     "final_freq_hz": 326.70712577714625,
+     "seconds": 0.31
+    },
+    {
+     "dial": 10.0,
+     "r14_ohm": 0.0,
+     "growth_np_per_cycle": 0.0017266534337908187,
+     "final_amp_v": 0.8100865513577684,
+     "final_freq_hz": 323.5243865636862,
+     "seconds": 0.28
+    },
+    {
+     "dial": 7.75,
+     "r14_ohm": 1054.9221122014292,
+     "growth_np_per_cycle": -0.03374264653119643,
+     "bisection": true,
+     "seconds": 0.19
+    },
+    {
+     "dial": 7.875,
+     "r14_ohm": 965.1316572756568,
+     "growth_np_per_cycle": 0.05483486047941906,
+     "bisection": true,
+     "seconds": 0.28
+    },
+    {
+     "dial": 7.8125,
+     "r14_ohm": 1009.4103928845045,
+     "growth_np_per_cycle": 0.012289786000536347,
+     "bisection": true,
+     "seconds": 0.26
+    }
+   ]
+  },
+  "2kHz": {
+   "cutoff_v": 3.814823042406466,
+   "fc_em0_hz_target": 2000.0,
+   "onset_dial": 7.46875,
+   "onset_r14_ohm": 1275.9263367731999,
+   "runs": [
+    {
+     "dial": 6.0,
+     "r14_ohm": 2999.716334247056,
+     "growth_np_per_cycle": -0.03676595880697092,
+     "final_amp_v": 2.1650436954345764e-07,
+     "final_freq_hz": null,
+     "seconds": 0.19
+    },
+    {
+     "dial": 6.5,
+     "r14_ohm": 2284.710451091299,
+     "growth_np_per_cycle": -0.05497723480646664,
+     "final_amp_v": 1.6086142329285735e-07,
+     "final_freq_hz": null,
+     "seconds": 0.19
+    },
+    {
+     "dial": 7.0,
+     "r14_ohm": 1710.7455117790953,
+     "growth_np_per_cycle": -0.11924089749426521,
+     "final_amp_v": 1.1235955055255431e-07,
+     "final_freq_hz": null,
+     "seconds": 0.16
+    },
+    {
+     "dial": 7.5,
+     "r14_ohm": 1250.0,
+     "growth_np_per_cycle": 0.04596760152569911,
+     "final_amp_v": 0.18178121264544567,
+     "final_freq_hz": 3403.9633102973435,
+     "seconds": 0.42
+    },
+    {
+     "dial": 8.0,
+     "r14_ohm": 880.1404283004322,
+     "growth_np_per_cycle": 0.4181814701889526,
+     "final_amp_v": 0.6552618666885528,
+     "final_freq_hz": 3298.61473866612,
+     "seconds": 0.42
+    },
+    {
+     "dial": 8.5,
+     "r14_ohm": 583.2387780823518,
+     "growth_np_per_cycle": 0.003866925363100267,
+     "final_amp_v": 0.806083102144389,
+     "final_freq_hz": 3245.2547178476184,
+     "seconds": 0.51
+    },
+    {
+     "dial": 9.0,
+     "r14_ohm": 344.9034836970997,
+     "growth_np_per_cycle": 0.0014388678816494535,
+     "final_amp_v": 0.8976212040466494,
+     "final_freq_hz": 3212.6795014463887,
+     "seconds": 0.45
+    },
+    {
+     "dial": 10.0,
+     "r14_ohm": 0.0,
+     "growth_np_per_cycle": 0.00015412513943737204,
+     "final_amp_v": 0.9881770075223417,
+     "final_freq_hz": 3179.1475684803145,
+     "seconds": 0.45
+    },
+    {
+     "dial": 7.25,
+     "r14_ohm": 1467.730951313571,
+     "growth_np_per_cycle": -0.14835746773334557,
+     "bisection": true,
+     "seconds": 0.16
+    },
+    {
+     "dial": 7.375,
+     "r14_ohm": 1355.876203530383,
+     "growth_np_per_cycle": -0.05731648008894242,
+     "bisection": true,
+     "seconds": 0.19
+    },
+    {
+     "dial": 7.4375,
+     "r14_ohm": 1302.2111668469202,
+     "growth_np_per_cycle": -0.007452879983972741,
+     "bisection": true,
+     "seconds": 0.2
+    }
+   ]
+  },
+  "lowest_selfosc_emph10": {
+   "runs": [
+    {
+     "cutoff_v": -9.0,
+     "fc_em0_hz": 29.286445600000004,
+     "final_amp_v": 9.83760184425364e-09,
+     "final_freq_hz": 14.747625073267931,
+     "oscillating": false,
+     "seconds": 0.15
+    },
+    {
+     "cutoff_v": -8.0,
+     "fc_em0_hz": 39.810717005142635,
+     "final_amp_v": 1.137414074037224e-08,
+     "final_freq_hz": 53.68858637697903,
+     "oscillating": false,
+     "seconds": 0.17
+    },
+    {
+     "cutoff_v": -7.0,
+     "fc_em0_hz": 54.11695260361512,
+     "final_amp_v": 0.31112684664728496,
+     "final_freq_hz": 89.39493124182366,
+     "oscillating": true,
+     "seconds": 0.41
+    },
+    {
+     "cutoff_v": -6.0,
+     "fc_em0_hz": 73.5642254,
+     "final_amp_v": 0.5048795872977094,
+     "final_freq_hz": 119.7068912344839,
+     "oscillating": true,
+     "seconds": 0.35
+    },
+    {
+     "cutoff_v": -5.0,
+     "fc_em0_hz": 101.28743086386301,
+     "final_amp_v": 0.6457381535982076,
+     "final_freq_hz": 162.84518173920654,
+     "oscillating": true,
+     "seconds": 0.36
+    },
+    {
+     "cutoff_v": -4.0,
+     "fc_em0_hz": 139.4583249564377,
+     "final_amp_v": 0.7420213845414172,
+     "final_freq_hz": 224.13451439551824,
+     "oscillating": true,
+     "seconds": 0.37
+    }
+   ],
+   "lowest_oscillating_freq_hz": 89.39493124182366
+  }
+ },
+ "contour": {
+  "fastest_S10": {
+   "dials": {
+    "f_attack": 0,
+    "f_decay": 0,
+    "f_sustain": 10.0,
+    "l_attack": 0,
+    "l_decay": 0,
+    "l_sustain": 10.0,
+    "decay_switch": "on"
+   },
+   "seconds": 0.91,
+   "filter": {
+    "rest_v": 0.151339785,
+    "peak_v": 4.94486607,
+    "t_peak_after_gate_s": 0.008746313499999998,
+    "sustain_v_before_release": 3.8421832926266672,
+    "trigger_delay_s": 0.008013916684259763,
+    "attack_10_90_s": 0.0006461250102207869,
+    "decay_tau63_s": 0.0001389805495306609,
+    "decay_to_half_s": 7.855894783026507e-05,
+    "release_90_10_s": 0.0017653550772734894,
+    "release_90_50_s": 0.000970586527499262,
+    "overshoot_ratio_peak_over_sustain10": 1.2987617261731028,
+    "overshoot_ratio_absolute_volts": 1.2869937984191002
+   },
+   "loudness": {
+    "rest_v": -0.485307427,
+    "peak_v": 5.77341637,
+    "t_peak_after_gate_s": 0.009220627200000001,
+    "sustain_v_before_release": 4.464049068066667,
+    "trigger_delay_s": 0.00803123796768589,
+    "attack_10_90_s": 0.0010099015291919963,
+    "decay_tau63_s": 0.00021791768215466759,
+    "decay_to_half_s": 0.00014052321605775853,
+    "release_90_10_s": 0.0024235173207835525,
+    "release_90_50_s": 0.0013284874991541518,
+    "overshoot_ratio_peak_over_sustain10": 1.2645530390139528,
+    "overshoot_ratio_absolute_volts": 1.293313823833125
+   }
+  },
+  "mid_S5": {
+   "dials": {
+    "f_attack": 5,
+    "f_decay": 5,
+    "f_sustain": 5.0,
+    "l_attack": 5,
+    "l_decay": 5,
+    "l_sustain": 5.0,
+    "decay_switch": "on"
+   },
+   "seconds": 0.75,
+   "filter": {
+    "rest_v": 0.149716511,
+    "peak_v": 4.78768913,
+    "t_peak_after_gate_s": 0.885080368,
+    "sustain_v_before_release": 2.1808066917583893,
+    "trigger_delay_s": 0.06993004052155227,
+    "attack_10_90_s": 0.6896952373666866,
+    "decay_tau63_s": 0.8374683365349193,
+    "decay_to_half_s": 0.6022234294604222,
+    "release_90_10_s": null,
+    "release_90_50_s": 0.6570416354928805
+   },
+   "loudness": {
+    "rest_v": -0.486620515,
+    "peak_v": 5.59629214,
+    "t_peak_after_gate_s": 1.39780794,
+    "sustain_v_before_release": 2.726998784228188,
+    "trigger_delay_s": 0.08964500836361697,
+    "attack_10_90_s": 1.0620674415923557,
+    "decay_tau63_s": 0.7042343625684115,
+    "decay_to_half_s": 0.5154881732076246,
+    "release_90_10_s": null,
+    "release_90_50_s": 0.6584649487718481
+   }
+  },
+  "attack_max_S10": {
+   "dials": {
+    "f_attack": 10,
+    "f_decay": 0,
+    "f_sustain": 10.0,
+    "l_attack": 10,
+    "l_decay": 0,
+    "l_sustain": 10.0,
+    "decay_switch": "on"
+   },
+   "seconds": 0.47,
+   "filter": {
+    "rest_v": 0.151339785,
+    "peak_v": 4.7879735,
+    "t_peak_after_gate_s": 8.81291725,
+    "sustain_v_before_release": 3.84218749,
+    "trigger_delay_s": 0.6235337200737138,
+    "attack_10_90_s": 6.924858600379066,
+    "decay_tau63_s": 0.00019859543806433066,
+    "decay_to_half_s": 0.00012856922800885684,
+    "release_90_10_s": 0.001767623880414959,
+    "release_90_50_s": 0.0009695488890955062
+   },
+   "loudness": {
+    "rest_v": -0.485307427,
+    "peak_v": 5.59639754,
+    "t_peak_after_gate_s": 13.9291833,
+    "sustain_v_before_release": 4.464058379999999,
+    "trigger_delay_s": 0.8214404116331144,
+    "attack_10_90_s": 10.636719484451334,
+    "decay_tau63_s": 0.0002932774856017062,
+    "decay_to_half_s": 0.0002046205921768518,
+    "release_90_10_s": 0.0024258171194624367,
+    "release_90_50_s": 0.0013276917406770394
+   }
+  },
+  "decay_max_S0": {
+   "dials": {
+    "f_attack": 0,
+    "f_decay": 10,
+    "f_sustain": 0.0,
+    "l_attack": 0,
+    "l_decay": 10,
+    "l_sustain": 0.0,
+    "decay_switch": "on"
+   },
+   "seconds": 0.3,
+   "filter": {
+    "rest_v": 0.0339106915,
+    "peak_v": 4.95054737,
+    "t_peak_after_gate_s": 0.008730280699999999,
+    "sustain_v_before_release": 0.12482341722,
+    "trigger_delay_s": 0.007985069382365002,
+    "attack_10_90_s": 0.0006575826658807814,
+    "decay_tau63_s": 9.445771375094806,
+    "decay_to_half_s": 6.181348360477516,
+    "release_90_10_s": null,
+    "release_90_50_s": null
+   },
+   "loudness": {
+    "rest_v": -0.524707815,
+    "peak_v": 5.77139579,
+    "t_peak_after_gate_s": 0.0091962971,
+    "sustain_v_before_release": -0.3579872565733333,
+    "trigger_delay_s": 0.008001807807289148,
+    "attack_10_90_s": 0.0010132828951386098,
+    "decay_tau63_s": 9.773953153628117,
+    "decay_to_half_s": 6.49014712134176,
+    "release_90_10_s": null,
+    "release_90_50_s": null
+   }
+  },
+  "release_decayON": {
+   "dials": {
+    "f_attack": 0,
+    "f_decay": 4,
+    "f_sustain": 10.0,
+    "l_attack": 0,
+    "l_decay": 4,
+    "l_sustain": 10.0,
+    "decay_switch": "on"
+   },
+   "seconds": 2.29,
+   "filter": {
+    "rest_v": 0.1503657,
+    "peak_v": 4.94988291,
+    "t_peak_after_gate_s": 0.0087432499,
+    "sustain_v_before_release": 4.123406987083333,
+    "trigger_delay_s": 0.00801107335783693,
+    "attack_10_90_s": 0.000647281831410159,
+    "decay_tau63_s": 0.03108851312895426,
+    "decay_to_half_s": 0.0026376870046907926,
+    "release_90_10_s": 1.475771288206505,
+    "release_90_50_s": 0.39428176199480747
+   },
+   "loudness": {
+    "rest_v": -0.486095188,
+    "peak_v": 5.77384342,
+    "t_peak_after_gate_s": 0.0092175413,
+    "sustain_v_before_release": 4.836258661208333,
+    "trigger_delay_s": 0.008028338521743245,
+    "attack_10_90_s": 0.0010098831360353805,
+    "decay_tau63_s": 0.057474051241290874,
+    "decay_to_half_s": 0.010548875056841257,
+    "release_90_10_s": 1.4784623772373855,
+    "release_90_50_s": 0.3951566221481183
+   }
+  },
+  "release_decayOFF": {
+   "dials": {
+    "f_attack": 0,
+    "f_decay": 4,
+    "f_sustain": 10.0,
+    "l_attack": 0,
+    "l_decay": 4,
+    "l_sustain": 10.0,
+    "decay_switch": "off"
+   },
+   "seconds": 2.43,
+   "filter": {
+    "rest_v": -0.129868309,
+    "peak_v": 4.95216922,
+    "t_peak_after_gate_s": 0.0087770478,
+    "sustain_v_before_release": 4.1156926682708335,
+    "trigger_delay_s": 0.008012684522212005,
+    "attack_10_90_s": 0.0006729907666137083,
+    "decay_tau63_s": 0.027099928858672278,
+    "decay_to_half_s": 0.0023344678198214917,
+    "release_90_10_s": 0.04652737486803915,
+    "release_90_50_s": 0.010590217904684063
+   },
+   "loudness": {
+    "rest_v": -0.768746148,
+    "peak_v": 5.774222,
+    "t_peak_after_gate_s": 0.0092525031,
+    "sustain_v_before_release": 4.8303487060000005,
+    "trigger_delay_s": 0.008029319952911847,
+    "attack_10_90_s": 0.001033757428557481,
+    "decay_tau63_s": 0.05443165431049365,
+    "decay_to_half_s": 0.009907614168890855,
+    "release_90_10_s": 0.04417972806674775,
+    "release_90_50_s": 0.010357242925461141
+   }
+  }
+ },
+ "wavs": {
+  "voice_bass_pluck": {
+   "file": "wav/voice_bass_pluck.wav",
+   "peak_v": 1.8556617235825348,
+   "seconds": 2.0
+  },
+  "voice_resonant_sweep": {
+   "file": "wav/voice_resonant_sweep.wav",
+   "peak_v": 1.4841432323436725,
+   "seconds": 2.0
+  }
+ },
+ "voice": {
+  "bass_pluck": {
+   "seconds": 75.57,
+   "wav": "wav/voice_bass_pluck.wav",
+   "peak_v": 1.8556617235825348,
+   "rms_v_held": 0.5890456573825571,
+   "env_peak_time_s": 0.0686875,
+   "osc_hz": 109.99664430843514
+  },
+  "resonant_sweep": {
+   "seconds": 83.53,
+   "wav": "wav/voice_resonant_sweep.wav",
+   "peak_v": 1.4841432323436725,
+   "rms_v_held": 0.5664807453507181,
+   "env_peak_time_s": 0.1729375,
+   "osc_hz": 109.99717779908205
+  }
+ },
+ "sim_log": [
+  {
+   "bench": "vco_tran",
+   "case": "cal_it0_lo",
+   "seconds": 2.81,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it0_hi",
+   "seconds": 2.64,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_d0_lo",
+   "seconds": 3.06,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_d0_hi",
+   "seconds": 2.65,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_d1_lo",
+   "seconds": 3.34,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_d1_hi",
+   "seconds": 2.8,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_lo",
+   "seconds": 2.58,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it1_hi",
+   "seconds": 2.42,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_d0_lo",
+   "seconds": 2.74,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_d0_hi",
+   "seconds": 2.47,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_d1_lo",
+   "seconds": 2.68,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_d1_hi",
+   "seconds": 2.46,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_lo",
+   "seconds": 3.0,
+   "status": "ok"
+  },
+  {
+   "bench": "vco_tran",
+   "case": "cal_it2_hi",
+   "seconds": 2.64,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-9_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-9_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-9_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-9_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-9_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-6_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-6_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-6_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-6_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-6_e7.5",
+   "seconds": 0.02,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-3_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-3_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-3_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-3_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c-3_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+0_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+0_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+0_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+0_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+0_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+3_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+3_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+3_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+3_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+6_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+3_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+6_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+6_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+6_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+6_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+9_e0",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+9_e5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+9_e7",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+9_e7.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_ac",
+   "case": "ac_c+9_e8.5",
+   "seconds": 0.01,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d6.0",
+   "seconds": 0.1,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d6.5",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d7.0",
+   "seconds": 0.1,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d7.5",
+   "seconds": 0.1,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d8.0",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d8.5",
+   "seconds": 0.1,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d9.0",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_20Hz_d10.0",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d6.0",
+   "seconds": 0.12,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d6.5",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d7.5",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d7.0",
+   "seconds": 0.13,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d8.0",
+   "seconds": 0.12,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d9.0",
+   "seconds": 0.26,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d8.5",
+   "seconds": 0.36,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d6.0",
+   "seconds": 0.13,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d6.5",
+   "seconds": 0.12,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d10.0",
+   "seconds": 0.29,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d7.0",
+   "seconds": 0.12,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d7.5",
+   "seconds": 0.11,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d8.5",
+   "seconds": 0.26,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d8.0",
+   "seconds": 0.29,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d10.0",
+   "seconds": 0.28,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d9.0",
+   "seconds": 0.31,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d6.0",
+   "seconds": 0.19,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d6.5",
+   "seconds": 0.19,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d7.0",
+   "seconds": 0.16,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d7.5",
+   "seconds": 0.42,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d8.0",
+   "seconds": 0.42,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d8.5",
+   "seconds": 0.51,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d9.0",
+   "seconds": 0.45,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d10.0",
+   "seconds": 0.45,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d8.25",
+   "seconds": 0.15,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d8.375",
+   "seconds": 0.29,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_100Hz_d8.3125",
+   "seconds": 0.2,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d7.75",
+   "seconds": 0.19,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d7.875",
+   "seconds": 0.28,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_200Hz_d7.8125",
+   "seconds": 0.26,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d7.25",
+   "seconds": 0.16,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d7.375",
+   "seconds": 0.19,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_2kHz_d7.4375",
+   "seconds": 0.2,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-9.0",
+   "seconds": 0.15,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-8.0",
+   "seconds": 0.17,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-6.0",
+   "seconds": 0.35,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-7.0",
+   "seconds": 0.41,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-5.0",
+   "seconds": 0.36,
+   "status": "ok"
+  },
+  {
+   "bench": "filter_tran",
+   "case": "so_low_c-4.0",
+   "seconds": 0.37,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "mid_S5",
+   "seconds": 0.75,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "fastest_S10",
+   "seconds": 0.91,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "decay_max_S0",
+   "seconds": 0.3,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "attack_max_S10",
+   "seconds": 0.47,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "release_decayON",
+   "seconds": 2.29,
+   "status": "ok"
+  },
+  {
+   "bench": "contour_tran",
+   "case": "release_decayOFF",
+   "seconds": 2.43,
+   "status": "ok"
+  },
+  {
+   "bench": "voice_tran",
+   "case": "bass_pluck",
+   "seconds": 75.57,
+   "status": "ok"
+  },
+  {
+   "bench": "voice_tran",
+   "case": "resonant_sweep",
+   "seconds": 83.53,
+   "status": "ok"
+  }
+ ],
+ "total_seconds_this_run": 137.4
+}

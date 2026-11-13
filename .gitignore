@@ -1,0 +1,9 @@
+# regenerable / bulky
+*.dat
+*.raw
+__pycache__/
+*.pyc
+*.bak
+design/little-d/concepts/_mock-src/out/
+design/little-d/concepts/_mock-src-*/
+ref/ca-72/

@@ -1,0 +1,38 @@
+* BENCH voice_tran: osc 1 -> passive mixer channel -> ladder -> VCA, both contours, one note.
+* Placeholders: ADAPTER KBD RNG CUTNET R14 AMT VOL FA FD FS LA LD LS DECAYON TON TOFF TMAX TSTOP WRFILE TEMP WAVE
+.include /home/claude/model-d/eng/sim/reference/work/example_perturbed/adapter.inc
+.options temp=25 tnom=25 reltol=1e-4 abstol=1e-12 vntol=1e-6 method=gear maxord=2
+vp vp 0 10
+vn vn 0 -10
+vp15 vp15 0 15
+* --- oscillator 1 (square width bias 0 V)
+vkbd kbd 0 0.3392
+vrng rng 0 -5.597786
+vwid width 0 0
+xv kbd rng width ramp saw tri rect vp vn dut_vco r11=149.991489 a8=0.135177
+vhold hold 0 -2
+shold ramp hold hctl 0 swhold
+vhctl hctl 0 pwl(0 1 1u 1 1.001u 0)
+.model swhold sw(vt=0.5 vh=0 ron=1 roff=1e14)
+* --- mixer: OSC-1 VOLUME 25K linear across the chosen waveform, wiper -> 33K -> bus
+rvt saw vw {max(25k*(1-0.8),1e-3)}
+rvb vw 0 {max(25k*0.8,1e-3)}
+rmix vw ain 33k
+rbus ain 0 5.5k
+* --- filter, CUTOFF source, AMOUNT OF CONTOUR (5K linear from the filter contour)
+vcut cut 0 -3
+rat fout amt {max(5k*(1-0.6),1e-3)}
+rab amt 0 {max(5k*0.6,1e-3)}
+xf ain cut amt fo vp vn dut_vcf r14=5000
+* --- contours and VCA
+vgate gate 0 pwl(0 0 0.05 0 0.050001000000000004 1 1.2 1 1.2000009999999999 0)
+xc gate fout lout vp15 vp vn dut_contour fa=0 fd=5.999e+04 fs=0.2 la=0 ld=1e+05 ls=0.8 decay_on=1
+xa fo lout out vp vn dut_vca
+.control
+set wr_singlescale
+set wr_vecnames
+tran 5e-06 2.0 0 5e-06
+wrdata bass_pluck.dat v(out) v(fo) v(fout) v(lout) v(ramp)
+quit
+.endc
+.end

@@ -1,0 +1,28 @@
+* velocity -> EXT LOUDNESS (2nd VCA stage) on the CA-72 mm_vca. Sweeps the CV that replaces J3's +10 V normal.
+.include ../../../ref/ca-72/circuits/models/mm-devices.lib
+.include ../../../ref/ca-72/circuits/boards/board4-vca.lib
+.param vcv=10 vcont=6 r12v=0.496
+vp vp 0 10
+vn vn 0 -10
+vin vin 0 sin(0 0.5 1k)
+vcont cont 0 {vcont}
+vcvs ncv 0 {vcv}
+rs ncv ext 33k
+va a440 0 0
+x1 vin cont ext a440 main ph vp vn mm_vca r12={r12v}
+rl main 0 10k
+rph ph 0 10k
+.options reltol=1e-4 method=gear
+.control
+set wr_singlescale
+foreach cv 10 8 6 4 3 2 1.5 1 0.5 0
+  alterparam vcv = $cv
+  reset
+  tran 5u 30m 20m
+  meas tran pp PP v(main) from=20m to=30m
+  meas tran vbase AVG v(x1.ext) from=20m to=30m
+  echo "CV $cv node $&vbase pp $&pp" >> ext_loudness_sweep.txt
+end
+quit
+.endc
+.end

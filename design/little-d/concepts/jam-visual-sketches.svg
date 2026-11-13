@@ -1,0 +1,613 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1060" viewBox="0 0 960 1060">
+<rect width="960" height="1060" fill="#f4efe6"/>
+<text x="24" y="32" font-family="DejaVu Sans" font-size="16" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">LITTLE D — jam sketches, visual designer, turn 1</text>
+<text x="24" y="50" font-family="DejaVu Sans" font-size="9" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">Plans at 1 mm = 1 unit (body 290 × 170). Rough: for judging the idea, not the layout. Knob counts indicative.</text>
+<g transform="translate(24,82)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">1  THE SPREAD  (Second reduction + tarot)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">signal sentence as five numbered plates; gaps, not lines; one emblem per plate</text>
+<g transform="translate(0,28)">
+<rect x="0" y="0" width="290" height="170" rx="4" fill="#3a3631"/>
+<rect x="4" y="4" width="36" height="88" fill="#e9e1d1"/>
+<text x="22.0" y="15" font-family="DejaVu Serif" font-size="9" fill="#c4512e" text-anchor="middle" font-weight="bold" font-style="normal">I</text>
+<text x="22.0" y="88" font-family="DejaVu Sans" font-size="5" fill="#2b2722" text-anchor="middle" font-weight="normal" font-style="normal">CONTROL</text>
+<rect x="44" y="4" width="94" height="88" fill="#e9e1d1"/>
+<text x="91.0" y="15" font-family="DejaVu Serif" font-size="9" fill="#c4512e" text-anchor="middle" font-weight="bold" font-style="normal">II</text>
+<text x="91.0" y="88" font-family="DejaVu Sans" font-size="5" fill="#2b2722" text-anchor="middle" font-weight="normal" font-style="normal">SOURCES</text>
+<rect x="142" y="4" width="34" height="88" fill="#e9e1d1"/>
+<text x="159.0" y="15" font-family="DejaVu Serif" font-size="9" fill="#c4512e" text-anchor="middle" font-weight="bold" font-style="normal">III</text>
+<text x="159.0" y="88" font-family="DejaVu Sans" font-size="5" fill="#2b2722" text-anchor="middle" font-weight="normal" font-style="normal">MIX</text>
+<rect x="180" y="4" width="72" height="88" fill="#e9e1d1"/>
+<text x="216.0" y="15" font-family="DejaVu Serif" font-size="9" fill="#c4512e" text-anchor="middle" font-weight="bold" font-style="normal">IV</text>
+<text x="216.0" y="88" font-family="DejaVu Sans" font-size="5" fill="#2b2722" text-anchor="middle" font-weight="normal" font-style="normal">SHAPE</text>
+<rect x="256" y="4" width="30" height="88" fill="#e9e1d1"/>
+<text x="271.0" y="15" font-family="DejaVu Serif" font-size="9" fill="#c4512e" text-anchor="middle" font-weight="bold" font-style="normal">V</text>
+<text x="271.0" y="88" font-family="DejaVu Sans" font-size="5" fill="#2b2722" text-anchor="middle" font-weight="normal" font-style="normal">VOICE</text>
+<circle cx="22.0" cy="32.0" r="5.5" fill="#3a3631"/><line x1="22.0" y1="32.0" x2="22.0" y2="27.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="22.0" cy="54.0" r="5.5" fill="#3a3631"/><line x1="22.0" y1="54.0" x2="22.0" y2="49.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="56.0" cy="30.0" r="6" fill="#3a3631"/><line x1="56.0" y1="30.0" x2="56.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="56.0" cy="50.0" r="6" fill="#3a3631"/><line x1="56.0" y1="50.0" x2="56.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="56.0" cy="70.0" r="6" fill="#3a3631"/><line x1="56.0" y1="70.0" x2="56.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="81.0" cy="30.0" r="6" fill="#3a3631"/><line x1="81.0" y1="30.0" x2="81.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="81.0" cy="50.0" r="6" fill="#3a3631"/><line x1="81.0" y1="50.0" x2="81.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="81.0" cy="70.0" r="6" fill="#3a3631"/><line x1="81.0" y1="70.0" x2="81.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="106.0" cy="30.0" r="6" fill="#3a3631"/><line x1="106.0" y1="30.0" x2="106.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="106.0" cy="50.0" r="6" fill="#3a3631"/><line x1="106.0" y1="50.0" x2="106.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="106.0" cy="70.0" r="6" fill="#3a3631"/><line x1="106.0" y1="70.0" x2="106.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="131.0" cy="30.0" r="6" fill="#3a3631"/><line x1="131.0" y1="30.0" x2="131.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="131.0" cy="50.0" r="6" fill="#3a3631"/><line x1="131.0" y1="50.0" x2="131.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="131.0" cy="70.0" r="6" fill="#3a3631"/><line x1="131.0" y1="70.0" x2="131.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="159.0" cy="32.0" r="5.5" fill="#3a3631"/><line x1="159.0" y1="32.0" x2="159.0" y2="27.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="159.0" cy="54.0" r="5.5" fill="#3a3631"/><line x1="159.0" y1="54.0" x2="159.0" y2="49.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="159.0" cy="74.0" r="5.5" fill="#3a3631"/><line x1="159.0" y1="74.0" x2="159.0" y2="69.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="193.0" cy="30.0" r="6" fill="#3a3631"/><line x1="193.0" y1="30.0" x2="193.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="193.0" cy="50.0" r="6" fill="#3a3631"/><line x1="193.0" y1="50.0" x2="193.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="193.0" cy="70.0" r="6" fill="#3a3631"/><line x1="193.0" y1="70.0" x2="193.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="216.0" cy="30.0" r="6" fill="#3a3631"/><line x1="216.0" y1="30.0" x2="216.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="216.0" cy="50.0" r="6" fill="#3a3631"/><line x1="216.0" y1="50.0" x2="216.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="216.0" cy="70.0" r="6" fill="#3a3631"/><line x1="216.0" y1="70.0" x2="216.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="239.0" cy="30.0" r="6" fill="#3a3631"/><line x1="239.0" y1="30.0" x2="239.0" y2="25.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="239.0" cy="50.0" r="6" fill="#3a3631"/><line x1="239.0" y1="50.0" x2="239.0" y2="45.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="239.0" cy="70.0" r="6" fill="#3a3631"/><line x1="239.0" y1="70.0" x2="239.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="271" cy="40" r="11" fill="none" stroke="#2b2722" stroke-width="0.6" stroke-dasharray="1.5 1.5"/>
+<circle cx="271.0" cy="70.0" r="6" fill="#3a3631"/><line x1="271.0" y1="70.0" x2="271.0" y2="65.0" stroke="#f4efe6" stroke-width="1.2"/>
+<rect x="20.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="38.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="56.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="74.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="92.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="110.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="128.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="146.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="164.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="182.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="200.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="218.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="236.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="254.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="272.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="32.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="50.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="86.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="104.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="122.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="158.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="176.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="212.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="230.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="248.5" y="96" width="11" height="46" fill="#3a3631"/>
+<circle cx="10" cy="125" r="4" fill="#c4512e"/>
+</g>
+<text x="300" y="40" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Plate = section. Numeral = reading</text>
+<text x="300" y="51" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">order (start at I, findable blind</text>
+<text x="300" y="62" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">of position). Owner paints one</text>
+<text x="300" y="73" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">emblem per plate: the 'major</text>
+<text x="300" y="84" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">arcana' of the signal path.</text>
+<text x="300" y="100" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">Expected pole. Flat, cheap,</text>
+<text x="300" y="111" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">designed for use.</text>
+</g>
+<g transform="translate(490,82)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">2  TYPE CASE  (sharpened)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">cells = sections, sized by content; walls = bag armour; slide-in label cards</text>
+<g transform="translate(0,28)">
+<rect x="0" y="0" width="290" height="170" rx="2" fill="#d9c7a6" stroke="#2b2722" stroke-width="0.8"/>
+<rect x="5" y="5" width="35" height="87" fill="#5b4a3a"/>
+<rect x="8" y="85" width="22" height="5" fill="#f4efe6"/>
+<rect x="44" y="5" width="96" height="57" fill="#5b4a3a"/>
+<rect x="47" y="55" width="22" height="5" fill="#f4efe6"/>
+<rect x="44" y="66" width="96" height="26" fill="#5b4a3a"/>
+<rect x="47" y="85" width="22" height="5" fill="#f4efe6"/>
+<rect x="144" y="5" width="34" height="87" fill="#5b4a3a"/>
+<rect x="147" y="85" width="22" height="5" fill="#f4efe6"/>
+<rect x="182" y="5" width="68" height="45" fill="#5b4a3a"/>
+<rect x="185" y="43" width="22" height="5" fill="#f4efe6"/>
+<rect x="182" y="54" width="68" height="38" fill="#5b4a3a"/>
+<rect x="185" y="85" width="22" height="5" fill="#f4efe6"/>
+<rect x="254" y="5" width="31" height="87" fill="#5b4a3a"/>
+<rect x="257" y="85" width="22" height="5" fill="#f4efe6"/>
+<circle cx="22.0" cy="24.0" r="5.5" fill="#e9e1d1"/><line x1="22.0" y1="24.0" x2="22.0" y2="19.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="22.0" cy="50.0" r="5.5" fill="#e9e1d1"/><line x1="22.0" y1="50.0" x2="22.0" y2="45.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="58.0" cy="22.0" r="6" fill="#e9e1d1"/><line x1="58.0" y1="22.0" x2="58.0" y2="17.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="58.0" cy="42.0" r="6" fill="#e9e1d1"/><line x1="58.0" y1="42.0" x2="58.0" y2="37.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="83.0" cy="22.0" r="6" fill="#e9e1d1"/><line x1="83.0" y1="22.0" x2="83.0" y2="17.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="83.0" cy="42.0" r="6" fill="#e9e1d1"/><line x1="83.0" y1="42.0" x2="83.0" y2="37.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="108.0" cy="22.0" r="6" fill="#e9e1d1"/><line x1="108.0" y1="22.0" x2="108.0" y2="17.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="108.0" cy="42.0" r="6" fill="#e9e1d1"/><line x1="108.0" y1="42.0" x2="108.0" y2="37.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="133.0" cy="22.0" r="6" fill="#e9e1d1"/><line x1="133.0" y1="22.0" x2="133.0" y2="17.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="133.0" cy="42.0" r="6" fill="#e9e1d1"/><line x1="133.0" y1="42.0" x2="133.0" y2="37.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="58.0" cy="77.0" r="5" fill="#e9e1d1"/><line x1="58.0" y1="77.0" x2="58.0" y2="73.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="83.0" cy="77.0" r="5" fill="#e9e1d1"/><line x1="83.0" y1="77.0" x2="83.0" y2="73.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="108.0" cy="77.0" r="5" fill="#e9e1d1"/><line x1="108.0" y1="77.0" x2="108.0" y2="73.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="133.0" cy="77.0" r="5" fill="#e9e1d1"/><line x1="133.0" y1="77.0" x2="133.0" y2="73.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="161.0" cy="24.0" r="5.5" fill="#e9e1d1"/><line x1="161.0" y1="24.0" x2="161.0" y2="19.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="161.0" cy="48.0" r="5.5" fill="#e9e1d1"/><line x1="161.0" y1="48.0" x2="161.0" y2="43.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="161.0" cy="70.0" r="5.5" fill="#e9e1d1"/><line x1="161.0" y1="70.0" x2="161.0" y2="65.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="196.0" cy="24.0" r="6" fill="#e9e1d1"/><line x1="196.0" y1="24.0" x2="196.0" y2="19.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="218.0" cy="24.0" r="6" fill="#e9e1d1"/><line x1="218.0" y1="24.0" x2="218.0" y2="19.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="240.0" cy="24.0" r="6" fill="#e9e1d1"/><line x1="240.0" y1="24.0" x2="240.0" y2="19.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="196.0" cy="70.0" r="5.5" fill="#e9e1d1"/><line x1="196.0" y1="70.0" x2="196.0" y2="65.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="218.0" cy="70.0" r="5.5" fill="#e9e1d1"/><line x1="218.0" y1="70.0" x2="218.0" y2="65.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="240.0" cy="70.0" r="5.5" fill="#e9e1d1"/><line x1="240.0" y1="70.0" x2="240.0" y2="65.5" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="270.0" cy="30.0" r="7" fill="#e9e1d1"/><line x1="270.0" y1="30.0" x2="270.0" y2="24.0" stroke="#f4efe6" stroke-width="1.2"/>
+<rect x="20.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="38.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="56.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="74.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="92.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="110.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="128.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="146.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="164.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="182.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="200.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="218.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="236.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="254.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="272.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="32.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="50.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="86.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="104.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="122.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="158.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="176.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="212.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="230.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="248.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="3" y="110" width="14" height="40" fill="#5b4a3a"/>
+<circle cx="10" cy="128" r="4" fill="#c4512e"/>
+</g>
+<text x="300" y="40" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Knob tops sit below wall</text>
+<text x="300" y="51" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">tops: no lid, no pouch.</text>
+<text x="300" y="62" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Cards letterpress-printed</text>
+<text x="300" y="73" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">at Vector Space, or hand-</text>
+<text x="300" y="84" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">lettered; swap any time.</text>
+<text x="300" y="100" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">Speaker must leave the face</text>
+<text x="300" y="111" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">(bottom) or cells won't fit.</text>
+</g>
+<g transform="translate(24,330)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">3  HYMNAL  (new: a bound book you carry)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">cover = bag protection; opened, it stands as a music desk held by its ribbon, or folds under as a rake</text>
+<g transform="translate(0,140)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="8" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">closed</text>
+<rect x="0" y="30" width="161.5" height="32.3" fill="#e9e1d1" stroke="#2b2722" stroke-width="0.7"/>
+<rect x="2.8499999999999996" y="27.15" width="155.79999999999998" height="3" fill="#2b2722"/>
+<rect x="90.25" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="107.35" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="124.44999999999999" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="141.54999999999998" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="3.8" y="26.2" width="66.5" height="4" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.5"/>
+<rect x="-2" y="11.0" width="165.29999999999998" height="4" fill="#c4512e"/>
+<path d="M 163.4 11.0 q 8 0 8 10 v 32.3 q 0 8 -8 8" fill="none" stroke="#c4512e" stroke-width="4"/>
+<text x="0" y="82" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">≈ 40 mm thick closed (rim taller than knobs)</text>
+<text x="210" y="0" font-family="DejaVu Sans" font-size="8" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">open: music desk</text>
+<rect x="210" y="30" width="161.5" height="32.3" fill="#e9e1d1" stroke="#2b2722" stroke-width="0.7"/>
+<rect x="212.85" y="27.15" width="155.79999999999998" height="3" fill="#2b2722"/>
+<rect x="300.25" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="317.35" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="334.45" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="351.54999999999995" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="213.8" y="26.2" width="66.5" height="4" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.5"/>
+<line x1="369.6" y1="27" x2="387.6" y2="-90" stroke="#c4512e" stroke-width="4"/>
+<line x1="270" y1="24" x2="379.6" y2="-40" stroke="#c4512e" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+<text x="280" y="-18" font-family="DejaVu Sans" font-size="7" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">ribbon = stay</text>
+<text x="394" y="-74" font-family="DejaVu Sans" font-size="7" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">endpaper: patch chart</text>
+<text x="394" y="-64" font-family="DejaVu Sans" font-size="7" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">+ lyric / chord sheet</text>
+<text x="470" y="0" font-family="DejaVu Sans" font-size="8" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">open: folded under (rake)</text>
+<g transform="rotate(-5 470 50)">
+<rect x="470" y="30" width="161.5" height="32.3" fill="#e9e1d1" stroke="#2b2722" stroke-width="0.7"/>
+<rect x="472.85" y="27.15" width="155.79999999999998" height="3" fill="#2b2722"/>
+<rect x="560.25" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="577.35" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="594.45" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="611.55" y="16.700000000000003" width="10.45" height="10.45" fill="#3a3631"/>
+<rect x="473.8" y="26.2" width="66.5" height="4" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.5"/>
+</g>
+<path d="M 623.9 57 q 14 0 14 -10 v -4" fill="none" stroke="#c4512e" stroke-width="4"/>
+<line x1="470" y1="64" x2="638" y2="50" stroke="#c4512e" stroke-width="4"/>
+<line x1="460" y1="66" x2="660" y2="66" stroke="#8a8174" stroke-width="0.6"/>
+<text x="470" y="82" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">spine roll under the back ≈ 14 mm → ≈ 5°</text>
+</g>
+<text x="0" y="240" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Bookcloth over 3 mm ply boards; title blind-stamped on the spine (letterpress); no recall, so the patch is written in pencil on the endpaper — the Model D patch-book habit made part of the object.</text>
+</g>
+<g transform="translate(24,610)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">4  HUSH  (new: built from the material of silence)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">the felt that stops the keys is the skin of the whole; the skin wrapping the lip IS the key's top stop</text>
+<g transform="translate(20,40)">
+<rect x="0" y="100" width="330" height="3" fill="#3a3631"/>
+<line x1="-4" y1="107" x2="330" y2="107" stroke="#9a948a" stroke-width="6"/>
+<line x1="-4" y1="107" x2="-4" y2="60" stroke="#9a948a" stroke-width="6"/>
+<rect x="8" y="58" width="172" height="5" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="8" y="58" width="5" height="24" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<circle cx="176" cy="66" r="3.5" fill="#2b2722"/>
+<ellipse cx="80" cy="96" rx="6" ry="3.5" fill="#c4512e"/>
+<line x1="80" y1="63" x2="80" y2="92" stroke="#8a8174" stroke-width="0.6"/>
+<rect x="120" y="42" width="210" height="4" fill="#3a3631"/>
+<path d="M 330 38 H 120 q -7 0 -7 6 q 0 6 7 6 H 172" fill="none" stroke="#9a948a" stroke-width="5"/>
+<rect x="200" y="22" width="13" height="16" fill="#3a3631"/>
+<rect x="230" y="22" width="13" height="16" fill="#3a3631"/>
+<rect x="260" y="22" width="13" height="16" fill="#3a3631"/>
+<rect x="290" y="22" width="13" height="16" fill="#3a3631"/>
+<text x="8" y="54" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">key (RAIL lever)</text>
+<text x="182" y="70" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">rod</text>
+<text x="64" y="120" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">silicone tube</text>
+<text x="200" y="120" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="normal">rigid tray, felt skin under</text>
+<line x1="150" y1="54" x2="150" y2="10" stroke="#c4512e" stroke-width="0.6"/>
+<text x="60" y="6" font-family="DejaVu Sans" font-size="7" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">felt skin on the panel wraps the lip: the key tail rises into it = top stop</text>
+</g>
+<text x="380" y="60" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Body: rigid tray wrapped in 3–5 mm wool felt.</text>
+<text x="380" y="72" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Labels: embroidered (Vector Space embroidery</text>
+<text x="380" y="84" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">machine) or laser-browned into the felt.</text>
+<text x="380" y="96" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Bag: a felt flap rolls over panel + keys, closes</text>
+<text x="380" y="108" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">with a wooden toggle and loop (chisel-roll logic).</text>
+<text x="380" y="120" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Lap: grips, warm, silent on a table.</text>
+<text x="380" y="136" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">Risks: grime/pilling at knobs; felt deadens</text>
+<text x="380" y="148" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">the speaker — grille must be an open window.</text>
+</g>
+<g transform="translate(24,800)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">5  UNDER GLASS  (Proof + pinball, merged)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">board = playfield under a clear top, reverse-painted underneath</text>
+<g transform="translate(0,30)">
+<rect x="0" y="0" width="290" height="170" fill="#b98a5a"/>
+<line x1="8" y1="6.0" x2="60" y2="6.0" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="45" y1="8.3" x2="113" y2="8.3" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="82" y1="10.6" x2="166" y2="10.6" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="119" y1="12.9" x2="219" y2="12.9" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="156" y1="15.2" x2="272" y2="15.2" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="193" y1="17.5" x2="105" y2="17.5" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="30" y1="19.8" x2="158" y2="19.8" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="67" y1="22.1" x2="211" y2="22.1" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="104" y1="24.4" x2="264" y2="24.4" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="141" y1="26.7" x2="97" y2="26.7" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="178" y1="29.0" x2="150" y2="29.0" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="15" y1="31.3" x2="203" y2="31.3" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="52" y1="33.6" x2="256" y2="33.6" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="89" y1="35.9" x2="89" y2="35.9" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="126" y1="38.2" x2="142" y2="38.2" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="163" y1="40.5" x2="195" y2="40.5" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="200" y1="42.8" x2="248" y2="42.8" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="37" y1="45.1" x2="81" y2="45.1" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="74" y1="47.4" x2="134" y2="47.4" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="111" y1="49.7" x2="187" y2="49.7" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="148" y1="52.0" x2="240" y2="52.0" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="185" y1="54.3" x2="73" y2="54.3" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="22" y1="56.6" x2="126" y2="56.6" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="59" y1="58.9" x2="179" y2="58.9" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="96" y1="61.2" x2="232" y2="61.2" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="133" y1="63.5" x2="65" y2="63.5" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="170" y1="65.8" x2="118" y2="65.8" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="207" y1="68.1" x2="171" y2="68.1" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="44" y1="70.4" x2="224" y2="70.4" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="81" y1="72.7" x2="277" y2="72.7" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="118" y1="75.0" x2="110" y2="75.0" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="155" y1="77.3" x2="163" y2="77.3" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="192" y1="79.6" x2="216" y2="79.6" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="29" y1="81.9" x2="269" y2="81.9" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="66" y1="84.2" x2="102" y2="84.2" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="103" y1="86.5" x2="155" y2="86.5" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="140" y1="88.8" x2="208" y2="88.8" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="177" y1="91.1" x2="261" y2="91.1" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="14" y1="7.4" x2="94" y2="7.4" stroke="#d9a86a" stroke-width="0.8"/>
+<line x1="51" y1="9.7" x2="147" y2="9.7" stroke="#d9a86a" stroke-width="0.8"/>
+<path fill="#1f2a33" fill-rule="evenodd" d="M0 0 H290 V96 H0 Z M48 8 h90 v26 h-90 Z M182 8 h64 v26 h-64 Z"/>
+<text x="93" y="24" font-family="DejaVu Sans" font-size="6" fill="#f4efe6" text-anchor="middle" font-weight="normal" font-style="normal">VCO window</text>
+<text x="214" y="24" font-family="DejaVu Sans" font-size="6" fill="#f4efe6" text-anchor="middle" font-weight="normal" font-style="normal">ladder window</text>
+<circle cx="30.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="30.0" y1="52.0" x2="30.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="30.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="30.0" y1="74.0" x2="30.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="58.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="58.0" y1="52.0" x2="58.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="58.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="58.0" y1="74.0" x2="58.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="86.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="86.0" y1="52.0" x2="86.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="86.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="86.0" y1="74.0" x2="86.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="114.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="114.0" y1="52.0" x2="114.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="114.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="114.0" y1="74.0" x2="114.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="142.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="142.0" y1="52.0" x2="142.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="142.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="142.0" y1="74.0" x2="142.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="170.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="170.0" y1="52.0" x2="170.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="170.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="170.0" y1="74.0" x2="170.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="198.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="198.0" y1="52.0" x2="198.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="198.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="198.0" y1="74.0" x2="198.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="226.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="226.0" y1="52.0" x2="226.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="226.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="226.0" y1="74.0" x2="226.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="254.0" cy="52.0" r="6" fill="#e9e1d1"/><line x1="254.0" y1="52.0" x2="254.0" y2="47.0" stroke="#f4efe6" stroke-width="1.2"/>
+<circle cx="254.0" cy="74.0" r="6" fill="#e9e1d1"/><line x1="254.0" y1="74.0" x2="254.0" y2="69.0" stroke="#f4efe6" stroke-width="1.2"/>
+<rect x="20.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="38.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="56.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="74.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="92.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="110.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="128.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="146.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="164.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="182.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="200.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="218.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="236.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="254.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="272.0" y="96" width="18.0" height="72" fill="#fbf8f2" stroke="#2b2722" stroke-width="0.6"/>
+<rect x="32.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="50.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="86.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="104.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="122.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="158.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="176.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="212.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="230.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="248.5" y="96" width="11" height="46" fill="#3a3631"/>
+<rect x="-4" y="-3" width="298" height="4" fill="#9aa3a8"/>
+<rect x="-4" y="169" width="298" height="4" fill="#9aa3a8"/>
+<circle cx="10" cy="125" r="4" fill="#c4512e"/>
+</g>
+<text x="300" y="40" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Bought aluminium U-channel rails</text>
+<text x="300" y="51" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">front + back (lockdown bar), not</text>
+<text x="300" y="62" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">end blocks: no cheeks.</text>
+<text x="300" y="73" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Reverse painting: labels can't wear,</text>
+<text x="300" y="84" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">gloss face, backglass craft. Key</text>
+<text x="300" y="95" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">levers seen through side windows.</text>
+<text x="300" y="111" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">Weak in a bag: needs a sleeve.</text>
+</g>
+<g transform="translate(490,800)">
+<text x="0" y="0" font-family="DejaVu Sans" font-size="13" fill="#2b2722" text-anchor="start" font-weight="bold" font-style="normal">6  RADIO  (sharpened)</text>
+<text x="0" y="15" font-family="DejaVu Sans" font-size="8.5" fill="#8a8174" text-anchor="start" font-weight="normal" font-style="italic">speaker face carries the identity; one big dial on the panel</text>
+<g transform="translate(0,30)">
+<rect x="0" y="0" width="290" height="170" rx="16" fill="#e9e1d1" stroke="#2b2722" stroke-width="0.8"/>
+<circle cx="127.5" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="22" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="33" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="44" r="2.2" fill="#3a3631"/>
+<circle cx="52.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="247.5" cy="55" r="2.2" fill="#3a3631"/>
+<circle cx="45.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="52.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="247.5" cy="66" r="2.2" fill="#3a3631"/>
+<circle cx="45.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="52.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="247.5" cy="77" r="2.2" fill="#3a3631"/>
+<circle cx="45.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="52.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="247.5" cy="88" r="2.2" fill="#3a3631"/>
+<circle cx="52.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="247.5" cy="99" r="2.2" fill="#3a3631"/>
+<circle cx="60.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="67.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="232.5" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="240.0" cy="110" r="2.2" fill="#3a3631"/>
+<circle cx="75.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="82.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="90.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="97.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="105.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="195.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="202.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="210.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="217.5" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="225.0" cy="121" r="2.2" fill="#3a3631"/>
+<circle cx="112.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="120.0" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="127.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="135.0" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="142.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="150.0" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="157.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="165.0" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="172.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="180.0" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="187.5" cy="132" r="2.2" fill="#3a3631"/>
+<circle cx="150" cy="78" r="38" fill="none" stroke="#c4512e" stroke-width="0.8" stroke-dasharray="2 2"/>
+<text x="150" y="150" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="middle" font-weight="normal" font-style="normal">3-inch speaker behind (dashed)</text>
+<text x="145" y="160" font-family="DejaVu Sans" font-size="7" fill="#8a8174" text-anchor="middle" font-weight="normal" font-style="normal">standing: the bottom is the face (speaker + grille)</text>
+<path d="M 40 4 q 105 -18 210 0" fill="none" stroke="#c4512e" stroke-width="3"/>
+</g>
+<text x="300" y="40" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Keep: the speaker-face and</text>
+<text x="300" y="51" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">handle-stand are real logic.</text>
+<text x="300" y="62" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">Reframe layout: a radio has</text>
+<text x="300" y="73" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">ONE big dial — so CUTOFF is</text>
+<text x="300" y="84" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">large; the rest stay in signal</text>
+<text x="300" y="95" font-family="DejaVu Sans" font-size="8" fill="#2b2722" text-anchor="start" font-weight="normal" font-style="normal">order. Hand-split dropped.</text>
+<text x="300" y="111" font-family="DejaVu Sans" font-size="8" fill="#c4512e" text-anchor="start" font-weight="normal" font-style="normal">Risk: OB-4 / Braun pastiche.</text>
+</g>
+</svg>

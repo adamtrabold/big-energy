@@ -1,0 +1,168 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * bench vco_tran: one oscillator, free-running transient.
+
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 25.000000 and TNOM = 25.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vp                                          10
+vn                                         -10
+kbd                                     3.0528
+rng                                   -5.59779
+width                                        0
+xv.xrefs.xic9.11                    -0.0396729
+xv.xrefs.xic9.12                     -0.039662
+xv.xrefs.xic9.6                   -0.000154457
+xv.xrefs.xic9.7                       -3.38246
+xv.xrefs.ic9o                          -3.3913
+xv.xrefs.xic9.53                            -1
+xv.xrefs.xic9.54                            -9
+xv.xrefs.xic9.90                      0.176776
+xv.xrefs.xic9.91                            25
+xv.xrefs.xic9.92                           -25
+xv.xrefs.xic9.99                            -5
+xv.xrefs.xic9.10                      -5.60413
+xv.xrefs.n9n                          -5.00039
+xv.xrefs.xic9.13                      -5.59025
+xv.xrefs.n9p                           -5.0004
+xv.xrefs.xic9.14                      -5.59025
+xv.xrefs.xic9.9                              0
+xv.xrefs.xic9.8                       -3.38246
+xv.m5                                 -4.99998
+xv.xrefs.b38                          -4.22215
+xv.m4                                 -3.86704
+xv.nbend                                  6.12
+xv.ntune                               7.53147
+xv.next                                      0
+xv.sum                                -5.00004
+xv.x1.xic1.11                       -0.0396769
+xv.x1.xic1.12                       -0.0396581
+xv.x1.xic1.6                      -4.57854e-06
+xv.x1.xic1.7                          -4.95883
+xv.x1.ic1o                            -4.96242
+xv.x1.xic1.53                               -1
+xv.x1.xic1.54                               -9
+xv.x1.xic1.90                        0.0718322
+xv.x1.xic1.91                               25
+xv.x1.xic1.92                              -25
+xv.x1.xic1.99                               -5
+xv.x1.xic1.10                         -5.60378
+xv.x1.xic1.13                         -5.58991
+xv.pos                                -5.00006
+xv.x1.xic1.14                         -5.58991
+xv.x1.xic1.9                                 0
+xv.x1.xic1.8                          -4.95883
+xv.x1.n11                              -5.0628
+xv.x1.sub                             -9.83962
+xv.x1.n9                              -4.96355
+xv.x1.bref                            -4.96651
+xv.x1.n19                             -4.96695
+xv.x1.bexp                            -5.00002
+xv.x1.cref                             -3.8672
+xv.x1.e2                              -5.61877
+xv.x1.cexp                             -1.6854
+ramp                                   -1.6854
+xv.x1.btail                           -9.18151
+xv.x1.xic3.11                          9.96102
+xv.x1.xic3.12                          9.96118
+xv.x1.xic3.6                       0.000279439
+xv.x1.xic3.7                           -3.0007
+xv.x1.ic3o                            -3.02123
+xv.x1.xic3.53                                9
+xv.x1.xic3.54                               -9
+xv.x1.xic3.90                         0.410685
+xv.x1.xic3.91                               25
+xv.x1.xic3.92                              -25
+xv.x1.xic3.99                                0
+xv.x1.xic3.10                         -4.47008
+xv.x1.xic3.13                         -4.45645
+xv.x1.xic3.14                          -4.4565
+xv.x1.xic3.9                                 0
+xv.x1.xic3.8                           -3.0007
+xv.x1.n78                             -9.18151
+xv.x1.rst                             -0.90677
+xv.x1.d7a                              8.73486
+xv.x1.s7                             -0.583503
+xv.x1.d7b                              8.73199
+xv.x1.fb                              -1.68482
+xv.x1.c4                             -0.628965
+xv.x1.b4                              -3.86933
+xv.x1.e4                              -4.51718
+xv.x1.e89                              9.36118
+xv.x1.c8                              -9.29627
+xv.buf                                0.480792
+xv.x1.c5                            -0.0547264
+xv.x1.b5                             -0.641302
+xv.x1.c6                              -4.90691
+xv.x1.nj                              -5.15307
+saw                                    0.25108
+xv.x1.tric                           -0.102449
+xv.x1.e2t                            -0.190029
+xv.x1.e1                             -0.770012
+tri                                   -1.54348
+xv.x1.b11                            -0.288264
+xv.x1.c11                             -9.99991
+xv.x1.b12                             -9.99995
+xv.x1.c12                          -0.00341208
+rect                               -0.00147126
+hold                                        -2
+hctl                                         1
+h.xv.x1.xic3.hlim#branch          -8.21454e-13
+v.xv.x1.xic3.vlim#branch           0.000410685
+h.xv.x1.xic1.hlim#branch          -1.43704e-13
+v.xv.x1.xic1.vlim#branch           7.18322e-05
+h.xv.xrefs.xic9.hlim#branch       -3.53606e-13
+v.xv.xrefs.xic9.vlim#branch        0.000176776
+vhctl#branch                                 0
+vhold#branch                          0.314602
+v.xv.x1.xic3.vln#branch           -2.54147e-11
+v.xv.x1.xic3.vlp#branch           -2.45901e-11
+v.xv.x1.xic3.ve#branch             5.97957e-12
+v.xv.x1.xic3.vc#branch              1.2022e-11
+v.xv.x1.xic3.vb#branch             2.79439e-09
+v.xv.x1.vexp#branch                2.80393e-05
+v.xv.x1.xic1.vln#branch           -2.50758e-11
+v.xv.x1.xic1.vlp#branch            -2.4929e-11
+v.xv.x1.xic1.ve#branch             4.03838e-12
+v.xv.x1.xic1.vc#branch             3.96322e-12
+v.xv.x1.xic1.vb#branch            -4.57854e-11
+v.xv.vext#branch                  -9.90107e-05
+v.xv.vtune#branch                 -2.23777e-05
+v.xv.vbend#branch                 -7.41336e-05
+v.xv.xrefs.xic9.vln#branch        -2.51808e-11
+v.xv.xrefs.xic9.vlp#branch         -2.4824e-11
+v.xv.xrefs.xic9.ve#branch           5.6095e-12
+v.xv.xrefs.xic9.vc#branch           2.3921e-12
+v.xv.xrefs.xic9.vb#branch         -1.54457e-09
+vwid#branch                       -6.70382e-06
+vrng#branch                        3.98496e-05
+vkbd#branch                        -0.00015759
+vn#branch                            0.0479874
+vp#branch                          -0.00906832
+a$poly$e.xv.x1.xic3.egnd#branch_1_0    -0.000411023
+a$poly$e.xv.x1.xic1.egnd#branch_1_0     -7.1878e-05
+a$poly$e.xv.xrefs.xic9.egnd#branch_1_0    -0.000176822
+
+ Reference value :  4.14145e-03
+ Reference value :  7.48360e-03
+ Reference value :  1.29009e-02
+ Reference value :  1.72014e-02
+ Reference value :  2.15013e-02
+ Reference value :  2.58015e-02
+No. of Data Rows : 21168
+ngspice-42 done
+Warning: Model issue on line 87 :
+  .model je402 njf (tnom=25 vto=-1.5 beta=1.0e-3 lambda=0.05 rd=20 rs=20 c ...
+unrecognized parameter (n) - ignored
+
+Using SPARSE 1.3 as Direct Linear Solver
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed

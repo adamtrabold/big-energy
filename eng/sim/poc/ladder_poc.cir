@@ -1,0 +1,44 @@
+* POC: Moog-style transistor ladder, saw in, cutoff sweep -> WAV
+.model QN NPN(IS=6.7e-15 BF=200 VAF=74 RB=10 CJE=4.5p CJC=3.6p TF=0.3n)
+VCC vcc 0 10
+VEE vee 0 -10
+* bias for ladder bases
+Vb1 b1 0 3.0
+Vb2 b2 0 2.4
+Vb3 b3 0 1.8
+Vb4 b4 0 1.2
+Vb5 b5 0 0.6
+* input: 110 Hz saw, 30 mV p-p differential
+Vin inp 0 PULSE(-15m 15m 0 9.08m 1u 1u 9.09m)
+* expo-ish control current: sweep tail current 2uA -> 400uA over 2 s
+Itail tail vee PWL(0 2u 1 400u 2 2u)
+* driver diff pair
+Q1 c1a inp tail QN
+Q2 c1b fb tail QN
+* stage 1..4 : pairs with caps between collectors
+Q3 c2a b5 c1a QN
+Q4 c2b b5 c1b QN
+C1 c1a c1b 0.068u
+Q5 c3a b4 c2a QN
+Q6 c3b b4 c2b QN
+C2 c2a c2b 0.068u
+Q7 c4a b3 c3a QN
+Q8 c4b b3 c3b QN
+C3 c3a c3b 0.068u
+Q9 c5a b2 c4a QN
+Q10 c5b b2 c4b QN
+C4 c4a c4b 0.068u
+* top loads
+R1 vcc c5a 1k
+R2 vcc c5b 1k
+C5 c5a c5b 0.068u
+* output differential, resonance feedback via behavioral (k=3)
+Eout out 0 c5a c5b 1
+Efb fb 0 VALUE={ -0.0* V(out) }
+.options method=gear reltol=1e-3
+.tran 20u 2 0 20u
+.control
+run
+wrdata out.txt v(out)
+.endc
+.end

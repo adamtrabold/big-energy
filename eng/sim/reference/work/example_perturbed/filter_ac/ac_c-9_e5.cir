@@ -1,0 +1,21 @@
+* BENCH filter_ac: ladder small-signal response, one 33K mixer channel in, rest of mixer as load.
+* Placeholders: ADAPTER CUT R14 WRFILE TEMP
+.include /home/claude/model-d/eng/sim/reference/work/example_perturbed/adapter.inc
+.options temp=25 tnom=25 reltol=1e-4 abstol=1e-12 vntol=1e-7
+vp vp 0 10
+vn vn 0 -10
+vcut cut 0 -9
+vsrc src 0 dc 0 ac 1
+rmix src ain 33k
+* the other mixer channels (2 osc + ext 33K, noise 11K) load the bus whether on or off
+rbus ain 0 5.5k
+vamt amt 0 0
+xf ain cut amt out vp vn dut_vcf r14=5000
+.control
+set wr_singlescale
+set wr_vecnames
+ac dec 60 1 100k
+wrdata ac_c-9_e5.dat vdb(out) vp(out)
+quit
+.endc
+.end

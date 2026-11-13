@@ -1,0 +1,24 @@
+* BENCH vco_tran: one oscillator, free-running transient.
+* Placeholders (filled by run_all.py): ADAPTER KBD RNG WIDTHNET TMAX TSTOP WRFILE TEMP DUTPARAMS
+.include /home/claude/model-d/eng/sim/reference/work/example_perturbed/adapter.inc
+.options temp=25 tnom=25 reltol=1e-4 abstol=1e-12 vntol=1e-6 method=gear maxord=2
+vp vp 0 10
+vn vn 0 -10
+vkbd kbd 0 3.392
+vrng rng 0 -5.0
+* rectangle width: the WAVEFORM switch's second pole (0 V, or the R032/R033/R034 divider)
+vwid width 0 0
+xv kbd rng width ramp saw tri rect vp vn dut_vco r11=151.896017 a8=0.135225
+* start-up: hold the timing cap at -2 V for 1 us so the operating point converges
+vhold hold 0 -2
+shold ramp hold hctl 0 swhold
+vhctl hctl 0 pwl(0 1 1u 1 1.001u 0)
+.model swhold sw(vt=0.5 vh=0 ron=1 roff=1e14)
+.control
+set wr_singlescale
+set wr_vecnames
+tran 7.1023e-07 8.5227e-03 0 7.1023e-07
+wrdata cal_it2_d0_hi.dat v(ramp) v(saw) v(tri) v(rect)
+quit
+.endc
+.end

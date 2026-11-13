@@ -1,0 +1,1006 @@
+{
+ "golden": "out/golden",
+ "dut": "out/example_perturbed",
+ "limits": {
+  "track_cents": 1.0,
+  "track_hf_cents": 3.0,
+  "harm_db": 1.0,
+  "harm_db_low": 3.0,
+  "duty_abs": 0.02,
+  "level_rel": 0.05,
+  "fc_cents": 25.0,
+  "slope_db": 1.0,
+  "mag_db": 0.5,
+  "onset_dial": 0.5,
+  "lowosc_rel": 0.15,
+  "time_rel": 0.15,
+  "overshoot_rel": 0.05,
+  "peak_v": 0.1,
+  "lsd_db": 2.0,
+  "env_db": 1.0,
+  "osc_cents": 1.0
+ },
+ "rows": [
+  {
+   "block": "vco",
+   "check": "tracking",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "110Hz square",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "110Hz wide_m1v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "110Hz narrow_m2v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "440Hz square",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "440Hz wide_m1v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "440Hz narrow_m2v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "1760Hz square",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "1760Hz wide_m1v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vco",
+   "check": "1760Hz narrow_m2v5",
+   "diff": null,
+   "limit": 0,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.0011355809141733175,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.00014413176720395882,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 emph 0 |H| max dB",
+   "diff": 0.023010499999999823,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 emph 5 |H| max dB",
+   "diff": 0.11151119999999892,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -9 emph 7 |H| max dB",
+   "diff": 0.2181324,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.0020172354742271636,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.00023189700435821692,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 emph 0 |H| max dB",
+   "diff": 0.03723109999999963,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 emph 5 |H| max dB",
+   "diff": 0.16701222000000016,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -6 emph 7 |H| max dB",
+   "diff": 0.59621361,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.0030195670338919456,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.0004012955323524636,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 emph 0 |H| max dB",
+   "diff": 0.04546106999999999,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 emph 5 |H| max dB",
+   "diff": 0.2191477000000006,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut -3 emph 7 |H| max dB",
+   "diff": 1.2675668000000002,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.0032250524304728856,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.0009242006753353849,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 emph 0 |H| max dB",
+   "diff": 0.04835754000000003,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 emph 5 |H| max dB",
+   "diff": 0.24581397999999943,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 0 emph 7 |H| max dB",
+   "diff": 1.9563276399999996,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.0033246749998312453,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.00220932515382799,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 emph 0 |H| max dB",
+   "diff": 0.04929560000000022,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 emph 5 |H| max dB",
+   "diff": 0.2554876299999993,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 3 emph 7 |H| max dB",
+   "diff": 2.2632004300000004,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.003628089515256505,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 slope_db_per_oct_3to5oct_above_fc",
+   "diff": -0.0030115773313958982,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 emph 0 |H| max dB",
+   "diff": 0.05023250999999984,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 emph 5 |H| max dB",
+   "diff": 0.2552504199999994,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 6 emph 7 |H| max dB",
+   "diff": 2.36028575,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 9 fc (cents)",
+   "diff": 0.0,
+   "limit": 25.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 9 slope_db_per_oct_1to3oct_above_fc",
+   "diff": 0.003600120463605805,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 9 emph 0 |H| max dB",
+   "diff": 0.05228970000000022,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 9 emph 5 |H| max dB",
+   "diff": 0.24648613000000008,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "cut 9 emph 7 |H| max dB",
+   "diff": 2.25401104,
+   "limit": 0.5,
+   "result": "FAIL"
+  },
+  {
+   "block": "vcf",
+   "check": "onset 20Hz: golden does not oscillate; dut must not either",
+   "diff": null,
+   "limit": null,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "self-osc onset 100Hz (dial)",
+   "diff": 0.125,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "self-osc onset 200Hz (dial)",
+   "diff": 0.0625,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "self-osc onset 2kHz (dial)",
+   "diff": 0.125,
+   "limit": 0.5,
+   "result": "PASS"
+  },
+  {
+   "block": "vcf",
+   "check": "lowest self-osc freq rel",
+   "diff": 0.0031779626217138812,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 filter overshoot ratio rel",
+   "diff": 0.0,
+   "limit": 0.05,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "fastest_S10 loudness overshoot ratio rel",
+   "diff": 0.0,
+   "limit": 0.05,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "mid_S5 loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "attack_max_S10 loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 filter decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "decay_max_S0 loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayON loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF filter sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness trigger_delay_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness attack_10_90_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness decay_tau63_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness release_90_10_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness release_90_50_s rel",
+   "diff": 0.0,
+   "limit": 0.15,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness peak_v (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "contour",
+   "check": "release_decayOFF loudness sustain_v_before_release (V)",
+   "diff": 0.0,
+   "limit": 0.1,
+   "result": "PASS"
+  },
+  {
+   "block": "voice",
+   "check": "bass_pluck log-spectral distance (dB)",
+   "diff": 2.932809352874756,
+   "limit": 2.0,
+   "result": "FAIL"
+  },
+  {
+   "block": "voice",
+   "check": "bass_pluck envelope RMS diff (dB)",
+   "diff": 5.700186428510441,
+   "limit": 1.0,
+   "result": "FAIL"
+  },
+  {
+   "block": "voice",
+   "check": "bass_pluck pitch (cents)",
+   "diff": -4.120140377553322e-05,
+   "limit": 1.0,
+   "result": "PASS"
+  },
+  {
+   "block": "voice",
+   "check": "resonant_sweep log-spectral distance (dB)",
+   "diff": 2.445485830307007,
+   "limit": 2.0,
+   "result": "FAIL"
+  },
+  {
+   "block": "voice",
+   "check": "resonant_sweep envelope RMS diff (dB)",
+   "diff": 5.6308461222207695,
+   "limit": 1.0,
+   "result": "FAIL"
+  },
+  {
+   "block": "voice",
+   "check": "resonant_sweep pitch (cents)",
+   "diff": 0.00013978023053061144,
+   "limit": 1.0,
+   "result": "PASS"
+  }
+ ],
+ "n_fail": 20
+}

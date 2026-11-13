@@ -1,0 +1,10 @@
+CV 10 node  pp 1.18981
+CV 8 node  pp 0.933182
+CV 6 node  pp 0.673802
+CV 4 node  pp 0.413674
+CV 3 node  pp 0.284246
+CV 2 node  pp 0.156439
+CV 1.5 node  pp 0.0940856
+CV 1 node  pp 0.035113
+CV 0.5 node  pp 0.000387253
+CV 0 node  pp 1.10223E-05

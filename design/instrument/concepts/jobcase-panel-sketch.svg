@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 150" font-family="'Comic Neue','Bradley Hand',cursive" >
+  <title>Job-case panel hierarchy sketch (visual designer, jam turn 1). Units ~mm. Not to scale for parts.</title>
+  <rect x="0" y="0" width="330" height="150" fill="#f4efe6"/>
+  <!-- panel -->
+  <rect x="5" y="10" width="320" height="115" rx="3" fill="#141414"/>
+  <!-- type-case compartments: width ~ how often the hand goes there -->
+  <g fill="none" stroke="#c9a14a" stroke-width="0.4">
+    <rect x="8" y="13" width="34" height="109"/>   <!-- controllers -->
+    <rect x="45" y="13" width="82" height="109"/>  <!-- oscillators -->
+    <rect x="130" y="13" width="44" height="109"/> <!-- mixer -->
+    <rect x="177" y="13" width="92" height="109"/> <!-- filter: the 'e' compartment -->
+    <rect x="272" y="13" width="50" height="109"/> <!-- loudness + out -->
+    <line x1="45" y1="49" x2="127" y2="49"/><line x1="45" y1="85" x2="127" y2="85"/>
+  </g>
+  <g fill="#e8e2d6" font-size="4.2">
+    <text x="10" y="20">controllers</text><text x="47" y="20">oscillators</text>
+    <text x="132" y="20">mixer</text><text x="179" y="20">filter</text><text x="274" y="20">loudness</text>
+  </g>
+  <!-- knob tiers: T1 big, T2 medium, T3 small -->
+  <g fill="#e8e2d6">
+    <!-- controllers -->
+    <circle cx="25" cy="38" r="7"/><circle cx="25" cy="65" r="7"/><circle cx="25" cy="90" r="4"/>
+    <!-- oscillators: range(T3) freq(T2) wave(T3) x3 -->
+    <circle cx="60" cy="34" r="4"/><circle cx="104" cy="34" r="4"/>
+    <circle cx="60" cy="68" r="4"/><circle cx="82" cy="68" r="7"/><circle cx="104" cy="68" r="4"/>
+    <circle cx="60" cy="104" r="4"/><circle cx="82" cy="104" r="7"/><circle cx="104" cy="104" r="4"/>
+    <!-- filter: cutoff T1 -->
+    <circle cx="206" cy="58" r="20"/>
+    <circle cx="206" cy="58" r="15" fill="none" stroke="#141414" stroke-width="0.4"/>
+    <circle cx="246" cy="38" r="7"/><circle cx="246" cy="70" r="7"/>
+    <!-- out -->
+    <circle cx="312" cy="38" r="7"/>
+  </g>
+  <!-- cutoff gets the single signal colour -->
+  <circle cx="206" cy="58" r="3" fill="#ff5a1f"/>
+  <!-- faders: mixer x5, filter ADS x3, loudness ADS x3 -->
+  <g stroke="#555" stroke-width="1.6" stroke-linecap="round">
+    <line x1="137" y1="30" x2="137" y2="112"/><line x1="145" y1="30" x2="145" y2="112"/><line x1="153" y1="30" x2="153" y2="112"/><line x1="161" y1="30" x2="161" y2="112"/><line x1="169" y1="30" x2="169" y2="112"/>
+    <line x1="190" y1="88" x2="190" y2="118"/><line x1="206" y1="88" x2="206" y2="118"/><line x1="222" y1="88" x2="222" y2="118"/>
+    <line x1="280" y1="60" x2="280" y2="118"/><line x1="292" y1="60" x2="292" y2="118"/><line x1="304" y1="60" x2="304" y2="118"/>
+  </g>
+  <g fill="#e8e2d6">
+    <rect x="134" y="50" width="6" height="4"/><rect x="142" y="40" width="6" height="4"/><rect x="150" y="70" width="6" height="4"/><rect x="158" y="100" width="6" height="4"/><rect x="166" y="105" width="6" height="4"/>
+    <!-- the cap positions draw the envelope shape you'd hear -->
+    <rect x="187" y="90" width="6" height="4"/><rect x="203" y="104" width="6" height="4"/><rect x="219" y="98" width="6" height="4"/>
+    <rect x="277" y="112" width="6" height="4"/><rect x="289" y="80" width="6" height="4"/><rect x="301" y="70" width="6" height="4"/>
+  </g>
+  <polyline points="190,92 206,106 222,100" fill="none" stroke="#c9a14a" stroke-width="0.4" stroke-dasharray="1 1"/>
+  <polyline points="280,114 292,82 304,72" fill="none" stroke="#c9a14a" stroke-width="0.4" stroke-dasharray="1 1"/>
+  <!-- status light + tune -->
+  <circle cx="312" cy="54" r="2" fill="#7CFFB2"/>
+  <!-- annotations -->
+  <g fill="#333" font-size="4">
+    <text x="5" y="7">Compartment width = how often the hand goes there (California job case: the "e" box is biggest). Cutoff is the "e".</text>
+    <text x="5" y="133">3 knob tiers: T1 cutoff (~40 mm cap) / T2 played (~16 mm) / T3 set-and-forget (~10 mm). Faders: mixer + both contours.</text>
+    <text x="5" y="140">Fader caps draw the envelope you'll hear. Gold rules = bare ENIG on black mask. Legends hand-lettered by the owner.</text>
+    <text x="5" y="147">Switches omitted. OPEN: on a piano surface the free hand is the LEFT; this left→right flow puts cutoff at the wrong hand. See jam.</text>
+  </g>
+</svg>

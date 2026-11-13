@@ -1,0 +1,119 @@
+# Director notes: Little D (budget instrument), physical design
+
+## Status (after round 5 scoring, 2026-11-13): READ THIS FIRST
+- **Round 5: HUSH 9, ONE SHEET 9, FOLD-105 9.** All three go to the owner after **S1**, a shared label-clearance pass. S1: short labels under section headings (echo: type · time; reverb: decay · type), ≥ 1.5 mm between legends and between legends and skirts, grow the depth up to ≈ 10 mm if needed (owner: "grow the panel"). I check S1 only; no re-score.
+- **FOLD-113 is not offered:** it fails the gap (75.45). For more runtime, use a bigger cell in the same footprint, not deeper halves.
+- **Must-fix / test before handoff:**
+  - FOLD: the right stay groove clashes with the lid-wall jacks (prefer moving the I/O to the left end face). Systems also confirms the AFTERTOUCH toggle and the Daisy Seed placement.
+  - HUSH: the steam-blocking corner test (now incl. edge A's r 4 front).
+  - ONE SHEET: the rings coupon, now a pre-build check, not a score blocker. The fallback is per-volume bottom patterns in the 3MF.
+- **Owner's latest asks (all reflected):** echo + reverb on a Daisy Seed with the full 8 FX controls; DRIFT; MIDI out; aftertouch with its own switch; key edge A/B (show both); front views; FOLD standing lid at one fixed angle (105° on flush brass stays); ONE SHEET smooth + rings only. Paraphonic mode is pending his key-tracking question (eng).
+- **Lesson:** feature additions break legends before they break knob pitch. Add a legend-clearance check to every layout change. FOLD still needs the open-depth check on every change.
+- **Next:** S1 → owner picks (and chooses key edge A/B) → handoff.md check against the approved concept + owner.md.
+
+## Earlier status (after round 4 scoring, 2026-11-12): READ THIS FIRST
+- **The owner paused TYPE CASE and HYMNAL** (both 9, on file). Active: HUSH, FOLD, ONE SHEET.
+- **His round-4 brief:** unibody, screws from the back (ideal, flexible); HUSH organically rounded; FOLD = Proof walnut + white, rounded edges with flat top and bottom, block + pickguard; HUSH and ONE SHEET loaded from behind; keys to the front edge, knobs logically split, narrower; no case work; internal battery required.
+- **Round 4 scores:**
+  - **HUSH 9**, to the owner. Must test: steam-blocking felt directly on a PLA/PETG shell risks warping (≈ 100 °C steam). The corner test decides; the fallback is blocking over a separate form. Also the I/O board x ≈ 60–230 and the speaker x ≤ 243.
+  - **FOLD 7.** Blockers:
+    1. the ≈ 119 mm mid-deck gap (open 286 × 234). Fix: slim cells (≈ 8 × 30 × 40 class) in the existing 31 mm lid band, halves back to ≈ 86–90, PLAY→VOICE ≤ ≈ 60, open ≤ ≈ 185;
+    2. EMPHASIS split from CUTOFF across the hinge. Eng: can it cross the ribbon? Otherwise it's an owner decision;
+    3. black section names, not ochre.
+  - **ONE SHEET 8, unchanged.** The coupon is still unprinted. Print it: reads → 9, doesn't → drop.
+- **New lesson:** FOLD couples its halves' depths. Any added depth shows up twice, so check the open depth after every change.
+- **Next:** HUSH to the owner. FOLD redraw after systems/eng answer the battery and EMPHASIS questions. ONE SHEET waits on a physical coupon. If the owner turns down a 9, record his reasons here.
+
+## Earlier status (after round 3 scoring, 2026-11-12): READ THIS FIRST
+- **Round 3:**
+  - **HUSH 9** (cream knobs, "Nothing shouts"; NOT black as the coordinator said).
+  - **FOLD 9**: one white panel, black knobs, walnut palm rest, 12 mm panel shift, closed 51 shown beside a book. **Must-fix before handoff:** TUNE collides with the bend stick when closed (a ≈ 6 mm well or a lower cap). Systems also confirms the shift, the 18T pot shafts and the black knob's price.
+  - **ONE SHEET 8**: "toolpath is the finish" is the right idea, but it's unproven. It needs a photographed test coupon (≈ 80 × 80, three regions, smooth PEI) on sheet A. Coupon reads → 9. It doesn't → drop the concept.
+- **With the owner at 9:** TYPE CASE, HYMNAL (round 2), HUSH, FOLD (round 3). The owner was waiting on HUSH and FOLD before approving.
+- **Carry to the owner:** FOLD at 51 closed (≈ 44–47 floor) vs HYMNAL's 38; names from `naming.md`.
+- **Next:** the owner picks a concept, then handoff.md. Check handoff.md against the approved concept and owner.md, and send back any drift. If the owner turns down any 9, record his reasons here.
+
+## Earlier status (after round 2 scoring, 2026-11-12): READ THIS FIRST
+- **Owner context:** the budget instrument is now THE instrument ("the most interesting thing overall"). He liked TYPE CASE, HUSH and HYMNAL. "Little D" is dropped as a name (`../naming.md` has candidates; WALLOP is ★). His hard rules: nothing raised among the knobs, nothing raised between the keys and the controls, and tactile section separation only if it doesn't get in the way. 3D-printed enclosures are welcome; knobs and keys must still be bought. He asked for printed ONE SHEET, printed HUSH + felt, and FOLD (two parts, controls on top, a white panel in a dark surround, printable first, walnut later). He saw the round-2 A sheets unscored.
+- **Round 2 scores** (`../scores.md`):
+  - **TYPE CASE 9** and **HYMNAL 9**: these go to the owner.
+  - HUSH 8: blocker is the yellow knobs (loud and toy-like on the "hush" concept). Fix: cream.
+  - FOLD 7: fixes are one white panel in two plates (not five), redraw at closed ≈ 51 plus show the ≈ 44 floor, give the palm rest a job and a surface, show scale when closed.
+  - ONE SHEET printed 7: its idea lives in the making, not the object. Either make the print visible on the face, or retitle it as the plain baseline.
+  - **UNDER GLASS 6: killed.** Parallax hides the windows, it's over cost, and the owner never asked for it.
+- **New rulings:**
+  - **R5:** a knob colour must follow from the concept's idea; repeating a colour is fine. This replaces my round-1 "different colour per concept".
+  - **R6:** five concepts maximum in front of the owner.
+- **Still in force:** R2 (pitch ≥ 20, IV's played row 25/24, ≥ 7 mm to a section break), R3 (≈ 36 body / ≤ 40 to knob tops; FOLD closed is the exception, for the owner to decide), R4 (flush).
+- **Owner questions to carry with the passes:** FOLD at 44–51 closed vs HYMNAL at 38? Any name from `naming.md`?
+- **Next:** one quick round (HUSH colour, FOLD fixes, ONE SHEET choice), then re-score. If the owner turns down a 9, record his reasons here: they are the best signal of what a 9 means to him.
+
+## What a 9 has meant so far (my calibration)
+- Every visible choice traces to one idea, the round's owner rules are met, there's a lean cost default, and the owner's hand has a place. Plus, from round 2: it has to be the most interesting version of itself, not just a tidy one.
+- My blind spot: economy and process ideas (ONE SHEET, my own) don't make a form by themselves. Device rules I add for the set (knob colours) mustn't override a concept's own logic.
+
+## Earlier status (after round 1 scoring, 2026-11-12) — READ THIS FIRST
+- Round 1 scored (`../scores.md`): **TYPE CASE 8, HYMNAL 8, HUSH 7, ONE SHEET 6 → replaced by UNDER GLASS.** Nothing at 9; nothing to the owner yet.
+- Rulings: **R1** lip rule H3 retired (bought Choc V2 switches; lip no longer mechanical) → H3' "key edge": comes from the idea, hides switch housings/strip C, prevents snags; section kept as fit check only. **R2** knob gaps: 4 mm rejected; keep Tayda KN1250; min 20 mm pitch, 24 mm for IV's played row (CUTOFF/EMPHASIS/CONTOUR AMT); take width from section gaps; never shrink the knob. **R3** thickness vs owner's ~36 body / ≤40 knob tops; all depend on eng E-L2 (thin speaker) — must be answered before round 2.
+- New owner answers absorbed: show BOTH self-protecting and sleeve (UNDER GLASS = sleeve now, the other three self-protecting); velocity LOUD/BOTH/FILT toggle; bend up+down; "Nods are fine but I want to see breadth of explorstion"; ~36 mm body; standard printed board; show BOTH flat tops and pegs (HUSH pegs, rest short flat tops); no custom keys → Choc V2 silent + pressed tops (eng velocity-and-keys-v2.md; short tops S1 default, piano tops +$29.85 stabs).
+- Owner is impatient ("Where do I see these?"). One fast fix round, then show all four together.
+
+## Round 1 record
+- TYPE CASE 8: right idea, use-pole done well. Blockers: rim 40 reads chunky; knob crowding; grey blank cards. Fixes: R2, rim ≤38 + edge chamfer, real card content, thumb-at-wall view, ≤$15 India ink.
+- HYMNAL 8: best vibe picture; patch chart in lid; drop-front palm rest. Blockers: cost (+$15–34 enclosure + $29.85 stabs), retro costume (red knobs, script label). Fixes: short tops default (piano as +$30 inset), lean ≤$20, modern neutral panel, label as the owner's own placeholder, show drop-front latch.
+- HUSH 7: most distinct form (maple pegs through felt). Blocker: cost $59–63 wool / $30–40 blend. Fixes: ≤$30 version (felt on deck/panel only, flap optional), one hard-plate material, eng check felt bottom stop vs velocity, wear inset.
+- ONE SHEET 6 (my own idea; cut it hard): idea invisible in the 3/4, reads as TYPE CASE without walls / default laser slab; all-birch keys lose white/black; lip ruler has no job; fails "breadth". Its making rules survive as an option for ply concepts.
+- UNDER GLASS (new for round 2): printed board under reverse-painted clear acrylic with windows; aluminium U-channel rails; sleeve body; different knob colour; ≤$20.
+- Set-level blocker: **breadth** — one footprint, one layout, cream knobs. Fix through materials, knob colour, hero camera state.
+
+## Updated blocker hypotheses
+1. Cost vs vibe (confirmed: HYMNAL and HUSH lose their 9 on cost).
+2. Sameness across the set (new; owner explicitly wants breadth).
+3. Thickness depends on unanswered E-L2.
+
+
+## Earlier status (end of jam, Turn 3, 2026-11-12) — partly superseded above
+- Phase: concept jam has CLOSED with READY. **No scores yet.** The first scores will be provisional because no brand or visual foundation exists.
+- Full-instrument design is PAUSED (owner). Its director notes are in `design/instrument/notes/director.md`; I kept consistent with them: hero CUTOFF, one light, no Moog cheeks, cost/rigmarole as the recurring risk.
+- Concepts going forward: **TYPE CASE, ONE SHEET, HYMNAL, HUSH.**
+
+## The owner's tests for this work (his words → my judging tests)
+1. "coherent in form with some clear perspective": a single idea has to generate the silhouette, material, graphics and making. Visual's four-part test is the one I'll use.
+2. "Design principles with a solid basis of logic in the idea of the thing": every principle needs a "because" that traces back to what Little D *is* (budget, hand-built, portable and complete, a reduction of the Model D, silent keys).
+3. "Get creative" plus the earlier "expected / highly designed for use … and others with more sauce / vibe": the set has to span both kinds.
+4. Cost is his main concern ("250 feels high"). Anything that adds cost has to earn it.
+5. "it should feel good to use": OP-1 is a loose size reference only.
+6. He needs to see mocks to judge looks, so a believable 3/4 picture per concept is mandatory.
+
+## Key facts that bind the box
+- From `eng/keys-answers.md` (arrived mid-turn): slim RAIL keys at ≈ 22 mm, lip ≈ 26 mm, control zone ≈ 30 mm, box ≈ 180 mm deep (was 170). Rod support combs every 3–4 keys, hung from the lip. RAIL ≈ $52–58 ($35–46 on scrap).
+- My reading: **the lip is the spine** (top stop + rod carrier + step). This became house rule H3. It's the strongest form-logic hook we have, and it's shared across concepts.
+- Envelope ≈ 290 × 180 mm; ≤ 36 mm with knobs; 40 mm ceiling pending the owner.
+
+## Rulings (Turn 3)
+- SPREAD merged into TYPE CASE (same kind; SPREAD's enclosure is just a tray). Numerals I–V carried over; emblems optional, no occult imagery.
+- RADIO and UNDER GLASS are donors (bottom speaker, kerf band; reverse-painted acrylic). STRATA is dead.
+- HYMNAL must resolve book vs cigar box (cigar-box guitar = the folk lineage of cheap hand-built instruments; from my random draw).
+- HUSH pairs with DISH maple-plug keys (owner cited Critter & Guitari), if velocity and feel hold.
+- ONE SHEET is my own new direction (cost as the idea; one 12 × 24 in sheet; nest arithmetic ≈ 72 % for the shell). **My favourite, so be hard on it.** Its kill risks: the laser-craft / Etsy look, nest-forced proportions, the story staying invisible or turning into a gimmick.
+- House rules H1–H9 in jam.md §4: inherit logic not looks; prune don't shrink; lip is the spine; one hero knob (CUTOFF) plus one bought knob family; cost discipline (enclosure > $15 needs a named saving); machine marks exact / hand marks meant; one status light, not-in-control light by CUTOFF, guarded power switch; envelope; jacks on one edge, never the stick end.
+- Deliverables per concept: jam.md §5 (3/4 picture, top view in mm, H3 section, carry/play states, principles with "because", cost/hours/thickness, six axes).
+
+## Likely owner objections (watch for these when scoring)
+- **Cost creep**: HYMNAL (+$10–20) and HUSH (+$15–30 felt) in particular. The biggest risk, given his history.
+- **"Laser-cut craft / Etsy"** look: TYPE CASE (tray), ONE SHEET (ply box).
+- **Costume**: HYMNAL going "olde", HUSH reading as a tech sleeve, tarot remnants.
+- **Too thick**: TYPE CASE ≈ 34–36, HYMNAL ≈ 40 closed.
+- **Durability/grime**: felt pilling, bookcloth hinge wear.
+- Anything Moog-looking (cheeks, wedge). Note that eng's "key step in front of control zone" is a step, not a wedge; keep it from reading as a wedge.
+- Fiddly use: TYPE CASE knobs near cell walls; HUSH roll flap as rigmarole.
+
+## Open questions
+- With the owner: trade dress for Little D; bend up-only vs one axis; bare vs printed board; self-protecting or sleeve; 35–40 mm OK; **(new) +$10–20 for self-protection vs ~$12; (new) flat key tops vs maple pegs.**
+- Non-owner: Vector Space laser bed size and sheet stock (ONE SHEET depends on it); knob family from real Tayda/US stock (visual, before mocks); DISH velocity/feel (keys/eng); wool felt price per real area; bottom-speaker loudness on a lap.
+
+## What's blocking a 9
+Nothing scored yet. My hunch for the recurring blocker: **cost vs vibe**. The sauce concepts get their charm from added material, and the owner's first concern is cost. The second hunch is **laser-craft genericness**: proportions and joinery that read as "made on a laser" rather than as an instrument.
+
+## Next
+Concept building (systems + visual) on the four, against H1–H9 and the §5 deliverables. I steer after every pair of their turns. Then I score all four in one pass, naming the owner objections first. Kill and replace any concept that can't reach 9; ONE SHEET gets no favours.

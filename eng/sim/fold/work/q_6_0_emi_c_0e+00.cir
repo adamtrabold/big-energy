@@ -1,0 +1,20 @@
+* pickup
+.include /home/claude/model-d/eng/sim/fold/work/fold_emph_guarded.inc
+.options reltol=1e-4 abstol=1e-12 vntol=1e-7 method=gear maxord=2
+vp vp 0 10
+vn vn 0 -10
+vcut cut 0 6
+vsrc src 0 0
+rmix src ain 33k
+rbus ain 0 5.5k
+vamt amt 0 0
+xf ain cut amt out vp vn dut_vcf r14=5e+04
+
+.control
+set wr_singlescale
+set wr_vecnames
+tran 0.2u 32m 0 0.2u
+wrdata q_6_0_emi_c_0e+00.dat v(out)
+quit
+.endc
+.end
