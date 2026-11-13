@@ -63,3 +63,5 @@ Recorded as: DECISION — the site keeps deploying from the gh-pages branch. Ses
 
 2026-11-13 16:43 Owner (verbatim), on the live site: "every page here needs a point i literally have no idea what im looking at in "latest" for example. and where do i see the grille options and all of the other options"
 Recorded as: every page must state its point (what it is and why you are here) up front; "Latest" does not make sense to him. The site must show the open decisions waiting on him, with their options (e.g. the grille options) and images, in one obvious place.
+2026-11-13 16:44 Owner (verbatim): "FYI i have another agent running htis through impeccable to make it look better"
+Recorded as: another agent (outside this session) is restyling the site with Impeccable at the same time. Coordinate: pull before editing, keep this team's site changes to content and structure, commit small and often, and publish only from main.
