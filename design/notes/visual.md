@@ -1,5 +1,37 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 2 (2026-11-13, NEW visual designer; previous session ended): real-part keys, no machining, no spine, brass
+**Inputs this turn:**
+- Systems `cathedral/how-it-works.md` §10–11: Cherry Tree Toys 3/8" mushroom plug (head 12.7, tenon 9.53 × 3.2; birch SKU 31 / oak 31-O; head height unpublished) on a printed PETG carrier (cup Ø 9.6 × 3.3, neck Ø 11.2, 2.8 mm neck showing, deck hole Ø 12, felt stop moved under the deck); printed pegs allowed; stays / hinge leaves → printed 316L (JLC3DP) or PETG.
+- Owner 14:30–14:34: no machining; printed or bought keys; external / metal printing OK.
+- **Owner 14:40 (came mid-turn via the coordinator):** "I don't want a spine can we route cables through a hinge. Engraving texture I meant fine line texture — I'll probably do a design for the pipe lines. And what about brass and black keys? Or all brass? Could 3d print and reminds me of a cathedral".
+
+**Done:**
+- `design/branches/concepts/cathedral/how-it-looks-and-feels.md` → **rev 2**. Rewrote the header, POV table, §1 (keys), §4 (texture confirmed, façade = placeholder, constraints for his façade), §5 (no spine), §6, **new §7 (metal)**, Open. §2 / §3 kept (captions on the rev 1 renders now say what's stale).
+- **Image:** one new, `img/cathedral-peg-colours-real-parts.jpg` (2 × 3 grid, 2424 px square, six options A–F). **Deleted** the superseded `cathedral-peg-colours-2x2.jpg`. Every remaining image is linked with a caption.
+- **Code (`design/concepts/_mock-src/rb.py`):** `PEGS` dict (head / neck colours per row), `METALS` (brass / steel), `Cathedral(..., metal=)`, `Cathedral.peg_real()` (§10.2 geometry: hole ring Ø 12, neck Ø 11.2 to deck + 2.8, head 1.2 rim + dome, top deck + 6.8, H drawn 4.0), stays colour reads `METALS` via `getattr(self, "metal", "brass")` in `Branch.stand_extra`. Jobs `rb_ct2_col_<peg>` (7 incl. birch-birchblack, not published) and `rb_ct2_closed_steel` (rendered, **not published**: steel became the fallback once he asked for brass). Grid composed by `/tmp/scr/ct2_figs.py` (not in repo; it just tiles the six PNGs in order brass-black, black-brass, brass, birchblack-birch, birch, printed-black-cream at 1200 px with 24 px gutters, JPEG q88). Backup of the pre-turn rb.py at `/tmp/rb.py.bak`.
+
+**Decisions and why:**
+- **Keys: recommend B = black naturals + cast-brass sharps.** Black joins the knobs (one family), brass is the accent and repeats the case's brass; palette stays walnut / cream / black / red / brass, no brown. A (brass naturals) makes the keyboard loud vs CUTOFF; C (all brass) most cathedral but competes with red; see real brass before choosing. D / E birch (pale, near the cream under a non-ambering clear; dye wears pale on crowns); F printed (exact colours, least instrument-like).
+- **One interface for every head:** the carrier cup takes the plug's 9.53 × 3.2 tenon, so cast brass / printed heads are made with that tenon and are swappable after the build.
+- **Carrier neck in matte black** (reads as the hole's shadow; heads float like drawknobs).
+- **Brass routes:** cast brass via Sculpteo lost-wax from printed wax (80/15/5 alloy; raw / mirror / gold / black rhodium; min wall 0.8; max 125 × 125 × 100; 7–9 business days; price on upload; checked on pro.sculpteo.com this turn) vs brass-fill PLA (colorFabb brassFill named as an example, UNVERIFIED). Feel table in §1: cast = cold, heavy (≈ 5 g solid [CALC], ≈ 2.5–3 g hollow-cup ESTIMATE), worn shine on crowns, tarnished brass reads brown; fill = cool, lighter, satin. Same-feel alternative: all 25 cast, naturals black-rhodium (wears through to brass).
+- **Metal:** printed 316L reads matte grey steel → a second metal next to brass keys. Recommend **cast-brass stays**, PETG black 5 × 8 fallback (not grey), 316L only for the hidden hinge leaves. Steel everywhere is a fallback (organ pipes are tin), not a parallel option.
+- **TAP:** takes the sharps' material (brass in B).
+- **Spine:** gone. Asked that, if the slot stays open, its inner faces print walnut-tone.
+- **Fine line texture:** confirmed = case body texture → cathedral grain stays; first print plain. Façade is the owner's to design; gave him the field (x 34.8–251.2), axis screws, push-outs.
+
+**Director's objections:** none received for CATHEDRAL yet.
+
+**Open:**
+- Owner: keys A–F; reversed reading; lacquered or not; A / B layout (⚑).
+- Systems / eng: brass head mass on Choc V2 silent (return + velocity fit, test one hollow-cup head first); cast-brass stay strength; back slot + cables through the hinge; `branch_check.py` labels on `Cathedral("B")`; B's rose vs the Daisy.
+- Maker: buy one birch pack and measure head height H (sets key height; drawn 4.0); one Sculpteo quote (hollow-cup head + stay).
+- **Re-render later, not now:** closed view + both standing views (they show the retired spine and rev 1 keys) once systems settles the slot. Use `Cathedral(layout, "black-brass", spine="none")`.
+
+**Next:** director steers (keys, A / B). Then the re-renders above, or the handoff looks once approved.
+
+
 ## CATHEDRAL, turn 1 (2026-11-13): owner 14:12–14:18, CHAMBER x FOLD v1.1; rounds reset; RAIN parked
 **Owner's notes:**
 - spine probably unnecessary;
