@@ -57,13 +57,17 @@ Brass can be cast brass from a print service (cold, heavy, stays bright where yo
 The mono-cable detection on LINE OUT can't work as drawn.
 
 - **Two jacks, L/MONO and R:** the standard synth answer. A mono cable in L/MONO gets the full mix automatically, with no firmware. Adds one hole.
-- **Keep one stereo jack and rework the detection circuit:** fewer holes, more parts, and it needs a bench test.
+- **Keep one stereo jack and rework the detection circuit:** fewer holes, more parts, and it needs a bench test. A stereo cable into an audio interface can still go quiet.
+
+Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team recommends two jacks.*
+
+**Also:** should plugging into line out turn the speaker off? Most players expect it to, so the speaker doesn't feed back through a PA.
 
 ---
 
 ## 6. MIDI (see Docs → MIDI for the full page)
-- Should pan stay on CC 10? DAWs send CC 10 on project load, which would silently re-centre the dry pan. The team recommends an unused CC.
-- Should ECHO MIX and REVERB MIX be automatable from the DAW?
+- Should the dry pan stay on CC 10? DAWs send "pan = centre" on CC 10 every time a project opens, so the pan would jump to centre on its own. The team recommends moving it to an unused number.
+- Should a DAW be able to automate the echo and reverb amounts? Those two knobs would get the MIDI dot and the "held by MIDI" light.
 - Channel 1, or respond on any channel (omni)?
 - Should the knobs ever send MIDI (off by default), or receive only?
 

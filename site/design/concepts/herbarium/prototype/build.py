@@ -77,6 +77,16 @@ def resolve(href, src):
     base = os.path.basename(p)
     if base in DOCMAP and sum(1 for k in PATHMAP if os.path.basename(k) == base) <= 1: return "#i-" + DOCMAP[base]
     return None
+_COPYSRC = [None]
+def copied(href, src):
+    """downscaled copy of an image a doc links (path relative to the doc); None if not on disk"""
+    if not href or href.startswith("http"): return None
+    base_dir = os.path.dirname(src or _COPYSRC[0] or "")
+    rel = os.path.normpath(os.path.join(base_dir, href))
+    if not os.path.exists(P(rel)): return None
+    name = "X-" + re.sub(r"[^A-Za-z0-9]+", "-", os.path.splitext(rel)[0].replace("design/branches/concepts/", "")).strip("-")
+    sub = "drawing" if "px-per-mm" in rel or rel.endswith(".png") else "render"
+    return jpg(rel, name, 1600 if sub == "drawing" else 1400, 82 if sub == "drawing" else 80)
 STATUS_WORDS = r"(decided|proposed|open|not yet written|written|started)"
 def mark_status(h):
     """make decided / proposed / open visible: tag them inside table cells and bold runs"""
@@ -100,6 +110,7 @@ def label_cells(h):
         return re.sub(r"<tr>.*?</tr>", row, t, flags=re.S)
     return re.sub(r"<table>.*?</table>", table, h, flags=re.S)
 def md(text, imap=None, src=None, status=False):
+    _COPYSRC[0] = src
     h = markdown.markdown(text, extensions=["tables", "fenced_code", "sane_lists"])
     def pic(m):
         attrs = dict(re.findall(r'(\w+)="([^"]*)"', m.group(0)))
@@ -108,12 +119,20 @@ def md(text, imap=None, src=None, status=False):
             it = items[imap[base]]
             return (f'</p><figure><a href="#i-{it["code"]}"><img src="{it["src"]}" width="{it["w"]}" height="{it["h"]}" alt="{attrs.get("alt","")}" loading="lazy"></a>'
                     f'<figcaption>{attrs.get("alt","")} · {it["sub"]}</figcaption></figure><p>')
+        f = copied(attrs.get("src", ""), src)
+        if f:
+            return (f'</p><figure><a href="{f["src"]}" target="_blank" rel="noopener"><img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{attrs.get("alt","")}" loading="lazy"></a>'
+                    f'<figcaption>{attrs.get("alt","")}</figcaption></figure><p>')
         return f'<span class="ref">[image: {attrs.get("alt","")}]</span>'
     def rawfig(m):
         blk = m.group(0)
         src = re.search(r'<img [^>]*src="([^"]+)"', blk)
         base = os.path.splitext(os.path.basename(src.group(1)))[0] if src else ""
-        if not (imap and base in imap): return '<span class="ref">[image not on disk]</span>'
+        if not (imap and base in imap):
+            f = copied(src.group(1), None) if src else None
+            if not f: return '<span class="ref">[image not on disk]</span>'
+            cap = re.search(r"<figcaption>(.*?)</figcaption>", blk, flags=re.S)
+            return f'<figure><img data-done src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="" loading="lazy"><figcaption>{cap.group(1).strip() if cap else ""}</figcaption></figure>'
         it = items[imap[base]]
         alt = (re.search(r'alt="([^"]*)"', blk) or [None, ""])[1]
         cap = re.search(r"<figcaption>(.*?)</figcaption>", blk, flags=re.S)
@@ -169,6 +188,9 @@ DOCS = [
     ("D-011", "versions/v1.1/fold/how-it-works.md", "FOLD · how it works", "Lock", "locked in v1.1", "13 Nov"),
     ("D-013", "versions/v1.1/hush/how-it-works.md", "HUSH · how it works", "Lock", "locked in v1.1", "13 Nov"),
     ("D-015", "versions/v1.1/one-sheet/how-it-works.md", "ONE SHEET · how it works", "Lock", "locked in v1.1", "13 Nov"),
+    ("D-109", "design/branches/concepts/cathedral/how-it-looks-and-feels.md", "CATHEDRAL · how it looks and feels", "Concept", "exploring", "13 Nov"),
+    ("D-110", "design/branches/concepts/cathedral/how-it-works.md", "CATHEDRAL · how it works", "Concept", "exploring", "13 Nov"),
+    ("D-040", "design/branches/echo-clock.md", "Echo clock (FREE / SYNC)", "Spec", "current", "13 Nov"),
     ("R-001", "design/owner.md", "Owner record (the instrument)", "Concept", "current", "13 Nov"),
     ("R-002", "design/scores.md", "Director scores, rounds 1–5", "Concept", "current", "13 Nov"),
     ("R-003", "VERSIONS.md", "Versions", "Lock", "current", "13 Nov"),
@@ -423,6 +445,17 @@ for slug, path in REVIEWS:
     sc = re.search(r"\*\*(\d+ / 10)\*\*", t)
     reviews.append({"slug": slug, "path": path, "title": h1(t), "date": slug[:10], "score": sc.group(1) if sc else "", "lead": first_para(t),
                     "html": md(t, src=path), "jump": [h for h, _ in sections(t) if h][:40]})
+wtxt = rd("design/decisions-open.md") if os.path.exists(P("design/decisions-open.md")) else ""
+wparts = re.split(r"^## ", wtxt, flags=re.M)
+waiting = {"intro": md(re.sub(r"^# .*\n", "", wparts[0]).replace("---", ""), src="design/decisions-open.md") if wparts else "", "items": []}
+for part in wparts[1:]:
+    head, _, body = part.partition("\n")
+    m = re.match(r"(\d+)\.\s*(.*)", head.strip())
+    n, title = (m.group(1), m.group(2)) if m else ("", head.strip())
+    unb = re.search(r"\*\*Unblocks:\*\*\s*(.+)", body)
+    rec = re.search(r"([^\n]*?)\s*\*(?:Team recommends|Visual designer's pick)[^*]*\*", body)
+    waiting["items"].append({"n": n, "title": title, "unblocks": unb.group(1).strip() if unb else "",
+                             "html": md(body.replace("\n---", "").strip(), src="design/decisions-open.md")})
 import subprocess
 try:
     gl = subprocess.run(["git", "-C", ROOT, "log", "-1", "--format=%ad|%s", "--date=format:%d %b %H:%M"], capture_output=True, text=True).stdout.strip().split("|", 1)
@@ -436,7 +469,7 @@ data = {"project": {"name": "( name to come )", "line": "a portable Model D", "w
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,
-        "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated}
+        "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated, "waiting": waiting}
 
 tpl = open(os.path.join(HERE, "app.html"), encoding="utf-8").read()
 js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
