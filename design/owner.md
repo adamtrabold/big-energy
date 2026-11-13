@@ -211,3 +211,11 @@ Recorded as: wants the DELAY panned into the REVERB separately from the dry sign
 Recorded as: NOT a tempo auto-pan. Wants two audio pans: (1) the full DRY signal panned on the outputs, (2) the DELAY panned separately; plus the option to have the two pans "sync" — most likely linked so they move together (exact meaning being confirmed).
 2026-11-13 15:54 Owner (verbatim): "Follow dry"
 Recorded as: DECISION — when the pans are synced/linked, the delay pan FOLLOWS the dry pan (same direction). MIDI send question (knobs receive-only? keys send notes?) still open.
+
+## 2026-11-13 16:18–16:21 — expert review follow-up, MIDI, architecture docs
+Owner (verbatim, 16:18): "yes but first walk me through the midi implementation" (yes = send the expert review's fixes to the team).
+Owner (verbatim, 16:21): "heres what im thinking -- we need on that site architectural documentation and clear docs for each featureset. lets start defining this stuff and writing it down 1 by 1 in an easily delineated fashion, so we can make sure the architectural decisions are sound across the device. sorry i didnt mean is usbmidi capable of send, but rather are we already doing send. if we do send then we gotta think about ALL of the features, and this is pretty definitively not a midi controller. though if it's free it could be."
+Recorded as:
+- NEW WORK: architecture documentation plus one clear doc per feature set, written one at a time, clearly separated, so architectural decisions can be checked as sound across the whole device. These docs live on the project site.
+- MIDI stance: "pretty definitively not a midi controller". Sending MIDI means thinking about ALL features, so send only "if it's free". Today the spec sends only channel pressure (aftertouch); notes and knobs sending is not specified.
+- The expert review's fixes go to the team.
