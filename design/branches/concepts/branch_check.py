@@ -604,6 +604,10 @@ check_cathedral_b([("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECH
                    ("ECHO MIX", 122.5, KN, "k"), ("TAP", 142.5, 6.0, "b"), ("REVERB TYPE", 171.0, KN, "k"), ("REVERB DECAY", 191.0, KN, "k"),
                    ("REVERB MIX", 211.0, KN, "k"), ("FX PAN", 240.0, KN, "k"), ("VOLUME", 260.0, KN, "k")],
                   [48.0, 156.0, 225.5], "option B + FX PAN (PAN 240 | VOLUME 260, one 'where it goes' group)")
+check_cathedral_b([("DRIFT", 33.5, KN, "k"), ("ECHO TYPE", 62.5, KN, "k"), ("ECHO TIME", 82.5, KN, "k"), ("ECHO REPEATS", 102.5, KN, "k"),
+                   ("ECHO MIX", 122.5, KN, "k"), ("ECHO PAN", 142.5, KN, "k"), ("REVERB TYPE", 171.5, KN, "k"), ("REVERB DECAY", 191.5, KN, "k"),
+                   ("REVERB MIX", 211.5, KN, "k"), ("VOICE PAN", 240.5, KN, "k"), ("VOLUME", 260.5, KN, "k")],
+                  [48.0, 157.0, 226.0], "two pans (ECHO PAN in TAP's slot 142.5; VOICE PAN 240.5 | VOLUME 260.5; TAP back to the base, x 261)")
 for _f in (check_render_collisions, check_cathedral_render):
     try:
         _f()

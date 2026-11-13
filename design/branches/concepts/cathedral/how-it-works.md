@@ -466,6 +466,54 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
   - Legend: **"fx pan"**, so nobody reads it as a master pan.
 - **Consequence:** the base PLAY row's right end (x 186–270) is still empty (§14 options 2–3). Option 1 (VOLUME and TAP back to the base) would split PAN from VOLUME.
 
+### 15.5 Two pans, the echo's syncable (DRAFT; owner: "pan the delay into the reverb separately from the dry signal but also would want to be able to sync that") ⚑ D+O
+Drafted under the coordinator's reading while he confirms it: **"sync" = a tempo-synced auto-pan** that moves the echo back and forth with the clock or TAP.
+
+**Signal flow:**
+```
+voice (mono, analog) ─┬─ dry ──────────────────────────────► outputs, centred (L = R)
+                      └─ FX send → [VOICE PAN] ─┬─────────────► reverb in (stereo)
+                                                └→ ECHO ─► [ECHO PAN: still, or moving in tempo] ─┬► reverb in (stereo)
+                                                                                                   └► outputs (ECHO MIX)
+reverb out (stereo) ─► outputs (REVERB MIX)
+```
+- **VOICE PAN** (today's FX PAN, renamed) places the **voice's send** where it enters the effects.
+- **ECHO PAN** places the **echo's repeats**, both on the outputs and where they enter the reverb.
+- **The dry voice stays centred.** It's analog after a mono VCA. Panning it on the outputs would need an analog pan pot into the two summing nodes: 1 pot, passive, no MIDI. That's a separate option if he meant "the dry to the outputs".
+
+**The fewest controls: one new knob, no new switch (rides FREE / SYNC).**
+- **ECHO PAN knob,** centre detent (part UNVERIFIED; firmware dead zone otherwise).
+  - **FREE / SYNC at "free":** ECHO PAN is a **still position**, L ↔ R.
+  - **At "sync":** ECHO PAN becomes an **auto-pan in tempo**:
+    - its distance from centre = the swing width;
+    - the side it's turned to = which side the swing starts on;
+    - the rate = **the echo's own division** (TIME's outer scale), so each repeat lands on the other side and the pan is always in time with the echo.
+  - **TAP** sets the tempo when there's no clock, as now. **No rate knob.**
+- **Cost of riding the switch:** he can't have a synced echo with a still pan, or a free echo with a moving pan.
+- **The independent alternative:** 1 knob + 1 toggle (STILL / MOVE). The toggle has no legal slot in the row as it stands, so it would need another move.
+- **Pan law: constant sum (L + R = 1)**, for both pans.
+  - **The speaker** (mono sum) **and a TS cable in LINE OUT** (mono on the tip, §15.4) hear **no level change and no pumping**: the auto-pan vanishes in mono.
+  - **Phones and stereo line out** hear it move.
+- **The reverb must take stereo input**, or the pan into it is lost.
+  - A Dattorro plate sums its input to mono. Eng's HALL (FDN / CloudSeed class) is stereo-in.
+  - Give PLATE / SPRING / SHIMMER **two input diffusers**: ≈ +10–15 % of one reverb's load (ESTIMATE, inside eng's 40–60 % budget).
+  - The pans and the LFO are a few multiplies per sample: negligible.
+
+**MIDI:**
+- VOICE PAN: **CC 10 receive (decided)**.
+- ECHO PAN: **receive on an undefined CC** (proposal **CC 102**), jump-on-move. Both get the engraved MIDI dot and the not-in-control light.
+- **Open for him:** should moving them **send** their CCs out? (The other marked knobs do, jobs F7 step 7.)
+- **Clock:** with MIDI clock in sync mode, the auto-pan follows the clock exactly as the echo does (`echo-clock.md`). It glides to a new tempo and holds on clock loss.
+
+**Placement (layout B's effects row, d 83.85) [CHECK §9, third run: 0 violations]:**
+- **DRIFT 33.5 | ECHO: TYPE 62.5 · TIME 82.5 · REPEATS 102.5 · MIX 122.5 · ECHO PAN 142.5 | REVERB: TYPE 171.5 · DECAY 191.5 · MIX 211.5 | VOICE PAN 240.5 · VOLUME 260.5**;
+- breaks 48 / 157 / 226 (reverb group shifted +0.5 so the break clears both edges);
+- FREE / SYNC unchanged at (96, d 69).
+- **TAP moves back to the base PLAY row's right end, x 261** (its v1.1 spot, mirroring the bend stick). That fills part of the empty base right; TAP is played by hand in rhythm.
+- **⚑:** that takes TAP out of the "effects together" row he asked for.
+- **The only other layout that fits two pans** pushes FREE / SYNC into OSC 3 CTL, or VOLUME past the edge (checked: no legal slot).
+- Labels: the model needs ECHO PAN / VOICE PAN for §7 (visual).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

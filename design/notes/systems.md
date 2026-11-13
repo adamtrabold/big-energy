@@ -1,5 +1,11 @@
 # Systems designer notes — Little D
 
+# Two pans (draft, 2026-11-13): voice pan into the effects + echo pan (syncable)
+- ECHO PAN knob, one new control: FREE = still position; SYNC = auto-pan at the echo's division (width = distance from centre), TAP / clock tempo. VOICE PAN = the old FX PAN (CC 10). Constant-sum law: the speaker and TS mono hear no pumping. Reverbs need stereo input (+10–15 % for the plate etc.).
+- Row: ECHO PAN in TAP's slot (142.5), reverb +0.5, VOICE PAN 240.5 | VOLUME 260.5, TAP back to the base x 261. §9: 0 violations. ⚑ D+O; waiting on the owner's meaning of "sync"; CC 102 proposed; send = open.
+
+---
+
 # Stereo line out + mono-on-TS (2026-11-13)
 - Owner: stereo line out too. LINE OUT gets its own stereo driver.
 - TS → mono on the tip (required for LINE OUT): 1 MΩ ring bias + 100k / 1 µF LPF → mux ADC; TS ≈ 0 V vs TRS ≥ 33 mV; Daisy sends wet (L+R)/2 on both outputs (the phones go mono meanwhile), or a 74HC4053 keeps the phones stereo. Jack: any TRS (CUI SJ1-3523N, UNVERIFIED). Not for phones (32 Ω looks like a short).
