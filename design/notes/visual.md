@@ -1,5 +1,19 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 5 (2026-11-13 ~17:10): steer 2 "nave and rose" rendered from systems §16
+- **Owner 16:52** (verbatim in director.md steer 2): off-centre is bad, the gap is unresolved, size the speaker for sound, moving components is OK, more brass than black.
+- **Look doc → rev 4**: opening answers his three complaints; "The whole" (standing, top, closed side); §1 keys A lead / C alt; §2 played row (low gold knobs: "what the hands play is brass-toned, what you set is black"); §3 window Ø 46; §4 texture; §5–7 kept; Open rewritten. Removed §2 (A/B) and §2b (tower / off-centre circle).
+- **Images now (5, all linked):** `cathedral-nave-standing.jpg`, `cathedral-nave-top-8.3px-per-mm.png`, `cathedral-nave-closed-side-14px-per-mm.png` (55.2 dimension), `cathedral-nave-speaker-window-20px-per-mm.png` (front + section), `cathedral-keys-brass-A-C.jpg` (POV-Ray). **Deleted:** A/B standing, closed-with-book, grain detail, speaker options, brass-keys-metal, grille options.
+- **Code:**
+  - `rb.py`: class `Nave(Cathedral)` reads `design/branches/concepts/cathedral/layout_check.py` live (`_lc()`): lid rows / legends / window / base row. `low_knob` (Tayda Ø 10 × 8 gold, seat 1.0), `stick_low` (cap −3.6), `GOLD_K`, `NV_SW_LS` 1.55 (switch legends beside), `NV_BEHIND_EXTRA` 1.0. Route R-LOW lifts the lid face +2.5 (AXZ +1.25); R-TALL +7.0. `window_slots` / `speaker_window` (Ø 46, 1.8 / 3.0 → 15 slots, 945 mm²). `sync_toggle(..., gap=)`. Base end grooves removed (stray slashes). Cathedral default palette now `brass-black`; `tap_style` brass whenever brass is in the palette. Jobs `rb_nv_stand`, `rb_nv_top`, `rb_nv_closed_side`, `rb_nv_closed`.
+  - `ct_brass.py`: `BlackPlated` material; `board(knobs=False, nat_override=)`; jobs `ct_keys_A`, `ct_keys_C`, `ct_keys_A_macro`.
+  - Figures composed by scratch scripts `/tmp/scr/nv_figs.py` (standing / top / side / window drawing, with `brassify()`) and `/tmp/scr/ct2_figs.py keys` (not in repo).
+- **Checks:** `/tmp/scr/nv_check.py` (layout_check rules with my two legend changes): 0. `/tmp/scr/nv_kalam.py` (branch_check collide, real Kalam, ticks, window, pegs): 0. Before the changes: 8 legend-tick clashes (behind legends on top ticks) and 4 switch-legend clashes.
+- **Decisions:** keys A lead (more brass, normal reading); black sharps drawn as black-rhodium brass (systems' pick: same mass, one velocity calibration); gold low knobs (with the honest anodised-vs-cast risk; buy one of each); switch legends beside toggles; no lid section names for now; R-TALL not rendered (same from above).
+- **Open:** director scores; ⚑ moves + R3; systems to fold my legend changes into layout_check; maker buys (plugs, Sculpteo quote, gold / black knob, groove patch, bench the window).
+- **Don't publish until a 9** (director). Committed my files only, as Adam.
+
+
 ## CATHEDRAL, turn 4 (2026-11-13): speaker round 2 image (owner: no key-side speaker, no eye; "lines up and down" or off-centre circle)
 - **Image:** `img/cathedral-speaker-options-standing.jpg` (2424 × 1697): top row, standing B with the pipe tower (left) and the off-centre circle (right); bottom row, close band views. Linked in look doc §2b. P1a (rounded rect) and P2 (façade) were dropped at the owner's steer (rendered P1a / P2 / P2_back in out/, not published).
 - **rb.py:** `Cathedral(speaker=None|"P1a"|"P1b"|"P1c"|"P2", centre_play=False)`; `rrect_slots`, `tower_slots` (TOWER 8→18→8, foot d 28.7, no foot rule: it hit "mixer"), `vcircle_slots` (P1c: R 10.9 + ring to 12.5 at (160, d 37), systems' spot); P2 slots in the 7 centre pipes; `play_dx()` hook in Branch (stick well, breaks) + Cathedral (row, names): +47 when centred; `tap_style()` hook, `r5.tap_cap` wrapped for "brass" (TAP = sharps' head); `stand_point()` for close cameras; jobs `rb_ct3_{P1a,P1b,P1c,P2}`, `rb_ct3_{P1b,P1c}_band`, `rb_ct3_P2_back`.

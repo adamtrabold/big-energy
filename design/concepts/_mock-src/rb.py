@@ -27,14 +27,14 @@ SYNC_DY_B = 1.5      # checker 7c: 0 at 1.5 / 2.0 / 2.5; 0.64 to FREQ 3 at 0.5
 BEHIND_FLAT, BEHIND_FOLD = 159.2, 96.9   # TIME / DECAY legends behind their knobs (common §2 fix 1)
 DIVS = ["1/16", "1/8T", "1/16.", "1/8", "1/4T", "1/8.", "1/4", "1/4.", "1/2"]
 
-def sync_toggle(x, y, z, words, size, ink, font, up=False, lever_to="right", dy=0.5):
+def sync_toggle(x, y, z, words, size, ink, font, up=False, lever_to="right", dy=0.5, gap=6.2):
     """FREE / SYNC: the panel's mini toggle, thrown LEFT / RIGHT (common §2 fix 2); words beside, lever points at one."""
     s = cyl(x, y, z, 1.8, 6.0, "#9a9da1", fn=6) + cyl(x, y, z + 1.8, 1.0, 4.5, "#b9bcbf", fn=24)
     sg = 1 if lever_to == "right" else -1
     s += f'{c("#b9bcbf")} translate([{x:.3f},{y:.3f},{z+2.5:.3f}]) rotate([0,{18*sg},0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);\n'
     a, b = words
-    s += txt(x - 6.2, y + dy, z, a.upper() if up else a, size, ink, font=font, halign="right")   # 0.5 behind (common rev 2)
-    s += txt(x + 6.2, y + dy, z, b.upper() if up else b, size, ink, font=font, halign="left")
+    s += txt(x - gap, y + dy, z, a.upper() if up else a, size, ink, font=font, halign="right")   # 0.5 behind (common rev 2)
+    s += txt(x + gap, y + dy, z, b.upper() if up else b, size, ink, font=font, halign="left")
     return s
 
 def _tick(x, y, z, r, a, L, w, col):
@@ -1056,6 +1056,35 @@ def vcircle_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
               f'circle(r={R+1.1:.2f},$fn=96); }}\n')
     return s
 
+def window_slots(D, w=1.6, pitch=2.8, edge=0.0):
+    """steer 2 speaker window: vertical slots (his "lines going up and down") filling a round opening of Ø D,
+    concentric with the driver. Webs = pitch - w (1.2 at 2.8 / 1.6). Each slot's length follows the circle, with full
+    round ends. Returns [(x, y_half)] slot centres (x) and half-lengths of the straight part, and the open area."""
+    R = D / 2 - edge
+    n = int((2 * R - w) / pitch) + 1
+    x0 = -(n - 1) * pitch / 2
+    out, area = [], 0.0
+    for k in range(n):
+        xk = x0 + k * pitch
+        # the slot (a capsule of width w) must stay inside the circle: its far edge at |xk| + w/2
+        yh = math.sqrt(max(R * R - (abs(xk) + w / 2) ** 2, 0)) - w / 2
+        if yh < 0.3:
+            continue
+        out.append((xk, yh))
+        area += 2 * yh * w + math.pi * (w / 2) ** 2
+    return out, area
+
+def speaker_window(cx, cy, z, D=44.0, w=1.6, pitch=2.8, col="#1d1b19", ring=None, ribs=(-11.0, 11.0)):
+    """draws the window; ribs are the hidden rear tie ribs (behind the plate, not drawn from the front)."""
+    s = ""
+    for xk, yh in window_slots(D, w, pitch)[0]:
+        s += (f'{c(col)} hull(){{ translate([{cx+xk:.3f},{cy-yh:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); '
+              f'translate([{cx+xk:.3f},{cy+yh:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); }}\n')
+    if ring:
+        s += (f'{c(ring)} translate([{cx},{cy},{z+0.02}]) linear_extrude(0.03) difference(){{ circle(r={D/2+1.6:.2f},$fn=128); '
+              f'circle(r={D/2+1.1:.2f},$fn=128); }}\n')
+    return s
+
 TOWER = [8, 10, 12, 14, 16, 18, 16, 14, 12, 10, 8]
 def tower_slots(cx, foot_y, z, pitch=5.0, w=2.0, col="#1d1b19", ring=None):
     """P1b: vertical slots standing on one foot line, lengths stepping 8 -> 18 -> 8 (an organ-pipe tower, a gable
@@ -1081,7 +1110,7 @@ class Cathedral(Chamber):
         top = 2 * self.AXZ - (LID_PF - 2.5)
         return box(4.1, self.AX_Y - 1.2, BASE_H - 0.4, FO_W - 4.1, self.AX_Y - 0.4, top, self.SPINE)
 
-    def __init__(self, layout="A", palette="black-brass", spine="none", metal="brass", grain=True, speaker=None,
+    def __init__(self, layout="A", palette="brass-black", spine="none", metal="brass", grain=True, speaker=None,
                  centre_play=False):
         """speaker (systems §14, B only): None = rev 1 B (rose in the base), "P1a" band rounded-rectangle grille,
         "P1b" band pipe-tower slots, "P2" fires through the façade (band plain). centre_play: the base PLAY row
@@ -1099,8 +1128,8 @@ class Cathedral(Chamber):
 
     def tap_style(self):
         if self.palette in PEGS:
-            sh = PEGS[self.palette][1][0]
-            if sh == BRASS_K:
+            nat, sh = PEGS[self.palette][0][0], PEGS[self.palette][1][0]
+            if BRASS_K in (nat, sh):
                 return "brass"
         return "proof"
 
@@ -1214,11 +1243,8 @@ class Cathedral(Chamber):
         band = f"translate([12.5,6.2]) square([{FO_W-25},{BASE_H-3-6.4}]);"
         s += grooves_on(side_lines(FO_W, 6.2, BASE_H - 3.2, 1), band, [[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0]], col)   # front
         s += grooves_on(side_lines(FO_W, 6.2, BASE_H - 3.2, 1), band, [[1, 0, 0, 0], [0, 0, 1, D], [0, 1, 0, 0]], col)    # hinge side
-        end = f"translate([12.5,6.2]) square([{D-25},{BASE_H-3-6.4}]);"
-        s += grooves_on(ring_arcs(D, 6.2, BASE_H - 3.2), end, [[0, 0, -1, 0], [1, 0, 0, 0], [0, 1, 0, 0]], col)            # left end
-        # right end: USB-C / MIDI live at y 65-104, z 4.8-8.2; the arcs stay at y < 58
-        s += grooves_on(ring_arcs(D, 6.2, BASE_H - 3.2), f"translate([12.5,8.8]) square([45,{BASE_H-3-9}]);",
-                        [[0, 0, 1, FO_W], [1, 0, 0, 0], [0, 1, 0, 0]], col)
+        # base end faces: no grooves. Their flat band is only ≈ 6 mm tall, so ring arcs clipped to it read as stray
+        # slashes (seen in the steer 2 side elevation); the lid's ends carry the arcs
         return s
 
     def grooves_lid(self, walnut):
@@ -1433,6 +1459,142 @@ class Diptych(Branch):
         return s
 
 # =================================================================== jobs
+# ------------------------------------------------------------------ CATHEDRAL steer 2 ("nave and rose"), systems §16
+# Geometry is read live from systems' design/branches/concepts/cathedral/layout_check.py (rows, legends, window,
+# base row), so the render and the checker can't drift. Visual adds: low gold knobs on the played row, the lowered
+# stick, the Ø 46 vertical-slot window, brass keys A, headings, breaks.
+_LC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "branches", "concepts", "cathedral", "layout_check.py")
+def _lc():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("ct_layout_check", _LC_PATH)
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m
+
+NV_SW_LS = 1.55            # switch-line legends beside their toggles (Kalam is wide: 1.69 left "osc mod" 0.85 from OSC 3 CTL)
+NV_BEHIND_EXTRA = 1.0      # behind-legends 1.0 further back: at systems' spacing they sat on the knobs' top tick (0.08-0.67)
+GOLD_K = "#cfa65a"          # Tayda 3010 gold aluminium (anodised), the played row: what the hands play is brass-toned
+LOW_D, LOW_H, LOW_SEAT = 10.0, 8.0, 1.0
+
+def low_knob(x, y, z, a, col=GOLD_K, line="#1b1a19"):
+    """Tayda aluminium knob Ø 10 x 8 (6 mm 18T), on a 1.0 seat (snap-in pot or counterbored nut: systems §16.3)."""
+    s = cyl(x, y, z, LOW_SEAT, 7.0, "#151413", fn=32)                                 # the seat / nut shadow
+    s += cyl(x, y, z + LOW_SEAT, LOW_H - 0.6, LOW_D, col, fn=64)
+    s += cyl(x, y, z + LOW_SEAT + LOW_H - 0.6, 0.6, LOW_D, col, fn=64, d2=LOW_D - 1.0)  # chamfered top edge
+    th = math.radians(a)
+    s += (f'{c(line)} translate([{x:.3f},{y:.3f},{z+LOW_SEAT+LOW_H+0.005:.3f}]) rotate([0,0,{-a:.1f}]) '
+          f'translate([-0.35,0.6,0]) cube([0.7,3.3,0.03]);\n')
+    return s
+
+def stick_low(x, y, z, ink, drop=3.6):
+    """the bend stick with its cap top at plate + 9.0 (systems R-LOW: module seated 3.6 deeper in a board cut-out)."""
+    s = (f'{c(ink)} translate([{x:.3f},{y:.3f},{z+0.01:.3f}]) linear_extrude(0.1) difference(){{ circle(d=15,$fn=72); circle(d=13.4,$fn=72); }}\n')
+    for sg in (1, -1):
+        s += (f'{c(ink)} translate([{x:.3f},{y + sg * 7.3:.3f},{z+0.01:.3f}]) linear_extrude(0.1) '
+              f'polygon([[-0.85,0],[0.85,0],[0,{sg * 1.15:.2f}]]);\n')
+    s += cyl(x, y, z - 0.4, 0.46, 7.5, "#0e0d0c", fn=48)
+    zp = z - drop
+    s += cyl(x, y, zp - 0.4, 8.6, 3.2, "#4a4a4f", fn=24)
+    s += cyl(x, y, zp + 8.2, 3.0, 8.4, "#2f2f33", fn=48, d2=10.0)
+    s += cyl(x, y, zp + 11.2, 1.0, 10.0, "#2f2f33", fn=48)
+    s += cyl(x, y, zp + 11.7, 0.5, 6.6, "#1f1f22", fn=48)
+    return s
+
+LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
+MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
+
+class Nave(Cathedral):
+    """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
+    route = "R-LOW"
+
+    def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, **kw):
+        super().__init__("B", palette=palette, **kw)
+        self.route, self.low_col = route, low_col
+        self.lc = _lc()
+        lift = 2.5 if route == "R-LOW" else 7.0          # lid face +2.5 (R-LOW) / +7.0 (R-TALL), systems §16.3
+        self.AXZ = Chamber.AXZ + lift / 2
+        self.LIDH = Chamber.LIDH + lift
+
+    # ---- lid
+    def lid_face(self, controls=True):
+        lc, D, L0 = self.lc, self.D, self.LY0
+        s = pg_layers(self.lid_plate2d(), LID_PF)
+        gz = LID_PF + 0.02
+        for xb in (93.5, 192.5):                                 # voice breaks, symmetric about the axis (± 49.5)
+            s += box(xb - self.RULE_HW, L0 + 0.8, gz, xb + self.RULE_HW, L0 + 63.0, gz + 0.03, self.rule_col())
+        for xb in (157.0, 226.0):                                # echo | reverb | out
+            s += box(xb - self.RULE_HW, L0 + lc.FX - 9, gz, xb + self.RULE_HW, L0 + lc.FX + 9, gz + 0.03, self.rule_col())
+        s += speaker_window(143.0, L0 + lc.WIN[1], LID_PF, D=2 * lc.WIN[2], w=1.8, pitch=3.0)
+        s += self.name_mark(gz)
+        if not controls:
+            return s
+        st = self.style()
+        rows_ = {}
+        for n, x, d, r, k, lab, where in lc.lid:
+            if n in ("FREE/SYNC", "FOLLOW"):
+                continue
+            kind = "t" if k == "t" else LID_KIND.get(n.rsplit(" ", 1)[0], LID_KIND.get(n, "k"))
+            rows_.setdefault(d, []).append((n, "", x, kind, n in MIDI_NAMES, 0))
+        ry = {d: L0 + d for d in rows_}
+        toggles = [(96.0, L0 + lc.FX - 14.85), (250.5, L0 + lc.FX - 11.55)]
+        nuts = toggle_nuts(rows_, ry, toggles)
+        s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
+                         nuts=nuts, back=())
+        ink = self.lid_ink()
+        s += sync_toggle(96.0, L0 + lc.FX - 14.85, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, dy=0.0)
+        s += sync_toggle(250.5, L0 + lc.FX - 11.55, LID_PF, ("off", "follow"), st.lsize * 0.72, ink, st.font, dy=0.0, gap=6.4)
+        # legends exactly where the checker measures them (layout_check.tbox centres)
+        for n, x, d, r, k, lab, where in lc.lid:
+            if where == "beside":
+                continue
+            if k == "t" and d == lc.SWL:
+                # visual (steer 2): switch-line legends go BESIDE their toggles (right, at FREE / SYNC's size), not
+                # above: above, they sat just under the V2 knobs and read as those knobs' names
+                s += txt(x + 6.2, L0 + d, LID_PF + 0.01, lab, NV_SW_LS, ink, font=st.font, halign="left")
+                continue
+            b = lc.tbox(x, d, lab, lc.LS if k == "k" else lc.LS * 0.85, where, r)
+            cy = (b[1] + b[3]) / 2 + (NV_BEHIND_EXTRA if where == "behind" else 0.0)
+            s += txt(x, L0 + cy, LID_PF + 0.01, lab, lc.LS if k == "k" else lc.LS * 0.85, ink, font=st.font)
+        # FX group headings above the row (old FOLD positions)
+        hd = L0 + lc.FX + FO_HEAD_D + 1.2 - 0.7
+        for name, x in (("echo", 102.5), ("reverb", 191.5), ("out", 250.5)):
+            s += txt(x, hd, LID_PF + 0.01, name, 2.0, FO_INK, font=HAND, valign="baseline")
+        return s
+
+    # ---- base: the played row, symmetric about x 143
+    def play_row(self):
+        return []                                                # drawn in base_extra (low knobs, lowered stick)
+
+    def base_names(self):
+        return "".join(txt(tx, 85.0, BASE_H + 0.01, n, 2.4, FO_INK, font=HAND, halign="left")
+                       for tx, n in ((14, "pitch"), (105.5, "filter"), (188.0, "mod")))
+
+    def base_extra(self, walnut):
+        s = self.grooves_base(walnut) if self.grain else ""
+        st = self.style(); z = BASE_H; ink = FO_INK
+        rnd = random.Random(7)
+        for n, x, y, r, h in self.lc.base(9.0, 9.0):
+            lab = {"BEND stick": "bend", "CONTOUR AMT": "amount", "MOD MIX": "mod mix", "R3 (open)": ""}.get(n, n.lower())
+            if n == "BEND stick":
+                s += stick_low(x, y, z, ink) if self.route == "R-LOW" else joystick(x, y, z, ink)
+                s += txt(x, y - 11.5, z, lab, st.lsize, ink, font=st.font)
+            elif n == "CUTOFF":
+                s += item5("CUTOFF", "CUTOFF", x, y, "h", True, z, st, "proof", None, True, 143)
+            elif n == "TAP":
+                s += r5.tap_cap(x, y, z, self.tap_style())
+                s += txt(x, y - 6 - st.lab_gap - 0.6, z, "tap", st.lsize, ink, font=st.font)
+            elif self.route == "R-LOW":
+                s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
+                s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
+                if lab:
+                    s += txt(x, y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
+                if n in MIDI_NAMES:
+                    s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
+            else:
+                s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)
+        for x in (131.0, 155.0):                                 # status + not-in-control lights, symmetric about CUTOFF
+            s += led(x, 81.0, z, col="#9fd36b" if x == 155.0 else "#efe3c8")
+        return s
+
 def jobs(SZ):
     ch, dp = Chamber(), Diptych()
     D = ch.D; OPEN = 2 * D + 2
@@ -1472,6 +1634,10 @@ def jobs(SZ):
            for sp in ("P1a", "P1b", "P1c", "P2")},
         **{f"rb_ct3_{sp}_band": (lambda sp=sp: shot4(Cathedral("B", speaker=sp, centre_play=True).model("stand"), fp_rect(0, 0, W, D + 64), f"rb_ct3_{sp}_band", size=SZ, az=-32, el=24, dist=260, center=Cathedral("B").stand_point(150.0, 38.0), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_ct3_{sp}_band.png"), ymax=1.0))
            for sp in ("P1b", "P1c")},
+        "rb_nv_stand": lambda: shot4(Nave().model("stand"), fp_rect(0, 0, W, D + 64), "rb_nv_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 52), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv_stand.png")),
+        "rb_nv_top": lambda: top4(Nave().model(True), "rb_nv_top", -2, -2, W + 2, OPEN + 2, px_per_mm=8, grain_classes=()),
+        "rb_nv_closed_side": lambda: shot_ortho(Nave().model(False), "rb_nv_closed_side", "right", -4, D + 4, -1, 60, wmax=W + 2, wood=True),
+        "rb_nv_closed": lambda: ld.shot(Nave().model(False, walnut=WAL_R), fp_rect(0, 0, W, D), "rb_nv_closed", size=SZ, az=-28, el=30, dist=700, center=(143, D / 2, 24), grain_classes=()),
         "rb_ct3_P2_back": lambda: ld.shot(Cathedral("B", speaker="P2", centre_play=True).model("stand", walnut=WAL_R), fp_rect(0, 0, W, D + 64), "rb_ct3_P2_back", size=SZ, az=160, el=14, dist=820, center=(143, D * 0.8, 60), grain_classes=()),
         "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
         "rb_ct_B_stand": lambda: shot4(Cathedral("B").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_B_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_B_stand.png")),

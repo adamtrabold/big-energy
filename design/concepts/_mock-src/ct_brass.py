@@ -35,6 +35,10 @@ MATS = """
     [0.96 pigment { rgb <0.80, 0.57, 0.27> } finish { ambient 0 diffuse 0.18 specular 0.9 roughness 0.006 metallic reflection { 0.5, 0.8 metallic } } ]
   }
   scale 6.8 } }
+// black rhodium (1 um) over cast brass: the same weight and coldness as the brass keys, a dark glossy metal
+#declare BlackPlated = material { texture {
+  pigment { rgb <0.055, 0.055, 0.06> }
+  finish { ambient 0 diffuse 0.25 brilliance 2 specular 0.6 roughness 0.008 metallic reflection { 0.18, 0.35 metallic } } } }
 #declare BlackMatte = material { texture { pigment { rgb 0.028 } finish { ambient 0 diffuse 0.6 specular 0.12 roughness 0.06 } } }
 #declare Cream = texture { pigment { rgb <0.93, 0.90, 0.83> } finish { ambient 0 diffuse 0.78 specular 0.05 roughness 0.1 } }
 #declare Walnut = texture {
@@ -73,10 +77,12 @@ def key(x, y, mat):
             f"cylinder {{ <{x},{y},-0.1>, <{x},{y},2.9>, 5.6 material {{ BlackMatte }} }}\n"
             f"object {{ Head material {{ {mat} }} translate <{x},{y},0> }}\n")
 
-def board(nat, sh):
+def board(nat, sh, knobs=True, nat_override=None):
     s = f"object {{ difference {{ {rrect_prism(0, 0, 286, 108, 12, -15.6, 0)} {rrect_prism(4.3, 4.0, 281.7, 103.7, 7.7, -2.0, 1)} }} texture {{ Walnut }} }}\n"
     s += f"object {{ {rrect_prism(4.3, 4.0, 281.7, 103.7, 7.7, -2.0, 0)} texture {{ Cream }} }}\n"
-    s += "".join(key(x, 13.5, nat) for x in NATS) + "".join(key(x, 36.0, sh) for x in SHARPS)
+    s += "".join(key(x, 13.5, (nat_override or {}).get(x, nat)) for x in NATS) + "".join(key(x, 36.0, sh) for x in SHARPS)
+    if not knobs:          # steer 2: the PLAY row is being redesigned (low-profile knobs), so key studies leave it out
+        return s
     s += "".join(knob(x, 68) for x in KNOBS)
     s += ("difference { cone { <119,68,0>, 10.4, <119,68,15>, 9.8 } union { "
           + "".join(f"cylinder {{ <{119+10.6*math.cos(t)},{68+10.6*math.sin(t)},0.5>, <{119+10.0*math.cos(t)},{68+10.0*math.sin(t)},16>, 0.6 }} "
@@ -84,6 +90,8 @@ def board(nat, sh):
     return s
 
 CAM_BOARD = "camera { location <-55, -150, 105> sky z look_at <62, 34, 4> angle 34 right -x*{ar} }\n"
+CAM_KEYS = "camera { location <-40, -105, 62> sky z look_at <70, 26, 2> angle 36 right -x*{ar} }\n"
+CAM_KEYMACRO = "camera { location <8, -30, 21> sky z look_at <40, 18, 3> angle 32 right -x*{ar} }\n"
 CAM_MACRO = "camera { location <-6, -46, 30> sky z look_at <35, 22, 3> angle 30 right -x*{ar} }\n"
 
 def render(name, scene, cam, w, h):
@@ -105,6 +113,12 @@ def jobs(w=2000, h=1300):
         "ct_brass_macro": lambda: render("ct_brass_macro", board("BlackMatte", "BrassAged").replace(
             "object { Head material { BrassAged } translate <44,", "object { Head material { BrassPolished } translate <44,"), CAM_MACRO, w, h),
     }
+    # steer 2 (owner 16:52 "more brass than black"): A = brass naturals + black sharps (lead), C = all brass (alternate)
+    J["ct_keys_A"] = lambda: render("ct_keys_A", board("BrassPolished", "BlackPlated", knobs=False), CAM_KEYS, w, int(w * 0.5))
+    J["ct_keys_C"] = lambda: render("ct_keys_C", board("BrassPolished", "BrassPolished", knobs=False), CAM_KEYS, w, int(w * 0.5))
+    # close: two naturals either side of a black-plated sharp; the left one aged (unlacquered, handled), the right polished
+    J["ct_keys_A_macro"] = lambda: render("ct_keys_A_macro", board("BrassPolished", "BlackPlated", knobs=False,
+                                          nat_override={35: "BrassAged"}), CAM_KEYMACRO, w, int(w * 0.5))
     return J
 
 if __name__ == "__main__":

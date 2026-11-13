@@ -1,25 +1,42 @@
-# CATHEDRAL: how it looks and feels (visual, rev 3)
+# CATHEDRAL: how it looks and feels (visual, rev 4: steer 2, "nave and rose")
 
-Seed: CHAMBER rev 2 (`../chamber/`) + FOLD-105 v1.1. Owner, 14:12–14:41 (`design/owner.md`). Read with `how-it-works.md` (systems), which owns hinges, feet, plate radii, the slot, options A / B, and the key carrier and no-machining parts in §10–11. The director's steer 1 (`design/notes/director.md`) is applied here.
+Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 16:52). Read with `how-it-works.md`, where systems owns the geometry; **§16** is this revision's layout, closing routes and acoustics. The director's steer 2 is in `design/notes/director.md`.
 
-**Rev 3, 2026-11-13.** Rev 2 brought real-part keys, no spine, the confirmed fine-line texture and brass as the one metal. Rev 3 applies the director's team rulings:
-- **Built into the model now** (`design/concepts/_mock-src/rb.py`, class `Cathedral`): R 7.7 on all eight plate corners; screw-through feet at the corner screws with the axis screws flush brass; tapered-slot grilles (vesica in A, Ø 27 circle in B); the "effects" heading in A; **the woody fine-line texture as real shallow grooves** (§4); brass as the only visible metal; the five-colour palette; no spine. Defaults: keys B, no spine.
-- **Brass shown as metal** (ruling 9): a new ray-traced study replaces rev 2's flat-yellow key grid (§1).
-- **Option B labels fixed** (systems' check): TIME and REPEATS legends behind their knobs; "free" / "sync" 1.5 mm behind the toggle centre (0.5 left "free" 0.64 mm from FREQ 3). `branch_check.py`: A 0, B 0, TOTAL fails 0.
-- **Final views are not re-rendered yet:** they wait for the owner's layout answer (coordinator). The rev 1 renders below are marked where they're stale.
+## His three complaints (16:52), answered
+1. **"off center in that middle section is bad looking … consider the sound of the speaker and the shape."** The speaker window is now **one round opening, centred on the instrument's axis, concentric with the driver, and sized by it**: Ø 46 (the cone plus its surround). Its 15 vertical slots open **≈ 945 mm², about 75 % of the cone's area**, against 265–440 mm² (≈ 20–35 %, choked) in every grille we showed before. Behind it: a foam gasket and a sealed, stuffed back box. It sits directly above CUTOFF, so the window, the hero dial and the keyboard's centre share one vertical line. The shape follows from the sound, not from leftover space.
+2. **"there's a massive horizontal gap -- the speaker doesnt feel resolved."** The gap was never the speaker's. Closed, the base's played row lands under the lid's middle, and the knobs were too tall for anything to sit over them. So the played row now uses **low knobs (Ø 10 × 8, bought)**, and the lid's rows are **evenly spaced, 35 mm apart**, with one switch line between the voice rows. **The only open area left on the lid is the round window itself.** The mixer is mirrored around it: osc 1 / osc 2 on the left, osc 3 / noise on the right.
+3. **"i'd rather have more brass than black re: keys."** The lead is now **brass naturals with black sharps** (15 brass, 10 black). The alternate is **all brass**. Both are shown in real metal below. The played row's small knobs are gold aluminium, so what the hands play reads as brass, and what you set on the lid reads as black.
+
+**Moves this costs (⚑ director, then owner):** the mixer re-flowed round the window; CUTOFF and EMPHASIS swapped, so CUTOFF sits on the axis; MOD MIX and DRIFT down to the base; the switches gathered into one line; closed +2.5 mm (≈ 55.2). The alternative route, R-TALL, keeps today's knobs at ≈ 59.7 closed. It looks the same from above, so I haven't rendered it.
+
+## The whole
+<figure>
+<img src="img/cathedral-nave-standing.jpg" alt="CATHEDRAL standing at 120 degrees: the lid holds three evenly spaced rows of black knobs, a line of small toggles, and a centred round window of vertical slots; the base holds a row of small gold knobs either side of a red CUTOFF dial on the axis, the bend stick at the left end and a brass TAP at the right, above brass natural keys and black sharps.">
+<figcaption><b>Standing, 120°.</b> Lid: three evenly spaced rows (oscillators and contours, the switch line, then the effects row on top). The Ø 46 window is centred over CUTOFF. Base: the played row is symmetric, with the bend stick at the left end and TAP at the right, and CUTOFF (the one tall, red dial) on the axis. The small gold knobs are the low-profile route (R-LOW). The third gold knob right of drift is systems' open slot R3 (VOLUME or ECHO MIX, director's call), so it has no legend yet. Brass is a tone re-map of the OpenSCAD render; see §1 for the true metal.</figcaption>
+</figure>
+
+<figure>
+<img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of CATHEDRAL open flat: the lid above with evenly spaced rows and the centred slotted window, the base below with the symmetric played row and the keys.">
+<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
+</figure>
+
+<figure>
+<img src="img/cathedral-nave-closed-side-14px-per-mm.png" alt="Exact side elevation of CATHEDRAL closed, from the right end: the lid on top with three nested arched grain grooves on its end face and the stowed brass stay, the base below with USB-C and two MIDI jacks, overall body height dimensioned 55.2 mm.">
+<figcaption><b>Closed, right end, exact.</b> 55.2 mm body (R-LOW), plus the screw-feet. The lid's end face carries the arched grain grooves (three nested growth-ring arcs) and the stowed brass stay; the side-pivot ear is at the hinge corner. The base end shows USB-C and the two MIDI jacks; its 6 mm flat band is left plain (arcs clipped that small read as stray marks).</figcaption>
+</figure>
 
 ## What CATHEDRAL does to the ideas
 **One sentence: a small cathedral, an organ front for the listener, a nave for the hands, and the wood's own arches.** It answers several of his notes at once:
 
 | His note | What CATHEDRAL makes of it |
 |---|---|
-| "the screen" should have more rounding | **The grille becomes a window.** In A, a vesica (the pointed lens of church windows) fits the band's real room. In B, a round rose window. Both use his tapered lines: shortest at the top and bottom, longest through the middle. |
+| "the screen" should have more rounding; the speaker unresolved | **The grille becomes a rose window:** one round opening on the axis, sized by the driver, filled with vertical lancets (slots) whose lengths follow the circle (§3). The evenly spaced rows around it are the nave. |
 | fine line texture "more woody", but subtle, not straight woodgrain | **Cathedral grain**: woodworkers' name for the nested arches in flat-sawn wood. The case's line texture becomes arches at about the same sparse line count. The material is already the point of view. |
-| too many colours, the brown is out of place; "brass … reminds me of a cathedral" | **Black and brass, the colours of an organ console's stop knobs and its brass fittings.** Black keys join the 30 black knobs; brass joins the brass already on the case. The keys add no colour of their own, and the brown goes. |
+| too many colours, the brown is out of place; "brass … reminds me of a cathedral"; "more brass than black" | **Brass and black, an organ console's fittings and stop knobs.** What the hands play is brass-toned (keys, TAP, the played row's low knobs); what you set on the lid is black. No colour is added, and the brown goes. |
 | faceplate rounding inconsistent | **Every corner arched** (R 7.7, concentric with the walnut block): the two plates read as two rounded leaves meeting at the seam. |
 | hidden hinges; feet one with the screws; no spine | **A case with no visible hardware** except the brass that means something: the keys, the stays, two axis screws. Knuckles gone (side pivots), feet are the screws, no spine. |
 
-**Costume watch** (the director's rule, stricter now that the word is "cathedral"): no gothic tracery, no pointed arches as ornament, no stained-glass colour. The vesica appears only because it's the shape that fits the band. Every curve does a job: plate corners, window, grain, key domes.
+**Costume watch** (the director's rule, stricter now that the word is "cathedral"): no gothic tracery, no pointed arches as ornament, no stained-glass colour. The window is round because the driver is. Every curve does a job: plate corners, window, grain, key domes.
 
 ---
 
@@ -29,15 +46,16 @@ Seed: CHAMBER rev 2 (`../chamber/`) + FOLD-105 v1.1. Owner, 14:12–14:41 (`desi
 **What shows under each head:** the carrier's 2.8 mm neck (Ø 11.2) and a thin dark ring of deck hole (Ø 12.0). **Print the carriers in matte black.** The neck then reads as the hole's shadow and every head seems to float a little above the deck, like a drawknob on its stem. (A one-piece printed peg has a neck in its own colour; see option F.) The felt washers on the deck are gone: the stop moved under the deck (systems §10.2).
 
 <figure>
-<img src="img/cathedral-brass-keys-metal.jpg" alt="Four ray-traced views of the key corner of the base. Top left: polished brass naturals with black sharps. Top right: black naturals with polished brass sharps. Bottom left: all polished brass. Bottom right: a close view with two brass sharps between black naturals, the left one aged and darkened with a bright crown, the right one freshly polished.">
-<figcaption>Brass as metal, ray-traced (POV-Ray: reflections and a soft studio light, which OpenSCAD can't do). The head is drawn 4.0 tall (top at deck + 6.8) because the plug's head height isn't published yet. <b>Top left (A):</b> brass naturals, black sharps. <b>Top right (B):</b> black naturals, brass sharps (recommended). <b>Bottom left (C):</b> all brass. <b>Bottom right:</b> close up, two brass sharps between black naturals. The right one is freshly mirror-polished; the left one is unlacquered after handling: dark gold-brown on the body, bright where fingers rub the crown. The walnut and joystick are simplified in this study; it's here to judge the key materials only.</figcaption>
+<img src="img/cathedral-keys-brass-A-C.jpg" alt="Ray-traced key studies. Top, wide: polished brass naturals in front with glossy black sharps behind on the cream deck. Bottom left: all 25 keys in polished brass. Bottom right: a close view of a black sharp between two brass naturals, the left natural aged dark gold-brown with a bright crown, the right one freshly polished.">
+<figcaption>Keys in real metal, ray-traced (POV-Ray). The base's control row is left out because it's being redesigned with low knobs. <b>Top (A, the lead):</b> brass naturals, black sharps: normal keyboard reading, and more brass than black, as he asked (16:52). The sharps are drawn as black-rhodium-plated brass, so every key has the same weight and coldness; printed black sharps are the other route (systems' call). <b>Bottom left (C, the alternate):</b> all brass. <b>Bottom right:</b> close up. A black sharp between two naturals; the left natural is unlacquered after handling (dark gold-brown, bright where fingers rub), the right one freshly polished. Head drawn 4.0 tall until the plug's real height is measured.</figcaption>
 </figure>
 
-### My pick: B, black naturals and brass sharps
-- **Why:** the 15 naturals are the big field, and in black they join the knobs, so the playing side reads as one black family on cream. The 10 brass sharps become the accent, the way brass fittings sit on a dark organ console, and they repeat the case's other brass (stays, axis screws). The palette stays at **walnut, cream, black, red, brass**: five, nothing new, no brown.
-- **It keeps the light / dark split** a player reads by, reversed like an organ. The reversed-reading question from rev 1 stays open for him.
-- **A (brass naturals)** puts the loudest material in the biggest field. In the study, the bright row in front pulls the eye away from CUTOFF and the knobs. I'd only pick it if he wants the keyboard to be the hero.
-- **C (all brass)** is the most "cathedral" and the most jewellery-like. The two rows then differ only by position and height, and 25 brass domes compete with the red CUTOFF. Polished, the 25 reflections make the keyboard read as a single shining field, more jewellery box than console.
+### Lead: A, brass naturals and black sharps (owner 16:52: "more brass than black"; director steer 2)
+- **Why A over B now:** he asked for more brass. A gives 15 brass keys to 10 black, and it keeps a normal keyboard's reading (light naturals, dark sharps), so the reversed-reading question goes away.
+- **How it sits with the rest:** the brass field in front is the warmest, brightest thing on the instrument, a row of organ-console fittings under the hands. The black sharps tie back to the black knobs. The red CUTOFF stays the one colour accent, because the base's row is being redesigned around it as the hero on the axis (steer 2), so it has to hold its own against the brass. Visually, the brass row and the red dial will compete less if the low-profile knobs are black and the dial sits on the axis directly above the keys' centre.
+- **C (all brass)** is the alternate: the most "cathedral", one material for every key. The two rows then differ only by height and position, and 25 reflections read as a single shining field. Better for an object to look at than for a keyboard to read at a glance.
+- **B (black naturals, brass sharps)**, my rev 2 pick, is now the fallback if A's brass field turns out too loud in real metal.
+- **Black sharps' material:** black-rhodium-plated cast brass (same weight and coldness as the naturals; 1 µm plating wears through to brass on the crowns over time) or printed matte black (lighter, so a per-group velocity curve may be needed: systems' call).
 - **D / E (birch)** are the cheapest real route: one pack of 50 covers both rows. Birch is pale, close to the plate's cream: under a **water-based, non-ambering clear** it stays near it, and an oil finish would turn it yellow. D's black dye covers birch's blotchiness only at full black. **Honest wear note:** dye sits in the surface, so the crown of the most-played naturals will wear pale over time. A hardwax-oil topcoat slows it down.
 - **F (printed)** gives exact colours: black to match the knobs, the plate's own cream filament. It feels the least like an instrument (systems §10.3: cooler, slicker, lighter, faint terraces on the dome unless it's resin-printed).
 
@@ -47,81 +65,48 @@ Seed: CHAMBER rev 2 (`../chamber/`) + FOLD-105 v1.1. Owner, 14:12–14:41 (`desi
 | What it is | Real brass. Sculpteo prints the model in wax and casts it in 80/15/5 copper/zinc/tin; finishes include raw, mirror polish and gold or black rhodium plating; min wall 0.8 mm; max 125 × 125 × 100 mm; 7–9 business days; priced on upload (not checked). | PLA with brass powder (e.g. colorFabb brassFill; product UNVERIFIED this session). Prints dull, polishes to a soft gold with sandpaper and metal polish by hand. |
 | In the hand | **Cold at first touch**, then warms. **Heavy**: a solid head ≈ 5 g [CALC: ≈ 620 mm³ × 8.5 g/cm³]; with an open cup underneath, ≈ 2.5–3 g (ESTIMATE). A printed peg is ≈ 0.8 g. | Cool, not cold; warms fast. Heavier than plastic but well short of metal (density UNVERIFIED). Softer edges, a satin glow, not a mirror. |
 | Over time | **Worn shine:** unlacquered brass tarnishes to a dark gold-brown everywhere except where fingers rub, so the crowns stay bright, like a church door handle. Lacquered, it stays bright until the lacquer wears off the crowns. Note: an all-tarnished key reads brown, the thing he called out. Keep it handled or polish it now and then. | Dulls slowly; re-polish by hand. Can't take a real shine back once scratched deep. |
-| Cost | Per-piece service price, ×10 (B) or ×25 (C): UNVERIFIED; quote by upload. | Pennies of filament. |
+| Cost | Per-piece service price, ×15 (A naturals), ×25 (A with plated sharps, or C): UNVERIFIED; quote by upload. | Pennies of filament. |
 
-- **Recommendation:** **cast brass for the sharps in B** (10 pieces; the real metal is the point), mirror-polished and left unlacquered so the crowns earn their shine. The black naturals: printed matte black heads on the same carriers, or D's black-dyed birch plugs.
+- **Recommendation:** **cast brass for the naturals in A** (15 pieces; the real metal is the point), mirror-polished and left unlacquered so the crowns earn their shine. The black sharps: black-rhodium-plated cast brass (matched feel) or printed matte black heads on the same carriers.
 - **If he wants both rows to feel the same in the hand:** cast all 25 in brass and have the naturals **black rhodium plated** (1 µm). Same weight and coldness on every key. 1 µm will wear through at the crowns with play, and brass will show through the black, slowly. That's either the best thing about it or a fault: his call.
 - **⚑ Eng / systems: key mass.** A 2.5–5 g brass head sits on a Choc V2 silent switch. Whether that spring still returns the key briskly, and whether the extra mass changes the velocity fit, is **UNVERIFIED**. Test one cast head on one switch before ordering 10–25. The hollow-cup head (≈ 2.5–3 g) is the one to try first.
 
 ### TAP
-TAP keeps the rule that it's made of the key material, because it's played in rhythm like a key. With B, **TAP is a brass dome** (the same cast head, on a printed cap that fits TAP's switch; part UNVERIFIED) in its black bezel. With D / E, it's a birch plug; with F, printed cream.
+TAP keeps the rule that it's made of the key material, because it's played in rhythm like a key. With A or C, **TAP is a brass dome** (the naturals' cast head, on a printed cap that fits TAP's switch; part UNVERIFIED) in its black bezel: more brass, and it's played like a key. In steer 2 it moves to the base row's right end, mirroring the bend stick. With D / E, it's a birch plug; with F, printed cream.
 
-## 2. A vs B (the speaker and "effects & out")
-Layout is systems' (option B moves controls, so it needs the director, then the owner). These are just the two looks, standing at 120°.
+## 2. The played row: low, gold, symmetric
+- **Low knobs:** Tayda aluminium Ø 10 × 8 (6 mm 18T), bought, on a 1.0 seat (systems §16.3). **Gold** (a Tayda colour) for MOD, TUNE, GLIDE, EMPHASIS, AMOUNT, MOD MIX, DRIFT and R3.
+  - **Why gold:** a rule the eye can read. **What the hands play is brass-toned** (keys, TAP, the played row's knobs). **What you set on the lid is black.** CUTOFF stays the one red hero. Black low knobs are the quieter alternative, also a Tayda colour.
+  - **Honest risk:** anodised gold aluminium is usually yellower and more even than polished cast brass. **Order one of each and put them beside a cast key** before committing; if the gold reads as a different metal, go black.
+- **CUTOFF** keeps its tall red hero dial, because no low, wide hero exists as a bought part. Closed, it sits under the window.
+- **Bend stick** at the left end, its cap lowered to plate + 9 (systems: module seated deeper). **TAP** at the right end: a brass dome in a black bezel, the mirror of the stick.
+- **Two lights** either side of CUTOFF (x 131 / 155), symmetric about the axis.
+- **Section names:** pitch | filter | mod. On the lid the old "oscillators / mixer / contours" names are gone for now: the evenly spaced rows leave no 5 mm strip that clears both the knobs' ticks and the toggles. The breaks (x 93.5 / 192.5, mirrored) carry the grouping. **Open:** if the director wants names back, they'd go in the switch line's ends.
 
-<figure>
-<img src="img/cathedral-A-standing.jpg" alt="CATHEDRAL option A standing: the lid's band carries a lens-shaped grille of tapered slots; effects amounts stay in the base row">
-<figcaption><b>Option A:</b> nothing moves. The band between the voice rows carries one vesica window of tapered slots, centred on the axis. The base row's heading is corrected to "effects", because VOLUME left that section in rev 7.2. Echo and reverb stay split between the lid's back row and the base. <i>Rendered in rev 1: it still shows the retired spine in the joint and rev 1's keys; the stays are brass, as recommended in §7.</i></figcaption>
-</figure>
-
-<figure>
-<img src="img/cathedral-B-standing.jpg" alt="CATHEDRAL option B standing: all effects and volume on the lid's top row, a round tapered-slot grille at the base's right end, the lid band left plain">
-<figcaption><b>Option B:</b> the lid's top row holds every effect in one line, read as the choir: drift | echo (type, time, repeats, mix, tap) | reverb (type, decay, mix) | volume. The speaker moves to the base's right end as a round rose window on the PLAY row's own line. The lid's band is left as a quiet rest. <i>Rendered in rev 1: retired spine and rev 1's keys, as in A.</i></figcaption>
-</figure>
-
-**How each looks, my read:**
-- **A** fixes the "odd gap" as a picture: the band now has one centred figure instead of a grille island. It doesn't fix the split, which is his other complaint.
-- **B** looks the most resolved: each half has one job (hands' row in front, the whole sound chain behind). The rose window fills the place the FX amounts left, and the band reads as intended rest, not leftover space. Visually, B is the better CATHEDRAL. The reach cost (FX amounts ≈ 126 mm further away) is systems' and the owner's to weigh, not a look question.
-- **B labels (fixed in rev 3; `branch_check.py` §7 on `Cathedral("B")`: 0 collisions):**
-  - FREE / SYNC at (96, d 69) sat on "osc 3 ctl". In B the band below is empty, so **the V2 row's three toggle legends (osc 3 ctl, source, velocity) move under their toggles.**
-  - The left voice rule ends at dV2 + 5.5 so it stops short of "sync".
-  - Systems' check found the REPEATS legend under the toggle by 1.7 mm. **TIME and REPEATS legends now sit behind their knobs** (d + 13.05, like TIME / DECAY in A).
-  - **"free" / "sync" sit 1.5 mm behind the toggle centre** (0.5 left "free" 0.64 mm from FREQ 3; 1.5, 2.0 and 2.5 all check 0).
-- **A, a correction to systems' §2 / §5:** a Ø 34 round window fits the band's depth but overlaps the NOISE / EXT legend and the "mixer" heading. **The band's real clear depth between those labels is ≈ 22 mm.** Hence the vesica: **66 × 16, centred at (143, d 37.6)**, ring clear of both labels. Open area ≈ 700 mm² vs v1.1's 900 (−22 %, acoustics UNVERIFIED).
-
-## 2b. The speaker, round 2 (owner: no speaker on the key side, no eye shape; "lines going up and down", or "a circle and maybe not centered")
-Systems §14: B's single effects row stays on the lid, and the speaker stays in the lid band, where v1.1 had it (P1). Nothing else moves for the speaker. The other placements are dropped at the owner's steer: the rounded rectangle (lines run sideways) and firing through the façade (P2: muffled flat on a table, and quieter for the player).
+## 3. The speaker window: sized for sound, then drawn
+One round opening, concentric with the 50 mm CDS-5076-class driver, centred on the axis at lid (143, d 32), above CUTOFF (systems §16.4).
 
 <figure>
-<img src="img/cathedral-speaker-options-standing.jpg" alt="Two standing views of CATHEDRAL layout B side by side, with a close view of each lid band below. Left: the band grille is eleven vertical slots stepping up to the middle and down again, standing on one line like an organ-pipe tower. Right: a small circle of vertical slots sits off-centre, to the right of the mixer heading. In both, the base row is centred on the instrument and the sharps and TAP are brass.">
-<figcaption><b>Left, the pipe tower:</b> 11 vertical slots, 2 wide at 5 pitch, lengths 8 → 18 → 8, all standing on one foot line (a gable, not a lens), centred on the axis over the speaker. <b>Right, the off-centre circle:</b> vertical slots tapered to a circle, Ø 25 overall with its ring, at (160, d 37), 17 mm right of the axis and still over the speaker. Below each, the same band up close. Both use layout B's effects row and keys B (black naturals, brass sharps, brass TAP). <b>The base's freed right end:</b> the PLAY row (pitch and filter) moves 47 mm right so it's centred on the instrument's axis, with equal margins at both ends. Brass here is a tone re-map of the OpenSCAD render, not ray-traced (see §1 for the true metal look).</figcaption>
+<img src="img/cathedral-nave-speaker-window-20px-per-mm.png" alt="Drawing at 20 pixels per millimetre. Left: the round window, 46 mm across, filled with 15 vertical slots whose lengths follow the circle; two dashed lines mark hidden ribs behind the plate. Right: a section through the plate, the slots, the foam gasket, the driver with its cone and magnet, and a sealed back box 10 mm deep with stuffing.">
+<figcaption><b>The window, exact (20 px per mm).</b> Left: front view. Ø 46, 15 vertical slots 1.8 wide at 3.0 pitch (webs 1.2), each slot's length following the circle; the dashed lines are the two hidden ribs behind the plate. Right: section. Plate 2.5, foam gasket on the driver frame, cone gap ≥ 1.5, and a sealed back box 10 deep, lightly stuffed (systems' sizes).</figcaption>
 </figure>
 
-**Both fit the band.** Label check: the tower's slot tips clear "mixer" by 1.68 mm and "noise / ext" by 1.9. The circle's ring clears every label by ≥ 1.5 only in x 158–176 (my sweep), which agrees with systems' best spot. The centre is the worst spot for a circle (≈ 19 mm max). The full model check for both, with the PLAY row centred, finds 0 collisions.
+| | Value | Why |
+|---|---|---|
+| Opening | **Ø 46** (systems §16.4) | the cone plus its surround: the radiating area, no more |
+| Slots | **15 × 1.8 wide at 3.0 pitch**, web **1.2** | his "lines going up and down". Odd count, so one slot sits on the axis and the window is symmetric. 1.8 reads as a line at arm's length. A 1.2 web is 3 perimeters with a 0.4 nozzle |
+| Open area | **≈ 945 mm²** [CALC], 57 % of the opening, **≈ 75 % of Sd** (12.6 cm², systems ESTIMATE) | between systems' 1.5 / 2.7 (≈ 73 %) and 2.0 / 3.2 (≈ 83 %); the director's target is ≥ 50 %, ideally ~60 % |
+| Rear ties | two hidden ribs, 1.2 × 1.5, behind the plate at ±11 mm | 1.2 webs over 40 mm long are flimsy on their own. The ribs stiffen them without a line on the front. They cost ≈ 65 mm² → **≈ 880 net (≈ 70 % of Sd)** |
+| Ring | none | the slots' own outline is the edge; a printed ring would add a line beside CUTOFF's scale |
+| Behind | foam gasket; sealed, stuffed PETG back box ≈ 60 × 60 × 10 | systems §16.4: the box matters most |
 
-**My read:**
-- **The tower** answers "lines going up and down" most directly, and it's the most CATHEDRAL: a small pipe tower inside, echoing the façade outside. It sits on the axis, so it keeps FOLD's "everything single sits on x 143" rule. It looks like a designed figure, not a hole. This is my pick.
-- **The off-centre circle** is calmer and smaller. Off-centre, it reads as placed on purpose, like a sound hole beside the mixer, not a target. The cost is the axis rule: it's the one single element off the centreline, and only 17 mm off, so it can look slightly mis-placed rather than clearly asymmetric. If he likes the circle, I'd keep it exactly where it is: it's the only place it fits.
-- **Loudness:** open area is the tower ≈ 290 mm² vs the circle ≈ 265, both ≈ 35–40 % below today's 440 (systems; loudness UNVERIFIED). Widening the tower's slots to 2.5 brings it to ≈ 340 [CALC: 136 mm of slot length × 2.5] with almost the same look.
-
-**What I put in the empty base end, and why:** with the effects on the lid and the speaker out of the base, x 186–270 is empty. **I'd re-centre the PLAY row on the axis** (systems' option 2): the stick moves to x 72 and AMOUNT to 214, with the breaks and headings moving with them. The hands' row then sits centred under the choir, like the nave under the crossing, and the empty space becomes two equal margins instead of one hole.
-- **Rejected:** bringing VOLUME and TAP back to the base (option 1) undoes his "together" for the out control. The lozenge and lights (option 3) would be ornament filling a gap.
-- **⚑ D+O:** it moves controls. The stick ends up 47 mm further from the left end; with the keys running full width, that's still under the left hand.
-
-## 3. The grille ("the screen")
-<figure>
-<img src="img/cathedral-grille-options-20px-per-mm.png" alt="Three grille patterns at true proportion with a 10 mm bar: a lens of horizontal tapered slots, a circle of horizontal tapered slots, a circle of concentric arc slots">
-<figcaption>Grille patterns, 20 px per mm. <b>Left:</b> the vesica, 66 × 16 (option A). <b>Middle:</b> tapered slots in a Ø 27 circle (option B). <b>Right:</b> concentric arcs in a Ø 27 circle, his "circular" alternative. All slots are 1.25 wide at 2.3 pitch.</figcaption>
-</figure>
-
-- **Ruled (director): tapered slots (left / middle), his first option.** Vesica 66 × 16 in A, Ø 27 circle in B. Concentric arcs are dropped. Both are in the model.
-  - They keep the v1.1 grille's language (horizontal bars) and simply round its silhouette.
-  - Outside, the façade is a tower of vertical pipes whose lengths rise toward the middle. Inside, the window is a stack of horizontal lines whose lengths rise toward the middle. Same rule, turned 90°. (That rhyme holds only if his own façade keeps vertical pipes; the slots stand on their own if it doesn't.)
-- **Concentric arcs** read more like a speaker cone and need bridges (four drawn) to hold the centre. They're more "hi-fi" than "cathedral".
-- A thin warm-grey ring (the plate's rule colour) frames each window, so it reads as a window, not a hole pattern.
+**Loudness, honestly** (systems): clear mids and modest level, roughly +3–6 dB in 1–5 kHz over today's choked grilles (ESTIMATE; bench it). It's a monitor, not a PA.
+**Code:** `window_slots()` and `speaker_window()` in `rb.py` drive both the render and the area figure.
 
 ## 4. A woodier fine line texture, same subtlety
 **Confirmed** (owner 14:40: "Engraving texture I meant fine line texture"): it's the faint line texture on the walnut body. He liked how few lines there were; he wants them to read as wood. **The pipe façade is a placeholder:** he'll design the pipe lines himself, so nothing below judges the façade.
 
-<figure>
-<img src="img/cathedral-closed-with-book.jpg" alt="CATHEDRAL closed beside a hardback, seen from behind: walnut with faint arched grain, a placeholder pipe façade, corner screw-feet, and a spine that has since been dropped">
-<figcaption>Closed, seen from behind: cathedral grain at about the old line count (here a 2D post-process; the modelled grooves replace it in the next pass), four screw-feet at the corners (the case screws), two flush brass axis screws. <i>Rendered in rev 1:</i> the pipe façade is a placeholder for his own design, and <b>the spine shown is retired</b>; the back slot is waiting on systems' answer.</figcaption>
-</figure>
 
-<figure>
-<img src="img/cathedral-grain-detail.jpg" alt="Close crop of the lid back: sparse nested arched grain lines under the placeholder pipe façade">
-<figcaption>Detail: the arches are low-contrast and spaced about as widely as the straight streaks were, so the grain stays ground under whatever figure goes on the lid back.</figcaption>
-</figure>
 
 **Built (director ruling 4), not deferred:** real walnut would mean machining, so the printed walnut-tone body is the build, and the texture goes into the print.
 
@@ -131,7 +116,7 @@ Systems §14: B's single effects row stays on the lid, and the speaker stays in 
   - **Long sides:** the arches' tails, one gentle line across the base's flat band (z 6.2–12.4), two on the lid's far wall above the I/O (z ≥ 13).
   - **End faces:** end grain, so two or three growth-ring arcs. The base's right end keeps its arcs at y < 58, clear of USB-C and MIDI.
 - **Printing it:** grooves on the underside and lid back print face-down as clean first-layer channels. On the vertical sides they're cut across layer lines; at 0.25 deep they'll read softly, which is what he asked for (subtle). **UNVERIFIED** that 0.25 reads at arm's length: add a 60 × 40 groove patch to the next coupon print. If it's too faint, go to 0.35.
-- **In the model:** `Cathedral(grain=True)` draws them from the same polylines the body CAD will use (`arch_lines`, `side_lines`, `ring_arcs` in `rb.py`). The rev 1 images below used a 2D post-process instead. They show the idea, not the modelled grooves; the next render pass shows the real ones.
+- **In the model:** `Cathedral(grain=True)` draws them from the same polylines the body CAD will use (`arch_lines`, `side_lines`, `ring_arcs` in `rb.py`). The closed side elevation above shows the lid's end arcs. The base's end faces are left plain: their flat band is only ≈ 6 mm tall, and clipped arcs read as stray marks.
 - **Real walnut, if it ever happens:** cathedral figure is how flat-sawn boards look, so it costs nothing. **Pick flat-sawn stock and run the arches along the case's length**, apex toward the hinge. Quarter-sawn (straight) grain is what to avoid: that's his "straight woodgrain would be too detailed".
 - **For his façade design:** the lid back's free field is x 34.8–251.2 (systems §3), clear of the four corner feet; the two axis screws sit on x 143 at d 12 / 96; the two Ø 4 push-out holes (x 108 / 178, d 28.3) are fixed by the construction (CHAMBER rev 2 drew them as two pipe mouths). His design has to keep them, or tell systems if it moves them.
 
@@ -144,17 +129,17 @@ Systems §14: B's single effects row stays on the lid, and the speaker stays in 
   - Honest: the axis sits 1 mm behind the base's back face, so each ear still shows as a small round boss at the rear corners when closed, quieter than a knuckle.
 - **Feet:** four screw-through rubber feet (Ø 12, black, cap plug) at the corner screws; the two axis screws stay flush brass (no impost clash).
 - **Plates:** R 7.7 on all eight corners.
-- **Headings:** A reads "effects" (not "effects & out"); B drops the base heading over the speaker. The lid's back row in B carries "echo" and "reverb" over their groups.
+- **Headings:** the lid's effects row carries "echo", "reverb" and "out" over its three groups (breaks at x 157 / 226). The base reads pitch | filter | mod.
 
 ## 7. Metal: what "brass" is now that nothing is machined (ruled: brass is the only visible metal)
 Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 316L stainless** (JLC3DP binder jet) or thicker PETG. Here's what that looks like, and the ruling (director 5, as recommended in rev 2).
 
-- **Printed 316L reads as steel, not brass:** a matte, slightly grainy mid-grey, like sintered metal, polishable to a satin silver. Beside brass keys and brass axis screws, two grey stays would be a second metal. **Two metals is a palette change I'd avoid:** with B or C keys, brass is now the instrument's one metal.
+- **Printed 316L reads as steel, not brass:** a matte, slightly grainy mid-grey, like sintered metal, polishable to a satin silver. Beside brass keys and brass axis screws, two grey stays would be a second metal. **Two metals is a palette change I'd avoid:** with A or C keys, brass is now the instrument's one metal.
 - **So, by part:**
 
 | Part | Seen? | Recommend | Looks like |
 |---|---|---|---|
-| Keys (B: sharps; C: all) | always | cast brass (§1) | polished brass, worn shine on the crowns |
+| Keys (A: naturals; C: all) | always | cast brass (§1) | polished brass, worn shine on the crowns |
 | Lid stays (2, 3 × 8 × 44.4) | standing; as lines on the lid end faces when stowed | **cast brass** from the same service as the keys (fits 125 mm; strength of the cast part at 3 × 8: systems / eng, UNVERIFIED) | brass, matching the keys |
 | …fallback | | **printed PETG 5 × 8 in matte black** (systems' option b) | black, part of the knob / foot family. Not grey. |
 | Hinge leaves (4) | no, inside the walls | **printed 316L** (systems' option a) | invisible, so steel is fine |
@@ -167,11 +152,12 @@ Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 31
 - **The brass on the stays doesn't need plating or paint** if it's cast. Plating printed 316L to look like brass is possible but it's a finish that wears off a part you handle every time you stand the lid up.
 
 ## Open
-1. **Owner (being asked now, one at a time):** speaker: pipe tower or off-centre circle (§2b; my pick: tower), and the re-centred PLAY row (⚑); hidden pins vs cables through the hinge; the back slot; keys A / B / C (my pick: B, black naturals + cast-brass sharps; reversed reading).
-2. **Owner, after keys:** if brass, unlacquered (crowns stay bright, the rest darkens) or lacquered (bright until it wears)?
+1. **⚑ Director, then owner:** the steer 2 moves (mixer re-flowed round the window, CUTOFF ↔ EMPHASIS, MOD MIX and DRIFT to the base, the switch line); R-LOW (≈ 55.2 closed, small gold knobs) vs R-TALL (≈ 59.7, today's knobs); **R3** at base x 239 (VOLUME or ECHO MIX).
+2. **Owner:** keys A (lead) or C; lacquered or unlacquered brass; gold or black low knobs.
 3. **Systems / eng:**
-   - brass head mass (2.5–5 g) on the Choc V2 silent switch: return and velocity fit; test one hollow head first;
-   - cast-brass stays: strength at 3 × 8 (or the black PETG 5 × 8 fallback);
-   - B's base rose (Ø 27) vs the Daisy (eng).
-4. **Maker / to buy:** one pack of Cherry Tree Toys 3/8" birch plugs (measure head height H: it fixes the key height); one Sculpteo quote by upload (hollow-cup brass head, a stay); a groove patch (0.25 and 0.35 deep) on the next coupon; the vesica's open area (acoustics).
-5. **Re-render pass after his layout answer** (coordinator relays it): closed, standing (chosen layout) and keys, no spine, modelled grooves, chosen key colours. The standing and closed views can then come from POV-Ray too, if the director wants the brass believable in them as well. Keep it to those three.
+   - brass head mass on the Choc V2 silent switch; one cast head first;
+   - R-LOW's dependencies: snap-in or counterbored pots (1.0 seat), bought shaft length, the stick seated 3.6 deeper;
+   - cast-brass stays at 3 × 8;
+   - update `layout_check.py` with visual's two legend changes: switch-line legends **beside** their toggles (right, 1.55), and behind-legends **+1.0** further back (they sat on the knobs' top tick). With those, my run of its rules: 0; with real Kalam metrics and ticks: 0.
+4. **Maker / to buy:** one Cherry Tree Toys birch pack (measure head height H); one Sculpteo quote (hollow brass head, a stay); one Tayda gold and one black 3010 knob, to set beside a cast key; a groove patch (0.25 / 0.35); bench the window + back box against today's grille.
+5. **Not rendered:** R-TALL (looks the same from above); a closed 3/4 (the side elevation carries the height and the grooves).
