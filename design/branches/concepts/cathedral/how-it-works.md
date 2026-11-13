@@ -123,7 +123,7 @@ No images rendered (owner, 13:13).
 - **The hinge-side slot**, real since v1.1: closed, a **21.9 × 266 mm opening along the back** shows the lid's V1 knobs 7 mm inside it and lets bag grit in (J6). v1.1 accepted it as a stated weakness (J6 ◐). CHAMBER's spine closed it.
 - **If it goes, J6 drops back to ◐.** No rigid lip can replace it (R4, §1).
 - **Middle ground:** keep the function and lose the accent. The same flexible spine in a **body-matched colour** (walnut-dark bookcloth or leather, or black) reads as part of the case. The side-pivot hinge (§1) doesn't change the spine's geometry: same anchors, same 21.9 closed / 2.1 open.
-- **Owner's call:** no spine (slot back, as v1.1) / body-colour spine / oxblood.
+- **Owner's call:** no spine (slot back, as v1.1) / body-colour spine / oxblood. **→ Owner 14:4x: no spine.** See §12.2 for what answers the slot instead.
 
 ## 7. CATHEDRAL as a point of view: what changes in the structure
 - **The console inside, the organ outside, stays.** The pipes still come from the keyboard's own 2^(−n/12) and face the listener.
@@ -208,6 +208,7 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 | A. **Bought plug on a printed carrier** | Cherry Tree Toys 3/8" (12.7 head, 9.53 × 3.2 tenon) | buy plugs; print carriers | turned wood | head height unpublished: measure; pale species only (birch / oak / cherry) |
 | B. **Printed peg, one piece** | printed | print | plastic; matte or wood-fill helps | best colour control; FDM terraces on the dome |
 | C. **Externally printed pegs** (resin / SLS) | printed | order | smooth plastic | cost UNVERIFIED |
+| E. **Bought wood cap on a shaft** (owner, thinking aloud: "Premade wooden caps on a shaft that also is premade or part of the key is fine too") | a turned wood knob or furniture button with a bored hole, **≤ Ø 16** (18 mm pitch leaves ≥ 2 mm between heads) | buy caps; the shaft is either a **bought dowel** (e.g. 1/4" = 6.35, glued into the cap and into a Ø 6.4 socket in the printed carrier) or **printed into the carrier** (a Ø 6 printed stem: snug, glued) | turned wood | needs a cap supplier that publishes head Ø, height and bore Ø × depth (**none checked yet**); a dowel adds a glue joint. The carrier, stop and velocity are as §10.2 |
 | D. **Flat tops** (v1.1 FOLD) | printed or laser-cut | print, or laser at Vector Space (allowed, not leaned on) | flat key | no peg height cost; closed back to ≈ 50.1 |
 
 ## 11. No machining: every part CATHEDRAL had him cut or drill
@@ -224,6 +225,70 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 
 **Metal-printed brass or bronze:** I couldn't check a service's price or availability this session, so **UNVERIFIED**. 316L at JLC3DP is the one I checked. It's stainless, not brass-coloured: a brass look would be paint or plating, or brass from a service once checked.
 
+## 12. No spine: routing cables through the hinge, and what answers the back slot (owner 14:4x)
+**Owner:** "I don't want a spine can we route cables through a hinge."
+
+### 12.1 Through the hinge: not the ribbon; possible with round cables through hollow corner knuckles, at a cost
+**The 40-way ribbon can't go through any hinge.**
+- It's 50.8 mm wide and flat, and it crosses the seam at x 176–227 in a rolling loop.
+- A flat ribbon can't twist 180° in a knuckle's ≈ 9 mm length.
+
+**What a through-hinge needs:**
+- The ribbon replaced by **two round multi-core cables**, one through each rear-corner knuckle, along the axis (z 26.3).
+- The ribbon list is 21 signal lines plus grounds (v1.1 §Hinge ribbon), so each cable carries ≈ 12–20 cores, **≤ ≈ 5 mm OD** (part UNVERIFIED).
+- **Pin 39** (mixer bus → ladder, the sensitive line) goes in its own **shielded** core, and eng's noise test (pass ≤ −70 dB) has to be redone.
+- **A hollow pin.** Bought: unthreaded round spacers / standoffs with a clear bore (Ø 10 OD × ≈ 5.3 ID class, UNVERIFIED stock), cut by the maker, not by him. Or **metal-printed 316L** (JLC3DP: walls > 1.5, so Ø 8.5 × 5.5 bore, ≤ 100 long ✓; from $5, UNVERIFIED beyond that).
+- **Bigger knuckle barrels:** Ø 9.6 → **≥ Ø 13–14** to hold that pin. Open, the corner barrels rise to z ≈ 33 (were 30.9). That's **more visible, not less**.
+- **Twist:** 180° of rotation over ≈ 9 mm of axis won't do. Each cable needs a **service loop inside both halves** behind the knuckle. Space at the rear corners is UNVERIFIED (base: landing strip above, Daisy rear right).
+- **Headers move to the corners on both boards:** a board change (eng).
+
+**Against my hidden side-pivot (§1):** incompatible. The pivot lives in 4 mm walls, with no room for a bore. **It's one or the other:**
+- **hidden pins** (cables stay in the seam), or
+- **hollow knuckles** (cables in the hinge, barrels a bit bigger).
+
+**Printed hollow hinges** (print-in-place or a printed barrel) exist in PETG. At Ø 13 with a 5.5 bore the wall is 3.75, but strength under the stand load and the lid's weight is **UNVERIFIED**, so I'd use a 316L or bought pin inside a printed barrel.
+
+**⚑ D+O and eng:** cables-through-hinge changes both boards' headers and the cable spec. It's worth it only if the owner prefers it to hidden pins.
+
+### 12.2 With no spine: the back slot (21.9 × 266, closed) — options, not picking
+| | What | Answers | Costs |
+|---|---|---|---|
+| S0 | **Leave it open** (v1.1 as locked) | nothing; J6 ◐ (grit, knobs visible 7 mm inside) | $0 |
+| S1 | **Design it as an arcade:** dark interior behind the slot; the visible tops of V1's knobs read as a row of columns. CATHEDRAL: the clerestory | how it looks, not grit | $0 (paint the lid's hinge-edge interior) |
+| S2 | **Cables through the hinge (12.1)**, so the ribbon loop no longer shows in the slot either | removes the cable from view | board and cable changes; bigger knuckles; loses hidden pins |
+| S3 | **A sleeve** (case work) | grit and protection | his "case" topic was deferred for HUSH / ONE SHEET; FOLD was meant to self-protect |
+| S4 | A rigid lip or flap | — | **can't**: raised among the knobs when open (R4), §1 |
+| S5 | The spine | full closure | **declined by the owner**; listed only because it's the only full closure |
+
+## 13. Brass / black keys, or all brass (owner: "Could 3d print and reminds me of a cathedral")
+**Form:** a **hollow cap** over the printed carrier (§10.2) replaces the wood plug head. Same Ø 12.7 dome, wall ≈ 0.8–1.0, glued onto the carrier's cup.
+
+| Option | How | Mass per cap [CALC, ESTIMATE] | Cost × 25 | Wear |
+|---|---|---|---|---|
+| **Cast brass** (wax print, lost-wax cast by a service) | i.materialise brass (checked: cast from printed wax; min wall 0.6, detail 0.35, max 88 × 88 × 125; finishes natural PU-coated, gold, **black colour-plated**, chrome; electroplating adds €5–9 per model; base price not published) | hollow ≈ 2–3 g; solid head ≈ 4–5 g (brass ≈ 8.5 g/cm³) | **UNVERIFIED**: quote by upload. Plating alone adds €125–225 for 25 | uncoated brass darkens / greens; PU coat wears at touch points (uneven patina); black plating wears through to brass where fingers land (a "worn organ stop" look, or a flaw) |
+| **Metal print 316L** (JLC3DP) | steel, not brass-coloured (plate or paint for brass / black) | ≈ same as brass (7.9 g/cm³) | ≥ 25 × $5 = **≥ $125 UNVERIFIED** (only "from $5" checked) | steel doesn't patina; plating wears as above |
+| **Brass-look printed** | brass/copper-filled PLA (hand-polishes to a metal sheen, no machining) or silk-gold PLA; black PETG for sharps | metal-fill ≈ 0.8–1.2 g; silk ≈ 0.5 g | pennies (filament) | metal-fill burnishes and darkens like metal; silk PLA scuffs |
+
+**Feel on a Choc V2** (≈ 35–43 gf per switch, eng `velocity-and-keys-v2.md` S3):
+- A 2–3 g hollow brass cap is ≈ 5–8 % of the spring force: it feels slightly lighter at the top. Negligible.
+- A **solid 4–5 g head is ≈ 10–14 %**: noticeably lighter, and a firmer top-out on release.
+- The **silent Choc damps both strokes**, so bounce shouldn't become audible (**UNVERIFIED**: test one key).
+- **Recommend hollow caps if metal.**
+
+**Velocity:**
+- **Brass is non-magnetic** (copper-zinc, μr ≈ 1). It doesn't bend the D31's field. The magnet sits in the carrier's arm 10.5 behind the stem anyway, not under the cap.
+- Eddy-current drag at key speeds near a 4.76 mm magnet: negligible (ESTIMATE).
+- A heavier cap slows the stroke for the same finger force, so velocity reads slightly lower. **If every key has the same cap mass, one calibration covers it.**
+- **Mixing brass naturals with plastic sharps** gives two masses, so the firmware needs a per-group velocity curve (eng: trivial, but note it). Black-plated brass sharps avoid it.
+- **316L steel is weakly magnetic after printing** (austenitic, but printed/sintered parts can show some ferromagnetism, ESTIMATE). Near the magnet arm it could pull the field slightly. Brass doesn't.
+
+**Height:** a hollow cap can be shallower than a wood head (it isn't limited by plug stock). With dome height ≈ 4, the head top = deck + 2.8 + 4 = **6.8**, and FOLD's closed height stays as CHAMBER's 52.7 [CALC].
+
+**CATHEDRAL reading:**
+- **All brass** rhymes the keys with the façade's brass line work: **one metal, fewer colours**, his ask.
+- **Brass + black** reads as organ stops and pipes.
+- Colour is the visual designer's call; the numbers above hold for both.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
@@ -231,5 +296,7 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 4. **Visual:** with B chosen, a model so the checker can run labels (§7 of `branch_check.py`).
 5. **Owner:** keys A / B / C / D (§10.4). Before A: buy one pack and measure the head height.
 6. **Owner:** stays and hinge leaves metal-printed (316L) or printed PETG; brass colour by plating/paint, or a checked brass service.
+7. **Owner ⚑ D+O:** hidden pins (cables in the seam) or hollow knuckles (cables through the hinge, bigger barrels, board change)? And the back slot: S0–S3 (§12.2).
+8. **Owner:** keys in cast brass (hollow), 316L, or brass-look print; all brass or brass + black (§13). A one-key feel test before ordering 25.
 
 NEXT: product designer (visual focus) — the colours, the woody engraving, the grille pattern and the plate rounding are theirs, and options A/B need their look before the director weighs ⚑ B.

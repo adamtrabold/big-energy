@@ -1,5 +1,12 @@
 # Systems designer notes — Little D
 
+# NO SPINE / CABLES THROUGH HINGE / BRASS KEYS (2026-11-13)
+- **The ribbon can't go through a hinge** (50.8 flat, can't twist in 9 mm). Possible: 2 round cables (≤ 5 OD, pin 39 shielded) through hollow corner knuckles (316L or bought spacer pin, barrels ≥ Ø 13–14, service loops, headers moved). That's a board change, and it's incompatible with the hidden side-pivot: pick one. ⚑ D+O + eng.
+- **Back slot, no spine:** S0 open / S1 an arcade (dark interior) / S2 cables out of view via the hinge / S3 sleeve; S4 a lip is impossible (R4); S5 spine declined.
+- **Brass keys:** hollow cap over the carrier. Cast brass at i.materialise (checked: min wall 0.6, black plating offered, plating +€5–9 each, base price unpublished); 316L ≥ $5 each (UNVERIFIED); brass-fill or silk PLA. Hollow 2–3 g ≈ 5–8 % of 35–43 gf (fine); solid 4–5 g ≈ 10–14 %. Brass is non-magnetic (velocity OK); same mass on every key → one calibration; 316L may be slightly magnetic. Wear: patina / plating wear-through.
+
+---
+
 # KEYS + NO MACHINING (2026-11-13, owner 14:30–14:34)
 - Stock mushroom plugs have ⅛–¼ in tenons; the size names the hole. HUSH, CHAMBER, CATHEDRAL and RAIN all assumed a shank no part has. The locked v1.1 HUSH isn't edited; noted here and in RAIN.
 - **Part:** Cherry Tree Toys 3/8" mushroom plug: head 12.7, tenon 9.53 × 3.2 (birch SKU 31, oak 31-O; cherry 3/8 exists, dims UNVERIFIED). The only supplier found that publishes all three. Head height unpublished: measure.
