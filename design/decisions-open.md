@@ -57,8 +57,3 @@ Two jacks also give back a Daisy pin (pins are now at 30–31 of 31). *Team reco
 - Should a DAW be able to automate the echo and reverb amounts? Those two knobs would get the MIDI dot and the "held by MIDI" light.
 - Channel 1, or respond on any channel (omni)?
 - Should the knobs ever send MIDI (off by default), or receive only?
-
----
-
-## 6. Site navigation
-What lost you on the site: (a) not knowing what the words along the top do, (b) not finding where something lives, or (c) not knowing how to get back?
