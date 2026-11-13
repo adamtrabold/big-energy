@@ -373,6 +373,50 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 
 **My read (not a pick):** P1 is the only placement that's as loud as today in every place he plays, and it moves nothing. P2 is the CATHEDRAL idea (the façade speaks) but trades the player's sound and flat-table loudness for the listener's. P3 is the quietest.
 
+## 15. Stereo (owner: "the verb and delay are stereo…should we have two? Also is there stereo output?")
+**Today:**
+- One mono output path: VCA → output mixer → VOLUME → LM386 → speaker, with phones / line from the LM386 through a series R (`budget-variant.md`).
+- FOLD's far wall has **PHONES and LINE OUT** as two jacks; ONE SHEET has one PHONES jack.
+- The Daisy already computes **wet L / R** and its codec is **stereo out**. Eng drew "stereo to phones optional" (`daisy-first-principles.md` §6.2).
+- The effects that are truly stereo: PING-PONG, and reverb width (eng's libraries are stereo plate / ping-pong, `single-chip-research.md` §3).
+
+### 15.1 Stereo output: cheap, no new jacks
+**What it takes:**
+- **Daisy and codec: nothing new.** Both codec outputs are already wired as wet L / R. 0 pins.
+- **Two output summing nodes** (one TL072: dry + wet L, dry + wet R).
+  - **The dry voice is mono, so it sits in the centre of both channels.** One VCA can't be stereo.
+  - Only the echo and reverb spread.
+- **VOLUME becomes a dual-gang 9 mm pot** (same knob, same place; part / spline UNVERIFIED). The other route is the dry level on one gang plus the Daisy scaling the wet by reading VOLUME's wiper, but then the wet and dry tapers must match (eng).
+- **A stereo headphone driver** replaces "phones from the LM386 through a series R": a DIP dual op-amp that drives 32 Ω (NJM4556A class, UNVERIFIED part and price).
+- **The LM386 stays for the speaker**, fed the mono sum (L + R)/2. PING-PONG in mono becomes CLEAN with alternating tone, as eng's table already says.
+- **Jacks: none added.** FOLD's PHONES and LINE OUT become **TRS stereo**, as does ONE SHEET's PHONES. **His "no extra patch points" holds.**
+  - A **mono plug in a stereo jack hears L only** (R shorts to sleeve through its series R), so a mono cable loses the right-hand ping-pong repeats.
+  - The fix is a switched TRS jack that sums to mono when a mono plug goes in (UNVERIFIED part).
+- **Cost:** ≈ **$3–5** (TL072 + headphone driver + dual pot + passives; ESTIMATE, UNVERIFIED). **Power:** a few mA, only with phones in.
+- **⚑ D+O:** it changes the output stage, VOLUME's part and the jacks' wiring. **No control moves.**
+
+### 15.2 Two speakers: honest answer, not worth it here
+**Audible?**
+- Two drivers ≈ 200–250 mm apart, at 0.5–0.6 m (seated, playing), span ≈ 20–25° [CALC]. That's laptop-speaker stereo: a little width close up, and PING-PONG audible as left / right.
+- At a bench friend's 1–2 m, and outdoors (no reflections), it **collapses to near mono**.
+- Small 60 × 30 drivers have no bass either way. **Two drivers mostly buy loudness** (≈ +3 dB), **not stereo.**
+
+**Where (his rules: not on the key side, no eye shape; vertical lines or an off-centre circle in the band):**
+- To be 200 mm apart they'd sit at x ≈ 40 and ≈ 245, **over the battery cells** (FOLD-105's four cells fill x 15–103 and 183–271 under the band; the lid has 10.6 mm under the plate and nowhere else).
+- That means **giving up cell space**, on a battery already ≈ 1.9–3.9 h [CALC].
+- The band's clear circles there are uneven: Ø ≈ 18–20 at x ≈ 40–44, Ø ≈ 23–25 at x ≈ 236–242 [CHECK, §14]. So two matching round grilles would be ≤ Ø 18.
+
+**Cost and power:**
+- ≈ +$2–3 (a second speaker; a stereo amp or a second LM386; eng's basis: speaker + LM386 ≈ $2.20).
+- A little more draw at the same loudness per driver.
+- The real cost is **battery capacity and a lid board change**.
+
+### 15.3 Recommendation
+- **Yes to stereo output, no to a second speaker.**
+- Stereo phones and line out give him the real stereo echo and reverb wherever stereo can be heard (headphones, a recorder, a PA), for ≈ $3–5, with no new jack and no control moved.
+- A second speaker in this box gives little stereo beyond arm's length, nothing outdoors, and costs battery he may need in the park.
+- **Spec change for the director, then the owner:** stereo TRS outputs + dual-gang VOLUME + a headphone driver. The speaker stays mono (P1 / circle per §14).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

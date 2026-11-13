@@ -1,5 +1,11 @@
 # Systems designer notes — Little D
 
+# Stereo (2026-11-13), cathedral §15
+- Stereo output: codec already wet L/R (0 pins); 2 summing nodes; dry voice centred (mono VCA); dual-gang VOLUME; stereo headphone driver; LM386 keeps the mono sum for the speaker; PHONES / LINE become TRS stereo (no new jacks); a mono plug hears L only unless a switched jack. ≈ $3–5. ⚑ D+O.
+- Two speakers: ≈ 20–25° span at 0.5 m → slight width close up, mono at 1–2 m and outdoors; mostly +3 dB; they'd displace the battery cells. Recommend no.
+
+---
+
 # Speaker, round 2 (owner: no key-side speaker, no eye shape), 2026-11-13
 - cathedral §14:
   - P1: band, fires up, rounded rect or an arcade of vertical tapered slots. Loudest everywhere, nothing moves; open area ≈ −35 % for the arcade.
