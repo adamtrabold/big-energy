@@ -88,10 +88,11 @@ def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, le
             if name in skip:
                 continue
             if name == "ECHO TIME":
-                s += item5(name, "", x, yy, kind, midi, z, time_st, tap_style, None, True, centre)
+                s += item5(name, "" if behind is not None else lab, x, yy, kind, midi, z, time_st, tap_style, None, True, centre)
                 s += time_dial(x, yy, z, st.knob_r, **time_kw)
-                s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
-            elif name == "REVERB DECAY":
+                if behind is not None:
+                    s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
+            elif name == "REVERB DECAY" and behind is not None:
                 s += item5(name, "", x, yy, kind, midi, z, st, tap_style, None, True, centre)
                 s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
             elif kind == "k" and st.ticks and (name in NO_TOP_TICK or nuts):
@@ -524,7 +525,7 @@ class Branch(Fold):
         s += f'{c(walnut)} difference(){{ {r4.pebble(0, 0, FO_W, D, BASE_H, 12, 12, 3, 6)} {pocket} }}\n'
         st = self.style()
         if self.pegs():
-            plate = r4.rrect2d(4.3, 4.0, FO_W - 4.3, D - 4.3, 0, 7.7)
+            plate = self.peg_plate2d()
             s += pg_layers(plate, BASE_H)
             s += self.peg_keys(walnut)
         else:
@@ -535,7 +536,7 @@ class Branch(Fold):
         for xb in F.vb_play:
             s += box(xb - self.RULE_HW, 53.5, gz, xb + self.RULE_HW, D - 5.5, gz + 0.03, self.rule_col())
         s += cyl(25, 68, BASE_H - 0.05, 0.08, 18.6, "#e6dfcf", fn=72)
-        s += rows_branch({"P": rows(0)["P"]}, {"P": 68}, BASE_H, st, "proof", 143, st, 0, self.time_kw())
+        s += rows_branch({"P": self.play_row()}, {"P": 68}, BASE_H, st, "proof", 143, st, 0, self.time_kw())
         s += self.base_names()
         s += f'{c("#c2a25e")} translate([142.6,-0.1,7.5]) cube([0.8,0.3,4]);\n'
         s += box(FO_W - 0.3, r5.FO_USB_Y - 4.5, 4.8, FO_W + 0.1, r5.FO_USB_Y + 4.5, 8.2, "#1a1a1a")
@@ -548,6 +549,36 @@ class Branch(Fold):
         return "#d3cab8"
 
     RULE_HW = 0.6
+
+    # ---- hooks (CATHEDRAL overrides them)
+    def peg_plate2d(self):
+        return r4.rrect2d(4.3, 4.0, FO_W - 4.3, self.D - 4.3, 0, 7.7)
+
+    def play_row(self):
+        return rows(0)["P"]
+
+    def lid_rows(self):
+        return rows(0)
+
+    def fx_breaks(self):
+        return F.vb_fx
+
+    def voice_rule_end(self):
+        return 9.0
+
+    def sync_pos(self):
+        return SYNC_FOLD_D
+
+    def behind(self):
+        return BEHIND_FOLD - self.dFX
+
+    def grille(self, L0):
+        g0, g1 = self.p["grille"]
+        out = ""
+        for k in range(int((g1 - g0) / 2.3)):
+            yy = L0 + g0 + k * 2.3
+            out += box(118, yy, LID_PF - 0.4, 168, yy + 1.25, LID_PF + 0.03, "#1d1b19")
+        return out
 
     def base_names(self):
         return "".join(txt(tx, 85.0, BASE_H + 0.01, n, 2.4, FO_INK, font=HAND, halign="left")
@@ -592,23 +623,21 @@ class Branch(Fold):
         s = pg_layers(self.lid_plate2d(), LID_PF)
         gz = LID_PF + 0.02
         for xb in F.vb_voice:
-            s += box(xb - self.RULE_HW, L0 + 0.8, gz, xb + self.RULE_HW, L0 + self.dV2 + 9, gz + 0.03, self.rule_col())
-        for xb in F.vb_fx:
+            s += box(xb - self.RULE_HW, L0 + 0.8, gz, xb + self.RULE_HW, L0 + self.dV2 + self.voice_rule_end(), gz + 0.03, self.rule_col())
+        for xb in self.fx_breaks():
             s += box(xb - self.RULE_HW, L0 + self.dFX - 9, gz, xb + self.RULE_HW, L0 + self.dFX + 9, gz + 0.03, self.rule_col())
-        g0, g1 = self.p["grille"]
-        for k in range(int((g1 - g0) / 2.3)):
-            yy = L0 + g0 + k * 2.3
-            s += box(118, yy, LID_PF - 0.4, 168, yy + 1.25, LID_PF + 0.03, "#1d1b19")
+        s += self.grille(L0)
         s += self.name_mark(gz)
         if controls:
             st = self.style()
-            R = rows(0)
+            R = self.lid_rows()
             ink = self.lid_ink()
+            sx, sd = self.sync_pos()
             ry = {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}
-            nuts = toggle_nuts(R, ry, [(SYNC_FOLD_D[0], L0 + SYNC_FOLD_D[1])] + [(x, L0 + AT_FOLD_D) for n, l, x, k, m, yo in R["SWF"]])
-            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), BEHIND_FOLD - self.dFX, self.time_kw(), nuts=nuts)
+            nuts = toggle_nuts(R, ry, [(sx, L0 + sd)] + [(x, L0 + AT_FOLD_D) for n, l, x, k, m, yo in R["SWF"]])
+            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), self.behind(), self.time_kw(), nuts=nuts)
             s += self.sw_row(R, L0, st)
-            s += sync_toggle(SYNC_FOLD_D[0], L0 + SYNC_FOLD_D[1], LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper)
+            s += sync_toggle(sx, L0 + sd, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper)
             s += self.lid_names(gz)
             s += self.lid_extra(gz)
         return s
@@ -685,7 +714,7 @@ class Chamber(Branch):
 
     def lid_face(self, controls=True):
         old = r5.ABOVE_GAP
-        r5.ABOVE_GAP = 7.7                # systems R2.3: "velocity" clear of the VEL nut
+        r5.ABOVE_GAP = self.vel_gap()     # systems R2.3: "velocity" clear of the VEL nut
         try:
             return super().lid_face(controls)
         finally:
@@ -693,6 +722,9 @@ class Chamber(Branch):
 
     def pegs(self):
         return True
+
+    def vel_gap(self):
+        return 7.7
 
     def peg_keys(self, walnut):
         """reverse pegs (systems §2): naturals walnut (the body's own), sharps maple; 14 mm felt washers; head top +6.5."""
@@ -821,6 +853,187 @@ class Chamber(Branch):
             else:
                 s += item5(name, lab, x, y, "t", False, LID_PF, st, "proof", None, False, 143, False)
         return s
+
+# ------------------------------------------------------------------ CATHEDRAL (owner 14:12-14:18): CHAMBER x FOLD v1.1
+EBONY, BONE = "#1d1b1a", "#ece4d2"
+PALETTES = {                       # (naturals, sharps): owner: "too many colours, the brown feels out of place"
+    "walnut-maple": (WAL_P, MAPLE),        # CHAMBER rev 2, for reference
+    "ebony-maple": (EBONY, MAPLE),         # the organ's own convention, no brown: black like the knobs, light like the plate
+    "maple-ebony": (MAPLE, EBONY),         # a piano's light / dark
+    "ebony": (EBONY, EBONY),               # one colour: the keys join the knobs
+    "maple": (MAPLE, MAPLE),               # one colour: the keys join the plate and TAP
+}
+B_FX = [("DRIFT", "DRIFT", 33.5, "k"), ("ECHO TYPE", "TYPE", 62.5, "y"), ("ECHO TIME", "TIME", 82.5, "k"),
+        ("ECHO REPEATS", "REPEATS", 102.5, "k"), ("ECHO MIX", "MIX", 122.5, "k"), ("TAP", "TAP", 142.5, "b"),
+        ("REVERB TYPE", "TYPE", 171.0, "y"), ("REVERB DECAY", "DECAY", 191.0, "k"), ("REVERB MIX", "MIX", 211.0, "k"),
+        ("VOLUME", "VOLUME", 240.0, "k")]          # systems cathedral §2 option B [CHECK §9]; labels unchecked
+B_MOVED = {"ECHO REPEATS", "ECHO MIX", "REVERB MIX", "TAP"}
+
+def rose_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
+    """the grille as a rose window, his first option: horizontal slots whose lengths follow a circle
+    (shortest at the top and bottom, longest through the middle)."""
+    s = ""
+    n = int((2 * R - w) / pitch)
+    y0 = -(n - 1) * pitch / 2
+    for k in range(n):
+        yk = y0 + k * pitch
+        half = math.sqrt(max(R * R - (abs(yk) + w / 2) ** 2, 0)) - w / 2
+        if half < 0.8:
+            continue
+        s += (f'{c(col)} hull(){{ translate([{cx-half:.3f},{cy+yk:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); '
+              f'translate([{cx+half:.3f},{cy+yk:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); }}\n')
+    if ring:
+        s += (f'{c(ring)} translate([{cx},{cy},{z+0.02}]) linear_extrude(0.03) difference(){{ circle(r={R+1.6:.2f},$fn=96); '
+              f'circle(r={R+1.1:.2f},$fn=96); }}\n')
+    return s
+
+class Cathedral(Chamber):
+    """CATHEDRAL: CHAMBER's case and façade on FOLD's layout, with the owner's 14:18 notes applied."""
+    SPINE = "#2a1d16"             # body-dark bookcloth (keeps the slot closed, loses the accent)
+
+    def __init__(self, layout="A", palette="ebony-maple", spine="dark"):
+        super().__init__()
+        self.layout, self.palette, self.spine = layout, palette, spine
+
+    # all four plate corners R 7.7, concentric with the block (systems §4)
+    def peg_plate2d(self):
+        return rrect2d(4.3, 4.0, FO_W - 4.3, self.D - 4.3, 7.7, 7.7)
+
+    def lid_plate2d(self):
+        return rrect2d(4.3, self.LY0 + 0.3, FO_W - 4.3, self.LY0 + self.D - 4.3, 7.7, 7.7)
+
+    def peg_keys(self, walnut):
+        nat, sh = PALETTES[self.palette]
+        nat = walnut if nat == WAL_P else nat
+        z = BASE_H
+        s = ""
+        for n in range(15):
+            s += self.peg(17 + 18 * n, 13.5, z, nat, nat=False)
+        for i in r4.sharps_after():
+            s += self.peg(8 + 18 * (i + 1), 36.0, z, sh, nat=False)
+        return s
+
+    # ---- layout A (nothing moves) / B (one FX row on the lid, the speaker in the base)
+    def play_row(self):
+        P = rows(0)["P"]
+        return [e for e in P if e[0] not in B_MOVED] if self.layout == "B" else P
+
+    def lid_rows(self):
+        R = rows(0)
+        if self.layout == "B":
+            R["FX"] = [(n, l, x, k, False, 0) for n, l, x, k in B_FX]
+        return R
+
+    def fx_breaks(self):
+        return [48.0, 156.0, 225.5] if self.layout == "B" else F.vb_fx
+
+    def voice_rule_end(self):
+        return 5.5 if self.layout == "B" else 9.0     # B: the left voice rule stopped under "sync"
+
+    def vel_gap(self):
+        # B: FREE / SYNC sits at d 69, where the V2 toggles' legends were ("sync" hit "osc 3 ctl"). The band below is
+        # empty in B, so those three legends (osc 3 ctl, source, velocity) go under their toggles instead
+        return -8.4 if self.layout == "B" else 7.7
+
+    def sync_pos(self):
+        return (96.0, 69.0) if self.layout == "B" else SYNC_FOLD_D
+
+    def behind(self):
+        return None if self.layout == "B" else BEHIND_FOLD - self.dFX
+
+    def grille(self, L0):
+        if self.layout == "B":
+            return ""                                   # the band is the crossing: a quiet rest
+        return rose_slots(143.0, L0 + 41.0, LID_PF, 17.0, ring="#d3cab8")
+
+    def base_extra(self, walnut):
+        if self.layout != "B":
+            return ""
+        return rose_slots(228.0, 68.0, BASE_H, 13.5, ring="#d3cab8")
+
+    def base_names(self):
+        names = [(14, "pitch"), (105.5, "filter")] + ([] if self.layout == "B" else [(188.5, "effects")])
+        return "".join(txt(tx, 85.0, BASE_H + 0.01, n, 2.4, FO_INK, font=HAND, halign="left") for tx, n in names)
+
+    def lid_names(self, gz):
+        if self.layout != "B":
+            return super().lid_names(gz)
+        L0 = self.LY0
+        s = "".join(txt(x, L0 + self.dFX + FO_HEAD_D + 1.2, LID_PF + 0.01, n, 2.0, FO_INK, font=HAND, valign="baseline")
+                    for n, x in (("echo", 102.5), ("reverb", 191.0)))
+        for (tx, name, ha, dd) in [(14, "oscillators", "left", 17.5), (143, "mixer", "center", 11.3), (272, "contours", "right", 17.5)]:
+            s += txt(tx, L0 + self.dV1 + dd, LID_PF + 0.01, name, 2.4, FO_INK, font=HAND, halign=ha)
+        return s
+
+    # ---- hidden side pivots instead of knuckles (systems §1): a brass leaf pair inside each wall, a blind pin
+    def knuckles(self, walnut, part):
+        if part != "b":
+            return ""
+        s = ""
+        for x0 in (0.0, FO_W - 4.05):
+            s += (f'{c(walnut)} hull(){{ translate([{x0},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=4.05,r=5.2,$fn=48); '
+                  f'translate([{x0},{self.AX_Y-9},{BASE_H-1}]) cube([4.05,13,1]); }}\n')
+            xp = x0 - 0.04 if x0 == 0 else x0 + 4.05
+            s += f'{c("#5a3a22")} translate([{xp},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=0.08,r=1.6,$fn=24);\n'   # walnut plug over the pin
+        return s
+
+    # ---- feet that are the case screws (systems §3): 4 corner screw-feet, the 2 axis screws flush brass
+    def lid_back(self, walnut):
+        L0, D = self.LY0, self.D
+        z = -0.07
+        brass = "#e2bf6a"
+        s = ""
+        IMP = L0 + 18.0
+        s += box(30, IMP - 0.35, z - 0.03, 256, IMP + 0.35, z, brass)
+        s += box(30, IMP - 8.35, z - 0.03, 256, IMP - 7.65, z, brass)
+        for n in range(25):
+            k = (n + 1) // 2 * (1 if n % 2 else -1)
+            s += self.pipe(143 + 8.75 * k, IMP, 66.0 * 2 ** (-n / 12), z, brass)
+        for x in (108.0, 178.0):
+            s += cyl(x, L0 + 28.3, -0.2, 0.3, 4.0, "#0f0b08", fn=32)
+        for (x, y) in [(143, L0 + 12), (143, L0 + D - 12)]:
+            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
+        for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12)]:
+            s += cyl(x, y, -2.6, 2.6, 12, "#23201e", fn=40) + cyl(x, y, -2.66, 0.1, 5.0, "#151312", fn=24)   # foot + its cap plug
+        return s
+
+    def model(self, state=True, walnut=WAL_P, book=False):
+        s = Branch.model(self, state, walnut, book)
+        if self.spine != "none":
+            if state is False:
+                s += self.spine_closed()
+            elif state == "stand":
+                s += self.spine_stand()
+        return s
+
+def cathedral_grain(png, angle=-14.0, spacing=26.0, curv=0.0016, strength=0.13, seed=3):
+    """'woody' but as sparse as before (owner): flat-sawn figure, the arches woodworkers call cathedral grain,
+    at about the line count of the straight streaks he liked. Applied to the walnut-hue pixels of a render."""
+    import numpy as np
+    from PIL import Image
+    im = np.asarray(Image.open(png).convert("RGB")).astype(np.float32)
+    r, g, b = [im[..., k] / 255 for k in range(3)]
+    mx = np.maximum(np.maximum(r, g), b); mn = np.minimum(np.minimum(r, g), b)
+    d = np.maximum(mx - mn, 1e-6)
+    hue = np.where(mx == r, ((g - b) / d) % 6, np.where(mx == g, (b - r) / d + 2, (r - g) / d + 4)) * 60
+    sat = np.where(mx > 0, (mx - mn) / np.maximum(mx, 1e-6), 0)
+    wal = (hue > 12) & (hue < 40) & (sat > 0.42) & (mx > 0.10) & (mx < 0.62)
+    h, w = mx.shape
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    th = math.radians(angle)
+    u = xx * math.cos(th) + yy * math.sin(th)
+    v = -xx * math.sin(th) + yy * math.cos(th)
+    vs = v[wal]
+    v0 = float(np.median(vs)) if vs.size else h / 2
+    warp = ld._noise(h, w, 180, seed) * 40 + ld._noise(h, w, 50, seed + 1) * 6
+    f = u + curv * (v - v0) ** 2 * w / 1000.0 + warp
+    ph = (f / spacing) % 1.0
+    line = np.clip(1.0 - np.abs(ph - 0.5) / 0.07, 0, 1) ** 1.5
+    fine = ld._noise(h, w, 2, seed + 2)
+    k = 1.0 - strength * line - 0.025 * fine
+    out = np.where(wal[..., None], im * k[..., None], im)
+    Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)).save(png)
+    return png
 
 # ------------------------------------------------------------------ DIPTYCH: a pocket instrument for reading the day
 RED = "#a8322a"
@@ -953,6 +1166,14 @@ def jobs(SZ):
         "rb_ch_keys_fallback": lambda: shot4(Chamber(fallback=True).model(True), fp_rect(0, 0, W, OPEN), "rb_ch_keys_fallback", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True),
         "rb_ch_top": lambda: top4(ch.model(True), "rb_ch_top", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         "rb_ch_front_closed": lambda: shot_ortho(ch.model(False), "rb_ch_front_closed", "front", -2, W + 2, -1, 56, wood=True),
+        # CATHEDRAL (owner 14:18): only what's needed to judge colours, A vs B, the wood and the spine
+        **{f"rb_ct_col_{p}": (lambda p=p: shot4(Cathedral("A", p).model(True), fp_rect(0, 0, W, OPEN), f"rb_ct_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
+           for p in ("ebony-maple", "maple-ebony", "ebony", "maple")},
+        "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
+        "rb_ct_B_stand": lambda: shot4(Cathedral("B").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_B_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_B_stand.png")),
+        "rb_ct_closed": lambda: cathedral_grain(ld.shot(Cathedral("A").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct_closed", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
+        "rb_ct_top_A": lambda: top4(Cathedral("A").model(True), "rb_ct_top_A", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
+        "rb_ct_top_B": lambda: top4(Cathedral("B").model(True), "rb_ct_top_B", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         # DIPTYCH
         "rb_dp_stand": lambda: shot4(dp.model("stand"), fp_rect(0, 0, W, 175), "rb_dp_stand", size=SZ, az=-38, el=22, dist=800, center=(143, 80, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_dp_stand.png")),
         "rb_dp_main": lambda: shot4(dp.model(True), fp_rect(0, 0, W, OPEN), "rb_dp_main", size=SZ, az=-30, el=44, dist=880, center=(143, OPEN / 2, 12), grain_classes=(), wood=True),

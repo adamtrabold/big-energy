@@ -173,3 +173,6 @@ Recorded as:
 - Faceplates: rounding must be consistent; the front edge is squared unnecessarily.
 - Colours: pegs and buttons should go together better; too many colours; the brown feels out of place. Explore options.
 - "the screen": wants more rounding — tapered lines (shortest at top and bottom, longer toward the middle) or circular. ("Screen" most likely the speaker grille; the team confirms.)
+
+2026-11-13 14:30–14:32 Owner asked (verbatim): "Are these pegs sourceable?" / "What about the brass ones?" / "The Wooden ones you linked do not have shafts that match the prototype"
+Recorded as: the peg keys as drawn (HUSH, CHAMBER, CATHEDRAL, RAIN) assume a plug shank that stock button plugs do not have. The peg mount must be redesigned around a real, buyable part with known head and tenon sizes, or the peg approach revisited.
