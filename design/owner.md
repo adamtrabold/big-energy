@@ -226,3 +226,6 @@ Recorded as: PRIMARY MIDI WORKFLOW = the instrument is CONTROLLED from another d
 Recorded as: the owner will publish the repo with GitHub Pages and view everything there. ALL reviews, logs and documents go in the repo (and so on the Pages site), not as files sent in chat. Hosting for the project site moves from the claude.ai artifact to GitHub Pages (static; it updates when sessions commit and push).
 2026-11-13 16:24 Owner (verbatim): "ok thats fine if its not private"
 Recorded as: DECISION — a public GitHub Pages site is fine (anyone with the address can see it). Hosting: GitHub Pages from the repo root or a GitHub Action (not /docs).
+
+2026-11-13 16:28–16:29 Owner (verbatim): "re: architecture i think the way its organized is just unclear. have the systems designer take a look. is it up on pages right now? do that first" · "i dont want a bunch of .md docs, i want this stuff on website"
+Recorded as: (1) put the site on GitHub Pages first — done as far as a session can: build pushed to branch gh-pages; turning Pages on is blocked from sessions (owner does it in Settings → Pages). (2) The architecture doc's organisation is unclear — systems designer to rework it. (3) Docs, architecture and reviews must be ON THE WEBSITE (rendered pages), not markdown files he has to open. Markdown stays only as the source the site builds from.
