@@ -19,7 +19,7 @@ a{color:inherit;text-decoration:none}
 a.u,.ref{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 .wrap{max-width:1440px;margin:0 auto;padding:0 var(--m)}
-.cap{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
 .ink2{color:var(--ink2)}
 .rule{border-top:1px solid var(--rule)}
 /* lamp */
@@ -33,12 +33,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .lampline.live .cap{color:var(--ink)}
 /* header */
 header.band{padding:18px var(--m) 12px}
-.hgrid{display:grid;gap:10px}
+.hgrid{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
 .name{font-size:22px;font-weight:600;line-height:1.2;margin-top:6px}
 .sub{font-size:13px;color:var(--ink2)}
 .sub a{color:var(--ink);font-weight:500}
 .waiting{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .waiting b{font-size:15px;font-weight:600}
+.waiting a b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--on);margin-right:8px;vertical-align:1px}
 .strip{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:4px}
 .strip a{display:block;height:20px;position:relative}
 .strip a i{position:absolute;left:0;right:0;top:6px;height:6px;background:var(--rule)}
@@ -48,12 +49,14 @@ header.band{padding:18px var(--m) 12px}
 .strip a span{display:none}
 .stripline{font-size:12.5px;color:var(--ink2)}.stripline b{color:var(--ink);font-weight:600}
 nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:10px 0;border-top:1px solid var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
+@media(max-width:599px){nav.filters{flex-wrap:wrap;gap:4px 18px;white-space:normal}}
 nav.filters a{font-size:15px;color:var(--ink2);padding-bottom:4px}
 nav.filters a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
 nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
 @media(min-width:1024px){
   :root{--m:48px}
-  .hgrid{grid-template-columns:1.1fr .8fr 1fr;align-items:end}
+  .hgrid{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+  .waiting{justify-self:end}
   .name{font-size:26px}
   .strip a span{display:block;position:absolute;top:22px;left:0;right:0;font-size:11px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .strip a.now span,.strip a.done span{color:var(--ink)}.strip a.now span{font-weight:600}
@@ -102,7 +105,7 @@ nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
   .tiles{grid-template-columns:repeat(2,1fr)}
 }
 /* lists */
-h2.sec{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin:22px 0 10px}
+h2.sec{font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin:22px 0 10px}
 .grid{display:grid;grid-template-columns:1fr;gap:22px 18px}
 @media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -113,7 +116,7 @@ h2.sec{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppe
 .entry .pic.doc p{font-size:13px;color:var(--ink2);margin:6px 0 0;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 .entry .pic.test{background:var(--cell);position:relative;display:block}
 .entry .label{margin-top:8px}
-.dropped{opacity:.4}
+.dropped{opacity:.62}
 .dropped:hover{opacity:.7}
 .thumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:1024px){.thumbs{grid-template-columns:repeat(5,1fr)}}
@@ -123,7 +126,7 @@ h2.sec{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppe
 .rows .c{font-weight:600;min-width:74px}
 .rows .x{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right}
 /* item */
-.back{display:flex;justify-content:space-between;align-items:center;padding:14px 0 10px;font-size:14px;color:var(--ink2)}
+.back{display:flex;justify-content:space-between;align-items:center;padding:14px var(--m) 10px;font-size:14px;color:var(--ink2)}
 .back button{font-size:13px;color:var(--ink2)}
 .item{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-bottom:30px}
 @media(min-width:1024px){.item{grid-template-columns:minmax(0,1fr) 372px;gap:32px}.item .aside{align-self:end;position:sticky;bottom:72px}}
@@ -197,17 +200,17 @@ details.jump a{display:block;padding:3px 0}
 /* decisions + history */
 .dec{border-top:1px solid var(--rule);padding:12px 0}
 .dec .ask{font-size:12.5px;color:var(--ink2)}
-.dec .w{font-size:15px;color:var(--ink2)}
+.dec .w{font-size:15px;color:var(--ink)}
 .dec.open .w{font-size:17px;font-weight:600;color:var(--ink)}
 .dec .cz{font-size:12.5px;color:var(--ink2);margin-top:4px}
 .dec .cz a{color:var(--ink);font-weight:600}
 .dec .rowsc{margin-top:8px}
-.dec .rowsc a{display:flex;gap:10px;padding:4px 0;font-size:14px}
+.dec .rowsc a{display:flex;gap:10px;padding:6px 0;font-size:14px}
 .dec .rowsc a span:first-child{color:var(--ink2);min-width:44px}
 .dec .rowsc a b{min-width:52px}
 .dec .rowsc a u{text-underline-offset:3px}
-.grain{display:flex;gap:22px;font-size:14px;margin:6px 0 10px}
-.grain a{color:var(--ink2);padding-bottom:3px}.grain a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
+.grain{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:14px;margin:6px 0 10px}
+.grain a{color:var(--ink2);padding-bottom:3px;white-space:nowrap}.grain a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
 .ev{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--rule);font-size:14px}
 .ev .t{color:var(--ink2);font-size:12.5px}
 .lock{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:3px 0;margin:6px 0}
@@ -216,6 +219,7 @@ details.jump a{display:block;padding:3px 0}
 .score b{min-width:28px}
 .vtitle{font-size:28px;font-weight:700}
 .wide{max-width:900px}
+.wrap.wide{margin-left:max(0px,calc((100% - 1440px)/2));margin-right:auto}
 /* prototype bar */
 .proto{position:fixed;left:0;right:0;bottom:0;background:#D6D6D6;border-top:1px solid var(--rule);font-size:12px;z-index:20}
 .proto .in{display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap;padding:7px var(--m);max-width:1440px;margin:0 auto}
@@ -225,12 +229,13 @@ details.jump a{display:block;padding:3px 0}
 .ptog{display:none;text-decoration:none!important}
 @media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
 /* page point, waiting list, about */
+.sub a,.back a,.back button,[data-copy],.waiting a,.dec .cz a,h2.sec a{display:inline-block;padding-top:5px;padding-bottom:5px;margin-top:-5px;margin-bottom:-5px}
 .purpose{font-size:16px;margin:14px 0 16px;max-width:70ch}
 .wlist{margin:0 0 10px;padding-left:22px}.wlist li{padding:6px 0;border-top:1px solid var(--rule)}
 .wsec{border-top:1.5px solid var(--ink);padding-top:10px;margin-top:26px}.wsec h2{font-size:19px;font-weight:600;margin:0 0 6px}
 .about{margin-top:40px;padding-top:12px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink2)}.about b{color:var(--ink);font-weight:600}
 /* status line */
-.status{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.status{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:min(72ch,100%)}
 .status b{color:var(--ink);font-weight:600}
 /* docs + reviews */
 .cards{display:grid;gap:14px;margin:6px 0 4px}
@@ -239,7 +244,7 @@ details.jump a{display:block;padding:3px 0}
 .card .k{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
 .card .t{font-size:17px;font-weight:600;margin:4px 0 2px}
 .card p{margin:0;font-size:13.5px;color:var(--ink2)}
-.st{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;padding:0 6px;line-height:18px;border:1px solid var(--ink);white-space:nowrap}
+.st{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;line-height:18px;border:1px solid var(--ink);white-space:nowrap}
 .st-decided{background:var(--ink);color:#fff}
 .st-proposed{background:transparent;color:var(--ink)}
 .st-open{border-style:dashed;color:var(--ink2);border-color:var(--ink2)}
@@ -257,9 +262,9 @@ details.jump a{display:block;padding:3px 0}
  .doc-html table,.doc-html tbody,.doc-html tr,.doc-html td{display:block;width:100%}
  .doc-html thead{display:none}
  .doc-html tr{border-top:1px solid var(--ink);padding:6px 0 8px}
- .doc-html td{border:0;padding:3px 0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
- .doc-html td::before{content:attr(data-label);font-size:11px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
- .doc-html td[data-label=""]{display:block}.doc-html td[data-label=""]::before{display:none}
+ .doc-html td{border:0;padding:3px 0 3px 106px;position:relative}
+ .doc-html td::before{content:attr(data-label);position:absolute;left:0;width:96px;font-size:11px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+ .doc-html td[data-label=""]{padding-left:0}.doc-html td[data-label=""]::before{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -323,7 +328,7 @@ function waveBars(peaks, n){
 }
 function updatedLine(){
   const u = D.updated || {};
-  return `<div class="status">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
+  return `<div class="status" title="${esc(u.what)}">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
 const SECTIONS = [ // build-chain order; the site's whole structure
   ["decide","#home","To decide"],["architecture","#doc-architecture","Architecture"],["features","#features","Features"],
