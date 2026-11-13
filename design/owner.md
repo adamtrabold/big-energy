@@ -186,3 +186,5 @@ Recorded as:
 - NO SPINE. Asks whether the cables (the hinge ribbon) can route through a hinge. (Implies the back slot question needs another answer.)
 - "Engraving texture" = the fine line texture on the case (walnut body), not the pipe lines. The OWNER will likely design the pipe lines himself; the team leaves the façade line design to him (placeholder only).
 - KEYS: explore brass + black keys, or all brass. Could be 3D printed (metal printing is allowed); brass reminds him of a cathedral.
+2026-11-13 14:41 Owner (verbatim): "Premade wooden caps on a shaft that also is premade or part of the key is fine too just thinking"
+Recorded as: also acceptable — bought wooden caps on a shaft that is either bought or part of the (printed) key. Thinking out loud; an option, not a decision.

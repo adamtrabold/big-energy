@@ -867,11 +867,17 @@ PALETTES = {                       # (naturals, sharps): owner: "too many colour
 # carrier's 2.8 mm stem under a bought plug (black filament, so it reads as the deck hole's shadow), or the peg's own
 # body when the peg is printed in one piece.
 BIRCH, BIRCH_BLK, PRINT_BLK, PRINT_CRM, CARRIER = "#e6d3aa", "#26211d", "#1d1c1b", "#efe8d8", "#1b1a19"
+BRASS_K = "#d4ae5e"           # polished brass, a shade richer than the façade fill so the keys read as metal
 PEGS = {
     "birchblack-birch": ((BIRCH_BLK, CARRIER), (BIRCH, CARRIER)),     # bought birch plugs, naturals dyed black
     "birch-birchblack": ((BIRCH, CARRIER), (BIRCH_BLK, CARRIER)),     # piano light / dark, same parts
     "birch": ((BIRCH, CARRIER), (BIRCH, CARRIER)),                    # one pack, no finishing
     "printed-black-cream": ((PRINT_BLK, PRINT_BLK), (PRINT_CRM, PRINT_CRM)),   # one-piece printed pegs, plate cream
+    # owner (after turn 1): "what about brass and black keys? Or all brass?" Brass heads (cast or brass-fill print)
+    # carry the plug's own 9.53 x 3.2 tenon into the same printed carrier, so the neck stays black
+    "brass-black": ((BRASS_K, CARRIER), (PRINT_BLK, CARRIER)),
+    "black-brass": ((PRINT_BLK, CARRIER), (BRASS_K, CARRIER)),
+    "brass": ((BRASS_K, CARRIER), (BRASS_K, CARRIER)),
 }
 METALS = {"brass": ("#e2bf6a", "#c2a25e", "#6a5228"),     # façade fill, screws / stays, screw slot
           "steel": ("#b9b8b2", "#a9aaa6", "#5d5e5b")}     # printed 316L / stainless screws / pewter gilding wax
@@ -1225,7 +1231,7 @@ def jobs(SZ):
         # CATHEDRAL (owner 14:18): only what's needed to judge colours, A vs B, the wood and the spine
         **{f"rb_ct_col_{p}": (lambda p=p: shot4(Cathedral("A", p).model(True), fp_rect(0, 0, W, OPEN), f"rb_ct_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
            for p in ("ebony-maple", "maple-ebony", "ebony", "maple")},
-        **{f"rb_ct2_col_{p}": (lambda p=p: shot4(Cathedral("A", p, metal="steel").model(True), fp_rect(0, 0, W, OPEN), f"rb_ct2_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
+        **{f"rb_ct2_col_{p}": (lambda p=p: shot4(Cathedral("A", p).model(True), fp_rect(0, 0, W, OPEN), f"rb_ct2_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
            for p in PEGS},
         "rb_ct2_closed_steel": lambda: cathedral_grain(ld.shot(Cathedral("A", "birchblack-birch", metal="steel").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct2_closed_steel", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
         "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
