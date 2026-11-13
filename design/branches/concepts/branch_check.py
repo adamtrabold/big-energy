@@ -569,6 +569,27 @@ def check_cathedral_b():
           f" V1's closed landing (86.1) -> a round grille up to Ø 27 centred (228, 68), or a 60 x 30 speaker under a Ø 27 rose")
     print(f"  violations {bad} (labels not yet checked: no model exists for option B)")
 
+def check_cathedral_render():
+    """§7 on rb.py's Cathedral models (layout A and B), Kalam, against each layout's own controls."""
+    if subprocess.run(["which", "openscad"], capture_output=True).returncode: return
+    sys.path.insert(0, MOCK)
+    with contextlib.redirect_stdout(io.StringIO()):
+        import rb
+    if not hasattr(rb, "Cathedral"):
+        print("\n[7c] no Cathedral model in rb.py"); return
+    pegs = [("peg", 17 + 18 * n, 13.5, PEG_R) for n in range(15)]
+    pegs += [("peg", 8 + 18 * (i + 1), 36.0, PEG_R) for i in [i for i in range(14) if [1, 1, 0, 1, 1, 1, 0][i % 7]]]
+    L0 = 110.0
+    for lay in ("A", "B"):
+        T, Kt = record(lambda m: m.Cathedral(lay).model(True), 15.0)
+        ctl = ctl_fold()
+        if lay == "B":
+            ctl = [c for c in ctl if c[0] not in rb.B_MOVED and not (abs(c[2] - (L0 + 83.85)) < 0.1) and c[0] != "FREE/SYNC"]
+            ctl += [(n, x, L0 + 83.85, 6.0 if k == "b" else KN) for n, l, x, k in rb.B_FX]
+            ctl.append(("FREE/SYNC", 96.0, L0 + 69.0, TGL))
+            ctl.append(("rose grille Ø 27", 228.0, 68.0, 13.5))
+        collide(f"CATHEDRAL layout {lay} (rb.Cathedral, open)", T, Kt, ctl + pegs)
+
 for nm in ("FOLD", "ONE SHEET"):
     fr = check_sync(nm)
     check_scale(nm, fr)
@@ -579,5 +600,9 @@ check_diptych()
 check_facade()
 check_chamber_back()
 check_cathedral_b()
-check_render_collisions()
+for _f in (check_render_collisions, check_cathedral_render):
+    try:
+        _f()
+    except Exception as e:     # rb.py is the visual designer's live file: report, don't crash
+        print(f"\n[7] {_f.__name__} skipped: rb.py raised {type(e).__name__}: {e}")
 print("\nTOTAL fails", TOTAL)

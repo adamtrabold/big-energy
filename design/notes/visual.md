@@ -1,5 +1,19 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 3 (2026-11-13): director steer 1 team rulings applied; no final re-render (waits for owner's layout answer)
+- **Look doc → rev 3** (`design/branches/concepts/cathedral/how-it-looks-and-feels.md`): header lists the rulings; §1 now shows brass ray-traced; §2 B label fix; §3 ruled; §4 texture BUILT (spec); §5 slot finished dark if open (director S1); §6/§7 ruled; Open rewritten.
+- **Images:** +1 `img/cathedral-brass-keys-metal.jpg` (2 × 2, 2424 × 1584: A / B / C / macro of polished vs aged-unlacquered brass). **Deleted** `cathedral-peg-colours-real-parts.jpg` (flat yellow, against ruling 9). Total linked images: 6.
+- **New renderer:** `design/concepts/_mock-src/ct_brass.py` (POV-Ray, installed via apt this turn). Studio sky sphere + area light + white back strip for reflections. Jobs ct_brass_{A,B,C,macro}; `--test` for 800 px. Simplified scene (keys, plate R 7.7, block R 12, PLAY knobs, red CUTOFF; no joystick). It can be extended for the final standing / closed views if the director wants brass believable there too. Grid composed by `/tmp/scr/ct2_figs.py brass` (not in repo).
+- **rb.py changes:**
+  - **Fixed a bug I introduced in turn 2:** a string replace had also changed Branch / Chamber `lid_back` to use an undefined `screw`. Restored; all models build.
+  - `Cathedral` defaults now `palette="black-brass", spine="none", grain=True`.
+  - **Grooves (ruling 4):** `GROOVE_W/D` 0.4 / 0.25; `arch_lines` (7 nested parabolic arches), `side_lines`, `ring_arcs`, `grooves_on(lines, clip2d, M, col, minus2d)` via multmatrix; `Cathedral.grooves_base` (underside, front, hinge side, ends; right end y < 58 clear of USB / MIDI) and `grooves_lid` (back minus `FACADE_FIELD` (30, 8, 256, 86), apex at x ≈ 262; far wall z ≥ 13 above I/O; ends). Render stand-in = 0.03 strip in darker walnut (`GROOVE_COL`).
+  - `rb_ct_closed` no longer runs the `cathedral_grain` post-process (grooves are modelled).
+  - **B labels:** `rows_branch(..., back=)`; `Branch.behind_names()` / `sync_dy()`; Cathedral B: behind offset on, REPEATS behind, `SYNC_DY_B = 1.5`. `branch_check.py`: A 0, B 0, TOTAL fails 0.
+- Groove look checked only in low-res scratch renders (deleted): reads on the underside as nested arches; on the lid back only in the margins around the field (by design).
+- **Open:** owner's four answers; re-render pass after layout answer (closed, standing, keys; maybe via POV-Ray); groove-depth coupon (0.25 / 0.35); H measurement; brass head mass test; Sculpteo quote.
+
+
 ## CATHEDRAL, turn 2 (2026-11-13, NEW visual designer; previous session ended): real-part keys, no machining, no spine, brass
 **Inputs this turn:**
 - Systems `cathedral/how-it-works.md` §10–11: Cherry Tree Toys 3/8" mushroom plug (head 12.7, tenon 9.53 × 3.2; birch SKU 31 / oak 31-O; head height unpublished) on a printed PETG carrier (cup Ø 9.6 × 3.3, neck Ø 11.2, 2.8 mm neck showing, deck hole Ø 12, felt stop moved under the deck); printed pegs allowed; stays / hinge leaves → printed 316L (JLC3DP) or PETG.

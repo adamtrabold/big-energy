@@ -1,5 +1,35 @@
 # CATHEDRAL: how it works (systems, turn 1, 2026-11-13)
 
+> ## Team rulings in force (director, CATHEDRAL steer 1; these supersede the options below where they differ)
+> 1. **All 8 plate corners R 7.7** (§4).
+> 2. **Feet:**
+>    - screw-through rubber feet at the **4 corner screws** (16 / 270, d 12 and d 96), black;
+>    - the **2 axis screws (143, d 12 / 96) stay flush brass**, so they don't clash with the impost line (§3).
+> 3. **Lid stays: cast brass** from the keys' service (lost-wax, from a printed pattern). **Fallback: matte-black PETG, 5 × 8** (end-face groove 5.5). Never grey 316L in view.
+> 4. **Printed 316L steel only for the hidden hinge leaves** (out of sight).
+> 5. **One key interface for every head:**
+>    - the printed carrier's **Ø 9.6 × 3.3 cup** takes a **9.53 × 3.2 tenon**;
+>    - wood plug, cast-brass head, printed head and a cap on a shaft all carry that tenon, so the choice stays swappable after the build (§10.2, §13).
+> 6. Grille: tapered horizontal slots (vesica 66 × 16 in A; Ø 27 circle in B). Option A's base heading reads **"effects"**. Palette: walnut, cream, black, red CUTOFF, brass. Fine-line woody relief is built (visual).
+>
+> ### Two buy-and-test checks for the owner (before the lid height and the key order are fixed)
+> | # | Buy | Do | Pass / what it sets |
+> |---|---|---|---|
+> | T1 | **One pack of Cherry Tree Toys 3/8" mushroom plugs** (birch SKU 31, https://cherrytreetoys.com/3-8-mushroom-plugs/, 50 pcs) | Measure, with calipers or a ruler on 5 plugs: **head height H** (top to the tenon shoulder), head Ø, tenon Ø and length | Sets the key height: head top = deck + 2.8 + H. **H ≤ 4.0 → closed stays ≈ 52.7 mm**; every mm over 4 adds a mm to the lid. Tenon ≈ 9.53 × 3.2 confirms the carrier's cup |
+> | T2 | **One hollow cast-brass head** (2.5–3 g, wall 0.8–1.0, with the 9.53 × 3.2 tenon) from the cast-brass service, **one printed carrier**, **one Kailh Choc V2 silent switch** | Glue the head on the carrier, push it onto the switch, press and release 20 times slow and fast; listen at the top-out; compare with a bare plug on a second carrier | **Pass:** no audible top-out clack beyond the bare plug's, no wobble, no sticking. If it fails: thinner wall, or brass-look print. (Velocity calibration comes later, on the board) |
+>
+> ### Layout B label check on the render model (`branch_check.py` §7, rb.Cathedral("B"), Kalam)
+> - **Layout A:** 0 collisions.
+> - **Layout B:** 3 hits:
+>   - **"repeats" overlaps the FREE / SYNC toggle by 1.7**: REPEATS' legend sits in front of its knob, where the toggle is;
+>   - "repeats" ↔ "sync" 1.15 (rule 1.5);
+>   - "free" ↔ FREQ 3 0.64.
+> - **Fix (geometry):**
+>   - in B, **TIME's and REPEATS' legends go behind their knobs** (the toggle sits between them, in front);
+>   - "free" / "sync" sit **0.5 behind** the toggle centre, as CHAMBER's fix.
+>   - Re-run after the visual designer applies it.
+> - The CHAMBER model in rb.py currently raises an error (`screw` undefined in `lid_back`, the visual designer's file mid-edit), so that run was skipped. The Cathedral models ran.
+
 Seed: **CHAMBER rev B** (`../chamber/`, director 9) **+ FOLD-105 v1.1** (`versions/v1.1/fold/`). Owner, 14:12–14:18 (`design/owner.md`): lock in on these two, find the middle ground, and call the point of view **CATHEDRAL**. Read with `design/jobs.md` rev 5, `../common-how-it-works.md` rev 2 and `../../echo-clock.md`.
 
 Marks:

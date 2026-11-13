@@ -1,5 +1,13 @@
 # Systems designer notes — Little D
 
+# CATHEDRAL steer 1 rulings + tests (2026-11-13)
+- Rulings written at the top of cathedral/how-it-works.md: R 7.7 corners; feet at the corner screws, axis screws flush brass; cast-brass stays (black PETG 5 × 8 fallback); 316L only for the hidden hinge leaves; one carrier interface (Ø 9.6 × 3.3 cup / 9.53 × 3.2 tenon) for every head.
+- Owner tests: T1 a Cherry Tree Toys plug pack → head height H (H ≤ 4 keeps 52.7 closed); T2 one hollow cast-brass head on a carrier on one Choc V2 (top-out noise, wobble).
+- `branch_check.py`: added §7c (rb.Cathedral A and B, Kalam). A: 0. B: 3 hits ("repeats" under the toggle −1.7, "repeats"/"sync" 1.15, "free"/FREQ 3 0.64). Fix: TIME and REPEATS legends behind; words 0.5 behind. The render runs are now try/except (rb.py's Chamber currently raises `screw` undefined).
+- Waiting: the owner's four decisions (layout, hinge, slot, keys), passed on one at a time.
+
+---
+
 # NO SPINE / CABLES THROUGH HINGE / BRASS KEYS (2026-11-13)
 - **The ribbon can't go through a hinge** (50.8 flat, can't twist in 9 mm). Possible: 2 round cables (≤ 5 OD, pin 39 shielded) through hollow corner knuckles (316L or bought spacer pin, barrels ≥ Ø 13–14, service loops, headers moved). That's a board change, and it's incompatible with the hidden side-pivot: pick one. ⚑ D+O + eng.
 - **Back slot, no spine:** S0 open / S1 an arcade (dark interior) / S2 cables out of view via the hinge / S3 sleeve; S4 a lip is impossible (R4); S5 spine declined.

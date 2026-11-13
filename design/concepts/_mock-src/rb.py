@@ -23,17 +23,18 @@ SERIF_I = "EB Garamond:style=Italic"
 # ------------------------------------------------------------------ shared: FREE / SYNC, TIME's two scales, status hood
 SYNC_FLAT = (128.0, 132.7)          # common §2 [CHECK]
 SYNC_FOLD_D = (133.0, 70.6)         # lid (x, d)
+SYNC_DY_B = 1.5      # checker 7c: 0 at 1.5 / 2.0 / 2.5; 0.64 to FREQ 3 at 0.5
 BEHIND_FLAT, BEHIND_FOLD = 159.2, 96.9   # TIME / DECAY legends behind their knobs (common §2 fix 1)
 DIVS = ["1/16", "1/8T", "1/16.", "1/8", "1/4T", "1/8.", "1/4", "1/4.", "1/2"]
 
-def sync_toggle(x, y, z, words, size, ink, font, up=False, lever_to="right"):
+def sync_toggle(x, y, z, words, size, ink, font, up=False, lever_to="right", dy=0.5):
     """FREE / SYNC: the panel's mini toggle, thrown LEFT / RIGHT (common §2 fix 2); words beside, lever points at one."""
     s = cyl(x, y, z, 1.8, 6.0, "#9a9da1", fn=6) + cyl(x, y, z + 1.8, 1.0, 4.5, "#b9bcbf", fn=24)
     sg = 1 if lever_to == "right" else -1
     s += f'{c("#b9bcbf")} translate([{x:.3f},{y:.3f},{z+2.5:.3f}]) rotate([0,{18*sg},0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);\n'
     a, b = words
-    s += txt(x - 6.2, y + 0.5, z, a.upper() if up else a, size, ink, font=font, halign="right")   # 0.5 behind (common rev 2)
-    s += txt(x + 6.2, y + 0.5, z, b.upper() if up else b, size, ink, font=font, halign="left")
+    s += txt(x - 6.2, y + dy, z, a.upper() if up else a, size, ink, font=font, halign="right")   # 0.5 behind (common rev 2)
+    s += txt(x + 6.2, y + dy, z, b.upper() if up else b, size, ink, font=font, halign="left")
     return s
 
 def _tick(x, y, z, r, a, L, w, col):
@@ -78,7 +79,8 @@ def status_hood(x, y, z):
     """status LED 3-4 mm down a printed tube (common §3): a dark well with the light deep inside."""
     return cyl(x, y, z - 0.02, 0.06, 6.0, "#121110", fn=36) + cyl(x, y, z - 0.01, 0.05, 3.0, "#7fbf55", fn=24)
 
-def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, legend_size=None, skip=(), nuts=()):
+def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, legend_size=None, skip=(), nuts=(),
+                back=("REVERB DECAY",)):
     """v1.1 rows, with: TIME's ticks replaced by the two scales; TIME and DECAY legends moved behind their knobs;
     the status light hooded. row_y: {row: y}. behind: y offset of the moved legends from the FX row."""
     s = ""
@@ -92,7 +94,7 @@ def rows_branch(R, row_y, z, st, tap_style, centre, time_st, behind, time_kw, le
                 s += time_dial(x, yy, z, st.knob_r, **time_kw)
                 if behind is not None:
                     s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
-            elif name == "REVERB DECAY" and behind is not None:
+            elif name in back and behind is not None:          # back: the other legends moved behind (A: DECAY; CATHEDRAL B: REPEATS)
                 s += item5(name, "", x, yy, kind, midi, z, st, tap_style, None, True, centre)
                 s += txt(x, yy + behind, z, lab if st.upper else lab.lower(), ls, st.ink, font=st.font)
             elif kind == "k" and st.ticks and (name in NO_TOP_TICK or nuts):
@@ -572,6 +574,12 @@ class Branch(Fold):
     def behind(self):
         return BEHIND_FOLD - self.dFX
 
+    def behind_names(self):
+        return ("REVERB DECAY",)
+
+    def sync_dy(self):
+        return 0.5
+
     def grille(self, L0):
         g0, g1 = self.p["grille"]
         out = ""
@@ -613,7 +621,7 @@ class Branch(Fold):
         L0, D = self.LY0, self.D
         s = ""
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12), (143, L0 + 12), (143, L0 + D - 12)]:
-            s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
+            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
         for (x, y) in [(40, L0 + 30), (FO_W - 40, L0 + 30), (40, L0 + D - 30), (FO_W - 40, L0 + D - 30)]:
             s += cyl(x, y, -0.6, 0.6, 12, "#c9a77c", fn=32)
         return s
@@ -635,9 +643,11 @@ class Branch(Fold):
             sx, sd = self.sync_pos()
             ry = {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}
             nuts = toggle_nuts(R, ry, [(sx, L0 + sd)] + [(x, L0 + AT_FOLD_D) for n, l, x, k, m, yo in R["SWF"]])
-            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), self.behind(), self.time_kw(), nuts=nuts)
+            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), self.behind(), self.time_kw(), nuts=nuts,
+                               back=self.behind_names())
             s += self.sw_row(R, L0, st)
-            s += sync_toggle(sx, L0 + sd, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper)
+            s += sync_toggle(sx, L0 + sd, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper,
+                             dy=self.sync_dy())
             s += self.lid_names(gz)
             s += self.lid_extra(gz)
         return s
@@ -765,7 +775,7 @@ class Chamber(Branch):
         for x in (108.0, 178.0):                     # their mouths are the push-out holes: real, Ø 4
             s += cyl(x, L0 + 28.3, -0.2, 0.3, 4.0, "#0f0b08", fn=32)
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (143, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12), (143, L0 + D - 12)]:
-            s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
+            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
         for (x, y) in [(40, L0 + 6), (FO_W - 40, L0 + 6), (40, L0 + D - 30), (FO_W - 40, L0 + D - 30)]:   # front feet moved to d 6
             s += cyl(x, y, -0.6, 0.6, 12, "#2a2522", fn=32)
         return s
@@ -927,6 +937,70 @@ def rose_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
               f'circle(r={R+1.1:.2f},$fn=96); }}\n')
     return s
 
+# ---- the woody fine-line texture, BUILT (director ruling 4): shallow arched grooves in the printed walnut-tone body.
+# Print: 0.4 wide x 0.25 deep U-grooves (modelled in the body's CAD from these same polylines). Render stand-in: a
+# 0.03 strip in a darker walnut, which is how a groove reads under raking light. Line count ≈ the old straight
+# streaks: 7 nested arches on a 286 x 108 face; long sides carry the arches' tails; end faces show ring arcs.
+GROOVE_W, GROOVE_D = 0.4, 0.25
+
+def _strip(pts, w):
+    """a polyline -> a closed 2D strip polygon of width w (for OpenSCAD polygon())."""
+    L, R = [], []
+    for i, (x, y) in enumerate(pts):
+        a = pts[max(i - 1, 0)]; b = pts[min(i + 1, len(pts) - 1)]
+        dx, dy = b[0] - a[0], b[1] - a[1]; n = math.hypot(dx, dy) or 1
+        nx, ny = -dy / n * w / 2, dx / n * w / 2
+        L.append((x + nx, y + ny)); R.append((x - nx, y - ny))
+    poly = L + R[::-1]
+    return "polygon([" + ",".join(f"[{x:.2f},{y:.2f}]" for x, y in poly) + "]);"
+
+def arch_lines(W, H, apex_u=0.72, n=7, sp=11.0, k=0.022, seed_shift=0.0):
+    """cathedral figure on a W x H face: nested parabolic arches whose axis runs along the length (u), apex toward
+    +u, opening toward -u; the outer ones run off the edges as long, nearly straight lines (as flat-sawn boards do)."""
+    out = []
+    v0 = H * 0.5 + seed_shift
+    for i in range(n):
+        ua = W * apex_u - i * sp - (i * i) * 0.6            # spacing opens out a little toward the outside
+        kk = k / (1 + 0.35 * i)                               # outer arches flatter
+        pts = []
+        for j in range(161):
+            v = -H * 0.2 + (H * 1.4) * j / 160
+            u = ua - kk * W / 286 * (v - v0) ** 2 * 286 / W
+            pts.append((u, v))
+        out.append(pts)
+    return out
+
+def side_lines(W, z0, z1, n):
+    """the arches' tails on a long side: gentle, slightly converging curves across the flat band."""
+    out = []
+    for i in range(n):
+        zc = z0 + (z1 - z0) * (i + 1) / (n + 1)
+        out.append([(u, zc + 0.9 * math.sin(math.pi * u / W + i) * (1 if i % 2 else -1)) for u in
+                    [W * j / 120 for j in range(121)]])
+    return out
+
+def ring_arcs(W, z0, z1, n=2):
+    """end faces: end grain, so growth-ring arcs (circles centred below the face)."""
+    out = []
+    for i in range(n):
+        r = 60 + 9 * i
+        cy, cz = W * 0.55, z0 - 48
+        pts = [(cy + r * math.cos(t), cz + r * math.sin(t)) for t in
+               [math.radians(40 + 100 * j / 80) for j in range(81)]]
+        out.append(pts)
+    return out
+
+def grooves_on(lines, clip2d, M, col, minus2d=None):
+    """lines in a face's (u, v); clip2d / minus2d: OpenSCAD 2D in the same frame; M: 3x4 multmatrix rows mapping
+    (u, v, w) to the model (w = outward, 0..0.03)."""
+    body = "union(){ " + " ".join(_strip(p, GROOVE_W) for p in lines) + " }"
+    if minus2d:
+        body = f"difference(){{ {body} {minus2d} }}"
+    mm = "[" + ",".join("[" + ",".join(f"{v}" for v in r) + "]" for r in M) + ",[0,0,0,1]]"
+    return f'{c(col)} multmatrix({mm}) linear_extrude(0.03) intersection(){{ {body} {clip2d} }}\n'
+
+GROOVE_COL = {WAL_P: "#4f321e", WAL_R: "#3d2616"}
+
 class Cathedral(Chamber):
     """CATHEDRAL: CHAMBER's case and façade on FOLD's layout, with the owner's 14:18 notes applied."""
     SPINE = "#5a3923"             # walnut-matched leather / bookcloth: keeps the slot closed, loses the accent.
@@ -937,9 +1011,9 @@ class Cathedral(Chamber):
         top = 2 * self.AXZ - (LID_PF - 2.5)
         return box(4.1, self.AX_Y - 1.2, BASE_H - 0.4, FO_W - 4.1, self.AX_Y - 0.4, top, self.SPINE)
 
-    def __init__(self, layout="A", palette="ebony-maple", spine="dark", metal="brass"):
+    def __init__(self, layout="A", palette="black-brass", spine="none", metal="brass", grain=True):
         super().__init__()
-        self.layout, self.palette, self.spine, self.metal = layout, palette, spine, metal
+        self.layout, self.palette, self.spine, self.metal, self.grain = layout, palette, spine, metal, grain
 
     # all four plate corners R 7.7, concentric with the block (systems §4)
     def peg_plate2d(self):
@@ -1001,7 +1075,17 @@ class Cathedral(Chamber):
         return (96.0, 69.0) if self.layout == "B" else SYNC_FOLD_D
 
     def behind(self):
-        return None if self.layout == "B" else BEHIND_FOLD - self.dFX
+        return BEHIND_FOLD - self.dFX      # B too now (systems' check: REPEATS legend under FREE / SYNC by 1.7)
+
+    def behind_names(self):
+        # B: TIME (always, with behind set) and REPEATS go behind their knobs; "free" / "sync" already sit 0.5 behind the
+        # toggle centre (sync_toggle). A: TIME and DECAY, as v1.1 / CHAMBER.
+        return ("ECHO REPEATS",) if self.layout == "B" else ("REVERB DECAY",)
+
+    def sync_dy(self):
+        # B: at 0.5 behind, "free" sat 0.64 from FREQ 3 (checker 7c); with TIME / REPEATS legends gone behind,
+        # the words can sit further back, away from the V2 row
+        return SYNC_DY_B if self.layout == "B" else 0.5
 
     def grille(self, L0):
         if self.layout == "B":
@@ -1009,9 +1093,44 @@ class Cathedral(Chamber):
         return vesica_slots(143.0, L0 + 37.6, LID_PF, W=66.0, H=16.0, ring="#d3cab8")   # ring clear of "noise / ext" and "mixer"
 
     def base_extra(self, walnut):
+        s = self.grooves_base(walnut) if self.grain else ""
         if self.layout != "B":
-            return ""
-        return rose_slots(228.0, 68.0, BASE_H, 13.5, ring="#d3cab8")
+            return s
+        return s + rose_slots(228.0, 68.0, BASE_H, 13.5, ring="#d3cab8")
+
+    # ---- ruling 4: the woody fine-line grooves on the base underside, its sides, and the lid (back outside the
+    # façade field, sides). The lid back's façade field (x 30-256, d 8-86) is left for the owner's own design.
+    FACADE_FIELD = (30.0, 8.0, 256.0, 86.0)
+
+    def grooves_base(self, walnut):
+        D, col = self.D, GROOVE_COL.get(walnut, "#4f321e")
+        s = grooves_on(arch_lines(FO_W, D), rrect2d(6.5, 6.5, FO_W - 6.5, D - 6.5, 5.5, 5.5),
+                       [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, -1, 0]], col)                       # underside (faces down)
+        band = f"translate([12.5,6.2]) square([{FO_W-25},{BASE_H-3-6.4}]);"
+        s += grooves_on(side_lines(FO_W, 6.2, BASE_H - 3.2, 1), band, [[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0]], col)   # front
+        s += grooves_on(side_lines(FO_W, 6.2, BASE_H - 3.2, 1), band, [[1, 0, 0, 0], [0, 0, 1, D], [0, 1, 0, 0]], col)    # hinge side
+        end = f"translate([12.5,6.2]) square([{D-25},{BASE_H-3-6.4}]);"
+        s += grooves_on(ring_arcs(D, 6.2, BASE_H - 3.2), end, [[0, 0, -1, 0], [1, 0, 0, 0], [0, 1, 0, 0]], col)            # left end
+        # right end: USB-C / MIDI live at y 65-104, z 4.8-8.2; the arcs stay at y < 58
+        s += grooves_on(ring_arcs(D, 6.2, BASE_H - 3.2), f"translate([12.5,8.8]) square([45,{BASE_H-3-9}]);",
+                        [[0, 0, 1, FO_W], [1, 0, 0, 0], [0, 1, 0, 0]], col)
+        return s
+
+    def grooves_lid(self, walnut):
+        D, L0, H, col = self.D, self.LY0, self.LIDH, GROOVE_COL.get(walnut, "#4f321e")
+        x0, d0, x1, d1 = self.FACADE_FIELD
+        # lid back: the first arch's apex peeks into the right margin (x ≈ 262) and the arches' tails run out through
+        # the bands above and below the façade field, so the figure reads around his design without entering it
+        s = grooves_on(arch_lines(FO_W, D, apex_u=262 / FO_W, seed_shift=4.0),
+                       rrect2d(6.5, 6.5, FO_W - 6.5, D - 6.5, 5.5, 5.5),
+                       [[1, 0, 0, 0], [0, 1, 0, L0], [0, 0, -1, 0]], col,
+                       minus2d=f"translate([{x0},{d0}]) square([{x1-x0},{d1-d0}]);")
+        band = f"translate([12.5,13.0]) square([{FO_W-25},{H-3-13.2}]);"                          # far wall: above the I/O
+        s += grooves_on(side_lines(FO_W, 13.0, H - 3.2, 2), band, [[1, 0, 0, 0], [0, 0, 1, L0 + D], [0, 1, 0, 0]], col)
+        end = f"translate([12.5,6.2]) square([{D-25},{H-3-6.4}]);"
+        s += grooves_on(ring_arcs(D, 6.2, H - 3.2, 3), end, [[0, 0, -1, 0], [1, 0, 0, L0], [0, 1, 0, 0]], col)
+        s += grooves_on(ring_arcs(D, 6.2, H - 3.2, 3), end, [[0, 0, 1, FO_W], [1, 0, 0, L0], [0, 1, 0, 0]], col)
+        return s
 
     def base_names(self):
         names = [(14, "pitch"), (105.5, "filter")] + ([] if self.layout == "B" else [(188.5, "effects")])
@@ -1057,6 +1176,8 @@ class Cathedral(Chamber):
             s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12)]:
             s += cyl(x, y, -2.6, 2.6, 12, "#23201e", fn=40) + cyl(x, y, -2.66, 0.1, 5.0, "#151312", fn=24)   # foot + its cap plug
+        if self.grain:
+            s += self.grooves_lid(walnut)
         return s
 
     def model(self, state=True, walnut=WAL_P, book=False):
@@ -1236,7 +1357,7 @@ def jobs(SZ):
         "rb_ct2_closed_steel": lambda: cathedral_grain(ld.shot(Cathedral("A", "birchblack-birch", metal="steel").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct2_closed_steel", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
         "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
         "rb_ct_B_stand": lambda: shot4(Cathedral("B").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_B_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_B_stand.png")),
-        "rb_ct_closed": lambda: cathedral_grain(ld.shot(Cathedral("A").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct_closed", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
+        "rb_ct_closed": lambda: ld.shot(Cathedral("A").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct_closed", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=()),   # grooves are modelled now (ruling 4): no cathedral_grain post-process
         "rb_ct_top_A": lambda: top4(Cathedral("A").model(True), "rb_ct_top_A", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         "rb_ct_top_B": lambda: top4(Cathedral("B").model(True), "rb_ct_top_B", -2, -2, W + 2, OPEN + 2, px_per_mm=12, grain_classes=()),
         # DIPTYCH
