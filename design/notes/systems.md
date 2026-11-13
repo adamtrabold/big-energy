@@ -1,5 +1,19 @@
 # Systems designer notes — Little D
 
+# CATHEDRAL steer 2 (2026-11-13 ~17:00): the band resolved — cathedral §16, layout_check.py
+- Root cause: the PLAY row lands at lid d ≈ 40 with 5 mm of z overlap + 2.0, so the band is knob-free.
+- New layout: lid rows evenly spaced (V1 14.45 / switch line 32 / V2 49.5 / FX 84.55); a Ø 46 opening at (143, d 32); the mixer flanks it (OSC 1 / 2 at 103.5, OSC 3 / NOISE at 182.5).
+- Base: symmetric, CUTOFF on the axis (under the opening), EMPHASIS 119; MOD MIX and DRIFT to the base right; R3 open. Battery → base rear strip (tip ≈ 8.4 N).
+- Routes:
+  - R-TALL ≈ 59.7;
+  - R-LOW ≈ 55.2, needing Tayda 10 × 8 knobs + a bushing-less seat + the stick lowered 3.6. With the stick as is, 58.8; with a nut, 56.7.
+  - No bought wide-low hero exists, so CUTOFF stays tall under the opening.
+- Speaker: ≈ 920–1,040 mm² open (73–83 % of Sd); foam gasket; sealed stuffed back box ≈ 20–25 cm³.
+- Sharps: black-plated brass (one velocity calibration).
+- Checker 0 (labels estimated). Not published (director: only after a 9).
+
+---
+
 # Feature docs, batch 1 (2026-11-13)
 - Published: panning-and-stereo-outputs, effects. Partial: paraphonic (O3: recommend a 5th MCP4822 → Seed DACs free; OUT1 = PARA+4 oscillator into the ladder input, OUT2 = PITCH CV OUT), firmware-update-and-gestures (O5 split). Architecture: 4th mux allocation (mux D, 4 spare); pins 30–31 of 31.
 - Owner questions out: line-out jacks (two vs one), LINE OUT mutes the speaker?, CC 10, FX MIX CCs.

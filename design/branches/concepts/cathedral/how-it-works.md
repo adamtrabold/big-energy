@@ -529,6 +529,92 @@ reverb out (stereo) ─► L / R sums (REVERB MIX)
 - Mux: **+3 channels** (2 pots, 1 toggle) on top of B's moves (eng: lid mux count).
 - 1 SPI chip-select. A few mA.
 
+## 16. Steer 2: resolving the band (owner 16:52: "there's a massive horizontal gap -- the speaker doesnt feel resolved. this may mean moving components")
+Checker: `layout_check.py` (this folder). Open layout + labels: **0 violations** (label sizes estimated for Kalam; re-run on the visual designer's model). Numbers marked [CHECK] come from it.
+
+### 16.1 Root cause (what forces the gap)
+- Closed, a base point at y lands under lid d = 108 − y. The base PLAY row (y 68) lands at **lid d ≈ 40**.
+- The PLAY knobs stand 13.5 above the plate (CUTOFF 12.15, the bend stick 12.6), and lid knobs reach down 13.5 from the lid face (closed z 37.6). They'd overlap by ≈ 5 mm, plus the 2.0 clearance rule.
+- So no lid knob can sit over the PLAY row. That's the 37.55 mm knob-free band (other rows are ≈ 8.5 apart edge to edge).
+- **The speaker was put in the band because the band was empty. It never caused it.**
+
+### 16.2 The new arrangement (both routes share it)
+**Lid: three evenly spaced rows, one switch line, one round opening on the axis.**
+
+| Row (lid d) | Left (x) | Centre | Right (x) |
+|---|---|---|---|
+| **V1, d 14.45** | RANGE 1–3 23.5 / 43.5 / 63.5 · FREQ 2 83.5 · **OSC 1 103.5** | (opening) | **OSC 3 182.5** · F ATT / DEC / SUS 202.5 / 222.5 / 242.5 · KBD CTRL (t) 262.5 |
+| **switch line, d 32** | OSC MOD 23.5 · OSC 3 CTL 43.5 · PARA 63.5 | **Ø 46 opening, centre (143, d 32)** | SOURCE 182.5 · FILTER MOD 202.5 · VELOCITY 222.5 · AFTERTOUCH 242.5 |
+| **V2, d 49.5** | WAVE 1–3 · FREQ 3 83.5 · **OSC 2 103.5** | (opening) | **NOISE / EXT 182.5** · L ATT / DEC / SUS · DECAY (t) 262.5 |
+| **FX, d 84.55** | ECHO TYPE 62.5 · TIME 82.5 · REPEATS 102.5 · MIX 122.5 · DELAY PAN 142.5 | | REVERB TYPE 171.5 · DECAY 191.5 · MIX 211.5 · DRY PAN 240.5 · VOLUME 260.5 |
+| FX toggles | FREE / SYNC (96, d 69.7) | | FOLLOW (250.5, d 73) |
+
+- **Row pitch is 35.05 everywhere** (V1 → V2 → FX). The switch line sits midway between V1 and V2.
+- **The only knob-free area wider than a row gap is the round opening.**
+- **The mixer is symmetric around the opening:** OSC 1 / OSC 2 on the left, OSC 3 / NOISE on the right, mirrored about x 143 (± 39.5).
+- **Legends:** V1 in front; V2 behind; switch toggles above; TIME, REPEATS, DRY PAN and VOLUME behind; FREE / SYNC and FOLLOW words beside.
+
+**Base PLAY row, symmetric about x 143:**
+- **BEND 25 · MOD 47 · TUNE 67 · GLIDE 87 | EMPHASIS 119 · CUTOFF 143 (hero, on the axis) · CONTOUR AMT 167 | MOD MIX 199 · DRIFT 219 · R3 239 · TAP 261**;
+- the stick and TAP mirror each other;
+- **CUTOFF moves to the axis** (it was at 119; EMPHASIS takes 119), so CUTOFF lands **entirely under the opening** when closed. EMPHASIS and CONTOUR AMT land partly under it [CHECK].
+
+**Moves (⚑ director, then owner):**
+- the mixer re-flowed round the opening;
+- the switches into one switch line;
+- **CUTOFF ↔ EMPHASIS** swapped;
+- **MOD MIX** (lid → base, beside the pitch controls it feeds) and **DRIFT** (lid FX row → base) moved;
+- **R3 (x 239) is open:** candidates are VOLUME by the hands, or ECHO MIX as a "throw". **Director's call.**
+
+**The battery moves to the base.**
+- With rows evenly spaced, the under-plate clear zone between V1 and V2 shrinks from 37.55 to ≈ 21. FOLD-105's four 25 × 40 × 9.5 cells (PiShop 952540) no longer fit under the lid plate.
+- They go to the **base's rear strip** (y ≈ 80–106, x ≈ 15–185, under-plate height 11.1 ≥ 9.5) beside the Daisy (rear right).
+- **Eng:** the base board needs a window there, and the hinge ribbon's base header (now under the landing strip) moves.
+- **Bonus:** the base gets heavier and the lid lighter, so the standing tip threshold rises from ≈ 6.9 N to **≈ 8.4 N** [CALC, cells ≈ 90 g ESTIMATE].
+
+### 16.3 The two routes for closing [CHECK]
+Every lid item landing within 3 mm (plan) of a base item must clear it by 2.0. Today the lid face sits at closed z 37.6 (closed 52.7).
+
+| Route | Base row parts | Binding pair | Lid face | **Closed** |
+|---|---|---|---|---|
+| **R-TALL (fallback)** | today's knobs (13.5) | WAVE 2 over MOD | 44.6 (+7.0) | **≈ 59.7 mm** |
+| R-LOW, stick as is | low knobs (9.0 incl. 1.0 seat), stick 12.6 | WAVE 1 over the BEND stick | 43.7 (+6.1) | ≈ 58.8 (barely better: the stick binds) |
+| **R-LOW (primary)** | low knobs (9.0), **stick cap top lowered to plate + 9.0** | WAVE 1 over the stick | **40.1 (+2.5)** | **≈ 55.2 mm** |
+| R-LOW, nut under the knob | low knobs on a nut (10.5), stick 9.0 | WAVE 2 over MOD | 41.6 (+4.0) | ≈ 56.7 |
+
+- **The low knob (a real part):** Tayda aluminium knob **Ø 10 × 8 mm, 6 mm 18T**, $0.59. **Black** (https://www.taydaelectronics.com/aluminum-d-shaft-knob-3010-black-6-x-18t.html; the page lists shaft hole 6 mm × 18T) or **gold**, a brass-tone match for the keys (https://www.taydaelectronics.com/aluminum-gold-knob-3010-black-6-x-18t.html). Silver exists too.
+- Checked and **not** better: Thonk Stubby T18, Ø 9.85 × 11 (https://www.thonk.co.uk/shop/stubby-knobs-t18/).
+- **No wide, low hero exists as a bought part** in what I checked. Tayda's ≥ 20 mm knobs are all ≥ 15 tall; Multicomp KMK25 is 25 × 15 (https://my.element14.com/multicomp-pro/fc7253/round-knob-kmk25-black-6mm-spline/dp/2473097).
+  - So **CUTOFF keeps a tall hero** and sits under the opening instead. That's why it moves to the axis.
+- **What R-LOW depends on (UNVERIFIED, eng):**
+  1. **Seat height.** A 9 mm pot's threaded bushing and nut stand ≈ 2–2.5 above a 2.5 mm plate. With a nut, the knob sits on it (10.5) → 56.7. A bushing-less (snap-in) 9 mm pot, or a plate counterbore over the nut, gives ≈ 1.0 → 55.2.
+  2. **Shaft length bought to fit** (no cutting: owner, no machining). The 8 mm knob needs ≈ 7 mm of T18 shaft above the plate.
+  3. **The bend stick lowered** ≈ 3.6 mm (module seated deeper in a board cut-out) with enough cap left to thumb. If the stick can't go lower, R-LOW gives only ≈ 58.8, and **R-TALL's simplicity wins**.
+- **Feel cost of R-LOW:** the played row gets small 10 mm metal knobs (from 14.9). CUTOFF stays big.
+- **Both routes:** the hinge axis rises by half the lid-face change. Standing geometry is otherwise unchanged; the stays work as before.
+
+### 16.4 The speaker, from acoustics
+- **Driver:** the 50 mm CDS-5076-class (7.6 deep), concentric under the opening at lid (143, d 32). Sd ≈ 12.6 cm² for an effective cone ≈ Ø 40 (ESTIMATE; datasheet Sd UNVERIFIED).
+- **Opening Ø 46** (cone + surround), the plate's only hole there. With **vertical slots 1.5 wide on 2.7 pitch (webs 1.2)**, it's **≈ 56 % open → ≈ 920 mm² ≈ 73 % of Sd**. With 2.0 slots / 1.2 webs, ≈ 63 % → ≈ 1,040 mm² ≈ 83 % of Sd [CALC].
+  - Today's grilles were 265–440 mm² (≈ 21–35 % of Sd): choked.
+- **Slots run vertically** (his preference), so they read as **lancets inside a rose**. The slot lengths follow the circle; plate 2.5 thick. Keep the **cone-to-plate gap ≥ 1.5 mm**, so the front cavity's resonance stays high (≈ > 8 kHz, ESTIMATE).
+- **Front gasket:** a 1 mm adhesive foam ring between the driver frame and the plate's underside, so the front can't leak to the back.
+- **Sealed, stuffed back box:** printed PETG, glued behind the driver, ≈ 60 × 60 × 10 mm outside, **≈ 20–25 cm³ net**, lightly filled with polyester fibre (worth ≈ +15 % effective volume).
+  - **This matters most.** Without it the rear wave cancels the front through the lid hollow, and bass and mids collapse.
+  - It fits under the lid plate (10.6 deep). It clears V1 / V2 pot bodies (x 103.5 / 182.5) and the ribbon header (x 176–227, d 2.5–8.5) [CALC].
+- **Honest loudness:** a small sealed box raises the driver's low cut-off (≈ 600–900 Hz, UNVERIFIED). Expect clear mids and modest level; it's a monitor, not a PA.
+  - The gain over today comes from the open area and the seal, roughly **+3–6 dB in the 1–5 kHz range** (ESTIMATE). Bench it.
+  - PAM8302 class-D (review 20) stays the louder-amp option.
+- **Magnet distances:**
+  - open, the speaker sits ≥ 74 mm from the base PLAY row and ≥ 92 mm from the key Hall sensors;
+  - keep ≥ 30 mm from the lid's expo pairs at layout (eng).
+  - Closed it doesn't matter (off).
+
+### 16.5 Keys: more brass (owner: "i'd rather have more brass than black")
+- **Lead A:** brass naturals, black sharps. **Alternate C:** all brass.
+- **Sharps' material (systems pick): black-plated cast brass**, the same mass as the naturals, so **one velocity calibration** covers all keys. Printed black sharps would be lighter and need a per-group velocity curve (§13).
+- The gold Tayda low knobs (R-LOW) would echo the brass on the played row (visual).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
