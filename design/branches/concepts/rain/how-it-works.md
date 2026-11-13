@@ -1,5 +1,7 @@
 # RAIN: how it works (systems)
 
+> **2026-11-13, keys:** the peg mount is redone in `../cathedral/how-it-works.md` §10. Stock plugs have ⅛–¼ in tenons; the 1/2 in size is the hole, not the head. The same carrier, stop and options apply here. Rev 2's shank-through-the-deck description is superseded.
+
 Seed: **ONE SHEET** (v1.1, 276 × 180). Kind: a landscape. Point of view: **every control is a drop on still water; its rings spread until they meet the next drop's, and the meeting lines draw the panel's map.** Rule: *everything that breaks the surface ripples.* Emotion: calm. Read with `../common-how-it-works.md`, `versions/v1.1/one-sheet/how-it-works.md`, `versions/v1.1/common-how-it-works.md` and `design/jobs.md` rev 5.
 
 **Rev 2, 2026-11-13 (round 1 scored 7; director's fixes).** Numbers marked [CHECK] are from `../branch_check.py` §7 (the current `rb.rain()` model, legends measured with OpenSCAD).

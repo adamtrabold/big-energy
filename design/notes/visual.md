@@ -1,5 +1,51 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 1 (2026-11-13): owner 14:12–14:18, CHAMBER x FOLD v1.1; rounds reset; RAIN parked
+**Owner's notes:**
+- spine probably unnecessary;
+- hidden hinges;
+- the speaker gap; FX & out far from echo / reverb;
+- feet = screws;
+- a woodier but subtle engraving;
+- consistent plate rounding;
+- fewer peg colours, the brown out of place;
+- grille rounding (tapered or circular);
+- "cathedral" is a better point of view than chamber.
+
+**Systems wrote `cathedral/how-it-works.md`:** side pivots, A / B speaker options, screw-feet, R 7.7 corners, spine dark or none.
+
+**Done this turn:**
+- **Doc:** `design/branches/concepts/cathedral/how-it-looks-and-feels.md`, with `<figure>` images all linked.
+- **Code:** `rb.py` class `Cathedral(layout, palette, spine)`.
+  - Hooks added to `Branch`: `peg_plate2d`, `play_row`, `lid_rows`, `fx_breaks`, `voice_rule_end`, `sync_pos`, `behind` (None = legends stay in front), `grille`; Chamber's `vel_gap`.
+  - New helpers: `vesica_slots`, `rose_slots`, `cathedral_grain` (a post-process on walnut pixels), `PALETTES`, `B_FX`.
+  - Jobs: `rb_ct_col_<palette>` ×4, `rb_ct_A_stand`, `rb_ct_B_stand`, `rb_ct_closed`, `rb_ct_top_A/B` (tops are for checking only, not published).
+  - **Gotcha:** a "glob*" job argument only expands when it's the only argument.
+- **Images (6):** peg colours 2×2; A standing; B standing; closed with book (grain, spine, feet); grain detail; grille options drawing at 20 px/mm. All figure composition was done in a scratch script (`/tmp/scr/ct_figs.py`, not in the repo; re-creatable from the doc's list).
+
+**Decisions and why:**
+- **Point of view:** "a small cathedral: organ front for the listener, nave for the hands, the wood's own arches." Every curve does a job; costume watch: no tracery.
+- **Colours:** recommend **ebony naturals + maple sharps** (organ convention, black = knobs, no brown, no new colour); fallback maple / ebony; the one-colour options shown. Ebony plugs aren't stock (UNVERIFIED), so the route is ebonised maple.
+- **Grille:**
+  - A = **vesica 66 × 16 at (143, d 37.6)**. Systems' Ø 34 circle overlapped the NOISE / EXT legend and the mixer heading; the real clear depth is ≈ 22 mm.
+  - B = tapered circle Ø 27 at (228, 68).
+  - Tapered slots preferred over concentric arcs (continuity with v1.1, "same rule as the façade turned 90°").
+- **Woody:** my reading is the body's line texture, so **cathedral grain** (flat-sawn figure) at the old line count. Real walnut: pick flat-sawn stock. Print: leave plain. **Confirm with the owner** whether he meant the façade lines.
+- **Spine:** keep, **walnut-matched #5a3923**; a near-black spine read as the opening in the render. Runs wall to wall (no knuckles). Oxblood retired.
+- **B labels:**
+  - V2 toggle legends moved below their toggles (`vel_gap` −8.4);
+  - the left voice rule ends at dV2 + 5.5;
+  - "free" vs FREQ 3's MIDI dot ≈ 1 mm: systems to check (model exists now).
+- **A's base heading:** "effects" (VOLUME left in 7.2).
+
+**Open:**
+- **Owner:** colours, the meaning of "engraving", spine.
+- **⚑ D+O:** A vs B. My visual read: B is the better CATHEDRAL; reach is the cost.
+- **Systems:** checker on `Cathedral("B")`; acknowledge the vesica replacing the Ø 34.
+- **Eng:** B base speaker vs the Daisy; side-pivot strength; screw-foot part.
+
+**Next:** the director steers A / B and scores. Then fix, or write the handoff looks.
+
 ## BRANCHES, round 2 (2026-11-13): CHAMBER and RAIN fixes (scores r1: CHAMBER 8, RAIN 7; BUTTERFLY retired, DIPTYCH killed)
 **Where things stand:**
 - Two live concepts: **CHAMBER** (FOLD) and **RAIN** (ONE SHEET). Docs:

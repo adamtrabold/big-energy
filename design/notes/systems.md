@@ -1,5 +1,14 @@
 # Systems designer notes — Little D
 
+# KEYS + NO MACHINING (2026-11-13, owner 14:30–14:34)
+- Stock mushroom plugs have ⅛–¼ in tenons; the size names the hole. HUSH, CHAMBER, CATHEDRAL and RAIN all assumed a shank no part has. The locked v1.1 HUSH isn't edited; noted here and in RAIN.
+- **Part:** Cherry Tree Toys 3/8" mushroom plug: head 12.7, tenon 9.53 × 3.2 (birch SKU 31, oak 31-O; cherry 3/8 exists, dims UNVERIFIED). The only supplier found that publishes all three. Head height unpublished: measure.
+- **Interface:** printed PETG carrier: MX socket, magnet pocket at the v1.1 height (velocity unchanged), 9.6 × 3.3 tenon cup, neck Ø 11.2 through a Ø 12 deck hole. The stop moves to an O-ring or felt on the switch top at ≈ 2.5 of 2.8. Head top = deck + 2.8 + H.
+- **Options listed, not picked:** bought plug + printed carrier / printed one-piece peg (upright, socket down) / externally printed / flat tops.
+- **No machining:** stays → 316L metal print (JLC3DP BJ-316L checked: from $5, ≤ 100 mm, wall > 1.5, ±0.3) or PETG 5 × 8. Hinge leaves → 316L print or printed, or keep the knuckles. Sleeve → bought oilite bushing. Arms → printed. "Real walnut later" flagged as machining. Brass printing unchecked.
+
+---
+
 # CATHEDRAL (2026-11-13, owner 14:12–14:18): CHAMBER + FOLD v1.1; RAIN parked; round counts reset
 
 ## Where things stand

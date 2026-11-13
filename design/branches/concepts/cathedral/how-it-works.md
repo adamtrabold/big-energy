@@ -139,10 +139,97 @@ No images rendered (owner, 13:13).
 ## 8. Not mine (the visual designer's), noted for completeness
 The "woodier" engraving with the same amount of detail; peg / button colours (fewer, no out-of-place brown); the spine's colour if kept; the grille's pattern.
 
+## 10. Keys, redone around real parts; and no machining anywhere (owner 14:30–14:34)
+
+**Owner:**
+- "The Wooden ones you linked do not have shafts that match the prototype";
+- "I don't know how to machine — the keys need to be printed or purchasable";
+- "They can be printed externally too - I know you can get metal prints".
+
+**What was wrong:**
+- From HUSH v1.1 through CHAMBER, the peg was a "1/2 in button plug" whose shank reached down through a felt collar and the deck into an acrylic arm.
+- Stock mushroom plugs have a **⅛–¼ in tenon**, and the size names the **hole, not the head**.
+- **This affects HUSH, CHAMBER / CATHEDRAL and RAIN alike** (one key mechanism; RAIN's and HUSH's files still describe the old shank).
+
+### 10.1 The bought part (a supplier that publishes all three dimensions)
+- **Cherry Tree Toys 3/8" mushroom plug.**
+- **Published dimensions:** head ("overall diameter") **1/2" = 12.7 mm**, tenon **3/8" = 9.53 mm**, tenon length **1/8" = 3.2 mm**, package of 50.
+- **Species:**
+  - birch, SKU 31 (https://cherrytreetoys.com/3-8-mushroom-plugs/);
+  - oak, SKU 31-O (https://cherrytreetoys.com/3-8-oak-mushroom-plugs/), same dimensions;
+  - a 3/8" **cherry** plug ($5.35 / 50, on https://cherrytreetoys.com/wood-plugs/). Its dimensions aren't published; assumed the same family, **UNVERIFIED**.
+  - Their only walnut mushroom plug is 1/4" (head ≈ 3/8", too small).
+- **Not published anywhere I checked: head height.** Order one pack and measure; it sets the key height below.
+- **Others checked:**
+  - Craftparts publishes head 5/8" for its 1/2" plug, with tenon length "typically 1/4"" and no tenon diameter.
+  - Bear Woods lists maple and walnut, says the standard tenon is 1/4" (long-shank SKUs exist) and gives no head or tenon diameters.
+  - Woodpeckers and WidgetCo publish only the hole size.
+  - So Cherry Tree Toys is the only one with all three.
+- **Colour note:** the head now matches the old 12.7 mm design. Birch or oak is pale, so the reverse-walnut naturals become a stain or a printed choice, which suits his "too many colours / brown feels out of place" (visual).
+
+### 10.2 The new interface: a printed keycap carries the plug (no shank through the deck)
+**Printed peg carrier, one per key, PETG.** Printed parts are now allowed; it's a keycap, not a mechanism. It does what the acrylic arm did:
+- **Bottom:** an MX cross socket onto the Choc V2 stem (the switch has an MX cross stem, `velocity-and-keys-v2.md` §2).
+- **Arm:** a pocket for the D31 magnet, **10.5 behind the stem at the same height as v1.1** (face 7.6 above strip C at rest). So the magnet's rest / bottom gaps (5.6 / 2.8) and the velocity fit are unchanged.
+- **Top:** a **cup Ø 9.6 × 3.3 deep** for the plug's tenon, glued with wood glue. The tenon tapers slightly (Bear Woods), so it seats tight. Cup wall 0.8 → **neck Ø 11.2**.
+
+**The deck hole clears the neck, not a shank:** hole Ø 12.0 (0.4 a side).
+
+**The felt stop moves down, off the deck.** A felt ring on the deck can't work any more: under a 12.7 head, an 11.2 neck leaves a 0.75 mm landing.
+- **Stop:** a **bought keyboard O-ring dampener** on the carrier's stem, or a punched felt ring (Ø 14) on the switch top. The carrier's skirt lands on it **at ≈ 2.5 of the 2.8 ± 0.25 travel**, as HUSH's collar did.
+- The O-ring / felt **thickness is the tuning knob** (≈ 0.3–0.5).
+- The fit window for velocity (15–75 % of the stroke) ends at 2.1 mm, well before the stop at 2.5 → **velocity unaffected** [CALC].
+- The Choc silent switch damps both strokes on its own; the ring keeps it off hard bottom.
+
+**Height** (H = the plug's head height, unpublished):
+- head underside at rest = deck + **2.8** (travel to the stop + 0.3 margin);
+- head top = deck + 2.8 + H.
+- H ≈ 4 → **6.8** (v1.1 pegs 6.5: +0.3).
+- H ≈ 5 → 7.8 (+1.3, and FOLD's closed height then needs ≈ +1.3 more: ≈ 54.0) [CALC].
+- **Measure H before the lid height is fixed.**
+
+**What shows:** a 2.8 mm printed neck under each wooden head, with a dark ring of deck hole round it. CATHEDRAL reading: an organ's drawknob on its stem.
+
+**Felt:** the punched rings only need a hand punch (bought tool), or buy pre-cut felt washers. Not machining.
+
+### 10.3 Printed pegs (allowed now): a real option
+- **One piece per key** (head + neck + arm + MX socket), FDM.
+- **Orientation:** print **upright, socket down on the bed**, so the cross socket's walls are vertical and accurate. The dome comes last, at 0.12 mm layers; its top shows faint terraces (a matte filament hides them).
+  - Head-down is smoother on top, but it needs supports in the socket, which spoil the fit. Rejected.
+- **Fit:** the MX cross needs a tolerance coupon (three sockets at −0.05 / 0 / +0.05 mm). The magnet press-fits into a printed pocket and is glued.
+- **Feel against the wood plugs:** printed PETG/PLA feels cooler, slicker and lighter than birch. A wood-fill or matte filament narrows the gap; it won't feel like turned wood.
+- **What it does for his colour note:** pegs and TAP can be the same filament, so one less colour.
+- **Same carrier geometry as 10.2.** The bought-plug and printed-peg versions are interchangeable on the same switches.
+- **Externally printed** (resin or SLS) gives a smooth dome with no terraces. Cost **UNVERIFIED**: quote by upload.
+
+### 10.4 Options, plainly (not picking)
+| | Head | Who makes it | Feel | Notes |
+|---|---|---|---|---|
+| A. **Bought plug on a printed carrier** | Cherry Tree Toys 3/8" (12.7 head, 9.53 × 3.2 tenon) | buy plugs; print carriers | turned wood | head height unpublished: measure; pale species only (birch / oak / cherry) |
+| B. **Printed peg, one piece** | printed | print | plastic; matte or wood-fill helps | best colour control; FDM terraces on the dome |
+| C. **Externally printed pegs** (resin / SLS) | printed | order | smooth plastic | cost UNVERIFIED |
+| D. **Flat tops** (v1.1 FOLD) | printed or laser-cut | print, or laser at Vector Space (allowed, not leaned on) | flat key | no peg height cost; closed back to ≈ 50.1 |
+
+## 11. No machining: every part CATHEDRAL had him cut or drill
+| Part | Was | Now | Cost (rough) |
+|---|---|---|---|
+| **Lid stays** (2) | cut + drilled from 3 × 8 brass bar | **(a) metal-printed 316L stainless by a service** (JLC3DP BJ-316L: "From $5.0", max 100 mm, walls > 1.5, tolerance ±0.3 mm, checked on jlc3dp.com). The stay is 3 × 8 × 44.4, inside every limit. The pivot hole prints undersize, then a bought shoulder screw. **(b) printed PETG at 5 × 8** (the 3 mm section is too slender in plastic; the end-face groove widens to 5.5) | (a) ≈ $5–15 each + shipping, **UNVERIFIED** beyond "from $5"; (b) pennies |
+| **Hidden-hinge brass leaves** (4, §1) | cut from flat bar | **(a) metal-printed 316L** (2 × 10 × 20 is ≥ the 1.5 wall and 5 mm minimum) or **(b) printed in the wall** (PETG, strength UNVERIFIED), with a **bought** Ø 3 dowel pin or M3 shoulder screw. Or the **knuckles** (printed lugs + a bought M4 shoulder bolt, as v1.1: no machining) | (a) ≈ $5 each, **UNVERIFIED** |
+| Hinge "brass sleeve fallback" (v1.1) | tube cut to length | **bought oilite bronze bushing** (sized, off the shelf) | ≈ $1, UNVERIFIED |
+| Acrylic peg arms | laser-cut | **printed carriers** (§10.2) | pennies |
+| Felt collars / rings | punched | hand punch (bought tool) or **bought pre-cut washers** | — |
+| Inserts, magnets, screws, feet, pins | — | all bought; heat-set inserts go in with a soldering iron (not machining) | — |
+| "Real planed walnut later" (FOLD's long-term idea) | planed and routed blocks | **machining: flag.** Stays a future option only, by a woodworker; the build is printed (wood-fill / walnut-tone) | — |
+| Spine (if kept) | bookcloth cut with scissors | as is (not machining) | — |
+
+**Metal-printed brass or bronze:** I couldn't check a service's price or availability this session, so **UNVERIFIED**. 316L at JLC3DP is the one I checked. It's stainless, not brass-coloured: a brass look would be paint or plating, or brass from a service once checked.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
 3. **Eng:** side-pivot strength in PETG with brass leaves; screw-through foot part; base speaker vs the Daisy's place; ribbon changes in B.
 4. **Visual:** with B chosen, a model so the checker can run labels (§7 of `branch_check.py`).
+5. **Owner:** keys A / B / C / D (§10.4). Before A: buy one pack and measure the head height.
+6. **Owner:** stays and hinge leaves metal-printed (316L) or printed PETG; brass colour by plating/paint, or a checked brass service.
 
 NEXT: product designer (visual focus) — the colours, the woody engraving, the grille pattern and the plate rounding are theirs, and options A/B need their look before the director weighs ⚑ B.
