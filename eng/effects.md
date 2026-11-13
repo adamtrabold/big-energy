@@ -1,6 +1,6 @@
 # Built-in delay / echo: options and recommendation
 
-Status: rev 0, 2026-11-12. Answers the owner's round-4 request (`design/little-d/owner.md`, 22:30): "Is there a way for us to build in some effects, mainly a delay and echo?"
+Status: rev 0, 2026-11-12. Answers the owner's round-4 request (`design/owner.md`, 22:30): "Is there a way for us to build in some effects, mainly a delay and echo?"
 Base documents: `budget-variant.md` rev 12 (power, boards), `round4-answers.md` (board-area method, power recount), `fold-answers.md` (FOLD depth formula).
 
 Conventions as in `budget-variant.md`: link = read this session (2026-11-12). **ESTIMATE** = my number. **UNVERIFIED** = a source exists but I couldn't confirm the figure. [ENG] = engineering judgement. [CALC] = arithmetic from cited figures.

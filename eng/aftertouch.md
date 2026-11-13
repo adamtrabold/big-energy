@@ -1,6 +1,6 @@
 # Little D: channel aftertouch (pressure lanes under a floating key strip)
 
-Status: rev 0, 2026-11-13. Answers the owner (`design/little-d/owner.md`, last entry): "i think it needs its own switch but yes now i want it". Recorded as: add channel aftertouch, sensed under a compliantly mounted key strip, with its **own** destination switch (separate from VELOCITY LOUD/BOTH/FILT), sent on MIDI out.
+Status: rev 0, 2026-11-13. Answers the owner (`design/owner.md`, last entry): "i think it needs its own switch but yes now i want it". Recorded as: add channel aftertouch, sensed under a compliantly mounted key strip, with its **own** destination switch (separate from VELOCITY LOUD/BOTH/FILT), sent on MIDI out.
 
 Builds on `daisy-first-principles.md` rev 0 (Daisy pin table §9, mux scan §1/§3, CVs §4), `velocity-and-keys-v2.md` rev 1 (keys, velocity routing) and `budget-variant.md` rev 13. Conventions as there: a link means I read it this session; **ESTIMATE** = my number; **UNVERIFIED** = a source exists but I couldn't confirm the figure; [ENG] = engineering judgement; [CALC] = arithmetic.
 

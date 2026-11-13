@@ -1,6 +1,6 @@
 # Little D: engineering answers to the design team (E-L2, E-L4, E-L5)
 
-Status: rev 0, 2026-11-12. Answers `design/little-d/notes/systems.md` (open questions) and the E-L items in
+Status: rev 0, 2026-11-12. Answers `design/notes/systems.md` (open questions) and the E-L items in
 `concepts/common-how-it-works.md` (rev 2), `concepts/under-glass/how-it-works.md` and `concepts/hush/how-it-works.md`.
 Conventions as `budget-variant.md`: link = read this session; **ESTIMATE** = my number; **UNVERIFIED** = source exists,
 figure not confirmed; **[ENG]** = engineering judgement; **[CALC]** = arithmetic shown. Constraints only: where a

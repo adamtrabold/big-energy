@@ -1,7 +1,7 @@
 # Visual designer notes (instrument; working name retired)
 
 ## S2: 120° stand + bend reads as a joystick (2026-11-13, new visual designer; owner: "oh do those first")
-Context: the owner locked HUSH / ONE SHEET / FOLD-105 as v1 (`locked/v1-2026-11-13/`, untouched by me). These two fixes were in progress at lock time. The sheets in `concepts/<concept>/` are the post-lock S2 redraws; whoever syncs `locked/` decides whether they replace v1.
+Context: the owner locked HUSH / ONE SHEET / FOLD-105 as v1 (`versions/v1/`, untouched by me). These two fixes were in progress at lock time. The sheets in `concepts/<concept>/` are the post-lock S2 redraws; they were locked as `versions/v1.1/` (owner, 2026-11-13).
 - **Owner's words:** "the fold's angle should be a bit less steep so the front face catches more light. also i want the bend slider to be a joystick (is it a snap to center fader or what?...)".
 - **Diagnosis:** the round-5 top views drew the bend as a black ball over a long dark slot on a pale rectangle (FOLD, ONE SHEET) or a vertical pill tag (HUSH). Seen from above, that's a fader cap in a track. The mechanism was always a spring-to-centre one-axis thumbstick (#2765 class); only the drawing was wrong.
 - **What the stick is now (`joystick()` in r5.py; I kept the previous designer's version and fixed what surrounded it):**

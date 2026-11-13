@@ -1,5 +1,5 @@
 # The principles we've built up (for comparing other synth clones)
-Source: owner decisions across /home/claude/model-d/design/little-d/owner.md and /home/claude/model-d/design/instrument/owner.md.
+Source: owner decisions across /home/claude/model-d/design/owner.md and /home/claude/model-d/archive/full-instrument/owner.md.
 - Portable, battery powered, internal battery; OP-1-ish footprint as a loose reference; feels good to use.
 - Hand-soldered THROUGH-HOLE only; anything SMD arrives as a ready-made plug-in module; no custom factory assembly; bare boards, quantity-1 fab preferred.
 - Analog voice (audio path analog); modern pin-compatible equivalents of original chips are fine (no vintage parts).

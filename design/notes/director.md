@@ -6,14 +6,14 @@
 
 ## Status (CHECK after the 120° stand + bend-joystick redraw, 2026-11-13, new director): READ THIS FIRST
 - Scope: a check, not a round. Owner asked: FOLD lid less steep so the face catches more light; bend must be a joystick. Change: FOLD stand 105° -> 120° (spec rev 5.7, stays 44.4, tip 6.8 N) + bend redrawn (stem, flared cap, round ring with 2 pointers, round tag, B-sheet callout "BEND IS A JOYSTICK, NOT A FADER").
-- **Scores hold: HUSH 9, ONE SHEET 9, FOLD-105 9**, conditional on must-fix 1 (drawing only; I check it, no re-score). Work changed in the stick and the stand (plus footers); I saw no other regressions by eye (pixel-diff boxes vs locked/v1 are large, so this is a visual check, not a proof).
+- **Scores hold: HUSH 9, ONE SHEET 9, FOLD-105 9**, conditional on must-fix 1 (drawing only; I check it, no re-score). Work changed in the stick and the stand (plus footers); I saw no other regressions by eye (pixel-diff boxes vs versions/v1 are large, so this is a visual check, not a proof).
 - **Stand (sheet E): passes.** Side view measures right: lid 60° to table (=120°), stay ≈ 44 mm at ≈ 60-62°, pivot d ≈ 31 from the hinge, tip 59 behind. 3/4 visibly leans back and the panel now reads cream, not grey: the owner's "catches more light" is shown. Believable.
 - **Joystick: B sheets pass** (plan = round well + cap + 2 pointers; callout clear, push/pull directions consistent). **3/4 views (A x3, FOLD E) half-fail:** stem + flared cap read as a stick, BUT the round ring contains a dark elongated slot along the bend axis. That slot is the fader cue the owner reacted to, and it contradicts B and the callout ("gate under the panel"). Front elevations (D): T-silhouette OK on FOLD/ONE SHEET; HUSH's is hidden behind pegs (acceptable for an elevation).
 - **Must-fixes:**
   1. A (HUSH, ONE SHEET, FOLD) + FOLD E: replace the visible slot with a round aperture (round hole/boot, Ø ≈ ring inner), matching B. Gate stays under the panel.
   2. FOLD D: the purple note says "rev 5.6 lists no MIDI IN", but how-it-works rev 5.6 adds MIDI IN (y 70) beside MIDI OUT (y 80) + USB-C (y 90-99). Draw the 3rd jack on the base's right end and fix the note. (Pre-existing, not caused by this change, but it now contradicts the spec.)
 - **Nice-to-have (not blocking):** E headline "FOLD-105 ... standing at 120°" invites confusion; add "(105 = half depth)". FOLD how-it-works line ~58 still says stay 52.4 mm (superseded by rev 5.7 header; tidy). E side view omits the lid's knobs (pre-existing). HUSH B PARA-legend flag still open (pre-existing).
-- **Owner state:** all three LOCKED as v1 (locked/v1-2026-11-13/); he leans ONE SHEET or FOLD; his creative-rounds request was withdrawn ("forget i said that"). No new round.
+- **Owner state:** all three LOCKED as v1 (versions/v1/); he leans ONE SHEET or FOLD; his creative-rounds request was withdrawn ("forget i said that"). No new round.
 - **Next:** check fixes 1-2 by eye; then the owner picks -> handoff.md check against the approved concept + owner.md.
 - **Lesson added:** when a control's identity is the owner's complaint, check it in every view type (plan, 3/4, elevation): renders inherit old geometry (the slot) even after the plan is redrawn.
 
@@ -91,7 +91,7 @@
 
 ## Earlier status (end of jam, Turn 3, 2026-11-12) — partly superseded above
 - Phase: concept jam has CLOSED with READY. **No scores yet.** The first scores will be provisional because no brand or visual foundation exists.
-- Full-instrument design is PAUSED (owner). Its director notes are in `design/instrument/notes/director.md`; I kept consistent with them: hero CUTOFF, one light, no Moog cheeks, cost/rigmarole as the recurring risk.
+- Full-instrument design is PAUSED (owner). Its director notes are in `archive/full-instrument/notes/director.md`; I kept consistent with them: hero CUTOFF, one light, no Moog cheeks, cost/rigmarole as the recurring risk.
 - Concepts going forward: **TYPE CASE, ONE SHEET, HYMNAL, HUSH.**
 
 ## The owner's tests for this work (his words → my judging tests)

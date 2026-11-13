@@ -1,6 +1,6 @@
 # Daisy Seed, from first principles: every subsystem it touches
 
-Status: rev 0, 2026-11-13. Answers the owner (`design/little-d/owner.md`, after "Switch to Daisy Seed"): "Also the key thing you need to port - go back to first principles and see if there's a better way with Daisy seed. Do this with all the things Daisy seed affects".
+Status: rev 0, 2026-11-13. Answers the owner (`design/owner.md`, after "Switch to Daisy Seed"): "Also the key thing you need to port - go back to first principles and see if there's a better way with Daisy seed. Do this with all the things Daisy seed affects".
 
 **Scope.** For each subsystem the Seed touches, this doc works through four steps:
 1. what the job fundamentally needs;

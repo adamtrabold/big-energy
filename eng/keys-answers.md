@@ -1,6 +1,6 @@
 # Eng answers to the key rethink (E-K1 to E-K6), Little D first
 
-Status: rev 1, 2026-11-12. Answers `design/instrument/concepts/keys/first-principles.md` §6.
+Status: rev 1, 2026-11-12. Answers `archive/full-instrument/concepts/keys/first-principles.md` §6.
 Conventions are the same as `budget-variant.md`: a link means the price or spec was read this session (2026-11-12).
 **ESTIMATE** means my number, not checked. **UNVERIFIED** means a source exists but I couldn't confirm the figure.
 **[CALC]** means my arithmetic (scripts: on-axis disc-magnet formula, current-loop off-axis model and a

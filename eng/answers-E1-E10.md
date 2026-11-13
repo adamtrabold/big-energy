@@ -1,6 +1,6 @@
 # Engineering answers to design asks E1–E10 (full version)
 
-Status: rev 0, 2026-11-12. Answers `design/instrument/concepts/common-how-it-works.md` §7.
+Status: rev 0, 2026-11-12. Answers `archive/full-instrument/concepts/common-how-it-works.md` §7.
 Ground rules: through-hole parts or ready-made modules only (owner: no SMD, no custom PCBA).
 Conventions as in architecture-v2: link = sourced; **UNVERIFIED** = not confirmed this session;
 **[ENG]** = engineering estimate. No look or layout calls here; where an answer constrains layout,

@@ -519,7 +519,7 @@ Rev 12 never carried the SGTL5000 shield or 74HC595 (they existed only in `singl
 | **Daisy Seed, 65 MB (Seed3 TAC5242 or Seed2 DFM PCM3060), pre-soldered headers** | +$34.99 | $34.99 from Nov 1 per [PedalPCB tracker, Oct 26](https://forum.pedalpcb.com/threads/free-stock-price-tracker-for-daisy-seeds-heads-up-prices-change-nov-1.30660/latest). Thonk lists the 65 MB at £31 ex VAT, in stock ([Thonk](https://www.thonk.co.uk/shop/electrosmith-daisy-seed)). Avoid used Rev 5 (WM8731) |
 | 2 × 20 socket strips for the Seed (replace the Pico headers in the $3 line) | ≈ +$0.50 (ESTIMATE) | 0.6" row spacing |
 | FX wet path: 2 TL072, level/AA/recon passives (no 595, no shield) | ≈ +$1.50 (ESTIMATE) | `single-chip-research.md` §5.3 less the shield |
-| FX panel controls, **owner-approved "Full 8, grow the panel"** (`design/little-d/owner.md`): 5 pots + knobs ($4.45), 2 four-way rotaries + knobs ($3.26), TAP ($0.50) | +$8.21 | `single-chip-research.md` §5.2 |
+| FX panel controls, **owner-approved "Full 8, grow the panel"** (`design/owner.md`): 5 pots + knobs ($4.45), 2 four-way rotaries + knobs ($3.26), TAP ($0.50) | +$8.21 | `single-chip-research.md` §5.2 |
 | **DRIFT knob** (owner: controllable drift; firmware slow random pitch wander per oscillator, 0 = steady): 1 pot + knob; mux channel, no GPIO | +$0.89 | Placement is the design team's; mux use ≈ 46 of 48 |
 | **Bigger 5 V boost** (battery builds only; flag below) | +$6–12 (ESTIMATE, part not identified) | The bq25185 board's boost is 1 A and 4.4 W is ≈ 0.88 A. Fix: keep the bq25185 for charging and add a ≥ 2 A 5 V boost module fed from the cells (no ≥ 2 A load-sharing Adafruit board found; the PowerBoost 1000C is also 1 A) |
 | Extra board area (§v1.11.5) | ≈ +$0.50–1.00 | at $0.61–1.22/in² |

@@ -2,7 +2,7 @@
 
 Status: rev 0, 2026-11-13. Answers the owner: "Check the pin thing. Audio feels the most important since we're introducing digital stuff."
 Compares (A) **Pico 2 + Teensy Audio Shield Rev D (SGTL5000) + 74HC595** (`single-chip-research.md` §1.6) with (B) **Daisy Seed as the only digital chip**.
-I/O list from `budget-variant.md` rev 12 (§v1.2, Part 2 §4) and the control counts in `design/little-d/concepts/common-how-it-works.md` rev 7.1.
+I/O list from `budget-variant.md` rev 12 (§v1.2, Part 2 §4) and the control counts in `design/concepts/common-how-it-works.md` rev 7.1.
 Conventions as in `budget-variant.md`. Link = read this session. **UNVERIFIED** = a source exists but I couldn't confirm the figure. **ESTIMATE** = my number. [ENG] = engineering judgement. [CALC] = arithmetic.
 
 ---

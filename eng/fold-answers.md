@@ -1,6 +1,6 @@
 # Little D / FOLD: engineering answers to the director's round-4 FOLD fixes (2026-11-12)
 
-Inputs: `battery.md` rev 11, `round4-answers.md` (§1.4 board area, §2 ribbon, §3 power), `budget-variant.md` rev 11, `design/little-d/concepts/fold/how-it-works.md` rev 4.2, `design/little-d/scores.md` round 4 (FOLD rulings 1–2).
+Inputs: `battery.md` rev 11, `round4-answers.md` (§1.4 board area, §2 ribbon, §3 power), `budget-variant.md` rev 11, `design/concepts/fold/how-it-works.md` rev 4.2, `design/scores.md` round 4 (FOLD rulings 1–2).
 Conventions: **[CALC]** arithmetic shown; **ESTIMATE** my number, not checked; **UNVERIFIED** source exists but figure not confirmed; **[SIM]** ngspice result from the files named. Prices and stock were read 2026-11-12.
 I state constraints only. Layout and look are the design team's calls.
 

@@ -1,6 +1,6 @@
 # Little D: engineering answers, design round 4 (E-L9, E-L9b, E-L10, speaker, E-L8)
 
-Status: rev 0, 2026-11-12. This answers `design/little-d/notes/systems.md` (rev 7 open questions),
+Status: rev 0, 2026-11-12. This answers `design/notes/systems.md` (rev 7 open questions),
 `concepts/common-how-it-works.md` (rev 6) §3 and §8, `fold/how-it-works.md` (rev 4), `hush/how-it-works.md` (rev 6)
 and `one-sheet/how-it-works.md` (rev 4).
 

@@ -87,7 +87,7 @@ def fold_content(v):
     ok = v == 105
     open_ = 2 * Fo.D + 2
     return dict(
-        folder="fold", title=f"FOLD-{v}", key=f"fo{v}", v=v, Fo=Fo, variant=f"-{v}",
+        folder="fold", title=f"FOLD-{v}", key=f"fo{v}", v=v, Fo=Fo, variant=("" if v == 105 else f"-{v}"),
         kind=("a hinge · designed for use · walnut + white (Proof) · self-protecting · " + ("slim battery, RECOMMENDED" if ok else "big battery, shown to explain why not")),
         idea=("Each half is a hollowed walnut block with a white pickguard dropped in and screwed from behind. The keys' half holds what you play, the lid holds the voice and the effects; three columns and one axis balance it, and it closes into a flat-topped walnut bar."
               if ok else "The same FOLD with the big 22 Wh battery. The cells need a 52 mm window in the lid, so the voice spreads apart and the deck opens to ≈ 260 deep: it fails the ≤ 60 mm rule between the PLAY row and the voice. Drawn honestly, so the trade can be seen."),

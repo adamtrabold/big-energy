@@ -1,6 +1,6 @@
 # Little D: velocity routing (loudness / filter / both) and bought-switch keys (v2)
 
-Status: rev 1, 2026-11-12. Answers two owner decisions in `design/little-d/owner.md` (2026-11-12 answers):
+Status: rev 1, 2026-11-12. Answers two owner decisions in `design/owner.md` (2026-11-12 answers):
 - velocity: "Both, with a switch", so a switch selects loudness / filter / both;
 - keys: "I don't want to build custom keys", then "Whatever the design needs", so keys use bought mechanisms with minimal assembly.
 
