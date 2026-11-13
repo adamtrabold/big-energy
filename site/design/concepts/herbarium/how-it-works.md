@@ -44,15 +44,15 @@ Below the fold: everything else, newest first, **one entry per group or loose it
 ## Flows and the 9 frames
 | Frame | Path | Taps |
 |---|---|---|
-| 1 STANDBY | Ring lamp "Standby · last: FOLD rev D · 14:02"; waiting on you; strip at Lock; **newest work = a new-format group, its lead render large** (real candidates in `design/concepts/_mock-src/out/`: `r5_os_main.png`, `rb_bf_main.png`; visual to confirm which concept each belongs to); label + two slips; three tiles. | 0 |
-| 2 ON, group rev lands | Lamp dips; image cross-fades; slip "rev D · just now" lands on top, old top slip steps down; dot; "+ 7 more". Not yet published → label + slip + "images arriving with the next publish". | 0 |
+| 1 STANDBY | Ring lamp "Standby · last BUTTERFLY rev A · 14:02"; waiting on you; strip at Lock; **newest work = BUTTERFLY rev A (branches round), its lead render large** (`design/branches/concepts/butterfly/img/butterfly.jpg`); label + two slips; three tiles. | 0 |
+| 2 ON, group rev lands | Lamp dips; image cross-fades; slip "rev A · just now" lands on top, old top slip steps down; dot; "+ 7 more". Not yet published → label + slip + "images arriving with the next publish". | 0 |
 | 3 FOLD-A v1.1 → v1 | "v1.1" (1) → in the set, FOLD's legacy sheets are shown individually under its heading: FOLD-A (2) → lineage: v1 (3) → compare, "show changes". | 2 to v1.1, 3 to v1 |
 | 4 Bass pluck A/B | If it's the newest test: tile (1). Otherwise filter kind → test (1, 2) → T-004 (3). Play; A/B keeps the playhead. Stage: Spec, early. | 1–3 |
 | 5 "Switch to Daisy Seed" | Filter `decisions` (1) → "13 Nov · time not recorded · 'Switch to Daisy Seed'", the ask above in ink 2, "before: D-031 · after: D-032, D-019 rev 13" → tap D-032 (2); its label shows "caused by: 'Switch to Daisy Seed' · 13 Nov". | 2 + scroll |
 | 6 What's in v1.1 | "v1.1" (1) → cover (lock rule, v1.1, locked 13 Nov · current, one line, "changed from v1: …") → the set by group: HUSH@B, ONESHEET@B, FOLD@C (sheets as images, labelled legacy sheet), then shared docs and spec rev 14 as text rows. | 1 |
 | 7 Snapshot | No lamp, no dots; "Snapshot · 13 Nov 14:02"; "+ 6 more on 13 Nov". | 0 |
 | 8 Desktop | Top band; newest group's lead render ~940 px left; tiles + label right. | 0 |
-| 9 Concept group | From the newest work (1): the group: renders at their own shapes, its `how-it-works` as HTML beside (desktop) or between (phone) them, group rev row. | 1 |
+| 9 Concept group | From the newest work (1): BUTTERFLY rev A: renders at their own shapes, its `how-it-works` as HTML beside (desktop) or between (phone) them, group rev row. | 1 |
 
 Other jobs: J2 everything is in the list or a filter, archive greyed at its drop date. J6 strip + `#/s/<stage>`. J8 copy link on every label and group. J9 status on every label. J13 filters; links by code. J14 phone layouts above. J15 frame 9.
 
