@@ -154,3 +154,6 @@ Recorded as: drop A3 as the default format for mocks and sheets. Nothing is prin
 Recorded as: CORRECTION to 12:33 — not phone-first. Images are made to look great on the project site and to work responsively across screen sizes (phone through desktop).
 2026-11-13 12:41 Owner (verbatim): "i really only want images for things that need to be images -- text should be html and stuff"
 Recorded as: images only for what has to be visual (renders, drawings, diagrams, plots). Text (principles, specs, notes, labels, tables, scores) is real HTML on the site, not baked into images. This retires the "sheet" format (text plus pictures in one image) for new work.
+
+2026-11-13 13:13 Owner (verbatim): "dont render a bunch of images unnecessarily"
+Recorded as: render an image only when it is needed to judge or show something; no image sets made by habit, no pictures of web pages.

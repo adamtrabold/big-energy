@@ -38,3 +38,6 @@ Recorded as: images only for what has to be visual (renders, drawings, diagrams,
 ## 2026-11-13 13:13 — on the review images
 Owner (verbatim), seeing E Herbarium as frame images: "i dont understand why is this an image and not a webpage"
 Recorded as: site concepts are shown to the owner as working web prototypes, not pictures of screens. E Herbarium is being built as a clickable prototype (throwaway, real content) for his review. Approval still pending.
+
+2026-11-13 13:13 Owner (verbatim): "dont render a bunch of images unnecessarily"
+Recorded as: render an image only when it is needed to judge or show something; no image sets made by habit, no pictures of web pages.
