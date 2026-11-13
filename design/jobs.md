@@ -77,7 +77,7 @@ Each flow lists its steps and the control or part each one uses. Concept-specifi
 6. Play: keys + stick + MOD dial.
 
 ### F2 Build a sound from scratch (J3, J4, J16)
-Reading order (common rev 6 §1): **the VOICE (back two rows) left → right in signal order, front then back in each column; then the PLAY row (nearest the keys) left → right: pitch → tone → level.** (Rev 5 order, for the paused concepts: left → right by section I–V, front → back.) The step list below names controls by function; it holds in either layout.
+Reading order (CATHEDRAL steer 3, cathedral §17): **the lid top → bottom in signal order, left → right in each band: oscillators ‖ mixer → filter contour · loudness contour (their switches beneath) → echo · reverb ‖ out (DRY PAN, FOLLOW, VOLUME last, bottom right); then over the hinge to the PLAY row: pitch → tone → mod / tempo.** (Common rev 6 §1, superseded for CATHEDRAL: the VOICE back two rows left → right, then the PLAY row.) (Rev 5 order, for the paused concepts: left → right by section I–V, front → back.) The step list below names controls by function; it holds in either layout.
 1. I CONTROLLERS: TUNE centre, GLIDE off, MOD MIX, OSC MOD / FILTER MOD toggles off.
 2. II OSCILLATORS: per VCO, RANGE (6 marked positions, no click [ENG]), WAVE (6-way rotary), FREQ (VCO 2, 3); OSC 3 CONTROL toggle.
 3. III MIXER: OSC 1–3 levels, NOISE/EXT level, SOURCE toggle (noise / ext / feedback).

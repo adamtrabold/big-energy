@@ -625,6 +625,146 @@ Every lid item landing within 3 mm (plan) of a base item must clear it by 2.0. T
 - **Sharps' material (systems pick): black-plated cast brass**, the same mass as the naturals, so **one velocity calibration** covers all keys. Printed black sharps would be lighter and need a per-group velocity curve (§13).
 - The gold Tayda low knobs (R-LOW) would echo the brass on the played row (visual).
 
+## 17. Steer 3: the lid in signal order (owner: "synth stuff -> fx stuff -> output stuff like volume")
+Owner, in full: "the items do not appear to be grouped or ordered in a way that makes logical sense … i dont like the effects controls at the top … when i think of signal order it's synth stuff -> fx stuff -> output stuff like volume. so it at the top of the layout is confusing."
+
+Checker: `layout_check.py` now holds two arrangements: **P** (live, recommended) and **S** (the alternative, run with `layout_check.py S`). It also measures what the renders print that the old check ignored: the TYPE knobs' name fans, TIME's note scale and ring, and the group headings. **Both arrangements: 0 violations, labels included.** Closing doesn't change: R-LOW ≈ 55.2, R-TALL ≈ 59.7 (now the filter contour binds over the stick and MOD, where WAVE 1 / 2 did). The base PLAY row doesn't change.
+
+### 17.1 What goes with what (every lid control)
+Signal stage: 1 sources → 2 mixer → (filter: CUTOFF / EMPHASIS / CONTOUR AMT, on the base) → 3 contours → 4 echo → 5 reverb → 6 out.
+
+| Control | Group | Stage | Its switches | Steer 2 had it | Where it belongs, and why |
+|---|---|---|---|---|---|
+| RANGE 1–3, WAVE 1–3, FREQ 2, FREQ 3 | oscillators | 1 | OSC 3 CTL (VCO 3 keyboard on/off), PARA (MONO / PARA / PARA+4), OSC MOD | split over two rows, mixed with mixer knobs | one row, by VCO (1: range, wave · 2: range, freq, wave · 3: range, freq, wave). Model D order. |
+| OSC MOD | oscillators | 1 | it's a switch | switch line, left | It turns the wheel's modulation on for the **oscillators' pitch**, so it sits under the oscillators. |
+| PARA | oscillators (voices) | 1 | it's a switch | switch line, left | It sets how many oscillators play notes, so it goes with the oscillators. Under VCO 1, the first switch of the voice. |
+| OSC 1, OSC 2, OSC 3, NOISE / EXT | mixer | 2 | SOURCE (noise / ext / feedback) | **split around the window** (2 left, 2 right; the owner's screenshot) | one row of four, in order, straight after the oscillators. SOURCE sits under it: it picks what the NOISE / EXT knob sets (the Pro-One's shared noise/ext knob was "both a blessing and a curse"; §17.3). |
+| F ATTACK / DECAY / SUSTAIN | filter contour | 3 | KBD CTRL, FILTER MOD | V1 right | Left of the window. **KBD and FILT MOD both move the cutoff** (keyboard tracking, wheel), so they sit under the filter contour. |
+| L ATTACK / DECAY / SUSTAIN | loudness contour | 3 | DECAY (release = decay) | V2 right | Right of the window. DECAY changes this contour's release, so it sits under it. |
+| VELOCITY (loud / both / filt) | key response | 3 | it's a switch | switch line, right | It sends key velocity to the **contours** (loudness, filter, or both), so it belongs with them. Its default is loudness, so it sits under the loudness contour. |
+| TOUCH (mod / off / filt) | key response | 3 | it's a switch | switch line, right | It sends pressure to mod amount or cutoff. Keep it beside VELOCITY: they're the "how the keys respond" pair (aftertouch.md). MicroFreak shows the cost of hiding this (§17.3). |
+| ECHO TYPE, TIME, REPEATS, MIX | echo | 4 | FREE / SYNC | FX row at the far edge | the first effect: kind → time → repeats → amount. FREE / SYNC belongs to TIME. |
+| DELAY PAN | echo → reverb | 4→5 | (FOLLOW) | FX row | It pans the echo into the reverb, so it's the echo's last control, the hand-off to the reverb. |
+| REVERB TYPE, DECAY, MIX | reverb | 5 | none | FX row | the second effect, after the echo. |
+| DRY PAN | out | 6 | FOLLOW (delay pan follows dry) | FX row | It places the dry sound in the stereo output, so it's an output control. |
+| FOLLOW | out | 6 | it's a switch | beside VOLUME | It links DELAY PAN to DRY PAN, so it sits with DRY PAN. |
+| VOLUME | out | 6 | none | FX row, at the top | **The last thing in the chain**, so it goes last on the page, nearest the hand. |
+
+Where the contour, velocity and touch switches belong:
+- **Contour switches:** each sits under the contour it changes.
+- **VELOCITY and TOUCH:** together, as a pair, under the loudness contour. They act on the contours (and TOUCH on mod), not on the effects or the oscillators.
+- In steer 2, all of these shared one switch line with the oscillator switches, with nothing to say whose they were. That was the "no logical sense" the owner saw.
+
+### 17.2 Reading direction (both positions read the same)
+- **Flat:** the lid lies behind the base (hinge at the base's back edge). A lid point at d sits d beyond the hinge, so the lid's far edge is the farthest thing from the player: the top of what they see.
+- **Standing:** d is height above the hinge, so the far edge is again the top.
+- So in both, **top = far edge (d ≈ 84), bottom = the hinge (d ≈ 14)**. The owner's screenshot shows it (FX across the top).
+- **The eye reads top → bottom, left → right in each band** (like a page). Then it drops over the hinge to the base PLAY row (bend, mod, tune, glide | emphasis, CUTOFF, amount | mod mix, drift, TAP), then the keys.
+- So the lid's bottom band, next to the base, is both **the end of the sound** and **the nearest to the hand**. Effects and VOLUME are ridden live; oscillators are set and left. That's why page order is also the right reach order (§17.4).
+
+### 17.3 References (verified, quoted; links checked 2026-11-13)
+| Instrument | What the source says | What we take |
+|---|---|---|
+| **Minimoog Model D** | "The familiar left-to-right layout of Controllers, Oscillator Bank, Mixer, Modifiers and Output sections" ([vintagesynth.com](https://vintagesynth.com/moog/minimoog)). The manual: "The front panel groups these elements and controls together by type—CONTROLLERS, OSCILLATOR BANK, MIXER, MODIFIERS, OUTPUT" (p. 15); "The combined output of the Mixer next passes through the Filter and finally arrives at the audio output" (p. 26). The A-440 is in the OUTPUT section (p. 32) ([Model D manual](https://cdn.inmusicbrands.com/Moog/Model%20D/Minimoog_Model_D_Manual.pdf)). Its panel "can lay flat or propped up" (vintagesynth). | Group by stage, in signal order, with output last. The Model D reads left → right; our window blocks two-thirds of a column flow (§17.4 S), so we read top → bottom instead. |
+| **Moog Grandmother** | The spring reverb is "a single-knob affair placed in the right hand corner of the dash"; the panels "are laid out to mimic a modular workflow" ([AudioTechnology](https://www.audiotechnology.com/reviews/moog-grandmother)). The manual: "The VOLUME knob is placed after the SPRING REVERB MIX knob in the signal path" (p. 21, [manual](https://analoguehaven.com/moog-music/grandmother/manual.pdf)). | The effect sits at the end of the panel, next to the output, with volume after it. |
+| **Moog Matriarch** | "The penultimate stage in the internal signal path is a pair of BBD delays … At the end of the signal path, the internally routed audio reaches the Output section"; "the VCAs themselves lie between the filters and the delays"; the output section is "to the right of the control panel" ([Sound On Sound](https://www.soundonsound.com/reviews/moog-matriarch)). "The signal then passes into the dual filter, then moving right along to a stereo VCA and stereo analog delay" ([Perfect Circuit](https://www.perfectcircuit.com/signal/moog-matriarch-spotlight)). | Stereo delay after the loudness stage, output after the delay: exactly our order (echo → reverb → out), even with stereo pans. |
+| **Korg minilogue xd** | The manual's panel callouts run 1 MASTER … 4 MIXER, 5 FILTER, 6 AMP EG / EG / LFO, **7 EFFECTS**, then display and sequencer (p. 5, [manual](https://cdn.korg.com/us/support/download/files/a5bba576f00973bf63c78cdeff83a7f7.pdf); numbering only, not positions). Effects: "use two levers to select your type and the dials to the right define its impact" ([MusicTech](https://musictech.com/reviews/hardware-instruments/korg-minilogue-xd/)). Voice mode "more intuitively located adjacent to the Oscillator section" ([AudioTechnology](https://audiotechnology.com/?p=38690)). | Effects come after the envelopes. Within an effect, kind first, then amount (our TYPE → … → MIX). The voice-mode switch goes with the oscillators (our PARA). |
+| **Sequential Take 5** | "a fabulous large Filter Cutoff dial in the centre of the synth"; "over on the right are two Effects blocks. The lower one is a dedicated reverb" ([MusicRadar](https://www.musicradar.com/reviews/sequential-take-5)). "Most controls are single function" ([Recording](https://www.recordingmag.com/resources/featured-reviews/october-2022-sequential-take-5/)). | The hero cutoff goes on the axis (ours, on the base). Effects form a block at the end, with reverb after the other effect. This is the model for arrangement S. |
+| **Waldorf Iridium** | "The front panel retains the full‑colour touchscreen at the centre, surrounded by the most useful controls for oscillators, filters, envelopes, LFOs and effects" ([Sound On Sound](https://www.soundonsound.com/reviews/waldorf-iridium-keyboard?amp)). | A central object with the groups around it works. Our window is that object: the two contours and the two effects flank it. |
+| **Elektron Digitone** | The parameter keys run "TRIG, SYN1, SYN2, FLTR, AMP, LFO"; "[AMP] takes you to the AMP page, where you find parameters for the amplitude envelope and effect sends"; delay and reverb sit on FLTR's and AMP's second functions (p. 12, [manual](https://cdn.www.elektron.se/media/downloads/digitone/Digitone_User_Manual_ENG_OS1.40_220929.pdf)). Digitone II: "all parameters have been reorganised in a much more intuitive layout, especially the effects" ([Sound On Sound](https://www.soundonsound.com/reviews/elektron-digitone-ii)). | Page order = signal order, and the effect sends live right after the amp (loudness) stage. That's arrangement P: loudness contour, then echo. |
+| **Pro-One (counter-example)** | The modulation section is at the panel's left ("The modulation section (left)", [Electronics & Music Maker via muzines](https://www.muzines.co.uk/articles/sequential-circuits-pro-one/4225)). Its reissue's modulation "takes a little getting used to" ([MusicTech](https://www.musictech.net/reviews/hardware-instruments/behringer-pro-1-review/)). "The noise volume control also doubles as the external input level … both a blessing and a curse" ([Sound On Sound](https://www.soundonsound.com/reviews/sci-pro1)). | Switches placed away from what they change cost learning; a dual-meaning knob needs its selector beside it. So OSC MOD goes under the oscillators, FILT MOD under the filter contour, and SOURCE under NOISE / EXT. |
+| **Arturia MicroFreak (counter-example)** | "It turns out that there are some patch settings in a Utility menu … it's not immediately apparent how to harness velocity"; the envelope "has a linked decay/release time" ([Sound On Sound](https://www.soundonsound.com/reviews/arturia-microfreak)); "control of the Decay and Release times is ganged on a single Decay/Release control which purists may criticise" ([AudioTechnology](https://audiotechnology.com/?p=39980)). | Key response hidden away goes unused, so VELOCITY and TOUCH stay on the panel, by the contours. Our DECAY switch (release = decay) is the Model D's honest form of that ganging; it sits under the loudness contour, so it's clear what it ties. |
+
+Not found in any source checked: a description of the Take 5's or minilogue xd's exact left-to-right section map. Above I use only what's quoted.
+
+### 17.4 Arrangements (both pass the checker; same 28 knobs, 11 toggles, same window, same base)
+**P: page order (the director's lead).** Three bands, top → bottom = signal order:
+```
+ far edge (top)
+ A  d 84.55  range wave | range freq wave | range freq wave  ‖  osc1 osc2 osc3 noise      <- oscillators ‖ mixer
+ A' d 70       para        osc mod            osc 3                source
+ B  d 49.5   f.attack decay sustain    (   window   )   l.attack decay sustain  ‖ dry pan   <- contours ‖ out
+ B' d 35       kbd  filt mod           (   Ø 46     )   velocity touch decay      ‖ follow
+ C  d 14.45  type time [free/sync] repeats mix delaypan ( ) type decay mix        ‖ volume   <- echo · reverb ‖ out
+ hinge (bottom) — base: bend mod tune glide | emphasis CUTOFF amount | mod mix drift TAP
+```
+- **Groups:**
+  - each group is one run of knobs, with its switches 14.5–14.55 mm beneath. That's 6 mm closer to their own knobs than to the next row (20.5), so they read as belonging (proximity);
+  - two engraved breaks: oscillators ‖ mixer (x 183, band A), and the out column (x 242.5, bands B–C).
+- **Signal-path breaks (where the eye's path departs from signal order):**
+  1. Two line wraps, as in any page: mixer (row A's right end) → filter contour (row B's left), and loudness contour → echo.
+  2. The filter itself (CUTOFF, EMPHASIS, CONTOUR AMT) is on the base, not between mixer and contours. Unchanged since steer 2: the base is the played row.
+  3. The out column starts at band B's height (DRY PAN beside the loudness contour), behind a break line. It reads top → bottom: DRY PAN, FOLLOW, VOLUME.
+  4. TAP (base right) is ≈ 208–226 mm from echo TIME / FREE / SYNC (lid bottom left). It was 217–236 in steer 2, so no worse, but still apart. Open item V3.
+- **Reach** (path from the base control over the hinge, lid unfolded; steer 2 → P):
+  - VOLUME from TAP 132 → **60**;
+  - ECHO MIX from CUTOFF 136 → **77**;
+  - REVERB MIX 140 → **100**;
+  - ECHO TIME 153 → **116**;
+  - FREE / SYNC 133 → **101**.
+  - Set-and-leave controls move away: OSC 1 72 → 141, F ATTACK 85 → 153, RANGE 1 134 → 174.
+  - **The live controls come ≈ 30–70 mm closer; the patch-building ones go ≈ 40–70 further.**
+- **Checks:** 0 violations (pitch, gaps, breaks, window, edges, seam, far rim, legends, TYPE fans, TIME scale, headings). Closed: R-LOW 55.2 / R-TALL 59.7, unchanged.
+
+**S: left-to-right stages (differs in kind; Take 5 / Grandmother "effects on the right").** Synth across the left two-thirds; effects + out as a 4-column block on the right:
+```
+ A  d 84.55  range wave range freq wave range freq wave (VCO 1 2 3)  ‖  echo: type time repeats mix
+ A' d 70       para          osc mod   decay*       osc 3            ‖     free/sync
+ B  d 49.5   osc1 osc2 ‖ f.att dec sus   ( window )                  ‖  delay pan · rev type decay mix
+    d 32       src       kbd fm vel tch  (  Ø 46  )
+ C  d 14.45  osc3 noise ‖ l.att dec sus  (        )                  ‖  dry pan  follow  volume
+```
+- **Signal-path breaks:**
+  1. **The echo is still across the top** (band A, right): half the owner's complaint stays.
+  2. The mixer becomes a 2 × 2 square split over two rows (OSC 3 and NOISE under OSC 1 / 2).
+  3. Four contour and key switches squeeze into one line between the contour rows. Their legends shrink to **kbd / fm / vel / tch**.
+  4. **DECAY\* has no room by its contour** and has to sit among the oscillator switches. That's exactly the kind of misplacement the owner objected to.
+- **Reach:**
+  - DRY PAN 72 and FREE / SYNC 121 from TAP are better than P's.
+  - But ECHO MIX 176 and REVERB MIX 153 from CUTOFF are worse than P's (77 / 100), and worse than steer 2's (136 / 140).
+- **Checks:** 0 violations, but only with abbreviated legends and DECAY moved. Closed: same routes.
+- **Why it can't do better:** the window takes the middle of bands B and C, so a right-hand effects block leaves the synth 18 knob slots for 18 knobs, with no slot for a break or a switch. **Left-to-right flow needs the window moved off-axis.** That reopens steer 2 (CUTOFF on the axis under it), so S is shown for comparison only.
+
+### 17.5 Recommendation: P
+- **It answers the owner directly:**
+  - effects leave the top;
+  - the order down the page is synth → effects → out;
+  - VOLUME is the last control on the page, in the bottom-right corner, above TAP.
+- **Every switch sits under the group it changes.** Nothing shares an anonymous switch line.
+- **The window earns its place:**
+  - between the two contours (filter left, loudness right; one "contours" heading over it);
+  - between the two effects (echo left, reverb right).
+- **The live controls (effects, pans, VOLUME) move nearest the hand.**
+- Cost: the oscillators move farthest away. They're the set-and-leave group; the Model D's oscillator bank is likewise not its played row.
+
+### 17.6 New x / d table (P, live in `layout_check.py`)
+| Band (lid d) | Left of the window (x) | Centre | Right of the window (x) | Out column (x 262.5) |
+|---|---|---|---|---|
+| **A, d 84.55** (legends behind) | RANGE 1 28.5 · WAVE 1 48.5 · RANGE 2 68.5 · FREQ 2 88.5 · WAVE 2 108.5 · RANGE 3 128.5 · FREQ 3 148.5 · WAVE 3 168.5 | | **break x 183** · OSC 1 197.5 · OSC 2 217.5 · OSC 3 237.5 · NOISE / EXT 257.5 | (NOISE / EXT) |
+| **A', d 70** (legends right) | PARA 38.5 · OSC MOD 88.5 · OSC 3 CTL 148.5 | | SOURCE 237.5 | |
+| **B, d 49.5** (legends behind) | F ATTACK 23.5 · F DECAY 43.5 · F SUSTAIN 63.5 | Ø 46 window (143, d 32), unchanged | L ATTACK 182.5 · L DECAY 202.5 · L SUSTAIN 222.5 | **break x 242.5 (d 7–58.5)** · DRY PAN (d 49.5, legend behind) |
+| **B', d 35** (legends right) | KBD CTRL 46 · FILTER MOD 66 | | VELOCITY 178.5 · TOUCH 199.5 · DECAY 222 | FOLLOW (d 32; "follow" above, "off" below) |
+| **C, d 14.45** (legends in front) | ECHO TYPE 23.5 · TIME 43.5 · FREE / SYNC 62 ("sync" above, "free" below) · REPEATS 76 · MIX 96 · DELAY PAN 116 | | REVERB TYPE 182.5 · DECAY 202.5 · MIX 222.5 | VOLUME (d 14.45, legend in front) |
+| **Headings** (Kalam 2.0) | "oscillators" (98.5, d 100.55) · "echo" (69.5, d 26.5) | "contours" (143, d 62) | "mixer" (227.5, d 100.55) · "reverb" (202.5, d 26.5) | "out" (262.5, d 66.5) |
+
+- **FREE / SYNC moved** from beside TIME to the right of TIME's printed scale. The scale's "1/4" reaches to x ≈ 56; the toggle edge is at 57.4.
+- **KBD moved to x 46** to clear ECHO TYPE's "ping-pong". **VELOCITY moved to 178.5** to clear REVERB TYPE's "plate" / "shimmer".
+- **For the visual (rb.py `Nave.lid_face`):**
+  - the voice breaks (x 93.5 / 192.5) and the FX headings are hard-coded to steer 2. They should read `BREAKS` and `SECTIONS` from the checker;
+  - switch legends with placement "right" and "updown" need drawing. Today only `d == SWL` (now band B') is drawn beside;
+  - FREE / SYNC and FOLLOW are now "updown". Run on today's rb.py, the real-Kalam check (`nv_kalam`) flags the hard-coded headings and beside-legends, as expected.
+- **For eng:**
+  - DELAY PAN's pot (x 116, d 14.45) comes within ≈ 32 mm of the window centre. The 60 × 60 back box (x 113–173) needs its lower-left corner chamfered ≈ 18 × 18 to clear the pot body. That costs ≈ 1.6 cm³, so ≈ 19–24 cm³ net [CALC];
+  - the pots and switches move, but the lid harness and the mux allocation don't change (same controls).
+
+### 17.7 Open (steer 3)
+- **V1 (visual):** rb.py to the new table: breaks, headings, "right" / "updown" legends. Then the real-Kalam check.
+- **V2 (director):** P as recommended, or S for comparison.
+- **V3 (team):** TAP (base right) sits far from echo TIME (lid bottom left). Options:
+  - leave it (TAP is a tap, not a look-at);
+  - or a later base swap of TAP with the stick side (breaks steer 2's symmetry). Not proposed now.
+- **E1 (eng):** the back-box chamfer for DELAY PAN's pot; check the real pot body against the box.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

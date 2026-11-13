@@ -1,5 +1,16 @@
 # Systems designer notes — Little D
 
+# CATHEDRAL steer 3 (2026-11-13 ~18:30): the lid in signal order — cathedral §17, layout_check.py
+- Owner: groups/order make no sense; effects shouldn't be on top; synth → FX → output.
+- Breakdown: every switch now sits under the group it changes (OSC MOD/PARA/OSC 3 under the oscillators, SOURCE under the mixer, KBD/FILT MOD under the filter contour, VELOCITY/TOUCH/DECAY under the loudness contour, FREE/SYNC in the echo row, FOLLOW in the out column).
+- P (page order, recommended): A = oscillators ‖ mixer; B = filter contour · window · loudness contour; C = echo · window · reverb; out column (DRY PAN, FOLLOW, VOLUME) at x 262.5 behind a break. Live controls 30–70 mm closer to the hand; oscillators further.
+- S (left-to-right, effects block right): passes only with abbreviated legends and DECAY among the osc switches; echo still on top. The window blocks a column flow.
+- Checker now models TYPE fans, TIME's scale, headings. Both 0. Closing unchanged (R-LOW 55.2 / R-TALL 59.7).
+- References verified by fetch (Model D, Grandmother, Matriarch, minilogue xd, Take 5, Iridium, Digitone; Pro-One, MicroFreak counter). Curl blocked for manuals; WebFetch worked.
+- Visual: rb.py lid_face hard-codes steer-2 breaks/headings; read BREAKS/SECTIONS. Eng: back-box corner chamfer for DELAY PAN's pot.
+
+---
+
 # CATHEDRAL steer 2 (2026-11-13 ~17:00): the band resolved — cathedral §16, layout_check.py
 - Root cause: the PLAY row lands at lid d ≈ 40 with 5 mm of z overlap + 2.0, so the band is knob-free.
 - New layout: lid rows evenly spaced (V1 14.45 / switch line 32 / V2 49.5 / FX 84.55); a Ø 46 opening at (143, d 32); the mixer flanks it (OSC 1 / 2 at 103.5, OSC 3 / NOISE at 182.5).
