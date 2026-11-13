@@ -69,3 +69,5 @@ Recorded as: another agent (outside this session) is restyling the site with Imp
 Recorded as: DROP the Latest feed. The site's valuable parts, in his words: what he needs to decide; architecture; feature sets; history.
 2026-11-13 16:46 Owner (verbatim): "put whatever else i do need in there too im not listing everything. im sure there will need to be one for the parts modeling and physical architecture diagrams... the boards and schematics... parts list... etc etc"
 Recorded as: the four sections are a floor, not the full list. Add every section the build will need, e.g. physical design (enclosure, 3D models, physical architecture diagrams), electronics (boards, schematics), parts list (BOM), tests. The team decides the set and shows empty sections honestly as "not yet".
+2026-11-13 16:58 Owner (verbatim): "i want the physical page to have more images / be easier to find the case versions"
+Recorded as: Physical page: lead with images; make each case version (CATHEDRAL, CHAMBER, RAIN, FOLD/ONE SHEET/HUSH v1.1, earlier concepts) easy to find and compare.
