@@ -566,7 +566,7 @@ Checker: `layout_check.py` (this folder), now with the visual designer's two leg
 - **CUTOFF ↔ EMPHASIS** swapped;
 - **MOD MIX** (lid → base, beside the pitch controls it feeds) and **DRIFT** (lid FX row → base) moved;
 - **R3 removed** (it had no function).
-- **The effects row is re-centred on x 144 ± 99 → 44–242**, so the lid's top-left corner isn't left empty after DRIFT moved (director fix 1).
+- **The effects row is re-centred on x 143 ± 99 → 44–242**, so the lid's top-left corner isn't left empty after DRIFT moved (director fix 1).
 
 **The battery moves to the base.**
 - With rows evenly spaced, the under-plate clear zone between V1 and V2 shrinks from 37.55 to ≈ 21. FOLD-105's four 25 × 40 × 9.5 cells (PiShop 952540) no longer fit under the lid plate.
