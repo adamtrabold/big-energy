@@ -58,3 +58,5 @@ Recorded as: DECISION — a public GitHub Pages site is fine (anyone with the ad
 
 2026-11-13 16:28–16:29 Owner (verbatim): "re: architecture i think the way its organized is just unclear. have the systems designer take a look. is it up on pages right now? do that first" · "i dont want a bunch of .md docs, i want this stuff on website"
 Recorded as: (1) put the site on GitHub Pages first — done as far as a session can: build pushed to branch gh-pages; turning Pages on is blocked from sessions (owner does it in Settings → Pages). (2) The architecture doc's organisation is unclear — systems designer to rework it. (3) Docs, architecture and reviews must be ON THE WEBSITE (rendered pages), not markdown files he has to open. Markdown stays only as the source the site builds from.
+2026-11-13 16:40 Owner (verbatim): "gh pages is fine"
+Recorded as: DECISION — the site keeps deploying from the gh-pages branch. Sessions rebuild and push it after changes (site/publish.sh).

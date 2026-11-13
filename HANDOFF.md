@@ -14,6 +14,11 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 - **`archive/`**: `full-instrument/` (the paused big Model D clone, with its own owner record and brief), `paused-concepts/` (TYPE CASE, HYMNAL, UNDER GLASS) and `fold-superseded/` (FOLD-113 and older FOLD sheets). Leave all of it alone unless Adam brings it up.
 - **Not in the repo** (bulky, can be regenerated): ngspice raw `.dat`, `_mock-src/out/`, and `ref/ca-72` (`ref/README.md` says how to clone it).
 
+## The project site (GitHub Pages)
+- Live at https://adamtrabold.github.io/big-energy/ (served from the `gh-pages` branch; owner: "gh pages is fine").
+- After any session commits work to main, run `bash site/publish.sh` to rebuild the site from the repo and push it to `gh-pages`. Docs (`docs/`), reviews (`design/reviews/`), decisions (`design/owner.md`), versions and concept images all come from main.
+- Owner rule: reviews, logs and documents go on the site (in the repo), not as files sent in chat.
+
 ## Status
 - **Locked:** HUSH (290 × 187 mm), ONE SHEET (276 × 180 mm) and FOLD-105 (halves 286 × 108 mm, closes at about 50 mm, stands at 120°). All three scored 9 in round 5 and held 9 at the v1.1 check. The current lock is `versions/v1.1/`. Key edge A ("keys at the edge").
 - **Adam's lean:** he wants to move forward with **ONE SHEET or FOLD** and hasn't decided which. He noted the internals are probably the same. Mostly true: the electronics and spec are shared (see `design/concepts/common-how-it-works.md`), but the board split differs. FOLD carries a hinge cable between its halves; ONE SHEET is a single deck.
