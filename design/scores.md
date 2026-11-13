@@ -542,3 +542,6 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - CHAMBER: **9** (was 8). Work really changed: cream standing lid, oxblood cloth spine closes the hinge-side slot, normal key colours drawn, push-out holes as pipe mouths, Kalam, artefacts fixed. Coverage: passes every job. → owner.
 - RAIN: **9 conditional on R1**, then withheld at the R1 check: far rings still read as hatching at the rear corners and behind the back row. R1 clarified (stop rings ~6–8 mm out). Checked by eye, no re-score.
 - RAIN: R1 confirmed by eye → **9**. Watch: at arm's length it now reads closer to v1.1 ONE SHEET. → owner.
+
+## CATHEDRAL — round 1 after new direction (2026-11-13, director)
+- CATHEDRAL: **8**. Work really changed (no band, even rows, Ø46 centred window, mirrored base row, brass naturals, ≈55.2 mm). Fixes: re-centre FX row (DRIFT gap top-left); restore lid section names; remove R3, re-space MOD MIX/DRIFT/TAP; hidden hinge bump in closed side view; label check on visual model; doc states 55.2 mm conditions + Ø14.9→Ø10 knobs + 59.7 mm alternative. Director checks by eye, no re-score.
