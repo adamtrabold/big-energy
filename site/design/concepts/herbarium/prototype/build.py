@@ -64,8 +64,42 @@ def clouds(a, b):
             for s in ndimage.find_objects(lab)]
 
 # ------------------------------------------------------------------ markdown -> HTML
-DOCMAP = {}  # basename -> code, filled below
-def md(text, imap=None):
+DOCMAP = {}  # basename -> code, filled below (fallback only)
+PATHMAP = {}  # repo-relative path -> "#hash" (exact; filled before docs are rendered, see LINKS below)
+def resolve(href, src):
+    p = href.split("#")[0]
+    if not p or p.startswith("http"): return None
+    cands = []
+    if src: cands.append(os.path.normpath(os.path.join(os.path.dirname(src), p)))
+    cands.append(os.path.normpath(p.lstrip("./")))
+    for c in cands:
+        if c in PATHMAP: return PATHMAP[c]
+    base = os.path.basename(p)
+    if base in DOCMAP and sum(1 for k in PATHMAP if os.path.basename(k) == base) <= 1: return "#i-" + DOCMAP[base]
+    return None
+STATUS_WORDS = r"(decided|proposed|open|not yet written|written|started)"
+def mark_status(h):
+    """make decided / proposed / open visible: tag them inside table cells and bold runs"""
+    def cell(m):
+        inner = re.sub(r"\b(decided|proposed|open)\b", r'<span class="st st-\1">\1</span>', m.group(2))
+        return m.group(1) + inner + "</td>"
+    h = re.sub(r"(<td[^>]*>)(.*?)</td>", cell, h, flags=re.S)
+    h = re.sub(r"<strong>(decided|proposed|open)</strong>", r'<span class="st st-\1">\1</span>', h)
+    return h
+def label_cells(h):
+    """data-label on each td from its table's header, so tables can stack on a phone"""
+    def table(m):
+        t = m.group(0)
+        heads = [re.sub(r"<[^>]+>", "", x).strip() for x in re.findall(r"<th[^>]*>(.*?)</th>", t, flags=re.S)]
+        def row(r):
+            i = [0]
+            def td(c):
+                lab = heads[i[0]] if i[0] < len(heads) else ""; i[0] += 1
+                return f'<td data-label="{html.escape(lab)}"' + c.group(1) + ">"
+            return re.sub(r"<td([^>]*)>", td, r.group(0))
+        return re.sub(r"<tr>.*?</tr>", row, t, flags=re.S)
+    return re.sub(r"<table>.*?</table>", table, h, flags=re.S)
+def md(text, imap=None, src=None, status=False):
     h = markdown.markdown(text, extensions=["tables", "fenced_code", "sane_lists"])
     def pic(m):
         attrs = dict(re.findall(r'(\w+)="([^"]*)"', m.group(0)))
@@ -90,15 +124,17 @@ def md(text, imap=None):
     h = re.sub(r"<img (?![^>]*data-done)[^>]*>", pic, h).replace("<p></p>", "")
     def link(m):
         href, inner = m.group(1), m.group(2)
-        base = os.path.basename(href.split("#")[0])
-        if base in DOCMAP: return f'<a href="#i-{DOCMAP[base]}">{inner}</a>'
         if href.startswith("http"): return f'<a href="{href}" rel="noopener" target="_blank">{inner}</a>'
-        return f'<span class="ref">{inner}</span>'
+        if href.startswith("#"): return f'<span class="ref">{inner}</span>'
+        r = resolve(href, src)
+        return f'<a href="{r}">{inner}</a>' if r else f'<span class="ref">{inner}</span>'
     h = re.sub(r'<a href="([^"]*)">(.*?)</a>', link, h, flags=re.S)
     def code(m):
-        base = os.path.basename(m.group(1))
-        return f'<a href="#i-{DOCMAP[base]}"><code>{m.group(1)}</code></a>' if base in DOCMAP else m.group(0)
+        r = resolve(m.group(1), src)
+        return f'<a href="{r}"><code>{m.group(1)}</code></a>' if r else m.group(0)
     h = re.sub(r'<code>([^<]*?\.md)</code>', code, h)
+    h = label_cells(h)
+    if status: h = mark_status(h)
     h = h.replace("<table>", '<div class="tbl"><table>').replace("</table>", "</table></div>")
     return h
 
@@ -139,14 +175,24 @@ DOCS = [
     ("R-004", "site/design/owner.md", "Owner record (the project site)", "Concept", "current", "13 Nov"),
 ]
 BR = {"chamber": ("CHAMBER", "D-101", "D-102"), "rain": ("RAIN", "D-103", "D-104"), "diptych": ("DIPTYCH", "D-105", "D-106"), "butterfly": ("BUTTERFLY", "D-107", "D-108")}
-for code, path, *_ in DOCS: DOCMAP[os.path.basename(path)] = code
+for code, path, *_ in DOCS:
+    DOCMAP[os.path.basename(path)] = code; PATHMAP[os.path.normpath(path)] = "#i-" + code
+# docs/ and design/reviews/ become pages of their own
+SITE_DOCS = [("architecture", "docs/architecture.md")] + [(os.path.splitext(f)[0], "docs/features/" + f) for f in sorted(os.listdir(P("docs/features"))) if f.endswith(".md")]
+for slug, path in SITE_DOCS: PATHMAP[path] = "#doc-" + slug
+PATHMAP["docs/README.md"] = "#docs"
+REVIEWS = [(os.path.splitext(f)[0], "design/reviews/" + f) for f in sorted(os.listdir(P("design/reviews")), reverse=True) if f.endswith(".md")] if os.path.isdir(P("design/reviews")) else []
+for slug, path in REVIEWS: PATHMAP[path] = "#review-" + slug
+for c, (G, a, b) in {"chamber": ("CHAMBER", "D-102", "D-101"), "rain": ("RAIN", "D-104", "D-103"), "diptych": ("DIPTYCH", "D-106", "D-105"), "butterfly": ("BUTTERFLY", "D-108", "D-107")}.items():
+    PATHMAP[f"design/branches/concepts/{c}/how-it-looks-and-feels.md"] = "#g-" + G
+    PATHMAP[f"design/branches/concepts/{c}/how-it-works.md"] = "#i-" + b
 for c, (G, a, b) in BR.items():
     pass  # branch docs share basenames (how-it-works.md); linked through their groups instead
 
 for code, path, title, stage, status, slip in DOCS:
     t = rd(path)
     add(code, kind="record" if code.startswith("R") else "doc", sub="record" if code.startswith("R") else "doc", title=title, stage=stage,
-        status=status, date="13 Nov", revs=[{"rev": "A", "line": slip}], path=path, html=md(t), lead=first_para(t),
+        status=status, date="13 Nov", revs=[{"rev": "A", "line": slip}], path=path, html=md(t, src=path), lead=first_para(t),
         jump=[h for h, _ in sections(t) if h][:30])
 
 # ------------------------------------------------------------------ branch groups (new format)
@@ -194,7 +240,7 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
         if os.path.exists(P(base + fn)):
             t = rd(base + fn)
             add(dcode, kind="doc", sub="doc", title=f"{G} · {nm}", stage="Concept", status=status, date="13 Nov",
-                revs=[{"rev": "B", "line": "round 2"}] if G in ROUND2 else [{"rev": "A", "line": "branches round 1"}], path=base + fn, html=md(t, imap), lead=first_para(t),
+                revs=[{"rev": "B", "line": "round 2"}] if G in ROUND2 else [{"rev": "A", "line": "branches round 1"}], path=base + fn, html=md(t, imap, src=base + fn), lead=first_para(t),
                 jump=[h for h, _ in sections(t) if h][:30], group=G)
             docs.append(dcode)
     grevs = ([{"rev": "B", "line": "round 2 fixes · re-score pending"}] if G in ROUND2 else []) + [{"rev": "A", "line": scoreline}]
@@ -278,7 +324,7 @@ for code, title, word, line, plots, audio in TESTS:
 # ------------------------------------------------------------------ the prototype itself (a prototype item)
 add("P-001", kind="prototype", sub="prototype", title="Project site · Herbarium prototype", stage="Concept", status="exploring", date="13 Nov",
     revs=[{"rev": "A", "line": "first published version · real content, simulated live"}], path="site/design/concepts/herbarium/prototype/",
-    lead="This page. The project site's E Herbarium concept as a working prototype: what you're using now.")
+    lead="This site. It began as the E Herbarium concept's prototype and is now the project's public site on GitHub Pages.")
 
 # ------------------------------------------------------------------ decisions (design/owner.md, verbatim)
 CAUSED = {
@@ -357,11 +403,40 @@ events = [
     {"d": "12 Nov", "t": None, "k": "scored", "line": "Round 1 scored", "round": "Round 1"},
 ]
 
+def h1(t):
+    m = re.search(r"^# (.+)$", t, flags=re.M); return m.group(1).strip() if m else ""
+readme = rd("docs/README.md")
+covers = {}
+for m in re.finditer(r"^\|\s*\[([^\]]+)\]\(([^)]+)\)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$", readme, flags=re.M):
+    covers[os.path.normpath(os.path.join("docs", m.group(2)))] = (m.group(3), re.sub(r"[*`]", "", m.group(4)))
+docs_site = []
+for slug, path in SITE_DOCS:
+    t = rd(path); hh = md(t, src=path, status=True)
+    cov, written = covers.get(path, ("", ""))
+    stub = "not yet written" in t.split("\n", 3)[1] if t.count("\n") > 1 else True
+    cnt = {w: len(re.findall(rf'class="st st-{w}"', hh)) for w in ("decided", "proposed", "open")}
+    docs_site.append({"slug": slug, "path": path, "title": h1(t) or slug, "covers": cov, "written": written or ("not yet written" if stub else "written"),
+                      "stub": stub, "counts": cnt, "html": hh, "jump": [h for h, _ in sections(t) if h][:40], "lead": first_para(t)})
+reviews = []
+for slug, path in REVIEWS:
+    t = rd(path)
+    sc = re.search(r"\*\*(\d+ / 10)\*\*", t)
+    reviews.append({"slug": slug, "path": path, "title": h1(t), "date": slug[:10], "score": sc.group(1) if sc else "", "lead": first_para(t),
+                    "html": md(t, src=path), "jump": [h for h, _ in sections(t) if h][:40]})
+import subprocess
+try:
+    gl = subprocess.run(["git", "-C", ROOT, "log", "-1", "--format=%ad|%s", "--date=format:%d %b %H:%M"], capture_output=True, text=True).stdout.strip().split("|", 1)
+    updated = {"when": gl[0].lstrip("0"), "what": gl[1]}
+except Exception:
+    updated = {"when": "", "what": ""}
+docs_index = {"intro": md("\n".join(l for l in readme.split("## Index")[0].splitlines()[1:]), src="docs/README.md"),
+              "template": md("## Template" + readme.split("## Template", 1)[1], src="docs/README.md") if "## Template" in readme else ""}
+
 data = {"project": {"name": "( name to come )", "line": "a portable Model D", "waiting": "ONE SHEET or FOLD", "then": "then the name",
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,
-        "events": events, "clouds": cl}
+        "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated}
 
 tpl = open(os.path.join(HERE, "app.html"), encoding="utf-8").read()
 js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")

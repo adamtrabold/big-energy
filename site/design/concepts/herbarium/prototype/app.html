@@ -11,7 +11,7 @@
 :root{--bg:#E6E4DF;--cell:#EFEDE9;--paper:#F8F7F4;--rule:#C4C1BA;--ink2:#5F5D58;--ink:#1B1B19;--on:#23863F;--m:16px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-feature-settings:"tnum";padding-bottom:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-feature-settings:"tnum";padding-bottom:24px}
 a{color:inherit;text-decoration:none}
 a.u,.ref{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
@@ -45,7 +45,7 @@ header.band{padding:18px 0 12px}
 .strip a span{display:none}
 .stripline{font-size:12.5px;color:var(--ink2)}.stripline b{color:var(--ink);font-weight:600}
 nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:10px 0;border-top:1px solid var(--rule);scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
-nav.filters a{font-size:14px;color:var(--ink2);padding-bottom:4px}
+nav.filters a{font-size:15px;color:var(--ink2);padding-bottom:4px}
 nav.filters a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink)}
 nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
 @media(min-width:1024px){
@@ -221,18 +221,43 @@ details.jump a{display:block;padding:3px 0}
 .proto button.on{font-weight:700}
 .ptog{display:none;text-decoration:none!important}
 @media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
+/* status line */
+.status{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.status b{color:var(--ink);font-weight:600}
+/* docs + reviews */
+.cards{display:grid;gap:14px;margin:6px 0 4px}
+@media(min-width:600px){.cards{grid-template-columns:1fr 1fr}}
+.card{display:block;background:var(--paper);border:1px solid var(--rule);padding:14px 16px}
+.card .k{font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.card .t{font-size:17px;font-weight:600;margin:4px 0 2px}
+.card p{margin:0;font-size:13.5px;color:var(--ink2)}
+.st{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;padding:0 6px;line-height:18px;border:1px solid var(--ink);white-space:nowrap}
+.st-decided{background:var(--ink);color:#fff}
+.st-proposed{background:transparent;color:var(--ink)}
+.st-open{border-style:dashed;color:var(--ink2);border-color:var(--ink2)}
+.counts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.drow{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;padding:12px 0;border-top:1px solid var(--rule)}
+.drow .t{font-weight:600;font-size:15px}.drow .c{font-size:13px;color:var(--ink2)}
+.drow.stub .t{color:var(--ink2);font-weight:500}
+@media(min-width:900px){.drow{grid-template-columns:240px minmax(0,1fr) 260px;align-items:baseline}}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin:8px 0 14px;align-items:center}
+.doc-html pre{font-size:12.5px;line-height:1.35;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.prehint{font-size:11.5px;color:var(--ink2);margin:-6px 0 12px}
+.mmd{overflow-x:auto;background:#fff;padding:10px;margin:10px 0}.mmd svg{max-width:none;height:auto}
+@media(max-width:599px){
+ .doc-html .tbl{border-top:0;overflow:visible}
+ .doc-html table,.doc-html tbody,.doc-html tr,.doc-html td{display:block;width:100%}
+ .doc-html thead{display:none}
+ .doc-html tr{border-top:1px solid var(--ink);padding:6px 0 8px}
+ .doc-html td{border:0;padding:3px 0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+ .doc-html td::before{content:attr(data-label);font-size:11px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+ .doc-html td[data-label=""]{display:block}.doc-html td[data-label=""]::before{display:none}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div id="app"></div>
-<div class="proto" id="proto"><div class="in">
-  <button class="ptog" id="ptog" aria-expanded="false"><b>Prototype</b> ▴</button><b class="plab">Prototype</b>
-  <button id="p-sim">Replay: CHAMBER rev B lands (simulated ON)</button>
-  <button id="p-out">View signed out</button>
-  <button id="p-last">Pretend my last visit was before the branches round</button>
-  <a class="u" href="#i-P-001">what's real, what's faked</a>
-</div></div>
 <script type="application/json" id="data">/*DATA*/</script>
 <script>
 (function(){
@@ -256,7 +281,7 @@ const firstVisit = isNaN(lastSeen);
 if (firstVisit) { lastSeen = MAXSEQ; }
 window.addEventListener("pagehide", () => store.set("herb-lastSeen", String(MAXSEQ)));
 if (firstVisit) store.set("herb-lastSeen", String(MAXSEQ));
-const unseen = e => !S.signedOut && SEQ[e] > lastSeen;
+const unseen = e => SEQ[e] > lastSeen;
 const unseenCount = () => ENTRIES.filter(e => visible(e) && unseen(e)).length;
 const visible = e => !(S.sim === "before" && e === "g:CHAMBER");
 
@@ -288,12 +313,9 @@ function waveBars(peaks, n){
   for (let i=0;i<n;i++){ const p = peaks[Math.floor(i*step)]; h += `<i style="height:${Math.max(1,p*100).toFixed(1)}%"></i>`; }
   return h;
 }
-function lampLine(){
-  let st = S.signedOut ? "snapshot" : S.lamp;
-  let txt = S.signedOut ? `Snapshot · ${D.project.published}` :
-            S.lamp === "on" ? "On · branches round · since just now" :
-            `Standby · last ${D.project.last} · 13 Nov`;
-  return `<div class="lampline${st==="on"?" live":""}"><i class="lamp ${st}${S.dip?" dip":""}" id="lamp"></i><span class="cap">${esc(txt)}</span></div>`;
+function updatedLine(){
+  const u = D.updated || {};
+  return `<div class="status">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
 function header(sel){
   const stages = D.stages.map((s,i) => {
@@ -301,15 +323,16 @@ function header(sel){
     return `<a class="${cls}" href="#s-${s.toLowerCase()}" aria-label="${s}"><i></i><span>${s}</span></a>`;
   }).join("");
   const n = unseenCount();
-  const more = S.signedOut ? "+ " + (ENTRIES.length - 1) + " more on 13 Nov ›" : n ? `+ ${n} more since you last looked ›` : "newest first ›";
-  const F = [["all","#home"],["stage","#s-lock"],["kind","#f-image"],["version","#version-v1-1"],["decisions","#decisions"],["history","#history-day"]];
+  const more = n ? `+ ${n} new since you last looked ›` : "";
+  const F = [["latest","#home"],["docs","#docs"],["reviews","#reviews"],["decisions","#decisions"],["history","#history-day"],["versions","#version-v1-1"]];
+  const NAMES = {latest:"Latest", docs:"Docs", reviews:"Reviews", decisions:"Decisions", history:"History", versions:"Versions"};
   return `<header class="band wrap"><div class="hgrid">
-    <div>${lampLine()}<div class="name">${esc(D.project.name)}</div>
+    <div>${updatedLine()}<div class="name">${esc(D.project.name)}</div>
       <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 current</a></div></div>
     <div class="waiting"><span class="cap">Waiting on you</span><b>${esc(D.project.waiting)}</b><span class="ink2" style="font-size:13px">${esc(D.project.then)}</span></div>
     <div><div class="strip">${stages}</div><div class="stripline"><b>Lock</b> · 2 of 9 · Spec begun early · next Handoff</div></div>
   </div></header>
-  <div class="wrap"><nav class="filters">${F.map(([f,h])=>`<a href="${h}" class="${f===sel?"on":""}">${f}</a>`).join("")}<a class="more" href="#f-all">${more}</a></nav></div>`;
+  <div class="wrap"><nav class="filters">${F.map(([f,h])=>`<a href="${h}" class="${f===sel?"on":""}">${NAMES[f]}</a>`).join("")}${more ? `<a class="more" href="#f-all">${more}</a>` : ""}</nav></div>`;
 }
 function entry(e){
   const [t, code] = e.split(":");
@@ -333,7 +356,7 @@ function vHome(){
   const justNow = S.justNow && newest.code === "CHAMBER";
   const dot = unseen("g:" + newest.code) || justNow;
   const n = unseenCount();
-  const since = S.signedOut ? `+ ${ENTRIES.length - 1} more on 13 Nov ›` : n ? `+ ${n} more since you last looked ›` : `+ ${ENTRIES.length - 1} more · newest first ›`;
+  const since = n ? `+ ${n} new since you last looked ›` : `Everything, newest first ›`;
   const tile = (href, box, k) => `<a class="tile" href="${href}"><div class="box">${box}</div><div class="k">${k}</div></a>`;
   const T4 = I["T-004"], D32 = I["D-032"], P1 = I["P-001"], rainLead = I[G.RAIN.lead];
   const tiles = [
@@ -342,7 +365,7 @@ function vHome(){
     tile("#i-T-004", `<div class="wavemini">${waveBars(T4.audio.golden.peaks, 40)}</div><span class="w">${esc(T4.result)}</span>`, "test · T-004 " + esc(T4.title)),
     tile("#i-P-001", `<div class="doc" style="height:100%"><div class="c">P-001</div><div class="t">${esc(P1.title)}</div></div>`, "prototype · this page"),
   ].join("");
-  return header("all") + `<main class="wrap">
+  return header("latest") + `<main class="wrap">
     <section class="feature">
       <a href="#g-${newest.code}"><figure><img class="in" src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="${esc(newest.title)} · ${esc(lead.title)}"></figure></a>
       <div class="side">
@@ -352,9 +375,52 @@ function vHome(){
           <div class="since" style="margin-top:12px"><a href="#f-all">${since}</a></div></div>
       </div>
     </section>
+    ${docCards()}
     <h2 class="sec">Everything, newest first</h2>
     <div class="grid">${ENTRIES.filter(visible).filter(e => e !== "g:" + newest.code).map(entry).join("")}</div>
   </main>`;
+}
+function docCards(){
+  const ds = D.docs, written = ds.filter(d => !d.stub).length, feats = ds.filter(d => d.slug !== "architecture");
+  const r = D.reviews[0];
+  return `<div class="cards">
+    <a class="card" href="#docs"><div class="k">Docs</div><div class="t">Architecture and ${feats.length} feature sets</div><p>${written} of ${ds.length} written · each item marked decided, proposed or open</p></a>
+    ${r ? `<a class="card" href="#reviews"><div class="k">Reviews</div><div class="t">${esc(r.title.split(" — ")[0])}</div><p>${esc(r.date)}${r.score ? " · " + esc(r.score) : ""} · ${D.reviews.length} review${D.reviews.length>1?"s":""}</p></a>` : ""}
+  </div>`;
+}
+function counts(c){
+  return `<span class="counts">${c.decided?`<span class="st st-decided">decided ${c.decided}</span>`:""}${c.proposed?`<span class="st st-proposed">proposed ${c.proposed}</span>`:""}${c.open?`<span class="st st-open">open ${c.open}</span>`:""}</span>`;
+}
+const LEGEND = `<div class="legend"><span><span class="st st-decided">decided</span> recorded in the owner record</span><span><span class="st st-proposed">proposed</span> the team's, waiting on you</span><span><span class="st st-open">open</span> unknown or unchosen</span></div>`;
+function vDocs(){
+  const arch = D.docs.find(d => d.slug === "architecture"), feats = D.docs.filter(d => d.slug !== "architecture");
+  const row = d => `<a class="drow${d.stub?" stub":""}" href="#doc-${d.slug}"><span class="t">${esc(d.title)}</span><span class="c">${esc(d.covers)}</span><span>${d.stub ? '<span class="ink2" style="font-size:13px">not yet written</span>' : counts(d.counts)}</span></a>`;
+  return header("docs") + `<main class="wrap wide" style="max-width:1100px">
+    <div class="lh" style="margin:12px 0 4px"><b style="font-size:24px;font-weight:600">Docs</b><span class="ink2" style="margin-left:auto;font-size:13px">${D.docs.filter(d=>!d.stub).length} of ${D.docs.length} written</span></div>
+    <div class="doc-html">${D.docsIndex.intro}</div>${LEGEND}
+    <h2 class="sec">The whole device</h2>${row(arch)}
+    <h2 class="sec">Feature sets</h2>${feats.filter(d=>!d.stub).map(row).join("")}${feats.filter(d=>d.stub).map(row).join("")}
+    ${D.docsIndex.template ? `<details class="jump" style="margin-top:20px"><summary>How every feature doc is laid out</summary><div class="doc-html">${D.docsIndex.template}</div></details>` : ""}
+  </main>`;
+}
+function jumpList(j){ return (j && j.length > 3) ? `<details class="jump"><summary>Contents (${j.length})</summary>${j.map(h=>`<a href="#" data-h="${esc(h)}">${esc(h)}</a>`).join("")}</details>` : ""; }
+function vDocPage(slug){
+  const d = D.docs.find(x => x.slug === slug); if (!d) return vMissing(slug);
+  const i = D.docs.indexOf(d), prev = D.docs[i-1], next = D.docs[i+1];
+  return header("docs") + `<div class="back wrap"><a href="#docs">‹ Docs</a><button data-copy="1">copy link</button></div><main class="wrap item">
+    <article class="doc-html" id="doc">${d.stub?'<p class="note">Not yet written. The headings below are the template it will fill.</p>':""}${jumpList(d.jump)}${d.html}
+      <div class="chips" style="margin-top:28px">${prev?`<a href="#doc-${prev.slug}">‹ ${esc(prev.title)}</a>`:""}${next?`<a href="#doc-${next.slug}">${esc(next.title)} ›</a>`:""}</div></article>
+    <div class="aside"><div class="label"><div class="lh"><b>${esc(d.title)}</b></div><div class="lf">doc · ${esc(d.written)}</div>${d.stub?"":counts(d.counts)}</div>${LEGEND}<div class="hint">source: ${esc(d.path)}</div></div></main>`;
+}
+function vReviews(){
+  return header("reviews") + `<main class="wrap wide"><div class="lh" style="margin:12px 0 10px"><b style="font-size:24px;font-weight:600">Reviews</b><span class="ink2" style="margin-left:auto;font-size:13px">independent critics · they decide nothing</span></div>
+    ${D.reviews.map(r=>`<a class="drow" href="#review-${r.slug}"><span class="t">${esc(r.title)}</span><span class="c">${esc(r.lead)}</span><span class="ink2" style="font-size:13px">${esc(r.date)}${r.score?" · <b style=\"color:var(--ink)\">"+esc(r.score)+"</b>":""}</span></a>`).join("") || '<p class="ink2">No reviews yet.</p>'}</main>`;
+}
+function vReview(slug){
+  const r = D.reviews.find(x => x.slug === slug); if (!r) return vMissing(slug);
+  return header("reviews") + `<div class="back wrap"><a href="#reviews">‹ Reviews</a><button data-copy="1">copy link</button></div><main class="wrap item">
+    <article class="doc-html" id="doc">${jumpList(r.jump)}${r.html}</article>
+    <div class="aside"><div class="label"><div class="lh"><b>Review</b><span>${esc(r.date)}</span></div><div class="lf">${r.score?esc(r.score)+" · ":""}independent critic</div></div><div class="hint">source: ${esc(r.path)}</div></div></main>`;
 }
 function vFilter(kind){
   const kinds = ["all","image","doc","test","record","prototype"];
@@ -368,7 +434,7 @@ function vFilter(kind){
     const list = D.order.filter(c => I[c].kind === kind);
     body = `<div class="grid">${list.map(c => entry("i:" + c)).join("")}</div>`;
   }
-  return header(kind === "all" ? "all" : "kind") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${kinds.map(k=>`<a class="${k===kind?"on":""}" href="#f-${k}">${k}</a>`).join("")}</div>${body}</main>`;
+  return header("latest") + `<main class="wrap"><div class="chips" style="margin:6px 0 8px">${kinds.map(k=>`<a class="${k===kind?"on":""}" href="#f-${k}">${k}</a>`).join("")}</div><div class="chips" style="margin:0 0 14px">${D.stages.map(s=>`<a href="#s-${s.toLowerCase()}">${s}</a>`).join("")}</div>${body}</main>`;
 }
 function vStage(stage){
   const S_ = D.stages.find(s => s.toLowerCase() === stage) || "Lock";
@@ -379,7 +445,7 @@ function vStage(stage){
   let body = "";
   if (!gs.length && !its.length) body = `<p class="ink2">${S_} · not yet${WILL[S_] ? " · " + WILL[S_] + " will go here." : ""}</p>`;
   else body = `<div class="grid">${gs.map(g=>entry("g:"+g.code)).join("")}${its.map(c=>entry("i:"+c)).join("")}</div>`;
-  return header("stage") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${chips}</div>${S_==="Spec"?'<p class="note">Spec began early: the engineering notes and sims were made before Handoff.</p>':""}${body}</main>`;
+  return header("latest") + `<main class="wrap"><div class="chips" style="margin:6px 0 14px">${chips}</div>${S_==="Spec"?'<p class="note">Spec began early: the engineering notes and sims were made before Handoff.</p>':""}${body}</main>`;
 }
 function backBar(href, text, copy){
   return `<div class="back wrap"><a href="${href}">‹ ${esc(text)}</a>${copy!==false?`<button data-copy="${esc(location.href)}">copy link</button>`:""}</div>`;
@@ -433,20 +499,18 @@ function vDoc(it, back){
   </main>`;
 }
 function vProto(it){
-  return backBar("#home", "all") + `<main class="wrap item"><article class="doc-html">
-    <h1>${esc(it.title)}</h1><p>${esc(it.lead)} You're using it now. A prototype is a kind of item the site hosts: a page you open and use, with a label like any other item.</p>
-    <h2>Real</h2><ul>
-    <li>Every image is a downscaled copy of a file in the repo (branch renders and drawings, v1.1 legacy sheets, sim plots). Nothing was rendered for this page.</li>
-    <li>Docs and records are the repo's markdown, rendered as HTML.</li>
-    <li>Decisions are parsed from <code>design/owner.md</code>, verbatim. Scores come from <code>design/scores.md</code> and the branches director's notes.</li>
-    <li>The sounds are the sims' golden and perturbed WAVs (converted to 16-bit). “Show changes” areas come from a real pixel diff of v1 → v1.1.</li></ul>
-    <h2>Faked or simplified</h2><ul>
-    <li>No live connection: the lamp shows Standby. “Replay” at the bottom simulates a session switching it On while CHAMBER rev B lands.</li>
-    <li>“Signed out” is a toggle here; the real site knows.</li>
+  return backBar("#home", "Latest") + `<main class="wrap item"><article class="doc-html">
+    <h1>${esc(it.title)}</h1><p>${esc(it.lead)} A prototype is a kind of item the site hosts: a page you open and use, with a label like any other item.</p>
+    <h2>How it's made</h2><ul>
+    <li><code>build.py</code> reads the repo and writes this page plus <code>media/</code>. Markdown stays the source; what you read here is HTML.</li>
+    <li>Every image is a downscaled copy of a file in the repo. Nothing is rendered for the site.</li>
+    <li>Decisions are parsed from <code>design/owner.md</code>, verbatim. Scores come from <code>design/scores.md</code> and the branches director's notes. Docs come from <code>docs/</code>, reviews from <code>design/reviews/</code>.</li>
+    <li>“Updated” is the last commit when the site was built. It isn't live: pushes update it.</li></ul>
+    <h2>Simplified for now</h2><ul>
     <li>Codes (D-031, T-004…) and rev letters are illustrative until the real register exists.</li>
-    <li>On a concept page the images sit where the group's “how it looks and feels” doc places them; “how it works” follows, folded.</li>
-    <li>Only FOLD-A and HUSH-A carry earlier forms (to keep the page small). Most times are from git; some events have no time recorded.</li>
-    <li>The full-instrument archive isn't included.</li></ul>
+    <li>Only FOLD-A and HUSH-A carry earlier forms. Some events have no recorded time.</li>
+    <li>The full-instrument archive isn't included.</li>
+    <li>Navigation is kept simple until you say how you want it.</li></ul>
     </article><div class="aside">${label({code:it.code, title:"", fields:statusLine(it), revs:it.revs})}<div class="hint">${esc(it.path)}</div></div></main>`;
 }
 function vGroup(code){
@@ -544,7 +608,7 @@ function vVersion(code){
   });
   const docs = `<h2 class="sec">Shared docs, spec and records</h2><div class="rows">${v.docs.map(c=>`<a href="#i-${c}"><span class="c">${c}</span><span>${esc(I[c].title)}</span></a>`).join("")}</div>`;
   const vs = D.versions.map(x=>`<a class="${x.code===code?"on":""}" href="#version-${x.code}">${x.name}</a>`).join("");
-  return header("version") + `<main class="wrap"><div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
+  return header("versions") + `<main class="wrap"><div class="chips" style="margin:6px 0 4px">${vs}</div><div class="lockrule"></div>
     <div class="lh"><span class="vtitle">${v.name}</span><span class="ink2">${v.current?"current · ":""}locked ${v.date}</span></div><p class="wide">${esc(v.line)}</p>${gs}${docs}</main>`;
 }
 function vMissing(code){ return header("") + `<main class="wrap"><p>${esc(code)} isn't in the register. <a class="u" href="#home">Back to the landing</a></p></main>`; }
@@ -558,6 +622,10 @@ function route(){
   else if ((m = h.match(/^f-(\w+)$/))) html = vFilter(m[1]);
   else if ((m = h.match(/^s-(\w+)$/))) html = vStage(m[1]);
   else if (h === "decisions") html = vDecisions();
+  else if (h === "docs") html = vDocs();
+  else if ((m = h.match(/^doc-([\w-]+)$/))) html = vDocPage(m[1]);
+  else if (h === "reviews") html = vReviews();
+  else if ((m = h.match(/^review-([\w-]+)$/))) html = vReview(m[1]);
   else if ((m = h.match(/^history-(day|round|version)$/))) html = vHistory(m[1]);
   else if ((m = h.match(/^version-([\w-]+)$/))) html = vVersion(m[1]);
   else if ((m = h.match(/^g-([\w]+)$/))) html = vGroup(m[1]);
@@ -580,7 +648,24 @@ function wire(){
   document.querySelectorAll("[data-h]").forEach(a => a.onclick = ev => { ev.preventDefault();
     const t = [...document.querySelectorAll("#doc h1,#doc h2,#doc h3")].find(x => x.textContent.trim() === a.dataset.h); if (t) t.scrollIntoView(); });
   const chg = document.getElementById("chg"); if (chg) chg.onclick = () => { S.changes = !S.changes; rerender(true); };
-  wireCompare(); wireSound(); wireGroup();
+  wireCompare(); wireSound(); wireGroup(); wirePre();
+}
+let mermaidP = null;
+function wirePre(){
+  const mm = document.querySelectorAll("pre code.language-mermaid");
+  if (mm.length){
+    mm.forEach(c => { const d = document.createElement("div"); d.className = "mmd"; d.dataset.src = c.textContent; d.textContent = c.textContent; c.parentNode.replaceWith(d); });
+    if (!mermaidP) mermaidP = new Promise((res, rej) => { const s = document.createElement("script"); s.src = "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+    mermaidP.then(() => { window.mermaid.initialize({startOnLoad:false, theme:"neutral", fontFamily:"Inter, system-ui, sans-serif", securityLevel:"strict"});
+      document.querySelectorAll(".mmd").forEach((d, i) => { window.mermaid.render("m" + Date.now() + i, d.dataset.src).then(r => { d.innerHTML = r.svg; }, () => {}); }); }, () => {});
+  }
+  document.querySelectorAll(".doc-html pre").forEach(p => {
+    let fs = 12.5;
+    while (p.scrollWidth > p.clientWidth + 1 && fs > 9.5){ fs -= 0.5; p.style.fontSize = fs + "px"; }
+    if (p.scrollWidth > p.clientWidth + 1 && !(p.nextElementSibling && p.nextElementSibling.classList.contains("prehint"))){
+      const h = document.createElement("div"); h.className = "prehint"; h.textContent = "Wide diagram: scroll sideways →"; p.after(h);
+    }
+  });
 }
 function wireGroup(){
   const d = document.querySelector(".gdoc"); if (!d || !window.matchMedia("(min-width: 1024px)").matches) return;
@@ -630,19 +715,6 @@ function wireSound(){
   icon(false);
 }
 
-/* ------- prototype controls */
-const $sim = document.getElementById("p-sim"), $out = document.getElementById("p-out"), $last = document.getElementById("p-last");
-$sim.onclick = () => {
-  if (S.sim) return;
-  S.signedOut = false; $out.classList.remove("on"); $out.textContent = "View signed out";
-  S.sim = "before"; S.lamp = "on"; if (location.hash && location.hash !== "#home") location.hash = "#home"; else rerender(true);
-  setTimeout(() => { S.sim = "landed"; S.justNow = true; S.dip = true; lastSeen = Math.min(lastSeen, SEQ["g:CHAMBER"] - 1); rerender(true);
-    setTimeout(() => { S.dip = false; }, 700); }, 2600);
-  setTimeout(() => { S.lamp = "standby"; S.sim = null; S.justNow = false; rerender(true); }, 16000);
-};
-$out.onclick = () => { S.signedOut = !S.signedOut; $out.classList.toggle("on", S.signedOut); $out.textContent = S.signedOut ? "View signed in" : "View signed out"; rerender(true); };
-$last.onclick = () => { lastSeen = SEQ["i:D-019"]; store.set("herb-lastSeen", String(lastSeen)); rerender(true); };
-const $pt = document.getElementById("ptog"); $pt.onclick = () => { const o = document.getElementById("proto").classList.toggle("open"); $pt.setAttribute("aria-expanded", o); $pt.innerHTML = "<b>Prototype</b> " + (o ? "▾" : "▴"); };
 route();
 })();
 </script>
