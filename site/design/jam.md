@@ -325,3 +325,53 @@ Each concept is a set of phone frames (390 × 844, real content) plus one deskto
 2. (After concepts, only if needed) "Do you mainly open it to *look at the newest work*, or to *see where the project stands*?" — Hold this one: the concepts should answer it by showing him, not by asking.
 
 NEXT: product designer (systems focus) — write `jobs.md` with the rulings above (tests as a kind, Breadboard stage, history grains, archive included, the 8-frame test), then the two designers split C, D and E and build concepts.
+
+---
+
+## Turn 4 — product designer (systems focus), 2026-11-13
+
+Read turns 2–3 and the two new owner answers. I take every ruling. This turn turns them into one model all three concepts (C Cabinet, D Set, E Herbarium) build on, and fixes some facts the concepts will trip on.
+
+### 0. New owner answers (12:06), and what they change
+- **"anyone that gets the link is fine to see everything"** → one view for everyone. No hidden records, no shared-view filter. Drop that from the model. Signed-out viewers still get the snapshot (that's a technical limit, not a privacy one).
+- **"it is primarily me"** → design for Adam first. That settles a tie-break rule for every concept: when a choice helps him or helps a stranger, pick him. Example: "waiting on you" stays on the landing even though it means nothing to a guest; "since you last looked" is his, per-person.
+- This also partly lifts the director's objection to A ("exposes the most"). A stays retired for the other reasons (feed is worst at versions and at looking at work).
+
+### 1. Draws (Python `random.SystemRandom`)
+| Draw | Result | Fed |
+|---|---|---|
+| Oblique | "State the problem in words as clearly as possible" | The one-sentence problem at the top of `jobs.md`. Every job has to serve it. |
+| Unrelated field | a museum accession register | **The numbering rule** (§3): an item gets its number the moment it arrives, the number is never reused or changed, and later changes are recorded against it. |
+
+### 2. Model changes from the rulings
+- **Stages** (the build chain, ordered): Concept → Lock → Handoff → Spec → BOM → **Breadboard** → Boards → Prints → Assembly. Tests is no longer a stage.
+- **Kinds** (one per item): **sheet** · **diagram** (sketches, system drawings, plots that aren't test results) · **doc** · **test** · **record** (owner record, scores, jams, notes, naming). Five kinds. The director asked C whether records earn a column; I'd keep the *kind* (D and E need it for labels) and let C decide whether it's a column.
+- **Stage of an item** = the stage it was made in. Sims made during concept rounds are stage Concept, kind test. When Breadboard starts, bench tests are stage Breadboard, kind test. A test can be re-run; each run is a rev.
+- **Status** (unchanged): current · locked in vN · exploring · dropped. **Archive is included, greyed, status dropped** (ruling).
+- **History has three grains**: Day · Round · Version. Decisions appear verbatim at body size with the work they caused; a lock is a ruled, signed line.
+- **Lineage by repetition** replaces the revision list as the compare answer (J10) in every concept.
+
+### 3. Numbering rule (accession register; D asked for it, E's label and C's drawers need it too)
+One rule, every kind:
+- **Sheets:** `CONCEPT-LETTER`: `FOLD-A`, `HUSH-C`, `ONESHEET-B`. A variant that became its own line gets its own code: `FOLD113-A`. Archive: `TYPECASE-A`, `HYMNAL-A`, `UNDERGLASS-…` (docs only).
+- **Everything else:** kind letter + number, given in order of arrival, never reused: **D**-docs (`D-014`), **G**-diagrams (`G-003`), **T**-tests (`T-007`), **R**-records (`R-001` = owner record).
+- **Revs** are letters on the item: `FOLD-A rev F`. A rev is added only when a session says it changed (a commit that changes the file + an event naming it). Byte differences alone don't count: `versions/v1` vs `v1.1` HUSH sheets differ in bytes though the changelog names only FOLD and the bend drawing; a re-render isn't automatically a new rev to look at. The event says what changed ("stands at 120°"), and that line becomes E's slip and D's revision table row.
+- **Moves don't change numbers.** A sheet that moves from `design/` to `versions/` or `archive/` keeps its code; the path is just where it lives now.
+- `site/numbers.json` holds the register (code → current path, kind, stage, revs). Only a session appends to it. Backfill once.
+
+Holds across the archive (codes above) and the next round (branches concepts get new concept codes; a new FOLD sheet F is `FOLD-F`).
+
+### 4. Facts the concepts must design around
+1. **Old forms mostly don't exist as images.** The restructure squashed git to one commit; rounds 1–4 sheets weren't kept, except `archive/fold-superseded/` (older FOLD-105 sheets A–C + `mock-E-standing-105-r5old.png`) and the paused concepts' final sheets. So today a typical lineage row is **2–4 forms** (archive older · v1 · v1.1 · current), not r3 · r4 · r5 · v1 · v1.1. From now on every commit keeps every rev, so rows grow. **E and D: draw lineage rows with the real counts; show missing rounds as a labelled gap ("r1–r4 not kept"), not a fake.** That's honest and it's the "nothing removed" rule applied to what was already lost.
+2. **C's scrubber, real case.** The records can tell past *states* even where images are gone: `scores.md` has rounds 1–5 by date with which concepts were in each; `owner.md` has dated decisions. Real case for frame-test: drag to **Round 2 (12 Nov)** → six concepts alive including TYPE CASE and HYMNAL (since dropped), FOLD still one line (113/105 split comes in round 5), no versions yet, Lock stage empty. That's real and interesting ("we had six; four were set aside"). But drawers in the past can only show what was kept, so past counts will be low. C should show the case and decide if it earns its cost; I'd keep it only if it reads as *history of decisions*, not of files.
+3. **Frame 5 decision is real:** `design/owner.md` line 114: Q "switch the digital brain to the Daisy Seed?" → Owner: "Switch to Daisy Seed". Caused: `eng/daisy-pin-and-audio-check.md` (before, the evidence), `eng/daisy-first-principles.md` (after, the redesign), and the spec rev in `eng/budget-variant.md`. Note: it has **no timestamp of its own**: it sits in an undated run of entries. Backfill must date it from the surrounding section or git; the concepts can show "12 Nov" for it.
+4. **Decision → work links are authored, not inferred.** A session writing an owner decision event lists the item codes it caused (`caused: [D-021, D-022]`). Backfill does it by hand for the dated `owner.md` sections. Without this, frame 5 can't work in any concept.
+5. **"Since you last looked"** uses per-person state (`artifact`/`db` user data) for signed-in viewers. Signed-out: no marks (SNAPSHOT shows "as of 13 Nov 14:02" instead). Since it's primarily Adam, this is his feature.
+6. **Tap budget (frame 3):** from landing to FOLD-A v1.1 in ≤3 taps, to its v1 form in +1. Frames should state the count. More than 4 total is a fail I'll flag in coverage.
+
+### 5. Push on each concept (how it works)
+- **C Cabinet:** a drawer is (stage × kind). Opening it lists items newest first, each with code + rev. On the landing the current stage's row should name its newest item (the director's push #1); I'd put it on the lamp line in STANDBY: "Standby · last: FOLD-D rev H · 14:02 · waiting on you: ONE SHEET or FOLD". Records: as a column, the Concept/records drawer *is* the decision log (opens in Round grain).
+- **D Set:** the issue number is the publish counter (`Issue 14`); in ON, events since the last publish make it "Issue 15 in progress" with Δ rows queued in ink 2 until their images arrive. That answers "feel live" without thumbnails.
+- **E Herbarium:** the label's fields are exactly the model: code · title · kind · stage · rev · date · status. Stage (J6) can live as a one-line **build-chain strip under the lamp** (the nine stage words, current one marked) on the landing — the only place E shows it, but it's always there. "What's in v1.1" = filter version=v1.1, own URL, shown as the track list.
+
+NEXT: product designer (visual focus) — `jobs.md` is written; the two designers split C, D, E and start concepts against the 8-frame test.
