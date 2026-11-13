@@ -375,3 +375,52 @@ Holds across the archive (codes above) and the next round (branches concepts get
 - **E Herbarium:** the label's fields are exactly the model: code · title · kind · stage · rev · date · status. Stage (J6) can live as a one-line **build-chain strip under the lamp** (the nine stage words, current one marked) on the landing — the only place E shows it, but it's always there. "What's in v1.1" = filter version=v1.1, own URL, shown as the track list.
 
 NEXT: product designer (visual focus) — `jobs.md` is written; the two designers split C, D, E and start concepts against the 8-frame test.
+
+---
+
+## Concept building — director steer 1, 2026-11-13
+
+Read: `jobs.md`, both common docs, all six concept docs, all six frame sheets. And the owner's four new messages (12:06–12:41 in `owner.md`). No scores this step.
+
+### What I see
+The frames are good work: real content, real taps, honest weak-spot lists. But **every landing in every concept leads with FOLD-D, a legacy A3 sheet**: a dense picture full of baked-in text. Between the jam and now the owner retired exactly that ("why make anything on a3 at all?", "text should be html and stuff"). So right now all three concepts show him the thing he just said he doesn't want, as the biggest thing on the screen. He'd say that in the first second. Neither concept can go forward until the frames show **the new kind of work**: separate images (renders, drawings, diagrams, plots) plus real HTML text. Real standalone renders already exist (`design/concepts/_mock-src/out/*.png`, e.g. `rb_bf_main.png`, `r5_os_main.png`): use those, not crops of sheets.
+
+### D · The Set: killed. Agree with visual.
+Its anchor is the drawing set, the format the owner retired twice. Once new work is HTML plus separate images, its "sheet index" is a plain table, and at desktop it's half empty grey. Where its parts go:
+- **"Show changes" (revision clouds from a real diff)** → **the shared viewer**, on compare, for any two forms of the same image at the same size. Ink scallops, toggle off by default, `build.py` threshold and a cap ("too many changes to mark"). It's the best J10 idea any of us had.
+- **The decisions register** (date · his words · what it caused) → **the "decisions" view in both C and E**, as D drew it: one scannable list, his words at body size, caused codes as links. E's three-cards-of-docs layout for frame 5 is replaced by this.
+- **Codes and the numbering rule** → `common-how-it-works.md` (they're how links work in any concept).
+- **The "go to" code field: not carried.** He doesn't know codes ("it is primarily me"), and a search box isn't Braun. Links by code still work. Revisit at build if the item count makes finding hard.
+- **Issues, Δ marks: dropped.** Versions and days cover it; the dot stays the one "unseen" mark.
+
+### Rulings on the open points
+- **Kinds: image · doc · test · record** (visual's proposal). Image sub-type on the label (render, drawing, diagram, plot, legacy sheet).
+- **Stage = the stage the item serves**, not the stage it was made in. The 19 eng docs sit under Spec, marked "early".
+- **"Now" = the latest stage with a locked output, until the next one starts.** Today: Lock, next Handoff.
+- **Read mode: gone** (owner 12:13). Out of `common-how-it-works.md`.
+- **No guest view, no hiding** (owner: "anyone that gets the link is fine to see everything"). "Phone first" is out of `jobs.md`: **responsive, no size leads** (owner 12:39).
+- **Legacy sheets** show as they are, labelled `legacy sheet`. They're history, not the model for the landing.
+- **C's scrubbed state gets its own URL** (`#/h/round/2`).
+- **J12** (marks for new since last visit) stays conditional until the owner answers; both concepts keep their fallback.
+
+### Back round again: what each designer must do
+
+**Systems (owes updates to the owner's directions):**
+1. `jobs.md` + `common-how-it-works.md`: apply all rulings above (kinds, stage rule, "now", no read mode, no guest hiding, responsive not phone-first, codes moved in from D, "show changes" in the viewer).
+2. **The new-work model** — the most important gap. Now that sheets are retired, what does a concept round produce and how does the site group it? Define a **concept group**: a concept's images (renders, drawings, diagrams) + its HTML docs (principles, how it works, spec numbers) at a given rev, with its own URL. Say how a round of new work (e.g. a FOLD rev with 4 renders and an updated doc) arrives as events, items and revs, and how legacy sheets map in.
+3. `herbarium/how-it-works.md`: rewrite to match visual's reshaped layout (no 600 px column; work left, label beside it on desktop; label below on phone).
+4. Remove D from the common docs' headers; note where its parts went.
+
+**Visual:**
+1. For **C and E**, redraw frames 1, 2 and 8 (phone and desktop) with **a new-format item as the newest**: a real standalone render from `_mock-src/out/` with its label and slips as HTML. Legacy sheets can still appear further down and in frames 3 and 6, labelled `legacy sheet`.
+2. Add **one new frame to both concepts: a concept group in the new format**, e.g. "FOLD, rev D": its renders shown large at their own shapes, and its principles/spec as real HTML text beside or under them. This is the screen that proves "images only for things that need to be images" — the owner will judge the concepts on it.
+3. **E:** the "newest of each kind" doc tile is currently a page shrunk to 7 px type, which is a picture of text. Make it real text at readable size: code, title, one line. Same for doc tiles anywhere.
+4. **C on a phone:** the work is a 96 px image under a table. Try collapsing the five "not yet" rows into one line in ink 2 ("BOM · Breadboard · Boards · Prints · Assembly — not yet"). That frees about 140 px; use it to show the newest item at full width. The level line and road ahead stay readable. If it doesn't hold, say so.
+5. **Both:** frame 3 shows "show changes" clouds on the compare; frame 5 uses D's decisions register.
+
+### Question for the owner (orchestrator: ask once, in these words)
+"When you come back to the site, do you want what's new since your last visit marked with a small dot, or is 'newest first' enough?"
+
+After this round I expect to end building with READY: C, E and score them.
+
+NEXT: product designer (systems focus) — update `jobs.md` and the common doc for the owner's directions and define the new-work model (concept group) that visual's new frames depend on; then visual redraws.
