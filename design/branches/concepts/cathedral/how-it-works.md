@@ -335,6 +335,31 @@ The "woodier" engraving with the same amount of detail; peg / button colours (fe
 | **P2. Through the lid back (the façade speaks)** | the same speaker, same x / d, flipped: it fires **out through the lid back**. The openings are slots set into the façade, inside x 113–173, d 26.7–56.7, i.e. within the centre pipes (the owner draws the pipes; the openings follow his lines) | **Standing 120°:** the lid back faces back and up, so it fires at the listener across from you. The organ speaks from its façade; the player hears it by reflection. **Open flat:** the lid back sits on its feet (≈ 3 mm gap), firing into the table. **Closed:** faces up (off anyway) | standing: loud to the listener, softer to the player. Flat on a table: muffled and dark (boundary-loaded through a 3 mm gap, like ONE SHEET's bottom speaker). Lap: muffled. Grass: absorbed | **no controls.** The speaker mounts to the lid back's inner face instead of under the plate. The band plate becomes plain (no grille at all) | openings vs his pipe lines; dust/water path through the façade; feet height raised to ≥ 6 so flat-open isn't choked (UNVERIFIED gain) |
 | **P3. Base underside, fires down** | the speaker in the base's freed right end (B: x 186–270, y 55–82), lying on the floor, firing **through the base bottom**; nothing on the base top | down into whatever it's on, out through the feet gap | table: muffled and dark (as P2 flat). Lap: smothered. Grass: absorbed. **Weakest outdoors** | no controls. **Base board change** (speaker window); the **Daisy (rear right) clash is UNVERIFIED** | is "key side" visual (grille on top) or the base half at all? If the latter, P3 is out too |
 
+**P1c. An off-centre circle in the band** (owner: "go back to a circle and maybe not centered?"; he prefers lines running up and down).
+- **Method:** measured on rb.Cathedral("B") with Kalam (`/tmp/circ.py` uses `branch_check.py` §7's machinery). Largest circle clear of every legend (≥ 1.5), every V1 / V2 / switch control (≥ 1.5) and every tick (≥ 1.0) [CHECK].
+- **Largest circle by position along the band:**
+
+  | Position (x) | Largest Ø | At depth d |
+  |---|---|---|
+  | 158–176 | **≈ 25–27** | ≈ 36.5 |
+  | 116–128 | ≈ 24 | ≈ 36 |
+  | 230–236 | ≈ 25 | ≈ 35 |
+  | 80–110 and 194–206 (the switch columns) | ≈ 11–17 | — |
+  | the axis, 134–152 | ≈ 18.5–20 (the "mixer" heading and NOISE / EXT's legend crowd it) | — |
+
+- **So the centre is the worst place for a circle and off-centre is the best.**
+- **Pick that keeps the speaker where it is** (window x 113–173, d 26.7–56.7):
+  - **centre (160, d 37), Ø 25**, 17 mm right of the axis, still entirely over the cone (x 147.5–172.5);
+  - mirror at (126, d 36), Ø 24, if he prefers left.
+  - **Nothing moves.**
+- **Further out** (x ≈ 233, Ø 25) means swapping the speaker with the right-hand cells: a lid board window change (eng). Not needed.
+- **Closed:** the band lands over the base PLAY row, but a grille is flush and the speaker depth is unchanged, so **there's no closing clearance issue anywhere in the band.**
+- **Open area** (vertical slots, pitch 2.3, width 1.25, ≈ 54 % open) [CALC]:
+  - circle Ø 25 ≈ **265 mm²** (Ø 27 ≈ 310);
+  - the vertical-slot tower ≈ 290;
+  - today's grille ≈ 440.
+  - Circle and tower are within ≈ ±10 % of each other, and both ≈ 35–40 % below today (loudness UNVERIFIED; wider slots recover some).
+
 **Rejected, with reasons:**
 - **Lid end walls:** the speaker would have to stand on edge (30 > 10.6 under the plate), and the end faces carry the stays' grooves.
 - **Lid far wall:** the I/O board and jacks fill x 60–230; behind the wall are the FX pots.

@@ -581,6 +581,9 @@ class Branch(Fold):
     def play_dx(self):
         return 0.0
 
+    def tap_style(self):
+        return "proof"
+
     def sync_dy(self):
         return 0.5
 
@@ -647,7 +650,7 @@ class Branch(Fold):
             sx, sd = self.sync_pos()
             ry = {"V1": L0 + self.dV1, "V2": L0 + self.dV2, "FX": L0 + self.dFX}
             nuts = toggle_nuts(R, ry, [(sx, L0 + sd)] + [(x, L0 + AT_FOLD_D) for n, l, x, k, m, yo in R["SWF"]])
-            s += rows_branch(R, ry, LID_PF, st, "proof", 143, copy_style(st, ticks=False), self.behind(), self.time_kw(), nuts=nuts,
+            s += rows_branch(R, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), self.behind(), self.time_kw(), nuts=nuts,
                                back=self.behind_names())
             s += self.sw_row(R, L0, st)
             s += sync_toggle(sx, L0 + sd, LID_PF, ("free", "sync"), st.lsize * 0.72, ink, st.font, up=st.upper,
@@ -1022,6 +1025,37 @@ def rrect_slots(cx, cy, z, W, H, r, pitch=2.3, w=1.25, col="#1d1b19", ring=None)
               f'offset(r={r+1.6}) square([{W-2*r},{H-2*r}],center=true); offset(r={r+1.1}) square([{W-2*r},{H-2*r}],center=true); }}\n')
     return s
 
+_r5_tap_cap = r5.tap_cap
+def _tap_cap(x, y, z, style):
+    """adds style "brass:<head colour>": TAP takes the sharps' head (rule: TAP is made of the key material) in a
+    black bezel; same 12.7 head as the keys, on its own printed cap."""
+    if not style.startswith("brass"):
+        return _r5_tap_cap(x, y, z, style)
+    col = style.split(":", 1)[1] if ":" in style else BRASS_K
+    s = cyl(x, y, z, 0.6, 15.0, "#1d1c1b", fn=48)
+    s += (f'{c(col)} hull(){{ translate([{x},{y},{z+0.6}]) cylinder(h=1.6,d=12.7,$fn=48); '
+          f'translate([{x},{y},{z+2.2}]) scale([1,1,0.44]) sphere(d=12.7,$fn=48); }}\n')
+    return s
+r5.tap_cap = _tap_cap
+
+def vcircle_slots(cx, cy, z, R, pitch=2.3, w=1.25, col="#1d1b19", ring=None):
+    """P1c: the owner's 'lines going up and down' in a circle: vertical slots whose lengths follow the circle
+    (shortest at the left and right, longest through the middle)."""
+    s = ""
+    n = int((2 * R - w) / pitch)
+    x0 = -(n - 1) * pitch / 2
+    for k in range(n):
+        xk = x0 + k * pitch
+        half = math.sqrt(max(R * R - (abs(xk) + w / 2) ** 2, 0)) - w / 2
+        if half < 0.8:
+            continue
+        s += (f'{c(col)} hull(){{ translate([{cx+xk:.3f},{cy-half:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); '
+              f'translate([{cx+xk:.3f},{cy+half:.3f},{z-0.4:.3f}]) cylinder(h=0.43,d={w},$fn=16); }}\n')
+    if ring:
+        s += (f'{c(ring)} translate([{cx},{cy},{z+0.02}]) linear_extrude(0.03) difference(){{ circle(r={R+1.6:.2f},$fn=96); '
+              f'circle(r={R+1.1:.2f},$fn=96); }}\n')
+    return s
+
 TOWER = [8, 10, 12, 14, 16, 18, 16, 14, 12, 10, 8]
 def tower_slots(cx, foot_y, z, pitch=5.0, w=2.0, col="#1d1b19", ring=None):
     """P1b: vertical slots standing on one foot line, lengths stepping 8 -> 18 -> 8 (an organ-pipe tower, a gable
@@ -1055,6 +1089,20 @@ class Cathedral(Chamber):
         super().__init__()
         self.layout, self.palette, self.spine, self.metal, self.grain = layout, palette, spine, metal, grain
         self.speaker, self.centre_play = speaker, centre_play
+
+    def stand_point(self, x, d, z=None):
+        """world position of lid point (x, d, plate face) when standing (for close cameras)."""
+        z = LID_PF if z is None else z
+        a = math.radians(self.STAND)
+        y0, z0 = self.LY0 + d - self.AX_Y, z - self.AXZ
+        return (x, self.AX_Y + y0 * math.cos(a) - z0 * math.sin(a), self.AXZ + y0 * math.sin(a) + z0 * math.cos(a))
+
+    def tap_style(self):
+        if self.palette in PEGS:
+            sh = PEGS[self.palette][1][0]
+            if sh == BRASS_K:
+                return "brass"
+        return "proof"
 
     def play_dx(self):
         # PLAY row spans the stick (25) to AMOUNT (167); its centre 96 moves to the axis 143
@@ -1140,7 +1188,12 @@ class Cathedral(Chamber):
             if self.speaker == "P1a":
                 return rrect_slots(143.0, L0 + 37.6, LID_PF, 56.0, 18.0, 6.0, ring="#d3cab8")
             if self.speaker == "P1b":
-                return tower_slots(143.0, L0 + 28.6, LID_PF, ring="#d3cab8")
+                return tower_slots(143.0, L0 + 28.7, LID_PF)   # no foot rule: the band's 22 mm holds the 18 mm tower + 1.5 margins only without it
+            if self.speaker == "P1c":
+                # off-centre circle (owner: "maybe not centered"): systems §14's best spot, Ø 25 overall (ring outer
+                # edge) at (160, d 37), 17 right of the axis, over the existing speaker. Slot field R 10.9 + ring to R 12.5.
+                # Visual's own sweep agrees: with its ring, a circle clears every label by >= 1.5 only at x 158-176.
+                return vcircle_slots(160.0, L0 + 37.0, LID_PF, 10.9, ring="#d3cab8")
             return ""                                   # rev 1 B and P2: the band is the crossing, a quiet rest
         return vesica_slots(143.0, L0 + 37.6, LID_PF, W=66.0, H=16.0, ring="#d3cab8")   # ring clear of "noise / ext" and "mixer"
 
@@ -1416,7 +1469,9 @@ def jobs(SZ):
            for p in PEGS},
         "rb_ct2_closed_steel": lambda: cathedral_grain(ld.shot(Cathedral("A", "birchblack-birch", metal="steel").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct2_closed_steel", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
         **{f"rb_ct3_{sp}": (lambda sp=sp: shot4(Cathedral("B", speaker=sp, centre_play=True).model("stand"), fp_rect(0, 0, W, D + 64), f"rb_ct3_{sp}", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_ct3_{sp}.png")))
-           for sp in ("P1a", "P1b", "P2")},
+           for sp in ("P1a", "P1b", "P1c", "P2")},
+        **{f"rb_ct3_{sp}_band": (lambda sp=sp: shot4(Cathedral("B", speaker=sp, centre_play=True).model("stand"), fp_rect(0, 0, W, D + 64), f"rb_ct3_{sp}_band", size=SZ, az=-32, el=24, dist=260, center=Cathedral("B").stand_point(150.0, 38.0), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_ct3_{sp}_band.png"), ymax=1.0))
+           for sp in ("P1b", "P1c")},
         "rb_ct3_P2_back": lambda: ld.shot(Cathedral("B", speaker="P2", centre_play=True).model("stand", walnut=WAL_R), fp_rect(0, 0, W, D + 64), "rb_ct3_P2_back", size=SZ, az=160, el=14, dist=820, center=(143, D * 0.8, 60), grain_classes=()),
         "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
         "rb_ct_B_stand": lambda: shot4(Cathedral("B").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_B_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_B_stand.png")),

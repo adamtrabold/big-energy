@@ -79,6 +79,25 @@ Layout is systems' (option B moves controls, so it needs the director, then the 
   - **"free" / "sync" sit 1.5 mm behind the toggle centre** (0.5 left "free" 0.64 mm from FREQ 3; 1.5, 2.0 and 2.5 all check 0).
 - **A, a correction to systems' §2 / §5:** a Ø 34 round window fits the band's depth but overlaps the NOISE / EXT legend and the "mixer" heading. **The band's real clear depth between those labels is ≈ 22 mm.** Hence the vesica: **66 × 16, centred at (143, d 37.6)**, ring clear of both labels. Open area ≈ 700 mm² vs v1.1's 900 (−22 %, acoustics UNVERIFIED).
 
+## 2b. The speaker, round 2 (owner: no speaker on the key side, no eye shape; "lines going up and down", or "a circle and maybe not centered")
+Systems §14: B's single effects row stays on the lid, and the speaker stays in the lid band, where v1.1 had it (P1). Nothing else moves for the speaker. The other placements are dropped at the owner's steer: the rounded rectangle (lines run sideways) and firing through the façade (P2: muffled flat on a table, and quieter for the player).
+
+<figure>
+<img src="img/cathedral-speaker-options-standing.jpg" alt="Two standing views of CATHEDRAL layout B side by side, with a close view of each lid band below. Left: the band grille is eleven vertical slots stepping up to the middle and down again, standing on one line like an organ-pipe tower. Right: a small circle of vertical slots sits off-centre, to the right of the mixer heading. In both, the base row is centred on the instrument and the sharps and TAP are brass.">
+<figcaption><b>Left, the pipe tower:</b> 11 vertical slots, 2 wide at 5 pitch, lengths 8 → 18 → 8, all standing on one foot line (a gable, not a lens), centred on the axis over the speaker. <b>Right, the off-centre circle:</b> vertical slots tapered to a circle, Ø 25 overall with its ring, at (160, d 37), 17 mm right of the axis and still over the speaker. Below each, the same band up close. Both use layout B's effects row and keys B (black naturals, brass sharps, brass TAP). <b>The base's freed right end:</b> the PLAY row (pitch and filter) moves 47 mm right so it's centred on the instrument's axis, with equal margins at both ends. Brass here is a tone re-map of the OpenSCAD render, not ray-traced (see §1 for the true metal look).</figcaption>
+</figure>
+
+**Both fit the band.** Label check: the tower's slot tips clear "mixer" by 1.68 mm and "noise / ext" by 1.9. The circle's ring clears every label by ≥ 1.5 only in x 158–176 (my sweep), which agrees with systems' best spot. The centre is the worst spot for a circle (≈ 19 mm max). The full model check for both, with the PLAY row centred, finds 0 collisions.
+
+**My read:**
+- **The tower** answers "lines going up and down" most directly, and it's the most CATHEDRAL: a small pipe tower inside, echoing the façade outside. It sits on the axis, so it keeps FOLD's "everything single sits on x 143" rule. It looks like a designed figure, not a hole. This is my pick.
+- **The off-centre circle** is calmer and smaller. Off-centre, it reads as placed on purpose, like a sound hole beside the mixer, not a target. The cost is the axis rule: it's the one single element off the centreline, and only 17 mm off, so it can look slightly mis-placed rather than clearly asymmetric. If he likes the circle, I'd keep it exactly where it is: it's the only place it fits.
+- **Loudness:** open area is the tower ≈ 290 mm² vs the circle ≈ 265, both ≈ 35–40 % below today's 440 (systems; loudness UNVERIFIED). Widening the tower's slots to 2.5 brings it to ≈ 340 [CALC: 136 mm of slot length × 2.5] with almost the same look.
+
+**What I put in the empty base end, and why:** with the effects on the lid and the speaker out of the base, x 186–270 is empty. **I'd re-centre the PLAY row on the axis** (systems' option 2): the stick moves to x 72 and AMOUNT to 214, with the breaks and headings moving with them. The hands' row then sits centred under the choir, like the nave under the crossing, and the empty space becomes two equal margins instead of one hole.
+- **Rejected:** bringing VOLUME and TAP back to the base (option 1) undoes his "together" for the out control. The lozenge and lights (option 3) would be ornament filling a gap.
+- **⚑ D+O:** it moves controls. The stick ends up 47 mm further from the left end; with the keys running full width, that's still under the left hand.
+
 ## 3. The grille ("the screen")
 <figure>
 <img src="img/cathedral-grille-options-20px-per-mm.png" alt="Three grille patterns at true proportion with a 10 mm bar: a lens of horizontal tapered slots, a circle of horizontal tapered slots, a circle of concentric arc slots">
@@ -148,7 +167,7 @@ Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 31
 - **The brass on the stays doesn't need plating or paint** if it's cast. Plating printed 316L to look like brass is possible but it's a finish that wears off a part you handle every time you stand the lid up.
 
 ## Open
-1. **Owner (being asked now, one at a time):** layout A / B; hidden pins vs cables through the hinge; the back slot; keys A / B / C (my pick: B, black naturals + cast-brass sharps; reversed reading).
+1. **Owner (being asked now, one at a time):** speaker: pipe tower or off-centre circle (§2b; my pick: tower), and the re-centred PLAY row (⚑); hidden pins vs cables through the hinge; the back slot; keys A / B / C (my pick: B, black naturals + cast-brass sharps; reversed reading).
 2. **Owner, after keys:** if brass, unlacquered (crowns stay bright, the rest darkens) or lacquered (bright until it wears)?
 3. **Systems / eng:**
    - brass head mass (2.5–5 g) on the Choc V2 silent switch: return and velocity fit; test one hollow head first;

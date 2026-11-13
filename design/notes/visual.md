@@ -1,5 +1,15 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, turn 4 (2026-11-13): speaker round 2 image (owner: no key-side speaker, no eye; "lines up and down" or off-centre circle)
+- **Image:** `img/cathedral-speaker-options-standing.jpg` (2424 × 1697): top row, standing B with the pipe tower (left) and the off-centre circle (right); bottom row, close band views. Linked in look doc §2b. P1a (rounded rect) and P2 (façade) were dropped at the owner's steer (rendered P1a / P2 / P2_back in out/, not published).
+- **rb.py:** `Cathedral(speaker=None|"P1a"|"P1b"|"P1c"|"P2", centre_play=False)`; `rrect_slots`, `tower_slots` (TOWER 8→18→8, foot d 28.7, no foot rule: it hit "mixer"), `vcircle_slots` (P1c: R 10.9 + ring to 12.5 at (160, d 37), systems' spot); P2 slots in the 7 centre pipes; `play_dx()` hook in Branch (stick well, breaks) + Cathedral (row, names): +47 when centred; `tap_style()` hook, `r5.tap_cap` wrapped for "brass" (TAP = sharps' head); `stand_point()` for close cameras; jobs `rb_ct3_{P1a,P1b,P1c,P2}`, `rb_ct3_{P1b,P1c}_band`, `rb_ct3_P2_back`.
+- **Checks:** scratch `/tmp/scr/ct3_check.py` (branch_check §7 on B + centred PLAY row + grille as obstacles): P1b, P1c 0. Precise tower capsule check: min 1.68 ("mixer"). Circle sweep `/tmp/scr/circle_fit.py`: with ring, a circle fits only x 158–176 (Ø 22 field); agrees with systems.
+- **Brass in OpenSCAD views:** `brassify()` in `/tmp/scr/ct3_fig.py` re-maps brass-hue pixels' shading onto a metal ramp (not ray-traced). Good enough at this scale; POV-Ray (`ct_brass.py`) is the true look.
+- **Base end:** I recommend re-centring the PLAY row on x 143 (systems option 2), ⚑ D+O. Rejected VOLUME / TAP back (undoes "together") and lozenge / lights (ornament).
+- **Pick:** tower (axis rule, "up and down", CATHEDRAL). Circle: OK only at its one spot.
+- **Next:** owner picks the speaker; then the re-render pass (closed, standing, keys) once layout and back slot are settled.
+
+
 ## CATHEDRAL, turn 3 (2026-11-13): director steer 1 team rulings applied; no final re-render (waits for owner's layout answer)
 - **Look doc → rev 3** (`design/branches/concepts/cathedral/how-it-looks-and-feels.md`): header lists the rulings; §1 now shows brass ray-traced; §2 B label fix; §3 ruled; §4 texture BUILT (spec); §5 slot finished dark if open (director S1); §6/§7 ruled; Open rewritten.
 - **Images:** +1 `img/cathedral-brass-keys-metal.jpg` (2 × 2, 2424 × 1584: A / B / C / macro of polished vs aged-unlacquered brass). **Deleted** `cathedral-peg-colours-real-parts.jpg` (flat yellow, against ruling 9). Total linked images: 6.
