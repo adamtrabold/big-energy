@@ -157,3 +157,19 @@ Recorded as: images only for what has to be visual (renders, drawings, diagrams,
 
 2026-11-13 13:13 Owner (verbatim): "dont render a bunch of images unnecessarily"
 Recorded as: render an image only when it is needed to judge or show something; no image sets made by habit, no pictures of web pages.
+
+## 2026-11-13 14:12–14:18 — CHAMBER + FOLD, toward CATHEDRAL
+Owner (verbatim, 14:12): "i want to lock in on cathedral and fold right now. what are the differences between them so i can find the best middle ground"
+(Orchestrator read "cathedral" as CHAMBER and sent the differences table.)
+Owner (verbatim, 14:18): "i'm not sure i like the oxblood spine, it feels unnecessary. also the hunges on this... is there any way we could do a more hidden hinge or hidden hinges in the gap? if not these are fine. i also want to work on the speaker placement and design metaphors a bit.. the speaker palcement creates an odd gap between some of the elements, and the effects & out is real far from echo and reveb controls... those should be together. i also wonder if the protective feet couldn't be one with the screws that screw the case in so they aren't visible. i'd like the engraving texture in the case to be more "woody" but i do like the subtlety and relative detail (eg. number of lines and shapes... straight woodgrain would be too detailed imo). i also want to make sure the rounding of the faceplates is consistent... the front edge is squared unnecessarily. and i want to make sure that the color of the pegs and buttons go together better... i feel like there are too many colors, and the brown feels out of place. explore options there. i wish the screen had more elements of rounding... either tapered shape of lines (so top and bottom are smallest, next in is longer, next in is longer, etc) or circular. i think 'cathedral' is a better POV than chamber. see how that affects the ideas"
+Recorded as:
+- FOCUS: CHAMBER and FOLD v1.1 only; find the middle ground. Rename the point of view CATHEDRAL (instead of CHAMBER) and let that reshape the ideas.
+- Oxblood spine: probably unnecessary — not sure he likes it.
+- Hinges: explore a more hidden hinge, or hidden hinges in the gap; if not possible, current hinges are fine.
+- Speaker placement: creates an odd gap between elements; rework placement and the design metaphors around it.
+- FX & OUT (the FX output/jack area) is too far from the ECHO and REVERB controls; they should be together. (Exact meaning of "effects & out" to be confirmed by the team from the panel.)
+- Feet: could the protective feet be one with the case screws so neither is visible?
+- Engraving on the case: more "woody", keep the subtlety and amount of detail (number of lines/shapes); straight woodgrain would be too detailed.
+- Faceplates: rounding must be consistent; the front edge is squared unnecessarily.
+- Colours: pegs and buttons should go together better; too many colours; the brown feels out of place. Explore options.
+- "the screen": wants more rounding — tapered lines (shortest at top and bottom, longer toward the middle) or circular. ("Screen" most likely the speaker grille; the team confirms.)
