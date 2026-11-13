@@ -181,3 +181,8 @@ Recorded as: the peg keys as drawn (HUSH, CHAMBER, CATHEDRAL, RAIN) assume a plu
 Recorded as: NO MACHINING by the owner. Keys (and key tops) must be 3D-printed or bought. This RELAXES the earlier "keys must be real bought parts, never printed" rule: printed key tops are now allowed. It also bears on any part the design has him cut or drill from stock (e.g. brass stays and hinge leaves cut from flat bar): those must become bought or printed parts too. Laser cutting at Vector Space was allowed earlier and was not mentioned here.
 2026-11-13 14:34 Owner (verbatim): "They can be printed externally too - I know you can get metal prints"
 Recorded as: external print services are allowed, including metal printing (e.g. printed brass or steel parts ordered from a service). Parts may be printed by him or ordered printed.
+2026-11-13 14:40 Owner (verbatim): "I don’t want a spine can we route cables through a hinge. Engraving texture I meant fine line texture — I’ll probably do a design for the pipe lines. And what about brass and black keys? Or all brass? Could 3d print and reminds me of a cathedral"
+Recorded as:
+- NO SPINE. Asks whether the cables (the hinge ribbon) can route through a hinge. (Implies the back slot question needs another answer.)
+- "Engraving texture" = the fine line texture on the case (walnut body), not the pipe lines. The OWNER will likely design the pipe lines himself; the team leaves the façade line design to him (placeholder only).
+- KEYS: explore brass + black keys, or all brass. Could be 3D printed (metal printing is allowed); brass reminds him of a cathedral.

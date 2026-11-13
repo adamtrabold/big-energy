@@ -613,7 +613,7 @@ class Branch(Fold):
         L0, D = self.LY0, self.D
         s = ""
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12), (143, L0 + 12), (143, L0 + D - 12)]:
-            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
+            s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
         for (x, y) in [(40, L0 + 30), (FO_W - 40, L0 + 30), (40, L0 + D - 30), (FO_W - 40, L0 + D - 30)]:
             s += cyl(x, y, -0.6, 0.6, 12, "#c9a77c", fn=32)
         return s
@@ -686,7 +686,7 @@ class Branch(Fold):
         ty = py + math.sqrt(max(1, self.STAY_L ** 2 - pz ** 2))
         s = ""
         for x0 in (0.3, FO_W - 3.3):
-            s += f'{c("#c2a25e")} hull(){{ translate([{x0},{py},{pz}]) rotate([0,90,0]) cylinder(h=3,r=4,$fn=24); translate([{x0},{ty-1.5},4]) rotate([0,90,0]) cylinder(h=3,r=4,$fn=24); }}\n'
+            s += f'{c(METALS[getattr(self, "metal", "brass")][1])} hull(){{ translate([{x0},{py},{pz}]) rotate([0,90,0]) cylinder(h=3,r=4,$fn=24); translate([{x0},{ty-1.5},4]) rotate([0,90,0]) cylinder(h=3,r=4,$fn=24); }}\n'
             s += cyl(x0 + 1.5, ty - 1.5, 0, 3.0, 9.0, "#1e1e1e", fn=24)
         return s
 
@@ -765,7 +765,7 @@ class Chamber(Branch):
         for x in (108.0, 178.0):                     # their mouths are the push-out holes: real, Ø 4
             s += cyl(x, L0 + 28.3, -0.2, 0.3, 4.0, "#0f0b08", fn=32)
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (143, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12), (143, L0 + D - 12)]:
-            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
+            s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
         for (x, y) in [(40, L0 + 6), (FO_W - 40, L0 + 6), (40, L0 + D - 30), (FO_W - 40, L0 + D - 30)]:   # front feet moved to d 6
             s += cyl(x, y, -0.6, 0.6, 12, "#2a2522", fn=32)
         return s
@@ -863,6 +863,18 @@ PALETTES = {                       # (naturals, sharps): owner: "too many colour
     "ebony": (EBONY, EBONY),               # one colour: the keys join the knobs
     "maple": (MAPLE, MAPLE),               # one colour: the keys join the plate and TAP
 }
+# turn 2 (visual, after systems §10-11): pegs from REAL parts only. (head, neck) per row. The neck is the printed
+# carrier's 2.8 mm stem under a bought plug (black filament, so it reads as the deck hole's shadow), or the peg's own
+# body when the peg is printed in one piece.
+BIRCH, BIRCH_BLK, PRINT_BLK, PRINT_CRM, CARRIER = "#e6d3aa", "#26211d", "#1d1c1b", "#efe8d8", "#1b1a19"
+PEGS = {
+    "birchblack-birch": ((BIRCH_BLK, CARRIER), (BIRCH, CARRIER)),     # bought birch plugs, naturals dyed black
+    "birch-birchblack": ((BIRCH, CARRIER), (BIRCH_BLK, CARRIER)),     # piano light / dark, same parts
+    "birch": ((BIRCH, CARRIER), (BIRCH, CARRIER)),                    # one pack, no finishing
+    "printed-black-cream": ((PRINT_BLK, PRINT_BLK), (PRINT_CRM, PRINT_CRM)),   # one-piece printed pegs, plate cream
+}
+METALS = {"brass": ("#e2bf6a", "#c2a25e", "#6a5228"),     # façade fill, screws / stays, screw slot
+          "steel": ("#b9b8b2", "#a9aaa6", "#5d5e5b")}     # printed 316L / stainless screws / pewter gilding wax
 B_FX = [("DRIFT", "DRIFT", 33.5, "k"), ("ECHO TYPE", "TYPE", 62.5, "y"), ("ECHO TIME", "TIME", 82.5, "k"),
         ("ECHO REPEATS", "REPEATS", 102.5, "k"), ("ECHO MIX", "MIX", 122.5, "k"), ("TAP", "TAP", 142.5, "b"),
         ("REVERB TYPE", "TYPE", 171.0, "y"), ("REVERB DECAY", "DECAY", 191.0, "k"), ("REVERB MIX", "MIX", 211.0, "k"),
@@ -919,9 +931,9 @@ class Cathedral(Chamber):
         top = 2 * self.AXZ - (LID_PF - 2.5)
         return box(4.1, self.AX_Y - 1.2, BASE_H - 0.4, FO_W - 4.1, self.AX_Y - 0.4, top, self.SPINE)
 
-    def __init__(self, layout="A", palette="ebony-maple", spine="dark"):
+    def __init__(self, layout="A", palette="ebony-maple", spine="dark", metal="brass"):
         super().__init__()
-        self.layout, self.palette, self.spine = layout, palette, spine
+        self.layout, self.palette, self.spine, self.metal = layout, palette, spine, metal
 
     # all four plate corners R 7.7, concentric with the block (systems §4)
     def peg_plate2d(self):
@@ -930,7 +942,23 @@ class Cathedral(Chamber):
     def lid_plate2d(self):
         return rrect2d(4.3, self.LY0 + 0.3, FO_W - 4.3, self.LY0 + self.D - 4.3, 7.7, 7.7)
 
+    @staticmethod
+    def peg_real(x, y, z, head, neck):
+        """systems §10.2: deck hole Ø 12 (dark ring), neck Ø 11.2 up to deck + 2.8, a 12.7 mushroom head. Head height
+        H is unpublished; drawn at 4.0 (1.2 rim + a low dome), so the top is deck + 6.8."""
+        s = cyl(x, y, z - 0.15, 0.18, 12.0, "#0e0d0c", fn=48)
+        s += cyl(x, y, z - 0.1, 2.95, 11.2, neck, fn=48)
+        s += (f'{c(head)} hull(){{ translate([{x},{y},{z+2.8}]) cylinder(h=1.2,d=12.7,$fn=48); '
+              f'translate([{x},{y},{z+4.0}]) scale([1,1,0.44]) sphere(d=12.7,$fn=48); }}\n')
+        return s
+
     def peg_keys(self, walnut):
+        if self.palette in PEGS:
+            (nh, nn), (sh_, sn) = PEGS[self.palette]
+            z = BASE_H
+            s = "".join(self.peg_real(17 + 18 * n, 13.5, z, nh, nn) for n in range(15))
+            s += "".join(self.peg_real(8 + 18 * (i + 1), 36.0, z, sh_, sn) for i in r4.sharps_after())
+            return s
         nat, sh = PALETTES[self.palette]
         nat = walnut if nat == WAL_P else nat
         z = BASE_H
@@ -1009,7 +1037,7 @@ class Cathedral(Chamber):
     def lid_back(self, walnut):
         L0, D = self.LY0, self.D
         z = -0.07
-        brass = "#e2bf6a"
+        brass, screw, slot = METALS[self.metal]
         s = ""
         IMP = L0 + 18.0
         s += box(30, IMP - 0.35, z - 0.03, 256, IMP + 0.35, z, brass)
@@ -1020,7 +1048,7 @@ class Cathedral(Chamber):
         for x in (108.0, 178.0):
             s += cyl(x, L0 + 28.3, -0.2, 0.3, 4.0, "#0f0b08", fn=32)
         for (x, y) in [(143, L0 + 12), (143, L0 + D - 12)]:
-            s += cyl(x, y, -0.06, 0.1, 5.4, "#c2a25e", fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, "#6a5228")
+            s += cyl(x, y, -0.06, 0.1, 5.4, screw, fn=24) + box(x - 1.8, y - 0.35, -0.1, x + 1.8, y + 0.35, -0.04, slot)
         for (x, y) in [(16, L0 + 12), (FO_W - 16, L0 + 12), (16, L0 + D - 12), (FO_W - 16, L0 + D - 12)]:
             s += cyl(x, y, -2.6, 2.6, 12, "#23201e", fn=40) + cyl(x, y, -2.66, 0.1, 5.0, "#151312", fn=24)   # foot + its cap plug
         return s
@@ -1197,6 +1225,9 @@ def jobs(SZ):
         # CATHEDRAL (owner 14:18): only what's needed to judge colours, A vs B, the wood and the spine
         **{f"rb_ct_col_{p}": (lambda p=p: shot4(Cathedral("A", p).model(True), fp_rect(0, 0, W, OPEN), f"rb_ct_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
            for p in ("ebony-maple", "maple-ebony", "ebony", "maple")},
+        **{f"rb_ct2_col_{p}": (lambda p=p: shot4(Cathedral("A", p, metal="steel").model(True), fp_rect(0, 0, W, OPEN), f"rb_ct2_col_{p}", size=SZ, az=-36, el=24, dist=300, center=(64, 30, 18), grain_classes=(), wood=True))
+           for p in PEGS},
+        "rb_ct2_closed_steel": lambda: cathedral_grain(ld.shot(Cathedral("A", "birchblack-birch", metal="steel").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct2_closed_steel", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
         "rb_ct_A_stand": lambda: shot4(Cathedral("A").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_A_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_A_stand.png")),
         "rb_ct_B_stand": lambda: shot4(Cathedral("B").model("stand"), fp_rect(0, 0, W, D + 64), "rb_ct_B_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 50), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_ct_B_stand.png")),
         "rb_ct_closed": lambda: cathedral_grain(ld.shot(Cathedral("A").model(False, walnut=WAL_R, book=True), fp_rect(0, 0, W, D) + fp_rect(318, -10, 553, 146), "rb_ct_closed", size=SZ, az=158, el=52, dist=1100, center=(275, 60, 22), grain_classes=())),
