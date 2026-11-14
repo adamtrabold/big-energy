@@ -23,7 +23,7 @@ Owner (2026-11-13 16:21, `../design/owner.md`): "we need on that site architectu
 | [features/panning-and-stereo-outputs.md](features/panning-and-stereo-outputs.md) | out pan, echo pan, LINK, stereo phones / line, mono-on-TS, speaker sum | **written 2026-11-13** |
 | [features/midi.md](features/midi.md) | MIDI in from a DAW or another device; free extras | **written 2026-11-13** |
 | [features/power-and-battery.md](features/power-and-battery.md) | LiPo, charger, boost, rails, gauge, runtime, Hall gating | **written 2026-11-13** |
-| [features/firmware-update-and-gestures.md](features/firmware-update-and-gestures.md) | DFU, boot gestures, settings gestures, TAP | not yet written |
+| [features/firmware-update-and-gestures.md](features/firmware-update-and-gestures.md) | DFU, boot gestures, settings gestures, TAP | **written 2026-11-13** |
 | [features/io.md](features/io.md) | jacks, USB-C, CV / gate, EXT in, jack switching, mutes | not yet written |
 | [features/enclosure.md](features/enclosure.md) | CATHEDRAL / FOLD body, hinge, stays, feet, plates, grille, façade | not yet written |
 
