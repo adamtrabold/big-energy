@@ -1,6 +1,36 @@
 # Director notes: Little D (budget instrument), physical design
 
-## P5O score (2026-11-13 ~23:40; a9e2603 / b811bae; bar 10): READ THIS FIRST
+## OWNER REJECTED P5R 10; round 6 score (2026-11-14; 049e51e / c87738f / 9b14a75): READ THIS FIRST
+- **Owner (01:32), verbatim:** "Also in p50 the oscillators are really far apart, the mod and track control placements feel random. As does the envelops label, the echo types and reverb types knob labels, the markings around the knobs are all inconsistent, the out pan makes no sense. This is not a 10".
+  - 01:29: "The top case is looking ok in p50 but the bottom is a bit less senseful".
+  - 01:33: "Also it doesn't need to say big energy".
+  - 01:27: "I want to see all the layout options before I make a call. Yes I meant the amp envelope controls.. the amp group."
+- **Calibration (my miss):**
+  - I passed what the checker and my own tests measured (gaps, collisions). I didn't judge the whole panel as a player sees it: one family of oscillators, switches by what they change, one marking language, one heading rule on both halves.
+  - My 10 needs a whole-instrument "does every element have a reason to be where it is" pass, both halves, plus a marking-consistency pass.
+- **New P5R: 8. The work really changed.** His faults, one by one:
+  - oscillators tight ✓;
+  - track in VCO 3's row, voices in keys ✓;
+  - "envelopes" gone ✓;
+  - type names as lines ✓;
+  - one tick ring ✓;
+  - out = volume · pan · link on the base ✓;
+  - no name ✓.
+- **New faults (P5R):**
+  1. "echo" is centred right under the grille: the "envelopes" fault again.
+  2. The lid's headings are centred while the base's are top-left: two rules.
+  3. The base's "out" heading sits over the reverb knob, so it reads "out: reverb"; its group is at the far right.
+  4. The pitch / filter mod destinations sit behind the bend stick, so they read as bend's. "pitch off · on" is cryptic.
+  5. tune / drift inside VCO 1 read as VCO 1's own.
+- **Fixes:**
+  1. Top-left headings on the lid too (the fans are gone, so no conflict): one rule on both halves; "echo" starts left of the grille.
+  2. Base "out" top-left over its own column (link / volume · pan), "effects" over echo · reverb only.
+  3. Rear row: release behind bend (Model D: the decay switch by the wheels); pitch · filter · blend together behind mod / glide under a "mod" sub-heading.
+  4. A "tuning" sub-heading (legend scale) over tune · drift.
+  5. Then a whole-panel pass.
+- **P5O:** none of the 3 studies can reach 10 within his stated rules (§22: the right block is one group short, plus R4 holes). Don't invent one. Show P5R plus all three studies, labelled as studies with their holes marked (he asked to see all), plus one question: "P5O's right half is one group short now that out, osc mod and voices sit where they belong. Would you put the effect levels and out (volume · pan · link) on the lid, so it reads synth → effects → out, or keep the levels on the base, which makes P5R the layout?"
+
+## P5O score (2026-11-13 ~23:40; a9e2603 / b811bae; bar 10)
 - **The work really changed.** These pass now:
   - the switches sit under the "oscillators" hairline ("track 3" reads);
   - every heading is clear of its fan words;
