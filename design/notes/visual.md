@@ -1,5 +1,20 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 fixes 6 (2026-11-14 ~00:00): READ THIS FIRST
+- **Systems 33229cd (P5O):** tuning beside VCO 1 with a "tuning" sub-heading; echo row 2 at d 79; reverb reads decay · type; link's words beside; voices 1 · 2 · 4 with VCO 4. Without VCO 4, the rows spread to 104 / 69 / 34 (so no ghost any more). The stick is at 9.0 in both. LEGEND_NUDGE (time +0.5) is in the checker.
+- **rb.py:**
+  - `nave_env()` and jobs `rb_nv5_O4_top`, `rb_nv5_O4_stand` (VCO 4 fitted) and `rb_nv5_Rfb_top` (P5R keys on the line);
+  - legend nudges are read from `lc.LEGEND_NUDGE` (`LEGEND_FIT` emptied);
+  - `P5O_HEAD_FIT` reverb (−3.8, +1.55); P5O "tuning" sub +0.2;
+  - P5R fallback: keys +0.6, name d 8.5 (`NAME_AT["P5R-line"]`).
+- **Checks:** 0 everywhere (real Kalam, rules incl. zone). My 40 mm fan-line proxy still flags P5O's "reverb" vs "hall" / "spring" at 27–31 mm; by eye it's fine.
+- **Images:**
+  - `cathedral-s5-P5O-top-9.9px-per-mm.png` = WITH VCO 4 (fitted);
+  - NEW `cathedral-s5-P5O-noVCO4-top-9.9px-per-mm.png`;
+  - NEW `cathedral-s5-P5R-fallback-top-9.9px-per-mm.png`;
+  - `cathedral-s5-P5O-standing.jpg` (with VCO 4).
+- **Doc:** rev 9.5. **Expect:** systems' amp-top-row P5O variants.
+
 ## CATHEDRAL steer 5 fixes 5 (2026-11-13 ~23:20): READ THIS FIRST
 - **Systems a9e2603 (P5O only):** reverb is back to type · decay, its heading over the fan (d 68.5); echo row 2 at d 84, repeats / pan at 232.95 / 253; my 528deea numbers are folded (out +0.3, NAME_BOX 90.5 / 38.0, above2 leading).
 - **rb.py:** P5O_HEAD_FIT and NAME_AT emptied. New `LEGEND_FIT` {("P5O", "ECHO TIME"): +0.5}, because real Kalam put "time" 1.09 from repeats; it's for systems to fold.

@@ -1636,7 +1636,13 @@ def nv_overrides(lc):
         # (steer 5 fixes, a80d7c: P5O's headings now sit on top of their groups in the checker; the foot MOVE is gone)
         # (rev 9 real-Kalam heading fits now live in layout_check.py, d56403f)
         secs = list(lc.SECTIONS)
-        return list(lc.lid), list(lc.BREAKS), secs
+        lid = list(lc.lid)
+        if getattr(lc, "VARIANT", "") == "P5R" and getattr(lc, "KEYS_LINE", False):
+            # P5R fallback (keys on the switch line, d 89): the pair 0.6 higher; real Kalam put velocity's positions
+            # 0.91 under amp sustain's legend (for systems to fold)
+            lid = [(n, x, d + 0.6, r, k, lab, w) if n in ("VEL", "AFTERTOUCH") else (n, x, d, r, k, lab, w)
+                   for n, x, d, r, k, lab, w in lid]
+        return lid, list(lc.BREAKS), secs
     lid = [(n, x, d, r, k, lab, "left2") if (n == "OSC 3 CTL" and w == "right2") else (n, x, d, r, k, lab, w)
            for n, x, d, r, k, lab, w in lc.lid]
     return lid, list(lc.BREAKS), list(lc.SECTIONS)
@@ -1645,8 +1651,8 @@ def nv_fit_sections(lc, sections):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(sections)
 
-LEGEND_FIT = {("P5O", "ECHO TIME"): 0.5}   # a9e2603 real Kalam: "time" sat 1.09 from repeats (now at x 232.95, d 84) below it
-P5O_HEAD_FIT = {}   # 528deea's fits are in the checker (a9e2603); "reverb" moved over the fan, so its +1.55 is gone
+LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
+P5O_HEAD_FIT = {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
     real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
@@ -1667,6 +1673,8 @@ def nv_fit_subheads(lc):
     """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
     (see below), centred over their groups: at d 79.5 they sat 0.5 from the "decay" legends (real Kalam)."""
     subs = list(getattr(lc, "SUBHEADS", []))
+    if getattr(lc, "VARIANT", "") == "P5O":       # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
+        subs = [(t, x, d + 0.2) if t == "tuning" else (t, x, d) for t, x, d in subs]
     if getattr(lc, "VARIANT", "") == "P5R":
         subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
                                                       #   still below the oscillator switches (at 91.8 they read as
@@ -1838,7 +1846,7 @@ class Nave(Cathedral):
     # steer 5 fixes 3 (name positions, lid d, override NAME_BOX): P5R under the window at d 38.0 (echo pan moved to
     # x 147.7, so at 34.0 the name sat on its top tick); P5O ABOVE the window at d 90.5, a nameplate over the grille
     # (under it, the name came 1.5 from "keys", and the new 5 mm legend-to-heading rule can't be met there)
-    NAME_AT = {}   # (both now in layout_check.py's NAME_BOX, a9e2603)
+    NAME_AT = {"P5R-line": 8.5}   # (P5O / P5R are in layout_check.py's NAME_BOX, a9e2603; the P5R fallback is visual's)
     NAME_FIT = {}
     NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
@@ -1850,6 +1858,8 @@ class Nave(Cathedral):
         if self._sq():
             nb = getattr(self.lc, "NAME_BOX", None)
             v_ = getattr(self.lc, "VARIANT", "")
+            if v_ == "P5R" and getattr(self.lc, "KEYS_LINE", False):
+                v_ = "P5R-line"           # fallback: at 34.0 it read "big energy hall"; at 31 it labelled reverb type. At the foot (d 8.5), the foundation stone
             d = self.NAME_AT[v_] if v_ in self.NAME_AT else (nb[2] if nb else self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7))
             return txt(143.0, self.LY0 + d, gz + 0.01, self.NAME, 2.0, INK_LIGHT, font=HAND) if self.NAME else ""
         nz = self.LY0 + 2.2
@@ -1935,7 +1945,8 @@ class Nave(Cathedral):
                 sz = lc.LS if k == "k" else lc.LS * 0.85
                 bx = lc.tbox(x, d, lab, sz, where, r)
                 cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
-                cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0)
+                cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0) + \
+                      (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") == "P5O" else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
         heads, subs, ha = nv_heads_left(lc, sections)
         for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups
@@ -2037,6 +2048,17 @@ class Nave(Cathedral):
             s += led(x, y, z, col="#9fd36b" if x > 143 else "#efe3c8")
         return s
 
+def nave_env(lid, **env):
+    """a Nave built with layout_check env switches (CATHEDRAL_VCO4, CATHEDRAL_P5R_KEYS) set only while it loads."""
+    old = {k: os.environ.get(k) for k in env}
+    os.environ.update(env)
+    try:
+        return Nave(lid=lid, spine="dark")
+    finally:
+        for k, v in old.items():
+            if v is None: os.environ.pop(k, None)
+            else: os.environ[k] = v
+
 def jobs(SZ):
     ch, dp = Chamber(), Diptych()
     D = ch.D; OPEN = 2 * D + 2
@@ -2080,6 +2102,10 @@ def jobs(SZ):
         **{f"rb_nv5_{v}_lidtop": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_lidtop", -2, n.LY0 - 2, W + 2, n.LY0 + n.D + 2, px_per_mm=15, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
         **{f"rb_nv5_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
         **{f"rb_nv5_{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_nv5_{v}_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_nv5_{v}_stand.png")))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
+        # the owner sees every option: P5O with VCO 4 fitted, P5R's keys-on-the-switch-line fallback
+        "rb_nv5_O4_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_O4_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5O", CATHEDRAL_VCO4="1")),
+        "rb_nv5_O4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_O4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_O4_stand.png")))(nave_env("P5O", CATHEDRAL_VCO4="1")),
+        "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
         "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=152, el=34, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
         # steer 5 fixes: the spine standing (from behind and below the joint) and open flat (a back corner, close)
         "rb_nv5_spine_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_spine_stand", size=SZ, az=-28, el=46, dist=420, center=(95, n.D + 2, 24), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_spine_stand.png"), lo=70, ymax=0.64))(Nave(lid="P5O", spine="dark")),
