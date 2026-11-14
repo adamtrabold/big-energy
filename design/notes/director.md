@@ -1,6 +1,20 @@
 # Director notes: Little D (budget instrument), physical design
 
-## P5R: 10 (2026-11-14; 039287b / 639dae0 / 057bf26, by eye): READ THIS FIRST
+## P5OB-D (2026-11-14; c9a4255 / 14d411f; bar 10): READ THIS FIRST
+- **The owner's own structure:** 4 VCOs stacked left with a numeral margin, amp as the top row, filter row under the speaker, echo / reverb / keys on the right; D 145.
+- **Score: 9.** It honours his 20:43 words literally:
+  - "voices 1 · 2 · 4" (right with VCO 4);
+  - one tick and heading system, the midi key;
+  - the base matches P5R's logic (mixer 1–4 over the filter);
+  - the standing view matches.
+  - Filter reading under amp is his structure: not penalised.
+- **Blocks a 10:**
+  1. **Drift sits in VCO 2's row** (its 4th slot) and reads as VCO 2's own. The engraved L-rule from "tuning" is a diagram patch, and he has already called placements "random". Fix (systems): tune + drift side by side or stacked under one "tuning" heading, not split across two VCO rows. If the stick at full height forbids it, give the numbers, and the L-rule goes to him as a stated compromise.
+  2. **Right-hand air:** ≈ 50 mm of empty plate right of echo row 2 / reverb, down rows 2–3 (the checker's 6 by-design gaps). The right third reads light against a dense left. Shifting the block only moves the air into the middle. The plate has more room than controls on the right.
+- **Can it reach 10?** Not by layout alone. Fix 1 maybe. Fix 2 needs his call: accept the air (his structure + VCO 4 at D 145), or move the effect levels (and/or out) onto the lid to fill it.
+- **Show it to him beside P5R with that one question.**
+
+## P5R: 10 (2026-11-14; 039287b / 639dae0 / 057bf26, by eye)
 - **"tempo" heads tap.** Every control on both halves now sits under a heading that names it, in its column or row, with a reason for its place.
   - Lid: oscillators 1 · 2 · 3 + tuning in one family; filter | window | amp; keys | echo | reverb; "• midi" key.
   - Base: mixer 1 / 2 / 3 over resonance / cutoff / envelope, echo / reverb over volume / pan.

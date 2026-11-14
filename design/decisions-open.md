@@ -5,25 +5,31 @@ Decisions only you can make, newest first. The team keeps working around them; e
 ---
 
 ## 1. CATHEDRAL layouts: every option, side by side
-**Your call:** which layout. In practice the choice comes down to **three oscillators (P5R)** or **four, with your stacked layout (P5OB-D)**. Nothing is approved yet. Two small fixes are still pending on P5OB-D; they don't change the layout.
+**Your call:** which layout. In practice it comes down to **three oscillators (P5R)** or **four, with your stacked layout (P5OB-D)**. Nothing is approved yet.
 
-**P5R: team rows, three oscillators, 132 mm deep.** Director **10**. The synth-player critic gives it **8**: it would play it, but the oscillators run in one long row and the filter envelope sits far from cutoff.
+| | Director | Synth-player critic |
+|---|---|---|
+| **P5R** (3 oscillators, 132 mm) | **10** | **8**: oscillators in one long row, filter envelope far from cutoff |
+| **P5OB-D** (4 oscillators, 145 mm) | **9**: empty plate on the right; drift split from tune | **10**: "I'd play it and defend every control" |
+
+**P5R: team rows, three oscillators, 132 mm deep.**
 
 ![P5R: full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
 ![P5R: standing](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
 
-**P5OB-D: your layout, four oscillators, 145 mm deep.** Oscillators are stacked on the left, the amp envelope is the top row, and the filter envelope is a row beside the speaker, right above cutoff. The critic gives it **9**: "now good", it would play it and defend every control. It's a 10 for the critic with two fixes: drift reads as oscillator 2's knob, and keys need more room under reverb. The director hasn't scored it yet.
-- Costs: both halves +13 mm deep (each half 286 × 145 mm, about 10% more area); closed thickness unchanged; about +55 g; the 4th oscillator adds about $20–30 and 0.4 W.
-- Known gaps: wider air right of the speaker than left of it.
+**P5OB-D: your layout, four oscillators, 145 mm deep.** Oscillators are stacked on the left, the amp envelope is the top row, and the filter envelope is a row beside the speaker, right above cutoff.
+- **Costs:** both halves are 13 mm deeper (each half 286 × 145 mm, about 10% more area). Closed thickness is unchanged. It weighs about 55 g more. The 4th oscillator adds about $20–30 and 0.4 W.
+- **Compromise 1:** drift sits under oscillator 2, joined to tune by a printed "tuning" line. Putting them side by side would force the bend stick to be lowered.
+- **Compromise 2:** about 50 mm of empty plate right of echo and reverb. Filling it would mean moving the effect levels from the base onto the lid.
 
 ![P5OB-D: full top with 4 oscillators, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png)
 ![P5OB-D: standing](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-standing.jpg)
 
-**Your layout at 132 mm (study).** Three oscillators, amp envelope on top, filter row below. It fits, but there's no way to fill the right side without moving the effect levels or out onto the lid.
+**Your layout at 132 mm (study).** Three oscillators, amp envelope on top, filter row below. It fits, but the right side can't be filled without moving the effect levels or out onto the lid.
 
 ![P5OB study at 132 mm](branches/concepts/cathedral/img/cathedral-s7-P5OB-study-top-9.9px-per-mm.png)
 
-Shared across all of them: softer corners, the spine back, a line grille, no name on the panel, one knob-marking system, and dots marking the knobs that take MIDI. The full reviews are under Reviews (player review, rounds 1–5).
+All three share softer corners, the spine back, a line grille, no name on the panel, one knob-marking system, and dots on the knobs that take MIDI. The full reviews are under Reviews (player review, rounds 1–6).
 
 ---
 
