@@ -37,6 +37,12 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### P5OB-D study (systems §25): four oscillators at D 145
+<figure>
+<img src="img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png" alt="Exact top view of the P5OB-D study open flat, both halves 286 by 145 mm. Lid: four oscillator rows at the left (octave with its positions line, wave, pitch; tune and drift on the first row under tuning; VCO 3's track 3 switch), the amp envelope as a row over the slotted window and the filter envelope as a row under it, and on the right echo, then reverb, then the keys switches, each group on its own rows; the MIDI key at the top right. Base: the round 8 base at the deeper depth, with a wide band at the back.">
+<figcaption><b>P5OB-D study: the critic's four-oscillator centre spine at D 145</b> (exact, scale bar 20 mm). Both halves are 286 × 145. The 7 checker gaps are by design and left in. The stick is lowered to 9.0. Real Kalam: 0. <b>For systems:</b> with VCO 4 fitted, the base mixer still shows 1 · 2 · 3 · extra (no mixer 4).</figcaption>
+</figure>
+
 ### Rev 9.9: round 8 (systems 3fa4e78)
 - **P5R:**
   - the VCO numbers are sub-headings on the "tuning" line; row A is at d 99;

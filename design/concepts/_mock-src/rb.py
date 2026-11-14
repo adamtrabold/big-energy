@@ -2211,6 +2211,18 @@ class Nave(Cathedral):
             s += led(x, y, z, col="#9fd36b" if x > 143 else "#efe3c8")
         return s
 
+def top_tall(scene, name, x0, y0, x1, y1, px_per_mm=8, grain_classes=()):
+    """top4 for a frame taller than wide (D 145: open depth 294 > width): ld.shot_top sizes the ortho camera by
+    max(w, h) * 2.2, which crops its scale markers off a near-square frame; a copy with 2.9 runs instead."""
+    import inspect
+    src = inspect.getsource(ld.shot_top).replace("max(wmm, hmm) * 2.2", "max(wmm, hmm) * 2.9")
+    ns = dict(vars(ld)); exec(src, ns)
+    old = ld.shot_top; ld.shot_top = ns["shot_top"]
+    try:
+        return top4(scene, name, x0, y0, x1, y1, px_per_mm=px_per_mm, grain_classes=grain_classes)
+    finally:
+        ld.shot_top = old
+
 def nave_env(lid, **env):
     """a Nave built with layout_check env switches (CATHEDRAL_VCO4, CATHEDRAL_P5R_KEYS) set only while it loads."""
     old = {k: os.environ.get(k) for k in env}
@@ -2270,6 +2282,7 @@ def jobs(SZ):
         "rb_nv5_O4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_O4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_O4_stand.png")))(nave_env("P5O", CATHEDRAL_VCO4="1")),
         "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
         # §22 studies (owner judges the amp-row trade by eye; holes kept): full tops only
+        "rb_s8_P5OBD_top": lambda: (lambda n: top_tall(n.model(True), "rb_s8_P5OBD_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
         **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},
         "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=152, el=34, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
