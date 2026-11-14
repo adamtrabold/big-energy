@@ -1,6 +1,14 @@
 # Director notes: Little D (budget instrument), physical design
 
-## P5OB-D (2026-11-14; c9a4255 / 14d411f; bar 10): READ THIS FIRST
+## Case ratio (2026-11-14; ff058d5; owner 12:12 "more pleasing and harmonious case ratio … derived from the dimensions of the device … base it on the face dimensions / ratio"): READ THIS FIRST
+- **A, √5 face (D 132.4, goes with P5R): 9.** No cost, and the grid is exact (56 × 25). The centred square in √5 = the window bay between the filter / amp wings, so the ratio comes from the layout.
+- **B, double-square case (D 143): 7, drop it.** The face grid doesn't close (27.1), the keys get zero slack, and P5R costs +11 mm with a re-lay. It's derived from the box, not the face he asked about.
+- **C, double-square face (D 147.3, goes with P5OB-D): 9.** It's his rule exactly: the face is two squares with the window on the seam, the grid is exact (56 × 28), and the two faces open make a square. Cost +2.3 mm / ≈ 10 g.
+- **What blocks 10 for A and C:** the ratio is drawn on blank rectangles. He asked for it "derived from the dimensions of the device", so he needs to see it in the device.
+  - Fix (visual): overlay each ratio's construction lines on its own layout's exact top: A's square bay on P5R, C's two squares + seam on P5OB-D. Labels readable at page size. Then I check by eye → 10.
+- **To the owner:** one paired choice, not three rectangles. P5R + A (today's case, already √5), or P5OB-D + C. The ratio follows the layout.
+
+## P5OB-D (2026-11-14; c9a4255 / 14d411f; bar 10)
 - **The owner's own structure:** 4 VCOs stacked left with a numeral margin, amp as the top row, filter row under the speaker, echo / reverb / keys on the right; D 145.
 - **Score: 9.** It honours his 20:43 words literally:
   - "voices 1 · 2 · 4" (right with VCO 4);

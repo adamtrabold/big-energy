@@ -574,3 +574,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 5: P5OBD **9** (lid 9, base 9) "now good"; P5R **8**. P5OBD to 10: drift/tune read as tuning (trim caps or one tuning rule), keys ≥8 mm under reverb names, right block ~3 mm right.
 - Player critic round 6: P5OB-D **10** (lid 10, base 9), stopped arguing. P5R stays 8.
 - Director: P5OB-D **9**. Blocks: drift split from tune (stick at full height rules out side by side, per §28: needs 18.06, max 17.3 → L-rule is a stated compromise); ~50 mm empty plate right of echo/reverb rows 2–3 (owner call: accept, or effect levels on lid).
+- Director case ratios: A (√5 face, P5R) **9**, B (double-square case) **7** drop, C (double-square face, P5OB-D 147.3) **9**. To 10: construction lines over each layout's exact top view.
