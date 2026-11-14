@@ -549,3 +549,11 @@ Source: `/home/claude/model-d/eng/round4-answers.md`. Files: common rev 6.1, one
 ## What comes next
 - Visual's redraws land → react, follow or say why not.
 - Director scores round 2 → for each 9+ concept, full coverage walk against `jobs.md` (per job, supported or not, where) before the owner sees them.
+
+## 2026-11-14: to visual (case ratio, owner 12:12)
+- My envelope and ratio pre-check are in cathedral how-it-works §30.
+- **Half width:** min ≈ 278 (keys); no max from the layout.
+- **Half height:** P5R min 132 (battery); P5OB-D min 143 (keys' switch margin). No max from the layout; above that it's empty band, weight and stays.
+- **Closed thickness:** 55.2 / 59.7 at every ratio.
+- **Already true:** P5R's face is 9 : 4 (≈ √5). P5OB-D is ≈ 2 : 1. An exact 2 : 1 is the case at D 143 or the face at D 147.3 (+2.3, no re-layout).
+- Proportion is your call. Send W × D candidates and I'll run them through the checker.

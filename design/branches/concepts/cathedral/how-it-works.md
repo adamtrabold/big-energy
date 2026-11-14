@@ -1487,6 +1487,49 @@ The checker reports what each leaves empty. The visual renders all three.
 - Every control coordinate would scale by M / 5 (−0.9 % for A, +0.9 % for B) from the plate edge.
 - **Owner:** set the module in Figma. Once he picks, the checker's M, the margin lines (ML / MR) and the row ys follow mechanically.
 
+## 30. The case envelope for a ratio study (owner: "is there a more pleasing and harmonious case ratio… have the team look")
+Visual leads on proportion. This section is the feasible envelope, plus a pre-check of the obvious ratios against it.
+
+**Terms:**
+- **Half width** W: the case, today 286.
+- **Half height** D: front to back.
+- **Face:** the plate inside the rim, (W − 8.6) × (D − 8.6), per rb's steer-5 squircle.
+- **Closed thickness:** how tall the closed case stands.
+- The checker's corner test still uses an older plate, D − 4.6 front to back (lid 0.3 … D − 4.3). The faces below use rb's drawn plate.
+
+### 30.1 The envelope (today's module, 20 knob pitch, finger-safe: 5.1 between Ø 14.9 caps)
+| limit | P5R (3 VCOs) | P5OB-D (4 VCOs) | what sets it |
+|---|---|---|---|
+| **min half width** | **≈ 278** (face ≈ 269) | **≈ 278** (face ≈ 269) | **The keys.** 15 naturals at 18 pitch with Ø 14 felt washers span 14 × 18 + 14 = 266. Plus 1.5 to the rim each side and the 4.3 wall: 277.6 (279.6 with Ø 16 heads). The next limit is P5R lid row A at 275.6 (VCO sub-gutters down to 2M), then the base front at 267.6. |
+| **max half width** | no layout limit | no layout limit | The gap rule re-spreads every row. The key row stays 266 wide and sits more inset (≈ 10 a side today, ≈ 17 at W 300). Weight ≈ +2.0 g per mm. Every x re-lays from the margin lines. |
+| **min half height** | **132** (face 123.4) | **143** (face 134.4) | **P5R:** the base battery (4 × 952540 at y 100–126) plus the wall. **P5OB-D:** at D 142 the keys' switches fall 0.9 inside the 3M bottom margin (§25). At 143 the checker shows the same gaps-only result as 145, with 0 slack. |
+| **max half height** | no layout limit; re-lay | **no layout limit**; checked at 150 and 160: still gaps only, no clashes | The extra becomes empty band on both halves (the base's is behind the battery). Weight ≈ +4.2 g per mm. The stand needs the stays scaled; re-check the tip above 145. |
+| **closed stick landing** | the lid's rows must shift by ΔD to keep the window over CUTOFF (d = D − 68). Today P5R's rows are absolute, so any D change means re-laying P5R | **invariant**: the lid rows ride on D − 132, so the stick keeps its spot in the numbers margin at any D ≥ 143. A width change must keep the bank left-anchored (SHIFT 20 from ML) | FOLD: lid (x, d) lands on base (x, D − d) |
+| **battery and boards** | fit at D ≥ 132 (cells y 100–126, Daisy x 199–251 in the rear strip) | fit; 13 mm spare strip at 145 | the base |
+| **closed thickness** | **55.2** (R-LOW) / **59.7** (R-TALL) | same | the knob and stick stack only. **No plan ratio changes it**, so it is the one dimension a ratio can't use. |
+
+**Portability:**
+- The only recorded size is eng's early working box, ≈ 285 × 160 × 30 (owner.md). That was before two halves, and 30 is now 55–60.
+- No bag sizes are recorded. A 55–60 closed thickness rules out laptop sleeves, which take ≈ 20–25 (UNVERIFIED, typical). The case is a main-compartment carry at any ratio, so plan size is not the bag limit here.
+
+### 30.2 Ratios pre-checked against the envelope (until visual names its own)
+Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell estimate (§25 rate); closed thickness is unchanged for every row.
+
+| ratio | P5R | P5OB-D |
+|---|---|---|
+| **Half 2 : 1** (W = 2D) | 286 × 143. +11 half height, ≈ +46 g. P5R's lid rows re-laid on the shift; the base gains an 11 mm strip | **286 × 143.** −2 half height, ≈ −8 g, **no re-layout**. But it's the minimum, with 0 slack for the keys' switches. Or 290 × 145: +4 width, ≈ +8 g, every x re-spread |
+| **Face 2 : 1** (§29 A) | D 147.3: +15.3, ≈ +64 g, re-lay plus a wide empty band. Poor | **D 147.3:** +2.3, ≈ +10 g, **no re-layout**, 2.3 more slack than 145 |
+| **Face 9 : 4 ≈ √5** (2.25 / 2.236) | **today already:** face 2.248 (9 : 4 exact at D 131.9, √5 at 132.7). **Zero cost** | needs D 132 (below 143) or W ≈ 316 (+30, ≈ +62 g, full re-layout). Effectively out |
+| **Open flat square** (W = 2D + 2 seam) | D 142: +10, ≈ +42 g, re-lay | D 142 is below 143. So W 292 at D 145: +6, ≈ +13 g, x re-spread |
+| **Golden** (half φ², footprint φ, open φ) | D 109 / 177 / 87: below the floor or +45 (≈ +190 g) | same. **Out** |
+
+**Plainly:**
+- **P5R's face is already a 9 : 4 (≈ √5) rectangle.**
+- **P5OB-D sits at ≈ 2 : 1.** Exactly 2 : 1 is either the case at D 143 (no slack) or the face at D 147.3 (+2.3, ≈ +10 g, no re-layout).
+- §29's module A gives the P5OB-D face 56 × 28 modules at D 147.3. So "face 2 : 1" and "module from the face" land on the same number.
+
+**Visual:** proportion is yours. Any candidate inside 30.1 is buildable. Send me W × D and I'll run it.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
