@@ -53,8 +53,10 @@ if VARIANT == "P":
     BREAKS.append((188.0, 70.5, A + 9.0))                           # oscillators | mixer
     L("PARA", 23.5, A2, "t", "voices|1 · 3 · 4", "right2")          # whole bank: voices + mod together at the bank's left
     L("OSC MOD", 50.0, A2, "t", "mod|off · on", "right2")
-    L("OSC 3 CTL", 163.5, A2, "t", "track|off · on", "right2")      # VCO 3's own switch, under VCO 3 (x 163.5: clear of
-                                                                    #   the "envelopes" heading on the axis)
+    L("OSC 3 CTL", 121.0, A2, "t", "track|off · on", "right2")      # VCO 3's own switch at x 121, under the "3" that leads
+                                                                    #   VCO 3 (director: at 163.5 it read as an envelope switch).
+                                                                    #   x 133.5, under octave 3, puts its legend into "envelopes"
+                                                                    #   (the scan fails from x 124: gap 0.85)
     L("SOURCE", 257.5, A2, "t", "source|noise · input · loop", "right2")   # under EXTRA; x 257.5 keeps the line inside the rim
     SECTIONS += [("oscillators", 98.5, A + 16.9), ("mixer", 232.5, A + 16.9)]
     # ---- band 2: keys column | filter envelope | release (axis) | amp envelope | out column

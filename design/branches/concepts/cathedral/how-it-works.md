@@ -908,7 +908,7 @@ Owner, verbatim: "Labels should only be one word and follow best practices with 
 | Where | Words now (positions left · middle · right) | Geometry change |
 |---|---|---|
 | oscillators | octave · wave · pitch; numerals **1 · 2 · 3** | **Numerals lead each VCO group at knob height** (x 10 / 56 / 121, d 84.55, Kalam 2.35), in the gaps before each group's first knob. There's no room *over* the groups: 2.1 mm between the legends' top (97.5) and "oscillators" (100.2) |
-| oscillator switches | **voices: 1 · 3 · 4**, **mod: off · on**, **track: off · on** | track moves 133.5 → **163.5**, still under VCO 3, clear of the "envelopes" heading |
+| oscillator switches | **voices: 1 · 3 · 4**, **mod: off · on**, **track: off · on** | **track at x 121**, in the gap that leads VCO 3, directly under its "3" numeral. At 163.5 it sat beside "envelopes" and read as an envelope switch (director). Under octave 3 (133.5) it can't go: the checker fails from x 124, because its legend runs into "envelopes" (0.85 at 124). At 121 the gap is 3.85 |
 | mixer | **1 · 2 · 3 · extra**; **source: noise · input · loop** | SOURCE 258 → **257.5**, so its line ends inside the rim (≈ 280.0 in real-Kalam width) |
 | envelopes | heading **"envelopes"** (3.0) on the axis at d 69.8; sub-heads **"filter"** and **"amp"** centred over their groups (x 83.5 / 202.5) on the heading line, Kalam 2.35 at d 68.5 (visual fec6093; lower down they read as "filter sustain" / "amp attack"). Light names sit 1.8 behind the lights; attack · decay · sustain under each | the two contour headings are replaced |
 | release | **release: off · on**, centred on the axis at (143, d 61.5), under "envelopes" and between the groups. Its place says "both"; the manual says "on" = release follows decay | — |
