@@ -4,18 +4,18 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL: two layouts in progress (not ready to approve yet)
-**Status:** in progress after your 20:29–20:45 notes. Director's latest scores (bar 10): team rows **P5R 8**, your layout **P5O 6**, shared base **7**. Both are being fixed (equal gaps, clear reading order, headings on top) and you'll see both again. These pictures are the current drafts, not finished.
+## 1. CATHEDRAL: team rows (P5R) ready, director scored 10
+**Approve P5R as the CATHEDRAL layout?** Your layout (P5O, which fits the 4th analog oscillator) is a step behind and comes next; choosing between the two, and whether to add the 4th oscillator, follows once you've seen both.
 
-- **Rule:** the lid sets what the sound is; the base sets how much you hear and what your hands ride, left to right.
-- **Both halves 24 mm deeper** (108 → 132 mm) so the base fits a second row; closed thickness unchanged.
+- **Lid, read top to bottom:** oscillators and tuning; filter envelope · speaker · amp envelope, mirrored about the speaker; keys · echo · reverb · out.
+- **Base:** controllers, mixer, effects levels, filter, volume and tempo, over two rows of peg keys.
+- **Both halves 132 mm deep** (from 108) to fit the second base row; closed thickness unchanged.
 - **Softer continuous-curve corners**, the **spine back** (dark walnut cloth, brass bands), **lines** for the grille (more open than dots).
-- **4th analog oscillator:** fits your layout; whether to add it is yours to decide once both are ready.
+- **Open:** in P5O, does "amp controls … left to right in the top row" mean the amp envelope? A full top row doesn't fit at 132 mm, so it stays a column until you say.
 
-![Team rows (P5R): full top, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
-![Your layout (P5O): full top, draft, with the 4th oscillator slot ghosted](branches/concepts/cathedral/img/cathedral-s5-P5O-top-9.9px-per-mm.png)
-![Team rows (P5R): standing, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
-![Closed, with the spine, draft](branches/concepts/cathedral/img/cathedral-s5-closed-spine.jpg)
+![Team rows (P5R): full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
+![Team rows (P5R): standing](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
+![Closed, with the spine](branches/concepts/cathedral/img/cathedral-s5-closed-spine.jpg)
 ![Spine, standing](branches/concepts/cathedral/img/cathedral-s5-spine-standing.jpg)
 ![Spine, flat](branches/concepts/cathedral/img/cathedral-s5-spine-flat.jpg)
 ![Grille: lines vs dots, 1:1](branches/concepts/cathedral/img/cathedral-s5-grille-lines-vs-dots-20px-per-mm.png)
