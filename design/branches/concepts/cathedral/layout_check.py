@@ -109,16 +109,19 @@ if VARIANT == "P5O":
     # right block (steer 5 fixes 4): every legend in it sits UNDER its control (one side per group), and each heading
     # keeps ≥ 1M under the legend zone above it. Its own vertical spacing inside D 132:
     #   echo: R1 type · time, R2 free · sync · repeats · pan;
-    #   reverb on R3 reads decay · type, the type knob 25 from decay (not 20), so its fan words sit ≥ 8 mm to the side
-    #     of the heading and the heading can sit just over decay (a heading over the fan would need 7.75 mm more);
+    #   echo's second row at d 84 (not 79): repeats and pan step half a column right (233 / 253) so they clear
+    #     type's and time's legends above them; that buys "reverb" its 1M under free · sync's words;
+    #   reverb on R3 reads type · decay again, its heading in the zone 3 mm over the type knob's fan words
+    #     (steer 5 fixes 5: over decay it shared a line with "hall" / "spring", 16 mm away);
     #   out on R4 reads link · pan, link a switch at d 20, so "out" sits over a 9.2 switch, not a 14.9 knob.
+    E2 = R2 + M
     L("ECHO TYPE", RX[0], R1, "k", "type", "front"); L("ECHO TIME", RX[1], R1, "k", "time", "front")
-    L("FREE/SYNC", RX[0] - KN + 4.6, R2, "t", "free · sync", "under")
-    L("ECHO REPEATS", RX[1], R2, "k", "repeats", "front"); L("ECHO PAN", RX[2], R2, "k", "pan", "front")
-    L("REVERB DECAY", RX[0], R3, "k", "decay", "front"); L("REVERB TYPE", RX[0] + 25, R3, "k", "type", "front")
+    L("FREE/SYNC", RX[0] - KN + 4.6, E2, "t", "free · sync", "under")
+    L("ECHO REPEATS", RX[1] - 6.3, E2, "k", "repeats", "front"); L("ECHO PAN", RX[2] - 6.25, E2, "k", "pan", "front")
+    L("REVERB TYPE", RX[0], R3, "k", "type", "front"); L("REVERB DECAY", RX[1], R3, "k", "decay", "front")
     LKX, LKD = RX[0] - KN + 4.6, 20.0
     L("FOLLOW", LKX, LKD, "t", "link|off · on", "below2"); L("DRY PAN", RX[1], R4, "k", "pan", "front")
-    DOTS += [("dot echo pan", RX[2] + 1.75 + 1.55 + 0.6, R2 - KN - 3.5, "ECHO PAN"),
+    DOTS += [("dot echo pan", RX[2] - 6.25 + 1.75 + 1.55 + 0.6, E2 - KN - 3.5, "ECHO PAN"),
              ("dot link", LKX + len("off · on") * 0.25 * NS + 1.5 + 0.6, LKD - TGL - BELOW2_TOP - 0.425 * SW_LS, "FOLLOW")]
     over = lambda d, top_extra=0.0: d + KN + top_extra + 1.5 + 0.425 * HS     # a heading's centre over a row's knob tops
     fan_top = KN + 7.2 + 0.425 * 1.3                                          # a TYPE knob's outer fan names, above its centre
@@ -126,19 +129,19 @@ if VARIANT == "P5O":
     HT = R1 + KN + 7.2 + 0.425 * 1.3 + 3.0 + 0.425 * HS                       # the top heading line: above echo type's fan words (122.0)
     SECTIONS_LEFT += [("oscillators", ML, HT), ("tuning", TX - KN, HT), ("echo", RX[0] - KN + 0.5, HT),
                       ("filter", FX5 - KN, over(R2) + 1.6), ("amp", AX5 - KN, over(R2) + 1.6),
-                      ("reverb", RX[0] - KN, over(R3)),
-                      ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 1.0), ("out", LKX - 4.6, LKD + 4.6 + 1.5 + 0.425 * HS)]
+                      ("reverb", RX[0] - KN, R3 + fan_top + 3.0 + 0.425 * HS),
+                      ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 1.0), ("out", LKX - 4.6, LKD + 4.6 + 1.5 + 0.425 * HS + 0.3)]   # out +0.3 (visual, real Kalam)
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     # "oscillators" runs on as an engraved hairline (0.4); it stops before "tuning" and restarts over the switches
     # (at voices' nut, visual rev 9.1), so it doesn't read as tuning's leader
     BANK_END = BX + 40 + 6.2 + 8 * 0.5 * NS * 1.25
     HAIR += [("oscillators hairline", ML + 21.5, HT - 0.2, BANK_END, HT + 0.2)]
-    NAME_BOX = ("big energy", 143.0, 37.6, 2.0)                    # rev 9.1: +0.3, keeping 1.5 over "keys"
+    NAME_BOX = ("big energy", 143.0, 90.5, 2.0)                    # visual 528deea: over the window, between "filter" and "amp"
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["PARA", "OSC MOD", "OSC 3 CTL"], ["TUNE", "DRIFT"],
                                 ["ECHO TYPE", "ECHO TIME"]]),
                 ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], ["F ATTACK"], "WIN", ["L ATTACK"], ["FREE/SYNC", "ECHO REPEATS", "ECHO PAN"]]),
-                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3"], ["F DECAY"], "WIN", ["L DECAY"], ["REVERB DECAY", "REVERB TYPE"]]),
+                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3"], ["F DECAY"], "WIN", ["L DECAY"], ["REVERB TYPE", "REVERB DECAY"]]),
                 ("lid R4", R4, [["RANGE 4", "WAVE 4", "FREQ 4"] if VCO4 else "RES", ["F SUSTAIN"], ["VEL", "AFTERTOUCH"],
                                 ["L SUSTAIN"], ["FOLLOW", "DRY PAN"]])]
 elif VARIANT == "P5R":
@@ -203,7 +206,7 @@ elif VARIANT == "P5R":
     if keysW: SECTIONS.append(("keys", ML + keysW / 2, HC))
     # (fallback: no room for a "keys" heading on the switch line; the pair sits under "tuning", the fallback's cost)
     SUBHEADS += [("filter", FXR + 20, 79.5), ("amp", AXR + 20, 79.5)]
-    NAME_BOX = ("big energy", 143.0, 34.0, 2.0)
+    NAME_BOX = ("big energy", 143.0, 34.0 if KEYS_LINE else 38.0, 2.0)   # visual 528deea (the fallback keeps 34: reverb's fan sits at 38)
     FX, FX_BREAKS, SWL = C5, [], BD
     GAP_ROWS = [("lid A", A5, [["RANGE 1", "WAVE 1", "PARA"], ["RANGE 2", "WAVE 2", "FREQ 2", "OSC MOD"],
                                ["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], ["TUNE", "DRIFT"] + (["VEL", "AFTERTOUCH"] if KEYS_LINE else [])]),
@@ -454,7 +457,7 @@ def legend2(x, d, nm, pos, where="right2"):
         return (x + 6.2, d - TS_LEAD[1] - hp / 2, x + 6.2 + w, d + TS_LEAD[0] + hn / 2)
     if where == "above2":                                           # name over positions ABOVE the switch (base rear-row style)
         bot = d + TGL + 2.35
-        return (x - w / 2, bot, x + w / 2, bot + hp + 0.9 + hn)
+        return (x - w / 2, bot, x + w / 2, bot + hp + BELOW2_LEAD + hn)    # 1.25 between the lines (visual 528deea)
     if where == "left2":                                            # the mirror: right-aligned at x - 6.2
         return (x - 6.2 - w, d - TS_LEAD[1] - hp / 2, x - 6.2, d + TS_LEAD[0] + hn / 2)
     top = d - TGL - BELOW2_TOP                                      # under the toggle (visual rev 9: 2.25, 1.25 between the lines)
@@ -545,16 +548,17 @@ def check():
         for ln, b in labs:
             if b is hb or "hairline" in ln: continue
             side = max(b[0] - hb[2], hb[0] - b[2], 0.0)
-            if side >= 8.0: continue
+            fanw = " fan " in ln or " scale " in ln
+            if side >= (20.0 if fanw else 8.0): continue                 # fan words read as one line with a heading 16 mm off
             if abs(hb[1] - b[1]) <= 1.5 + 1e-6: bad.append(f"PHRASE {hl} with {ln}: baselines {abs(hb[1] - b[1]):.2f} apart, {side:.1f} sideways")
-            if (" fan " in ln or " scale " in ln) and hb[3] > b[1] - 1.5 and hb[1] < b[3] + 3.0 - 1e-6:
+            if fanw and hb[3] > b[1] - 1.5 and hb[1] < b[3] + 3.0 - 1e-6:
                 bad.append(f"ZONE {hl} not above {ln} ({hb[1] - b[3]:.2f})")
     # ≥ 1M between a legend zone and the next heading under it (steer 5 fixes 4), and one legend side per group
     if STEER5:
         legs = [(ln, b) for ln, b in labels()]
         for hl, hb in [(ln, b) for ln, b in labs if ln.startswith("head ")]:
             for ln, b in legs:
-                if max(b[0] - hb[2], hb[0] - b[2]) < 0 and b[1] >= hb[3] - 1e-6 and b[1] - hb[3] < M - 1e-6:
+                if max(b[0] - hb[2], hb[0] - b[2]) < 8.0 and b[1] >= hb[3] - 1e-6 and b[1] - hb[3] < M - 1e-6:
                     bad.append(f"LEGEND→HEAD {ln} over {hl}: {b[1] - hb[3]:.2f} < 1M")
         side = {"front": "under", "under": "under", "below2": "under", "behind": "over", "above2": "over"}
         wh = {n: w for n, x, d, r, k, lab, w in lid}
