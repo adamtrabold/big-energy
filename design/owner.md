@@ -279,3 +279,6 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-14 01:32 (b)
 > Have a synth expert who has deep understanding of playing synths be devils advocate until he or she thinks it’s good
+
+## 2026-11-14 01:33
+> Also it doesn’t need to say big energy
