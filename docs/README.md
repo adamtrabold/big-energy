@@ -15,8 +15,8 @@ Owner (2026-11-13 16:21, `../design/owner.md`): "we need on that site architectu
 | [features/voice.md](features/voice.md) | 3 VCOs, mixer, ladder filter, contours, VCA, SOURCE, filter TRACK | **written 2026-11-13** |
 | [features/keys-and-velocity.md](features/keys-and-velocity.md) | 25 Choc V2 keys, Hall sensing, velocity, key tops / pegs | **written 2026-11-13** |
 | [features/aftertouch.md](features/aftertouch.md) | FSR strip, floating strip C, MOD / OFF / FILTER | **written 2026-11-13** |
-| [features/bend-and-mod.md](features/bend-and-mod.md) | bend joystick, MOD knob, mod VCA | not yet written |
-| [features/paraphonic.md](features/paraphonic.md) | VOICES 1 / 3 / 4 (mono / para / para+4), allocation, the digital 4th oscillator | not yet written |
+| [features/bend-and-mod.md](features/bend-and-mod.md) | bend joystick, MOD knob, mod VCA | **written 2026-11-13** |
+| [features/paraphonic.md](features/paraphonic.md) | VOICES 1 / 3 / 4 (mono / para / para+4), allocation, the digital 4th oscillator | **written 2026-11-13** |
 | [features/autotune-and-drift.md](features/autotune-and-drift.md) | TIM5 counting, coarse + fine DACs, held-note loop, DRIFT, filter cal | not yet written |
 | [features/effects.md](features/effects.md) | echo (4 types), reverb (4 types), wet-only return, send gating | **written 2026-11-13** |
 | [features/echo-sync.md](features/echo-sync.md) | FREE / SYNC, TAP, MIDI clock, divisions | **written 2026-11-13** |
