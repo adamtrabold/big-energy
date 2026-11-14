@@ -82,9 +82,10 @@ def mark(x, y, z, r, name, ink):
     return s
 
 # ---- round 6 (player review round 2): MIDI dots back, one place; stepped pointers on a detent; octave positions
-MIDI_DOT = ("MOD", "GLIDE", "CUTOFF", "TUNE", "FREQ 2", "FREQ 3", "FREQ 4", "RANGE 1", "RANGE 2", "RANGE 3", "RANGE 4",
-            "DRY PAN", "ECHO PAN")   # docs/features/midi.md "the MIDI-dot parameters" (ECHO / REVERB MIX: owner's open call)
+MIDI_DOT = ("MOD", "GLIDE", "CUTOFF", "TUNE", "FREQ 2", "FREQ 3", "FREQ 4", "DRY PAN", "ECHO PAN")
+           # docs/features/midi.md, round 7/8: knobs only, never a switch or a detented selector (octave dropped)
 TAP_CAP = "#3a3632"   # TAP's cap: matte warm black, a shade lighter than the bezel, so the lit ring reads between them
+MIDI_KEY_S = 1.55    # the key's word: switch-name size, so it reads as a key, not a heading
 MIDI_DOT_D, MIDI_DOT_GAP = 0.9, 1.0   # Ø 0.9, 1.0 clear right of the knob word's last letter, on its x-height centre
 OCTAVE_LINE = "lo · 32 · 16 · 8 · 4 · 2"   # RANGE's six firmware positions (eng/budget-variant.md: LO, 32'-2')
 _WB = {}
@@ -1735,7 +1736,7 @@ def nv_fit_sections(lc, sections):
     return list(sections)
 
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
-P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"
+P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6), "oscillators": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"; 3fa4e78: oscillators 0.93 over the "1"
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
@@ -2086,7 +2087,20 @@ class Nave(Cathedral):
             s += box(x0, L0 + d0, z, x1, L0 + d1, z + 0.03, self.rule_col())
         for nm_, x, d, _ in ([] if self._sq() else getattr(lc, "DOTS", [])):   # link dots (none in steer 5: read as MIDI dots)
             s += cyl(x, L0 + d, z - 0.005, 0.04, 1.2, ink, fn=24)
+        mk = getattr(lc, "MIDI_KEY", None)
+        if mk is None and self._sq():                    # round 8: every option carries the key, top right on its top
+            hd = max((d_ for t_, x_, d_ in sections), default=None)   #   heading line (P5R's comes from the checker)
+            if hd is not None:
+                mk = ("• midi", lc.MR, hd, lc.NS)
+                s += txt(lc.MR, L0 + hd, z, "midi", MIDI_KEY_S, ink, font=st.font, halign="right")
+                b_ = word_box("midi", MIDI_KEY_S)
+                s += cyl(lc.MR - (b_[2] - b_[0]) - MIDI_DOT_GAP - MIDI_DOT_D / 2, L0 + hd - 0.12 * MIDI_KEY_S, z, 0.04, MIDI_DOT_D, ink, fn=16)
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
+            if mk and t == mk[0]:                         # round 8: the printed key, "• midi", with the panel's own dot
+                s += txt(x, L0 + d, z, "midi", MIDI_KEY_S, ink, font=st.font, halign="right")
+                b = word_box("midi", MIDI_KEY_S)
+                s += cyl(x - (b[2] - b[0]) - MIDI_DOT_GAP - MIDI_DOT_D / 2, L0 + d - 0.12 * MIDI_KEY_S, z, 0.04, MIDI_DOT_D, ink, fn=16)
+                continue
             col = INK_LIGHT if (sz <= lc.NS + 1e-6 or (t == "4" and self._ghosting())) else ink   # the ghost slot's "4"
             s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
         s += self.vco4_ghost(z)
@@ -2123,6 +2137,8 @@ class Nave(Cathedral):
         s = "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
         # e38e035: base sub-headings ("mod" over pitch · filter · blend), left-aligned, Kalam 1.8
         s += "".join(txt(x, y, BASE_H + 0.01, t, 1.8, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
+        for nm_, x0, y0, x1, y1 in getattr(self.lc, "BASE_HAIR", []):   # round 8: "mod" runs on as a hairline over blend
+            s += box(x0, y0, BASE_H + 0.02, x1, y1, BASE_H + 0.05, self.rule_col())
         return s
 
     def base_extra(self, walnut):

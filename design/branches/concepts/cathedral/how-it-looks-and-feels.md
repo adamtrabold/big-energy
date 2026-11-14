@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 9.8: round 7, systems e38e035; MIDI dots back, octave positions, TAP not brass)
+# CATHEDRAL: how it looks and feels (visual, rev 9.9: round 8, systems 3fa4e78; MIDI subset with a printed key)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`; then P5R 9, P5O 8. Rev 9.1 lays out systems' fixes for the 10 (f8ba494): P5R's oscillator switches on one line under the VCOs; P5O's headings top-left, every VCO reading octave · wave · pitch, tune · drift as a headed "tuning" pair after VCO 1, and out in R4's right slot.
 
@@ -27,7 +27,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 | **Octave positions** (round 6, player review 2 §10) | Octave prints its six positions as a names line, like TIME's: *lo · 32 · 16 · 8 · 4 · 2* (the firmware's LO, 32'–2'), on the far side of its word from the knob. **Wave** keeps ticks only: its six shapes are a scale you hear. |
 | **Stepped pointers** | A stepped knob always points **at a detent** in every drawing, so the pointer and the ticks agree (renders used to leave octave and the types between detents). |
 | **TIME** | The continuous ring. The arrow, triangle and dot clusters are gone. Its SYNC divisions print as a names line under "time" once their count is settled (spec 9; the review proposes 6: 1/16 · 1/8 · 1/8. · 1/4 · 1/2 · 1/1). **Systems.** |
-| **MIDI dots** (round 6: back) | **One dot, Ø 0.9, always 1.0 right of the knob word's last letter, on the word's x-height**, on knobs only, never on switches. On the knobs in `docs/features/midi.md`'s MIDI-dot table: mod, glide, cutoff, tune, pitch 2 / 3, octave 1–3, out pan, echo pan. Echo and reverb mix get one if he adds them (his open call). Rev 9.6 dropped them because they wandered. The rule fixes that, and the architecture relies on them ("a DAW can move any knob marked with a MIDI dot"). |
+| **MIDI dots** (round 6: back) | **One dot, Ø 0.9, always 1.0 right of the knob word's last letter, on the word's x-height**, on knobs only, never on switches. On the knobs in `docs/features/midi.md`'s MIDI-dot set (round 8): mod, glide, cutoff, tune, pitch 2 / 3 (/ 4), out pan, echo pan. Never on a switch or a detented selector, so **octave carries no dot**. **A printed key, "• midi", sits at the lid's top right on its top heading line**, using the same dot. Echo and reverb mix get one if he adds them (his open call). Rev 9.6 dropped them because they wandered. The rule fixes that, and the architecture relies on them ("a DAW can move any knob marked with a MIDI dot"). |
 | **Link dots** ("pan●", "link●") | **Gone.** The player read them as MIDI dots. The word "link" carries the pairing. |
 | **Oscillator numbers** | In a **margin column** at x 11, aligned, clear of the octave rings (review 6). Before, they sat against the ring at nine o'clock and read as octave position numbers. |
 
@@ -36,6 +36,17 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **"envelopes", for systems:** take the review's §11: one ENVELOPES heading, with FILTER and AMP as row or column labels in the same margin style as the oscillator numbers, off the grille.
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
+
+### Rev 9.9: round 8 (systems 3fa4e78)
+- **P5R:**
+  - the VCO numbers are sub-headings on the "tuning" line; row A is at d 99;
+  - base: both rows end on the margin; the mixer sits over the filter knobs; track is a 3-way low slide left of resonance; TAP is back on the front row; "mod" runs on as a hairline over blend.
+- **MIDI:**
+  - octave's dots are gone (it's a detented selector);
+  - the key "• midi" (the panel's dot, word at 1.55) is at the top right. P5R's position comes from the checker; every other option puts it on its top heading line at the right margin, so all options read the same.
+  - **Agreed with systems:** a key is the honest way to make a subset legible.
+- **Fit:** P5R "oscillators" +0.6 (0.93 over the "1" sub-heading). Real Kalam 0, rules 0, director's tests 0 (P5R).
+- **P5OB (earlier study, re-rendered with the marking and key):** "reverb" overlaps "repeats" (−1.0) and "keys" is 1.31 from octave 3. Both are the study's geometry; the gaps are kept.
 
 ### Rev 9.8: round 7 (systems e38e035)
 - **P5R:** headings top left, a "tuning" sub-heading, VCO numbers in the gaps. Base: release behind bend; a "mod" sub-heading over pitch · filter · blend; "out" over volume · pan · link; "effects" over echo · reverb · tap; no "tempo".
