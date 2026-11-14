@@ -41,6 +41,10 @@ if STEER5:
     WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 VCO4 = os.environ.get("CATHEDRAL_VCO4", "0") == "1"   # the optional 4th analog VCO (owner question, §19.5): lid + base mixer 4
 ML, MR = 4.3 + 3 * M, 281.7 - 3 * M                # the margin lines: 3M inside the plate edges (x 19.3 / 266.7)
+GHOST = []     # P5O without VCO 4: the slot's knob outlines (light ink), checked as controls: (name, x, d, r, legend)
+NAME_BOX = None  # the name, a light-ink word under the window: (text, x, d, size)
+HAIR = []      # engraved hairlines checked as obstacles: (name, x0, d0, x1, d1)
+BELOW2_LEAD, BELOW2_TOP = 1.25, 2.25   # under-switch legends (visual rev 9): line gap, block top under the nut
 RESERVED = []  # (row, x0, x1): a slot kept for VCO 4, drawn blank; the gap rule counts it as a group
 
 lid = []      # name, x, d, r, kind ('k' knob / 't' toggle), legend, legend placement
@@ -65,7 +69,7 @@ if VARIANT == "P5O":
     C1 = ML + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)              # octave · pitch · wave · drift columns
     FX5 = OX[2] + KN + G + KN; AX5 = 286.0 - FX5                    # filter 101.65 / amp 184.35 (mirror)
     RC = AX5 + KN + G + KN; RX = (RC, RC + 20, RC + 40)             # right block columns 219.25 / 239.25 / 259.25
-    NUMX = C1 - 9.6                                                 # VCO numerals hang in the margin (1.5 from the knob)
+    NUMX = C1 - 9.9                                                 # VCO numerals hang in the margin (visual rev 9: 0.3 further out)
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("TUNE", OX[1], R1, "tune"), ("WAVE 1", OX[2], R1, "wave"),
                          ("DRIFT", OX[3], R1, "drift"),
                          ("RANGE 2", OX[0], R2, "octave"), ("FREQ 2", OX[1], R2, "pitch"), ("WAVE 2", OX[2], R2, "wave"),
@@ -78,6 +82,9 @@ if VARIANT == "P5O":
         NOTES.append(("4", NUMX, R4, NUM_S, "center"))
     else:
         RESERVED.append(("lid R4", OX[0] - KN, OX[2] + KN))
+        GHOST += [(n, x, R4, KN, lab) for n, x, lab in (("ghost octave 4", OX[0], "octave"), ("ghost pitch 4", OX[1], "pitch"),
+                                                         ("ghost wave 4", OX[2], "wave"))]
+        NOTES.append(("4", NUMX, R4, NUM_S, "center"))
     # R1: the oscillator switches between VCO 1 and echo, equal gutters (the bank is 56 wide: 3 toggles at 4M)
     E1L = RX[0] - KN                                               # echo's left edge on R1
     BW = 4.6 + 40 + 6.2 + 5.2                                       # bank extent: first nut -> "off · on" end
@@ -101,10 +108,14 @@ if VARIANT == "P5O":
     DOTS += [("dot echo pan", RX[1] + 1.75 + 1.55 + 0.6, R2 - KN - 3.5, "ECHO PAN"),
              ("dot link", RX[1] + 6.2 + 8 * 0.5 * NS + 2.1, R4 + TS_LEAD[0], "FOLLOW")]
     HD = lambda d, legend_behind: d + KN + (3.5 + BEHIND_EXTRA + 1.0 if legend_behind else 0.0) + 1.5 + 0.425 * HS   # heading over a row
-    SECTIONS += [("oscillators", (OX[0] + OX[3]) / 2, 120.9), ("echo", RX[1], 120.9),
-                 ("filter", FX5, HD(R2, True)), ("amp", AX5, HD(R2, True)),
-                 ("reverb", RX[0] + 12.5, HD(R3, False)), ("keys", 143.0, R4 + 4.6 + 1.5 + 0.425 * HS),
+    # visual rev 9: "oscillators" starts on the margin line (left-aligned; the centre given here is the same box) with
+    # an engraved hairline (0.4) running on to the end of the switch bank; "filter" / "amp" +0.8; "reverb" over decay
+    SECTIONS += [("oscillators", ML + len("oscillators") * 0.25 * HS, 120.9), ("echo", RX[1], 120.9),
+                 ("filter", FX5, HD(R2, True) + 0.8), ("amp", AX5, HD(R2, True) + 0.8),
+                 ("reverb", RX[1] + 1.75, HD(R3, False) + 1.6), ("keys", 143.0, R4 + 4.6 + 1.5 + 0.425 * HS),
                  ("out", (RX[0] + RX[1]) / 2, HD(R4, False))]
+    HAIR.append(("oscillators hairline", ML + 21.5, 120.9 - 0.2, BX + 40 + 6.2 + 8 * 0.5 * NS * 1.25, 120.9 + 0.2))
+    NAME_BOX = ("big energy", 143.0, 37.3, 2.0)
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "TUNE", "WAVE 1", "DRIFT"], ["PARA", "OSC MOD", "OSC 3 CTL"],
                                 ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]]),
@@ -127,7 +138,7 @@ elif VARIANT == "P5R":
     for n, x, lab in zip(["RANGE 1", "WAVE 1", "RANGE 2", "FREQ 2", "WAVE 2", "RANGE 3", "FREQ 3", "WAVE 3", "TUNE", "DRIFT"],
                          sum(xs, []), ["octave", "wave", "octave", "pitch", "wave", "octave", "pitch", "wave", "tune", "drift"]):
         L(n, x, A5, "k", lab, "behind")
-    NOTES += [(t, g[0] - 9.6, A5, NUM_S, "center") for t, g in zip(("1", "2", "3"), xs)]
+    NOTES += [(t, g[0] - 9.9, A5, NUM_S, "center") for t, g in zip(("1", "2", "3"), xs)]
     BREAKS.append(((xs[2][-1] + xs[3][0]) / 2, 96.0, 113.0))        # oscillators ‖ tuning
     L("OSC 3 CTL", xs[2][1], A5s, "t", "track|off · on", "right2")   # VCO 3's own switch, under its pitch
     # row B: switches (voices / mod) | filter | (window) | amp (mirror) | keys (velocity / touch); gutters G
@@ -152,8 +163,9 @@ elif VARIANT == "P5R":
     DOTS += [("dot echo pan", EC + 75 + 1.75 + 1.55 + 0.6, C5 - KN - 3.5, "ECHO PAN"),
              ("dot link", OC + 20 + 6.2 + 8 * 0.5 * NS + 2.1, C5 + TS_LEAD[0], "FOLLOW")]
     SECTIONS += [("oscillators", (xs[0][0] + xs[2][-1]) / 2, 120.9), ("tuning", (xs[3][0] + xs[3][1]) / 2, 120.9),
-                 ("envelopes", 143.0, 91.8), ("keys", KYX + 7.0, 85.0),
-                 ("echo", ML + wE / 2, 37.5), ("reverb", RVC + 20, 37.5), ("out", OC + 10, 37.5)]
+                 ("envelopes", 143.0, 91.8), ("keys", KYX + 7.0, 85.5),
+                 ("echo", ML + wE / 2, 37.5), ("reverb", RVC + 22.0, 37.5), ("out", OC + 10, 37.5)]
+    NAME_BOX = ("big energy", 143.0, 34.0, 2.0)
     SUBHEADS += [("filter", FXR + 20, 79.5), ("amp", 286 - FXR - 20, 79.5)]
     FX, FX_BREAKS, SWL = C5, [], BD
     GAP_ROWS = [("lid A", A5, [["RANGE 1", "WAVE 1"], ["RANGE 2", "FREQ 2", "WAVE 2"], ["RANGE 3", "FREQ 3", "WAVE 3"], ["TUNE", "DRIFT"]]),
@@ -403,8 +415,8 @@ def legend2(x, d, nm, pos, where="right2"):
         return (x + 6.2, d - TS_LEAD[1] - hp / 2, x + 6.2 + w, d + TS_LEAD[0] + hn / 2)
     if where == "left2":                                            # the mirror: right-aligned at x - 6.2
         return (x - 6.2 - w, d - TS_LEAD[1] - hp / 2, x - 6.2, d + TS_LEAD[0] + hn / 2)
-    top = d - TGL - 2.1                                             # base: under the toggle, 0.9 between the lines
-    return (x - w / 2, top - hn - 0.9 - hp, x + w / 2, top)
+    top = d - TGL - BELOW2_TOP                                      # under the toggle (visual rev 9: 2.25, 1.25 between the lines)
+    return (x - w / 2, top - hn - BELOW2_LEAD - hp, x + w / 2, top)
 
 def note_boxes():
     out = []
@@ -453,12 +465,21 @@ def check():
         if x - r < 16 - 1e-6 or 286 - (x + r) < 16 - 1e-6: bad.append(f"EDGE {n}")
         if d - r < 7 - 1e-6: bad.append(f"SEAM {n}")
         if d + r > D - 4 - 12 + 1e-6: bad.append(f"FAR RIM {n}")
-    labs = labels() + [("head " + t, (x - len(t) * 0.5 * HS / 2, d - 0.425 * HS, x + len(t) * 0.5 * HS / 2, d + 0.425 * HS))
+    for n, x, d, r, lab in GHOST:                                    # the VCO 4 outlines are controls for every check
+        for m, x2, d2, r2, *_ in lid:
+            if math.dist((x, d), (x2, d2)) - r - r2 < 1.5 - 1e-6: bad.append(f"GAP {n}/{m}")
+    labs = labels() + [(n, tbox(x, d, lab, LS, "behind", r)) for n, x, d, r, lab in GHOST] + \
+           [(n, (x0, d0, x1, d1)) for n, x0, d0, x1, d1 in HAIR] + \
+           ([("name", (NAME_BOX[1] - len(NAME_BOX[0]) * 0.25 * NAME_BOX[3], NAME_BOX[2] - 0.425 * NAME_BOX[3],
+                       NAME_BOX[1] + len(NAME_BOX[0]) * 0.25 * NAME_BOX[3], NAME_BOX[2] + 0.425 * NAME_BOX[3]))] if NAME_BOX else []) + \
+           [("head " + t, (x - len(t) * 0.5 * HS / 2, d - 0.425 * HS, x + len(t) * 0.5 * HS / 2, d + 0.425 * HS))
                        for t, x, d in SECTIONS] + decor() + note_boxes() + \
            [("sub " + t, (x - len(t) * 0.5 * SUB_S / 2, d - 0.425 * SUB_S, x + len(t) * 0.5 * SUB_S / 2, d + 0.425 * SUB_S))
             for t, x, d in SUBHEADS] + [(n, (x - 0.6, d - 0.6, x + 0.6, d + 0.6)) for n, x, d, _ in DOTS]
+    ghost = [(n, x, d, r, "k") for n, x, d, r, lab in GHOST]
     for ln, b in labs:
-        for n, x, d, r, k, *_ in lid:
+        for n, x, d, r, k, *_ in list(lid) + ghost:
+            if ln == n: continue                                       # a ghost's own legend
             if ln.startswith(n + " ") and (" fan " in ln or " scale " in ln): continue   # a knob's own fan / scale
             if gap_bc(b, x, d, r) < 1.5 - 1e-6: bad.append(f"LABEL {ln} vs {n} {gap_bc(b, x, d, r):.2f}")
         if gap_bc(b, *WIN) < 1.0: bad.append(f"LABEL {ln} vs window {gap_bc(b, *WIN):.2f}")

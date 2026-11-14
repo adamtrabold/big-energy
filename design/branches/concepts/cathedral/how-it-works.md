@@ -1107,7 +1107,7 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
 - **Each pivot is now a leaf pair on an internal bulkhead, just inside where the back wall runs straight:** x 28.3–32.3 and 253.7–257.7. The axis is unchanged (y D + 1, z 26.25), and it's still blind from outside.
 - **Clear of:** the battery (x 36–196, so 3.7 mm) and the Daisy (x 199–251, so 2.7 mm). They share the rear strip. The base's rear row is at y ≤ 100, and the ears sit at y ≥ 126.
 - **The stays' pivots move from lid d 30 to d 34.** At d 30 they'd sit on the soft corner, where the end wall turns. They stow at d 34–78.4, all on the straight wall.
-- **Spine (owner: "bring the spine back if we can make it look good"):** with the pivots inboard, the spine runs the full width over both ears and wraps the soft back corners (the visual's walnut cloth with brass bands). Its bend centre is the pivot axis, as in §6. The ears stand ≈ 6 mm round the axis, so the cloth needs ≥ 6.5 mm of bend radius there (ESTIMATE). The 21.9 closed / 2.1 open slot geometry is unchanged.
+- **Spine (owner: "bring the spine back if we can make it look good"):** with the pivots inboard, the spine runs the full width over both ears and wraps the soft back corners (the visual's walnut cloth with brass bands). Its bend centre is the pivot axis, as in §6. The ears stand ≈ 6 mm round the axis, so the cloth needs ≥ 6.5 mm of bend radius there (ESTIMATE). The 21.9 closed / 2.1 open slot geometry is unchanged. **Eng: open flat, the spine's U-fold must fit the 2.1 mm seam.** The visual estimates 2 × (cloth 0.4 + TPU 0.5) = 1.8 (UNVERIFIED: measure the cloth and core). Only the straight run between the pivots flexes; the corner pieces part at the seam, like a book's headcaps.
 - **Stand and tip** (branch_check's DIPTYCH model, push on the top row's knob tip, normal to the panel at 120°; each half's shell taken as 60 % of its mass and scaled with depth, ESTIMATE):
 
 | Case | Tip threshold |
@@ -1140,6 +1140,7 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
   - lines or dots;
   - the "amp controls" reading if mine is wrong;
   - D 132 (both halves +24) is the cost of the two-row base.
+- **Visual (rev 9 folded into `layout_check.py`):** the heading nudges, the numerals 0.3 further out, the under-switch legends (1.25 leading, block 2.25 under the nut), "oscillators" left-aligned with its hairline, the name box (P5O d 37.3, P5R d 34.0) and the VCO 4 outlines (as controls, with their "4" in NOTES) are now in the checker, all 0. rb can drop its FIT table, the numeral −0.3 and the ghost's own "4", or they apply twice.
 - **Visual:**
   - rb.py to the new tables (it reads `layout_check.py`); "below2" legends for P5O's keys; drop the P5O heading MOVE in `nv_overrides` (headings now sit on top of their groups);
   - the VCO 4 slot on P5O's R4: blank, or drawn as "4" with three plugged holes;
@@ -1147,6 +1148,7 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
 - **Eng:**
   - stays scaled to D 132 (72 behind) and their pivot at lid d 34; the inboard pivot bulkheads (strength UNVERIFIED, §1);
   - the base board window for the cells behind the rear row;
+  - the spine's fold (cloth + TPU, doubled) in the 2.1 mm open seam: ≈ 1.8 estimated;
   - pot body depth over the strip (≥ 2 mm from the cells);
   - with VCO 4: TIM5 CH4, the 6th MCP4822, the mixer's 5th leg.
 
