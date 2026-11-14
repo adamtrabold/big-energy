@@ -114,16 +114,18 @@ if VARIANT == "P5O":
              ("dot link", RX[1] + 6.2 + 8 * 0.5 * NS + 2.1, R4 + TS_LEAD[0], "FOLLOW")]
     over = lambda d, top_extra=0.0: d + KN + top_extra + 1.5 + 0.425 * HS     # a heading's centre over a row's knob tops
     fan_top = KN + 7.2 + 0.425 * 1.3                                          # a TYPE knob's outer fan names, above its centre
-    SECTIONS_LEFT += [("oscillators", ML, 120.9), ("tuning", TX - KN, 120.9), ("echo", RX[0] - KN, 120.9),
-                      ("filter", FX5 - KN, over(R2) + 0.8), ("amp", AX5 - KN, over(R2) + 0.8),
-                      ("reverb", RX[0] - KN, R3 + fan_top + 1.5 + 0.425 * HS),
-                      ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 0.3), ("out", RX[0] - KN, over(R4))]
+    # visual rev 9.1 real-Kalam fits: filter / amp +0.8 more, keys +0.7, echo +0.5 x, reverb +0.3, out 3.8 into the gutter
+    SECTIONS_LEFT += [("oscillators", ML, 120.9), ("tuning", TX - KN, 120.9), ("echo", RX[0] - KN + 0.5, 120.9),
+                      ("filter", FX5 - KN, over(R2) + 1.6), ("amp", AX5 - KN, over(R2) + 1.6),
+                      ("reverb", RX[0] - KN, R3 + fan_top + 1.5 + 0.425 * HS + 0.3),
+                      ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 1.0), ("out", RX[0] - KN - 3.8, over(R4))]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
-    # "oscillators" runs on as an engraved hairline (0.4) over the switches; it breaks round "tuning"
+    # "oscillators" runs on as an engraved hairline (0.4); it stops before "tuning" and restarts over the switches
+    # (at voices' nut, visual rev 9.1), so it doesn't read as tuning's leader
     BANK_END = BX + 40 + 6.2 + 8 * 0.5 * NS * 1.25
     HAIR += [("oscillators hairline a", ML + 21.5, 120.9 - 0.2, TX - KN - 2.5, 120.9 + 0.2),
-             ("oscillators hairline b", TX - KN + len("tuning") * 0.5 * HS * 1.25 + 2.5, 120.9 - 0.2, BANK_END, 120.9 + 0.2)]
-    NAME_BOX = ("big energy", 143.0, 37.3, 2.0)
+             ("oscillators hairline b", BX - 4.6, 120.9 - 0.2, BANK_END, 120.9 + 0.2)]
+    NAME_BOX = ("big energy", 143.0, 37.6, 2.0)                    # rev 9.1: +0.3, keeping 1.5 over "keys"
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"], ["PARA", "OSC MOD", "OSC 3 CTL"],
                                 ["ECHO TYPE", "ECHO TIME"]]),
@@ -176,7 +178,7 @@ elif VARIANT == "P5R":
     DOTS += [("dot echo pan", EC + 75 + 1.75 + 1.55 + 0.6, C5 - KN - 3.5, "ECHO PAN"),
              ("dot link", OC + 20 + 6.2 + 8 * 0.5 * NS + 2.1, C5 + TS_LEAD[0], "FOLLOW")]
     SECTIONS += [("oscillators", (xs[0][0] + xs[2][-1]) / 2, 120.9), ("tuning", (xs[3][0] + xs[3][1]) / 2, 120.9),
-                 ("envelopes", 143.0, 91.8), ("keys", KYX, BU + 4.6 + 1.5 + 0.425 * HS + 0.3),
+                 ("envelopes", 143.0, 91.8), ("keys", KYX, BU + 4.6 + 1.5 + 0.425 * HS + 1.0),
                  ("echo", ML + wE / 2, 37.5), ("reverb", RVC + 22.0, 37.5), ("out", OC + 10, 37.5)]
     SUBHEADS += [("filter", FXR + 20, 79.5), ("amp", AXR + 20, 79.5)]
     NAME_BOX = ("big energy", 143.0, 34.0, 2.0)
@@ -481,7 +483,8 @@ def check():
     for n, x, d, r, lab in GHOST:                                    # the VCO 4 outlines are controls for every check
         for m, x2, d2, r2, *_ in lid:
             if math.dist((x, d), (x2, d2)) - r - r2 < 1.5 - 1e-6: bad.append(f"GAP {n}/{m}")
-    labs = labels() + [(n, tbox(x, d, lab, LS, "behind", r)) for n, x, d, r, lab in GHOST] + \
+    labs = labels() + [(n, (lambda b: (b[0], b[1] + BEHIND_EXTRA, b[2], b[3] + BEHIND_EXTRA))(tbox(x, d, lab, LS, "behind", r)))
+                       for n, x, d, r, lab in GHOST] + \
            [(n, (x0, d0, x1, d1)) for n, x0, d0, x1, d1 in HAIR] + \
            ([("name", (NAME_BOX[1] - len(NAME_BOX[0]) * 0.25 * NAME_BOX[3], NAME_BOX[2] - 0.425 * NAME_BOX[3],
                        NAME_BOX[1] + len(NAME_BOX[0]) * 0.25 * NAME_BOX[3], NAME_BOX[2] + 0.425 * NAME_BOX[3]))] if NAME_BOX else []) + \
