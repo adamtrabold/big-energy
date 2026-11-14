@@ -1,5 +1,13 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 4, after the director's 8 (2026-11-13 ~20:10)
+- Systems f0aed14: THROW = "left-right" (every toggle, words in throw order); FREE / SYNC "under"; FOLLOW right2 "echo pan / own · follows dry"; release "release · both contours / off · = decay"; BASE_BREAKS (242.2) with DRIFT at 222; my steer-4 overrides absorbed (20fac8d).
+- **rb.py:** `nv_overrides` / `nv_notes` back to pass-through except FOLLOW x 255 (plate edge); toggles drawn leaning right when `lc.THROW == "left-right"` (`TOGGLE_THROW`, `_toggle_any` patched into ld / r4 / r5 during `Nave.model`); "under" legend (`NV_UNDER_GAP` 2.0); base breaks; `TS_LEAD` 1.2 / 1.3.
+- **Checks:** systems' rules with my leading / gap / FOLLOW 0; real Kalam 0; closing 55.2 / 59.7.
+- **Re-rendered:** lid top, full top, standing. Doc rev 6.1: walk and switch table in throw order, echo pan / release wording, echo tap alone.
+- Not published (waiting on the director's 10).
+
+
 ## CATHEDRAL steer 4 (2026-11-13 ~20:00): the panel explains itself (bar 10)
 - Review `design/reviews/2026-11-13-lid-layout-review.md` (7/10); systems §18 (5572aee): two-line toggle legends (`legend2`, name SW_LS 1.55 / positions NS 1.3), NOTES, base toggles KBD / FILT MOD beside CUTOFF, base groups controllers / filter / tune, "echo tap", RELEASE on the axis, SOURCE under NOISE / EXT, PARA + OSC MOD at the bank's left.
 - **rb.py:** reads `right2` / `updown` / `beside` (UD_GAP, BESIDE_GAP), NOTES (light ink `INK_LIGHT` for NS-size notes), BASE_TOGGLES / BASE_LEGEND / BASE_SECTIONS / BASE_LEDS; base toggles drawn with their two-line legends; standard joystick (no lowering); CUTOFF ticks without ±90°. Type scale constants `TS_*` (prep), `TS_LEAD` (1.1 / 1.25).

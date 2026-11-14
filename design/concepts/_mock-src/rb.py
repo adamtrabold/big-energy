@@ -1514,6 +1514,21 @@ def stick_low(x, y, z, ink, drop=3.6):
 LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
 MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
 
+# ---- toggles that throw left / right (director, steer 4 score-8 fix 1: one convention panel-wide, the same part
+# rotated 90°). ld.toggle draws a fore / aft lever; while TOGGLE_THROW is "lr", every toggle drawn (rows, base) leans
+# its bat to the right instead, so the picture shows the throw the position words follow (left · middle · right).
+TOGGLE_THROW = ["fa"]
+_ld_toggle = ld.toggle
+def _toggle_any(x, y, z, col="#b9bcbf"):
+    if TOGGLE_THROW[0] != "lr":
+        return _ld_toggle(x, y, z, col)
+    s = cyl(x, y, z, 1.8, 6.0, "#9a9da1", fn=6)
+    s += cyl(x, y, z + 1.8, 1.0, 4.5, col, fn=24)
+    s += f'{c(col)} translate([{x:.3f},{y:.3f},{z+2.5:.3f}]) rotate([0,18,0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);\n'
+    return s
+ld.toggle = _toggle_any; r5.toggle = _toggle_any; r4.toggle = _toggle_any
+toggle = _toggle_any
+
 # ---- steer 4 type scale (director's brief: headings > knob legends > position words; nothing under 1.05 mm)
 TS_HEAD = 3.0        # group headings (Kalam Bold)
 TS_KNOB = 2.35       # knob legends
@@ -1540,45 +1555,19 @@ def toggle_words(x, y, z, ink, font, name=None, top=None, mid=None, bottom=None,
     return s
 
 def nv_overrides(lc):
-    """pass-through: every visual layout tweak (numbered legends, contour / filter headings and rules, real-Kalam
-    nudges, FOLLOW beside, FILT MOD at d 35) now lives in systems' layout_check.py (2f99f96). Put any future
-    visual-only change here and tell systems."""
-    MOVE = {"OSC MOD": 50.0, "AFTERTOUCH": 203.5}     # steer 4 real-Kalam fits: PARA's "mono · para · +4" reached OSC MOD
-    lid = [(n, MOVE.get(n, x), d, r, k, lab, w) for n, x, d, r, k, lab, w in lc.lid]   # (0.72); VELOCITY's line reached TOUCH
-    # brief: no "decay" on a switch. RELEASE reads "off · on": off, notes stop at key-up; on, they ring out at the
-    # contours' decay setting (the Model D's DECAY switch, both contours)
-    lid = [(n, x, d, r, k, "release|off · on" if n == "RELEASE" else lab, w) for n, x, d, r, k, lab, w in lid]
-    # one word per concept: "decay" now means only the contours' decay; REVERB DECAY reads "tail" (its length)
-    lid = [(n, x, d, r, k, "tail" if n == "REVERB DECAY" else lab, w) for n, x, d, r, k, lab, w in lid]
-    secs = list(lc.SECTIONS)
-    if NV_KEYS_COLUMN:
-        # with KBD / FILT MOD gone to the base, x 16-56 of the middle band was blank (the gap he objects to). The keys
-        # pair fills it as a "keys" column mirroring "out": keys in on the left, out on the right, and band 2 reads
-        # keys -> filter contour -> (release) -> loudness contour -> out, left to right.
-        # at x 48 (not 23.5): closed, x 23.5 lands both toggles over the bend stick (R-LOW 58.8); at x 48 they land
-        # over MOD / MOD MIX's low knobs, the same pair heights as today's binding (55.2). Legends on the left
-        # ("left2", the mirror of "right2"), since the filter contour's attack is 15.5 to the right.
-        KC = {"VEL": (48.0, 49.5), "AFTERTOUCH": (48.0, 35.0)}
-        lid = [(n, *KC[n], r, k, lab, "left2") if n in KC else (n, x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lid]
-        secs.append(("keys", 37.0, 58.0))           # the mirror of "out" (249, d 58) about the axis
-    return lid, list(lc.BREAKS), secs
+    """visual's steer-4 changes are in systems' layout_check.py (20fac8d / f0aed14). One fit on top: FOLLOW moves to
+    x 255 (from 262.5) so "own · follows dry" (≈ 13.8 wide in real Kalam) ends inside the plate, not under the rim;
+    its toggle still clears the out break (242.5) by 7.9."""
+    lid = [(n, 255.0 if n == "FOLLOW" else x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lc.lid]
+    return lid, list(lc.BREAKS), list(lc.SECTIONS)
 
 def nv_notes(lc):
-    """systems' NOTES with visual's fits: the PARA note reads just "detune" (light), right of FREQ 2 / FREQ 3's legend
-    ("para: detune" ran into the next knob's legend in real Kalam); FOLLOW's "echo pan" sits 0.3 lower."""
-    out = []
-    for t, x, d, sz, a in getattr(lc, "NOTES", []):
-        if t == "para: detune":
-            t, x = "detune", x + 0.8           # real Kalam: "freq 2" runs 0.7 wider than the estimate
-        if t == "echo pan" and abs(x - 262.5) < 0.1:
-            d -= 0.3
-        if t == "keys" and NV_KEYS_COLUMN:
-            continue                           # the keys pair has its own heading in the left column
-        out.append((t, x, d, sz, a))
-    return out
+    return list(getattr(lc, "NOTES", []))
 
 NV_KEYS_COLUMN = True
-TS_LEAD = (1.1, 1.25)    # two-line toggle legend: name centre d + 1.1, positions centre d - 1.25 (real Kalam leading)
+NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
+TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
+                         # 1.1 / 1.25 left FOLLOW's "echo pan" 0.26 over "own · follows dry")
 
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
@@ -1595,6 +1584,13 @@ class Nave(Cathedral):
         self.LIDH = Chamber.LIDH + lift
 
     # ---- lid
+    def model(self, state=True, walnut=WAL_P, book=False):
+        TOGGLE_THROW[0] = "lr" if getattr(self.lc, "THROW", "") == "left-right" else "fa"
+        try:
+            return super().model(state, walnut, book)
+        finally:
+            TOGGLE_THROW[0] = "fa"
+
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
         It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose."""
@@ -1652,7 +1648,10 @@ class Nave(Cathedral):
                 nm, pos = lab.split("|")
                 s += txt(x - 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="right")
                 s += txt(x - 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="right")
-            elif where == "right2":          # steer 4: name over its positions (lever-down -> lever-up), as the checker
+            elif where == "under":           # one line centred under the toggle (FREE / SYNC: "free · sync")
+                h = 0.85 * lc.SW_LS
+                s += txt(x, L0 + d - r - NV_UNDER_GAP - h / 2, z, lab, lc.SW_LS, ink, font=st.font)
+            elif where == "right2":          # steer 4: name over its positions (left · middle · right = the throw)
                 nm, pos = lab.split("|")
                 s += txt(x + 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="left")
                 s += txt(x + 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="left")
@@ -1690,7 +1689,6 @@ class Nave(Cathedral):
         rnd = random.Random(7)
         lc = self.lc
         BL = getattr(lc, "BASE_LEGEND", {})
-        # Kalam has no ⅓ / ⅔ glyphs (they rendered as boxes): spell them 1/3, 2/3
         BT = {k: v.replace("⅓", "1/3").replace("⅔", "2/3") for k, v in getattr(lc, "BASE_TOGGLES", {}).items()}
         for n, x, y, r, h in lc.base(9.0, 12.6):
             lab = BL.get(n) or {"BEND stick": "bend", "CONTOUR AMT": "amount", "MOD MIX": "mod mix"}.get(n, n.lower())
@@ -1720,6 +1718,8 @@ class Nave(Cathedral):
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
                 s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)
+        for bx, y0, y1 in getattr(lc, "BASE_BREAKS", []):   # tune ‖ echo tap (steer 4): engraved, nothing raised
+            s += box(bx - self.RULE_HW, y0, z + 0.02, bx + self.RULE_HW, y1, z + 0.05, self.rule_col())
         for x, y, r in getattr(lc, "BASE_LEDS", [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]):   # lights, symmetric about CUTOFF
             s += led(x, y, z, col="#9fd36b" if x > 143 else "#efe3c8")
         return s
