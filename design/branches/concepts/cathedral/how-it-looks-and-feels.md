@@ -1,51 +1,54 @@
-# CATHEDRAL: how it looks and feels (visual, rev 6.1: steer 4, the panel explains itself, after the director's 8)
+# CATHEDRAL: how it looks and feels (visual, rev 7: steer 4, one-word labels)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 16:52). Read with `how-it-works.md`, where systems owns the geometry; **§16** is this revision's layout, closing routes and acoustics. The director's steer 2 is in `design/notes/director.md`.
 
-## Steer 4: the panel explains itself (review 7/10 → bar 10)
-**The signal, on the picture.** Read the lid like a page and you follow the sound. **Top row:** the three oscillators, each its own little run (range, freq, wave), then the mixer, osc 1 · osc 2 · osc 3 · noise / ext, levelling them into one signal. **Middle row, left to right:** keys (how hard you play and press), the filter contour, release on the axis over the window (it acts on both contours), the loudness contour, and out. **Bottom row:** the effects in the order the sound passes through them: echo on the left (type, time with free / sync, repeats, mix, echo pan), reverb on the right (type, tail, mix). **Right-hand column:** out, dry pan → follow → volume, ending in the corner nearest the hand. Below the hinge, the base's played row: controllers (bend, mod, mod mix, glide), the filter (emphasis, kbd, **cutoff**, filt mod, amount), tune (tune, drift), and the echo tap on its own at the right end, then the keys.
+## Steer 4: the panel explains itself, in one-word labels
+Owner rule (19:57): "Labels should only be one word and follow best practices with obvious tweaks for understanding if there's a better word than the jargon". The words are the director's (`vocabulary.md`), placed by systems (`layout_check.py`, §18.8).
+
+**The signal, on the picture.** Read the lid like a page and you follow the sound. **Top row:** the three oscillators, numbered 1 · 2 · 3, each its own little run (octave, pitch, wave), then the mixer, 1 · 2 · 3 · extra, levelling them into one signal. **Middle row, left to right:** keys (how hard you play and press); the envelopes: filter, release on the axis (it acts on both), amp; and out. **Bottom row:** the effects in the order the sound passes through them: echo on the left (type, time with free · sync, repeats, mix, pan), reverb on the right (type, decay, mix). **Right-hand column:** out (pan → link → volume), ending in the corner nearest the hand. Below the hinge, the base: controllers (bend, mod, blend, glide), filter (resonance, track, **cutoff**, mod, envelope), tuning (tune, drift) and tempo (tap), then the keys.
 
 <figure>
-<img src="img/cathedral-lid-signal-order-8.7px-per-mm.png" alt="Exact top view of the CATHEDRAL lid. Top row: three groups of oscillator knobs and four mixer knobs, with switches beneath carrying their names and positions. Middle row: a keys column with two switches at the left, three filter-contour knobs, a release switch on the axis above a round slotted window, three loudness-contour knobs, and an out column at the right. Bottom row: echo knobs with a free / sync switch, the window, reverb knobs. A small plate reading big energy sits under the window.">
-<figcaption><b>The lid, exact, from above</b> (scale bar 20 mm). One handwritten heading per group, the largest type on the panel (3.0); knob legends 2.35; each switch's name 1.55 with its positions under it at 1.3. **Every switch throws left / right, and its position words read left · middle · right, in the order the lever moves** (free · sync under its switch; the same convention everywhere). Light-grey notes: "detune" by freq 2 / 3 (they detune in para), "(off if follow)" by echo pan. Labels check 0 against systems' rules and 0 with the real Kalam metrics, ticks included.</figcaption>
+<img src="img/cathedral-lid-signal-order-8.7px-per-mm.png" alt="Exact top view of the CATHEDRAL lid with one-word labels: numbered oscillator groups and a mixer reading 1, 2, 3, extra on top; a keys column, filter and amp envelopes either side of a release switch under the heading envelopes, and an out column in the middle; echo and reverb at the bottom; a round slotted window with a big energy plate under it.">
+<figcaption><b>The lid, exact, from above</b> (scale bar 20 mm). Headings are the largest type (3.0); "filter" and "amp" (2.35) sit on the heading line either side of "envelopes"; knob legends 2.35; each switch's name 1.55 with its positions at 1.3. Every switch throws left / right, and its words read left · middle · right in the order the lever moves. The two small dots pair echo's "pan" with "link" in the out column: when link is on, the echo follows the out pan. Labels check 0 against systems' rules and 0 with the real Kalam metrics.</figcaption>
 </figure>
 
 <figure>
-<img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of the whole instrument open flat: the lid above and the base below, whose played row reads controllers, filter with two small switches either side of the red cutoff dial, and tune with the brass echo tap, above the keys.">
-<figcaption><b>Lid and base, open flat, exact</b> (scale bar 20 mm). The base row regrouped: controllers · filter (kbd and filt mod beside cutoff, where a Model D player expects them) · tune, then "echo tap" alone behind its own break at the right end, mirroring the bend stick.</figcaption>
+<img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of the whole instrument open flat: the lid above and the base below, whose row reads controllers, filter with two switches either side of the red cutoff dial and two named lights, tuning, and tempo with the brass tap, above the keys.">
+<figcaption><b>Lid and base, open flat, exact</b> (scale bar 20 mm). Base: controllers · filter (track and mod beside cutoff, the midi and status lights above it) · tuning · tempo, with tap alone behind its own break at the right end, mirroring the bend stick.</figcaption>
 </figure>
 
 ### First time at the panel
 **The groups, in the order the sound meets them:**
-- **oscillators:** three tone sources. Range picks the octave, freq tunes oscillators 2 and 3 against 1, wave picks the shape.
-- **mixer:** how much of each oscillator, and of noise or the external input, goes on.
+- **oscillators 1 · 2 · 3:** three tone sources. Octave picks the register, pitch tunes 2 and 3 against 1, wave picks the shape.
+- **mixer:** how much of each oscillator (1, 2, 3) goes on, and "extra": noise, the input, or a feedback loop, whichever source picks.
 - **keys:** what your playing does beyond pitch (velocity and touch, below).
-- **filter contour:** how the filter opens and closes on each note (attack, decay, sustain). Its depth is "amount" on the base.
-- **loudness contour:** how each note swells and fades.
-- **echo:** repeats of the sound (type, time, how many repeats, how loud, where in the stereo field).
-- **reverb:** the room (type, how long the tail, how loud).
-- **out:** where the dry sound sits in stereo, and the master volume.
-- **base: controllers · filter · tune · echo tap:** the hands' row: bend and mod, the filter's cutoff with emphasis, amount and its two switches, tuning and drift, and the echo's tap tempo on its own at the end.
+- **envelopes, filter:** how the filter opens and closes on each note (attack, decay, sustain). How much it moves cutoff is "envelope" on the base.
+- **envelopes, amp:** how each note swells and fades.
+- **echo:** repeats of the sound (type, time, repeats, mix, pan).
+- **reverb:** the room (type, decay, mix).
+- **out:** where the dry sound sits (pan), whether the echo follows it (link), and volume.
+- **base:** controllers (bend, mod, blend = what the mod wheel adds: osc 3 or noise, glide) · filter (resonance, cutoff, envelope, and its two switches) · tuning (tune, drift) · tempo (tap: tap the echo's beat).
+- The two lights by cutoff: **midi** (MIDI is holding a control) and **status**.
 
-**Every switch, and what its positions do.** Every switch throws left / right; its words read in the same order as the lever moves: left · middle · right.
+**Every switch.** Each throws left / right, and its words read in the same order as the lever moves: left · middle · right.
 
 | Switch | Positions | What they do |
 |---|---|---|
-| para | mono · para · +4 | mono: one note, all three oscillators together. para: up to three notes, one oscillator each (shared filter and contours). +4: adds the digital fourth oscillator, four notes |
-| osc mod | off · on | on: the mod mix (osc 3 ↔ noise, depth on the mod wheel) bends all three oscillators' pitch |
-| osc 3 ctl | free · keys | free: oscillator 3 ignores the keys (a drone or a slow modulator). keys: it follows the keyboard |
-| source | noise · ext · fb | what the noise / ext knob brings in: noise, the external input, or feedback |
-| velocity | loud · both · filt | how hard you play changes loudness, both, or the filter |
-| touch | mod · off · filt | pressing into a held key adds modulation, nothing, or opens the filter |
-| release · both contours | off · = decay | off: notes stop when you let go. = decay: they fade at the decay knobs' setting, on both contours |
-| free · sync (under its switch) | free · sync | free: echo time in milliseconds. sync: note values, locked to MIDI clock or the echo tap |
-| echo pan (out column) | own · follows dry | own: the echo pan knob places the echo. follows dry: the echo sits where dry pan puts the dry sound, and the echo pan knob does nothing (its "(off if follow)" cue says so) |
-| kbd (base) | off · 1/3 · 2/3 | how much the filter follows the keyboard, as specified. Systems proposes off · 1/2 · full via the DAC (decisions-open); the legend changes with it |
-| filt mod (base) | off · on | on: the mod mix (depth on the mod wheel) moves the cutoff |
+| voices | 1 · 3 · 4 | 1: one note, all three oscillators together. 3: up to three notes, one oscillator each (shared filter and envelopes). 4: adds the digital fourth oscillator |
+| mod (oscillators) | off · on | on: the mod wheel's blend (osc 3 or noise) bends all three oscillators' pitch |
+| track (oscillators) | off · on | on: oscillator 3 follows the keyboard. off: it ignores it (a drone, or a slow modulator) |
+| source | noise · input · loop | what the mixer's "extra" knob brings in |
+| velocity | amp · both · filter | how hard you play changes loudness, both, or the filter |
+| touch | mod · off · filter | pressing into a held key adds modulation, nothing, or opens the filter |
+| release | off · on | off: notes stop when you let go. on: they fade at the decay setting. It sits between the two envelopes because it acts on both |
+| free · sync (echo time) | free · sync | free: echo time in milliseconds. sync: note values, locked to MIDI clock or the tap |
+| link (out) | off · on | on: the echo's pan follows the out pan, and echo's pan knob does nothing. The matching dots by both knobs say so |
+| track (base filter) | off · 1/3 · 2/3 | how much the filter follows the keyboard (as specified) |
+| mod (base filter) | off · on | on: the mod wheel's blend moves the cutoff |
 
-**One word per concept, checked across the panel:** no "delay" anywhere; "decay" names the contours' decay knobs, and the release switch's "= decay" points at them (director's wording); reverb's length reads **"tail"**. Words repeat only for the same job in sibling groups under their own headings (attack / decay / sustain in both contours, type and mix in both effects), as on a Model D.
+**One word per label, checked across the panel.** A word repeats only under different headings, for the same job: type and mix (echo, reverb), attack / decay / sustain (filter, amp), pan (echo, out, tied by link), track and mod (oscillators / base filter), decay (envelopes, reverb). No switch says "decay"; nothing says "delay".
 
-**After the director's 8 (steer 4):** systems (f0aed14) turned every toggle to throw left / right with its words in throw order, made FOLLOW one unit beside its switch ("echo pan / own · follows dry", nothing between it and volume), wrote release as "release · both contours / off · = decay", and gave echo tap its own break. The renders now draw every bat leaning sideways, so the picture shows the throw the words follow. Visual fits on top, for the checker: **FOLLOW at x 255** (from 262.5) so "own · follows dry" ends inside the plate (≈ 13.8 wide in real Kalam); two-line leading **1.2 / 1.3**; "free · sync" **2.0** under its switch. Checks: systems' rules 0, real Kalam 0; closing 55.2 / 59.7 unchanged.
+**Visual fits on top of systems' placements** (for the checker; checks 0 both ways): "envelopes" 0.8 higher (it sat 0.73 from release's nut); "filter" and "amp" moved onto the heading line, centred over their groups at d 68.5 (1.5 mm above the legends, they read as "filter sustain" and "amp attack"); the light names 0.3 further behind the lights.
 
 ## His three complaints (16:52), answered
 1. **"off center in that middle section is bad looking … consider the sound of the speaker and the shape."** The speaker window is now **one round opening, centred on the instrument's axis, concentric with the driver, and sized by it**: Ø 46 (the cone plus its surround). Its 15 vertical slots open **≈ 945 mm², about 75 % of the cone's area**, against 265–440 mm² (≈ 20–35 %, choked) in every grille we showed before. Behind it: a foam gasket and a sealed, stuffed back box. It sits directly above CUTOFF, so the window, the hero dial and the keyboard's centre share one vertical line. The shape follows from the sound, not from leftover space.
@@ -59,7 +62,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 
 ## The whole
 <figure>
 <img src="img/cathedral-nave-standing.jpg" alt="CATHEDRAL standing at 120 degrees: the lid holds three evenly spaced rows of black knobs, a line of small toggles, and a centred round window of vertical slots; the base holds a row of small gold knobs either side of a red CUTOFF dial on the axis, the bend stick at the left end and a brass TAP at the right, above brass natural keys and black sharps.">
-<figcaption><b>Standing, 120°.</b> Lid as above (steer 4): keys · filter contour · release · loudness contour · out across the middle, oscillators ‖ mixer above, echo and reverb below. Base: controllers · filter · tune, with kbd and filt mod beside cutoff and the brass echo tap at the right.</figcaption>
+<figcaption><b>Standing, 120°.</b> Lid as above: keys · envelopes (filter, release, amp) · out across the middle, oscillators ‖ mixer above, echo and reverb below. Base: controllers · filter · tuning · tempo, with track and mod beside cutoff and the brass tap alone at the right.</figcaption>
 </figure>
 
 

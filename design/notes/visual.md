@@ -1,5 +1,13 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL one-word vocabulary (2026-11-13 ~20:40)
+- Owner rule 19:57 (one word per label); director's `cathedral/vocabulary.md`; systems ffa9235 (+51be8ff out column x 255, cc5aa33 lights / touch).
+- **rb.py:** `nv_overrides` pass-through (FOLLOW move dropped); draws SUBHEADS, DOTS (Ø 1.2 link dots), BASE_NOTES (light names), "tempo" via BASE_SECTIONS; echo type names follow the checker's ECHO_POS (tape · dark · clean · pingpong) by patching r5.ECHO_POS during `Nave.model`.
+- **Visual fits (for systems):** `nv_fit_sections` ("envelopes" +0.8), `nv_fit_subheads` ("filter" / "amp" centred over their groups at d 68.5, on the heading line), `nv_fit_base_notes` (+0.3).
+- **Checks:** systems' rules + fits 0 (base_check 0); real Kalam 0 (the "track" pair flag is its own two-line legend, 0.95).
+- Re-rendered lid top, full top, standing. Doc rev 7: new signal walk, groups, switch table in the new words, one-word rule.
+
+
 ## CATHEDRAL steer 4, after the director's 8 (2026-11-13 ~20:10)
 - Systems f0aed14: THROW = "left-right" (every toggle, words in throw order); FREE / SYNC "under"; FOLLOW right2 "echo pan / own · follows dry"; release "release · both contours / off · = decay"; BASE_BREAKS (242.2) with DRIFT at 222; my steer-4 overrides absorbed (20fac8d).
 - **rb.py:** `nv_overrides` / `nv_notes` back to pass-through except FOLLOW x 255 (plate edge); toggles drawn leaning right when `lc.THROW == "left-right"` (`TOGGLE_THROW`, `_toggle_any` patched into ld / r4 / r5 during `Nave.model`); "under" legend (`NV_UNDER_GAP` 2.0); base breaks; `TS_LEAD` 1.2 / 1.3.

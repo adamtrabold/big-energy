@@ -1555,11 +1555,25 @@ def toggle_words(x, y, z, ink, font, name=None, top=None, mid=None, bottom=None,
     return s
 
 def nv_overrides(lc):
-    """visual's steer-4 changes are in systems' layout_check.py (20fac8d / f0aed14). One fit on top: FOLLOW moves to
-    x 255 (from 262.5) so "own · follows dry" (≈ 13.8 wide in real Kalam) ends inside the plate, not under the rim;
-    its toggle still clears the out break (242.5) by 7.9."""
-    lid = [(n, 255.0 if n == "FOLLOW" else x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lc.lid]
-    return lid, list(lc.BREAKS), list(lc.SECTIONS)
+    """pass-through: everything (incl. the out column at x 255 and the one-word vocabulary) is in layout_check.py."""
+    return list(lc.lid), list(lc.BREAKS), list(lc.SECTIONS)
+
+def nv_fit_sections(lc, sections):
+    """real-Kalam fits (for the checker): "envelopes" 0.8 higher (it sat 0.73 from RELEASE's nut)."""
+    return [(t, x, d + 0.8) if t == "envelopes" else (t, x, d) for t, x, d in sections]
+
+def nv_fit_subheads(lc):
+    """"filter" / "amp" centred over their groups (x 83.5 / 202.5) at d 68.5, on the heading line either side of
+    "envelopes": 1.5 above the knob legends (systems' spot) they read as part of a legend ("filter sustain",
+    "amp attack"); on the heading line they read "filter · envelopes · amp" and sit 4+ mm above the legends."""
+    out = []
+    for t, x, d in getattr(lc, "SUBHEADS", []):
+        out.append((t, 83.5 if x < 143 else 202.5, 68.5))
+    return out
+
+def nv_fit_base_notes(lc):
+    """the lights' names 0.3 further behind the lights ("midi" sat 1.35 from its LED)."""
+    return [(t, x, y + 0.3) for t, x, y in getattr(lc, "BASE_NOTES", [])]
 
 def nv_notes(lc):
     return list(getattr(lc, "NOTES", []))
@@ -1586,10 +1600,13 @@ class Nave(Cathedral):
     # ---- lid
     def model(self, state=True, walnut=WAL_P, book=False):
         TOGGLE_THROW[0] = "lr" if getattr(self.lc, "THROW", "") == "left-right" else "fa"
+        old = (r5.ECHO_POS, r5.VERB_POS)
+        r5.ECHO_POS = list(getattr(self.lc, "ECHO_POS", r5.ECHO_POS)); r5.VERB_POS = list(getattr(self.lc, "VERB_POS", r5.VERB_POS))
         try:
             return super().model(state, walnut, book)
         finally:
             TOGGLE_THROW[0] = "fa"
+            r5.ECHO_POS, r5.VERB_POS = old
 
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
@@ -1668,8 +1685,13 @@ class Nave(Cathedral):
                 bx = lc.tbox(x, d, lab, sz, where, r)
                 cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
+        sections = nv_fit_sections(lc, sections)
         for t, x, d in sections:                         # one heading per group, in the hand
             s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND)
+        for t, x, d in nv_fit_subheads(lc):             # sub-heads under a heading ("filter", "amp")
+            s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND)
+        for nm_, x, d, _ in getattr(lc, "DOTS", []):     # matching link dots (echo pan <-> link)
+            s += cyl(x, L0 + d, z - 0.005, 0.04, 1.2, ink, fn=24)
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
             col = INK_LIGHT if sz <= lc.NS + 1e-6 else ink
             s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
@@ -1718,6 +1740,8 @@ class Nave(Cathedral):
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
                 s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)
+        for t, x, y in nv_fit_base_notes(lc):                # the two lights named (midi / status)
+            s += txt(x, y, z + 0.01, t, lc.SW_LS, ink, font=st.font)
         for bx, y0, y1 in getattr(lc, "BASE_BREAKS", []):   # tune ‖ echo tap (steer 4): engraved, nothing raised
             s += box(bx - self.RULE_HW, y0, z + 0.02, bx + self.RULE_HW, y1, z + 0.05, self.rule_col())
         for x, y, r in getattr(lc, "BASE_LEDS", [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]):   # lights, symmetric about CUTOFF
