@@ -1402,7 +1402,7 @@ The checker reports what each leaves empty. The visual renders all three.
 - **VCO 4 gets its mixer channel on the base** (every layout with VCO 4: P5O, the studies, P5OB-D):
   - the mixer reads **1 · 2 · 3 · 4 · extra · source**, with 1 · 2 · 3 · 4 standing over track · resonance · CUTOFF · envelope;
   - blend goes back over glide, and pitch / filter close up beside release (x 42.75 / 53.75) under "mod";
-  - echo / reverb move 11 mm left of volume / pan to keep the rear gutters equal (21.6). **That's VCO 4's cost on the base: the effects lose their column with out.**
+  - echo / reverb move 11 mm left of volume / pan to keep the rear gutters equal (17.2; the row then ends 11.3 short of the margin). **That's VCO 4's cost on the base: the effects lose their column with out.**
   - Without VCO 4 the base is as §24.2.
 - **"tempo"** heads TAP again (top-left, y 78), so the director's "tap what?" is answered.
 - **The rear row's gaps** (28.6 edge to edge, ≈ 42 centre to centre) stay. The mixer's columns over the filter and the effects over out fix both ends of the middle group, so narrowing them would break the alignment.

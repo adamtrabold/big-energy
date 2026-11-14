@@ -38,7 +38,7 @@ STEER5 = VARIANT in ("P5O", "P5R", "P5OA", "P5OL", "P5OB", "P5OBD")
 M = 5.0                                            # the module (mm): every spacing below is a multiple of it (§19.3)
 if STEER5:
     D = 132.0                                      # +24: a second base row (y 93) and the battery strip behind it
-    if VARIANT == "P5OBD": D = float(os.environ.get("CATHEDRAL_D", "147"))   # P5OB at the depth its right column needs
+    if VARIANT == "P5OBD": D = float(os.environ.get("CATHEDRAL_D", "145"))   # P5OB at the depth its right column needs
     WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 VCO4 = os.environ.get("CATHEDRAL_VCO4", "0") == "1"   # the optional 4th analog VCO (owner question, §19.5): lid + base mixer 4
 ML, MR = 4.3 + 3 * M, 281.7 - 3 * M                # the margin lines: 3M inside the plate edges (x 19.3 / 266.7)
