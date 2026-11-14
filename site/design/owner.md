@@ -74,3 +74,6 @@ Recorded as: Physical page: lead with images; make each case version (CATHEDRAL,
 
 2026-11-13 17:37 Owner (verbatim): "name to come -- we're calling it big energy"
 Recorded as: site name is Big Energy.
+
+2026-11-13 21:18 Owner (verbatim): "I want images from each question, page, etc. to open in a light box instead of opening in new tab. Use this one https://ramka.dev/"
+Recorded as: every image on the site opens in a lightbox (not a new tab), using Ramka (@ramka/react; MIT; React 18+ peer; headless/unstyled; morph transitions, pinch/zoom, keyboard, pull to dismiss).
