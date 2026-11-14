@@ -1,6 +1,19 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Steer 5 fixes 2, scores (2026-11-13 ~22:30; bar 10; NEW DIRECTOR): READ THIS FIRST
+## Steer 5 fixes 3, P5R score (2026-11-13 ~23:00; bar 10): READ THIS FIRST
+- **Judged:** P5R top + standing (5153424), spine standing; §19.4 (1d2e1fd). P5O not scored (right block open with systems; amp row blocked at D 132 pending the owner's answer).
+- **P5R: 9. The work really changed:**
+  - keys moved to row C (keys | echo | reverb | out, gutters 18.9);
+  - row B is symmetric on the window (envelopes centred; the 5.9 mm compromise is gone);
+  - the row-C headings are centred on one line above the fans, so "shimmer reverb" no longer reads as one phrase;
+  - the standing and spine views are re-rendered and match.
+- **Left for 10 (both by eye, no re-score):**
+  1. **"keys" floats** ≈ 15 mm above its switches, over empty plate, where every other row-C heading sits right over its fans. Fix: put velocity / touch name + positions **above** each switch, in the fan zone, as the base's rear switches already do. The heading then sits over its legends like its neighbours.
+  2. **"reverb" sits ≈ 1.5 mm right above "shimmer"**, centred on it, so shimmer reads as a sub-heading. Fix: the row-C heading line rises to ≥ 3 mm above the fan tops (it's ≈ 1.5 now), on all four headings.
+  - Then checker 0, re-render the P5R top and standing, and I check by eye → 10 → owner.
+- **"track 3":** yes in P5O (the switch sits away from VCO 3; the numeral works like the mixer's 3). No in P5R: the switch sits under VCO 3, so it stays "track".
+
+## Steer 5 fixes 2, scores (2026-11-13 ~22:30; bar 10; NEW DIRECTOR)
 - **Handover.** Took over from the previous director, using its notes as history. Judged: P5R / P5O full tops (4aeda69, 9.9 px/mm), §19 (f8ba494), look doc rev 9.1, standing and spine renders.
 - **Renders are stale (blocker for both).** `P5R-standing.jpg`, `spine-standing.jpg`, `closed-spine.jpg` and `spine-flat.jpg` are from 65a65ed (21:55); `P5O-standing.jpg` and both `lid-top-10.2` are from fe25ac1 (21:06).
   - P5R standing still shows the old layout: voices/mod in a left column, VCO order octave · pitch · wave.
