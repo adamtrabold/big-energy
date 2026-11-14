@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 9.2: steer 5 fixes 3, both options side by side)
+# CATHEDRAL: how it looks and feels (visual, rev 9.3: steer 5 fixes 4, both options side by side)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`; then P5R 9, P5O 8. Rev 9.1 lays out systems' fixes for the 10 (f8ba494): P5R's oscillator switches on one line under the VCOs; P5O's headings top-left, every VCO reading octave · wave · pitch, tune · drift as a headed "tuning" pair after VCO 1, and out in R4's right slot.
 
@@ -15,11 +15,11 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 ### The two lids, side by side
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
 <figure>
-<img src="img/cathedral-s5-P5O-top-9.9px-per-mm.png" alt="Exact top view of P5O open flat. Lid: an oscillator block at the left, each row reading octave, wave, pitch, numbered 1 to 3 in the margin, with a fourth row drawn as three pale outlined circles and pale words for VCO 4; on the top row, after VCO 1, a pair headed tuning (tune, drift), then the voices, mod and track switches under a hairline that continues the oscillators heading; a filter column down the window's left and an amp column down its right; the keys switches under the window; echo, reverb and out stacked on the right. Every heading starts at its group's top left. Base: two rows, levels behind and what the hands ride in front.">
+<img src="img/cathedral-s5-P5O-top-9.9px-per-mm.png" alt="Exact top view of P5O open flat. Lid: an oscillator block at the left, each row reading octave, wave, pitch, numbered 1 to 3 in the margin, with a fourth row drawn as three pale outlined circles and pale words for VCO 4; on the top row, after VCO 1, the voices, mod and track 3 switches under a hairline running on from the oscillators heading, then tune and drift headed tuning, then echo type and time; a filter column down the window's left and an amp column down its right; the name, big energy, in light ink above the window; the keys switches under it; on the right, echo's free · sync switch, repeats and pan, then reverb (decay, type), then out (the link switch, then pan). Every heading starts at its group's top left and every legend in the right block sits under its control. Base: two rows, levels behind and what the hands ride in front.">
 <figcaption><b>P5O, his lid</b> (exact, scale bar 20 mm). Left to right in columns: oscillators (with tuning after VCO 1) → filter → (window) → amp → echo, reverb, out. <b>Every heading starts at the top left of its group.</b> The hairline from "oscillators" stops at "tuning" and resumes over the oscillator switches. The pale fourth row is <b>VCO 4's slot, drawn as a ghost</b>: built without it, that area is plain plate. <b>VCO 4</b> (optional, his call): ≈ +$20–30, ≈ −0.5 h of battery, the Daisy's last pin, and no closing cost. <b>P5O's column layout</b>, with or without VCO 4, needs the bend stick lowered to 9.0 mm to close at 55.2 mm (as is: 58.8).</figcaption>
 </figure>
 <figure>
-<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of P5R open flat. Lid, top row: oscillators 1, 2 and 3 (octave, wave, pitch), numbered in the margin, then tuning (tune, drift) behind a short engraved break; under each VCO its own switch: voices, mod, track. Middle row, symmetric about the slotted window: the filter envelope on the left and the amp envelope on the right (attack, decay, sustain), under the envelopes heading. Bottom row, with its headings on one line above the type knobs' fan words: keys (velocity, touch), echo (type, time, free · sync, repeats, pan), reverb (type, decay), out (pan, link). The name, big energy, in light ink under the window. Same two-row base as P5O.">
+<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of P5R open flat. Lid, top row: oscillators 1, 2 and 3 (octave, wave, pitch), numbered in the margin, then tuning (tune, drift) behind a short engraved break; under each VCO its own switch: voices, mod, track. Middle row, symmetric about the slotted window: the filter envelope on the left and the amp envelope on the right (attack, decay, sustain), under the envelopes heading. Bottom row, with its headings on one line 3 mm above the type knobs' fan words: keys (velocity and touch, their names and positions above each switch), echo (type, time, free · sync, repeats, pan), reverb (type, decay), out (pan, link). The name, big energy, in light ink under the window. Same two-row base as P5O.">
 <figcaption><b>P5R, the rule in rows</b> (exact, scale bar 20 mm). Top to bottom: oscillators ‖ tuning, with each VCO's switch under it; filter · (window) · amp, symmetric about the window; keys → echo → reverb → out, with the bottom row's headings on one line above the fan words. The reading wraps from amp to keys, which feed both envelopes. Headings are centred over their groups.</figcaption>
 </figure>
 </div>
@@ -31,7 +31,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 
 **The two, by eye:**
 - **P5R reads first time,** one heading line per row, in signal order down the page. Each oscillator's switch sits under its own VCO. Row B is now symmetric about the window, and keys open the bottom row (the reading wraps from amp to keys). The bottom row's headings share one line clear of the fan words, so nothing reads as "shimmer reverb" any more.
-- **P5O now reads as one order,** left to right by columns. Every heading starts top left. On the top row, voices · mod · track 3 follow VCO 1 directly, under the unbroken "oscillators" hairline; then tuning, then echo. The top heading line rises above echo's fan words. The name moves above the window, a nameplate over the grille (under the window it sat 1.5 mm from "keys"). **P5O is the only option with room for a 4th analog oscillator.** "track 3" is systems' proposed vocabulary tweak, rendered as given. Amp stays a column pending the owner (systems §19.4: an amp row costs the column layout's balance at D 132).
+- **P5O now reads as one order,** left to right by columns. Every heading starts top left. On the top row, voices · mod · track 3 follow VCO 1 directly, under the unbroken "oscillators" hairline; then tuning, then echo. The top heading line rises above echo's fan words. The name moves above the window, a nameplate over the grille (under the window it sat 1.5 mm from "keys"). **P5O is the only option with room for a 4th analog oscillator.** "track 3" is approved. The right block now runs echo (free · sync, repeats, pan) → reverb (decay · type) → out (link switch, then pan), every legend under its control. Amp stays a column pending the owner (systems §19.4: an amp row costs the column layout's balance at D 132).
 - **My view:** the two are now close. P5R is the calmer page; P5O has the Model D block and the room for VCO 4.
 
 ### The fourth oscillator (P5O only)
@@ -80,19 +80,22 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **Lid, the sound:** oscillators 1 · 2 · 3 [· 4] (octave, pitch, wave; tune and drift by them; voices, mod, track); envelopes, filter and amp (attack, decay, sustain); keys (velocity, touch); echo (type, time with free · sync, repeats, pan); reverb (type, decay); out (pan, link).
 - **Base, the hands and the levels:** rear row: controllers (release, blend), mixer 1 · 2 · 3 · extra with source (noise · input · loop), effects (echo, reverb), the midi and status lights. Front row: controllers (bend, mod, glide), filter (resonance, track, **cutoff**, mod, envelope), out (volume), tempo (tap).
 
-### Checks (rev 9.2)
-- **Real Kalam:** 0 for P5O, P5O with VCO 4, and P5R. **Systems' rules on the visual's positions:** 0 for all three. `layout_check.py` (1d2e1fd): 0.
-- **The new director's tests** (real Kalam on the rendered lid):
-  - **headings never on a fan-word line:** passes in both;
-  - **phrases** (a heading or fan word within 7 mm of another word on its line): none left. "tape echo", "shimmer reverb" and "big energy hall" are gone;
-  - **≥ 5 mm from a legend to the next heading, and one legend side per group (P5O right block): 3 fails, all in P5O's right block, and they're geometry.** "reverb" is 1.6 mm under "free · sync"; "out" is 2.5 mm under reverb's "type"; echo's legends sit both below (type) and above (time, repeats, pan). The cause: a type knob's fan words take the space above it, so its own word must go below, and the right block's rows are 30 mm apart (they share the filter / amp rows). Meeting 5 mm needs ≈ 3.4 mm more between R2 and R3 and ≈ 2.5 mm more between R3 and R4 in the right block. Its bottom can't drop (the out pan's 3M margin), so the right block needs its own row pitch or one fewer row. **Systems.**
-- **New visual fits, for systems to fold:** P5R row-C heading line +0.4 (to d 42.4: real Kalam put "reverb" 1.18 from "shimmer"); the name at d 38.0 in P5R (at 34.0 it sat on echo pan's top tick, pan now at x 147.7) and **above the window at d 90.5 in P5O**.
+### Checks (rev 9.3, systems 7595f7d)
+- **Real Kalam:** 0 for P5O, P5O with VCO 4, and P5R. **Systems' rules on the visual's positions:** 0 for all three. `layout_check.py`: 0.
+- **The director's tests** (real Kalam on the rendered lid):
+  - **P5R:** all pass: no heading on a fan-word line, no phrases, ≥ 5 mm from a legend to the next heading.
+  - **P5O:** the 5 mm gaps and one legend side per group now pass in the right block. **One fail is left: "reverb" shares its line with type's fan words "hall" and "spring"**, 16 mm to its right. With reverb reading decay · type, its heading sits top left over decay, at the height of the type knob's inner fan words. It can't rise above them (echo's legends are 5 mm above), so it reads as one line with the fan. A fix is systems': reverb back to type · decay with the heading above the fan, or the right block's R2–R3 spacing ≈ 5 mm wider. "track 3" is approved and drawn.
+- **Visual fits, for systems to fold:**
+  - P5O "reverb" +1.55 (it sat on decay's top tick, 0.00);
+  - P5O "out" +0.3 (1.42 from link's nut);
+  - "above2" legends (P5R keys): block bottom TGL + 2.35 over the nut, positions then name, leading **1.25** (the checker's box uses 0.9; at 0.9, "velocity"'s descender met its positions);
+  - the name stays at P5R d 38.0, and P5O d 90.5 above the window (NAME_BOX still has 34.0 / 37.6).
 
 ### Open
-1. **P5O right block:** the two 5 mm gaps and one legend side for echo (geometry, above).
-2. **P5R:** "keys" heads its pair from the shared row-C heading line, 13 mm above the switches. It reads, but it's the loosest heading on the lid.
+1. **P5O:** "reverb" on the fan words' line (above).
+2. **P5R:** "keys" heads its pair from the shared row-C heading line. With the legends above the switches it now sits 4 mm over "velocity", which is tighter and reads better.
 3. **P5O:** "out" hangs 3.8 mm into the gutter.
-4. **Owner:** P5O or P5R; the 4th analog oscillator (P5O only); "amp controls left to right" (amp envelope as a row?); "track 3"; D 132.
+4. **Owner:** P5O or P5R; the 4th analog oscillator (P5O only); "amp controls left to right"; D 132.
 5. **Eng:** the spine's fold in the 2.1 seam, and the corner pieces' joint at the seam.
 
 ## What CATHEDRAL does to the ideas

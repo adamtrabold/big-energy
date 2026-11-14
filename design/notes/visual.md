@@ -1,5 +1,14 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 fixes 4 (2026-11-13 ~23:05): READ THIS FIRST
+- **Inputs:** systems 7595f7d. P5R: keys legends "above2", row-C headings at d 43.5. P5O: the right block re-spaced (legends under), reverb reads decay · type, out reads link (switch, d 20) · pan; "track 3" is approved.
+- **rb.py:**
+  - "above2" lid legends (positions then name over the switch, bottom TGL + 2.35, leading `BELOW2_LEAD` 1.25);
+  - P5R's row-C +0.4 is dropped (systems' line is higher);
+  - `P5O_HEAD_FIT` = reverb +1.55, out +0.3 (real Kalam).
+- **Checks:** real Kalam 0 / rules 0 for all three. Director's tests: P5R 0; P5O 1 ("reverb" on the line of type's fan words "hall" / "spring", 16 mm right). That one is geometry, for systems.
+- **Images:** both tops, both standing, spine standing and spine flat. **Doc rev 9.3:** P5O / P5R alt texts, checks, Open.
+
 ## CATHEDRAL steer 5 fixes 3 (2026-11-13 ~22:45; new director, P5R 9 / P5O 8, bar 10): READ THIS FIRST
 - **Inputs:** systems 1d2e1fd (§19.4): P5R keys move to row C, row B is symmetric, row C's headings sit on one line at d 42.0, and VCO switches sit under each VCO. P5O: voices · mod · track 3 follow VCO 1, the top heading line is at d 122.0, and the amp-row study fails the gap rule (amp stays a column pending the owner). New director's tests: headings off fan-word lines; ≥ 5 mm from a legend to the next heading; one legend side per group (P5O right block); flag phrases.
 - **rb.py:**

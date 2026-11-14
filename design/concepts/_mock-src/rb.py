@@ -1645,7 +1645,7 @@ def nv_fit_sections(lc, sections):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(sections)
 
-P5O_HEAD_FIT = {}   # rev 9.1's fits are in layout_check.py (9bbedb1)
+P5O_HEAD_FIT = {"reverb": (0.0, 1.55), "out": (0.0, 0.3)}   # 7595f7d real Kalam: "reverb" sat on decay's top tick (0.00), "out" 1.42 from link's nut (rev 9.1 fits are in the checker, 9bbedb1)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
     real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
@@ -1656,9 +1656,7 @@ def nv_heads_left(lc, sections):
     if getattr(lc, "SECTIONS_LEFT", None):
         heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
-    # steer 5 fixes 3: P5R's row-C heading line (d 42.0) +0.4: real Kalam put "reverb" 1.18 from "shimmer"
-    rowc = getattr(lc, "VARIANT", "") == "P5R"
-    return [(t, x, d + (0.4 if rowc and abs(d - 42.0) < 0.1 else 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
+    return list(sections), nv_fit_subheads(lc), "center"   # (P5R's row-C line is systems' d 43.5 since 7595f7d)
 
 def nv_hair(lc):
     """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1)."""
@@ -1912,6 +1910,12 @@ class Nave(Cathedral):
                 nm, pos = lab.split("|")
                 s += txt(x + 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="left")
                 s += txt(x + 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="left")
+            elif where == "above2":          # steer 5 fixes 4 (P5R keys): name over positions ABOVE the switch, centred,
+                nm, pos = lab.split("|")     #   the base rear row's style; block bottom TGL + 2.35 over the nut
+                hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
+                bot = L0 + d + lc.TGL + 2.35
+                s += txt(x, bot + hp / 2, z, pos, lc.NS, ink, font=st.font)
+                s += txt(x, bot + hp + BELOW2_LEAD + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
             elif where == "below2":          # steer 5 (P5O keys): the base front row's style, name over positions under
                 nm, pos = lab.split("|")     #   the switch, centred (top of the block d - TGL - 2.1, 0.9 leading)
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
