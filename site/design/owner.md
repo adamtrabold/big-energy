@@ -77,3 +77,5 @@ Recorded as: site name is Big Energy.
 
 2026-11-13 21:18 Owner (verbatim): "I want images from each question, page, etc. to open in a light box instead of opening in new tab. Use this one https://ramka.dev/"
 Recorded as: every image on the site opens in a lightbox (not a new tab), using Ramka (@ramka/react; MIT; React 18+ peer; headless/unstyled; morph transitions, pinch/zoom, keyboard, pull to dismiss).
+2026-11-13 21:19 Owner (verbatim): "Oh shit no I don’t want react because I don’t think that will work on pages"
+Recorded as: NO React on the site. (Orchestrator noted that bundled React would run on Pages, but the owner does not want it.) Use a plain-JavaScript lightbox with Ramka-like behaviour instead.
