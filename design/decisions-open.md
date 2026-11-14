@@ -4,23 +4,26 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL layouts: back in progress after your 01:32 notes
-**Not ready.** You said this is not a 10; the team is fixing your notes on both layouts and the base, and you will see every option side by side. Pictures below are the last drafts.
+## 1. CATHEDRAL layouts: every option, side by side
+**Your call:** which layout. In practice the choice comes down to **three oscillators (P5R)** or **four, with your stacked layout (P5OB-D)**. Nothing is approved yet. Two small fixes are still pending on P5OB-D; they don't change the layout.
 
-**Previously:** Your layout (P5O, which fits the 4th analog oscillator) is a step behind and comes next; choosing between the two, and whether to add the 4th oscillator, follows once you've seen both.
+**P5R: team rows, three oscillators, 132 mm deep.** Director **10**. The synth-player critic gives it **8**: it would play it, but the oscillators run in one long row and the filter envelope sits far from cutoff.
 
-- **Lid, read top to bottom:** oscillators and tuning; filter envelope · speaker · amp envelope, mirrored about the speaker; keys · echo · reverb · out.
-- **Base:** controllers, mixer, effects levels, filter, volume and tempo, over two rows of peg keys.
-- **Both halves 132 mm deep** (from 108) to fit the second base row; closed thickness unchanged.
-- **Softer continuous-curve corners**, the **spine back** (dark walnut cloth, brass bands), **lines** for the grille (more open than dots).
-- **Open:** in P5O, does "amp controls … left to right in the top row" mean the amp envelope? A full top row doesn't fit at 132 mm, so it stays a column until you say.
+![P5R: full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
+![P5R: standing](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
 
-![Team rows (P5R): full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
-![Team rows (P5R): standing](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
-![Closed, with the spine](branches/concepts/cathedral/img/cathedral-s5-closed-spine.jpg)
-![Spine, standing](branches/concepts/cathedral/img/cathedral-s5-spine-standing.jpg)
-![Spine, flat](branches/concepts/cathedral/img/cathedral-s5-spine-flat.jpg)
-![Grille: lines vs dots, 1:1](branches/concepts/cathedral/img/cathedral-s5-grille-lines-vs-dots-20px-per-mm.png)
+**P5OB-D: your layout, four oscillators, 145 mm deep.** Oscillators are stacked on the left, the amp envelope is the top row, and the filter envelope is a row beside the speaker, right above cutoff. The critic gives it **9**: "now good", it would play it and defend every control. It's a 10 for the critic with two fixes: drift reads as oscillator 2's knob, and keys need more room under reverb. The director hasn't scored it yet.
+- Costs: both halves +13 mm deep (each half 286 × 145 mm, about 10% more area); closed thickness unchanged; about +55 g; the 4th oscillator adds about $20–30 and 0.4 W.
+- Known gaps: wider air right of the speaker than left of it.
+
+![P5OB-D: full top with 4 oscillators, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png)
+![P5OB-D: standing](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-standing.jpg)
+
+**Your layout at 132 mm (study).** Three oscillators, amp envelope on top, filter row below. It fits, but there's no way to fill the right side without moving the effect levels or out onto the lid.
+
+![P5OB study at 132 mm](branches/concepts/cathedral/img/cathedral-s7-P5OB-study-top-9.9px-per-mm.png)
+
+Shared across all of them: softer corners, the spine back, a line grille, no name on the panel, one knob-marking system, and dots marking the knobs that take MIDI. The full reviews are under Reviews (player review, rounds 1–5).
 
 ---
 
