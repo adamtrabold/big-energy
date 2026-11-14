@@ -2301,6 +2301,7 @@ def jobs(SZ):
         "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
         # §22 studies (owner judges the amp-row trade by eye; holes kept): full tops only
         "rb_s8_P5OBD_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_s8_P5OBD_stand", size=SZ, az=-32, el=24, dist=900, center=(143, n.D * 0.6, 62), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_s8_P5OBD_stand.png")))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
+        "rb_s9_P5OBD_C_top": lambda: (lambda n: top_tall(n.model(True), "rb_s9_P5OBD_C_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="147.3", CATHEDRAL_VCO4="1")),
         "rb_s8_P5OBD_top": lambda: (lambda n: top_tall(n.model(True), "rb_s8_P5OBD_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
         **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},

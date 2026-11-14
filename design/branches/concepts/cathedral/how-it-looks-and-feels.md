@@ -54,6 +54,19 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 | Closed / open read | A long slim case; open, a wide low landscape | A long box, then a square tablet | Almost a double square, then a cream square framed in walnut |
 | Cost (§30.2) | none for P5R; out for P5OB-D (below its 143 floor) | P5OB-D −2, ≈ −8 g, no re-layout, but 0 slack for the keys' switches, and the face grid doesn't divide; P5R +11, ≈ +46 g, rows re-laid | **P5OB-D +2.3, ≈ +10 g, no re-layout**, 2.3 more slack; P5R +15.3, ≈ +64 g, a wide empty band (poor) |
 
+**On the device itself** (director: A 9, C 9, B dropped). Each ratio is drawn over its own layout's exact top view:
+
+<figure>
+<img src="img/cathedral-s9-P5R-ratio-A-top-9.9px-per-mm.png" alt="P5R open flat, exact top view, with red construction lines on both faces: each face's rectangle and a square centred on the axis, its sides passing just inside the tune knob and amp attack on the lid; the window and the cutoff sit inside the square, with a near-golden wing either side.">
+<figcaption><b>A on P5R</b> (286 × 132). On each face, the √5 / 9 : 4 construction is a square on the axis with a ≈ golden wing either side (77 × 123.4, 1.60). On the lid the square holds the window and both envelopes' inner knobs; on the base it holds the filter group round CUTOFF. The layout already lives in it.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s9-P5OBD-ratio-C-top-9.9px-per-mm.png" alt="P5OB-D at half height 147.3 open flat, exact top view, with red construction lines on both faces: each face's rectangle split by a vertical seam on the axis into two squares, each with its diagonal; the seam runs through the speaker window on the lid and through cutoff on the base.">
+<figcaption><b>C on P5OB-D</b> (286 × 147.3). Each face is two squares, 138.7 each, and their seam is the axis, through the window on the lid and CUTOFF on the base. Left square: oscillators and filter; right square: amp's end, effects and keys. Open, the two faces together span one square (277.4 wide, 288 deep including the seam band).</figcaption>
+</figure>
+
+- **P5OB-D at D 147.3 (checker):** nothing re-lays. Every lid row rides up 2.3 mm with the window (d = D − 68), so the stick landing and closing are unchanged: R-LOW 55.2, R-TALL 59.7, binding octave 2 over mod. Each half gains 2.3 mm of band; the base's is behind the battery. The violations are the same 6 by-design gaps (row 4's end gutter 32.9 → 31.9, row 2 / 3 window gaps 27.8 / 29.3 → 28.7 / 30.2). Real Kalam 0.
+
 **My recommendation: C, the double-square face** (D 147.3). It's derived from the face, as he asked, rather than from the outer box. It's the only candidate where the face ratio, the module grid (56 × 28) and the open silhouette (two faces make a square) all agree exactly. It costs P5OB-D 2.3 mm and ≈ 10 g, with no re-layout. B is the purist's case-outline answer, but its face grid doesn't close and it leaves the keys' switches no slack. **A stays right if P5R is the layout.** It's today's case, and √5 is already a good ratio, so the question then is only one of words.
 
 ### P5OB-D study (systems §25): four oscillators at D 145
