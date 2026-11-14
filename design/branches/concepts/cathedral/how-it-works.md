@@ -1338,6 +1338,46 @@ The checker reports what each leaves empty. The visual renders all three.
 - **Closing:** VCO 2's octave lands over the bend stick, so **the stick lowers to 9.0** for 55.2 (as is: 58.8). VCO 4 doesn't fit unless keys leave R4.
 - **For the owner:** this is his layout read literally: amp on top, filter by the speaker, oscillators stacked. The critic would defend it at 9 → 10. The director thinks no P5O reaches 10. The gap rule says the grille's sides and R3 right are holes. He judges by eye.
 
+## 24. Round 8 (director P5R 9; critic P5R 8, P5OB 7)
+### 24.1 P5R
+- **MIDI:** a subset with a printed key. **"• midi"** sits right-aligned on the lid's top heading line. Dots go on MOD, GLIDE, CUTOFF, TUNE, PITCH 2 / 3, out PAN and echo PAN; octave lost its dots (detented).
+  - **Why not "all knobs, no dots":** the mixer, volume and resonance are analog and can't follow MIDI (`docs/features/midi.md`).
+  - **Visual:** draw the key; drop the octave dots.
+- **"1" "2" "3" are sub-headings top-left over each VCO's octave,** on one line with "tuning" (d 117.9), above octave's positions line. "oscillators" sits at d 121.7.
+  - To make room, **row A moves from d 104 to 99** (rows 99 / 64 / 24, 7M / 8M).
+- **Checker:** 0. **Closing:** R-LOW 55.2, stick as is.
+
+### 24.2 The base (shared)
+| | Front (y 68) | Rear (y 93) |
+|---|---|---|
+| controllers | bend 31.75 · mod 51.75 · glide 71.75 | release (t) 31.75 · **"mod"** with its hairline run on over: pitch (t) 51.75 · filter (t) 62.75 · blend 80.4 |
+| filter / mixer | track (3-way slide) 103 · resonance **123** · CUTOFF **143** · envelope **163** | mixer 1 **123** · 2 **143** · 3 **163** · extra 183 · source (t) 197.6 |
+| tap | tap 195.05 | |
+| out / effects | link (slide) 224.7 · volume **239.7** · pan **259.7** | echo **239.7** · reverb **259.7** |
+
+- **Both rows end on the right margin line.** Front gutters 19.0, rear 28.6.
+- **The mixer's 1 · 2 · 3 stand exactly over resonance · CUTOFF · envelope**, and echo · reverb over volume · pan. To make that true, track moves to the column left of resonance as a 3-way low slide. As a 15 mm bat under P5R's filter sustain it would raise the lid to 46.1.
+- **The "mod" sub-heading's hairline runs on over blend.**
+- **TAP is back in the front row,** between the filter and out. In the rear it couldn't end both rows on the margin with equal gutters: the stick fixes the front-left gutter at about 19, and the front-right then had room for out alone with a 31 mm end.
+- **Checker:** 0.
+
+### 24.3 The stick's landing spot
+- **P5R:** already works. The stick lands in row B's empty left end (between the margin and filter attack), 4.25 clear in plan. Full-height stick, 55.2.
+- **P5OB:** **no landing spot is possible.**
+  - With the bank at one 25 mm pitch, the rows nearest the stick's landing line (d 64) are 15 and 10 away. The stick needs 16.45 of radius, so two rows would have to sit 32 apart.
+  - Moving the stick right to land beside the bank breaks the base's left-hand controllers.
+  - **P5OB keeps the 9.0 stick** (58.8 at full height), pending the critic's printed thumb test.
+
+### 24.4 P5OB, the critic's fill: tested
+| Version | Layout | Checker |
+|---|---|---|
+| **4 VCOs** (`CATHEDRAL_VCO4=1`) | left: VCO 1–4 at 104 / 79 / 54 / 29; centre: amp row / grille / filter row; right: echo (R1–R2), **reverb R3 under echo, keys R4** | **13 violations.** As well as the grille's side gaps (R2: 47.3 / 27.8, end 40; R3: 29.5 / 26.7, end 40), the right column can't stack four groups at 25 mm with their headings and names lines: **"reverb" overprints echo's legends**, and **keys' words and heading overprint reverb's names line** |
+| **3 VCOs** | as above, keys bottom left under the bank | **8.** The same reverb / echo clash. **R4 right is empty (96 mm).** There is no 3-VCO fill without levels or out on the lid |
+
+- **What the critic's claim gets right:** the structure (filter row over CUTOFF, the effects block over the effect levels, VCO 4 on the left) reads as an instrument.
+- **What doesn't hold at D 132:** the right column has 4 × 25 mm for two headed groups with names lines plus keys. Each headed group needs ≈ 32 mm (heading, ticks, knob, legend, names). Fitting it needs about +15 mm of lid depth (both halves, since FOLD couples them), or keys elsewhere.
+- **Verdict:** P5OB can't reach 0 with this fill. The earlier P5OB (reverb bottom right, the "air" at R3) is 5 by-design gaps and no clashes. It's the cleaner study to show.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

@@ -61,10 +61,11 @@ DOTS = []     # link dots (Ø 1.2): (name, x, d, paired control)
 def L(n, x, d, k, lab, where): lid.append((n, x, d, KN if k == "k" else TGL, k, lab, where))
 
 if VARIANT == "P5OB":
-    # ---- round 7, the player critic's "centre spine" for the owner's own layout (§23): amp attack · decay · sustain
-    # as the top row, centred over the speaker; the grille in the middle; the filter envelope as the bottom row
-    # (filter decay the nearest reach standing); the oscillators stacked on the left at one 25 mm pitch, keys under
-    # them; echo top right, reverb bottom right. Rows 104 / 79 / 54 / 29.
+    # ---- the critic's "centre spine" (§23.3), round 8 fill (§24): amp attack · decay · sustain the top row over the
+    # speaker, the filter envelope the bottom row under it; oscillators stacked left at 25; echo top right with
+    # reverb moved up under it (one effects block). With VCO 4 (CATHEDRAL_VCO4=1) the bank is four rows and keys go
+    # bottom right; with three VCOs keys stay bottom left under the bank and the bottom right is empty (no
+    # three-oscillator fill exists without moving levels or out onto the lid).
     R1, R2, R3, R4 = 104.0, 79.0, 54.0, 29.0
     C1 = ML + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)
     NUMX = 11.0
@@ -75,10 +76,10 @@ if VARIANT == "P5OB":
         L(n, x, d, "k", lab, "behind")
     L("OSC 3 CTL", OX[3], R3, "t", "track 3|off · on", "above2")
     NOTES += [(t, NUMX, d, NUM_S, "center") for t, d in (("1", R1), ("2", R2), ("3", R3))]
-    SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
-    for (x, (n, lab)) in zip(OX[:3], [("PARA", "voices|1 · 3 · 4"), ("VEL", "velocity|amp · both · filter"),
-                                       ("AFTERTOUCH", "touch|mod · off · filter")]):
-        L(n, x, R4, "t", lab, "above2")
+    if VCO4:
+        for n, x, lab in [("RANGE 4", OX[0], "octave"), ("WAVE 4", OX[1], "wave"), ("FREQ 4", OX[2], "pitch")]:
+            L(n, x, R4, "k", lab, "behind")
+        NOTES.append(("4", NUMX, R4, NUM_S, "center"))
     for n, x, lab in [("L ATTACK", 123.0, "attack"), ("L DECAY", 143.0, "decay"), ("L SUSTAIN", 163.0, "sustain")]:
         L(n, x, R1, "k", lab, "behind")
     for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
@@ -88,23 +89,29 @@ if VARIANT == "P5OB":
     L("ECHO TYPE", EC1, R1, "k", "type", "front"); L("ECHO TIME", EC1 + 20, R1, "k", "time", "front")
     L("FREE/SYNC", EC1 + 41.5, R1, "t", "free · sync", "under")
     L("ECHO REPEATS", EC1, R2, "k", "repeats", "front"); L("ECHO PAN", EC1 + 20, R2, "k", "pan", "front")
-    g4 = 123.0 - KN - (OX[2] + len("mod · off · filter") * 0.5 * NS / 2)
-    RV4 = 163.0 + KN + g4 + KN
-    L("REVERB TYPE", RV4, R4, "k", "type", "front"); L("REVERB DECAY", RV4 + 20, R4, "k", "decay", "front")
+    L("REVERB TYPE", EC1, R3, "k", "type", "front"); L("REVERB DECAY", EC1 + 20, R3, "k", "decay", "front")
+    KP = 3 * M
+    kx = (EC1 - 6.175 + 6.175) if VCO4 else None
+    keys = [("PARA", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4")), ("VEL", "velocity|amp · both · filter"),
+            ("AFTERTOUCH", "touch|mod · off · filter")]
+    KXS = [EC1 - KN + 6.175 + KP * i for i in range(3)] if VCO4 else list(OX[:3])
+    for x, (n, lab) in zip(KXS, keys):
+        L(n, x, R4, "t", lab, "above2")
+    SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
     over = lambda d: d + KN + 1.5 + 0.425 * HS
-    # visual 2023021: the top line 2.0 higher, so octave's positions line (lo · 32 … 2, over its word) keeps 1.5 under
-    # "oscillators"; row 4's headings clear their knobs' tick rings (r + 1.7) by 1.5; "keys" +0.6 over "voices"
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
+    KTOP = R4 + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6
     SECTIONS_LEFT += [("oscillators", ML, HTOP), ("amp", 123.0 - KN, HTOP), ("echo", EC1 - KN, HTOP),
-                      ("filter", 123.0 - KN, H4), ("reverb", RV4 - KN, H4),
-                      ("keys", OX[0] - len("amp · both · filter") * 0.5 * NS / 2, R4 + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6)]
+                      ("filter", 123.0 - KN, H4), ("reverb", EC1 - KN, R3 + KN + 1.7 + 1.5 + 0.425 * HS),
+                      ("keys", KXS[0] - 6.175, KTOP)]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"], ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]]),
                 ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", ["ECHO REPEATS", "ECHO PAN"]]),
-                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN"]),
-                ("lid R4", R4, [["PARA", "VEL", "AFTERTOUCH"], ["F ATTACK", "F DECAY", "F SUSTAIN"], ["REVERB TYPE", "REVERB DECAY"]])]
+                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", ["REVERB TYPE", "REVERB DECAY"]]),
+                ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["PARA", "VEL", "AFTERTOUCH"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"]] +
+                               ([["PARA", "VEL", "AFTERTOUCH"]] if VCO4 else []))]
     GAP_REF = {"lid R2": "lid R1", "lid R3": "lid R1"}
 elif VARIANT in ("P5O", "P5OA", "P5OL"):
     # ---- steer 5 fixes 9: P5O with the fixes P5R took (§21), as STUDIES the owner judges by eye (he: "i cant
@@ -191,7 +198,7 @@ elif VARIANT == "P5R":
     # B  filter | window | amp, symmetric, each headed by its own name (no "envelopes" over the grille);
     # C  keys (voices · velocity · touch: how the keyboard plays the voice) | echo | reverb, ends = gutters.
     # Out (volume · pan · link) and the MOD knob's destinations (pitch, filter) live on the base (§20).
-    A5, B5, C5 = 104.0, 64.0, 24.0
+    A5, B5, C5 = 99.0, 64.0, 24.0                                   # row A 5 lower (round 8): room for the octave line + numerals
     VG = [4, 3, 4]                                                  # knobs-or-switch slots per VCO group
     wV = [2 * KN + 60, 2 * KN + 40, 2 * KN + 40 - KN + 15 + TGL]
     gA = (MR - ML - sum(wV)) / 4
@@ -205,8 +212,11 @@ elif VARIANT == "P5R":
         for n, x, lab in [(f"RANGE {v}", 0, "octave"), (f"WAVE {v}", 20, "wave"), (f"FREQ {v}", 40, "pitch")]:
             L(n, base_x + x, A5, "k", lab, "behind")
     L("OSC 3 CTL", OXR[2] + 55, A5, "t", "track|off · on", "above2")
-    NOTES += [(t, x - KN - gA / 2, A5, NUM_S, "center") for t, x in zip(("1", "2", "3"), OXR)]   # centred in the gap before each VCO
-    SUBHEADS += [("tuning", OXR[0] + 40 - KN + len("tuning") * 0.25 * SUB_S, A5 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
+    # round 8: "1" "2" "3" are sub-headings top-left over each VCO's octave, on one line with "tuning" (over tune),
+    # above octave's positions line (legend, 1.35, the line, 1.5, the sub-heading)
+    SUBL = A5 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.35 + 0.85 * NS + 1.5 + 0.425 * SUB_S
+    SUBHEADS += [(t, x - KN + len(t) * 0.25 * SUB_S, SUBL) for t, x in zip(("1", "2", "3"), OXR)]
+    SUBHEADS += [("tuning", OXR[0] + 40 - KN + len("tuning") * 0.25 * SUB_S, SUBL)]
     # row B: filter | window | amp, symmetric about x 143 (ends and window gaps 22.9)
     gB = (120.0 - ML - (2 * KN + 40)) / 2
     FXR = ML + gB + KN; AXR = 286.0 - FXR - 40
@@ -231,10 +241,12 @@ elif VARIANT == "P5R":
     HC = KEYS_TOP + 1.5 + 0.425 * HS                                # one heading line for row C, over the keys' words
     # round 7: every heading top-left of its group, the base's rule, on the lid too
     HB = B5 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * HS
-    SECTIONS_LEFT += [("oscillators", OXR[0] - KN, 123.5), ("filter", FXR - KN, HB + 0.8), ("amp", AXR - KN, HB + 0.8),
+    SECTIONS_LEFT += [("oscillators", OXR[0] - KN, SUBL + 0.425 * SUB_S + 1.5 + 0.425 * HS), ("filter", FXR - KN, HB + 0.8), ("amp", AXR - KN, HB + 0.8),
                       ("keys", KX - TGL, HC + 0.6), ("echo", EC - KN, HC), ("reverb", RVC - KN, HC)]   # visual 2023021 fits
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     KEYS_LINE = False
+    MIDI_KEY = ("• midi", MR, SUBL + 0.425 * SUB_S + 1.5 + 0.425 * HS, NS)   # printed key: right-aligned on the heading line
+    NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
     FX, FX_BREAKS, SWL = C5, [], C5
     GAP_ROWS = [("lid A", A5, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["RANGE 2", "WAVE 2", "FREQ 2"],
                                ["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"]]),
@@ -340,6 +352,7 @@ BASE_SECTIONS = [("controllers", 14.0, 85.0), ("filter", 105.0, 85.0), ("tuning"
 BASE_LEDS = [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]
 BASE_NOTES = [("midi", 131.0, 81.0 + 2.5 + 1.8 + 0.85 * 1.55 / 2), ("status", 155.0, 81.0 + 2.5 + 1.8 + 0.85 * 1.55 / 2)]
               # the two lights named, behind them (131: not-in-control / MIDI holds a knob; 155: status), Kalam 1.55
+BASE_HAIR = []                         # base engraved hairlines (obstacles): (name, x0, y0, x1, y1)
 BASE_SUBS = []                         # base sub-headings, left-aligned, Kalam 1.8: (text, x, y)
 BASE_BREAKS = [(242.2, 56.0, 80.0)]   # tune ‖ echo tap: TAP stands alone at the end (director fix 4), x, y from, y to
 BASE_R_DRAWN = {"BEND stick": None, "CUTOFF": CUT, "TAP": TAPR}   # R-LOW render: Tayda Ø 10 knobs (r 5) elsewhere
@@ -376,41 +389,36 @@ if STEER5:
                                         ["ECHO MIX", "REVERB MIX"], ["LIGHTS"]])]
 BASE6 = STEER5
 if BASE6:
-    # ---- base 6, round 7 (director + player round 2, §23): a front row of what the hands ride and a rear row of
-    # what you set, as columns:
-    #   controllers: bend · mod · glide (front); release behind bend (the Model D's decay switch by the wheels), then
-    #     the MOD knob's own row behind mod / glide under a "mod" sub-heading: pitch · filter (where it goes) · blend
-    #     (what it is);
-    #   filter (front): resonance · track (17.2 from CUTOFF) · CUTOFF · envelope, with the mixer behind it;
-    #   out (front): volume · pan · link, one group under one heading;
-    #   effects (rear): echo · reverb · tap (tap sets echo's time; its ring is the status light).
-    # The bend stick stays clear of P5R's filter attack when closed (stick x ≤ 33.2).
+    # ---- base 6, round 8 (§24): both rows end on the right margin line; the mixer's 1 · 2 · 3 stand exactly over
+    # resonance · CUTOFF · envelope; effects (echo · reverb) stand over volume · pan. Front: controllers | filter
+    # (track · resonance · CUTOFF · envelope) | tap | out (link · volume · pan). Rear: release | "mod": pitch ·
+    # filter · blend (one hairline over all three) | mixer | effects. Bend stays at x ≤ 33.2 (P5R's landing spot).
     BK = 7.0
-    RESX, ENVX = 111.0, 163.0                                        # resonance / envelope round CUTOFF (R-TALL gaps ≥ 1.5)
-    FL, FR = RESX - BK, ENVX + BK
-    wOUT = 2 * BK + 20 + 15 - BK + TGL                               # volume · pan (4M) · link (3M), legends under
-    CX = 31.95                                                       # bend: the stick clear of P5R's filter attack
-    gF = FL - (CX + 40 + BK)                                         # controllers | filter gutter, repeated to out
-    VOLX = FR + gF + BK; PANX = VOLX + 20; LKX6 = PANX + 15
+    RESX, ENVX = 123.0, 163.0                                        # resonance / envelope one 4M column each side of CUTOFF
+    TRX = 103.0                                                      # track: a 3-way low slide, the column left of resonance
+    FL, FR = TRX - len("off · 1/2 · full") * 0.5 * NS / 2, ENVX + BK
+    wOUT = TGL + 15 + 20 + BK                                        # link (slide) · volume · pan, pan's edge on the margin
+    gF = (MR - FR - 2 * TAPR - wOUT) / 2
+    CX = FL - gF - 40 - BK                                           # bend (31.75): the same gutter left of the filter
+    TAPX = FR + gF + TAPR; LKX6 = MR - wOUT + TGL; VOLX = LKX6 + 15; PANX = VOLX + 20
     SRC = 14.6
-    wM = 2 * BK + 20 * 3 + SRC + len("noise · input · loop") * 0.5 * NS / 2 - BK
-    wFX = 2 * BK + 40 - BK + TAPR
-    RL = CX + 40 + BK                                                # the rear controllers end over glide (blend)
-    gR = (MR - RL - wM - wFX) / 2
-    MX = RL + gR + BK; EX = MX + 60 + SRC + len("noise · input · loop") * 0.5 * NS / 2 + gR + BK
+    MX = RESX                                                        # mixer 1 over resonance, 2 over CUTOFF, 3 over envelope
+    EX = VOLX                                                        # echo over volume, reverb over pan
+    MXR = MX + 60 + SRC + len("noise · input · loop") * 0.5 * NS / 2
+    BLX = MX - BK - (EX - BK - MXR) - BK                             # blend placed so the rear gutters match
     BASE5 = [("BEND stick", CX, 68, STK, "s"), ("MOD", CX + 20, 68, KN, "k"), ("GLIDE", CX + 40, 68, KN, "k"),
-             ("EMPHASIS", RESX, 68, KN, "k"), ("KBD CTRL", 143 - 17.2, 68, TGL, "t"), ("CUTOFF", 143, 68, CUT, "c"),
-             ("CONTOUR AMT", ENVX, 68, KN, "k"),
-             ("VOLUME", VOLX, 68, KN, "k"), ("DRY PAN", PANX, 68, KN, "k"), ("FOLLOW", LKX6, 68, TGL, "l"),
-             ("RELEASE", CX, 93, TGL, "l"), ("PITCH MOD", CX + 14.5, 93, TGL, "l"), ("FILTER MOD", CX + 25.5, 93, TGL, "l"),
-             ("MOD MIX", CX + 40, 93, KN, "k")] + \
+             ("KBD CTRL", TRX, 68, TGL, "l"), ("EMPHASIS", RESX, 68, KN, "k"), ("CUTOFF", 143, 68, CUT, "c"),
+             ("CONTOUR AMT", ENVX, 68, KN, "k"), ("TAP", TAPX, 68, TAPR, "p"),
+             ("FOLLOW", LKX6, 68, TGL, "l"), ("VOLUME", VOLX, 68, KN, "k"), ("DRY PAN", PANX, 68, KN, "k"),
+             ("RELEASE", CX, 93, TGL, "l"), ("PITCH MOD", CX + 20, 93, TGL, "l"), ("FILTER MOD", CX + 31, 93, TGL, "l"),
+             ("MOD MIX", BLX, 93, KN, "k")] + \
             [(f"OSC {i + 1}", MX + 20 * i, 93, KN, "k") for i in range(3)] + \
             [("NOISE/EXT", MX + 60, 93, KN, "k"), ("SOURCE", MX + 60 + SRC, 93, TGL, "l"),
-             ("ECHO MIX", EX, 93, KN, "k"), ("REVERB MIX", EX + 20, 93, KN, "k"), ("TAP", EX + 40 - BK + TAPR, 93, TAPR, "p")]
-    BASE_GAP_ROWS = [("base front", 68, [["BEND stick", "MOD", "GLIDE"], ["EMPHASIS", "KBD CTRL", "CUTOFF", "CONTOUR AMT"],
-                                         ["VOLUME", "DRY PAN", "FOLLOW"]]),
+             ("ECHO MIX", EX, 93, KN, "k"), ("REVERB MIX", EX + 20, 93, KN, "k")]
+    BASE_GAP_ROWS = [("base front", 68, [["BEND stick", "MOD", "GLIDE"], ["KBD CTRL", "EMPHASIS", "CUTOFF", "CONTOUR AMT"],
+                                         ["TAP"], ["FOLLOW", "VOLUME", "DRY PAN"]]),
                      ("base rear", 93, [["RELEASE", "PITCH MOD", "FILTER MOD", "MOD MIX"], ["OSC 1", "OSC 2", "OSC 3", "NOISE/EXT", "SOURCE"],
-                                        ["ECHO MIX", "REVERB MIX", "TAP"]])]
+                                        ["ECHO MIX", "REVERB MIX"]])]
 if STEER5:
     BASE_TOGGLES = {"KBD CTRL": "track|off · 1/3 · 2/3", "FILTER MOD": "mod|off · on", "RELEASE": "release|off · on",
                     "SOURCE": "source|noise · input · loop"}
@@ -428,8 +436,9 @@ if STEER5:
                         "RELEASE": "release|off · on", "SOURCE": "source|noise · input · loop", "FOLLOW": "link|off · on"}
         BASE_LEGEND.update({"DRY PAN": "pan"})
         BASE_SECTIONS = [("controllers", CX - TGL, 112.4), ("mixer", MX - BK, 112.4), ("effects", EX - BK, 112.4),
-                         ("filter", FL, 78.0), ("out", VOLX - BK, 78.0)]
-        BASE_SUBS = [("mod", CX + 14.5 - TGL, 108.5)]                # "mod" over pitch · filter · blend (Kalam 1.8)
+                         ("filter", FL, 78.0), ("out", LKX6 - TGL, 78.0)]
+        BASE_SUBS = [("mod", CX + 20 - TGL, 108.5)]                  # "mod" over pitch · filter · blend (Kalam 1.8)
+        BASE_HAIR = [("mod hairline", CX + 20 - TGL + len("mod") * 0.5 * 1.8 + 1.5, 108.3, BLX + BK, 108.7)]   # runs on over blend
         BASE_LEDS, BASE_NOTES = [], []
     BASE_BREAKS = []
     BATTERY = (36.0, 100.0, 196.0, 126.0)        # 4 × 952540 end to end (4 × 40), 1S4P, behind the rear row
@@ -472,6 +481,7 @@ def base_check():
         labs.append(("base head " + t, (x, y - 0.425 * 2.4, x + len(t) * 0.5 * 2.4, y + 0.425 * 2.4)))
     for t, x, y in BASE_SUBS:
         labs.append(("base sub " + t, (x, y - 0.425 * 1.8, x + len(t) * 0.5 * 1.8, y + 0.425 * 1.8)))
+    labs += [(n, (x0, y0, x1, y1)) for n, x0, y0, x1, y1 in BASE_HAIR]
     ctl = [(n, x, y, 7.0 if r == KN else r) for n, x, y, r, h in bs]   # low knobs measured to their tick ring (6.0 + 1.0)
     ctl += [("led", x, y, r) for x, y, r in BASE_LEDS]
     for ln, b in labs:

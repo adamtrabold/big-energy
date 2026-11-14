@@ -59,6 +59,10 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (Â
 | CC 123 all notes off | release all notes; tails ring | proposed |
 | Program change, song position, SysEx | ignored (no recall: owner, "i dont think recall is important") | proposed |
 
+**The rule the panel explains (round 8):** a dot marks a knob a DAW can move, and **a printed key "â€¢ midi" sits at the lid's top right**, on the heading line.
+- **Not every knob, and why:** only knobs the firmware owns can follow MIDI. Analog-path knobs can't be moved by MIDI without a motor or a digital pot: the mixer (passive), volume (analog), and resonance (analog loop). So "all continuous knobs, no dots" isn't true for this instrument, and the director's preferred option doesn't apply.
+- **Dots go on knobs only, never on switches or detented selectors,** always in one place (right of the word).
+
 **The MIDI-dot parameters (receive CC, jump-on-move, engraved dot).** The set, confirmed in round 7 against the panels:
 - **knobs:** MOD, GLIDE, CUTOFF, TUNE, PITCH 2 / 3 (/ 4 with VCO 4), out PAN, echo PAN;
 - **never** a switch or a detented selector (OCTAVE, WAVE, both TYPEs, all toggles).
