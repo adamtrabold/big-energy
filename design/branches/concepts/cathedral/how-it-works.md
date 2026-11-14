@@ -1259,7 +1259,7 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
 | 14 | wordmark; track off · ½ · full; source label height | wordmark **removed everywhere**; **track off · ½ · full**; source label: visual |
 
 **Also decided:**
-- **MIDI (owner: DAW-first):** every continuous knob **receives** MIDI (decided). Stepped selectors and switches don't follow incoming MIDI. **Send is proposed, not decided** (owner: "if it's free we could explore it"): knobs sending CC costs firmware only, no parts.
+- **MIDI (owner: DAW-first):** the **MIDI-dot knobs receive** (decided; the set is in `docs/features/midi.md`: MOD, GLIDE, CUTOFF, TUNE, PITCH 2 / 3 (/ 4), out PAN, echo PAN). OCTAVE is now detented, so it lost its dots. Stepped selectors and switches never follow MIDI. **Send is proposed, not decided** (owner: "if it's free we could explore it"): knobs sending CC costs firmware only, no parts.
 - **No name on the panel** (owner).
 
 ## 22. P5O with this round's fixes: three studies for the owner to judge by eye (none reaches 0)
@@ -1329,6 +1329,7 @@ The checker reports what each leaves empty. The visual renders all three.
   - amp's knob bottoms (96.55) are 9.55 clear of the grille's top (87);
   - filter's knob tops (36.45) are 4.55 clear of its bottom (41).
   - No shrinking needed.
+- **Visual 2023021 fits folded in:** the top heading line is 2.0 higher (octave's positions line keeps 1.5 under "oscillators"); "filter" and "reverb" clear their knobs' tick rings by 1.5; "keys" is 0.6 higher over "voices". The octave positions line is now in the checker, which flags the same clash in the three older P5O studies (left as they are, pending the scores).
 - **Checker: 5 violations,** all of them the empty space the spine leaves by design:
   - R2: the oscillators to the grille, 47.3; the grille to repeats, 27.8; the right end, 40;
   - R3: the grille to the right edge, 175 (the "air" before reverb).

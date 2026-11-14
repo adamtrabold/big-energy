@@ -92,10 +92,13 @@ if VARIANT == "P5OB":
     RV4 = 163.0 + KN + g4 + KN
     L("REVERB TYPE", RV4, R4, "k", "type", "front"); L("REVERB DECAY", RV4 + 20, R4, "k", "decay", "front")
     over = lambda d: d + KN + 1.5 + 0.425 * HS
-    HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS
+    # visual 2023021: the top line 2.0 higher, so octave's positions line (lo · 32 … 2, over its word) keeps 1.5 under
+    # "oscillators"; row 4's headings clear their knobs' tick rings (r + 1.7) by 1.5; "keys" +0.6 over "voices"
+    HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
+    H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
     SECTIONS_LEFT += [("oscillators", ML, HTOP), ("amp", 123.0 - KN, HTOP), ("echo", EC1 - KN, HTOP),
-                      ("filter", 123.0 - KN, over(R4)), ("reverb", RV4 - KN, over(R4) + 0.0),
-                      ("keys", OX[0] - len("amp · both · filter") * 0.5 * NS / 2 + 0.0, R4 + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS)]
+                      ("filter", 123.0 - KN, H4), ("reverb", RV4 - KN, H4),
+                      ("keys", OX[0] - len("amp · both · filter") * 0.5 * NS / 2, R4 + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6)]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"], ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]]),
@@ -228,8 +231,8 @@ elif VARIANT == "P5R":
     HC = KEYS_TOP + 1.5 + 0.425 * HS                                # one heading line for row C, over the keys' words
     # round 7: every heading top-left of its group, the base's rule, on the lid too
     HB = B5 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * HS
-    SECTIONS_LEFT += [("oscillators", OXR[0] - KN, 123.5), ("filter", FXR - KN, HB), ("amp", AXR - KN, HB),
-                      ("keys", KX - TGL, HC), ("echo", EC - KN, HC), ("reverb", RVC - KN, HC)]
+    SECTIONS_LEFT += [("oscillators", OXR[0] - KN, 123.5), ("filter", FXR - KN, HB + 0.8), ("amp", AXR - KN, HB + 0.8),
+                      ("keys", KX - TGL, HC + 0.6), ("echo", EC - KN, HC), ("reverb", RVC - KN, HC)]   # visual 2023021 fits
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     KEYS_LINE = False
     FX, FX_BREAKS, SWL = C5, [], C5
@@ -424,7 +427,7 @@ if STEER5:
         BASE_TOGGLES = {"KBD CTRL": "track|off · 1/2 · full", "PITCH MOD": "pitch|off · on", "FILTER MOD": "filter|off · on",
                         "RELEASE": "release|off · on", "SOURCE": "source|noise · input · loop", "FOLLOW": "link|off · on"}
         BASE_LEGEND.update({"DRY PAN": "pan"})
-        BASE_SECTIONS = [("controllers", CX - TGL, 112.0), ("mixer", MX - BK, 112.0), ("effects", EX - BK, 112.0),
+        BASE_SECTIONS = [("controllers", CX - TGL, 112.4), ("mixer", MX - BK, 112.4), ("effects", EX - BK, 112.4),
                          ("filter", FL, 78.0), ("out", VOLX - BK, 78.0)]
         BASE_SUBS = [("mod", CX + 14.5 - TGL, 108.5)]                # "mod" over pitch · filter · blend (Kalam 1.8)
         BASE_LEDS, BASE_NOTES = [], []
@@ -501,7 +504,8 @@ def gap_bb(a, b):
 ECHO_POS = [(-60, "tape"), (-20, "dark"), (20, "clean"), (60, "pingpong")]   # as the renders draw them (r5 / rb)
 VERB_POS = [(-60, "spring"), (-20, "plate"), (20, "hall"), (60, "shimmer")]   # small to large (player review 8)
 NAMED_LINES = {"ECHO TYPE": "tape · dark · clean · pingpong", "REVERB TYPE": "spring · plate · hall · shimmer",
-               "ECHO TIME": "16 · 8 · 8. · 4 · 2 · 1"}   # SYNC: six divisions, 1/16 … 1/1 with dotted 1/8 (§21)
+               "ECHO TIME": "16 · 8 · 8. · 4 · 2 · 1",
+               **{f"RANGE {i}": "lo · 32 · 16 · 8 · 4 · 2" for i in range(1, 5)}}   # octave's six positions (visual 2023021)   # SYNC: six divisions, 1/16 … 1/1 with dotted 1/8 (§21)
 def decor():
     """Printed marks that belong to a knob but sit outside its legend: the TYPE fans (names behind the knob, rb
     _type_fan: x + 11.85 sin a, d + r + 3.8 inner / 7.2 outer, Kalam 1.3) and TIME's note scale (rb time_dial full:

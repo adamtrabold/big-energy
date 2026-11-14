@@ -59,7 +59,11 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
 | CC 123 all notes off | release all notes; tails ring | proposed |
 | Program change, song position, SysEx | ignored (no recall: owner, "i dont think recall is important") | proposed |
 
-**The MIDI-dot parameters (receive CC, jump-on-move, engraved dot):**
+**The MIDI-dot parameters (receive CC, jump-on-move, engraved dot).** The set, confirmed in round 7 against the panels:
+- **knobs:** MOD, GLIDE, CUTOFF, TUNE, PITCH 2 / 3 (/ 4 with VCO 4), out PAN, echo PAN;
+- **never** a switch or a detented selector (OCTAVE, WAVE, both TYPEs, all toggles).
+
+Owner (DAW-first): **receive is decided. Send** (knob moves out as CC, X3) is **proposed only**: "if it's free we could explore it". It costs firmware, not parts.
 
 | Knob | CC (proposal) | Why this number | Status |
 |---|---|---|---|
@@ -68,7 +72,8 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
 | CUTOFF | 74 | "brightness": what DAWs and controllers default to for cutoff | proposed |
 | TUNE | 20 | undefined range (no GM default can grab it) | proposed |
 | PITCH 2 / PITCH 3 (was FREQ) | 21 / 22 | undefined | proposed |
-| OCTAVE 1 / 2 / 3 (was RANGE) | 23 / 24 / 25 | undefined. **If OCTAVE becomes a detented 6-way rotary (review 13), it's a switch: MIDI never flips switches, so drop these** | proposed / open |
+| PITCH 4 (with VCO 4 only) | 26 | undefined | proposed (only if VCO 4 is built) |
+| ~~OCTAVE 1 / 2 / 3~~ | ~~23 / 24 / 25~~ | **dropped (round 7):** OCTAVE is now a detented 6-way selector (lo · 32 · 16 · 8 · 4 · 2). It's a switch, and MIDI never flips switches, so it carries **no dot** | decided |
 | **out PAN** | **10** (decided) — see the CC 10 problem below | owner decided CC 10 for "the pan" | decided, with an open question |
 | echo PAN | 102 | undefined | proposed |
 | ECHO MIX / REVERB MIX | 103 / 104 | review P8: DAW users automate effect *amounts* more than pans. **Owner's call to add them** (it moves them into the marked set) | open |
