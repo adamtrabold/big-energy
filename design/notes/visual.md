@@ -1,5 +1,17 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 fixes 2 (2026-11-13 ~22:20): READ THIS FIRST
+- **Inputs:** systems d56403f (folded rev 9) and f8ba494 (fixes for the 10: P5R switches on one line at d 89 under the VCOs, envelopes 5.9 off the axis; P5O SECTIONS_LEFT, octave · wave · pitch, a "tuning" pair after VCO 1, out in R4's right slot, VCO4_CAPTION, GHOST / HAIR / NAME_BOX in the checker). Scores before this: P5R 9, P5O 8.
+- **rb.py:**
+  - removed: the rev-9 heading table, the numeral shift, the ghost's own "4", the oscillators-leader special case (`OSC_LEADER`, `osc_bank_end`);
+  - headings via `nv_heads_left()`: P5O draws SECTIONS_LEFT left-aligned plus `P5O_HEAD_FIT` (filter / amp +0.8, keys +0.7, echo +0.5 x, reverb +0.3, out −3.8 x); P5R stays centred (+0.7 on keys);
+  - hairlines via `nv_hair()` (systems' HAIR, with run b starting at voices' nut);
+  - ghost from `lc.GHOST`; name from `lc.NAME_BOX` + `NAME_FIT` (P5O +0.3); the ghost "4" is the checker's NOTE, drawn light.
+- **Checks:** `/tmp/scr/s5f_kalam.py` and `/tmp/scr/s5f_rules.py` (updated for HAIR / GHOST / NAME_BOX): 0 / 0 for P5O, P5O+VCO4, P5R.
+- **Images:** the two full tops re-rendered (same names). Nothing else was rendered.
+- **Doc rev 9.1:** captions, the VCO 4 cost stated right (no closing cost; the stick is P5O's layout), new fits, Open.
+- **Open:** P5R headings top-left, which the director asked for, can't be drawn on systems' lines: echo / reverb hit the fans and envelopes hits voices (6 violations). Systems must move them first.
+
 ## CATHEDRAL steer 5 FIXES (2026-11-13 ~22:00, NEW visual designer; previous session ended): READ THIS FIRST
 **Inputs:** systems a80d7c (§19: equal-gutter base; P5O as columns, headings on top, VCO 4 slot on R4; P5R out at the end of row C; pivots inboard; the gap rule). Director: P5R 8 / P5O 6 / base 7; spine closed, standing and flat, with brass on the façade's impost lines; corners shown closed; the VCO 4 slot shown. Owner 20:43–20:45 (both explorations; spine back if it looks good; Apple-style corners; "See if we can fit a fourth oscillator").
 

@@ -1645,6 +1645,32 @@ def nv_fit_sections(lc, sections):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(sections)
 
+P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.7), "echo": (0.5, 0.0), "reverb": (0.0, 0.3),
+                "out": (-3.8, 0.0)}
+def nv_heads_left(lc, sections):
+    """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
+    real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
+    attack knob's top tick), "keys" +0.7 (0.89 from velocity's nut), "echo" +0.5 x (1.17 from "tape"), "reverb" +0.3
+    (1.35 from "plate"), "out" 3.8 into the gutter (0.82 over reverb's "type"). Returns (heads, subs, halign).
+    P5R keeps systems' centred headings: left-aligned, "echo" / "reverb" land on their type fans and "envelopes" on
+    voices (6 rule violations), so P5R needs systems' geometry first."""
+    if getattr(lc, "SECTIONS_LEFT", None):
+        heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
+        return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
+    fit = {"keys": 0.7} if getattr(lc, "VARIANT", "") == "P5R" else {}   # P5R "keys" +0.7 (0.89 from velocity's nut)
+    return [(t, x, d + fit.get(t, 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
+
+def nv_hair(lc):
+    """systems' HAIR, with one visual fit: the second run starts over the switch bank (at voices' nut), not straight
+    after "tuning". Drawn from "tuning" it read as tuning's leader and claimed voices · mod · track for tuning; with a
+    gap over tune / drift it reads as the oscillators line resuming over the oscillators' switches."""
+    out = []
+    for n, x0, d0, x1, d1 in getattr(lc, "HAIR", []):
+        if n == "oscillators hairline b":
+            x0 = [i for i in lc.lid if i[0] == "PARA"][0][1] - 4.6
+        out.append((n, x0, d0, x1, d1))
+    return out
+
 def nv_fit_subheads(lc):
     """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
     (see below), centred over their groups: at d 79.5 they sat 0.5 from the "decay" legends (real Kalam)."""
@@ -1664,8 +1690,6 @@ def nv_notes(lc):
 
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
-OSC_LEADER = (21.5, 0.2)  # P5O "oscillators" leader: starts this far right of the margin line (Kalam Bold 3.0 word ≈ 18.6 + 2.9 clear);
-                          #   half-width 0.2 (a 0.4 engraved hairline: the 1.2 break-line weight read as a bar)
 BELOW2_LEAD = 1.25        # its leading: at 0.9 (the base's) "velocity" sat 0.01 over "amp · both · filter" (y descender over b / f / l)
 BELOW2_TOP = 2.25         # "below2" two-line legends (base front row, P5O keys): block top TGL + 2.25 under the switch (real Kalam ascent)
 TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
@@ -1819,6 +1843,7 @@ class Nave(Cathedral):
         L0 = self.LY0
         return squircle2d(4.3, L0 + 4.3, FO_W - 4.3, L0 + self.D - 4.3, self.PLATE_RC, SQ_N)
 
+    NAME_FIT = {"P5O": 0.3}   # score fixes 2: P5O's name 0.3 up, so "keys" (+0.7) keeps 1.5 under it in real Kalam
     NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
@@ -1827,7 +1852,8 @@ class Nave(Cathedral):
         lozenge; in P5O the lozenge sat 1.5 over "keys" and read as "big energy keys". A light-ink maker's mark under
         the window reads as the name, not as one more heading."""
         if self._sq():
-            d = self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7)
+            nb = getattr(self.lc, "NAME_BOX", None)
+            d = (nb[2] + self.NAME_FIT.get(getattr(self.lc, "VARIANT", ""), 0.0)) if nb else self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7)
             return txt(143.0, self.LY0 + d, gz + 0.01, self.NAME, 2.0, INK_LIGHT, font=HAND) if self.NAME else ""
         nz = self.LY0 + 2.2
         s = (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
@@ -1907,20 +1933,13 @@ class Nave(Cathedral):
                 bx = lc.tbox(x, d, lab, sz, where, r)
                 cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
-        sections = nv_fit_sections(lc, sections)
-        for t, x, d in sections:                         # one heading per group, in the hand
-            if t == "oscillators" and getattr(lc, "VARIANT", "") == "P5O":
-                # steer 5 fixes (visual): the oscillator group runs from octave 1 to the switch bank (voices · mod ·
-                # track), 160 mm, and a centred word over the knobs left the bank unheaded. The heading starts on the
-                # margin line and an engraved leader runs on from it to the bank's end, so the whole run is claimed
-                x0 = lc.OX[0] - lc.KN
-                s += txt(x0, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign="left")
-                s += box(x0 + OSC_LEADER[0], L0 + d - OSC_LEADER[1], z, self.osc_bank_end(), L0 + d + OSC_LEADER[1],
-                         z + 0.03, self.rule_col())
-                continue
-            s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND)
-        for t, x, d in nv_fit_subheads(lc):             # sub-heads under a heading ("filter", "amp")
-            s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND)
+        heads, subs, ha = nv_heads_left(lc, sections)
+        for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups
+            s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign=ha)
+        for t, x, d in subs:                             # sub-heads ("filter", "amp")
+            s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND, halign=ha)
+        for nm_, x0, d0, x1, d1 in nv_hair(lc):            # engraved hairlines (P5O: "oscillators" running on)
+            s += box(x0, L0 + d0, z, x1, L0 + d1, z + 0.03, self.rule_col())
         for nm_, x, d, _ in getattr(lc, "DOTS", []):     # matching link dots (echo pan <-> link)
             s += cyl(x, L0 + d, z - 0.005, 0.04, 1.2, ink, fn=24)
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
@@ -1928,11 +1947,6 @@ class Nave(Cathedral):
             s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
         s += self.vco4_ghost(z)
         return s
-
-    def osc_bank_end(self):
-        """x where P5O's oscillator switch bank ends: track's "off · on" (right2), real Kalam ≈ 1.25 x the estimate."""
-        b = [i for i in self.lc.lid if i[0] == "OSC 3 CTL"][0]
-        return b[1] + 6.2 + len("off · on") * 0.5 * self.lc.NS * 1.25
 
     def _ghosting(self):
         lc = self.lc
@@ -1948,10 +1962,10 @@ class Nave(Cathedral):
             return ""
         L0, R4 = self.LY0, lc.R4
         s = ""
-        for x, lab in zip(lc.OX[:3], ("octave", "pitch", "wave")):
-            s += (f'{c(INK_LIGHT)} translate([{x:.3f},{L0 + R4:.3f},{z:.3f}]) linear_extrude(0.03) '
-                  f'difference(){{ circle(r={lc.KN:.3f},$fn=96); circle(r={lc.KN - 0.3:.3f},$fn=96); }}\n')
-            bx = lc.tbox(x, R4, lab, lc.LS, "behind", lc.KN)
+        for n_, x, d, r, lab in getattr(lc, "GHOST", []):   # the checker's VCO 4 outlines (octave · wave · pitch)
+            s += (f'{c(INK_LIGHT)} translate([{x:.3f},{L0 + d:.3f},{z:.3f}]) linear_extrude(0.03) '
+                  f'difference(){{ circle(r={r:.3f},$fn=96); circle(r={r - 0.3:.3f},$fn=96); }}\n')
+            bx = lc.tbox(x, d, lab, lc.LS, "behind", r)
             s += txt(x, L0 + (bx[1] + bx[3]) / 2 + lc.BEHIND_EXTRA, z, lab, lc.LS, INK_LIGHT, font=self.style().font)
         # (its "4" is the checker's NOTE since d56403f, drawn light in lid_face)
         return s
