@@ -41,6 +41,7 @@ if STEER5:
     WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 VCO4 = os.environ.get("CATHEDRAL_VCO4", "0") == "1"   # the optional 4th analog VCO (owner question, §19.5): lid + base mixer 4
 ML, MR = 4.3 + 3 * M, 281.7 - 3 * M                # the margin lines: 3M inside the plate edges (x 19.3 / 266.7)
+LEGEND_NUDGE = {"ECHO TIME": 0.5}   # P5O real-Kalam fits on single legends (visual): d offset
 GAP_REF = {}   # a row with no gutter of its own (only window / margin gaps) measures them against this row's gutter
 GHOST = []     # P5O without VCO 4: the slot's knob outlines (light ink), checked as controls: (name, x, d, r, legend)
 NAME_BOX = None  # the name, a light-ink word under the window: (text, x, d, size)
@@ -71,30 +72,28 @@ if VARIANT == "P5O":
     FX5 = OX[2] + KN + G + KN; AX5 = 286.0 - FX5                    # filter 101.65 / amp 184.35 (mirror)
     RC = AX5 + KN + G + KN; RX = (RC, RC + 20, RC + 40)             # right block columns 219.25 / 239.25 / 259.25
     NUMX = C1 - 9.9                                                 # VCO numerals hang in the margin (visual rev 9)
-    for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"),
-                         ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
-                         ("RANGE 3", OX[0], R3, "octave"), ("WAVE 3", OX[1], R3, "wave"), ("FREQ 3", OX[2], R3, "pitch")]:
+    # the oscillator block is a column: with VCO 4 its rows are the panel's (104 / 79 / 49 / 24); without it the
+    # three VCO rows spread over the same height at 7M (104 / 69 / 34), so no slot is left empty (director fix 3)
+    VR = (R1, R2, R3, R4) if VCO4 else (R1, R1 - 7 * M, R1 - 14 * M)
+    for n, x, d, lab in [("RANGE 1", OX[0], VR[0], "octave"), ("WAVE 1", OX[1], VR[0], "wave"),
+                         ("RANGE 2", OX[0], VR[1], "octave"), ("WAVE 2", OX[1], VR[1], "wave"), ("FREQ 2", OX[2], VR[1], "pitch"),
+                         ("RANGE 3", OX[0], VR[2], "octave"), ("WAVE 3", OX[1], VR[2], "wave"), ("FREQ 3", OX[2], VR[2], "pitch")]:
         L(n, x, d, "k", lab, "behind")
-    NOTES += [(t, NUMX, d, NUM_S, "center") for t, d in (("1", R1), ("2", R2), ("3", R3))]
+    NOTES += [(t, NUMX, d, NUM_S, "center") for t, d in zip(("1", "2", "3"), VR)]
     if VCO4:
         for n, x, lab in [("RANGE 4", OX[0], "octave"), ("WAVE 4", OX[1], "wave"), ("FREQ 4", OX[2], "pitch")]:
             L(n, x, R4, "k", lab, "behind")
         NOTES.append(("4", NUMX, R4, NUM_S, "center"))
-    else:
-        RESERVED.append(("lid R4", OX[0] - KN, OX[2] + KN))
-        GHOST += [(n, x, R4, KN, lab) for n, x, lab in (("ghost octave 4", OX[0], "octave"), ("ghost wave 4", OX[1], "wave"),
-                                                         ("ghost pitch 4", OX[2], "pitch"))]
-        NOTES.append(("4", NUMX, R4, NUM_S, "center"))
     # what VCO 4 costs, for every drawing that shows it (director fix 5); the stick line is this layout's, with or without it
     VCO4_CAPTION = ("VCO 4 (optional, owner's call): ≈ +$20–30, ≈ −0.5 h of battery, the Daisy's last pin. "
                     "P5O lowers the bend stick to 9.0 mm to close at 55.2 (as is: 58.8)")
-    # R1: VCO 1 | oscillator switches | tuning | echo (type · time), equal gutters margin to margin. Score-8 fix
-    # O2 (new director): the switches sit straight after VCO 1 under "oscillators" (its hairline runs on over them,
-    # unbroken), and VCO 3's switch is named "track 3", so it can't read as the filter's "track" on the base
+    # R1: VCO 1 | tuning | oscillator switches | echo (type · time), equal gutters margin to margin, all of it but echo
+    # under one unbroken "oscillators" hairline, "tuning" a sub-heading over tune · drift (director fix 1; owner:
+    # "master tuning controls should be closer to the oscillators"). VCO 3's switch is "track 3" (approved)
     BW = 4.6 + 40 + 6.2 + 5.2                                       # switch bank: first nut -> track's "off · on"
     g1 = (MR - ML - (2 * KN + 20) * 3 - BW - 4 * M) / 3              # echo's R1 pair ends one G (4M) short of the margin, as R2-R4
-    BX = ML + 2 * KN + 20 + g1 + 4.6                                 # voices
-    TX = BX + 40 + 6.2 + 5.2 + g1 + KN                               # tune
+    TX = ML + 2 * KN + 20 + g1 + KN                                  # tune
+    BX = TX + 20 + KN + g1 + 4.6                                     # voices
     L("TUNE", TX, R1, "k", "tune", "behind"); L("DRIFT", TX + 20, R1, "k", "drift", "behind")
     L("PARA", BX, R1, "t", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4"), "right2")
     L("OSC MOD", BX + 20, R1, "t", "mod|off · on", "right2"); L("OSC 3 CTL", BX + 40, R1, "t", "track 3|off · on", "right2")
@@ -108,41 +107,41 @@ if VARIANT == "P5O":
     L("AFTERTOUCH", AX5 - KN - G - TW, R4, "t", "touch|mod · off · filter", "below2")
     # right block (steer 5 fixes 4): every legend in it sits UNDER its control (one side per group), and each heading
     # keeps ≥ 1M under the legend zone above it. Its own vertical spacing inside D 132:
-    #   echo: R1 type · time, R2 free · sync · repeats · pan;
-    #   echo's second row at d 84 (not 79): repeats and pan step half a column right (233 / 253) so they clear
-    #     type's and time's legends above them; that buys "reverb" its 1M under free · sync's words;
-    #   reverb on R3 reads type · decay again, its heading in the zone 3 mm over the type knob's fan words
-    #     (steer 5 fixes 5: over decay it shared a line with "hall" / "spring", 16 mm away);
-    #   out on R4 reads link · pan, link a switch at d 20, so "out" sits over a 9.2 switch, not a 14.9 knob.
-    E2 = R2 + M
+    #   echo: R1 type · time, R2 (on the panel's R2 line, director fix 2) free · sync · repeats · pan;
+    #   reverb on R3 reads decay · type, type 30 from decay, so its fan words sit 23 mm to the side of the heading
+    #     over decay and 2.6 mm above its line (a heading over the fan would need 4.6 mm the block doesn't have);
+    #   out on R4 reads link · pan, link a switch at d 20 with its words beside it (director fix 5), so "out" sits
+    #     over a 9.2 switch, not a 14.9 knob.
+    E2 = R2
     L("ECHO TYPE", RX[0], R1, "k", "type", "front"); L("ECHO TIME", RX[1], R1, "k", "time", "front")
     L("FREE/SYNC", RX[0] - KN + 4.6, E2, "t", "free · sync", "under")
-    L("ECHO REPEATS", RX[1] - 6.3, E2, "k", "repeats", "front"); L("ECHO PAN", RX[2] - 6.25, E2, "k", "pan", "front")
-    L("REVERB TYPE", RX[0], R3, "k", "type", "front"); L("REVERB DECAY", RX[1], R3, "k", "decay", "front")
+    L("ECHO REPEATS", RX[1], E2, "k", "repeats", "front"); L("ECHO PAN", RX[2], E2, "k", "pan", "front")
+    L("REVERB DECAY", RX[0], R3, "k", "decay", "front"); L("REVERB TYPE", RX[0] + 30, R3, "k", "type", "front")
     LKX, LKD = RX[0] - KN + 4.6, 20.0
-    L("FOLLOW", LKX, LKD, "t", "link|off · on", "below2"); L("DRY PAN", RX[1], R4, "k", "pan", "front")
-    DOTS += [("dot echo pan", RX[2] - 6.25 + 1.75 + 1.55 + 0.6, E2 - KN - 3.5, "ECHO PAN"),
-             ("dot link", LKX + len("off · on") * 0.25 * NS + 1.5 + 0.6, LKD - TGL - BELOW2_TOP - 0.425 * SW_LS, "FOLLOW")]
+    L("FOLLOW", LKX, LKD, "t", "link|off · on", "right2"); L("DRY PAN", RX[1] + 2.0, R4, "k", "pan", "front")
+    DOTS += [("dot echo pan", RX[2] + 1.75 + 1.55 + 0.6, E2 - KN - 3.5, "ECHO PAN"),
+             ("dot link", LKX + 6.2 + 8 * 0.5 * NS + 2.1, LKD + TS_LEAD[0], "FOLLOW")]
     over = lambda d, top_extra=0.0: d + KN + top_extra + 1.5 + 0.425 * HS     # a heading's centre over a row's knob tops
     fan_top = KN + 7.2 + 0.425 * 1.3                                          # a TYPE knob's outer fan names, above its centre
     # visual rev 9.1 real-Kalam fits: filter / amp +0.8 more, keys +0.7, echo +0.5 x, reverb +0.3, out 3.8 into the gutter
     HT = R1 + KN + 7.2 + 0.425 * 1.3 + 3.0 + 0.425 * HS                       # the top heading line: above echo type's fan words (122.0)
-    SECTIONS_LEFT += [("oscillators", ML, HT), ("tuning", TX - KN, HT), ("echo", RX[0] - KN + 0.5, HT),
+    SECTIONS_LEFT += [("oscillators", ML, HT), ("echo", RX[0] - KN + 0.5, HT),
                       ("filter", FX5 - KN, over(R2) + 1.6), ("amp", AX5 - KN, over(R2) + 1.6),
-                      ("reverb", RX[0] - KN, R3 + fan_top + 3.0 + 0.425 * HS),
+                      ("reverb", RX[0] - KN, over(R3)),
                       ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 1.0), ("out", LKX - 4.6, LKD + 4.6 + 1.5 + 0.425 * HS + 0.3)]   # out +0.3 (visual, real Kalam)
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
-    # "oscillators" runs on as an engraved hairline (0.4); it stops before "tuning" and restarts over the switches
-    # (at voices' nut, visual rev 9.1), so it doesn't read as tuning's leader
+    # "oscillators" runs on as one engraved hairline (0.4) over VCO 1, tuning and the switches; "tuning" is a
+    # sub-heading (legend size) top-left over tune, between the hairline and tune's legend
     BANK_END = BX + 40 + 6.2 + 8 * 0.5 * NS * 1.25
+    SUBHEADS += [("tuning", TX - KN + len("tuning") * 0.25 * SUB_S, (R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + HT - 0.425 * HS) / 2)]
     HAIR += [("oscillators hairline", ML + 21.5, HT - 0.2, BANK_END, HT + 0.2)]
     NAME_BOX = ("big energy", 143.0, 90.5, 2.0)                    # visual 528deea: over the window, between "filter" and "amp"
     FX, FX_BREAKS, SWL = R1, [], R4
-    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["PARA", "OSC MOD", "OSC 3 CTL"], ["TUNE", "DRIFT"],
+    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"], ["PARA", "OSC MOD", "OSC 3 CTL"],
                                 ["ECHO TYPE", "ECHO TIME"]]),
-                ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], ["F ATTACK"], "WIN", ["L ATTACK"], ["FREE/SYNC", "ECHO REPEATS", "ECHO PAN"]]),
-                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3"], ["F DECAY"], "WIN", ["L DECAY"], ["REVERB TYPE", "REVERB DECAY"]]),
-                ("lid R4", R4, [["RANGE 4", "WAVE 4", "FREQ 4"] if VCO4 else "RES", ["F SUSTAIN"], ["VEL", "AFTERTOUCH"],
+                ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"] if VCO4 else "OSC", ["F ATTACK"], "WIN", ["L ATTACK"], ["FREE/SYNC", "ECHO REPEATS", "ECHO PAN"]]),
+                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3"] if VCO4 else "OSC", ["F DECAY"], "WIN", ["L DECAY"], ["REVERB DECAY", "REVERB TYPE"]]),
+                ("lid R4", R4, [["RANGE 4", "WAVE 4", "FREQ 4"] if VCO4 else "OSC", ["F SUSTAIN"], ["VEL", "AFTERTOUCH"],
                                 ["L SUSTAIN"], ["FOLLOW", "DRY PAN"]])]
 elif VARIANT == "P5R":
     # ---- steer 5, score-9 fix 1: the rule in rows. A oscillators (VCO 1 | 2 | 3, each octave · wave · pitch)
@@ -493,6 +492,8 @@ def labels():
         else:
             bx = tbox(x, d, lab, LS if k == "k" else LS * 0.85, w, r)
             if w == "behind": bx = (bx[0], bx[1] + BEHIND_EXTRA, bx[2], bx[3] + BEHIND_EXTRA)
+            nd = LEGEND_NUDGE.get(n, 0.0) if VARIANT == "P5O" else 0.0
+            if nd: bx = (bx[0], bx[1] + nd, bx[2], bx[3] + nd)
             out.append((n, bx))
     return out
 
@@ -662,6 +663,8 @@ def gap_rule(verbose=False):
         seq = []
         for g in groups:
             if g == "WIN": seq.append("WIN"); continue
+            if g == "OSC":                                              # the oscillator block, a column spanning every row
+                seq.append((OX[0] - KN, OX[2] + KN, [])); continue
             if g == "RES":
                 seq.append(next((x0, x1, []) for r_, x0, x1 in RESERVED if r_ == row)); continue
             if g == ["LIGHTS"]:

@@ -1030,6 +1030,13 @@ Owner, verbatim:
 | **R3, 49** | "3" · octave · wave · pitch ‖ filter decay · (window) · amp decay ‖ **reverb:** type 219.25 · decay 239.25 | **20** ×2; window 13.5; right end 20 |
 | **R4, 24** | **VCO 4 slot** ("4" · octave · wave · pitch; drawn as a ghost, checked as controls) ‖ filter sustain ‖ **keys:** velocity (t) 135.3 · touch (t) 151.05, under the window ‖ amp sustain ‖ **out:** pan 219.25 · link (t) 239.25 | **20** ×4 |
 
+- **P5O, director's five fixes (P5O 8 with VCO 4, 7 without; amp stays a column, pending the owner):**
+  1. **Tuning back beside the oscillators:** R1 runs **VCO 1 | tuning (tune 83.9 · drift 103.9) | voices · mod · track 3 (138.2 / 158.2 / 178.2) | echo**, gutters 22.2. One unbroken "oscillators" hairline runs over all of it but echo. **"tuning" is a sub-heading** (legend size, top-left over tune, d 120.1).
+  2. **Echo's second row is back on the R2 line (d 79):** free · sync 216.4 · repeats 239.25 · pan 259.25. To keep "reverb" 1M under free · sync's words, **reverb reads decay 219.25 · type 249.25** (type 30 from decay). The heading sits just over decay (d 59.2), and the type knob's fan words sit 23 mm to its side. A heading over the fan would need 4.6 mm the block doesn't have. **Residual risk:** "hall" sits 1.8 mm above the heading's line, 23 mm away. The checker's line rule looks 20 mm to the side.
+  3. **Without VCO 4 the oscillator block is a column of three VCO rows spread over the same height at 7M (d 104 / 69 / 34)**, so no slot is left empty (the ≈ 58 mm hole is gone). With VCO 4 it's four rows on the panel's lines (104 / 79 / 49 / 24). Both pass the gap rule: the block counts as the first group on every row. The stick cost is the same in both (octave 2 lands over the stick).
+  4. **With VCO 4, voices reads 1 · 2 · 4** (`CATHEDRAL_VCO4=1`; 1 · 3 · 4 without).
+  5. **Out:** link's words sit **beside** its switch (d 20), not under it near the plate edge. Pan moves to 241.25.
+  - Visual: echo "time" legend +0.5 (`LEGEND_NUDGE`).
 - **Steer 5 fixes 4, P5O's right block on its own spacing (inside D 132, amp still a column):** every legend in the block now sits **under** its control. Each heading keeps **≥ 1M** under the legend zone above it.
   - **echo:** R1 type 219.25 · time 239.25; its second row at **d 84**, free · sync (t) 216.4 · repeats 232.95 · pan 253. Repeats and pan step 6.3 right of the columns so they clear type's and time's legends above them.
   - **reverb (R3, d 49), back to type 219.25 · decay 239.25** (steer 5 fixes 5: as decay · type, "reverb" shared a line with "hall" / "spring", 16 mm away). The heading is now in the zone **3 mm over the fan words** (d 68.5). It sits 6.3 mm under free · sync's words and 8.05 mm to the side of repeats' words.
