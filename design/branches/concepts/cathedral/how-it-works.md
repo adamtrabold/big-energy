@@ -1259,8 +1259,37 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
 | 14 | wordmark; track off · ½ · full; source label height | wordmark **removed everywhere**; **track off · ½ · full**; source label: visual |
 
 **Also decided:**
-- **MIDI:** every continuous knob sends and receives MIDI. Stepped selectors (octave, wave, type) send but don't follow incoming MIDI (they're detented). Switches don't take MIDI (architecture).
+- **MIDI (owner: DAW-first):** every continuous knob **receives** MIDI (decided). Stepped selectors and switches don't follow incoming MIDI. **Send is proposed, not decided** (owner: "if it's free we could explore it"): knobs sending CC costs firmware only, no parts.
 - **No name on the panel** (owner).
+
+## 22. P5O with this round's fixes: three studies for the owner to judge by eye (none reaches 0)
+Owner: "i cant fucking answer that until i see it." So P5O is laid three ways with P5R's fixes:
+- one oscillator row pitch (25), rows symmetric about the window (101.5 / 76.5 / 51.5 / 26.5);
+- VCO 1 = octave · wave · tune · drift;
+- track 3 is VCO 3's 4th control;
+- keys = voices · velocity · touch;
+- out and the pitch / filter mod switches on the base (§20);
+- no name; type names as lines.
+
+The checker reports what each leaves empty. The visual renders all three.
+
+| Study | What's where | Checker (both with and without VCO 4) |
+|---|---|---|
+| **P5O: amp as a column** | R1: VCO 1 \| keys \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| amp column \| echo repeats · pan (R2), reverb (R3) | **8 violations.** R2 / R3 right ends 36.95 (gutter 15–32). **R4: under the window and right of amp sustain empty (86.9).** Reverb heading 1.55 under echo's legends (needs 5) |
+| **P5OA: amp envelope as the top row** (123 / 143 / 163, centred on the speaker) | R1: VCO 1 \| amp \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| keys column (velocity, touch, voices) \| echo repeats · pan (R2), reverb (R3) | **11.** R1 right end 22.65 (gutter 21.55, 1.1 over). R2 / R3 right ends 36.95. **R4: right of voices empty (89.7)** |
+| **P5OL: P5OA with echo and reverb levels on the lid**, inside their groups (repeats · pan · mix; type · decay · mix) | as P5OA | **9.** R2 / R3 fill (their ends go). **R4 right is still empty (89.7).** It contradicts "volume/mixer on the bottom" for the two effect levels |
+
+**Why none reaches 0 (the root cause):**
+- Moving out, osc mod and voices to where they belong takes 4 controls off P5O's lid. The right half of the window rows (and R4) had been held together by them.
+- Track as VCO 3's 4th control caps the gutter between the oscillator bank and the filter column at 15. The filter column can't move closer to the window, which sits 1.5 away.
+- So the right block needs ≈ 56 mm of controls per row and has ≈ 35.
+
+**What would close it:** one more group on the lid's right side. The candidates, all owner-level:
+- the effect levels (P5OL fixes R2 / R3);
+- the base's filter track switch with the filter envelope;
+- or out's pan back on the lid, which he rejected.
+
+**The steer-5 P5O that passed** (amp column, bank on R1, out on the lid) is in git at 33229cd. It's the one the director scored 8.
 
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
