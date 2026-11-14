@@ -533,11 +533,16 @@ def step_imgs(spec):
         if m: res.append({**m, "cap": cap})
     return res
 TIMELINE = {"CATHEDRAL": [
-    {"t": "13 Nov 21:06", "name": "Steer 5 (now): both halves by one rule",
-     "what": "Two lid options on one shared two-row base: P5O, your stacked oscillators on the left, and P5R, the same rule laid in rows. Softer corners, the spine back, lines for the grille.",
-     "why": "You (20:29): the lid felt cramped; tuning should sit by the oscillators, mixer and volume on the bottom case. You (20:43): “I feel like the oscillators should all be stacked on the left…”",
-     "score": "P5R 8 · P5O 6 · shared base 7 (bar 10)",
+    {"t": "14 Nov 01:35", "name": "Steer 6 (now): your 01:27–01:33 notes",
+     "what": "In progress: both lids re-laid (oscillator spacing, switch placement, the out group, one knob-marking system, cleaner type labels, no name), P5O with the amp envelope as a top row, the base regrouped, and a synth-player critic arguing until it is good. Pictures are the latest drafts.",
+     "why": "You (01:27): “I want to see all the layout options before I make a call.” You (01:32): “This is not a 10.”",
+     "score": "in progress",
      "imgs": step_imgs([(None, "cathedral-s5-P5R-standing.jpg", "P5R standing"), (None, "cathedral-s5-P5O-standing.jpg", "P5O standing")])},
+    {"t": "14 Nov 01:21", "name": "Steer 5 fixes: P5R shown at the director's 10",
+     "what": "P5R with keys at the start of the lid's bottom row and the envelopes mirrored about the speaker; P5O with tuning back by the oscillators, with and without the 4th oscillator; P5R's fallback with the keys switches under tuning. Kept as it stood when you saw it.",
+     "why": "You (01:32): “…the oscillators are really far apart, the mod and track control placements feel random… This is not a 10.” You (01:29): the bottom case “is a bit less senseful”. You (01:33): no name on the panel.",
+     "score": "Director: P5R 10, P5O 8 / 7 without the 4th oscillator. You: not a 10.",
+     "imgs": step_imgs([("528deea", "cathedral-s5-P5R-top-9.9px-per-mm.png", "P5R, exact top view (shown at 10)"), ("528deea", "cathedral-s5-P5R-standing.jpg", "P5R standing"), ("1de4ef4", "cathedral-s5-P5O-top-9.9px-per-mm.png", "P5O with the 4th oscillator, exact top view"), ("1de4ef4", "cathedral-s5-P5O-noVCO4-top-9.9px-per-mm.png", "P5O without it, exact top view"), ("1de4ef4", "cathedral-s5-P5R-fallback-top-9.9px-per-mm.png", "P5R fallback, exact top view")])},
     {"t": "13 Nov 20:07", "name": "One-word labels",
      "what": "Every panel label cut to one word.", "why": "Your rule (19:57): “Labels should only be one word and follow best practices…”", "score": "",
      "imgs": step_imgs([("fec6093", "cathedral-lid-signal-order-8.7px-per-mm.png", "the lid with one-word labels, exact top view")])},
