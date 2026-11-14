@@ -267,3 +267,6 @@ Recorded as: keep the team's own steer-5 arrangement going AND do his layout; sh
 Recorded as: the spine (closing the back slot) is back on the table, only if it looks good. Reverses the 14:40 "I don’t want a spine" conditionally. Earlier dislikes: the oxblood colour felt unnecessary.
 2026-11-13 20:45 Owner (verbatim): "I kinda want the corners to be softer and to be more architectural like how Apple does theirs"
 Recorded as: corners (case and faceplates) softer, with Apple-style continuous-curvature corners (superellipse / G2 "squircle" rather than a plain circular radius).
+
+## 2026-11-14 01:27
+> I want to see all the layout options before I make a call. Yes I meant the amp envelope controls.. the amp group.
