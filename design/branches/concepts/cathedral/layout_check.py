@@ -29,7 +29,16 @@ NS = 1.3                          # note / position-word size (Kalam), the small
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S") else os.environ.get("CATHEDRAL_LID", "P"))
+VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R") else os.environ.get("CATHEDRAL_LID", "P5O"))
+# steer 5 (2026-11-13 evening): both halves 132 deep (D), a two-row base, two lid options:
+#   P5O  the owner's lid direction (20:43): oscillators stacked on the left, filter round the window, amp along the top
+#   P5R  the director's rule laid in rows: oscillators ‖ tuning on top, envelopes round the window, effects below
+# P (steer 4) and S (steer 3) stay as history at D 108.
+STEER5 = VARIANT in ("P5O", "P5R")
+M = 5.0                                            # the module (mm): every spacing below is a multiple of it (§19.3)
+if STEER5:
+    D = 132.0                                      # +24: a second base row (y 93) and the battery strip behind it
+    WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 
 lid = []      # name, x, d, r, kind ('k' knob / 't' toggle), legend, legend placement
 BREAKS = []   # engraved group breaks: (x, d_from, d_to), vertical lines
@@ -39,7 +48,72 @@ SUBHEADS = [] # sub-heads under a heading: (text, x, d), Kalam SUB_S
 DOTS = []     # link dots (Ø 1.2): (name, x, d, paired control)
 def L(n, x, d, k, lab, where): lid.append((n, x, d, KN if k == "k" else TGL, k, lab, where))
 
-if VARIANT == "P":
+if VARIANT == "P5O":
+    # ---- the owner's lid (20:43): "oscillators should all be stacked on the left, then top case filter/envelope where
+    # there's less room cuz of speaker in the middle, then amp controls going left to right in the top row".
+    # Rows at 5M pitch: R1 104, R2 79, R3 54, R4 29. Read by zones, left to right: oscillators -> filter (round the
+    # window) -> amp (along the top) -> effects and out (right, top to bottom).
+    R1, R2, R3, R4 = 104.0, 79.0, 54.0, 29.0
+    OX = (38.6, 58.6, 78.6)                        # octave · pitch · wave columns (x 38.6: clear of the bend stick, closed)
+    for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("TUNE", OX[1], R1, "tune"), ("WAVE 1", OX[2], R1, "wave"),
+                         ("DRIFT", 98.6, R1, "drift"),
+                         ("RANGE 2", OX[0], R2, "octave"), ("FREQ 2", OX[1], R2, "pitch"), ("WAVE 2", OX[2], R2, "wave"),
+                         ("RANGE 3", OX[0], R3, "octave"), ("FREQ 3", OX[1], R3, "pitch"), ("WAVE 3", OX[2], R3, "wave")]:
+        L(n, x, d, "k", lab, "behind")             # VCO 1's pitch slot is master tune (the Model D's osc 1 has no freq)
+    NOTES += [(t, 24.0, d, NUM_S, "center") for t, d in (("1", R1), ("2", R2), ("3", R3))]   # each VCO row numbered
+    L("PARA", OX[0], R4, "t", "voices|1 · 3 · 4", "right2")        # the bank's switches under the block
+    L("OSC MOD", OX[1], R4, "t", "mod|off · on", "right2")
+    L("OSC 3 CTL", OX[2], R4, "t", "track|off · on", "right2")
+    BREAKS.append((93.5, 20.0, 88.0))                              # oscillators | filter
+    # filter envelope: a column down the window's left side (attack · decay · sustain, top to bottom)
+    for n, d, lab in [("F ATTACK", R2, "attack"), ("F DECAY", R3, "decay"), ("F SUSTAIN", R4, "sustain")]:
+        L(n, 108.5, d, "k", lab, "behind")
+    # keys: the window's right side
+    L("VEL", 174.0, R2, "t", "velocity|amp · both · filter", "right2")
+    L("AFTERTOUCH", 174.0, R3, "t", "touch|mod · off · filter", "right2")
+    # amp along the top row, then echo continues it
+    for n, x, lab, w in [("L ATTACK", 128.5, "attack", "behind"), ("L DECAY", 148.5, "decay", "behind"),
+                         ("L SUSTAIN", 168.5, "sustain", "behind"), ("ECHO TYPE", 198.4, "type", "front"),
+                         ("ECHO TIME", 218.4, "time", "behind"), ("ECHO REPEATS", 251.55, "repeats", "behind")]:
+        L(n, x, R1, "k", lab, w)
+    L("FREE/SYNC", 238.0, R1, "t", "free · sync", "under")
+    BREAKS += [(113.5, 96.0, 113.0), (183.5, 96.0, 113.0)]          # tuning | amp | echo on the top row
+    L("ECHO PAN", 210.0, R2, "k", "pan", "behind")                   # echo's pan, under its time
+    L("REVERB TYPE", 202.0, R3, "k", "type", "front"); L("REVERB DECAY", 222.0, R3, "k", "decay", "behind")
+    L("DRY PAN", 232.0, R4, "k", "pan", "behind"); L("FOLLOW", 252.0, R4, "t", "link|off · on", "right2")
+    DOTS += [("dot echo pan", 213.9, R2 + KN + 3.5 + BEHIND_EXTRA, "ECHO PAN"), ("dot link", 252.0 + 6.2 + 8 * 0.5 * NS + 2.1, R4 + TS_LEAD[0], "FOLLOW")]
+    SECTIONS += [("oscillators", 68.6, 120.9), ("filter", 108.5, 120.9), ("amp", 148.5, 120.9), ("keys", 174.0, 120.9),
+                 ("echo", 225.0, 120.9), ("reverb", 212.0, 37.5), ("out", 242.0, 15.0)]
+    FX, FX_BREAKS, SWL = R1, [183.5], R4
+elif VARIANT == "P5R":
+    # ---- the director's rule in rows (§19.1): A oscillators ‖ tuning, B envelopes round the window with keys and out
+    # columns, C the effect settings. Rows C 29 -> B 64 (7M) -> A 104 (8M: room for "envelopes" over the window).
+    A5, A5s, B5, C5 = 104.0, 89.0, 64.0, 29.0
+    for n, x, lab in [("RANGE 1", 43, "octave"), ("WAVE 1", 63, "wave"), ("RANGE 2", 88, "octave"), ("FREQ 2", 108, "pitch"),
+                      ("WAVE 2", 128, "wave"), ("RANGE 3", 153, "octave"), ("FREQ 3", 173, "pitch"), ("WAVE 3", 193, "wave"),
+                      ("TUNE", 223, "tune"), ("DRIFT", 243, "drift")]:
+        L(n, x, A5, "k", lab, "behind")
+    NOTES += [(t, x, A5, NUM_S, "center") for t, x in (("1", 30.0), ("2", 75.5), ("3", 140.5))]
+    BREAKS.append((208.0, 96.0, 113.0))                             # oscillators | tuning
+    L("PARA", 38.0, A5s, "t", "voices|1 · 3 · 4", "right2"); L("OSC MOD", 58.0, A5s, "t", "mod|off · on", "right2")
+    L("OSC 3 CTL", 173.0, A5s, "t", "track|off · on", "right2")
+    for n, x, lab in [("F ATTACK", 70, "attack"), ("F DECAY", 90, "decay"), ("F SUSTAIN", 110, "sustain"),
+                      ("L ATTACK", 176, "attack"), ("L DECAY", 196, "decay"), ("L SUSTAIN", 216, "sustain")]:
+        L(n, x, B5, "k", lab, "behind")
+    L("VEL", 40.0, B5, "t", "velocity|amp · both · filter", "left2")
+    L("AFTERTOUCH", 40.0, 49.5, "t", "touch|mod · off · filter", "left2")
+    L("DRY PAN", 246.0, B5, "k", "pan", "behind"); L("FOLLOW", 246.0, 49.5, "t", "link|off · on", "right2")
+    BREAKS += [(55.0, 40.0, 76.0), (231.0, 40.0, 76.0)]             # keys | envelopes | out
+    for n, x, lab in [("ECHO TYPE", 37, "type"), ("ECHO TIME", 57, "time"), ("ECHO REPEATS", 90.5, "repeats"),
+                      ("ECHO PAN", 110.5, "pan"), ("REVERB TYPE", 175.5, "type"), ("REVERB DECAY", 195.5, "decay")]:
+        L(n, x, C5, "k", lab, "front")
+    L("FREE/SYNC", 76.6, C5, "t", "free · sync", "under")
+    DOTS += [("dot echo pan", 114.4, C5 - KN - 3.5, "ECHO PAN"), ("dot link", 246.0 + 6.2 + 8 * 0.5 * NS + 2.1, 49.5 + TS_LEAD[0], "FOLLOW")]
+    SECTIONS += [("oscillators", 118.0, 120.9), ("tuning", 233.0, 120.9), ("envelopes", 143.0, 91.8), ("keys", 40.0, 81.5),
+                 ("out", 246.0, 81.5), ("echo", 73.75, 47.5), ("reverb", 185.5, 47.5)]
+    SUBHEADS += [("filter", 90.0, 79.5), ("amp", 196.0, 79.5)]
+    FX, FX_BREAKS, SWL = C5, [231.0], 49.5
+elif VARIANT == "P":
     # Steer 4, owner rule 19:57 ("Labels should only be one word ..."): every word from the director's vocabulary.md.
     # ---- band 1 (far edge, the TOP): oscillators (VCO 1 | 2 | 3 by spacing, 20 inside / 25 between) ‖ mixer.
     for n, x, lab in [("RANGE 1", 23.5, "octave"), ("WAVE 1", 43.5, "wave"),
@@ -110,7 +184,8 @@ else:
     L("FOLLOW", 242.5, C, "t", "follow|off", "updown")
     BREAKS += [(183.0, 7.0, A + 9.0), (58.0, 7.0, B + 9.0)]
     FX, FX_BREAKS = B, [183.0]
-SWL = B2   # legacy name (rb.py): the switch line under the contours
+if VARIANT in ("P", "S"):
+    SWL = B2   # legacy name (rb.py): the switch line under the contours
 
 THROW = "left-right"   # steer 4 score-8 fix 1: every toggle (lid and base) mounted to throw left / right, the same part
                        # rotated 90°; position words read left · middle · right. Plan footprint: a ~10 mm bat at ±20°
@@ -121,6 +196,14 @@ def base(hk, hstick, hcut=12.15, htap=8.0, hbat=BAT_H):
     controllers: BEND 25 · MOD 47 · MOD MIX 67 · GLIDE 87 | filter: EMPHASIS 112.5 · KBD (t) 126.4 · CUTOFF 143 ·
     FILT MOD (t) 159.6 · AMOUNT 173.5 | tune: TUNE 199 · DRIFT 222 ‖ TAP ("echo tap") 261, alone behind a break at x 242.2. EMPHASIS / AMOUNT open out
     6.5 each way (119 -> 112.5, 167 -> 173.5) to seat the two toggles beside CUTOFF (gaps hold for both R-LOW Ø 10 and R-TALL Ø 14.9 knobs)."""
+    if STEER5:   # two rows (§19.2): front y 68 = what the hands ride; rear y 93 = the levels, both left to right in order
+        return [("BEND stick", 25.5, 68, STK, hstick), ("MOD", 43.5, 68, KN, hk), ("MOD MIX", 63.5, 68, KN, hk),
+                ("GLIDE", 83.5, 68, KN, hk), ("EMPHASIS", 112.5, 68, KN, hk), ("KBD CTRL", 126.4, 68, TGL, hbat),
+                ("CUTOFF", 143, 68, CUT, hcut), ("FILTER MOD", 159.6, 68, TGL, hbat), ("CONTOUR AMT", 173.5, 68, KN, hk),
+                ("VOLUME", 232.5, 68, KN, hk), ("TAP", 260.5, 68, TAPR, htap),
+                ("RELEASE", 25.5, 93, TGL, hbat), ("OSC 1", 52.5, 93, KN, hk), ("OSC 2", 72.5, 93, KN, hk),
+                ("OSC 3", 92.5, 93, KN, hk), ("NOISE/EXT", 112.5, 93, KN, hk), ("SOURCE", 129.1, 93, TGL, hbat),
+                ("ECHO MIX", 189, 93, KN, hk), ("REVERB MIX", 209, 93, KN, hk)]
     return [("BEND stick", 25, 68, STK, hstick), ("MOD", 47, 68, KN, hk), ("MOD MIX", 67, 68, KN, hk), ("GLIDE", 87, 68, KN, hk),
             ("EMPHASIS", 112.5, 68, KN, hk), ("KBD CTRL", 126.4, 68, TGL, hbat), ("CUTOFF", 143, 68, CUT, hcut),
             ("FILTER MOD", 159.6, 68, TGL, hbat), ("CONTOUR AMT", 173.5, 68, KN, hk),
@@ -134,6 +217,19 @@ BASE_NOTES = [("midi", 131.0, 81.0 + 2.5 + 1.8 + 0.85 * 1.55 / 2), ("status", 15
               # the two lights named, behind them (131: not-in-control / MIDI holds a knob; 155: status), Kalam 1.55
 BASE_BREAKS = [(242.2, 56.0, 80.0)]   # tune ‖ echo tap: TAP stands alone at the end (director fix 4), x, y from, y to
 BASE_R_DRAWN = {"BEND stick": None, "CUTOFF": CUT, "TAP": TAPR}   # R-LOW render: Tayda Ø 10 knobs (r 5) elsewhere
+if STEER5:
+    BASE_TOGGLES = {"KBD CTRL": "track|off · 1/3 · 2/3", "FILTER MOD": "mod|off · on", "RELEASE": "release|off · on",
+                    "SOURCE": "source|noise · input · loop"}
+    BASE_LEGEND = {"BEND stick": "bend", "MOD": "mod", "MOD MIX": "blend", "GLIDE": "glide", "EMPHASIS": "resonance",
+                   "CUTOFF": "cutoff", "CONTOUR AMT": "envelope", "VOLUME": "volume", "TAP": "tap", "OSC 1": "1",
+                   "OSC 2": "2", "OSC 3": "3", "NOISE/EXT": "extra", "ECHO MIX": "echo", "REVERB MIX": "reverb"}
+    BASE_SECTIONS = [("controllers", 14.0, 78.0), ("filter", 105.0, 78.0), ("out", 225.5, 78.0), ("tempo", 254.5, 78.0),
+                     ("mixer", 45.5, 103.5), ("effects", 182.0, 103.5)]
+    BASE_LEDS = [(231.0, 93.0, 2.5), (251.0, 93.0, 2.5)]
+    BASE_NOTES = [("midi", 231.0, 93.0 - 2.5 - 1.8 - 0.85 * 1.55 / 2), ("status", 251.0, 93.0 - 2.5 - 1.8 - 0.85 * 1.55 / 2)]
+    BASE_BREAKS = [(247.0, 58.0, 80.0)]          # out ‖ tempo
+    BATTERY = (15.0, 100.0, 185.0, 126.0)        # 4 × 952540 cells, 1S4P, under the plate behind the rear row
+    DAISY = (190.0, 100.0, 270.0, 126.0)
 
 def base_check():
     """the base row in the open layout: gaps (R-TALL radii, the larger), pitch, and every legend as R-LOW draws it
@@ -293,6 +389,92 @@ def check():
             if ln.startswith("ECHO TYPE fan") and gap_bb(tb, b) < 3.0 - 1e-6: bad.append(f"TOUCH vs {ln} {gap_bb(tb, b):.2f}")
     return bad
 
+# ---- steer 5: the module system and the softer corners (§19.3, §19.6) -----------------------------------------
+SE_N = 5.0          # corner exponent: |u|^n + |v|^n = 1, a continuous-curvature (G2-like) corner, not an arc (owner 20:5x)
+PLATE_RC = 16.0     # plate corner size (was an R 7.7 arc); the visual sets the final size; §19.6 gives the largest that fits
+CASE_RC = PLATE_RC + 4.3   # the case outline, concentric (4.3 wall)
+def se_outline(x0, y0, x1, y1, rc, n=SE_N, k=90):
+    """sampled outline of a rectangle whose four corners are superellipse quadrants of size rc."""
+    pts = []
+    for cx, cy, sx, sy in ((x1 - rc, y1 - rc, 1, 1), (x0 + rc, y1 - rc, -1, 1), (x0 + rc, y0 + rc, -1, -1), (x1 - rc, y0 + rc, 1, -1)):
+        for i in range(k + 1):
+            t = math.pi / 2 * i / k
+            pts.append((cx + sx * rc * math.cos(t) ** (2 / n), cy + sy * rc * math.sin(t) ** (2 / n)))
+    fill = []
+    for (xa, ya), (xb, yb) in (((x0 + rc, y0), (x1 - rc, y0)), ((x0 + rc, y1), (x1 - rc, y1)),
+                               ((x0, y0 + rc), (x0, y1 - rc)), ((x1, y0 + rc), (x1, y1 - rc))):   # the straight edges
+        m = max(1, int(math.dist((xa, ya), (xb, yb))))
+        fill += [(xa + (xb - xa) * j / m, ya + (yb - ya) * j / m) for j in range(m + 1)]
+    return pts + fill
+def edge_gap(pts, x, y, r):
+    return min(math.dist((x, y), q) for q in pts) - r
+
+PEGS = [(17 + 18 * i, 13.5, 7.0) for i in range(15)] + \
+       [(8 + 18 * (i + 1), 36.0, 7.0) for i in range(14) if [1, 1, 0, 1, 1, 1, 0][i % 7]]   # felt washers Ø 14
+GROUPS = {}
+if VARIANT == "P5O":
+    GROUPS = {"lid R1": [["RANGE 1", "TUNE", "WAVE 1", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"], ["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS"]],
+              "lid R2": [["RANGE 2", "FREQ 2", "WAVE 2"], ["F ATTACK"], ["VEL"], ["ECHO PAN"]],
+              "lid R3": [["RANGE 3", "FREQ 3", "WAVE 3"], ["F DECAY"], ["AFTERTOUCH"], ["REVERB TYPE", "REVERB DECAY"]],
+              "lid R4": [["PARA", "OSC MOD", "OSC 3 CTL"], ["F SUSTAIN"], ["DRY PAN", "FOLLOW"]]}
+elif VARIANT == "P5R":
+    GROUPS = {"lid A": [["RANGE 1", "WAVE 1"], ["RANGE 2", "FREQ 2", "WAVE 2"], ["RANGE 3", "FREQ 3", "WAVE 3"], ["TUNE", "DRIFT"]],
+              "lid B": [["VEL"], ["F ATTACK", "F DECAY", "F SUSTAIN"], ["L ATTACK", "L DECAY", "L SUSTAIN"], ["DRY PAN"]],
+              "lid C": [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"], ["REVERB TYPE", "REVERB DECAY"]]}
+if STEER5:
+    GROUPS.update({"base front": [["BEND stick", "MOD", "MOD MIX", "GLIDE"], ["EMPHASIS", "KBD CTRL", "CUTOFF", "FILTER MOD", "CONTOUR AMT"], ["VOLUME"], ["TAP"]],
+                   "base rear": [["RELEASE"], ["OSC 1", "OSC 2", "OSC 3", "NOISE/EXT", "SOURCE"], ["ECHO MIX", "REVERB MIX"]]})
+SUBGROUP_OK = {("RANGE 1", "RANGE 2"), ("WAVE 1", "RANGE 2"), ("WAVE 2", "RANGE 3")}   # VCO sub-gutters: 2M clear
+
+def steer5_checks():
+    """module rules (M = 5): within a group knob pitch >= 4M; between groups on a row >= 3M clear (VCO sub-groups
+    >= 2M); every control >= 3M clear of its plate's edge, corners included (superellipse); rows on multiples of M;
+    pegs >= 1.5 and feet >= 1.5 inside the softer outlines; base pots clear of the battery and the Daisy."""
+    bad = []
+    lid_pts = se_outline(4.3, 0.3, 281.7, D - 4.3, PLATE_RC)
+    base_pts = se_outline(4.3, 4.3, 281.7, D - 0.3, PLATE_RC)
+    case_pts = se_outline(0.0, 0.0, 286.0, D, CASE_RC)
+    bs = {n: (x, y, (7.0 if r == KN else r)) for n, x, y, r, h in base(9.0, 12.6)}
+    ls = {n: (x, d, r) for n, x, d, r, *_ in lid}
+    for row, groups in GROUPS.items():
+        src = bs if row.startswith("base") else ls
+        flat = [g for g in groups]
+        for g in flat:
+            ks = [n for n in g if src[n][2] in (KN, 7.0)]
+            for a, b in zip(ks, ks[1:]):
+                if abs(src[b][0] - src[a][0]) < 4 * M - 1e-6: bad.append(f"MODULE pitch {a}/{b} {abs(src[b][0] - src[a][0]):.2f}")
+        for g, h in zip(flat, flat[1:]):
+            a, b = g[-1], h[0]
+            clear = abs(src[b][0] - src[a][0]) - src[a][2] - src[b][2]
+            need = 2 * M if (a, b) in SUBGROUP_OK else 3 * M
+            if clear < need - 0.05: bad.append(f"MODULE gutter {a} | {b} {clear:.2f} < {need:.0f}")
+    for n, (x, d, r) in ls.items():
+        if edge_gap(lid_pts, x, d, r) < 3 * M - 0.05: bad.append(f"MARGIN lid {n} {edge_gap(lid_pts, x, d, r):.2f}")
+    for n, (x, y, r) in bs.items():
+        if edge_gap(base_pts, x, y, r) < 3 * M - 0.05: bad.append(f"MARGIN base {n} {edge_gap(base_pts, x, y, r):.2f}")
+    for x, y, r in PEGS:
+        if edge_gap(base_pts, x, y, r) < 1.5: bad.append(f"PEG ({x}, {y}) {edge_gap(base_pts, x, y, r):.2f}")
+    for x, y in ((16, 12), (270, 12), (16, D - 12), (270, D - 12)):
+        if edge_gap(case_pts, x, y, 6.0) < 1.5: bad.append(f"FOOT ({x}, {y}) {edge_gap(case_pts, x, y, 6.0):.2f}")
+    rows = sorted({round(d, 2) for n, x, d, r, k, *_ in lid if k == "k"})
+    for a, b in zip(rows, rows[1:]):
+        if abs((b - a) / M - round((b - a) / M)) > 0.01: bad.append(f"ROW pitch {a} -> {b} not a multiple of M")
+    for n, (x, y, r) in bs.items():                                 # 9 mm pots / toggles: body ≈ 10 × 10 under the plate
+        for nm, (x0, y0, x1, y1) in (("battery", BATTERY), ("Daisy", DAISY)):
+            if x0 - 5 < x < x1 + 5 and y0 - 5 < y < y1 + 5: bad.append(f"UNDER {n} over the {nm}")
+    return bad
+
+def max_corner():
+    """the largest plate corner (superellipse, n = SE_N) for which every steer-5 check still passes."""
+    global PLATE_RC, CASE_RC
+    keep = PLATE_RC; best = None
+    for rc in [x / 2 for x in range(16, 81)]:
+        PLATE_RC, CASE_RC = rc, rc + 4.3
+        if not steer5_checks(): best = rc
+        else: break
+    PLATE_RC, CASE_RC = keep, keep + 4.3
+    return best
+
 def closed_need(bs, hlid=13.5, peg_top=15.6 + 6.5):
     need, worst = peg_top + 2.0 + hlid, ("pegs", "")
     for n, x, d, r, k, *_ in lid:
@@ -305,10 +487,10 @@ def reach(name, frm=(143.0, 68.0)):
     """Plan distance (mm) from a base point (default CUTOFF) to a lid control with the lid standing: the lid's d adds to
     the base's depth behind the hinge (base y 108) plus the hinge offset (~6), so a lid control sits at y ~ 114 + d."""
     x, d = next((x, d) for n, x, d, *_ in lid if n == name)
-    return math.dist(frm, (x, 114.0 + d))
+    return math.dist(frm, (x, D + 6.0 + d))
 
 if __name__ == "__main__":
-    v = check() + base_check()
+    v = check() + base_check() + (steer5_checks() if STEER5 else [])
     print(f"variant {VARIANT}: {sum(1 for i in lid if i[4] == 'k')} knobs, {sum(1 for i in lid if i[4] == 't')} toggles")
     print(f"open layout + labels: {len(v)} violations"); [print("  ", x) for x in v]
     print("closed (lid face today z 37.6; closed 52.7):")
@@ -318,5 +500,8 @@ if __name__ == "__main__":
                        ("R-LOW: Tayda 10 x 8 with a nut under it (10.5), stick 9.0", 10.5, 9.0)]:
         need, w = closed_need(base(hk, hs))
         print(f"  {nm}: face ≥ {need:.2f} → +{need - 37.6:.1f} → closed ≈ {52.7 + need - 37.6:.1f} mm (binding: {w[0]} over {w[1]})")
-    print("reach from TAP (261, 68) with the lid standing:", {n: round(reach(n, (261, 68))) for n in ("VOLUME", "ECHO TIME", "FREE/SYNC")})
-    print("reach from CUTOFF:", {n: round(reach(n)) for n in ("ECHO MIX", "REVERB MIX", "F ATTACK", "OSC 1")})
+    if STEER5:
+        print(f"steer 5: D {D}, module {M}; plate corner superellipse n {SE_N}, size {PLATE_RC} (largest that passes: {max_corner()})")
+    have = {n for n, *_ in lid}
+    print("reach from TAP with the lid standing:", {n: round(reach(n, (261, 68))) for n in ("VOLUME", "ECHO TIME", "FREE/SYNC") if n in have})
+    print("reach from CUTOFF:", {n: round(reach(n)) for n in ("ECHO MIX", "REVERB MIX", "F ATTACK", "OSC 1", "L ATTACK", "ECHO TYPE") if n in have})
