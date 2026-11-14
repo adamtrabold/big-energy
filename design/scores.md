@@ -575,3 +575,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 6: P5OB-D **10** (lid 10, base 9), stopped arguing. P5R stays 8.
 - Director: P5OB-D **9**. Blocks: drift split from tune (stick at full height rules out side by side, per §28: needs 18.06, max 17.3 → L-rule is a stated compromise); ~50 mm empty plate right of echo/reverb rows 2–3 (owner call: accept, or effect levels on lid).
 - Director case ratios: A (√5 face, P5R) **9**, B (double-square case) **7** drop, C (double-square face, P5OB-D 147.3) **9**. To 10: construction lines over each layout's exact top view.
+- Director ratio overlays: C **10** (check stray marks on lid top edge); A **8**: square cuts through controls; honest caption caps at 9.

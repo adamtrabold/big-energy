@@ -1,5 +1,13 @@
 # Director notes: Little D (budget instrument), physical design
 
+## Case ratio on the device (3cac55b, by eye): READ THIS FIRST
+- **C on P5OB-D: 10.** The seam is the real axis (window, amp / filter decay, mixer 3, cutoff); the diagonals are construction only.
+  - Check: small dark marks sit on the lid's top edge (x ≈ 540–1275 px) in this render only. Confirm they're real parts or remove them.
+- **A on P5R: 8 (was 9).** On the device, the "window's bay" square lines cut through tune, filter sustain, amp attack, VCO 3 octave / wave, and on the base blend and source. The ratio doesn't organise the layout, so the caption's claim is false.
+  - Fix, either:
+    - (a) caption it honestly: "√5: the face's proportion" (no bay claim), which can reach 9 at most; or
+    - (b) re-lay P5R so its group breaks fall on the square's lines. That's a real re-layout, systems first.
+
 ## Case ratio (2026-11-14; ff058d5; owner 12:12 "more pleasing and harmonious case ratio … derived from the dimensions of the device … base it on the face dimensions / ratio"): READ THIS FIRST
 - **A, √5 face (D 132.4, goes with P5R): 9.** No cost, and the grid is exact (56 × 25). The centred square in √5 = the window bay between the filter / amp wings, so the ratio comes from the layout.
 - **B, double-square case (D 143): 7, drop it.** The face grid doesn't close (27.1), the keys get zero slack, and P5R costs +11 mm with a re-lay. It's derived from the box, not the face he asked about.
