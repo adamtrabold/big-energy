@@ -249,3 +249,6 @@ Recorded as: independent expert (audio engineer / synth designer) review of the 
 
 2026-11-13 19:31 Owner (verbatim), on sending the synth expert's lid fixes to the team: "Yes but make it a 10 not a 9"
 Recorded as: send ALL the expert's lid fixes to the team. The bar for this lid is a 10 from the director, not a 9.
+
+2026-11-13 19:57 Owner (verbatim): "Labels should only be one word and follow best practices with obvious tweaks for understanding if there's a better word than the jargon"
+Recorded as: RULE for panel labels: one word each, following synth labelling best practice; replace jargon with a plainer word where one is clearly better.
