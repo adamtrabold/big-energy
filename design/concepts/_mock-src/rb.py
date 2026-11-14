@@ -1514,11 +1514,71 @@ def stick_low(x, y, z, ink, drop=3.6):
 LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
 MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
 
+# ---- steer 4 type scale (director's brief: headings > knob legends > position words; nothing under 1.05 mm)
+TS_HEAD = 3.0        # group headings (Kalam Bold)
+TS_KNOB = 2.35       # knob legends
+TS_SWITCH = 1.69     # a switch's name (= FREE / SYNC's words today)
+TS_POS = 1.35        # position words at a toggle's ends / middle (TYPE fans are 1.3); floor 1.05
+TS_SUB = 1.35        # secondary legends ("detune"), in the light ink
+INK_LIGHT = "#857b6f"   # warm grey on the cream plate, for secondary legends and cues (e.g. "detune", the follow cue)
+
+def toggle_words(x, y, z, ink, font, name=None, top=None, mid=None, bottom=None, gap=1.75, side=6.4, name_side="right"):
+    """a toggle's legends: position words above (top, the far throw) and below (bottom, the near throw) centred, the
+    middle position beside it (left) for 3-way switches, and the switch's name beside it (right). Sizes from the
+    type scale; positions as in layout_check (systems)."""
+    s = ""
+    hP = 0.85 * TS_POS
+    if top:
+        s += txt(x, y + 4.6 + gap + hP / 2, z, top, TS_POS, ink, font=font)
+    if bottom:
+        s += txt(x, y - 4.6 - gap - hP / 2, z, bottom, TS_POS, ink, font=font)
+    if mid:
+        s += txt(x - side, y, z, mid, TS_POS, ink, font=font, halign="right")
+    if name:
+        s += txt(x + side if name_side == "right" else x - side, y, z, name, TS_SWITCH, ink, font=font,
+                 halign="left" if name_side == "right" else "right")
+    return s
+
 def nv_overrides(lc):
     """pass-through: every visual layout tweak (numbered legends, contour / filter headings and rules, real-Kalam
     nudges, FOLLOW beside, FILT MOD at d 35) now lives in systems' layout_check.py (2f99f96). Put any future
     visual-only change here and tell systems."""
-    return list(lc.lid), list(lc.BREAKS), list(lc.SECTIONS)
+    MOVE = {"OSC MOD": 50.0, "AFTERTOUCH": 203.5}     # steer 4 real-Kalam fits: PARA's "mono · para · +4" reached OSC MOD
+    lid = [(n, MOVE.get(n, x), d, r, k, lab, w) for n, x, d, r, k, lab, w in lc.lid]   # (0.72); VELOCITY's line reached TOUCH
+    # brief: no "decay" on a switch. RELEASE reads "off · on": off, notes stop at key-up; on, they ring out at the
+    # contours' decay setting (the Model D's DECAY switch, both contours)
+    lid = [(n, x, d, r, k, "release|off · on" if n == "RELEASE" else lab, w) for n, x, d, r, k, lab, w in lid]
+    # one word per concept: "decay" now means only the contours' decay; REVERB DECAY reads "tail" (its length)
+    lid = [(n, x, d, r, k, "tail" if n == "REVERB DECAY" else lab, w) for n, x, d, r, k, lab, w in lid]
+    secs = list(lc.SECTIONS)
+    if NV_KEYS_COLUMN:
+        # with KBD / FILT MOD gone to the base, x 16-56 of the middle band was blank (the gap he objects to). The keys
+        # pair fills it as a "keys" column mirroring "out": keys in on the left, out on the right, and band 2 reads
+        # keys -> filter contour -> (release) -> loudness contour -> out, left to right.
+        # at x 48 (not 23.5): closed, x 23.5 lands both toggles over the bend stick (R-LOW 58.8); at x 48 they land
+        # over MOD / MOD MIX's low knobs, the same pair heights as today's binding (55.2). Legends on the left
+        # ("left2", the mirror of "right2"), since the filter contour's attack is 15.5 to the right.
+        KC = {"VEL": (48.0, 49.5), "AFTERTOUCH": (48.0, 35.0)}
+        lid = [(n, *KC[n], r, k, lab, "left2") if n in KC else (n, x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lid]
+        secs.append(("keys", 37.0, 58.0))           # the mirror of "out" (249, d 58) about the axis
+    return lid, list(lc.BREAKS), secs
+
+def nv_notes(lc):
+    """systems' NOTES with visual's fits: the PARA note reads just "detune" (light), right of FREQ 2 / FREQ 3's legend
+    ("para: detune" ran into the next knob's legend in real Kalam); FOLLOW's "echo pan" sits 0.3 lower."""
+    out = []
+    for t, x, d, sz, a in getattr(lc, "NOTES", []):
+        if t == "para: detune":
+            t, x = "detune", x + 0.8           # real Kalam: "freq 2" runs 0.7 wider than the estimate
+        if t == "echo pan" and abs(x - 262.5) < 0.1:
+            d -= 0.3
+        if t == "keys" and NV_KEYS_COLUMN:
+            continue                           # the keys pair has its own heading in the left column
+        out.append((t, x, d, sz, a))
+    return out
+
+NV_KEYS_COLUMN = True
+TS_LEAD = (1.1, 1.25)    # two-line toggle legend: name centre d + 1.1, positions centre d - 1.25 (real Kalam leading)
 
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
@@ -1571,7 +1631,9 @@ class Nave(Cathedral):
         for n, x, d, r, k, lab, where in lid:
             if where == "updown":
                 h = 0.85 * NV_UD_SZ
-                words += [(x, L0 + d + r + NV_UD_GAP + h / 2), (x, L0 + d - r - NV_UD_GAP - h / 2)]
+                g = getattr(lc, "UD_GAP", NV_UD_GAP)
+                words += [(x, L0 + d + r + g + h / 2), (x, L0 + d - r - g - h / 2)]
+        words += [(x, L0 + d) for t, x, d, sz, a in nv_notes(lc) if a == "center"]   # notes clear the ticks they'd sit on
         # ticks that would run into the window's circle are dropped too (DELAY PAN's 50° tick reached it by 0.15)
         wx, wd, wr = lc.WIN
         for n, x, d, r, k, lab, where in lid:
@@ -1586,14 +1648,22 @@ class Nave(Cathedral):
         for n, x, d, r, k, lab, where in lid:          # legends exactly where the checker measures them
             if where == "right":
                 s += txt(x + 6.2, L0 + d, z, lab, lc.SW_LS, ink, font=st.font, halign="left")
+            elif where == "left2":           # the keys column: the same two-line legend, right-aligned left of the toggle
+                nm, pos = lab.split("|")
+                s += txt(x - 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="right")
+                s += txt(x - 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="right")
+            elif where == "right2":          # steer 4: name over its positions (lever-down -> lever-up), as the checker
+                nm, pos = lab.split("|")
+                s += txt(x + 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="left")
+                s += txt(x + 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="left")
             elif where == "updown":
-                a, b = lab.split("|"); sz = NV_UD_SZ; h = 0.85 * sz
-                s += txt(x, L0 + d + r + NV_UD_GAP + h / 2, z, a, sz, ink, font=st.font)
-                s += txt(x, L0 + d - r - NV_UD_GAP - h / 2, z, b, sz, ink, font=st.font)
+                a, b = lab.split("|"); sz = lc.LS * 0.72; h = 0.85 * sz; g = getattr(lc, "UD_GAP", NV_UD_GAP)
+                s += txt(x, L0 + d + r + g + h / 2, z, a, sz, ink, font=st.font)
+                s += txt(x, L0 + d - r - g - h / 2, z, b, sz, ink, font=st.font)
             elif where == "beside":
-                a, b = lab.split("|"); sz = lc.LS * 0.72
-                s += txt(x - 6.4, L0 + d, z, a, sz, ink, font=st.font, halign="right")   # 6.4: real Kalam's "off" was 1.40 at 6.2
-                s += txt(x + 6.4, L0 + d, z, b, sz, ink, font=st.font, halign="left")
+                a, b = lab.split("|"); sz = lc.LS * 0.72; g = getattr(lc, "BESIDE_GAP", {}).get(n, 6.2)
+                s += txt(x - g, L0 + d, z, a, sz, ink, font=st.font, halign="right")
+                s += txt(x + g, L0 + d, z, b, sz, ink, font=st.font, halign="left")
             else:
                 sz = lc.LS if k == "k" else lc.LS * 0.85
                 bx = lc.tbox(x, d, lab, sz, where, r)
@@ -1601,6 +1671,9 @@ class Nave(Cathedral):
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
         for t, x, d in sections:                         # one heading per group, in the hand
             s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND)
+        for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
+            col = INK_LIGHT if sz <= lc.NS + 1e-6 else ink
+            s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
         return s
 
     # ---- base: the played row, symmetric about x 143
@@ -1608,23 +1681,36 @@ class Nave(Cathedral):
         return []                                                # drawn in base_extra (low knobs, lowered stick)
 
     def base_names(self):
-        return "".join(txt(tx, 85.0, BASE_H + 0.01, n, 2.4, FO_INK, font=HAND, halign="left")
-                       for tx, n in ((14, "pitch"), (105.5, "filter"), (188.0, "mod")))
+        secs = getattr(self.lc, "BASE_SECTIONS", [(14, "pitch", 85.0), (105.5, "filter", 85.0), (188.0, "mod", 85.0)])
+        return "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
 
     def base_extra(self, walnut):
         s = self.grooves_base(walnut) if self.grain else ""
         st = self.style(); z = BASE_H; ink = FO_INK
         rnd = random.Random(7)
-        for n, x, y, r, h in self.lc.base(9.0, 9.0):
-            lab = {"BEND stick": "bend", "CONTOUR AMT": "amount", "MOD MIX": "mod mix", "R3 (open)": ""}.get(n, n.lower())
+        lc = self.lc
+        BL = getattr(lc, "BASE_LEGEND", {})
+        # Kalam has no ⅓ / ⅔ glyphs (they rendered as boxes): spell them 1/3, 2/3
+        BT = {k: v.replace("⅓", "1/3").replace("⅔", "2/3") for k, v in getattr(lc, "BASE_TOGGLES", {}).items()}
+        for n, x, y, r, h in lc.base(9.0, 12.6):
+            lab = BL.get(n) or {"BEND stick": "bend", "CONTOUR AMT": "amount", "MOD MIX": "mod mix"}.get(n, n.lower())
+            if n in BT:                                     # steer 4: KBD / FILT MOD beside CUTOFF, legend under it
+                nm, pos = BT[n].split("|")
+                s += toggle(x, y, z)
+                top = y - lc.TGL - 2.1; hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS      # 2.1 / 0.9: real Kalam's ascent
+                s += txt(x, top - hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                s += txt(x, top - hn - 0.9 - hp / 2, z, pos, lc.NS, ink, font=st.font)
+                continue
             if n == "BEND stick":
-                s += stick_low(x, y, z, ink) if self.route == "R-LOW" else joystick(x, y, z, ink)
+                s += joystick(x, y, z, ink)      # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
                 s += txt(x, y - 11.5, z, lab, st.lsize, ink, font=st.font)
             elif n == "CUTOFF":
-                s += item5("CUTOFF", "CUTOFF", x, y, "h", True, z, st, "proof", None, True, 143)
+                s += item5("CUTOFF", "CUTOFF", x, y, "h", True, z, copy_style(st, ticks=False), "proof", None, True, 143)
+                # its scale without the ± 90° ticks, which ran into KBD / FILT MOD's bats beside it (steer 4)
+                s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
             elif n == "TAP":
                 s += r5.tap_cap(x, y, z, self.tap_style())
-                s += txt(x, y - 6 - st.lab_gap - 0.6, z, "tap", st.lsize, ink, font=st.font)
+                s += txt(x, y - 6 - st.lab_gap - 0.6, z, lab, st.lsize, ink, font=st.font)
             elif self.route == "R-LOW":
                 s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
                 s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
@@ -1634,8 +1720,8 @@ class Nave(Cathedral):
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
                 s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)
-        for x in (131.0, 155.0):                                 # status + not-in-control lights, symmetric about CUTOFF
-            s += led(x, 81.0, z, col="#9fd36b" if x == 155.0 else "#efe3c8")
+        for x, y, r in getattr(lc, "BASE_LEDS", [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]):   # lights, symmetric about CUTOFF
+            s += led(x, y, z, col="#9fd36b" if x > 143 else "#efe3c8")
         return s
 
 def jobs(SZ):

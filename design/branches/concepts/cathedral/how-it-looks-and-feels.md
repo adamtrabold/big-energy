@@ -1,24 +1,59 @@
-# CATHEDRAL: how it looks and feels (visual, rev 5.1: steer 3, the lid in signal order, after the director's 8)
+# CATHEDRAL: how it looks and feels (visual, rev 6: steer 4, the panel explains itself)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 16:52). Read with `how-it-works.md`, where systems owns the geometry; **§16** is this revision's layout, closing routes and acoustics. The director's steer 2 is in `design/notes/director.md`.
 
-## Steer 3: the lid in signal order (owner, 18:00)
-Read the lid like a page, top to bottom, and you follow the sound. **Top row:** the three oscillators, each its own little run (range, freq, wave), with wider gaps between them, then the mixer, osc 1 · osc 2 · osc 3 · noise / ext, levelling them into one signal. The switches that change them sit under them: para, osc mod and osc 3 ctl under the oscillators, source under the mixer. **Middle row:** the two contours that shape that signal, mirrored either side of the speaker window: filter on the left, with its two switches (kbd, filt mod) in their own "filter" column at the left edge, mirroring the out column on the right, and loudness on the right, with velocity, touch and decay beneath it. **Bottom row:** the effects, in the order the sound passes through them: echo on the left (type, time with its free / sync, repeats, mix, then delay pan, its hand-off), reverb on the right. **Right-hand column:** out, dry pan → follow → volume, ending in the bottom-right corner, just above TAP and the keys. The effects have left the top. Volume is the last control on the page and the nearest to the hand.
+## Steer 4: the panel explains itself (review 7/10 → bar 10)
+**The signal, on the picture.** Read the lid like a page and you follow the sound. **Top row:** the three oscillators, each its own little run (range, freq, wave), then the mixer, osc 1 · osc 2 · osc 3 · noise / ext, levelling them into one signal. **Middle row, left to right:** keys (how hard you play and press), the filter contour, release on the axis over the window (it acts on both contours), the loudness contour, and out. **Bottom row:** the effects in the order the sound passes through them: echo on the left (type, time with free / sync, repeats, mix, echo pan), reverb on the right (type, tail, mix). **Right-hand column:** out, dry pan → follow → volume, ending in the corner nearest the hand. Below the hinge, the base's played row: controllers (bend, mod, mod mix, glide), the filter (emphasis, kbd, **cutoff**, filt mod, amount) and tune (tune, drift, echo tap), then the keys.
 
 <figure>
-<img src="img/cathedral-lid-signal-order-8.7px-per-mm.png" alt="Exact top view of the CATHEDRAL lid. Top row: eight oscillator knobs and four mixer knobs, with four toggles beneath. Middle row: three filter-contour knobs on the left and three loudness-contour knobs on the right, with their toggles beneath, either side of a round window of vertical slots. Bottom row: echo knobs on the left with a toggle, reverb knobs on the right. A right-hand column holds dry pan, a toggle and volume. A small plate reading big energy sits under the window.">
-<figcaption><b>The lid, exact, from above</b> (scale bar 20 mm), arrangement P from systems' §17. Groups, in signal order: oscillators ‖ mixer (top), filter contour · window · loudness contour (middle), echo · window · reverb (bottom), out (right column). One handwritten heading per group, each group's switches beneath its knobs, engraved breaks between oscillators and mixer and before the out column, nothing raised. The plate under the window now reads "big energy".</figcaption>
+<img src="img/cathedral-lid-signal-order-8.7px-per-mm.png" alt="Exact top view of the CATHEDRAL lid. Top row: three groups of oscillator knobs and four mixer knobs, with switches beneath carrying their names and positions. Middle row: a keys column with two switches at the left, three filter-contour knobs, a release switch on the axis above a round slotted window, three loudness-contour knobs, and an out column at the right. Bottom row: echo knobs with a free / sync switch, the window, reverb knobs. A small plate reading big energy sits under the window.">
+<figcaption><b>The lid, exact, from above</b> (scale bar 20 mm). One handwritten heading per group, the largest type on the panel (3.0); knob legends 2.35; each switch's name 1.55 with its positions under it at 1.3, read lever-down → lever-up. Light-grey notes: "detune" by freq 2 / 3 (they detune in para), "(off if follow)" by echo pan. Labels check 0 against systems' rules and 0 with the real Kalam metrics, ticks included.</figcaption>
 </figure>
 
-**After the director's 8** (systems b3e5525: middle row mirrored, VCOs grouped by spacing, 20 mm within an oscillator and 25 between; my legends and contour headings now live in the checker):
-- **Headings read first:** Kalam 3.0 against the 2.35 legends, one per group: oscillators, mixer, filter contour, loudness contour, echo, reverb, out.
-- **Real-Kalam fits** (in `rb.nv_overrides`; Kalam's glyphs run taller and wider than the checker's estimate): the contour headings sit at d 67.5 and the oscillators ‖ mixer break starts at 70.5; "oscillators" / "mixer" are 0.4 higher; "reverb" is 2 mm right of REVERB TYPE's fan. **FOLLOW's words sit beside it** (off · follow): above and below, squeezed between DRY PAN and VOLUME, "follow" sat 1.2 from DRY PAN at any workable size. Up / down words on FREE / SYNC sit 1.75 from the toggle.
-- **Checks:** systems' rules with these: 0. Real Kalam metrics, ticks, window, pegs: 0.
+<figure>
+<img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of the whole instrument open flat: the lid above and the base below, whose played row reads controllers, filter with two small switches either side of the red cutoff dial, and tune with the brass echo tap, above the keys.">
+<figcaption><b>Lid and base, open flat, exact</b> (scale bar 20 mm). The base row regrouped: controllers · filter (kbd and filt mod beside cutoff, where a Model D player expects them) · tune with "echo tap".</figcaption>
+</figure>
 
-**Director's 9 condition (done):** the kbd / filt mod column has its own "filter" heading (Kalam 3.0, centred x 21, d 66.5) and an engraved rule (x 43.5, d 31–58.5), the mirror of "out" (262.5, d 66.5) and its rule (x 242.5, d 7–58.5). The heading sits 2.5 left of the exact mirror because at 23.5 it reached PARA's toggle; the rule stops above the echo row. FILT MOD moved up to d 35 (the contour switch line's height), clear of ECHO TYPE's "tape" / "ping-pong". Checks still 0 both ways.
+### First time at the panel
+**The groups, in the order the sound meets them:**
+- **oscillators:** three tone sources. Range picks the octave, freq tunes oscillators 2 and 3 against 1, wave picks the shape.
+- **mixer:** how much of each oscillator, and of noise or the external input, goes on.
+- **keys:** what your playing does beyond pitch (velocity and touch, below).
+- **filter contour:** how the filter opens and closes on each note (attack, decay, sustain). Its depth is "amount" on the base.
+- **loudness contour:** how each note swells and fades.
+- **echo:** repeats of the sound (type, time, how many repeats, how loud, where in the stereo field).
+- **reverb:** the room (type, how long the tail, how loud).
+- **out:** where the dry sound sits in stereo, and the master volume.
+- **base: controllers · filter · tune:** the hands' row: bend and mod, the filter's cutoff with emphasis, amount and its two switches, tuning, drift, and the echo's tap tempo.
+
+**Every switch, and what its positions do** (positions read lever-down → lever-up):
+
+| Switch | Positions | What they do |
+|---|---|---|
+| para | mono · para · +4 | mono: one note, all three oscillators together. para: up to three notes, one oscillator each (shared filter and contours). +4: adds the digital fourth oscillator, four notes |
+| osc mod | off · on | on: the mod mix (osc 3 ↔ noise, depth on the mod wheel) bends all three oscillators' pitch |
+| osc 3 ctl | free · keys | free: oscillator 3 ignores the keys (a drone or a slow modulator). keys: it follows the keyboard |
+| source | noise · ext · fb | what the noise / ext knob brings in: noise, the external input, or feedback |
+| velocity | loud · both · filt | how hard you play changes loudness, both, or the filter |
+| touch | mod · off · filt | pressing into a held key adds modulation, nothing, or opens the filter |
+| release | off · on | off: notes stop when you let go. on: they ring out at the contours' decay setting (both contours) |
+| free / sync | free · sync | free: echo time in milliseconds. sync: note values, locked to MIDI clock or the echo tap |
+| follow | own · follows dry | own: echo pan places the echo. follows dry: the echo sits where dry pan puts the dry sound, and echo pan does nothing |
+| kbd (base) | off · 1/3 · 2/3 | how much the filter follows the keyboard (eng may make it off · ½ · full) |
+| filt mod (base) | off · on | on: the mod mix (depth on the mod wheel) moves the cutoff |
+
+**One word per concept, checked across the panel:** no "delay" anywhere; no "decay" on a switch ("release" reads off · on); "decay" means only the contours' decay, so reverb's length reads **"tail"**. Words repeat only for the same job in sibling groups under their own headings (attack / decay / sustain in both contours, type and mix in both effects), as on a Model D.
+
+**What I changed on top of systems' §18** (for the checker; all checked 0 on systems' rules and real Kalam, closing unchanged at R-LOW 55.2 / R-TALL 59.7):
+- **A "keys" column at the left of the middle band**, mirroring "out" on the right: velocity (48, d 49.5) and touch (48, d 35), legends to their left ("left2", right-aligned at x − 6.2), heading "keys" at (37, d 58). With kbd and filt mod gone to the base, x 16–56 of that band was blank, the kind of gap he objects to. At x 23.5 both toggles would land over the bend stick when closed (58.8); at x 48 they land over MOD / MOD MIX at today's binding height. The "keys" lead-in by the loudness contour goes.
+- **"release" reads "off · on"** (brief: no "decay" on a switch). **REVERB DECAY reads "tail".**
+- **"detune"** (not "para: detune") 0.8 right of systems' spot. **OSC MOD at x 50** (PARA's line reached it). FOLLOW's "echo pan" 0.3 lower.
+- **Two-line leading** for real Kalam: lid name centre d + 1.1, positions d − 1.25; base block top y − TGL − 2.1, 0.9 between lines. **"1/3 · 2/3"** spelled out (Kalam has no ⅓ ⅔). CUTOFF's ±90° ticks dropped (they ran into the kbd / filt mod bats). Base knob legends at y − 10.95 (clear of the R-LOW tick ring; systems measure y − 8.5).
 
 **Open:**
-- **Systems:** FOLLOW "beside" and the heading nudges are visual-only for now; fold them into `layout_check.py`.
+- **Position line vs words at the ends:** the brief asked for words at both ends, like free / sync. On the lid's switch lines, words above and below would hit the knob ticks a few mm away, so the positions sit in one line under the name, lever-down → lever-up, with the convention stated here and in the walk. Free / sync, follow and the base pair keep their own forms.
+- **Systems:** fold the above into `layout_check.py`.
 
 ## His three complaints (16:52), answered
 1. **"off center in that middle section is bad looking … consider the sound of the speaker and the shape."** The speaker window is now **one round opening, centred on the instrument's axis, concentric with the driver, and sized by it**: Ø 46 (the cone plus its surround). Its 15 vertical slots open **≈ 945 mm², about 75 % of the cone's area**, against 265–440 mm² (≈ 20–35 %, choked) in every grille we showed before. Behind it: a foam gasket and a sealed, stuffed back box. It sits directly above CUTOFF, so the window, the hero dial and the keyboard's centre share one vertical line. The shape follows from the sound, not from leftover space.
@@ -32,13 +67,9 @@ Read the lid like a page, top to bottom, and you follow the sound. **Top row:** 
 ## The whole
 <figure>
 <img src="img/cathedral-nave-standing.jpg" alt="CATHEDRAL standing at 120 degrees: the lid holds three evenly spaced rows of black knobs, a line of small toggles, and a centred round window of vertical slots; the base holds a row of small gold knobs either side of a red CUTOFF dial on the axis, the bend stick at the left end and a brass TAP at the right, above brass natural keys and black sharps.">
-<figcaption><b>Standing, 120°.</b> Lid in signal order (steer 3): oscillators ‖ mixer at the top, the contours either side of the window, echo and reverb at the bottom, out down the right edge. The Ø 46 window is centred over CUTOFF. Base: the played row is symmetric, with the bend stick at the left end and TAP at the right, and CUTOFF (the one tall, red dial) on the axis. The small gold knobs are the low-profile route (R-LOW). The effects row is centred on the axis (x 44–242), so neither top corner is empty, and the base's right section is MOD MIX · DRIFT · TAP: TAP mirrors the stick and MOD MIX mirrors GLIDE about CUTOFF (the left section has one knob more, so DRIFT sits between, not opposite TUNE). Brass is a tone re-map of the OpenSCAD render; see §1 for the true metal.</figcaption>
+<figcaption><b>Standing, 120°.</b> Lid as above (steer 4): keys · filter contour · release · loudness contour · out across the middle, oscillators ‖ mixer above, echo and reverb below. Base: controllers · filter · tune, with kbd and filt mod beside cutoff and the brass echo tap at the right.</figcaption>
 </figure>
 
-<figure>
-<img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of CATHEDRAL open flat: the lid above with evenly spaced rows and the centred slotted window, the base below with the symmetric played row and the keys.">
-<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). The steer 3 lid above the base's played row. Every legend sits where the checker measures it; headings in the hand at 3.0, legends at 2.35; "big energy" on the plate under the window. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
-</figure>
 
 <figure>
 <img src="img/cathedral-nave-closed-side-14px-per-mm.png" alt="Exact side elevation of CATHEDRAL closed, from the right end: the lid on top with three nested arched grain grooves on its end face and the stowed brass stay, the base below with USB-C and two MIDI jacks, overall body height dimensioned 55.2 mm.">
@@ -96,13 +127,13 @@ TAP keeps the rule that it's made of the key material, because it's played in rh
 
 ## 2. The played row: low, gold, symmetric
 - **Low knobs:** Tayda aluminium Ø 10 × 8 (6 mm 18T), bought, on a 1.0 seat (systems §16.3). **Gold** (a Tayda colour) for MOD, TUNE, GLIDE, EMPHASIS, AMOUNT, MOD MIX and DRIFT. They're smaller under the fingers than today's Ø 14.9; R-TALL keeps the big knobs at +4.5 mm closed.
-- **The row, anchored on CUTOFF:** BEND 25 · MOD 47 · TUNE 67 · GLIDE 87 | EMPHASIS 119 · CUTOFF 143 · AMOUNT 167 | MOD MIX 199 · DRIFT 230 · TAP 261. R3 is gone (director fix 3).
+- **The row, anchored on CUTOFF (steer 4, systems §18.3):** BEND 25 · MOD 47 · MOD MIX 67 · GLIDE 87 | EMPHASIS 112.5 · KBD (toggle) 126.4 · CUTOFF 143 · FILT MOD (toggle) 159.6 · AMOUNT 173.5 | TUNE 199 · DRIFT 230 · TAP ("echo tap") 261. The stick no longer needs lowering (nothing on the lid lands over it).
   - **Why gold:** a rule the eye can read. **What the hands play is brass-toned** (keys, TAP, the played row's knobs). **What you set on the lid is black.** CUTOFF stays the one red hero. Black low knobs are the quieter alternative, also a Tayda colour.
   - **Honest risk:** anodised gold aluminium is usually yellower and more even than polished cast brass. **Order one of each and put them beside a cast key** before committing; if the gold reads as a different metal, go black.
 - **CUTOFF** keeps its tall red hero dial, because no low, wide hero exists as a bought part. Closed, it sits under the window.
 - **Bend stick** at the left end, its cap lowered to plate + 9 (systems: module seated deeper). **TAP** at the right end: a brass dome in a black bezel, the mirror of the stick.
 - **Two lights** either side of CUTOFF (x 131 / 155), symmetric about the axis.
-- **Section names:** base: pitch | filter | mod. Lid: **oscillators | mixer | contours**, restored at d 67.5. That line is the one strip that clears both the V2 legends and the effects row, so it's where the names live: "oscillators" left-aligned at x 14, "mixer" on the axis above the window, "contours" right-aligned at x 272.
+- **Section names:** base: controllers | filter | tune. Lid: one heading per group (see steer 4 at the top).
 
 ## 3. The speaker window: sized for sound, then drawn
 One round opening, concentric with the 50 mm CDS-5076-class driver, centred on the axis at lid (143, d 32), above CUTOFF (systems §16.4).
@@ -153,7 +184,7 @@ One round opening, concentric with the 50 mm CDS-5076-class driver, centred on t
 - **Feet:** four screw-through rubber feet (Ø 12, black, cap plug) at the corner screws; the two axis screws stay flush brass (no impost clash).
 - **Plates:** R 7.7 on all eight corners.
 - **The name, "Big Energy"** (owner: "name to come -- we're calling it big energy"): it goes **in the lozenge under the window, lowercase, in the panel's hand (Kalam 2.0, "big energy")**, the same voice as every legend on the instrument. It's ≈ 9 mm wide in a 15 mm field, with the descenders inside. Nothing louder: on a cathedral the foundation stone is small and sits on the axis. It's in the model (`Nave.NAME`) and appears from the next render pass, after his CATHEDRAL answer. **Later option:** a cast-brass name plate from the keys' service, letters raised 0.5 (Sculpteo's minimum embossed detail), if he wants the name in metal.
-- **Headings:** the lid's effects row carries "echo", "reverb" and "out" over its three groups (breaks at x 157 / 226). The base reads pitch | filter | mod.
+- **Headings:** one per group on the lid (oscillators, mixer, keys, filter contour, loudness contour, echo, reverb, out) and on the base (controllers, filter, tune).
 
 ## 7. Metal: what "brass" is now that nothing is machined (ruled: brass is the only visible metal)
 Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 316L stainless** (JLC3DP binder jet) or thicker PETG. Here's what that looks like, and the ruling (director 5, as recommended in rev 2).

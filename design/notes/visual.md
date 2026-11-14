@@ -1,5 +1,15 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 4 (2026-11-13 ~20:00): the panel explains itself (bar 10)
+- Review `design/reviews/2026-11-13-lid-layout-review.md` (7/10); systems §18 (5572aee): two-line toggle legends (`legend2`, name SW_LS 1.55 / positions NS 1.3), NOTES, base toggles KBD / FILT MOD beside CUTOFF, base groups controllers / filter / tune, "echo tap", RELEASE on the axis, SOURCE under NOISE / EXT, PARA + OSC MOD at the bank's left.
+- **rb.py:** reads `right2` / `updown` / `beside` (UD_GAP, BESIDE_GAP), NOTES (light ink `INK_LIGHT` for NS-size notes), BASE_TOGGLES / BASE_LEGEND / BASE_SECTIONS / BASE_LEDS; base toggles drawn with their two-line legends; standard joystick (no lowering); CUTOFF ticks without ±90°. Type scale constants `TS_*` (prep), `TS_LEAD` (1.1 / 1.25).
+- **nv_overrides / nv_notes (visual, for systems to fold):** keys column VEL (48, 49.5) / TOUCH (48, 35) "left2" + heading "keys" (37, 58), "keys" lead-in dropped (`NV_KEYS_COLUMN`); OSC MOD x 50; RELEASE "off · on"; REVERB DECAY "tail"; "detune" (+0.8 x); FOLLOW's "echo pan" −0.3; base block top y − TGL − 2.1, 0.9 leading; "1/3 · 2/3" (Kalam lacks ⅓ ⅔).
+- Why the keys column at x 48: at 23.5 both toggles land over the bend stick closed (R-LOW 58.8); at 48 closing stays 55.2 / 59.7.
+- **Checks:** nv_check3 (systems' rules + my overrides incl. left2) 0; nv_kalam (real Kalam; own name/positions pairs allowed ≥ 0.3) 0. Wording audit: no "delay", no "decay" on a switch, "decay" only on contour knobs.
+- **Re-rendered:** lid top, full top, standing. Doc rev 6 (signal walk, first-time walk + switch table, wording rule, overrides, open: position line vs words at ends).
+- **Not published:** waits for the director's 10.
+
+
 ## CATHEDRAL lid, director's 9 condition (2026-11-13 evening)
 - "filter" heading (21.0, d 66.5, HS 3.0) + rule (x 43.5, d 31.0–58.5) for the kbd / filt mod column, mirroring "out" (262.5, 66.5) / rule (242.5, 7–58.5). FILT MOD → (23.5, d 35.0). Constants `NV_FILT_MOD_D`, `NV_FILTER_HEAD`, `NV_FILTER_RULE` in `rb.py`, applied in `nv_overrides`.
 - `/tmp/scr/nv_kalam.py` now takes control positions from `nv_overrides` (it was using the checker's stale FILT MOD).
