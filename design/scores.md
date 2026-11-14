@@ -558,3 +558,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 
 ## CATHEDRAL steer 5 (2026-11-13, director, bar 10)
 - P5R (team rows): **8**. P5O (owner layout): **6**. Shared two-row base: **7**. Work really changed. Fixes: equal-gutter row distribution (gap ≤ one gutter), P5R out at bottom-row end, P5O rebuilt as left-to-right columns with headings on top, pivots inboard, spine shown in all states.
+- Steer 5 fixes: P5R **9**, P5O **8**, base passes. To 10: P5R oscillator switches on one line under their VCOs; P5O headings top-left, out full slot, tune+drift as a tuning pair, VCO 4 cost in caption. Spine, corners, pivots accepted.
