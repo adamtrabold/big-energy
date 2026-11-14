@@ -288,3 +288,6 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 > Why is there the 5mm grid? Just curious
 > Cool that’s great we have a harmonious grid. I’m curious about that scale, I might play with it. Ideally it’d be derived from the dimensions of the device as well
 > Yeah I would rather base it on the face dimensions / ratio
+
+## 2026-11-14 12:12
+> Re the case dimensions is there a more pleasing and harmonious case ratio for the concept? Have the team look
