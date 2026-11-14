@@ -1,5 +1,9 @@
 # Visual designer notes (instrument; working name retired)
 
+## P5R on 049e51e + P5O studies (2026-11-14): READ THIS FIRST
+- **P5R:** marking system applied. Names lines from `lc.NAMED_LINES` at `NAMED_S` 1.2. TAP bezel lit (BASE6). Fits: row C +0.88 (keys +0.92), filter / amp +1.2, `ABOVE2_BOT` 1.9 / `ABOVE2_LEAD` 1.2, base rear leading 1.25. Real Kalam 0 (the window rule is systems' 1.0 in `s5f_kalam`). Rendered top + standing (c87738f).
+- **Studies (§22, systems 74ef961 / 2ae6833):** P5O / P5OA / P5OL, jobs `rb_s6_<V>_top`. `P5O_FAMILY` gives the studies P5O's treatment. `P5O_HEAD_FIT` is now filter / amp +0.8 (the old reverb fit dropped). Files: `cathedral-s6-P5O-study-amp-column-top-9.9px-per-mm.png`, `cathedral-s6-P5OA-study-amp-row-top-9.9px-per-mm.png`, `cathedral-s6-P5OL-study-levels-on-lid-top-9.9px-per-mm.png`. The holes are kept. Remaining clashes are systems' (reverb pinched; filter / amp ticks into the window).
+
 ## Marking system (2026-11-14, after the owner's "not a 10" and the player review): READ THIS FIRST
 - **Owner:** markings inconsistent; type labels; "envelopes" placement; then "Also it doesn't need to say big energy".
 - **rb.py:**

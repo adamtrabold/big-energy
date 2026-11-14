@@ -1699,7 +1699,7 @@ def nv_fit_sections(lc, sections):
     return list(sections)
 
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
-P5O_HEAD_FIT = {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
+P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
     real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
@@ -1723,7 +1723,7 @@ def nv_fit_subheads(lc):
     """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
     (see below), centred over their groups: at d 79.5 they sat 0.5 from the "decay" legends (real Kalam)."""
     subs = list(getattr(lc, "SUBHEADS", []))
-    if getattr(lc, "VARIANT", "") == "P5O":       # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
+    if getattr(lc, "VARIANT", "") in P5O_FAMILY:  # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
         subs = [(t, x, d + 0.2) if t == "tuning" else (t, x, d) for t, x, d in subs]
     if getattr(lc, "VARIANT", "") == "P5R":
         subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
@@ -1735,10 +1735,11 @@ def nv_fit_base_notes(lc):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(getattr(lc, "BASE_NOTES", []))
 
+P5O_FAMILY = ("P5O", "P5OA", "P5OL")   # P5O and its two studies (§22) share P5O's treatment
 NUM_COL_X = 11.0     # steer 5 fixes 7 (player review 6): VCO numerals in a margin column, clear of the octave rings
 def nv_notes(lc):
     notes = list(getattr(lc, "NOTES", []))   # (rev 9's 0.3 numeral shift is in layout_check.py's NUMX, d56403f)
-    if getattr(lc, "STEER5", False) and getattr(lc, "VARIANT", "") == "P5O":
+    if getattr(lc, "STEER5", False) and getattr(lc, "VARIANT", "") in P5O_FAMILY:
         notes = [(t, NUM_COL_X, d, sz, a) if t in ("1", "2", "3", "4") else (t, x, d, sz, a) for t, x, d, sz, a in notes]
     return notes
 
@@ -2013,7 +2014,7 @@ class Nave(Cathedral):
                 bx = lc.tbox(x, d, lab, sz, where, r)
                 cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
                 cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0) + \
-                      (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") == "P5O" else 0.0)
+                      (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") in P5O_FAMILY else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
                 named_ = getattr(lc, "NAMED_LINES", None) or {k_: " · ".join(v_) for k_, v_ in MARK_NAMED.items()}
                 if self._sq() and n in named_:           # named choices: their names in step order, under the word
@@ -2037,7 +2038,7 @@ class Nave(Cathedral):
 
     def _ghosting(self):
         lc = self.lc
-        return self.GHOST and getattr(lc, "VARIANT", "") == "P5O" and not getattr(lc, "VCO4", False)
+        return self.GHOST and getattr(lc, "VARIANT", "") in P5O_FAMILY and not getattr(lc, "VCO4", False)
 
     GHOST = True             # P5O: draw VCO 4's kept slot as a ghost (a drawing convention for the owner, not a print)
     def vco4_ghost(self, z):
@@ -2088,7 +2089,7 @@ class Nave(Cathedral):
                 s += txt(x, top - hn - 0.9 - hp / 2, z, pos, lc.NS, ink, font=st.font)
                 continue
             if n == "BEND stick":
-                if getattr(lc, "VARIANT", "") == "P5O":   # steer 5: P5O's octave 2 lands 1.6 from it closed, so it's
+                if getattr(lc, "VARIANT", "") in P5O_FAMILY:   # steer 5: P5O's octave 2 lands 1.6 from it closed, so it's
                     s += stick_low(x, y, z, ink)          #   lowered to 9.0 (systems §19.4) for R-LOW's 55.2
                 else:
                     s += joystick(x, y, z, ink)  # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
@@ -2186,6 +2187,8 @@ def jobs(SZ):
         "rb_nv5_O4_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_O4_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5O", CATHEDRAL_VCO4="1")),
         "rb_nv5_O4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_O4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_O4_stand.png")))(nave_env("P5O", CATHEDRAL_VCO4="1")),
         "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
+        # §22 studies (owner judges the amp-row trade by eye; holes kept): full tops only
+        **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},
         "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=152, el=34, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
         # steer 5 fixes: the spine standing (from behind and below the joint) and open flat (a back corner, close)
         "rb_nv5_spine_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_spine_stand", size=SZ, az=-28, el=46, dist=420, center=(95, n.D + 2, 24), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_spine_stand.png"), lo=70, ymax=0.64))(Nave(lid="P5O", spine="dark")),

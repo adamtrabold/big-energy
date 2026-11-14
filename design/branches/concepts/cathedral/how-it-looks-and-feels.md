@@ -46,6 +46,24 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
   - names lines at 1.2.
 - **Checks:** real Kalam 0, systems' rules 0, the director's tests 0 (P5R). P5O waits for systems' re-lay.
 
+### P5O studies (systems §22): the amp-row trade, by eye, holes kept
+These are studies, not proposals. None passes the checker, and the holes are left in on purpose so he can judge the trade. Every knob uses the marking system.
+
+<figure>
+<img src="img/cathedral-s6-P5O-study-amp-column-top-9.9px-per-mm.png" alt="Exact top view of the P5O study with the amp envelope as a column right of the window, the oscillator block of three rows on the left, filter left of the window, and echo and reverb on the right.">
+<figcaption><b>Study 1, P5O: amp as a column</b> (exact, scale bar 20 mm).</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s6-P5OA-study-amp-row-top-9.9px-per-mm.png" alt="Exact top view of the P5OA study: the amp envelope (attack, decay, sustain) as the lid's top row above the speaker window, the filter as a column at the window's left, the keys switches as a column at its right, the oscillators on the left and echo and reverb on the right, with empty areas at the lower left and lower right.">
+<figcaption><b>Study 2, P5OA: amp envelope as the top row</b> (exact), his 20:43 wording. The amp row reads at once; the cost is the empty lower left and right.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s6-P5OL-study-levels-on-lid-top-9.9px-per-mm.png" alt="Exact top view of the P5OL study: the same as P5OA, with a mix knob added to the echo group and to the reverb group on the lid.">
+<figcaption><b>Study 3, P5OL: amp row, with the effect levels on the lid</b> (exact): a mix knob in each effect group fills part of the right-hand hole.</figcaption>
+</figure>
+
+- **Real-font clashes left in these studies (geometry, systems'):** in all three, "reverb" is pinched between repeats' word above and the type knob's top ticks below (0.0–0.6). The filter / amp knobs' window-side ticks reach 0.11 into the window. The visual fit is filter / amp headings +0.8 (they sat 0.24 / 0.28 on their attack knobs' top ticks).
+
 ### The two lids, side by side
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
 <figure>
