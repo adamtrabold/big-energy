@@ -1737,7 +1737,8 @@ def nv_fit_sections(lc, sections):
 
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
 P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6), "oscillators": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"; 3fa4e78: oscillators 0.93 over the "1"
-P5OBD_HEAD_FIT = {}   # 7973b7a: "keys" sits 4.07 under reverb's names line (rule 5); lowering it meets "voices" first: ~3.8 mm short, systems
+TUNING_RULE_GAP = 1.5   # the rule starts 1.5 after "tuning"
+P5OBD_HEAD_FIT = {"keys": (0.0, 0.35)}   # 7973b7a: "keys" sits 4.07 under reverb's names line (rule 5); lowering it meets "voices" first: ~3.8 mm short, systems
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
@@ -1758,8 +1759,23 @@ def nv_heads_left(lc, sections):
     return [(t, x, d + fit.get(t, 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
 
 def nv_hair(lc):
-    """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1)."""
-    return list(getattr(lc, "HAIR", []))
+    """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1), plus the visual's
+    P5OB-D "tuning" rule (c9a4255, §28): tune sits on row 1 and drift in VCO 2's 4th slot, so one engraved rule, an L,
+    runs on from the "tuning" sub-heading over tune to drift's column and drops to just above drift's word."""
+    out = list(getattr(lc, "HAIR", []))
+    if getattr(lc, "VARIANT", "") == "P5OBD":
+        X = {n: (x, d, r) for n, x, d, r, k, lab, w in lc.lid}
+        if "TUNE" in X and "DRIFT" in X:
+            sub = [(t, x, d) for t, x, d in getattr(lc, "SUBHEADS", []) if t == "tuning"]
+            if sub:
+                t_, xc, d0 = sub[0]
+                w_ = word_box("tuning", lc.SUB_S)   # drawn left-aligned from the checker's estimated left edge
+                x0 = xc - len("tuning") * 0.25 * lc.SUB_S + (w_[2] - w_[0]) + TUNING_RULE_GAP
+                xd, dd, rd = X["DRIFT"]
+                ytop = dd + rd + 3.5 + lc.BEHIND_EXTRA + 1.0 + 0.85 * lc.LS / 2 + 1.0 + 0.6   # drift's word top + clear
+                hw = 0.2
+                out += [("tuning rule a", x0, d0 - hw, xd + hw, d0 + hw), ("tuning rule b", xd - hw, ytop, xd + hw, d0 + hw)]
+    return out
 
 def nv_fit_subheads(lc):
     """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
