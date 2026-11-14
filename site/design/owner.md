@@ -79,3 +79,5 @@ Recorded as: site name is Big Energy.
 Recorded as: every image on the site opens in a lightbox (not a new tab), using Ramka (@ramka/react; MIT; React 18+ peer; headless/unstyled; morph transitions, pinch/zoom, keyboard, pull to dismiss).
 2026-11-13 21:19 Owner (verbatim): "Oh shit no I don’t want react because I don’t think that will work on pages"
 Recorded as: NO React on the site. (Orchestrator noted that bundled React would run on Pages, but the owner does not want it.) Use a plain-JavaScript lightbox with Ramka-like behaviour instead.
+2026-11-13 21:20 Owner (verbatim): "No use ramka then"
+Recorded as: DECISION — use Ramka after all (bundled as static files; React only inside the lightbox island). Supersedes the 21:19 no-React note.
