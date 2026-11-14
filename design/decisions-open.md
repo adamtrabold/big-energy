@@ -105,3 +105,13 @@ With one filter for up to four notes, its tracking follows one of them.
 - **Highest note:** chords stay bright on top. *Team recommends (the default already explained to you).*
 - **Lowest note:** matches the mono behaviour (lowest-note priority).
 - Either way, a key combination switches between them (to be defined in Firmware and gestures).
+
+## 11. How much drift at full
+**Unblocks:** the drift knob's firmware range.
+Drift makes each oscillator wander slowly on its own; at 0 it's rock steady.
+
+- **Subtle (up to ± 5 cents):** barely there, a hint of life.
+- **Vintage (up to ± 15 cents):** an old synth warming up. *Team recommends.*
+- **Wild (up to ± 30 cents):** clearly out of tune at full; a sound effect.
+
+Firmware can change it later.
