@@ -276,3 +276,6 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-14 01:32
 > Also in p50 the oscillators are really far apart, the mod and track control placements feel random. As does the envelops label, the echo types and reverb types knob labels, the markings around the knobs are all inconsistent, the out pan makes no sense. This is not a 10
+
+## 2026-11-14 01:32 (b)
+> Have a synth expert who has deep understanding of playing synths be devils advocate until he or she thinks it’s good
