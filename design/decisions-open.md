@@ -12,11 +12,12 @@ Decisions only you can make, newest first. The team keeps working around them; e
 - **Softer continuous-curve corners**, the **spine back** (dark walnut cloth, brass bands), **lines** for the grille (more open than dots).
 - **4th analog oscillator:** fits your layout; whether to add it is yours to decide once both are ready.
 
-![Team rows (P5R): lid top, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-lid-top-10.2px-per-mm.png)
-![Your layout (P5O): lid top, draft](branches/concepts/cathedral/img/cathedral-s5-P5O-lid-top-10.2px-per-mm.png)
 ![Team rows (P5R): full top, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
-![Your layout (P5O): full top, draft](branches/concepts/cathedral/img/cathedral-s5-P5O-top-9.9px-per-mm.png)
+![Your layout (P5O): full top, draft, with the 4th oscillator slot ghosted](branches/concepts/cathedral/img/cathedral-s5-P5O-top-9.9px-per-mm.png)
+![Team rows (P5R): standing, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
 ![Closed, with the spine, draft](branches/concepts/cathedral/img/cathedral-s5-closed-spine.jpg)
+![Spine, standing](branches/concepts/cathedral/img/cathedral-s5-spine-standing.jpg)
+![Spine, flat](branches/concepts/cathedral/img/cathedral-s5-spine-flat.jpg)
 ![Grille: lines vs dots, 1:1](branches/concepts/cathedral/img/cathedral-s5-grille-lines-vs-dots-20px-per-mm.png)
 
 ---
