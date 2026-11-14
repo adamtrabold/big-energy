@@ -35,12 +35,12 @@ if VARIANT == "P":
                       ("RANGE 3", 133.5, "range 3"), ("FREQ 3", 153.5, "freq 3"), ("WAVE 3", 173.5, "wave 3"),
                       ("OSC 1", 202.5, "osc 1"), ("OSC 2", 222.5, "osc 2"), ("OSC 3", 242.5, "osc 3"), ("NOISE/EXT", 262.5, "noise / ext")]:
         L(n, x, A, "k", lab, "behind")                              # legends numbered (visual): which VCO, at a glance
-    BREAKS.append((188.0, 68.5, A + 9.0))                           # oscillators | mixer (starts above the contour heading)
+    BREAKS.append((188.0, 70.5, A + 9.0))                           # oscillators | mixer (from d 70.5, above the contour heading)
     L("PARA", 33.5, A2, "t", "para", "right")                       # voice mode, under VCO 1 (the voice's first switch)
     L("OSC MOD", 88.5, A2, "t", "osc mod", "right")                 # wheel -> pitch, under VCO 2 (acts on all VCOs)
     L("OSC 3 CTL", 153.5, A2, "t", "osc 3 ctl", "right")            # VCO 3 keyboard on/off (LFO), under VCO 3 (visual's legend)
     L("SOURCE", 242.5, A2, "t", "source", "right")                  # noise / ext / feedback, under the mixer
-    SECTIONS += [("oscillators", 98.5, A + 16.5), ("mixer", 232.5, A + 16.5)]
+    SECTIONS += [("oscillators", 98.5, A + 16.9), ("mixer", 232.5, A + 16.9)]   # d 101.45 (visual: real Kalam vs "freq 2")
     # ---- band 2: CONTOURS. Score-8 fix 1: symmetric about the axis. Filter contour at the mirror of the loudness
     # contour's x (63.5 / 83.5 / 103.5 <-> 182.5 / 202.5 / 222.5), read A D S left to right; its two switches form a
     # left-edge column at x 23.5 that mirrors the out column at 262.5 (KBD <-> DRY PAN at d 49.5, FILT MOD <-> FOLLOW at
@@ -49,13 +49,15 @@ if VARIANT == "P":
                       ("L ATTACK", 182.5, "attack"), ("L DECAY", 202.5, "decay"), ("L SUSTAIN", 222.5, "sustain")]:
         L(n, x, B, "k", lab, "behind")
     L("KBD CTRL", 23.5, B, "t", "kbd", "right")                     # keyboard -> cutoff
-    L("FILTER MOD", 23.5, 32.8, "t", "filt mod", "right")           # wheel -> cutoff
+    L("FILTER MOD", 23.5, B2, "t", "filt mod", "right")             # wheel -> cutoff; d 35, clear of ECHO TYPE's fan (visual)
     L("VEL", 178.5, B2, "t", "velocity", "right")                   # loud / both / filt: the keys' dynamics pair,
     L("AFTERTOUCH", 199.5, B2, "t", "touch", "right")               #   under the loudness contour (VEL's default)
     L("DECAY tgl", 222.0, B2, "t", "decay", "right")                # release = decay, loudness contour's own switch
     # one heading per contour (visual), flush left at its first knob's edge, between the contour legends and A'
     for t, x0 in (("filter contour", 63.5 - KN), ("loudness contour", 182.5 - KN)):
-        SECTIONS.append((t, x0 + len(t) * 0.5 * HS / 2, 65.5))
+        SECTIONS.append((t, x0 + len(t) * 0.5 * HS / 2, 67.5))     # d 67.5 (visual: clear of the contour legends)
+    SECTIONS.append(("filter", 21.0, 66.5))                         # the kbd / filt mod column's heading, mirroring "out"
+    BREAKS.append((43.5, 31.0, 58.5))                               # its rule, mirroring the out rule, stopping above echo
     # ---- band 3 (nearest the hinge, the BOTTOM): EFFECTS -> OUT. Echo left, the opening, reverb right; out in a column.
     for n, x, lab in [("ECHO TYPE", 23.5, "type"), ("ECHO TIME", 43.5, "time"), ("ECHO REPEATS", 76.0, "repeats"),
                       ("ECHO MIX", 96.0, "mix"), ("DELAY PAN", 116.0, "delay pan"),
@@ -64,9 +66,9 @@ if VARIANT == "P":
         L(n, x, C, "k", lab, "front")
     L("FREE/SYNC", 62.0, C, "t", "sync|free", "updown")             # in the echo row, right of TIME's scale, before REPEATS
     L("DRY PAN", 262.5, B, "k", "dry pan", "behind")                # out column: DRY PAN -> FOLLOW -> VOLUME, top to bottom
-    L("FOLLOW", 262.5, 32.8, "t", "follow|off", "updown")
+    L("FOLLOW", 262.5, 32.8, "t", "off|follow", "beside")          # words beside at ± 6.4 (visual)
     BREAKS.append((242.5, 7.0, B + 9.0))                            # reverb / loudness | out column
-    SECTIONS += [("echo", 69.5, 26.5), ("reverb", 202.5, 26.5), ("out", 262.5, 66.5)]
+    SECTIONS += [("echo", 69.5, 26.5), ("reverb", 204.5, 26.5), ("out", 262.5, 66.5)]
     FX, FX_BREAKS = C, [242.5]                                      # kept for rb.py: the effects row and its break(s)
 else:
     # ---- S: left-to-right stages. Synth = left two-thirds; effects + out = a 4-column block on the right (x >= 202.5).
@@ -134,6 +136,9 @@ def decor():
     return out
 RING = {"ECHO TIME": 3.6}   # extra radius of a printed ring for control-to-control gaps
 
+UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
+BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
+
 def labels():
     out = []
     for n, x, d, r, k, lab, w in lid:
@@ -142,12 +147,12 @@ def labels():
             out.append((n, (x + 6.2, d - h / 2, x + 6.2 + wdt, d + h / 2)))
         elif w == "updown":                                         # 'top|bottom', at FREE / SYNC's size, centred
             a, b = lab.split("|"); s = LS * 0.72; h = 0.85 * s
-            for t, cy in ((a, d + r + 1.6 + h / 2), (b, d - r - 1.6 - h / 2)):
+            for t, cy in ((a, d + r + UD_GAP + h / 2), (b, d - r - UD_GAP - h / 2)):
                 wdt = len(t) * 0.5 * s; out.append((n + ":" + t, (x - wdt / 2, cy - h / 2, x + wdt / 2, cy + h / 2)))
         elif w == "beside":
-            a, b = lab.split("|"); s = LS * 0.72
-            out.append((n + ":" + a, (x - 6.2 - len(a) * 0.5 * s, d - 0.43 * s, x - 6.2, d + 0.43 * s)))
-            out.append((n + ":" + b, (x + 6.2, d - 0.43 * s, x + 6.2 + len(b) * 0.5 * s, d + 0.43 * s)))
+            a, b = lab.split("|"); s = LS * 0.72; g = BESIDE_GAP.get(n, 6.2)
+            out.append((n + ":" + a, (x - g - len(a) * 0.5 * s, d - 0.43 * s, x - g, d + 0.43 * s)))
+            out.append((n + ":" + b, (x + g, d - 0.43 * s, x + g + len(b) * 0.5 * s, d + 0.43 * s)))
         else:
             bx = tbox(x, d, lab, LS if k == "k" else LS * 0.85, w, r)
             if w == "behind": bx = (bx[0], bx[1] + BEHIND_EXTRA, bx[2], bx[3] + BEHIND_EXTRA)

@@ -737,26 +737,32 @@ Not found in any source checked: a description of the Take 5's or minilogue xd's
 - **The live controls (effects, pans, VOLUME) move nearest the hand.**
 - Cost: the oscillators move farthest away. They're the set-and-leave group; the Model D's oscillator bank is likewise not its played row.
 
-### 17.6 New x / d table (P, live in `layout_check.py`; score-8 fixes 1, 3, 5 applied)
+### 17.6 New x / d table (P, live in `layout_check.py`; score-8 fixes 1, 3, 5 and the visual's 9-condition tweaks, f4099ab, applied)
 | Band (lid d) | Left edge column (x 23.5) | Left of the window (x) | Centre | Right of the window (x) | Out column (x 262.5) |
 |---|---|---|---|---|---|
-| **A, d 84.55** (legends behind, numbered) | RANGE 1 "range 1" | WAVE 1 43.5 ·· RANGE 2 68.5 · FREQ 2 88.5 · WAVE 2 108.5 ·· RANGE 3 133.5 · FREQ 3 153.5 · WAVE 3 173.5 | | **break x 188.0 (d 68.5–93.5)** · OSC 1 202.5 · OSC 2 222.5 · OSC 3 242.5 | NOISE / EXT |
+| **A, d 84.55** (legends behind, numbered) | RANGE 1 "range 1" | WAVE 1 43.5 ·· RANGE 2 68.5 · FREQ 2 88.5 · WAVE 2 108.5 ·· RANGE 3 133.5 · FREQ 3 153.5 · WAVE 3 173.5 | | **break x 188.0 (d 70.5–93.5)** · OSC 1 202.5 · OSC 2 222.5 · OSC 3 242.5 | NOISE / EXT |
 | **A', d 70** (legends right) | | PARA 33.5 · OSC MOD 88.5 · OSC 3 CTL 153.5 ("osc 3 ctl") | | SOURCE 242.5 | |
-| **B, d 49.5** (legends behind) | **KBD CTRL (toggle)** | F ATTACK 63.5 · F DECAY 83.5 · F SUSTAIN 103.5 | Ø 46 window (143, d 32), unchanged | L ATTACK 182.5 · L DECAY 202.5 · L SUSTAIN 222.5 | **break x 242.5 (d 7–58.5)** · DRY PAN |
-| **d 32.8 / B', d 35** (legends right) | **FILTER MOD (d 32.8)** | (none) | | VELOCITY 178.5 · TOUCH 199.5 · DECAY 222 (d 35) | FOLLOW (d 32.8; "follow" above, "off" below) |
-| **C, d 14.45** (legends in front) | ECHO TYPE | TIME 43.5 · FREE / SYNC 62 ("sync" above, "free" below) · REPEATS 76 · MIX 96 · DELAY PAN 116 | | REVERB TYPE 182.5 · DECAY 202.5 · MIX 222.5 | VOLUME |
-| **Headings** (Kalam 3.0, above the 2.35 legends) | | "oscillators" (98.5, d 101.05) · "filter contour" flush left at x 56.05, d 65.5 · "echo" (69.5, d 26.5) | | "mixer" (232.5, d 101.05) · "loudness contour" flush left at x 175.05, d 65.5 · "reverb" (202.5, d 26.5) | "out" (262.5, d 66.5) |
+| **B, d 49.5** (legends behind) | **KBD CTRL (toggle)** · **rule x 43.5 (d 31–58.5)** | F ATTACK 63.5 · F DECAY 83.5 · F SUSTAIN 103.5 | Ø 46 window (143, d 32), unchanged | L ATTACK 182.5 · L DECAY 202.5 · L SUSTAIN 222.5 | **break x 242.5 (d 7–58.5)** · DRY PAN |
+| **B', d 35** (legends right; FOLLOW d 32.8) | **FILTER MOD (d 35)** | (none) | | VELOCITY 178.5 · TOUCH 199.5 · DECAY 222 (d 35) | FOLLOW (d 32.8; "off" left, "follow" right, at ± 6.4) |
+| **C, d 14.45** (legends in front) | ECHO TYPE | TIME 43.5 · FREE / SYNC 62 ("sync" above, "free" below; 1.75 from the toggle, size 1.69) · REPEATS 76 · MIX 96 · DELAY PAN 116 | | REVERB TYPE 182.5 · DECAY 202.5 · MIX 222.5 | VOLUME |
+| **Headings** (Kalam 3.0, above the 2.35 legends) | "filter" (21.0, d 66.5) | "oscillators" (98.5, d 101.45) · "filter contour" flush left at x 56.05, d 67.5 · "echo" (69.5, d 26.5) | | "mixer" (232.5, d 101.45) · "loudness contour" flush left at x 175.05, d 67.5 · "reverb" (204.5, d 26.5) | "out" (262.5, d 66.5) |
 
 - **Fix 1 (band B balance):**
   - every band-B x mirrors about the axis (23.5 / 63.5 / 83.5 / 103.5 ↔ 262.5 / 222.5 / 202.5 / 182.5); the checker confirms;
-  - the filter contour's two switches form a left-edge column (KBD at d 49.5, FILT MOD at d 32.8), opposite the out column (DRY PAN at d 49.5, FOLLOW at d 32.8);
-  - there's no break line on the left: the column is part of the filter contour, and the out column is another group;
-  - FILT MOD sits 2.3 mm clear of ECHO TYPE's "bbd" name.
+  - the filter contour's two switches form a left-edge column (KBD at d 49.5, FILT MOD at d 35), opposite the out column (DRY PAN at d 49.5, FOLLOW at d 32.8);
+  - per the visual (f4099ab), the column has its own "filter" heading and a rule at x 43.5 (d 31–58.5) that mirrors the out column's heading and rule;
+  - FILT MOD moved up to d 35, clear of ECHO TYPE's fan.
 - **Fix 3 (VCO groups):** 20 mm pitch inside a VCO, 25 mm between VCOs (edge gaps 5.1 vs 10.1), using the row's full width. The legends carry the VCO number. Underlines aren't needed; the visual can add them if the spacing doesn't read in the render.
 - **Fix 5 (labels):** "range 1…3" / "wave 1…3", "osc 3 ctl" and the two contour headings are now in the checker. **0 violations, with headings at 3.0.** Closing is unchanged (R-LOW 55.2 / R-TALL 59.7).
-- **For the visual (rb.py `nv_overrides`):** the checker now carries these labels, headings and the break start itself.
-  - Drop `lab_of`'s numbering and the "contours" split, or the render prints "range 1 1".
-  - `lc.HS` is now 3.0.
+- **For the visual (rb.py `nv_overrides`):** the checker now carries every f4099ab tweak itself:
+  - FILT MOD at d 35;
+  - the "filter" heading and rule;
+  - contour headings at d 67.5; the osc | mixer break from d 70.5;
+  - "oscillators" / "mixer" at d 101.45; "reverb" at x 204.5;
+  - FOLLOW's words beside at ± 6.4;
+  - up / down words 1.75 from the toggle.
+  
+  Make `nv_overrides` a pure pass-through. Otherwise the d + 0.4 and x + 2.0 nudges apply twice, and the "filter" heading and rule are drawn twice.
 - FREE / SYNC: moved from beside TIME to the right of TIME's printed scale ("1/4" reaches to x ≈ 56; the toggle edge is at 57.4).
 - **Eng:** the 60 × 60 back box (x 113–173) needs its lower-left corner chamfered ≈ 18 × 18 to clear DELAY PAN's pot (x 116, d 14.45). That costs ≈ 1.6 cm³, so ≈ 19–24 cm³ net [CALC]. The lid harness and mux allocation don't change.
 
