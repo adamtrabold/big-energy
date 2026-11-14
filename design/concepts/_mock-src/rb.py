@@ -1645,8 +1645,7 @@ def nv_fit_sections(lc, sections):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(sections)
 
-P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.7), "echo": (0.5, 0.0), "reverb": (0.0, 0.3),
-                "out": (-3.8, 0.0)}
+P5O_HEAD_FIT = {}   # rev 9.1's fits are in layout_check.py (9bbedb1)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
     real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
@@ -1657,19 +1656,11 @@ def nv_heads_left(lc, sections):
     if getattr(lc, "SECTIONS_LEFT", None):
         heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
-    fit = {"keys": 0.7} if getattr(lc, "VARIANT", "") == "P5R" else {}   # P5R "keys" +0.7 (0.89 from velocity's nut)
-    return [(t, x, d + fit.get(t, 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
+    return list(sections), nv_fit_subheads(lc), "center"   # (P5R "keys" +0.7 is in layout_check.py, 9bbedb1)
 
 def nv_hair(lc):
-    """systems' HAIR, with one visual fit: the second run starts over the switch bank (at voices' nut), not straight
-    after "tuning". Drawn from "tuning" it read as tuning's leader and claimed voices · mod · track for tuning; with a
-    gap over tune / drift it reads as the oscillators line resuming over the oscillators' switches."""
-    out = []
-    for n, x0, d0, x1, d1 in getattr(lc, "HAIR", []):
-        if n == "oscillators hairline b":
-            x0 = [i for i in lc.lid if i[0] == "PARA"][0][1] - 4.6
-        out.append((n, x0, d0, x1, d1))
-    return out
+    """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1)."""
+    return list(getattr(lc, "HAIR", []))
 
 def nv_fit_subheads(lc):
     """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
@@ -1843,7 +1834,7 @@ class Nave(Cathedral):
         L0 = self.LY0
         return squircle2d(4.3, L0 + 4.3, FO_W - 4.3, L0 + self.D - 4.3, self.PLATE_RC, SQ_N)
 
-    NAME_FIT = {"P5O": 0.3}   # score fixes 2: P5O's name 0.3 up, so "keys" (+0.7) keeps 1.5 under it in real Kalam
+    NAME_FIT = {}             # (P5O's +0.3 is in layout_check.py's NAME_BOX, 9bbedb1)
     NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
