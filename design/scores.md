@@ -551,3 +551,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 
 ## CATHEDRAL lid — steer 3 (2026-11-13, director)
 - Lid (P): **8**. Work really changed (signal path traced: synth → effects → out). Fixes: mirror filter contour (left blank patch), bigger group headings, VCO grouping in the oscillator row, label rules into layout_check; re-render full top + standing. (Fix 4 "name unapproved" withdrawn: owner named it Big Energy at 17:37.)
+- Lid: **9** confirmed by eye (filter column heading, filt mod clear). → owner, with the synth expert's understanding review.
