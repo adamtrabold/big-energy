@@ -1275,9 +1275,9 @@ The checker reports what each leaves empty. The visual renders all three.
 
 | Study | What's where | Checker (both with and without VCO 4) |
 |---|---|---|
-| **P5O: amp as a column** | R1: VCO 1 \| keys \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| amp column \| echo repeats · pan (R2), reverb (R3) | **8 violations.** R2 / R3 right ends 36.95 (gutter 15–32). **R4: under the window and right of amp sustain empty (86.9).** Reverb heading 1.55 under echo's legends (needs 5) |
-| **P5OA: amp envelope as the top row** (123 / 143 / 163, centred on the speaker) | R1: VCO 1 \| amp \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| keys column (velocity, touch, voices) \| echo repeats · pan (R2), reverb (R3) | **11.** R1 right end 22.65 (gutter 21.55, 1.1 over). R2 / R3 right ends 36.95. **R4: right of voices empty (89.7)** |
-| **P5OL: P5OA with echo and reverb levels on the lid**, inside their groups (repeats · pan · mix; type · decay · mix) | as P5OA | **9.** R2 / R3 fill (their ends go). **R4 right is still empty (89.7).** It contradicts "volume/mixer on the bottom" for the two effect levels |
+| **P5O: amp as a column** | R1: VCO 1 \| keys \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| amp column \| echo repeats · pan (R2), reverb (R3) | **6 violations.** R2 / R3 right ends 36.95 (gutter 15–32). **R4: under the window and right of amp sustain empty (86.9).** Reverb heading 1.55 under echo's legends (needs 5) |
+| **P5OA: amp envelope as the top row** (123 / 143 / 163, centred on the speaker) | R1: VCO 1 \| amp \| echo type · time · free·sync. R2–R4: oscillators \| filter column \| window \| keys column (velocity, touch, voices) \| echo repeats · pan (R2), reverb (R3) | **9.** R1 right end 22.65 (gutter 21.55, 1.1 over). R2 / R3 right ends 36.95. **R4: right of voices empty (89.7)** |
+| **P5OL: P5OA with echo and reverb levels on the lid**, inside their groups (repeats · pan · mix; type · decay · mix) | as P5OA | **7.** R2 / R3 fill (their ends go). **R4 right is still empty (89.7).** It contradicts "volume/mixer on the bottom" for the two effect levels |
 
 **Why none reaches 0 (the root cause):**
 - Moving out, osc mod and voices to where they belong takes 4 controls off P5O's lid. The right half of the window rows (and R4) had been held together by them.
