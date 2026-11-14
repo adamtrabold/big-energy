@@ -1,5 +1,11 @@
 # Visual designer notes (instrument; working name retired)
 
+## Track under "3" (2026-11-13 ~21:00)
+- Systems 3673f3d (OSC 3 CTL x 121) + 6f7c036 (my three fits in the checker): `nv_fit_*` now pass-through.
+- Real-Kalam "track" vs "envelopes": 2.49 mm (systems' estimate 3.85) but it read as "track envelopes" on one line, so `nv_overrides` puts OSC 3 CTL's legend left ("left2"); checks 0 both ways. For systems to fold.
+- Re-rendered lid top, full top, standing.
+
+
 ## CATHEDRAL one-word vocabulary (2026-11-13 ~20:40)
 - Owner rule 19:57 (one word per label); director's `cathedral/vocabulary.md`; systems ffa9235 (+51be8ff out column x 255, cc5aa33 lights / touch).
 - **rb.py:** `nv_overrides` pass-through (FOLLOW move dropped); draws SUBHEADS, DOTS (Ø 1.2 link dots), BASE_NOTES (light names), "tempo" via BASE_SECTIONS; echo type names follow the checker's ECHO_POS (tape · dark · clean · pingpong) by patching r5.ECHO_POS during `Nave.model`.

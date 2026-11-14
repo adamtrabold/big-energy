@@ -1555,25 +1555,24 @@ def toggle_words(x, y, z, ink, font, name=None, top=None, mid=None, bottom=None,
     return s
 
 def nv_overrides(lc):
-    """pass-through: everything (incl. the out column at x 255 and the one-word vocabulary) is in layout_check.py."""
-    return list(lc.lid), list(lc.BREAKS), list(lc.SECTIONS)
+    """everything else is in layout_check.py. One visual fit: VCO 3's "track" (x 121) takes its legend on the LEFT
+    ("left2"): on the right, "track / off · on" ran into the "envelopes" heading on the same line, 2.5 mm apart in
+    real Kalam, and read as "track envelopes"; on the left, the toggle sits between its words and the heading."""
+    lid = [(n, x, d, r, k, lab, "left2") if (n == "OSC 3 CTL" and w == "right2") else (n, x, d, r, k, lab, w)
+           for n, x, d, r, k, lab, w in lc.lid]
+    return lid, list(lc.BREAKS), list(lc.SECTIONS)
 
 def nv_fit_sections(lc, sections):
-    """real-Kalam fits (for the checker): "envelopes" 0.8 higher (it sat 0.73 from RELEASE's nut)."""
-    return [(t, x, d + 0.8) if t == "envelopes" else (t, x, d) for t, x, d in sections]
+    """pass-through: visual's fit is in layout_check.py (6f7c036)."""
+    return list(sections)
 
 def nv_fit_subheads(lc):
-    """"filter" / "amp" centred over their groups (x 83.5 / 202.5) at d 68.5, on the heading line either side of
-    "envelopes": 1.5 above the knob legends (systems' spot) they read as part of a legend ("filter sustain",
-    "amp attack"); on the heading line they read "filter · envelopes · amp" and sit 4+ mm above the legends."""
-    out = []
-    for t, x, d in getattr(lc, "SUBHEADS", []):
-        out.append((t, 83.5 if x < 143 else 202.5, 68.5))
-    return out
+    """pass-through: visual's fit is in layout_check.py (6f7c036)."""
+    return list(getattr(lc, "SUBHEADS", []))
 
 def nv_fit_base_notes(lc):
-    """the lights' names 0.3 further behind the lights ("midi" sat 1.35 from its LED)."""
-    return [(t, x, y + 0.3) for t, x, y in getattr(lc, "BASE_NOTES", [])]
+    """pass-through: visual's fit is in layout_check.py (6f7c036)."""
+    return list(getattr(lc, "BASE_NOTES", []))
 
 def nv_notes(lc):
     return list(getattr(lc, "NOTES", []))

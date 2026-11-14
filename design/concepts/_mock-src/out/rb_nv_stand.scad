@@ -400,10 +400,10 @@ color("#9a9da1") translate([50.000,180.000,15.100]) cylinder(h=1.800, d1=6.000, 
 color("#b9bcbf") translate([50.000,180.000,16.900]) cylinder(h=1.000, d1=4.500, d2=4.500, $fn=24);
 color("#b9bcbf") translate([50.000,180.000,17.600]) rotate([0,18,0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);
 color("#1f1d1b") translate([50.000,171.600,15.100]) rotate([0,0,0]) linear_extrude(0.12) text("", size=1.9975, font="Kalam:style=Bold", halign="center", valign="center", $fn=24);
-color("#9a9da1") translate([163.500,180.000,15.100]) cylinder(h=1.800, d1=6.000, d2=6.000, $fn=6);
-color("#b9bcbf") translate([163.500,180.000,16.900]) cylinder(h=1.000, d1=4.500, d2=4.500, $fn=24);
-color("#b9bcbf") translate([163.500,180.000,17.600]) rotate([0,18,0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);
-color("#1f1d1b") translate([163.500,187.400,15.100]) rotate([0,0,0]) linear_extrude(0.12) text("", size=1.9975, font="Kalam:style=Bold", halign="center", valign="center", $fn=24);
+color("#9a9da1") translate([121.000,180.000,15.100]) cylinder(h=1.800, d1=6.000, d2=6.000, $fn=6);
+color("#b9bcbf") translate([121.000,180.000,16.900]) cylinder(h=1.000, d1=4.500, d2=4.500, $fn=24);
+color("#b9bcbf") translate([121.000,180.000,17.600]) rotate([0,18,0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);
+color("#1f1d1b") translate([121.000,187.400,15.100]) rotate([0,0,0]) linear_extrude(0.12) text("", size=1.9975, font="Kalam:style=Bold", halign="center", valign="center", $fn=24);
 color("#9a9da1") translate([257.500,180.000,15.100]) cylinder(h=1.800, d1=6.000, d2=6.000, $fn=6);
 color("#b9bcbf") translate([257.500,180.000,16.900]) cylinder(h=1.000, d1=4.500, d2=4.500, $fn=24);
 color("#b9bcbf") translate([257.500,180.000,17.600]) rotate([0,18,0]) cylinder(h=8, d1=2.6, d2=2.1, $fn=16);
@@ -637,8 +637,8 @@ color("#1f1d1b") translate([29.700,181.200,15.110]) rotate([0,0,0]) linear_extru
 color("#1f1d1b") translate([29.700,178.700,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("1 · 3 · 4", size=1.3, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
 color("#1f1d1b") translate([56.200,181.200,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("mod", size=1.55, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
 color("#1f1d1b") translate([56.200,178.700,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("off · on", size=1.3, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
-color("#1f1d1b") translate([169.700,181.200,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("track", size=1.55, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
-color("#1f1d1b") translate([169.700,178.700,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("off · on", size=1.3, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
+color("#1f1d1b") translate([114.800,181.200,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("track", size=1.55, font="Kalam:style=Bold", halign="right", valign="center", $fn=24);
+color("#1f1d1b") translate([114.800,178.700,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("off · on", size=1.3, font="Kalam:style=Bold", halign="right", valign="center", $fn=24);
 color("#1f1d1b") translate([263.700,181.200,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("source", size=1.55, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
 color("#1f1d1b") translate([263.700,178.700,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("noise · input · loop", size=1.3, font="Kalam:style=Bold", halign="left", valign="center", $fn=24);
 color("#1f1d1b") translate([63.500,171.450,15.110]) rotate([0,0,0]) linear_extrude(0.12) text("attack", size=2.35, font="Kalam:style=Bold", halign="center", valign="center", $fn=24);
