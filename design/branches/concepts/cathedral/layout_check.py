@@ -41,6 +41,7 @@ if STEER5:
     WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 VCO4 = os.environ.get("CATHEDRAL_VCO4", "0") == "1"   # the optional 4th analog VCO (owner question, §19.5): lid + base mixer 4
 ML, MR = 4.3 + 3 * M, 281.7 - 3 * M                # the margin lines: 3M inside the plate edges (x 19.3 / 266.7)
+GAP_REF = {}   # a row with no gutter of its own (only window / margin gaps) measures them against this row's gutter
 GHOST = []     # P5O without VCO 4: the slot's knob outlines (light ink), checked as controls: (name, x, d, r, legend)
 NAME_BOX = None  # the name, a light-ink word under the window: (text, x, d, size)
 HAIR = []      # engraved hairlines checked as obstacles: (name, x0, d0, x1, d1)
@@ -87,14 +88,16 @@ if VARIANT == "P5O":
     # what VCO 4 costs, for every drawing that shows it (director fix 5); the stick line is this layout's, with or without it
     VCO4_CAPTION = ("VCO 4 (optional, owner's call): ≈ +$20–30, ≈ −0.5 h of battery, the Daisy's last pin. "
                     "P5O lowers the bend stick to 9.0 mm to close at 55.2 (as is: 58.8)")
-    # R1: VCO 1 | tuning | oscillator switches | echo (type · time · repeats), equal gutters margin to margin
+    # R1: VCO 1 | oscillator switches | tuning | echo (type · time), equal gutters margin to margin. Score-8 fix
+    # O2 (new director): the switches sit straight after VCO 1 under "oscillators" (its hairline runs on over them,
+    # unbroken), and VCO 3's switch is named "track 3", so it can't read as the filter's "track" on the base
     BW = 4.6 + 40 + 6.2 + 5.2                                       # switch bank: first nut -> track's "off · on"
     g1 = (MR - ML - (2 * KN + 20) * 3 - BW - 4 * M) / 3              # echo's R1 pair ends one G (4M) short of the margin, as R2-R4
-    TX = ML + 2 * KN + 20 + g1 + KN                                  # tune
-    BX = TX + 20 + KN + g1 + 4.6                                     # voices
+    BX = ML + 2 * KN + 20 + g1 + 4.6                                 # voices
+    TX = BX + 40 + 6.2 + 5.2 + g1 + KN                               # tune
     L("TUNE", TX, R1, "k", "tune", "behind"); L("DRIFT", TX + 20, R1, "k", "drift", "behind")
     L("PARA", BX, R1, "t", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4"), "right2")
-    L("OSC MOD", BX + 20, R1, "t", "mod|off · on", "right2"); L("OSC 3 CTL", BX + 40, R1, "t", "track|off · on", "right2")
+    L("OSC MOD", BX + 20, R1, "t", "mod|off · on", "right2"); L("OSC 3 CTL", BX + 40, R1, "t", "track 3|off · on", "right2")
     for n, d, lab in [("F ATTACK", R2, "attack"), ("F DECAY", R3, "decay"), ("F SUSTAIN", R4, "sustain")]:
         L(n, FX5, d, "k", lab, "front")
     for n, d, lab in [("L ATTACK", R2, "attack"), ("L DECAY", R3, "decay"), ("L SUSTAIN", R4, "sustain")]:
@@ -115,7 +118,8 @@ if VARIANT == "P5O":
     over = lambda d, top_extra=0.0: d + KN + top_extra + 1.5 + 0.425 * HS     # a heading's centre over a row's knob tops
     fan_top = KN + 7.2 + 0.425 * 1.3                                          # a TYPE knob's outer fan names, above its centre
     # visual rev 9.1 real-Kalam fits: filter / amp +0.8 more, keys +0.7, echo +0.5 x, reverb +0.3, out 3.8 into the gutter
-    SECTIONS_LEFT += [("oscillators", ML, 120.9), ("tuning", TX - KN, 120.9), ("echo", RX[0] - KN + 0.5, 120.9),
+    HT = R1 + KN + 7.2 + 0.425 * 1.3 + 1.5 + 0.425 * HS                       # the top heading line: above echo type's fan words (122.0)
+    SECTIONS_LEFT += [("oscillators", ML, HT), ("tuning", TX - KN, HT), ("echo", RX[0] - KN + 0.5, HT),
                       ("filter", FX5 - KN, over(R2) + 1.6), ("amp", AX5 - KN, over(R2) + 1.6),
                       ("reverb", RX[0] - KN, R3 + fan_top + 1.5 + 0.425 * HS + 0.3),
                       ("keys", FX5 + KN + G, R4 + 4.6 + 1.5 + 0.425 * HS + 1.0), ("out", RX[0] - KN - 3.8, over(R4))]
@@ -123,11 +127,10 @@ if VARIANT == "P5O":
     # "oscillators" runs on as an engraved hairline (0.4); it stops before "tuning" and restarts over the switches
     # (at voices' nut, visual rev 9.1), so it doesn't read as tuning's leader
     BANK_END = BX + 40 + 6.2 + 8 * 0.5 * NS * 1.25
-    HAIR += [("oscillators hairline a", ML + 21.5, 120.9 - 0.2, TX - KN - 2.5, 120.9 + 0.2),
-             ("oscillators hairline b", BX - 4.6, 120.9 - 0.2, BANK_END, 120.9 + 0.2)]
+    HAIR += [("oscillators hairline", ML + 21.5, HT - 0.2, BANK_END, HT + 0.2)]
     NAME_BOX = ("big energy", 143.0, 37.6, 2.0)                    # rev 9.1: +0.3, keeping 1.5 over "keys"
     FX, FX_BREAKS, SWL = R1, [], R4
-    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"], ["PARA", "OSC MOD", "OSC 3 CTL"],
+    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["PARA", "OSC MOD", "OSC 3 CTL"], ["TUNE", "DRIFT"],
                                 ["ECHO TYPE", "ECHO TIME"]]),
                 ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], ["F ATTACK"], "WIN", ["L ATTACK"], ["FREE/SYNC", "ECHO REPEATS", "ECHO PAN"]]),
                 ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3"], ["F DECAY"], "WIN", ["L DECAY"], ["REVERB TYPE", "REVERB DECAY"]]),
@@ -153,23 +156,32 @@ elif VARIANT == "P5R":
     L("PARA", mid(xs[0]), A5s, "t", "voices|1 · 3 · 4", "right2")
     L("OSC MOD", mid(xs[1]), A5s, "t", "mod|off · on", "right2")
     L("OSC 3 CTL", mid(xs[2]), A5s, "t", "track|off · on", "right2")
-    # row B. The keys' column (names + positions under each switch) ends on the right margin line; amp sits one
-    # gutter (= row A's) before it; filter takes the left, with its end and window gaps each within one gutter.
-    # (Filter alone on one side, amp + keys on the other: the envelopes can't be centred on the window, 5.9 mm off.)
-    G = gA
-    KW = len("amp · both · filter") * 0.5 * NS / 2
-    KYX = MR - KW
-    AXR = KYX - KW - G - KN - 40                                    # amp attack
-    left = 120.0 - ML - (2 * KN + 40)                               # the empty run left of the window, end + window gap
-    FXR = ML + (left + 0.2) / 2 + KN                                # filter attack (end 0.2 wider than the window gap)
+    # row B (new director R1): filter | window | amp, symmetric about x 143; its end and window gaps are equal
+    # (≈ 22.9, row A's gutter within 0.5). Keys go to the start of row C (keys | echo | reverb | out); the fallback
+    # (CATHEDRAL_P5R_KEYS=line) puts them on the switch line under tune / drift and leaves row C as it was.
+    KEYS_LINE = os.environ.get("CATHEDRAL_P5R_KEYS", "row") == "line"
+    gB = (120.0 - ML - (2 * KN + 40)) / 2
+    FXR = ML + gB + KN; AXR = 286.0 - FXR - 40
     for n, x, lab in [("F ATTACK", FXR, "attack"), ("F DECAY", FXR + 20, "decay"), ("F SUSTAIN", FXR + 40, "sustain"),
                       ("L ATTACK", AXR, "attack"), ("L DECAY", AXR + 20, "decay"), ("L SUSTAIN", AXR + 40, "sustain")]:
         L(n, x, B5, "k", lab, "behind")
-    L("VEL", KYX, BU, "t", "velocity|amp · both · filter", "below2"); L("AFTERTOUCH", KYX, BD, "t", "touch|mod · off · filter", "below2")
-    # row C: echo (type · time · free · sync · repeats · pan) | reverb (type · decay) | out (pan · link), equal gaps
+    VW, TW = len("amp · both · filter") * 0.5 * NS / 2, len("mod · off · filter") * 0.5 * NS / 2
+    KP = 3 * M                                                      # the keys' pair: 3M apart
+    if KEYS_LINE:                                                   # fallback: under tune / drift, on the switch line
+        kc = (xs[3][0] + xs[3][1]) / 2
+        L("VEL", kc - KP / 2, A5s, "t", "velocity|amp · both · filter", "below2")
+        L("AFTERTOUCH", kc + KP / 2, A5s, "t", "touch|mod · off · filter", "below2")
+        keysW = 0.0
+    else:
+        L("VEL", ML + VW, C5, "t", "velocity|amp · both · filter", "below2")
+        L("AFTERTOUCH", ML + VW + KP, C5, "t", "touch|mod · off · filter", "below2")
+        keysW = VW + KP + TW
+    # row C: [keys] | echo (type · time · free · sync · repeats · pan) | reverb (type · decay) | out (pan · link)
     wE = 2 * KN + 75; wR = 2 * KN + 20; wO = KN + 20 + 6.2 + 8 * 0.5 * NS
-    gC = (MR - ML - wE - wR - wO) / 2
-    EC = ML + KN; RVC = ML + wE + gC + KN; OC = RVC + 20 + KN + gC + KN
+    nC = 3 if keysW else 2
+    gC = (MR - ML - keysW - wE - wR - wO) / nC
+    x0C = ML + (keysW + gC if keysW else 0.0)
+    EC = x0C + KN; RVC = x0C + wE + gC + KN; OC = RVC + 20 + KN + gC + KN
     for n, x, lab in [("ECHO TYPE", EC, "type"), ("ECHO TIME", EC + 20, "time"), ("ECHO REPEATS", EC + 55, "repeats"),
                       ("ECHO PAN", EC + 75, "pan"), ("REVERB TYPE", RVC, "type"), ("REVERB DECAY", RVC + 20, "decay"),
                       ("DRY PAN", OC, "pan")]:
@@ -177,17 +189,24 @@ elif VARIANT == "P5R":
     L("FREE/SYNC", EC + 40, C5, "t", "free · sync", "under"); L("FOLLOW", OC + 20, C5, "t", "link|off · on", "right2")
     DOTS += [("dot echo pan", EC + 75 + 1.75 + 1.55 + 0.6, C5 - KN - 3.5, "ECHO PAN"),
              ("dot link", OC + 20 + 6.2 + 8 * 0.5 * NS + 2.1, C5 + TS_LEAD[0], "FOLLOW")]
+    # headings: centred over their groups (P5R's rule); row C's on one line in the heading zone above the type
+    # knobs' fan words (fan top C5 + KN + 7.2 + 0.55, + 1.5, + half a heading)
+    HC = C5 + KN + 7.2 + 0.425 * 1.3 + 1.5 + 0.425 * HS
     SECTIONS += [("oscillators", (xs[0][0] + xs[2][-1]) / 2, 120.9), ("tuning", (xs[3][0] + xs[3][1]) / 2, 120.9),
-                 ("envelopes", 143.0, 91.8), ("keys", KYX, BU + 4.6 + 1.5 + 0.425 * HS + 1.0),
-                 ("echo", ML + wE / 2, 37.5), ("reverb", RVC + 22.0, 37.5), ("out", OC + 10, 37.5)]
+                 ("envelopes", 143.0, 91.8),
+                 ("echo", x0C + wE / 2, HC), ("reverb", RVC + 10, HC), ("out", OC - KN + wO / 2, HC)]
+    if keysW: SECTIONS.append(("keys", ML + keysW / 2, HC))
+    # (fallback: no room for a "keys" heading on the switch line; the pair sits under "tuning", the fallback's cost)
     SUBHEADS += [("filter", FXR + 20, 79.5), ("amp", AXR + 20, 79.5)]
     NAME_BOX = ("big energy", 143.0, 34.0, 2.0)
     FX, FX_BREAKS, SWL = C5, [], BD
     GAP_ROWS = [("lid A", A5, [["RANGE 1", "WAVE 1", "PARA"], ["RANGE 2", "WAVE 2", "FREQ 2", "OSC MOD"],
-                               ["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], ["TUNE", "DRIFT"]]),
-                ("lid B", B5, [["F ATTACK", "F DECAY", "F SUSTAIN"], "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"], ["VEL", "AFTERTOUCH"]]),
-                ("lid C", C5, [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"], ["REVERB TYPE", "REVERB DECAY"],
+                               ["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], ["TUNE", "DRIFT"] + (["VEL", "AFTERTOUCH"] if KEYS_LINE else [])]),
+                ("lid B", B5, [["F ATTACK", "F DECAY", "F SUSTAIN"], "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
+                ("lid C", C5, ([] if KEYS_LINE else [["VEL", "AFTERTOUCH"]]) +
+                              [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"], ["REVERB TYPE", "REVERB DECAY"],
                                ["DRY PAN", "FOLLOW"]])]
+    GAP_REF = {"lid B": "lid A"}   # row B has no gutter of its own (two groups round the window): row A's is its gutter
 elif VARIANT == "P":
     # Steer 4, owner rule 19:57 ("Labels should only be one word ..."): every word from the director's vocabulary.md.
     # ---- band 1 (far edge, the TOP): oscillators (VCO 1 | 2 | 3 by spacing, 20 inside / 25 between) ‖ mixer.
@@ -511,6 +530,17 @@ def check():
         w = (b[2] - b[0]) * 1.25
         if b[0] > 143 and b[0] + w > 281.7 - 1.5: bad.append(f"RIM {ln} ends {b[0] + w:.1f}")
         if b[2] < 143 and b[2] - w < 4.3 + 1.5: bad.append(f"RIM {ln} starts {b[2] - w:.1f}")
+    # phrase rule (new director, steer 5 fixes 2): a heading must not share a baseline band (± 1.5) with another word
+    # within 8 mm sideways ("tape echo", "shimmer reverb" read as names), and next to fan / scale words it sits in a
+    # heading zone above them (its bottom ≥ their top + 1.5)
+    for hl, hb in [(ln, b) for ln, b in labs if ln.startswith("head ") and STEER5]:
+        for ln, b in labs:
+            if b is hb or "hairline" in ln: continue
+            side = max(b[0] - hb[2], hb[0] - b[2], 0.0)
+            if side >= 8.0: continue
+            if abs(hb[1] - b[1]) <= 1.5 + 1e-6: bad.append(f"PHRASE {hl} with {ln}: baselines {abs(hb[1] - b[1]):.2f} apart, {side:.1f} sideways")
+            if (" fan " in ln or " scale " in ln) and hb[3] > b[1] - 1.5 and hb[1] < b[3] + 1.5 - 1e-6:
+                bad.append(f"ZONE {hl} not above {ln} ({hb[1] - b[3]:.2f})")
     # the touch legend keeps 3 mm from ECHO TYPE's fan names (director, steer 4 score 9)
     tb = dict(labs).get("AFTERTOUCH")
     if tb:
@@ -590,6 +620,7 @@ def gap_rule(verbose=False):
     than one gutter (+ 0.5). A group's extent is its controls plus their own legends (fans, scales, numerals and
     headings are print around it, not part of it). Returns violations; with verbose, the gutters per row."""
     bad, out = [], []
+    ROWG = {}
     ll = {}
     for n, b in labels(): ll.setdefault(n.split(":")[0], []).append(b)
     ls = {n: (x, d, r) for n, x, d, r, *_ in lid}
@@ -621,7 +652,8 @@ def gap_rule(verbose=False):
             else:
                 gaps.append(("gut", b[0] - a[1]))
         gut = [w for k, w in gaps if k == "gut"]
-        G = max(gut) if gut else 3 * M
+        G = max(gut) if gut else ROWG.get(GAP_REF.get(row), 3 * M)
+        if gut: ROWG[row] = G
         if gut and max(gut) - min(gut) > 1.0 + 1e-6: bad.append(f"GAP {row}: gutters unequal {min(gut):.2f} .. {max(gut):.2f}")
         for k, w in gaps:
             if k != "gut" and w > G + 0.5 + 1e-6: bad.append(f"GAP {row}: empty {k} {w:.2f} > gutter {G:.2f}")

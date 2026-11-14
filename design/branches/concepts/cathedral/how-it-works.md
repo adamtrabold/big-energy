@@ -1030,23 +1030,33 @@ Owner, verbatim:
 | **R3, 49** | "3" · octave · wave · pitch ‖ filter decay · (window) · amp decay ‖ **reverb:** type 219.25 · decay 239.25 | **20** ×2; window 13.5; right end 20 |
 | **R4, 24** | **VCO 4 slot** ("4" · octave · wave · pitch; drawn as a ghost, checked as controls) ‖ filter sustain ‖ **keys:** velocity (t) 135.3 · touch (t) 151.05, under the window ‖ amp sustain ‖ **out:** pan 219.25 · link (t) 239.25 | **20** ×4 |
 
+- **New director, O2 (switches):** R1 now runs **VCO 1 | voices · mod · track 3 | tuning | echo** at 22.2 gutters (voices 81.0, mod 101.0, track 3 121.0; tune 162.1, drift 182.1). The switches sit straight after VCO 1 under "oscillators", with its hairline running on over them, unbroken. VCO 3's switch is named **"track 3"** so it can't read as the base filter's "track" (vocabulary tweak for the director).
+- **O3:** P5O's top heading line rises to **d 122.0**, 1.5 above echo type's fan words. "echo" no longer sits on "tape"'s line. The phrase rule passes.
+- **O1, amp left to right on R1 (attack · decay · sustain at 123 / 143 / 163): it can't pass the gap rule at D 132. Exactly why:**
+  1. **R1 left:** VCO 1's edge (54.2) to amp's (115.55) leaves 61.35 mm. Tuning needs 34.9 + 2 × 15 = 64.9 at 3M gutters, **3.55 short**. It fits only as a 2M sub-group of the oscillator block (R1 gutters 16.45), or with amp 3.55 mm right of the window axis.
+  2. **Right of the window, rows R2–R4 lose the amp column.** That's 3 knobs + a gutter on each row, ≈ 35 mm. With a gutter of 15–20, each row needs about 60–70 mm of groups between the window and the right margin line. R4 needs ≈ 115 (under the window and beyond), and R1, right of amp, ≈ 63. That's **≈ 300 mm of groups**. What's left to put there (echo 89.9, reverb 34.9, out 38.85, keys ≈ 26, plus their gutters) is **≈ 235**. **At least one row keeps an empty run of two gutters or more (≈ 40–70 mm).**
+  3. Moving the switches beside VCO 2 / 3 (col 4) pushes the filter column to x 113.8 (window 2.4 clear) and leaves R4 needing a 4th item.
+  4. The nearest variant: amp above the window and **filter below it** (a frame round the speaker). It's still ≈ 20 mm of groups short on the right, and the left flank switches can't share one column (R1 / R4 need x ≈ 94.9, R2 / R3 ≈ 98.3).
+  - **So:** the amp-envelope row needs either fewer, wider groups on the right (e.g. echo on one row, which needs 89.9 of the 54.9 the right block has) or a wider lid. **Owner question (orchestrator):** "amp controls left to right in the top row": the amp envelope? If yes, the honest answer is that it costs the column layout's balance. P5O keeps amp as a column until he answers.
 - **(4) Tuning, a regular placement:** every VCO now reads **octave · wave · pitch**. VCO 1 has no pitch knob (master tune is its pitch), so on R1 it's followed by its own **"tuning" pair (tune · drift)**, headed "tuning", then the oscillator switches. "oscillators" runs on as a hairline over the switches and breaks round "tuning", so the pair reads as part of the block. Drift is no longer a 4th knob in VCO 1's row. P5R uses the same order.
 - **(2) Headings, all top-left:** oscillators (19.3, d 120.9), tuning (76.4), echo (211.8, d 120.9); filter (94.2) and amp (176.9) at d 90.0, over attack; reverb (211.8, d 67.0, above the type knob's fan); out (211.8, d 34.2); keys (129.1, d 31.7). To clear R1, the filter, amp and right-block legends below R1 sit in front of their knobs.
 - **(3) Out, a full slot:** out has R4's right slot to itself, one standard gutter (20) after amp, with its heading top-left. It's no longer squeezed between reverb decay and pan. Echo uses R1–R2 (type · time; free · sync · repeats · pan) so each row starts on the same gutter line.
 - **(5) What VCO 4 costs, stated wherever it's shown** (`VCO4_CAPTION`, for the render captions): "VCO 4 (optional, owner's call): ≈ +$20–30, ≈ −0.5 h of battery, the Daisy's last pin. P5O lowers the bend stick to 9.0 mm to close at 55.2 (as is: 58.8)". **Precisely:** the stick cost is P5O's column layout (octave 2 and 3 land over the stick), with or without VCO 4. VCO 4 itself adds no closing cost.
 
-**P5R, the rule in rows, after the score-9 fix (1):** A = oscillators ‖ tuning, with all three oscillator switches on one line under them; B = filter · (window) · amp · keys; C = echo → reverb → out.
+**P5R, the rule in rows, new director's fixes R1 / R2:** A = oscillators ‖ tuning, with the oscillator switches on one line under them; B = filter · (window) · amp, **symmetric about x 143**; C = **keys** → echo → reverb → out.
 
 | Row (d) | x | Gutters |
 |---|---|---|
-| **A, 104** | "1" octave 26.75 · wave 46.75 ‖ "2" octave 84.25 · wave 104.25 · pitch 124.25 ‖ "3" octave 161.75 · wave 181.75 · pitch 201.75 ‖ break 220.5 ‖ **tuning:** tune 239.25 · drift 259.25 | **22.6** ×3, margin to margin |
-| **A', 89** | **voices (t) 36.75** under VCO 1 · **mod (t) 104.25** under VCO 2 · **track (t) 181.75** under VCO 3: each centred under its VCO, so the gap rule counts it in its VCO's group | — |
-| **B, 64** | **filter** 49.75 · 69.75 · 89.75 · (window) · **amp** 184.3 · 204.3 · 224.3 ‖ **keys** (side column, names and positions under each switch): velocity (t) 260.5 at d 78, touch at d 50 | **22.6** (amp → keys, = row A's); left end 23.0, window 22.8 / 10.85 |
-| **C, 24** | **echo:** type 26.75 · time 46.75 · free · sync (t) 66.75 · repeats 81.75 · pan 101.75 ‖ **reverb:** type 158.5 · decay 178.5 ‖ **out:** pan 235.3 · link (t) 255.3 | **41.9** ×2, margin to margin |
-| headings | "oscillators", "tuning" (d 120.9); "envelopes" (d 91.8) with "filter", "amp" (d 79.5); "keys" (d 85.7); "echo", "reverb", "out" (d 37.5) | |
+| **A, 104** | "1" octave 26.75 · wave 46.75 ‖ "2" octave 84.25 · wave 104.25 · pitch 124.25 ‖ "3" octave 161.75 · wave 181.75 · pitch 201.75 ‖ break 220.5 ‖ **tuning:** tune 239.25 · drift 259.25 | **22.6** ×3 |
+| **A', 89** | voices (t) 36.75 · mod (t) 104.25 · track (t) 181.75, each centred under its VCO | — |
+| **B, 64** | **filter** 49.65 · 69.65 · 89.65 · (window) · **amp** 196.35 · 216.35 · 236.35 | ends and window gaps **22.9** each (row A's gutter, within 0.5: `GAP_REF`) |
+| **C, 24** | **keys:** velocity (t) 25.5 · touch (t) 40.5 (3M apart, name and positions under each) ‖ **echo:** type 72.7 · time 92.7 · free · sync (t) 112.7 · repeats 127.7 · pan 147.7 ‖ **reverb:** type 181.5 · decay 201.5 ‖ **out:** pan 235.3 · link (t) 255.3 | **18.9** ×3 (≥ 15) |
+| headings | centred over their groups: "oscillators", "tuning" (d 120.9); "envelopes" (d 91.8) with "filter", "amp" (d 79.5); **row C on one line at d 42.0** (keys 32.8 · echo 110.2 · reverb 191.5 · out 247.3), 1.5 above the type knobs' fan words (top 39.2) | |
 
-- **The one compromise:** with filter alone on one side of the window and amp + keys on the other, the envelopes can't be centred on the window (by ≥ 11.85 mm of gap, **5.9 mm off-axis**). Every empty area is still within one gutter. Centring them would need the keys off row B (on the switch line, under tuning), which drops the director's "keys keep a side column".
-- Nothing on the lid lands over the bend stick when closed (filter attack is 7.9 mm away in plan).
+- Reading order wraps from amp to keys, which feed amp and filter.
+- **Closing (R-LOW 55.2, stick as is):** keys land at base y 108, behind the rear row (release slide 6.1 / blend 4.9 in plan, ≥ 3 ✓). The bend stick's nearest lid item is filter attack, 7.8. CUTOFF, track and mod stay under the window.
+- **Fallback (`CATHEDRAL_P5R_KEYS=line`): keys on the switch line under tune / drift** (velocity 241.75 · touch 256.75, d 89). Row B is the same, symmetric. Row C goes back to echo · reverb · out at **41.9** gutters (echo type 26.75 … out link 255.3). Closing is unchanged (keys land at base y 43, tap 14.7 away in plan). **Its costs:** row C's 41.9 against A/B's ≈ 22.7, and **no room for a "keys" heading** (its legends reach to within 1.5 of amp sustain's); the pair reads as tuning's.
+- Both pass the checker (0), including the gap rule and the phrase rule.
 
 **Trade-offs:**
 
