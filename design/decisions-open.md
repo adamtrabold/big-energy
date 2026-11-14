@@ -69,3 +69,12 @@ The pressure switch adds modulation amount: vibrato when OSC MOD is on, a filter
 
 - **MOD / OFF / FILT:** says what it really does. *Team recommends.*
 - **VIB / OFF / FILT:** your earlier word, but it's only vibrato when OSC MOD is on.
+
+---
+
+## 7. Filter keyboard tracking switch (KBD)
+**Unblocks:** the KBD legend on the base.
+The Model D reaches full tracking (both of its switches on). Ours is one 3-way switch, so it has three settings, not four.
+
+- **off · 1/3 · 2/3:** as specified today. Full tracking isn't available.
+- **off · 1/2 · full:** the firmware sets the amounts (the tracking voltage is already digital), so full is there for playing the filter as a tone. *Team recommends; eng to confirm.*
