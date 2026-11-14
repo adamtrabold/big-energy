@@ -37,6 +37,25 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### Case ratio (owner: "is there a more pleasing and harmonious case ratio … derived from the dimensions of the device … base it on the face dimensions / ratio")
+**What's fixed and what isn't.** The width is set by the keyboard (15 naturals at 18 mm): 286 outside, a 277.4 face. The closed thickness (55.2) doesn't change with depth. So the one free dimension is each half's depth D, and with it the face height (D − 8.6). That's inside systems' range: P5R needs D ≥ 132; P5OB-D needs ≥ 143, and 145 for the full-height stick (§29; §30's envelope is pending). Golden (1.618) or 3 : 2 per half would need D 177 / 191, a third deeper than any layout needs: deep, half-empty plates in a bag-sized object. They're out.
+
+<figure>
+<img src="img/cathedral-s9-case-ratios-4px-per-mm.png" alt="Three case candidates side by side at true scale, columns A, B and C left to right. Each column shows, top to bottom: the closed case from above, its front elevation, the case open flat, and one face with its module grid. Thin brass construction lines mark the ratio: in A a square centred in the face; in B the closed case divided into two squares and the open case crossed as one square; in C the face divided into two squares and the two open faces crossed as one square.">
+<figcaption><b>Three candidate ratios, true scale</b> (4 px per mm, scale bar 50 mm). Columns, left to right: <b>A</b> D 132.4, <b>B</b> D 143, <b>C</b> D 147.3. Rows: closed from above; closed front (55.2 thick, the same for all); open flat; one face with its module grid (M = 277.4 / 56 = 4.954, the 4M pitch lines heavier). Brass lines show the ratio each candidate is built on.</figcaption>
+</figure>
+
+| | **A. √5 face** (≈ 9 : 4, "the major ninth") | **B. The double-square case** | **C. The double-square face** |
+|---|---|---|---|
+| D (per half) | **132.4** (P5R today +0.4) | **143** | **147.3** (P5OB-D +2.3) |
+| face / case / open flat | 2.24 / 2.16 / 0.93 (landscape) | 2.06 / **2.00** / **1.01: a square** | **2.00** / 1.94 / 1.04 (the two faces together: **a square**) |
+| module grid (§29 A) | **56 × 25, exact** | 56 × 27.1: doesn't close | **56 × 28, exact** |
+| Why it suits CATHEDRAL | √5 is a square flanked by two golden rectangles: the window's square bay between two wings, which is how the lid already reads. The longest, lowest, most "keyboard" silhouette. | The tatami and Shaker-box proportion: closed, a double square; open, one square. The silhouettes most people would call harmonious, because the two states are one idea. | The owner's own rule: the face itself is two squares (oscillators | effects, with the window on the seam). Open, the two faces make one cream square inside the walnut. One grid, exact, from the face outward. |
+| Closed / open read | A long slim case; open, a wide low landscape | A long box, then a square tablet | Almost a double square, then a cream square framed in walnut |
+| Cost | none for P5R; too shallow for P5OB-D (stick) | P5OB-D's minimum; the stick needs 145, so 2 mm short; the grid doesn't divide | P5OB-D +2.3; P5R would have to re-spread its rows into +15 mm |
+
+**My recommendation: C, the double-square face** (D 147.3). It's derived from the face, as he asked, rather than from the outer box. It's the only candidate where the face ratio, the module grid (56 × 28) and the open silhouette (two faces make a square) all agree exactly. And it's within 2.3 mm of P5OB-D, the layout that needs the depth. B is the purist's case-outline answer, but its face grid doesn't close and it's 2 mm short of the stick. **A stays right if P5R is the layout.** It's today's case, and √5 is already a good ratio, so the question then is only one of words.
+
 ### P5OB-D study (systems §25): four oscillators at D 145
 <figure>
 <img src="img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png" alt="Exact top view of the P5OB-D study open flat, both halves 286 by 145 mm, round 9. Lid: four oscillator rows shifted 20 mm in from the left edge (octave with its positions line, wave, pitch; tune on the first row under tuning, drift in VCO 2's fourth slot; VCO 3's track 3 switch), the amp envelope as a row over the slotted window and the filter envelope as a row under it, and on the right echo, then reverb, then the keys switches; the MIDI key at the top right. Base: the mixer 1 to 4 over the filter row with extra and source one column right, effects over out, tempo over tap.">
