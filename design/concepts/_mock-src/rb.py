@@ -1515,31 +1515,10 @@ LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
 MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
 
 def nv_overrides(lc):
-    """visual's steer-3 overrides now live in systems' layout_check.py (b3e5525: numbered range / wave, "osc 3 ctl",
-    per-contour headings at HS 3.0, the osc | mixer break). Kept as a pass-through so the render and checks share one
-    entry point; put any future visual-only change here and tell systems."""
-    # real-Kalam fits (Kalam's 3.0 glyphs are taller and wider than the checker's 0.85 / 0.50 estimate):
-    sections = []
-    for t, x, d in lc.SECTIONS:
-        if t in ("filter contour", "loudness contour"):
-            d = 67.5                  # clear of the contour legends (0.70 at 65.5); the osc | mixer break starts at 70.5
-        elif t in ("oscillators", "mixer"):
-            d += 0.4                  # "oscillators" was 1.23 from "freq 2"
-        elif t == "reverb":
-            x += 2.0                  # clear of REVERB TYPE's "shimmer" (0.97)
-        sections.append((t, x, d))
-    breaks = [(bx, 70.5 if abs(bx - 188.0) < 0.1 else d0, d1) for bx, d0, d1 in lc.BREAKS]
-    # FOLLOW: words beside (off left, follow right), not above / below: squeezed between DRY PAN and VOLUME, real Kalam
-    # put "follow" 1.21 from DRY PAN at any workable size; beside, both words have room (break at 242.5, plate edge)
-    lid = [(n, x, d, r, k, "off|follow", "beside") if n == "FOLLOW" else (n, x, d, r, k, lab, w)
-           for n, x, d, r, k, lab, w in lc.lid]
-    # director's 9-condition: the kbd / filt mod column gets its own "filter" heading and rule, mirroring the out
-    # column (heading "out" (262.5, d 66.5), rule x 242.5); FILT MOD moves up to d 35 (the switch line's height),
-    # clear of ECHO TYPE's "tape" / "ping-pong" fan
-    lid = [(n, x, NV_FILT_MOD_D, r, k, lab, w) if n == "FILTER MOD" else (n, x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lid]
-    sections.append(NV_FILTER_HEAD)
-    breaks.append(NV_FILTER_RULE)
-    return lid, breaks, sections
+    """pass-through: every visual layout tweak (numbered legends, contour / filter headings and rules, real-Kalam
+    nudges, FOLLOW beside, FILT MOD at d 35) now lives in systems' layout_check.py (2f99f96). Put any future
+    visual-only change here and tell systems."""
+    return list(lc.lid), list(lc.BREAKS), list(lc.SECTIONS)
 
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
