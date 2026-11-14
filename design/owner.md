@@ -258,3 +258,6 @@ Recorded as: CATHEDRAL not approved yet. (1) OK with the 4th oscillator (PARA+4 
 
 2026-11-13 20:33 Owner (verbatim), after hearing that Moog paraphonics (Matriarch) use four analog oscillators each with its own wave control: "See if we can fit a fourth oscillator"
 Recorded as: study a 4th ANALOG oscillator (Matriarch-style, its own octave, wave, pitch and mixer level) in place of, or alongside, the digital 4th voice: electronics, cost, power, board space and panel space. Orchestrator reading; to confirm with him if it matters.
+
+2026-11-13 20:43 Owner (verbatim): "I feel like the oscillators should all be stacked on the left, then top case filter/envelope where there’s less room cuz of speaker in the middle, then amp controls going left to right in the top row on the top case"
+Recorded as: lid layout direction from the owner: oscillators stacked in a block on the LEFT; filter and envelope controls in the middle area around the speaker (less room there); amp controls running left to right along the lid's top row. ("Amp controls" most likely = the amp envelope; team to confirm against the steer-5 rule that puts volume on the base.)
