@@ -1456,7 +1456,8 @@ The checker reports what each leaves empty. The visual renders all three.
 
 ## 29. A module derived from the face (owner: "base it on the face dimensions / ratio"). Proposal only; nothing re-laid
 **The face** is the plate inside the rim: x 4.3–281.7, d 4.3 to D − 4.3. This is rb's steer-5 `lid_plate2d`, and the base plate is the same rectangle.
-- Width **277.4** for every layout. Depth **D − 8.6**, the same for both halves.
+- Width **277.4** for every layout. **Face height D − 8.6**, the same for both halves.
+- Terms (owner, from here on): **half height** D is a half's front-to-back size, outside the rim; **face height** is the plate's front-to-back size; **closed thickness** is how tall the closed case stands.
 - **P5R (D 132):** each half is **277.4 × 123.4**, ratio 2.248 (≈ 9 : 4).
 - **P5OB-D (D 145):** each half is **277.4 × 136.4**, ratio 2.034 (≈ 2 : 1).
 - (§19.3's "277.4 × 131.4" was wrong. The squircle plate is inset 4.3 on all four sides.)
@@ -1464,25 +1465,25 @@ The checker reports what each leaves empty. The visual renders all three.
 
 **Candidates.** Module rules stay as §19.3: knob pitch 4M, group gutter and margin 3M, VCO sub-gutter 2M. Finger clearance is measured between Ø 14.9 caps; today's 20 pitch leaves 5.1.
 
-| | **A. M = W / 56 = 4.954** (14 knob pitches across) | **B. M = W / 55 = 5.044** (nearest to today's 5) | **C. Face-ratio grid** (non-square, no depth change) |
+| | **A. M = W / 56 = 4.954** (14 knob pitches across) | **B. M = W / 55 = 5.044** (nearest to today's 5) | **C. Face-ratio grid** (non-square, no half-height change) |
 |---|---|---|---|
 | knob pitch 4M | 19.81 | 20.17 | P5R 19.81 × rows on 4.936; P5OB-D 20.17 × rows on 5.052 |
 | gutter / margin 3M (sub-gutter 2M) | 14.86 (9.91) | 15.13 (10.09) | as A (P5R) or as B (P5OB-D) |
 | finger clearance (Ø 14.9 / Ø 10) | 4.91 / 9.81: holds, 0.2 tighter than today | 5.27 / 10.17: holds, a little looser | as A / B |
-| **P5R** | 24.91 deep → **25 at D 132.44 (+0.44)**: 56 × 25 | 24.47 → 25 at D 134.69 (+2.7), or 24 at D 129.65 (−2.35, eats the row room D 132 bought) | exact at D 132: 56 × 25, rows 0.4 % shorter than columns |
-| **P5OB-D** | 27.54 → **28 at D 147.3 (+2.3)**, exactly **2 : 1** (56 × 28); or 27 at D 142.35 (−2.65) | 27.04 → **27 at D 144.78 (−0.22)**: 55 × 27, today's depth in effect | exact at D 145: 55 × 27, 0.16 % off square |
+| **P5R** | 24.91 high → **25 at D 132.44 (+0.44)**: 56 × 25 | 24.47 → 25 at D 134.69 (+2.7), or 24 at D 129.65 (−2.35, eats the row room D 132 bought) | exact at D 132: 56 × 25, rows 0.4 % shorter than columns |
+| **P5OB-D** | 27.54 → **28 at D 147.3 (+2.3)**, exactly **2 : 1** (56 × 28); or 27 at D 142.35 (−2.65) | 27.04 → **27 at D 144.78 (−0.22)**: 55 × 27, today's half height in effect | exact at D 145: 55 × 27, 0.16 % off square |
 | one module for both layouts? | yes (P5R +0.44, P5OB-D +2.3) | P5OB-D free; P5R pays ±2.5 | no (4.954 vs 5.044) |
 
-**Depth changes and their costs:**
-- Depth doesn't change the closed height (55.2 / 59.7). It moves the FOLD window (d = D − 68) and the footprint by the same amount.
-- **P5OB-D shallower than 145 costs the stick landing.** 145 was the depth the full-height stick needed in round 9.
-- **D 143 doesn't divide cleanly** (27.13 × A, 26.65 × B). So under A the clean P5OB-D depth is **147.3** (+2.3 deep, 2 : 1). Under B it is **144.8**, which is free.
+**Half-height changes and their costs:**
+- Half height doesn't change the closed thickness (55.2 / 59.7). It moves the FOLD window (d = D − 68) and the footprint by the same amount.
+- **P5OB-D shallower than 145 costs the stick landing.** 145 was the half height the full-height stick needed in round 9.
+- **D 143 doesn't divide cleanly** (27.13 × A, 26.65 × B). So under A the clean P5OB-D half height is **147.3** (+2.3, 2 : 1). Under B it is **144.8**, which is free.
 - P5R under A: **+0.44 mm**, effectively free.
 
 **My lean:**
-- **A** if one grid should govern both layouts and the 2 : 1 P5OB-D face appeals. The cost is +2.3 mm of depth on P5OB-D and 0.2 mm less finger room.
-- **B** if P5OB-D is the one going forward. It's today's depth and today's feel, 20.17 pitch.
-- C is the fallback if depth is fixed. It's exact on both axes, but the module isn't square, which the eye won't see.
+- **A** if one grid should govern both layouts and the 2 : 1 P5OB-D face appeals. The cost is +2.3 mm of half height on P5OB-D and 0.2 mm less finger room.
+- **B** if P5OB-D is the one going forward. It's today's half height and today's feel, 20.17 pitch.
+- C is the fallback if the half height is fixed. It's exact on both axes, but the module isn't square, which the eye won't see.
 - Every control coordinate would scale by M / 5 (−0.9 % for A, +0.9 % for B) from the plate edge.
 - **Owner:** set the module in Figma. Once he picks, the checker's M, the margin lines (ML / MR) and the row ys follow mechanically.
 
