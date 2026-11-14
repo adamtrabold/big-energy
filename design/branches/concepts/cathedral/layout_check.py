@@ -76,6 +76,8 @@ if VARIANT in ("P5OB", "P5OBD"):
         R1, R2, R3, R4 = 104.0 + sh, 79.0 + sh, 54.0 + sh, 29.0 + sh
         RV = R2 - 35.0                                              # reverb: 1M under echo's legends, heading over its ticks
         RK = RV - 35.0                                              # keys: under reverb's names line, words above them
+    else:
+        RV = R4                                                     # D 132: reverb bottom right (the critic's fill only fits deeper, P5OBD)
     C1 = ML + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)
     NUMX = 11.0
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", OX[2], R1, "tune"),
@@ -85,7 +87,7 @@ if VARIANT in ("P5OB", "P5OBD"):
         L(n, x, d, "k", lab, "behind")
     L("OSC 3 CTL", OX[3], R3, "t", "track 3|off · on", "above2")
     NOTES += [(t, NUMX, d, NUM_S, "center") for t, d in (("1", R1), ("2", R2), ("3", R3))]
-    if VCO4:
+    if VCO4 and VARIANT == "P5OBD":
         for n, x, lab in [("RANGE 4", OX[0], "octave"), ("WAVE 4", OX[1], "wave"), ("FREQ 4", OX[2], "pitch")]:
             L(n, x, R4, "k", lab, "behind")
         NOTES.append(("4", NUMX, R4, NUM_S, "center"))
@@ -104,13 +106,15 @@ if VARIANT in ("P5OB", "P5OBD"):
     keys = [("PARA", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4")), ("VEL", "velocity|amp · both · filter"),
             ("AFTERTOUCH", "touch|mod · off · filter")]
     KXS = [EC1 - KN + 6.175 + KP * i for i in range(3)] if VCO4 else list(OX[:3])
+    KW = "above2" if (VCO4 and VARIANT == "P5OBD") else "below2"   # under the bank: words below, clear of octave 3's ticks
+    if VCO4 and VARIANT == "P5OB": KXS = list(OX[:3])             # D 132 + VCO 4: see P5OBD (keys stay left, no VCO 4 row)
     for x, (n, lab) in zip(KXS, keys):
-        L(n, x, RK if VCO4 else R4, "t", lab, "above2")
+        L(n, x, RK if (VCO4 and VARIANT == "P5OBD") else R4, "t", lab, KW)
     SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
     over = lambda d: d + KN + 1.5 + 0.425 * HS
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
-    KTOP = (RK if VCO4 else R4) + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6
+    KTOP = ((RK + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS) if KW == "above2" else (R4 + TGL)) + 1.5 + 0.425 * HS + 0.6
     SECTIONS_LEFT += [("oscillators", ML, HTOP), ("amp", 123.0 - KN, HTOP), ("echo", EC1 - KN, HTOP),
                       ("filter", 123.0 - KN, H4), ("reverb", EC1 - KN, RV + KN + 1.7 + 1.5 + 0.425 * HS),
                       ("keys", KXS[0] - 6.175, KTOP)]
@@ -118,9 +122,10 @@ if VARIANT in ("P5OB", "P5OBD"):
     FX, FX_BREAKS, SWL = R1, [], R4
     GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"], ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]]),
                 ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", ["ECHO REPEATS", "ECHO PAN"]]),
-                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", ["REVERB TYPE", "REVERB DECAY"]]),
-                ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["PARA", "VEL", "AFTERTOUCH"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"]] +
-                               ([["PARA", "VEL", "AFTERTOUCH"]] if VCO4 else []))]
+                ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN"] + ([["REVERB TYPE", "REVERB DECAY"]] if RV != R4 else [])),
+                ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if (VCO4 and VARIANT == "P5OBD") else [["PARA", "VEL", "AFTERTOUCH"]]) +
+                               [["F ATTACK", "F DECAY", "F SUSTAIN"]] + ([["PARA", "VEL", "AFTERTOUCH"]] if (VCO4 and VARIANT == "P5OBD") else []) +
+                               ([] if (VCO4 and VARIANT == "P5OBD") else [["REVERB TYPE", "REVERB DECAY"]] if RV == R4 else []))]
     GAP_REF = {"lid R2": "lid R1", "lid R3": "lid R1"}
 elif VARIANT in ("P5O", "P5OA", "P5OL"):
     # ---- steer 5 fixes 9: P5O with the fixes P5R took (§21), as STUDIES the owner judges by eye (he: "i cant
@@ -411,22 +416,29 @@ if BASE6:
     CX = FL - gF - 40 - BK                                           # bend (31.75): the same gutter left of the filter
     TAPX = FR + gF + TAPR; LKX6 = MR - wOUT + TGL; VOLX = LKX6 + 15; PANX = VOLX + 20
     SRC = 14.6
-    MX = RESX                                                        # mixer 1 over resonance, 2 over CUTOFF, 3 over envelope
-    EX = VOLX                                                        # echo over volume, reverb over pan
-    MXR = MX + 60 + SRC + len("noise · input · loop") * 0.5 * NS / 2
-    BLX = MX - BK - (EX - BK - MXR) - BK                             # blend placed so the rear gutters match
+    NMIX = 4 if VCO4 else 3
+    MX = RESX if not VCO4 else TRX                                   # 1 2 3 over resonance · CUTOFF · envelope; with VCO 4,
+                                                                     # 1 2 3 4 over track · resonance · CUTOFF · envelope
+    MXR = MX + 20 * NMIX + SRC + len("noise · input · loop") * 0.5 * NS / 2
+    if not VCO4:
+        EX = VOLX                                                    # echo over volume, reverb over pan
+        BLX = MX - BK - (EX - BK - MXR) - BK                         # blend placed so the rear gutters match
+    else:                                                            # the mixer's 4th channel costs the effects' alignment:
+        BLX = CX + 40                                                #   blend back over glide, equal rear gutters,
+        EX = MXR + (MX - BK - (BLX + BK)) + BK                       #   echo / reverb 11 short of volume / pan
     BASE5 = [("BEND stick", CX, 68, STK, "s"), ("MOD", CX + 20, 68, KN, "k"), ("GLIDE", CX + 40, 68, KN, "k"),
              ("KBD CTRL", TRX, 68, TGL, "l"), ("EMPHASIS", RESX, 68, KN, "k"), ("CUTOFF", 143, 68, CUT, "c"),
              ("CONTOUR AMT", ENVX, 68, KN, "k"), ("TAP", TAPX, 68, TAPR, "p"),
              ("FOLLOW", LKX6, 68, TGL, "l"), ("VOLUME", VOLX, 68, KN, "k"), ("DRY PAN", PANX, 68, KN, "k"),
-             ("RELEASE", CX, 93, TGL, "l"), ("PITCH MOD", CX + 20, 93, TGL, "l"), ("FILTER MOD", CX + 31, 93, TGL, "l"),
+             ("RELEASE", CX, 93, TGL, "l"), ("PITCH MOD", CX + (11 if VCO4 else 20), 93, TGL, "l"),
+             ("FILTER MOD", CX + (22 if VCO4 else 31), 93, TGL, "l"),
              ("MOD MIX", BLX, 93, KN, "k")] + \
-            [(f"OSC {i + 1}", MX + 20 * i, 93, KN, "k") for i in range(3)] + \
-            [("NOISE/EXT", MX + 60, 93, KN, "k"), ("SOURCE", MX + 60 + SRC, 93, TGL, "l"),
+            [(f"OSC {i + 1}", MX + 20 * i, 93, KN, "k") for i in range(NMIX)] + \
+            [("NOISE/EXT", MX + 20 * NMIX, 93, KN, "k"), ("SOURCE", MX + 20 * NMIX + SRC, 93, TGL, "l"),
              ("ECHO MIX", EX, 93, KN, "k"), ("REVERB MIX", EX + 20, 93, KN, "k")]
     BASE_GAP_ROWS = [("base front", 68, [["BEND stick", "MOD", "GLIDE"], ["KBD CTRL", "EMPHASIS", "CUTOFF", "CONTOUR AMT"],
                                          ["TAP"], ["FOLLOW", "VOLUME", "DRY PAN"]]),
-                     ("base rear", 93, [["RELEASE", "PITCH MOD", "FILTER MOD", "MOD MIX"], ["OSC 1", "OSC 2", "OSC 3", "NOISE/EXT", "SOURCE"],
+                     ("base rear", 93, [["RELEASE", "PITCH MOD", "FILTER MOD", "MOD MIX"], [f"OSC {i + 1}" for i in range(NMIX)] + ["NOISE/EXT", "SOURCE"],
                                         ["ECHO MIX", "REVERB MIX"]])]
 if STEER5:
     BASE_TOGGLES = {"KBD CTRL": "track|off · 1/3 · 2/3", "FILTER MOD": "mod|off · on", "RELEASE": "release|off · on",
@@ -446,8 +458,9 @@ if STEER5:
         BASE_LEGEND.update({"DRY PAN": "pan"})
         BASE_SECTIONS = [("controllers", CX - TGL, 112.4), ("mixer", MX - BK, 112.4), ("effects", EX - BK, 112.4),
                          ("filter", FL, 78.0), ("out", LKX6 - TGL, 78.0)]
-        BASE_SUBS = [("mod", CX + 20 - TGL, 108.5)]                  # "mod" over pitch · filter · blend (Kalam 1.8)
-        BASE_HAIR = [("mod hairline", CX + 20 - TGL + len("mod") * 0.5 * 1.8 + 1.5, 108.3, BLX + BK, 108.7)]   # runs on over blend
+        BASE_SUBS = [("mod", CX + (11 if VCO4 else 20) - TGL, 108.5)]   # "mod" over pitch · filter · blend (Kalam 1.8)
+        BASE_HAIR = [("mod hairline", CX + (11 if VCO4 else 20) - TGL + len("mod") * 0.5 * 1.8 + 1.5, 108.3, BLX + BK, 108.7)]   # runs on over blend
+        BASE_SECTIONS.append(("tempo", TAPX - TAPR, 78.0))           # director: "tap what?" (round 8)
         BASE_LEDS, BASE_NOTES = [], []
     BASE_BREAKS = []
     BATTERY = (36.0, 100.0, 196.0, 126.0)        # 4 × 952540 end to end (4 × 40), 1S4P, behind the rear row

@@ -1397,6 +1397,17 @@ The checker reports what each leaves empty. The visual renders all three.
 - **Stand:** tip threshold **6.8 N** with today's stays (59 mm behind), **9.3 N** with stays scaled to the depth. Scale them.
 - **Base:** the same base 6, unchanged at the front; it ends 13 mm deeper at the back.
 
+## 26. Fixes after visual d612e32 / 531b02b and the director's P5R 9
+- **P5OB (D 132) is the clean study again:** reverb at the bottom right (the critic's reverb-under-echo fill only fits at D 145, §25), and keys' words under their switches, clear of octave 3's ticks. **Checker: 6, all gaps by design** (the grille's sides and R3's right "air"). With VCO 4, P5OB means P5OB-D.
+- **VCO 4 gets its mixer channel on the base** (every layout with VCO 4: P5O, the studies, P5OB-D):
+  - the mixer reads **1 · 2 · 3 · 4 · extra · source**, with 1 · 2 · 3 · 4 standing over track · resonance · CUTOFF · envelope;
+  - blend goes back over glide, and pitch / filter close up beside release (x 42.75 / 53.75) under "mod";
+  - echo / reverb move 11 mm left of volume / pan to keep the rear gutters equal (21.6). **That's VCO 4's cost on the base: the effects lose their column with out.**
+  - Without VCO 4 the base is as §24.2.
+- **"tempo"** heads TAP again (top-left, y 78), so the director's "tap what?" is answered.
+- **The rear row's gaps** (28.6 edge to edge, ≈ 42 centre to centre) stay. The mixer's columns over the filter and the effects over out fix both ends of the middle group, so narrowing them would break the alignment.
+- **Checker:** P5R 0 (with and without VCO 4 on the base); P / S 0.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
