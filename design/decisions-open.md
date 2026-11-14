@@ -80,3 +80,28 @@ The Model D reaches full tracking (both of its switches on). Ours is one 3-way s
 
 - **off · 1/3 · 2/3:** as specified today. Full tracking isn't available.
 - **off · 1/2 · full:** the firmware sets the amounts (the tracking voltage is already digital), so full is there for playing the filter as a tone. *Team recommends; eng to confirm.*
+
+---
+
+## 8. Bend range
+**Unblocks:** the bend stick's firmware setting.
+How far the stick bends the pitch at full push, up or down.
+
+- **± 2 semitones:** a whole tone each way, the same as the MIDI default. *Team recommends.*
+- **Wider (e.g. ± 5 or ± 7):** bigger dives, less fine control near the centre.
+
+## 9. The 4th note in "voices: 4"
+**Unblocks:** the voice board (one chip and one pin).
+The 4th note comes from the Daisy, and it needs a way into the real filter.
+
+- **A. A 5th small DAC chip (≈ $4):** the 4th note goes through the filter like the others; nothing else changes. *Team recommends.*
+- **B. Borrow the effects' right channel:** no new chip, but the effects go mono while "voices: 4" is on, and the mixer's extra source must sit on "input".
+- **C. Drop the 4th note for now:** the switch becomes 1 · 3 only.
+
+## 10. Which note the filter follows when playing chords
+**Unblocks:** the paraphonic firmware.
+With one filter for up to four notes, its tracking follows one of them.
+
+- **Highest note:** chords stay bright on top. *Team recommends (the default already explained to you).*
+- **Lowest note:** matches the mono behaviour (lowest-note priority).
+- Either way, a key combination switches between them (to be defined in Firmware and gestures).
