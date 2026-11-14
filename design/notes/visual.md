@@ -1,5 +1,14 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL, steer 3 fixes (2026-11-13 evening): director's 8 on the lid
+- Systems b3e5525: band B mirrored (filter at 63.5 / 83.5 / 103.5, KBD + FILT MOD column at x 23.5), VCO spacing 20 / 25, my numbered legends + "osc 3 ctl" + contour headings in the checker, HS 3.0.
+- **rb.py:** `nv_overrides` stripped of numbering / contour split (systems own them); now holds only real-Kalam fits: contour headings d 67.5, osc|mixer break from 70.5, oscillators / mixer +0.4, reverb heading +2 x, FOLLOW words beside (off · follow, gap 6.4). `NV_UD_GAP` / `NV_UD_SZ` env-tunable (1.75 / 1.69).
+- **Checks:** nv_check3 (systems' rules + my overrides, with the beside / updown shifts simulated) 0; nv_kalam 0.
+- **Re-rendered:** `rb_nv_lidtop`, `rb_nv_top`, `rb_nv_stand` → `img/cathedral-lid-signal-order-8.7px-per-mm.png`, `img/cathedral-nave-top-8.3px-per-mm.png`, `img/cathedral-nave-standing.jpg` (scripts `/tmp/scr/s3_figs.py`, `/tmp/scr/lid_fig.py`). Closed side, window drawing, keys unchanged.
+- **Doc:** rev 5.1; steer-2 "superseded" captions removed; "big energy" on the plate (owner 17:37).
+- **Open:** the filter switch column may read orphaned (bracket / break option); systems to fold FOLLOW beside + heading nudges.
+
+
 ## CATHEDRAL, steer 3 (2026-11-13 ~18:40): the lid in signal order (systems §17 P)
 - **Owner 18:00** (verbatim in director.md / brief; screenshot `design/owner-refs/2026-11-13-1800-top-panel.png`): no logical grouping; effects at the top confuse; signal order synth → fx → output.
 - **Systems P:** band A sources (oscillators by VCO ‖ mixer), A' their switches; band B contours (filter left, loudness right) with B' switches; band C echo (+FREE/SYNC) · window · reverb; out column DRY PAN / FOLLOW / VOLUME at x 262.5. All in `layout_check.py` (BREAKS, SECTIONS, "right" / "updown" legends).

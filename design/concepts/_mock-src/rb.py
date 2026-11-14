@@ -1476,7 +1476,8 @@ def _lc():
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     return m
 
-NV_UD_GAP = 1.75           # up / down toggle words: systems' 1.6 left real Kalam 1.37-1.42 from the toggle
+NV_UD_GAP = float(os.environ.get("NV_UD_GAP", 1.75))
+NV_UD_SZ = float(os.environ.get("NV_UD_SZ", 1.69))           # up / down toggle words: systems' 1.6 left real Kalam 1.37-1.42 from the toggle
 NV_SECTION_D = 67.5        # lid section names' line
 NV_SW_LS = 1.55            # switch-line legends beside their toggles (Kalam is wide: 1.69 left "osc mod" 0.85 from OSC 3 CTL)
 NV_BEHIND_EXTRA = 1.0      # behind-legends 1.0 further back: at systems' spacing they sat on the knobs' top tick (0.08-0.67)
@@ -1511,31 +1512,24 @@ LID_KIND = {"RANGE": "g", "WAVE": "r", "ECHO TYPE": "y", "REVERB TYPE": "y"}
 MIDI_NAMES = {"RANGE 1", "RANGE 2", "RANGE 3", "FREQ 2", "FREQ 3", "MOD", "TUNE", "GLIDE", "CUTOFF"}
 
 def nv_overrides(lc):
-    """visual's steer-3 changes on top of systems' P (applied identically by the render and by visual's check):
-    - "contours" (one heading on the axis) -> "filter contour" and "loudness contour", each flush left at its group's
-      first knob edge, at d 65 (between the contour legends and the A' switches; centred over the group they'd hit
-      PARA); the director's brief asks for one heading per group;
-    - the switch legend "osc 3" -> "osc 3 ctl" (brief: not to be confused with the "osc 3" level);
-    - range / wave legends carry their VCO's number (the row is one run of eight knobs; the numbers show where each
-      VCO starts, since a break can't fit between 20-pitch knobs);
-    - the oscillators | mixer break starts at d 68 (was A' - 6 = 64), so "loudness contour" passes under its end."""
-    def lab_of(n, lab):
-        if n == "OSC 3 CTL":
-            return "osc 3 ctl"
-        if n[:-2] in ("RANGE", "WAVE") and n[-1] in "123":
-            return f"{lab} {n[-1]}"       # "range 1 · wave 1 | range 2 · freq 2 · wave 2 | ...": which VCO, at a glance
-        return lab
-    lid = [(n, x, d, r, k, lab_of(n, lab), w) for n, x, d, r, k, lab, w in lc.lid]
-    breaks = [(bx, max(d0, 68.0) if abs(bx - 183.0) < 0.1 else d0, d1) for bx, d0, d1 in lc.BREAKS]
+    """visual's steer-3 overrides now live in systems' layout_check.py (b3e5525: numbered range / wave, "osc 3 ctl",
+    per-contour headings at HS 3.0, the osc | mixer break). Kept as a pass-through so the render and checks share one
+    entry point; put any future visual-only change here and tell systems."""
+    # real-Kalam fits (Kalam's 3.0 glyphs are taller and wider than the checker's 0.85 / 0.50 estimate):
     sections = []
     for t, x, d in lc.SECTIONS:
-        if t == "contours" and getattr(lc, "VARIANT", "P") == "P":
-            for name, x0 in (("filter contour", 16.0), ("loudness contour", 175.05)):
-                sections.append((name, x0 + len(name) * 0.5 * lc.HS / 2, 65.5))   # centre of a flush-left box
-        elif abs(d - (lc.A + 16.0)) < 0.01:
-            sections.append((t, x, d + 0.5))     # real Kalam: "oscillators" sat 1.26 from "freq 2"; 0.5 higher clears it
-        else:
-            sections.append((t, x, d))
+        if t in ("filter contour", "loudness contour"):
+            d = 67.5                  # clear of the contour legends (0.70 at 65.5); the osc | mixer break starts at 70.5
+        elif t in ("oscillators", "mixer"):
+            d += 0.4                  # "oscillators" was 1.23 from "freq 2"
+        elif t == "reverb":
+            x += 2.0                  # clear of REVERB TYPE's "shimmer" (0.97)
+        sections.append((t, x, d))
+    breaks = [(bx, 70.5 if abs(bx - 188.0) < 0.1 else d0, d1) for bx, d0, d1 in lc.BREAKS]
+    # FOLLOW: words beside (off left, follow right), not above / below: squeezed between DRY PAN and VOLUME, real Kalam
+    # put "follow" 1.21 from DRY PAN at any workable size; beside, both words have room (break at 242.5, plate edge)
+    lid = [(n, x, d, r, k, "off|follow", "beside") if n == "FOLLOW" else (n, x, d, r, k, lab, w)
+           for n, x, d, r, k, lab, w in lc.lid]
     return lid, breaks, sections
 
 class Nave(Cathedral):
@@ -1588,7 +1582,7 @@ class Nave(Cathedral):
         words = []
         for n, x, d, r, k, lab, where in lid:
             if where == "updown":
-                h = 0.85 * lc.LS * 0.72
+                h = 0.85 * NV_UD_SZ
                 words += [(x, L0 + d + r + NV_UD_GAP + h / 2), (x, L0 + d - r - NV_UD_GAP - h / 2)]
         # ticks that would run into the window's circle are dropped too (DELAY PAN's 50° tick reached it by 0.15)
         wx, wd, wr = lc.WIN
@@ -1605,13 +1599,13 @@ class Nave(Cathedral):
             if where == "right":
                 s += txt(x + 6.2, L0 + d, z, lab, lc.SW_LS, ink, font=st.font, halign="left")
             elif where == "updown":
-                a, b = lab.split("|"); sz = lc.LS * 0.72; h = 0.85 * sz
+                a, b = lab.split("|"); sz = NV_UD_SZ; h = 0.85 * sz
                 s += txt(x, L0 + d + r + NV_UD_GAP + h / 2, z, a, sz, ink, font=st.font)
                 s += txt(x, L0 + d - r - NV_UD_GAP - h / 2, z, b, sz, ink, font=st.font)
             elif where == "beside":
                 a, b = lab.split("|"); sz = lc.LS * 0.72
-                s += txt(x - 6.2, L0 + d, z, a, sz, ink, font=st.font, halign="right")
-                s += txt(x + 6.2, L0 + d, z, b, sz, ink, font=st.font, halign="left")
+                s += txt(x - 6.4, L0 + d, z, a, sz, ink, font=st.font, halign="right")   # 6.4: real Kalam's "off" was 1.40 at 6.2
+                s += txt(x + 6.4, L0 + d, z, b, sz, ink, font=st.font, halign="left")
             else:
                 sz = lc.LS if k == "k" else lc.LS * 0.85
                 bx = lc.tbox(x, d, lab, sz, where, r)
