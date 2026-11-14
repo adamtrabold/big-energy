@@ -49,7 +49,7 @@ if VARIANT == "P":
     L("PARA", 23.5, A2, "t", "para|mono · para · +4", "right2")     # whole bank: PARA + OSC MOD together at the bank's left
     L("OSC MOD", 50.0, A2, "t", "osc mod|off · on", "right2")       #   (review 3; x 50: visual, PARA's positions reached it at 48)
     L("OSC 3 CTL", 133.5, A2, "t", "osc 3 ctl|free · keys", "right2")   # VCO 3's own switch, under VCO 3
-    L("SOURCE", 262.5, A2, "t", "source|noise · ext · fb", "right2")   # under NOISE / EXT, the knob it re-points (review 2)
+    L("SOURCE", 258.0, A2, "t", "source|noise · ext · fdbk", "right2")   # under NOISE / EXT, the knob it re-points (review 2)
     NOTES += [("detune", 88.5 + 3.525 + 2.4, A + KN + 3.5 + BEHIND_EXTRA, NS, "left"),   # FREQ 2 / 3 in PARA (review 9)
               ("detune", 153.5 + 3.525 + 2.4, A + KN + 3.5 + BEHIND_EXTRA, NS, "left")]
     SECTIONS += [("oscillators", 98.5, A + 16.9), ("mixer", 232.5, A + 16.9)]   # d 101.45 (visual: real Kalam vs "freq 2")
@@ -67,7 +67,7 @@ if VARIANT == "P":
     # MOD MIX at the binding height, 55.2). Legends left of the toggles (left2). Band 2 now reads keys -> filter contour
     # -> release -> loudness contour -> out.
     L("VEL", 48.0, B, "t", "velocity|loud · both · filt", "left2")
-    L("AFTERTOUCH", 48.0, B2, "t", "touch|mod · off · filt", "left2")
+    L("AFTERTOUCH", 48.0, 36.5, "t", "touch|mod · off · filt", "left2")   # d 36.5: legend ≥ 3 from ECHO TYPE's fan
     SECTIONS.append(("keys", 37.0, 58.0))                           # the mirror of "out" (249, d 58)
     L("RELEASE", 143.0, 61.5, "t", "release · both contours|off · = decay", "right2")        # acts on BOTH contours (Model D), so it sits
                                                                     #   between them, on the axis over the window (review 6)
@@ -130,9 +130,11 @@ def base(hk, hstick, hcut=12.15, htap=8.0, hbat=BAT_H):
             ("TUNE", 199, 68, KN, hk), ("DRIFT", 222, 68, KN, hk), ("TAP", 261, 68, TAPR, htap)]
 BASE_TOGGLES = {"KBD CTRL": "kbd|off · 1/3 · 2/3", "FILTER MOD": "filt mod|off · on"}   # spelled out: Kalam has no ⅓ ⅔
 BASE_LEGEND = {"BEND stick": "bend", "MOD": "mod", "MOD MIX": "mod mix", "GLIDE": "glide", "EMPHASIS": "emphasis",
-               "CUTOFF": "cutoff", "CONTOUR AMT": "amount", "TUNE": "tune", "DRIFT": "drift", "TAP": "echo tap"}
+               "CUTOFF": "cutoff", "CONTOUR AMT": "contour amt", "TUNE": "tune", "DRIFT": "drift", "TAP": "echo tap"}
 BASE_SECTIONS = [("controllers", 14.0, 85.0), ("filter", 105.0, 85.0), ("tune", 191.5, 85.0)]   # left-aligned, Kalam 2.4
 BASE_LEDS = [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]
+BASE_NOTES = [("midi", 131.0, 81.0 + 2.5 + 1.5 + 0.85 * 1.55 / 2), ("status", 155.0, 81.0 + 2.5 + 1.5 + 0.85 * 1.55 / 2)]
+              # the two lights named, behind them (131: not-in-control / MIDI holds a knob; 155: status), Kalam 1.55
 BASE_BREAKS = [(242.2, 56.0, 80.0)]   # tune ‖ echo tap: TAP stands alone at the end (director fix 4), x, y from, y to
 BASE_R_DRAWN = {"BEND stick": None, "CUTOFF": CUT, "TAP": TAPR}   # R-LOW render: Tayda Ø 10 knobs (r 5) elsewhere
 
@@ -151,6 +153,8 @@ def base_check():
         t = BASE_LEGEND[n]; w, hh = len(t) * 0.5 * LS, 0.85 * LS
         cy = {"BEND stick": y - 11.5, "CUTOFF": y - CUT - 3.5, "TAP": y - TAPR - 3.5}.get(n, y - 10.95)   # R-LOW render
         labs.append((n, (x - w / 2, cy - hh / 2, x + w / 2, cy + hh / 2)))
+    for t, x, y in BASE_NOTES:
+        w, hh = len(t) * 0.5 * SW_LS, 0.85 * SW_LS; labs.append(("base note " + t, (x - w / 2, y - hh / 2, x + w / 2, y + hh / 2)))
     for t, x, y in BASE_SECTIONS:
         labs.append(("base head " + t, (x, y - 0.425 * 2.4, x + len(t) * 0.5 * 2.4, y + 0.425 * 2.4)))
     ctl = [(n, x, y, 7.0 if r == KN else r) for n, x, y, r, h in bs]   # low knobs measured to their tick ring (6.0 + 1.0)
@@ -276,6 +280,18 @@ def check():
             if b[0] - 1.5 < bx < b[2] + 1.5 and b[1] < d1 and b[3] > d0: bad.append(f"LABEL {ln} on the break @ x {bx}")
     for (a, ba), (b, bb) in itertools.combinations(labs, 2):
         if gap_bb(ba, bb) < 1.5 - 1e-6: bad.append(f"LABEL {a} vs {b} {gap_bb(ba, bb):.2f}")
+    # the plate's inner edge (rb lid_plate2d: x 4.3 .. 281.7): legends end >= 1.5 inside it, with widths at x 1.25
+    # (real Kalam runs ~25 % wider than the 0.50 estimate at these sizes: "own · follows dry" 11.05 est., 13.8 real)
+    for ln, b in labs:
+        x0 = b[0] if b[0] < 143 else b[0]
+        w = (b[2] - b[0]) * 1.25
+        if b[0] > 143 and b[0] + w > 281.7 - 1.5: bad.append(f"RIM {ln} ends {b[0] + w:.1f}")
+        if b[2] < 143 and b[2] - w < 4.3 + 1.5: bad.append(f"RIM {ln} starts {b[2] - w:.1f}")
+    # the touch legend keeps 3 mm from ECHO TYPE's fan names (director, steer 4 score 9)
+    tb = dict(labs).get("AFTERTOUCH")
+    if tb:
+        for ln, b in labs:
+            if ln.startswith("ECHO TYPE fan") and gap_bb(tb, b) < 3.0 - 1e-6: bad.append(f"TOUCH vs {ln} {gap_bb(tb, b):.2f}")
     return bad
 
 def closed_need(bs, hlid=13.5, peg_top=15.6 + 6.5):

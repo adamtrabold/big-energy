@@ -890,6 +890,18 @@ Source: `design/reviews/2026-11-13-lid-layout-review.md`. The arrangement (P, §
   - and the base break (≥ 7 from controls, legends ≥ 1.5).
   - **0 violations** (P; S unchanged).
 
+### 18.7 Score-9 fixes (director: first-time walk passes every switch)
+1. **FOLLOW on the out column's line:** done in 51be8ff. The whole column (DRY PAN, FOLLOW, VOLUME) sits at x 255, break at 238.75.
+2. **The two lights by CUTOFF are named:**
+   - **"midi"** at (131, y 86.0): the not-in-control light (coverage J8);
+   - **"status"** at (155, y 86.0): the one status light (echo-sync.md).
+   - Kalam 1.55, behind each light, clear of the "filter" heading and CUTOFF.
+3. **Base:** "amount" → **"contour amt"** (167.0–180.0, 4.3 clear of "filt mod / off · on").
+4. **SOURCE:** "fb" → **"fdbk"**; "feedback" doesn't fit inside the rim. SOURCE moves from 262.5 to **x 258** so "source / noise · ext · fdbk" ends at x ≈ 278.8 in real Kalam. The toggle is still under NOISE / EXT (its edge spans 255.05–269.95).
+5. **TOUCH** moves up to **d 36.5**. Its legend is now **5.0 mm** from "ping-pong" (8.7 from "clean"; the rule needs ≥ 3.0, and the checker now enforces it).
+- **New checker rule: the rim.** Every legend ends ≥ 1.5 inside the plate's inner edge (x 4.3–281.7, rb `lid_plate2d`), with widths × 1.25 for real Kalam. At x 262.5, SOURCE's line would fail (ends at 283.3); at 258 it passes.
+- **Result:** 0 violations. Closing unchanged (R-LOW 55.2, R-TALL 59.7).
+
 ### 18.5 Open (steer 4)
 - **Eng:**
   - KBD amounts (§18.6);
