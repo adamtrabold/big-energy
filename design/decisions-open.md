@@ -4,8 +4,10 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL: team rows (P5R) ready, director scored 10
-**Approve P5R as the CATHEDRAL layout?** Your layout (P5O, which fits the 4th analog oscillator) is a step behind and comes next; choosing between the two, and whether to add the 4th oscillator, follows once you've seen both.
+## 1. CATHEDRAL layouts: back in progress after your 01:32 notes
+**Not ready.** You said this is not a 10; the team is fixing your notes on both layouts and the base, and you will see every option side by side. Pictures below are the last drafts.
+
+**Previously:** Your layout (P5O, which fits the 4th analog oscillator) is a step behind and comes next; choosing between the two, and whether to add the 4th oscillator, follows once you've seen both.
 
 - **Lid, read top to bottom:** oscillators and tuning; filter envelope · speaker · amp envelope, mirrored about the speaker; keys · echo · reverb · out.
 - **Base:** controllers, mixer, effects levels, filter, volume and tempo, over two rows of peg keys.
