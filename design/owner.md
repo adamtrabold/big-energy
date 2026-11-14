@@ -246,3 +246,6 @@ Recorded as: CATHEDRAL not approved yet. Focus on the TOP (lid) PANEL first. Its
 
 2026-11-13 19:20 Owner (verbatim): "run it by the audio engineer synth expert for understanding"
 Recorded as: independent expert (audio engineer / synth designer) review of the new CATHEDRAL lid layout: does a player understand it?
+
+2026-11-13 19:31 Owner (verbatim), on sending the synth expert's lid fixes to the team: "Yes but make it a 10 not a 9"
+Recorded as: send ALL the expert's lid fixes to the team. The bar for this lid is a 10 from the director, not a 9.
