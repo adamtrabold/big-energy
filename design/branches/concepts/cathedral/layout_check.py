@@ -18,7 +18,11 @@ WIN = (143.0, 32.0, 23.0)                          # Ø 46 opening, concentric w
 LS = 2.35                                          # FOLD legend size (Kalam)
 SW_LS = 1.55                                       # switch legends beside their toggle (right, x + 6.2)
 HS = 3.0                                           # group heading size: above the 2.35 legends (director fix 2)
-TS_LEAD = (1.1, 1.25)             # two-line toggle legend: name centre d + 1.1, positions centre d - 1.25
+TS_LEAD = (1.2, 1.3)              # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (visual, 4e52223)
+UNDER_GAP = 2.0                   # "free · sync" under its toggle (visual: at 1.75 real Kalam sat 1.27 from the nut)
+OUT_X, OUT_BREAK = 255.0, 238.75  # out column (DRY PAN, FOLLOW, VOLUME) moved in from 262.5 so FOLLOW's "own · follows
+                                  #   dry" (≈ 13.8 real) ends on the plate with the column still in line; its break
+                                  #   moves with it (7 from REVERB MIX / L SUSTAIN at 222.5 and from the column)
 NS = 1.3                          # note / position-word size (Kalam), the smallest legend on the panel
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
@@ -75,17 +79,17 @@ if VARIANT == "P":
     for n, x, lab in [("ECHO TYPE", 23.5, "type"), ("ECHO TIME", 43.5, "time"), ("ECHO REPEATS", 76.0, "repeats"),
                       ("ECHO MIX", 96.0, "mix"), ("ECHO PAN", 116.0, "echo pan"),
                       ("REVERB TYPE", 182.5, "type"), ("REVERB DECAY", 202.5, "tail"), ("REVERB MIX", 222.5, "mix"),
-                      ("VOLUME", 262.5, "volume")]:
+                      ("VOLUME", OUT_X, "volume")]:
         L(n, x, C, "k", lab, "front")
     L("FREE/SYNC", 62.0, C, "t", "free · sync", "under")            # steer 4 score-8 fix 1: throws left / right like every toggle;
                                                                     #   its words in throw order under it (no room beside: TIME's scale / REPEATS)
-    L("DRY PAN", 262.5, B, "k", "dry pan", "behind")                # out column: DRY PAN -> FOLLOW -> VOLUME, top to bottom
-    L("FOLLOW", 262.5, 32.8, "t", "echo pan|own · follows dry", "right2")   # one unit beside (director fix 2): nothing
+    L("DRY PAN", OUT_X, B, "k", "dry pan", "behind")                # out column: DRY PAN -> FOLLOW -> VOLUME, top to bottom
+    L("FOLLOW", OUT_X, 32.8, "t", "echo pan|own · follows dry", "right2")   # one unit beside (director fix 2): nothing
                                                                     #   between the switch and VOLUME
     NOTES += [("(off if follow)", 108.0, 25.05, NS, "center")]      # the cue by ECHO PAN: FOLLOW overrides it
-    BREAKS.append((242.5, 7.0, B + 9.0))                            # reverb / loudness | out column
-    SECTIONS += [("echo", 69.5, 26.5), ("reverb", 204.5, 26.5), ("out", 249.0, 58.0)]   # "out": top-left of its column (SOURCE took d 66.5)
-    FX, FX_BREAKS = C, [242.5]                                      # kept for rb.py: the effects row and its break(s)
+    BREAKS.append((OUT_BREAK, 7.0, B + 9.0))                        # reverb / loudness | out column
+    SECTIONS += [("echo", 69.5, 26.5), ("reverb", 204.5, 26.5), ("out", 249.5, 66.5)]   # "out": top-left of its column (SOURCE took d 66.5)
+    FX, FX_BREAKS = C, [OUT_BREAK]                                      # kept for rb.py: the effects row and its break(s)
 else:
     # ---- S: left-to-right stages. Synth = left two-thirds; effects + out = a 4-column block on the right (x >= 202.5).
     for n, x, lab in [("RANGE 1", 23.5, "range"), ("WAVE 1", 43.5, "wave"), ("RANGE 2", 63.5, "range"), ("FREQ 2", 83.5, "freq 2"),
@@ -228,7 +232,7 @@ def labels():
             wdt = len(lab) * 0.5 * SW_LS; h = 0.85 * SW_LS
             out.append((n, (x + 6.2, d - h / 2, x + 6.2 + wdt, d + h / 2)))
         elif w == "under":                                          # one line, centred under the toggle (FREE / SYNC)
-            wdt, h = len(lab) * 0.5 * SW_LS, 0.85 * SW_LS; cy = d - r - UD_GAP - h / 2
+            wdt, h = len(lab) * 0.5 * SW_LS, 0.85 * SW_LS; cy = d - r - UNDER_GAP - h / 2
             out.append((n, (x - wdt / 2, cy - h / 2, x + wdt / 2, cy + h / 2)))
         elif w in ("right2", "left2", "below2"):                             # name over its positions, as one block
             nm, pos = lab.split("|"); bx = legend2(x, d, nm, pos, w); out.append((n, bx))

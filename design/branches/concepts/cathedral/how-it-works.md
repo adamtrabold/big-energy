@@ -869,6 +869,17 @@ Source: `design/reviews/2026-11-13-lid-layout-review.md`. The arrangement (P, §
   - Words in throw order everywhere: "mono · para · +4", "off · on", "free · keys", "noise · ext · fb", "loud · both · filt", "mod · off · filt", "off · = decay", "free · sync", "own · follows dry", "off · 1/3 · 2/3".
   - Wiring: the middle position must be the middle word, so eng wires each 3-way so that left / right match the words.
 - **Fix 2 (FOLLOW) and fix 3 (release)** are in the checker as one-unit legends beside the switch: "echo pan / own · follows dry" and "release · both contours / off · = decay". The visual owns the final wording; any change goes back through the checker.
+- **Out column line restored (visual 4e52223):**
+  - at x 262.5, FOLLOW's "own · follows dry" (≈ 13.8 wide in real Kalam) ran under the rim, so the visual moved FOLLOW alone to x 255;
+  - instead, the **whole out column** (DRY PAN, FOLLOW, VOLUME) moves to **x 255** and its break to **x 238.75** (7 from REVERB MIX / L SUSTAIN's edge and from the column);
+  - so the column is in line again, and the legend ends at x ≈ 275;
+  - "out" heading at (249.5, d 66.5);
+  - VOLUME now sits 6 mm left of TAP's x (255 vs 261);
+  - closing unchanged.
+- **Real-Kalam spacing (visual):**
+  - two-line legends: name at d + 1.2, positions at d − 1.3;
+  - "free · sync" 2.0 under its switch;
+  - both in the checker, which gives 0 violations.
 - **Fix 4, echo tap alone:** DRIFT 230 → **222**, and a **break at x 242.2** (y 56–80). It's 12.8 mm from DRIFT's edge and 12.8 from TAP's, both ≥ 7. TAP ("echo tap") now stands alone at the end, mirroring the bend stick at the start. Closing re-run: unchanged.
 - **Fix 5, KBD's real positions:**
   - **What the spec gives:** a 3-way toggle, off / ⅓ / ⅔ (eng/budget-variant; eng/velocity-and-keys-v2). Architecture open item 7 says it "can't reach full". The Model D reaches full with both of its switches on (manual p. 30). Our one 3-way switch has three states, not four.
