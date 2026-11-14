@@ -66,9 +66,11 @@ if VARIANT == "P":
     SECTIONS.append(("keys", 37.0, 58.0))
     L("RELEASE", 143.0, 61.5, "t", "release|off · on", "right2")    # centred under "envelopes", between the two groups:
                                                                     #   its place says it acts on both
-    SECTIONS.append(("envelopes", 143.0, 69.0))                     # one heading over both groups, on the axis
-    SUBHEADS += [("filter", 103.5 + KN - len("filter") * 0.5 * SUB_S / 2, 65.5),     # flush right at the window side
-                 ("amp", 182.5 - KN + len("amp") * 0.5 * SUB_S / 2, 65.5)]          # flush left at the window side
+    SECTIONS.append(("envelopes", 143.0, 69.8))                     # one heading over both groups, on the axis (0.8 up: visual,
+                                                                    #   real Kalam sat 0.73 from RELEASE's nut)
+    SUBHEADS += [("filter", 83.5, 68.5), ("amp", 202.5, 68.5)]     # visual fec6093: centred over their groups on the
+                                                                    #   heading line ("filter · envelopes · amp"); lower down
+                                                                    #   they read as "filter sustain" / "amp attack"
     # ---- band 3 (nearest the hinge, the BOTTOM): echo · window · reverb ‖ out column
     for n, x, lab in [("ECHO TYPE", 23.5, "type"), ("ECHO TIME", 43.5, "time"), ("ECHO REPEATS", 76.0, "repeats"),
                       ("ECHO MIX", 96.0, "mix"), ("ECHO PAN", 116.0, "pan"),
@@ -126,7 +128,7 @@ BASE_LEGEND = {"BEND stick": "bend", "MOD": "mod", "MOD MIX": "blend", "GLIDE": 
                "CUTOFF": "cutoff", "CONTOUR AMT": "envelope", "TUNE": "tune", "DRIFT": "drift", "TAP": "tap"}
 BASE_SECTIONS = [("controllers", 14.0, 85.0), ("filter", 105.0, 85.0), ("tuning", 191.5, 85.0), ("tempo", 255.0, 85.0)]   # left-aligned, Kalam 2.4
 BASE_LEDS = [(131.0, 81.0, 2.5), (155.0, 81.0, 2.5)]
-BASE_NOTES = [("midi", 131.0, 81.0 + 2.5 + 1.5 + 0.85 * 1.55 / 2), ("status", 155.0, 81.0 + 2.5 + 1.5 + 0.85 * 1.55 / 2)]
+BASE_NOTES = [("midi", 131.0, 81.0 + 2.5 + 1.8 + 0.85 * 1.55 / 2), ("status", 155.0, 81.0 + 2.5 + 1.8 + 0.85 * 1.55 / 2)]
               # the two lights named, behind them (131: not-in-control / MIDI holds a knob; 155: status), Kalam 1.55
 BASE_BREAKS = [(242.2, 56.0, 80.0)]   # tune ‖ echo tap: TAP stands alone at the end (director fix 4), x, y from, y to
 BASE_R_DRAWN = {"BEND stick": None, "CUTOFF": CUT, "TAP": TAPR}   # R-LOW render: Tayda Ø 10 knobs (r 5) elsewhere
