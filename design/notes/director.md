@@ -1,6 +1,16 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Round 7 (2026-11-14; e38e035 / 2023021): READ THIS FIRST
+## Round 8 (2026-11-14; 3fa4e78 / d612e32): READ THIS FIRST
+- **P5R: 9. The work really changed:**
+  - a "• midi" key at the lid's top right; the dots on a real subset (analog knobs excluded; octave dots gone);
+  - VCO numbers as sub-headings;
+  - the mixer over the filter; the mod hairline over pitch · filter · blend; track a slide left of resonance;
+  - out = link · volume · pan; the standing view matches.
+- **One blocker:** TAP moved to the front row with **no heading**, alone between envelope and out. "effects" (its owner) sits far right on the rear row. First-time walk: "tap what?"
+  - Fix: a "tempo" heading top-left over tap, as in the round-5 base. Checker 0, re-render the top and standing, I check by eye → 10.
+- **Watch, not blocking:** the rear-row gutters (≈ 42 mm) are about twice the lid's (≈ 20).
+
+## Round 7 (2026-11-14; e38e035 / 2023021)
 - **P5R: 9 (was 8). The work really changed:**
   - top-left headings on both halves; "echo" now starts clear of the grille;
   - a "tuning" sub-heading;
