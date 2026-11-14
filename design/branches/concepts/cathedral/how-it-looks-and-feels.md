@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 9.6: the marking system (owner: "the markings around the knobs are all inconsistent"), every layout option, both options side by side)
+# CATHEDRAL: how it looks and feels (visual, rev 9.7: the marking system applied to P5R's re-lay, systems 049e51e)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`; then P5R 9, P5O 8. Rev 9.1 lays out systems' fixes for the 10 (f8ba494): P5R's oscillator switches on one line under the VCOs; P5O's headings top-left, every VCO reading octave · wave · pitch, tune · drift as a headed "tuning" pair after VCO 1, and out in R4's right slot.
 
@@ -35,6 +35,17 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### Rev 9.7: P5R re-laid (systems 049e51e), marking system applied
+- Every knob carries the rev 9.6 rules. The type names and TIME's six SYNC divisions (16 · 8 · 8. · 4 · 2 · 1) print as **names lines** at 1.2 under their words. At 1.3 the echo-type and TIME lines, 20 mm apart, came 0.92 apart in real Kalam.
+- **TAP's status light:** its bezel's top face is lit green (§20: one status light, in TAP's ring). There are no other lights on the panel.
+- **Real-Kalam fits, for systems to fold:**
+  - P5R row-C heading line +0.88 ("keys" +0.92), the most the window allows (1.0) while "keys" keeps 1.5 over "velocity";
+  - "filter" / "amp" +1.2 (0.38 / 0.42 over "decay");
+  - lid "above2": block bottom TGL + 1.9, leading 1.2 (keys);
+  - base rear switches' leading 1.25 (base "pitch" sat 0.26 over its positions at 0.9);
+  - names lines at 1.2.
+- **Checks:** real Kalam 0, systems' rules 0, the director's tests 0 (P5R). P5O waits for systems' re-lay.
+
 ### The two lids, side by side
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
 <figure>
@@ -46,7 +57,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 <figcaption><b>P5O without VCO 4</b> (exact). The three oscillator rows spread over the same height (d 104 / 69 / 34), so the block fills its column and no slot is left empty. Everything else is as above; voices reads 1 · 3 · 4.</figcaption>
 </figure>
 <figure>
-<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of P5R open flat. Lid, top row: oscillators 1, 2 and 3 (octave, wave, pitch), numbered in the margin, then tuning (tune, drift) behind a short engraved break; under each VCO its own switch: voices, mod, track. Middle row, symmetric about the slotted window: the filter envelope on the left and the amp envelope on the right (attack, decay, sustain), under the envelopes heading. Bottom row, with its headings on one line 3 mm above the type knobs' fan words: keys (velocity and touch, their names and positions above each switch), echo (type, time, free · sync, repeats, pan), reverb (type, decay), out (pan, link). The name, big energy, in light ink under the window. Same two-row base as P5O.">
+<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of P5R open flat, every knob on one tick system. Lid, top row under one oscillators heading: VCO 1 (octave, wave, tune, drift), VCO 2 (octave, wave, pitch), VCO 3 (octave, wave, pitch, then its track switch), numbered 1 to 3. Middle row: the filter envelope, headed filter, left of the slotted window, and the amp envelope, headed amp, right of it (attack, decay, sustain). Bottom row on one heading line: keys (voices, velocity and touch switches, their names and positions above each), echo (type with its names line tape · dark · clean · pingpong, time with its divisions line 16 · 8 · 8. · 4 · 2 · 1, free · sync, repeats, pan) and reverb (type with spring · plate · hall · shimmer, decay). Base, rear row: controllers (pitch and filter switches, blend, release), mixer (1, 2, 3, extra, source), effects (echo, reverb) and link; front row: bend, mod, glide; filter (resonance, track, the red cutoff, envelope); tempo (tap, its bezel lit green as the status light); out (volume, pan). No name on the panel.">
 <figcaption><b>P5R, the rule in rows</b> (exact, scale bar 20 mm). Top to bottom: oscillators ‖ tuning, with each VCO's switch under it; filter · (window) · amp, symmetric about the window; keys → echo → reverb → out, with the bottom row's headings on one line above the fan words. The reading wraps from amp to keys, which feed both envelopes. Headings are centred over their groups.</figcaption>
 </figure>
 </div>

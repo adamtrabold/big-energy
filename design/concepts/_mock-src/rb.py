@@ -50,6 +50,7 @@ def _tick(x, y, z, r, a, L, w, col):
 MARK_OUT, MARK_W, MARK_MINOR, MARK_MAJOR = 1.7, 0.35, 0.55, 1.0   # every tick ends on one circle, r + MARK_OUT (0.2 inside
                      # the old r + 1.9, so every legend keeps 1.0 in real Kalam); majors hang 1.0 in from it, minors 0.55
 MARK_GAP = MARK_OUT - MARK_MAJOR                                   # TIME's inner scale starts where a major does
+NAMED_S = 1.2       # names lines (types, TIME's divisions): 1.2, so echo type's and TIME's lines, 20 apart, keep 1.5 (0.92 at 1.3)
 NAMED_LEAD = 1.35    # gap between a type selector's word and its names line (real Kalam: 0.05 at 1.0)
 MARK_STEPS = {"RANGE": 6, "WAVE": 6, "ECHO TYPE": 4, "REVERB TYPE": 4}            # stepped selectors: detents
 MARK_CENTRE = ("DRY PAN", "ECHO PAN", "FREQ 2", "FREQ 3", "FREQ 4", "TUNE", "MOD MIX")   # centre-detent (bipolar)
@@ -1709,7 +1710,10 @@ def nv_heads_left(lc, sections):
     if getattr(lc, "SECTIONS_LEFT", None):
         heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
-    return list(sections), nv_fit_subheads(lc), "center"   # (P5R's row-C line is systems' d 43.5 since 7595f7d)
+    # 049e51e real Kalam: P5R row-C headings +1.5 ("keys" sat 0.09 over "velocity"); "filter" / "amp" +1.2 (0.38 / 0.42
+    # over "decay")
+    fit = {"keys": 0.92, "echo": 0.88, "reverb": 0.88, "filter": 1.2, "amp": 1.2}   # keys 0.04 over the line: invisible; echo is held by the window (1.0) if getattr(lc, "VARIANT", "") == "P5R" else {}
+    return [(t, x, d + fit.get(t, 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
 
 def nv_hair(lc):
     """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1)."""
@@ -1740,6 +1744,7 @@ def nv_notes(lc):
 
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
+ABOVE2_BOT, ABOVE2_LEAD = 1.9, 1.2   # lid "above2" (P5R keys): tighter, so row C's one heading line clears both the keys' words and the window
 BELOW2_LEAD = 1.25        # its leading: at 0.9 (the base's) "velocity" sat 0.01 over "amp · both · filter" (y descender over b / f / l)
 BELOW2_TOP = 2.25         # "below2" two-line legends (base front row, P5O keys): block top TGL + 2.25 under the switch (real Kalam ascent)
 TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
@@ -1986,9 +1991,9 @@ class Nave(Cathedral):
             elif where == "above2":          # steer 5 fixes 4 (P5R keys): name over positions ABOVE the switch, centred,
                 nm, pos = lab.split("|")     #   the base rear row's style; block bottom TGL + 2.35 over the nut
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
-                bot = L0 + d + lc.TGL + 2.35
+                bot = L0 + d + lc.TGL + ABOVE2_BOT
                 s += txt(x, bot + hp / 2, z, pos, lc.NS, ink, font=st.font)
-                s += txt(x, bot + hp + BELOW2_LEAD + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                s += txt(x, bot + hp + ABOVE2_LEAD + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
             elif where == "below2":          # steer 5 (P5O keys): the base front row's style, name over positions under
                 nm, pos = lab.split("|")     #   the switch, centred (top of the block d - TGL - 2.1, 0.9 leading)
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
@@ -2010,10 +2015,11 @@ class Nave(Cathedral):
                 cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0) + \
                       (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") == "P5O" else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
-                if self._sq() and n in MARK_NAMED:       # named choices: their names in step order, under the word
-                    py = cy - (bx[3] - bx[1]) / 2 - NAMED_LEAD - 0.85 * lc.NS / 2 if where != "behind" else \
-                         cy + (bx[3] - bx[1]) / 2 + NAMED_LEAD + 0.85 * lc.NS / 2
-                    s += txt(x, L0 + py, z, " · ".join(MARK_NAMED[n]), lc.NS, ink, font=st.font)
+                named_ = getattr(lc, "NAMED_LINES", None) or {k_: " · ".join(v_) for k_, v_ in MARK_NAMED.items()}
+                if self._sq() and n in named_:           # named choices: their names in step order, under the word
+                    py = cy - (bx[3] - bx[1]) / 2 - NAMED_LEAD - 0.85 * NAMED_S / 2 if where != "behind" else \
+                         cy + (bx[3] - bx[1]) / 2 + NAMED_LEAD + 0.85 * NAMED_S / 2
+                    s += txt(x, L0 + py, z, named_[n], NAMED_S, ink, font=st.font)
         heads, subs, ha = nv_heads_left(lc, sections)
         for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups
             s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign=ha)
@@ -2075,7 +2081,7 @@ class Nave(Cathedral):
                 if self.rear(y):                            # rear row: name over positions, ABOVE the toggle
                     bot = y + lc.TGL + 2.35
                     s += txt(x, bot + hp / 2, z, pos, lc.NS, ink, font=st.font)
-                    s += txt(x, bot + hp + 0.9 + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                    s += txt(x, bot + hp + (BELOW2_LEAD if self._sq() else 0.9) + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
                     continue
                 top = y - lc.TGL - 2.25                     # 2.25 / 0.9: real Kalam's ascent
                 s += txt(x, top - hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
@@ -2095,6 +2101,9 @@ class Nave(Cathedral):
                     s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
             elif n == "TAP":
                 s += r5.tap_cap(x, y, z, self.tap_style())
+                if getattr(lc, "BASE6", False):          # §20: the one status light is TAP's ring (lit, a thin green ring)
+                    s += (f'{c("#9fd36b")} translate([{x:.3f},{y:.3f},{z + 0.62:.3f}]) linear_extrude(0.05) '
+                          f'difference(){{ circle(r=7.05,$fn=96); circle(r=6.3,$fn=96); }}\n')   # on the bezel's top face
                 s += txt(x, y - 6 - st.lab_gap - 0.6, z, lab, st.lsize, ink, font=st.font)
             elif self.route == "R-LOW":
                 s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
