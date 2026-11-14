@@ -1,5 +1,108 @@
 # Director notes: Little D (budget instrument), physical design
 
+## Steer 5 fixes 2, scores (2026-11-13 ~22:30; bar 10; NEW DIRECTOR): READ THIS FIRST
+- **Handover.** Took over from the previous director, using its notes as history. Judged: P5R / P5O full tops (4aeda69, 9.9 px/mm), §19 (f8ba494), look doc rev 9.1, standing and spine renders.
+- **Renders are stale (blocker for both).** `P5R-standing.jpg`, `spine-standing.jpg`, `closed-spine.jpg` and `spine-flat.jpg` are from 65a65ed (21:55); `P5O-standing.jpg` and both `lid-top-10.2` are from fe25ac1 (21:06).
+  - P5R standing still shows the old layout: voices/mod in a left column, VCO order octave · pitch · wave.
+  - spine-standing shows P5O with octave · pitch · wave.
+  - The look doc shows P5R-standing next to the new tops, so he sees two different P5Rs. P5R's alt text is stale too ("middle row of voices and mod switches").
+- **P5R: 9 (unchanged). The work changed:** the switch fix landed (voices / mod / track centred under VCO 1/2/3 on one line). That fixes the last round's blocker. Still short of 10:
+  1. **Reverb heading:** it sits at fan-word height, pushed right off its group's centre. "shimmer" ends ≈ 3 mm before "reverb" on the same line, so it reads as **"shimmer reverb"**, a real effect name: a first-time-walk fail. ("pingpong … echo" is ≈ 20 mm apart, OK.)
+  2. **Envelopes 5.9 mm off the window axis** (systems' stated compromise, because keys share the right side). Owner, 16:52, verbatim: "off center in that middle section is bad looking". A likely objection.
+  3. **Row C gutters are 41.9 against row A's 22.6 / B's ≈ 22.6.** That passes the gap rule per row, but fails the proportion check: the rows don't share one rhythm, and the echo cluster then two voids reads as holes.
+  4. Stale standing render (above).
+  - VCO 4 doesn't fit P5R (−32.1 mm). That's the choice between the options, not a flaw in P5R. Stated in the doc.
+- **Ruling: P5R doesn't need top-left headings.** Each option keeps one heading rule, applied everywhere: P5R centred, P5O top-left. P5R's reverb breaks its own rule (off-centre), so "centred" has to become true: every row-C heading centred over its group, on one heading line *above* the fan words.
+- **P5O: 8 (unchanged). The work changed:** headings top-left, tuning pair, out slot, VCO 4 cost caption (present in the look doc). The new top-left headings created collisions, and the biggest owner miss was never addressed:
+  1. **Amp is a column, not "going left to right in the top row".** Owner, 20:43, verbatim: "…then amp controls going left to right in the top row on the top case". My predecessor's steer-5 fix re-cast amp as a column mirroring filter, which overrode his literal words. On his own layout, he'll check his words first. Most likely objection.
+  2. **Headings land on fan-word lines:** "tape **echo** pingpong" and "plate **reverb** shimmer" read as the names "tape echo" / "plate reverb". First-time-walk fail.
+  3. **Headless switch bank:** voices / mod / track sit under a bare hairline, separated from VCO 2/3 by tuning. "mod" and "track" of what? (The base also has a "track", under "filter".) First-time-walk fail.
+  4. **The right block is vertically cramped:** free·sync legend → reverb heading ≈ 5 mm; reverb "type" → out heading ≈ 4 mm. Echo legends are mixed: type below; time, repeats and pan above. "cramped" is his word.
+  5. The stick lowered to 9.0 (cost captioned; engineering risk stays).
+- **Fixes (numbered):**
+  - **P5R:**
+    - R1: move keys (velocity · touch) out of row B to the start of row C (keys | echo | reverb | out). Row B becomes filter | window | amp, symmetric about x 143: (247.4 − 2×54.9 − 46)/4 ≈ 22.9 gutters ≈ row A's 22.6. Row C: ≈ (247.4 − 89.9 − 35 − 39 − keys ≈ 30)/3 ≈ 17.8, which must be ≥ 15. Reading order wraps from amp to keys, which feed amp/filter. Fallback: keys on the A' switch line under tune / drift, which fixes B but leaves C at 41.9. Systems shows both with numbers; I pick by eye.
+    - R2: the row-C headings centred over their groups, on one heading line above the fan words (≈ d 40, clear of the window circle and the name).
+    - R3: re-render the standing view, and fix the alt text.
+  - **P5O:**
+    - O1: amp attack · decay · sustain as a left-to-right row on R1, per his words. Suggestion: centred on the window axis (≈ 123 / 143 / 163), right above the window. Systems re-lays the rest and reports with numbers what moves (the switches, tuning, echo) and what it costs. If it can't pass, show why, and the orchestrator asks him one question (below).
+    - O2: each oscillator switch beside or under its own VCO, or all three under a real heading. "track" must read as VCO 3's.
+    - O3: headings in a heading zone above the fan words, never on their line.
+    - O4: right block: one legend side per group; ≥ 1M between a legend zone and the next heading.
+    - O5: re-render the standing and spine views.
+  - **Both:** a checker phrase rule: no heading may share a baseline band (± 1.5 mm) with another word within 8 mm horizontally. Then checker 0, re-render the full tops and standing views, and I check by eye.
+- **Question for the owner (cheap, ask alongside):** "By 'amp controls going left to right in the top row', do you mean the amp envelope (attack · decay · sustain)?" Volume moved to the base by his 20:29 words, so the envelope is the only amp control left on the lid.
+- **What keeps blocking a 10 (across rounds):**
+  - (a) Words that don't overlap but sit on one line close together read as one phrase. The checker tests box overlap, not reading adjacency, so every heading move makes a new near-miss (track/envelopes before; shimmer reverb and tape echo now).
+  - (b) Proportion is checked per row, never across the plate, so rows can each pass and still disagree.
+  - (c) On P5O, the team (and the last director) re-interpreted the owner's literal words instead of drawing them first and asking.
+- **Watch:** "out" heads groups on both halves (lid pan/link, base volume). That's acceptable under the different-heading rule; it's flagged only if he or the expert misreads it.
+
+## Steer 5 fixes, scores (2026-11-13 ~21:40; bar 10): READ THIS FIRST
+- **Judged:** P5R and P5O full tops (a80d7c / 65a65ed), spine standing render. The owner has already seen these drafts on the Designs page.
+- **Shared base: passes.**
+  - Equal gutters in both rows (≈ 25–30 mm).
+  - Read across x it runs controllers → mixer → filter → effects → out → tempo.
+  - The controllers heading spans release/blend + bend/mod/glide.
+- **P5R 9.** Calm and the clearest. One blocker: voices / mod float in a headless left column ≈ 20 mm below the oscillator row, while track sits under VCO 3. The same family is placed two ways.
+  - **VCO 4 doesn't fit P5R** (32 mm short, systems).
+- **P5O 8.** Strong symmetry (filter column | window | amp column) and the only layout with VCO 4 room. Blockers:
+  - (a) headings are inconsistent: oscillators/filter/amp sit on top, while echo/reverb/out sit at their groups' right ends or between groups;
+  - (b) the out group is cramped (heading squeezed between reverb decay and pan);
+  - (c) drift is an odd 4th knob only in VCO 1's row;
+  - (d) the VCO 4 cost (stick lowered to 9.0, or 58.8 closed) must be stated wherever VCO 4 is shown.
+- **Spine:** the standing render reads as a soft book joint, as he wants. Accepted; his call.
+- **Fixes:**
+  - P5R: (1) all three oscillator switches on one line directly under the oscillator row (voices under VCO 1, mod under VCO 2, track under VCO 3); keys keep a side column; re-run the gap rule and redistribute the envelope groups / columns so no empty area exceeds a gutter; out stays at the end of row C.
+  - P5O: (2) every heading top-left of its group (one rule panel-wide); (3) out gets a full slot (pan + link with the standard gutter); (4) drift and tune become a "tuning" pair with their own heading inside the oscillator block (or another regular placement); (5) a caption states the VCO 4 cost.
+  - Both: checker at 0 incl. the gap rule; re-render the full tops only.
+
+
+## Steer 5 scores (2026-11-13 ~21:10; bar 10): READ THIS FIRST
+- **Judged:** P5R and P5O full tops (9.9 px/mm), closed spine render, §19.
+- **The work really changed:** the rule, a two-row base, D 132, the 5 mm module, lines over dots.
+- **Owner since:**
+  - "Don't stop the other exploration tho I wanna see what they came up with too" (show both);
+  - "I think we can bring the spine back if we can make it look good";
+  - "I kinda want the corners to be softer and to be more architectural like how Apple does theirs".
+- **Scores (first-time walk + proportion check):**
+  - **P5R 8.** The lid reads in order: oscillators + tuning → envelopes (filter | window | amp) → echo → reverb, with keys and out as side columns. Labels are clean. Blockers:
+    - the empty bottom-right corner of the lid;
+    - the shared base's holes (below).
+  - **P5O 6.** No single reading order: headings sit above some groups and at the feet of others (filter, keys, reverb, out); the right half scatters; amp sits above the filter.
+  - **Shared base 7.** Two holes:
+    - front row, between envelope and volume (≈ 50 mm);
+    - rear row, between source and echo (≈ 50 mm).
+    - Groups are packed left, not distributed. "release" sits alone at the rear left with no heading over it.
+- **Fixes (relayed as briefs):**
+  - base: groups spread so the gutters are equal across each row; the controllers heading spans both rows (release + bend as one column); rear row order mixer → effects, then the lights;
+  - P5R: out moves to the end of the bottom row (echo → reverb → out, true to signal), so no corner is left empty; keys/tuning re-balanced so no empty area exceeds a group gutter;
+  - P5O: re-cast as left-to-right columns (oscillators 3 rows | filter column | window | amp column mirroring filter | echo → reverb → out on the right), all headings on top, keys under the window or beside amp;
+  - shared: pivots inboard of the superellipse corners; the spine kept and rendered closed, standing and flat (brass bands on the façade impost lines); lines grille accepted.
+- **New test added:** row distribution. Groups fill a row margin to margin with equal gutters; an empty area larger than one group gutter is a fail.
+- **CORRECTED (orchestrator):** a 4th ANALOG VCO with its own controls IS a live owner question. Verbatim 20:33: "See if we can fit a fourth oscillator", then "I still think the fourth voice would need octave and pitch controls right?" (after hearing the Matriarch has four analog VCOs). Adding it is his call. My earlier note dismissing it was wrong.
+  - P5O must keep the space for VCO 4 (octave · pitch · wave + mixer 4 on the base) in its column re-cast.
+  - Next score: say whether P5R can take VCO 4 after the redistribution, with numbers.
+
+
+## CATHEDRAL steer 5: both halves (2026-11-13 ~20:45; bar 10): READ THIS FIRST
+- **Owner (verbatim, owner.md bottom):** "I'm fine with another oscillator but we're getting really cramped in the top case. I also feel like master tuning controls should be closer to the oscillators and volume/mixer controls on the bottom case. I'm not sure how much physical space each pot actually needs but I think we should keep pushing the organizational logic in the cases. Also there needs to be a more harmonious / proportional approach to spacing from the knobs to the edge of the case inclusive of clear labeling. And I like the speaker grille but what's better lines or a cool grid of dots?"
+- **Another oscillator = PARA+4's 4th voice** (a 5th DAC). No panel control.
+- **Why he hasn't approved (calibration):**
+  - he now judges the whole instrument's logic across halves;
+  - "cramped" + proportion = he wants a visible spacing system, not minimum clearances.
+  - My 10 was against the lid's labels; I didn't test proportion or cross-half logic.
+  - **New test:** every distance comes from one stated module; margins to the case edge read as deliberate.
+- **Director's organising rule (proposal, systems to test):**
+  - **LID = what the sound is** (set and leave): oscillators + tuning (tune, drift beside them), envelopes, keys response, effect settings (types, time, repeats, decay, FREE/SYNC).
+  - **BASE = how much you hear, as you play it, in signal order left → right:** controllers | mixer (1 2 3 extra, source) | filter (resonance, CUTOFF, envelope, track, mod) | effect amounts (echo mix, reverb mix, pans + link) | out (volume) | tap.
+  - Every level/amount lives with the hands; every "what kind / how it moves" lives on the lid.
+  - Base likely needs a second row (≈ 15 knobs + stick + TAP at ≥ 20 pitch ≈ 340 mm > ≈ 255 available). Systems tests a second low (R-LOW) row in the landing strip vs a deeper base (watch FOLD's coupled depth / gap rule), with numbers.
+- **Spacing system:** one module from the real parts (knob Ø, pot body, label cap height, legend gap); pitch, gutters (= 1 module?), group gutters, edge margins ≥ group gutter, fixed label zones above/below; the same row pitch on both halves where possible.
+- **Grille:** lines vs a dot grid, at equal plate (2.5, thinned locally) and equal web. Open area % of Sd, hole/slot size vs λ (≈ 34 mm at 10 kHz), duct length (depth/diameter), printability face-down, looks. Then a recommendation; visual shows both at 1:1 crop.
+- **Keep:** signal order, one-word labels, throw-order switches, ≥ 2.0 closing clearance (R-LOW), Ø 46 window centred over CUTOFF, FREE/SYNC by TIME, link + pans, no dead band, nothing raised, no machining, checker 0.
+
+
 ## CATHEDRAL lid: 10 CONFIRMED (2026-11-13 ~20:30): READ THIS FIRST
 - **Eye check, lid top:** VCO 3's "track" switch (x 121) sits directly under the VCO "3" numeral, the start of the VCO 3 group, so it reads as VCO 3's. Its legend on the left keeps it clear of "envelopes". The first-time walk passes every label and switch position. Systems' checker addition for the moved legend: pending (not re-run by me).
 - **Lid → owner, on the site.**
