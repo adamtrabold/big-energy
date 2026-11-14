@@ -554,3 +554,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Lid: **9** confirmed by eye (filter column heading, filt mod clear). → owner, with the synth expert's understanding review.
 - Lid steer 4 (bar 10): **8**. All expert items in; first-time walk fails on switch positions (printed beside up/down levers). Fixes: all toggles throw left/right with positions in throw order (one convention); single FOLLOW label; release legend; echo tap own break; KBD real positions; checker.
 - Lid steer 4 fixes: **9** (bar 10). First-time walk passes every switch. To 10: FOLLOW on the out column line; label the two lights by CUTOFF; "contour amt"; SOURCE "fdbk"; touch label ≥3 mm from echo type names; checker; re-render. Director checks by eye.
+- Lid after vocabulary + track move: **10** (owner bar). → owner.

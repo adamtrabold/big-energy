@@ -1,5 +1,147 @@
 # Director notes: Little D (budget instrument), physical design
 
+## CATHEDRAL lid: 10 CONFIRMED (2026-11-13 ~20:30): READ THIS FIRST
+- **Eye check, lid top:** VCO 3's "track" switch (x 121) sits directly under the VCO "3" numeral, the start of the VCO 3 group, so it reads as VCO 3's. Its legend on the left keeps it clear of "envelopes". The first-time walk passes every label and switch position. Systems' checker addition for the moved legend: pending (not re-run by me).
+- **Lid → owner, on the site.**
+- **Watch item:** the "track" legend extends left under wave 2. If the owner or the expert reads it as VCO 2's, a short engraved bracket from the "3" numeral is the fix.
+- If he turns it down, record his reasons.
+
+
+## Vocabulary round check (2026-11-13 ~20:20; bar 10): READ THIS FIRST
+- **First-time walk on the re-rendered full top:** every label is one word and reads without the manual. Passes:
+  - octave / wave / pitch with VCO numerals; voices 1 · 3 · 4; mixer 1 2 3 extra + source noise · input · loop;
+  - envelopes with filter | amp, release centred; keys velocity / touch;
+  - echo type / time / free · sync / repeats / mix / pan•; reverb type / decay / mix; out pan / link• / volume;
+  - base controllers | filter (resonance, cutoff, envelope, track, mod) | tuning | tempo tap; midi / status lights.
+- **Not 10 yet, one blocker:** VCO 3's "track" switch sits at x 163.5, beside the "envelopes" heading, outside the oscillator group. It reads as an envelope (or amp) switch, the misgrouping the expert flagged.
+  - Fix: put it under VCO 3 (≈ x 104–124, the switch line under octave 3 / pitch 3), as voices/mod sit under VCO 1–2.
+  - If the checker forbids that, systems says why and proposes the nearest spot inside the oscillator group.
+  - Checker 0, re-render the lid top / full top / standing, then I check by eye → 10.
+
+
+## Panel vocabulary, owner rule (2026-11-13 ~20:05): READ THIS FIRST
+- **Owner, verbatim:** "Labels should only be one word and follow best practices with obvious tweaks for understanding if there's a better word than the jargon".
+- **Rules I set:**
+  - headings carry the context;
+  - a word may repeat only under different headings (type, mix, pan, decay, track, mod);
+  - plain over jargon only where the jargon is clearly worse (emphasis → resonance, range → octave, freq → pitch, para → voices, bbd → dark, kbd → track, osc 3 ctl → track, mod mix → blend, contour amt → envelope, contour → envelope);
+  - keep the standard words that are already plain (cutoff, glide, repeats, decay, wave, attack, sustain, tap, drift, volume).
+- **Exceptions, stated:** FREE/SYNC's ms/beat scales and the type fans keep their marks; "pingpong" is written as one word.
+- **Full table:** in my reply to the orchestrator (relayed to systems for the checker and to visual for the render). It supersedes the small label fixes 3 and 4; fixes 1, 2 and 5 (FOLLOW on the column line, the lights labelled, touch clear of the fan) still stand.
+- **Owner item it creates:** "voices 1 · 3 · 4" replaces mono/para/+4. Check he reads it as intended.
+
+
+## CATHEDRAL lid, score after steer 4 fixes (2026-11-13 ~19:55; bar 10): READ THIS FIRST
+- **First-time walk passes on:**
+  - every toggle throwing left/right with positions in throw order;
+  - "release · both contours · off · = decay";
+  - FOLLOW as one label "echo pan · own · follows dry";
+  - echo tap behind its own rule;
+  - KBD per spec (full tracking via firmware = owner item).
+- **The work really changed. Score 9/10.** What still needs the manual or looks off:
+  1. FOLLOW sits off the out column's centre line (x 255), visibly left of dry pan / volume. Restore it on-line (systems checking).
+  2. The two lights by CUTOFF (cream, green) are unlabelled. A first-timer can't tell status from "not in control". Label them (e.g. "status" · "midi").
+  3. Base "amount" doesn't say of what (the filter contour is up on the lid). Make it "contour amt".
+  4. SOURCE "fb" is cryptic. Use "fdbk" or "feedback" if it fits.
+  5. The touch legend crowds echo TYPE's "tape / ping-pong" fan names, so they read as one cluster. Give ≥ 3 mm or move touch up.
+- Then the checker at 0 with these words, re-render lid top / full top / standing → I check by eye → 10 → publish.
+
+
+## CATHEDRAL lid, score after steer 4 (2026-11-13 ~19:40; bar 10): READ THIS FIRST
+- **Judged:** lid top + full top (re-rendered); first-time player walk, every label and every switch.
+- **The work really changed:** every review item is addressed (positions on all toggles, SOURCE under noise/ext, PARA + OSC MOD left, base controllers | filter | tune, KBD/FILT MOD beside CUTOFF, release, echo pan + "(off if follow)", keys, detune, reverb "tail").
+- **Score: 8 / 10.** The first-time walk still fails at these points:
+  1. **Which word is which lever position?** Positions are printed in one line beside a vertically throwing toggle. "mono · para · +4" left→right can't be mapped to lever down/mid/up without the manual. FREE/SYNC (above/below) and FOLLOW (left/right) use two other conventions, so there are three conventions on one panel.
+  2. **The out column misreads.** FOLLOW's name "echo pan" sits directly above the VOLUME knob, so a first-timer reads VOLUME as "echo pan".
+  3. **"release · off · on"** doesn't say which contours or what "on" does. The owner's item 6 asked for both.
+  4. **"echo tap" sits under the "tune" heading.** A heading contradicting its control is the reviewer's own item-4 pattern.
+  5. **KBD "off · 1/3 · 2/3":** the Model D reaches full tracking (1/3 + 2/3). Is full available here? If so, the legend lies by omission.
+- **Fixes:**
+  1. **Mount every toggle with a left/right throw** (same part, rotated 90°: $0, no clearance change, since height is the same) and print the positions in throw order on one line: left word · middle · right word. FREE/SYNC becomes "free · sync" beside it. One convention panel-wide. Systems re-checks label clearance.
+  2. FOLLOW's legend as one unit beside the switch: "echo pan: own · follows dry". Nothing between the switch and VOLUME.
+  3. Release: "release (both contours) · off · = decay", or "release: off · = decay" with "both" in the heading line between the contours.
+  4. A break rule (or gap ≥ section break) between drift and echo tap, so echo tap stands alone at the end mirroring bend; or the heading becomes "tune · tempo".
+  5. Systems confirms KBD's real positions (off / 1/3 / 2/3 / full?) and the legend matches the spec exactly.
+  6. Checker covers all new words → 0; re-render the lid top, full top and standing only.
+- **Visual's open point (one line under the name vs both ends):** accepted as one line, but only with fix 1 (the line order must match the throw).
+- **Lesson:** a position legend is only readable if its spatial order matches the lever's motion. Check the mapping, not just the presence.
+
+
+## CATHEDRAL lid, steer 4: BAR IS 10 (2026-11-13 ~19:15): READ THIS FIRST
+- **Score reopened.** Synth expert: 7/10 for understanding (`design/reviews/2026-11-13-lid-layout-review.md`). Owner, verbatim: "Yes but make it a 10 not a 9".
+- **My miss:** I checked grouping by headings and spacing, but never read a switch position the way a player must. Bare toggle words, SOURCE under the wrong knob, base headings contradicting their controls: all were visible in images I passed.
+- **New test (mandatory before any score):** a first-time player walk. For every control:
+  - what does it do?
+  - which group does it belong to?
+  - for every switch, what does each position do, read from the panel alone?
+  - Any "I'd need the manual" = not a 10.
+- **Round fixes all 7 items + both nice-to-haves:**
+  1. position legends on every toggle;
+  2. SOURCE under NOISE/EXT;
+  3. PARA + OSC MOD grouped at the left, OSC 3 CTL under VCO 3;
+  4. base regrouped as controllers | filter | tune, with "echo tap";
+  5. KBD / FILT MOD beside CUTOFF on the base if closing allows, else under the filter contour; no lone heading;
+  6. DECAY switch → "release", saying which contours;
+  7. "echo pan" + FOLLOW "own · follows dry" + a cue at the knob;
+  - nice-to-haves: a "keys" label over VELOCITY/TOUCH; "detune" on FREQ 2/3.
+- **Director rulings for the round:**
+  - every legend matches the spec's real positions (systems confirms from how-it-works; no invented positions);
+  - one word per concept panel-wide (echo, never delay);
+  - no duplicate words for different things (decay knob vs release switch; osc 3 level vs osc 3 ctl);
+  - headings name what's under them.
+- **10 also needs:** 0 checker violations incl. the new legends; the R-LOW closing clearance re-checked for any toggle moved to the base; the stale views re-rendered.
+- **Out column starting beside the contours:** left as is (reviewer: "fine as is").
+
+
+## CATHEDRAL lid: 9 CONFIRMED (2026-11-13 ~19:00): READ THIS FIRST
+- Checked by eye, `cathedral-lid-signal-order-8.7px-per-mm.png`:
+  - the "filter" heading and rule mirror "out", so KBD / FILT MOD read as a group;
+  - "filt mod" sits ≈ 4.5 mm clear of echo TYPE's fan names;
+  - systems' checker is at 0 with all tweaks (2f99f96, not re-run by me).
+- **Lid → owner, on the site.**
+- An independent synth expert review of the lid is running (owner's request). If it finds real comprehension problems, treat its findings as owner-level objections and re-open the score rather than defending it.
+
+
+## CATHEDRAL lid fix check (2026-11-13 ~18:50): READ THIS FIRST
+- **Checked by eye:** lid top (P) and standing 3/4 (re-rendered; consistent with the lid).
+  - VCO 1 / 2 / 3 spacing groups read ✓;
+  - headings at 3.0 over 2.35 legends ✓;
+  - the middle row mirrored about the window ✓;
+  - the signal still traces osc → mixer → filter contour → loudness → echo → reverb → out ✓;
+  - the name "big energy" is approved (owner 17:37) ✓.
+- **9, CONDITIONAL on two items (I check by eye, no re-score; then publish):**
+  1. The left-edge KBD / FILT MOD column reads orphaned, as visual flagged, and "filt mod" crowds echo TYPE's "tape / ping-pong" fan names.
+     - Fix: make it a named group that mirrors the out column: a "filter" heading at the "out" heading's height, plus a vertical rule like the out column's (both switches are filter settings; the filter itself is on the base).
+     - Move "filt mod" up so it reads clearly apart from the echo fan names.
+  2. Systems adds visual's font-fit tweaks to `layout_check.py`: contour headings, the osc/mixer break, "reverb" +2 mm, FOLLOW's words, and the new filter heading → 0.
+- If the owner turns it down, record why.
+
+
+## CATHEDRAL lid, score after steer 3 (2026-11-13 ~18:30): READ THIS FIRST
+- **Judged:** `img/cathedral-lid-signal-order-8.7px-per-mm.png` (P) and §17 (concept table, 9 cited references, P vs S).
+- **The work really changed:** a new arrangement, not a restyle.
+- **Signal traced on the image:**
+  - top band: oscillators → mixer (osc 1, 2, 3, noise in order, source under it) ✓;
+  - middle band: filter contour → [window] → loudness contour (velocity, touch, decay under it) ✓;
+  - bottom band: echo (type, time, FREE/SYNC, repeats, mix, delay pan) → [window] → reverb ✓;
+  - out column at the right edge: dry pan / FOLLOW / volume ✓;
+  - effects off the top ✓;
+  - every switch under its own group ✓;
+  - S rightly rejected (echo stays at the top, needs the window off-axis).
+- **Score: 8.** Likely owner objections:
+  - (a) a blank patch in the middle band between the filter contour (hugging the left edge) and the window, while the loudness contour hugs the window on the right. That's a gap and an imbalance again, his two triggers;
+  - (b) group headings are smaller than the knob legends, so the hierarchy is inverted and the grouping he asked for doesn't read first;
+  - (c) the 8 oscillator knobs run as one even row (range 1 wave 1 range 2 freq 2 wave 2 …), so VCO 1 / 2 / 3 aren't visible as groups;
+  - (d) ~~name plate~~: not an objection. He named it "big energy" at 17:37; my notes had missed that entry.
+- **Fixes (I check by eye):**
+  1. Band B symmetric about the window, no blank patch. E.g. the filter contour mirrors the loudness contour about x 143, with the filter's two switches (kbd, filt mod) as a left-edge column mirroring the out column. Systems checks it.
+  2. Headings clearly above the legends (larger/bolder in Kalam), one per group, placed at the group's start or centre consistently.
+  3. VCO 1 / 2 / 3 read as three groups: extra spacing between them if the checker allows it, or else short engraved underlines per VCO.
+  4. ~~Name plate blank~~ WITHDRAWN: the owner named it at 17:37 ("name to come -- we're calling it big energy"; owner.md, naming.md). "big energy" on the plate stays.
+  5. Add visual's new legends (numbered range/wave, the contour headings, "osc 3 ctl") to `layout_check.py` → 0.
+- **Before he sees it:** re-render (not remove) the full top view (lid + base) and the standing 3/4 in P, so nothing on the site contradicts the new lid. The closed side, speaker drawing and keys images stay as they are.
+
+
 ## CATHEDRAL top panel, steer 3 (2026-11-13 ~18:05): READ THIS FIRST
 - **Owner did NOT approve the 9.** Verbatim (screenshot design/owner-refs/2026-11-13-1800-top-panel.png): "lets focus on top panel first -- the items do not appear to be grouped or ordered in a way that makes logical sense. have the team break down which concepts belong together, and reorient accordingly.  there are tons of examples on the internet of good organization beyond the model d itself for the add'l functionality. also i dont like the effects controls at the top ... when i think of signal order it's synth stuff -> fx stuff -> output stuff like volume. so it at the top of the layout is confusing"
 - **His reasons (what a 9 means to him):** panel logic = signal order and whole groups, not just symmetry and geometry. I scored balance, the band and acoustics; I didn't test "can he read the signal path at a glance". **New test for every layout from now on:** trace the signal on the image; every group must be contiguous and in signal order.

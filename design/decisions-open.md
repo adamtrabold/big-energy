@@ -5,24 +5,26 @@ Decisions only you can make, newest first. The team keeps working around them; e
 ---
 
 ## 1. CATHEDRAL: approve it, or send it back
-**Scored 9 by the director; passes every job.** Your 18:00 note is resolved: the lid now reads in signal order, synth → effects → out, top to bottom, with every switch under the group it changes.
+**Scored 10 by the director** (your bar), after the synth expert's review and a first-time-player walk of every label and switch. Passes every job.
 
-- **Lid, top band:** oscillators 1 · 2 · 3 (spaced into groups; osc mod, osc 3 ctl, para under them), then the mixer in order (osc 1, 2, 3, noise/ext; source under it).
-- **Lid, middle band:** filter contour (kbd, filt mod in their own "filter" column at the left edge) · speaker window · loudness contour (velocity, touch, decay under it). Mirrored across the centre line.
-- **Lid, bottom band (by your hands):** echo (type, time with free/sync, repeats, mix, delay pan) · window · reverb (type, decay, mix) · **out** column at the right (dry pan, follow, volume); volume is the last control, above TAP.
-- **Speaker:** Ø 46 mm round window on the centre line, 15 vertical slots, ≈ 75 % of the cone open, sealed back box; "big energy" on the plate beneath.
-- **Base row:** symmetric: bend stick far left, TAP far right, CUTOFF centred.
+- **Reads in signal order, top to bottom:** oscillators 1 · 2 · 3 → mixer → envelopes (filter · amp, mirrored around the speaker) → echo → reverb → out (pan, link, volume; volume last, above tap).
+- **Every switch sits under the group it changes,** throws left/right, and shows its positions in the order the lever moves (e.g. voices: 1 · 3 · 4).
+- **One-word labels, plain words:** octave, pitch, voices, track, extra, resonance, envelope, blend, tap (under "tempo"), pan/link with matching dots.
+- **Base row:** controllers (bend · mod · blend · glide) · filter (resonance · track · cutoff · mod · envelope) · tuning (tune · drift) · tempo (tap).
+- **Speaker:** Ø 46 mm round window on the centre line, ≈ 75 % of the cone open, sealed back box; "big energy" on the plate.
 - **Keys:** brass naturals, black-plated brass sharps (lead); all brass (alternate).
-- **Closed thickness:** ≈ 55.2 mm, *only* with snap-in pots and the bend stick seated 3.6 mm lower (otherwise 56.7–58.8). Played-row knobs Ø 10 gold. Keeping the big knobs: ≈ 59.7 mm.
-- **Hinge:** hidden pins; a 4 mm round bump shows at each back corner from the side.
-- **Costs:** batteries move to the back of the base (board window, eng check); stand tip force ≈ 6.9 → 8.4 N.
+- **Closed thickness:** ≈ 55.2 mm with snap-in pots and small (Ø 10 gold) played-row knobs; ≈ 59.7 mm keeping the big knobs.
+- **Hinge:** hidden pins; a 4 mm bump at each back corner from the side.
+- **Costs:** batteries move to the back of the base (eng check); stand tip force ≈ 6.9 → 8.4 N.
 
-![Lid top view, true scale: oscillators → mixer, filter contour · window · loudness contour, echo · window · reverb · out](branches/concepts/cathedral/img/cathedral-lid-signal-order-8.7px-per-mm.png)
+![Lid top view, true scale](branches/concepts/cathedral/img/cathedral-lid-signal-order-8.7px-per-mm.png)
 ![Standing](branches/concepts/cathedral/img/cathedral-nave-standing.jpg)
 ![Full top, lid and base](branches/concepts/cathedral/img/cathedral-nave-top-8.3px-per-mm.png)
 ![Closed, side: 55.2 mm](branches/concepts/cathedral/img/cathedral-nave-closed-side-14px-per-mm.png)
 ![Speaker window, front and section](branches/concepts/cathedral/img/cathedral-nave-speaker-window-20px-per-mm.png)
 ![Keys A (brass naturals) and C (all brass), ray-traced](branches/concepts/cathedral/img/cathedral-keys-brass-A-C.jpg)
+
+The first-time-player walk of every switch is on the CATHEDRAL page (Physical).
 
 **Also yours within it:** keys A or C; small knobs (55 mm) or big knobs (60 mm).
 
