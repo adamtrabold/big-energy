@@ -12,15 +12,15 @@ Owner (2026-11-13 16:21, `../design/owner.md`): "we need on that site architectu
 | Doc | What it covers | Status |
 |---|---|---|
 | [architecture.md](architecture.md) | system overview, signal paths, control/data flow, power, budgets, decisions log, open items | started 2026-11-13 |
-| [features/voice.md](features/voice.md) | 3 VCOs, mixer, ladder filter, contours, VCA, SOURCE, KBD CTRL | not yet written |
+| [features/voice.md](features/voice.md) | 3 VCOs, mixer, ladder filter, contours, VCA, SOURCE, filter TRACK | not yet written |
 | [features/keys-and-velocity.md](features/keys-and-velocity.md) | 25 Choc V2 keys, Hall sensing, velocity, key tops / pegs | not yet written |
-| [features/aftertouch.md](features/aftertouch.md) | FSR strip, floating strip C, MOD / OFF / FILT | not yet written |
+| [features/aftertouch.md](features/aftertouch.md) | FSR strip, floating strip C, MOD / OFF / FILTER | not yet written |
 | [features/bend-and-mod.md](features/bend-and-mod.md) | bend joystick, MOD knob, mod VCA | not yet written |
-| [features/paraphonic.md](features/paraphonic.md) | MONO / PARA / PARA+4, allocation, the digital 4th oscillator | not yet written |
+| [features/paraphonic.md](features/paraphonic.md) | VOICES 1 / 3 / 4 (mono / para / para+4), allocation, the digital 4th oscillator | not yet written |
 | [features/autotune-and-drift.md](features/autotune-and-drift.md) | TIM5 counting, coarse + fine DACs, held-note loop, DRIFT, filter cal | not yet written |
 | [features/effects.md](features/effects.md) | echo (4 types), reverb (4 types), wet-only return, send gating | not yet written |
 | [features/echo-sync.md](features/echo-sync.md) | FREE / SYNC, TAP, MIDI clock, divisions | not yet written (source: `../design/branches/echo-clock.md`) |
-| [features/panning-and-stereo-outputs.md](features/panning-and-stereo-outputs.md) | dry pan, echo pan, FOLLOW, stereo phones / line, mono-on-TS, speaker sum | not yet written (source: cathedral §15) |
+| [features/panning-and-stereo-outputs.md](features/panning-and-stereo-outputs.md) | out pan, echo pan, LINK, stereo phones / line, mono-on-TS, speaker sum | not yet written (source: cathedral §15) |
 | [features/midi.md](features/midi.md) | MIDI in from a DAW or another device; free extras | **written 2026-11-13** |
 | [features/power-and-battery.md](features/power-and-battery.md) | LiPo, charger, boost, rails, gauge, runtime, Hall gating | not yet written |
 | [features/firmware-update-and-gestures.md](features/firmware-update-and-gestures.md) | DFU, boot gestures, settings gestures, TAP | not yet written |

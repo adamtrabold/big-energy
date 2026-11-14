@@ -11,7 +11,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - An **echo** feeds a **reverb**, both digital, both with four characters.
 - Turn **ECHO MIX** or **REVERB MIX** up from zero and the effect fades in under the dry sound. At zero the synth is purely analog.
 - Echo: **TIME** (how far apart the repeats are), **REPEATS** (how many, up to a controlled runaway on TAPE) and **TAP**.
-- Reverb: **TAIL** (how long it rings; panel word "tail", so "decay" means only the contours' decay).
+- Reverb: **DECAY** (how long it rings; the reverb heading tells it from the envelopes' decay).
 - Tails ring on after you lift a key.
 
 ## Owner decisions (verbatim, linked)
@@ -19,7 +19,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - "I want echo and reverb" · "Delay and verb can be digital" · "I would want great models tho — would be cool if digital could do more than one type."
 - FX controls: "Full 8, grow the panel".
 - "Check the pin thing. Audio feels the most important since we're introducing digital stuff" → "Switch to Daisy Seed".
-- 15:18–15:54: stereo outputs, dry pan, echo pan, FOLLOW (see [panning and stereo outputs](panning-and-stereo-outputs.md)).
+- 15:18–15:54: stereo outputs, out pan, echo pan, LINK (see [panning and stereo outputs](panning-and-stereo-outputs.md)).
 
 ## How it works
 - **Chip:** Daisy Seed (STM32H750 at 400 MHz, 64 MB SDRAM, stereo codec). The same chip runs control, tuning and MIDI.
@@ -31,17 +31,17 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - **ECHO MIX and REVERB MIX are wet levels in DSP.** With both at 0 the codec outputs digital silence, and the instrument is electrically the analog voice alone.
 - **Echo types:**
   - **TAPE:** wow / flutter, saturation, darkening repeats; runaway controlled;
-  - **BBD:** dark, short-range character, no clock noise;
+  - **DARK** (was BBD): a bucket-brigade-style dark, short-range character, no clock noise;
   - **CLEAN;**
-  - **PING-PONG:** alternates sides on stereo outputs; on the mono speaker it's CLEAN with alternating tone.
+  - **PINGPONG:** alternates sides on stereo outputs; on the mono speaker it's CLEAN with alternating tone.
 - **Reverb types:**
   - **PLATE** (Dattorro);
   - **HALL** (FDN / CloudSeed class);
   - **SPRING;**
   - **SHIMMER.**
-  - TAIL scales size and damping together, per type.
+  - DECAY scales size and damping together, per type.
 - **Stereo:**
-  - The echo is a mono line; **ECHO PAN** places it.
+  - The echo is a mono line; **echo PAN** places it.
   - **The reverbs take stereo input** (proposed; review P6): PLATE / SPRING / SHIMMER need two input diffusers (≈ +10–15 % of one reverb's load, ESTIMATE). HALL is stereo-in already.
 - **DSP load:** echo + a CloudSeed-class reverb ≈ **40–60 %** at 400 MHz (eng, `daisy-pin-and-audio-check.md` §3.4). Long buffers in SDRAM, dense taps in SRAM. The spike measures it.
 - **Send gating (proposed; review 8):** the input opens on **gate or signal level** (> −60 dBFS at codec IN L), holds ≈ 300 ms after the signal drops, then fades over ≈ 20 ms.
@@ -55,16 +55,16 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 ## Controls and states
 | Control | Part | What it does | Status |
 |---|---|---|---|
-| ECHO TYPE | 4-way rotary (RS16211) on a resistor ladder | TAPE / BBD / CLEAN / PING-PONG; click-free crossfade on change | decided (Full 8) |
+| ECHO TYPE | 4-way rotary (RS16211) on a resistor ladder | TAPE / DARK / CLEAN / PINGPONG; click-free crossfade on change | decided (Full 8) |
 | ECHO TIME | 9 mm pot | ms in FREE, a note division in SYNC (see [echo sync](echo-sync.md)) | decided |
 | ECHO REPEATS | 9 mm pot | feedback; controlled runaway on TAPE | decided |
 | ECHO MIX | 9 mm pot | echo wet level | decided |
 | REVERB TYPE | 4-way rotary | PLATE / HALL / SPRING / SHIMMER | decided |
-| REVERB TAIL (was DECAY; the name is proposed) | 9 mm pot | size and damping together | decided (control) |
+| reverb DECAY | 9 mm pot | size and damping together | decided (control) |
 | REVERB MIX | 9 mm pot | reverb wet level | decided |
 | TAP | momentary | tap tempo / echo length (see [echo sync](echo-sync.md)) | decided |
 | FREE / SYNC | toggle | see [echo sync](echo-sync.md) | decided |
-| ECHO PAN | 9 mm pot | see [panning](panning-and-stereo-outputs.md) | decided feature |
+| echo PAN | 9 mm pot | see [panning](panning-and-stereo-outputs.md) | decided feature |
 
 **Placement:** CATHEDRAL layout B puts every effect control on the lid's back row (proposed, pending the owner's layout answer).
 
@@ -74,13 +74,13 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - **Runaway:** TAPE REPEATS near full self-oscillates in a controlled way. The limiter (proposed) catches level build-up into a long HALL or SHIMMER.
 - **Release tails:** with level-based gating, echoes of an analog release survive.
 - **Low battery:** FX fade over 2 s (proposed); the dry keeps playing until the boost cut-off.
-- **SOURCE "feedback" in the mixer:** must be tapped from the **dry VCA out, pre-FX and pre-VOLUME** (review 21), so wet latency never enters the ladder loop. Proposed; eng to confirm the tap point.
-- **PING-PONG + ECHO PAN:** ECHO PAN sets the start side; no double alternation (review P3).
-- **Mono outputs:** the speaker gets the mono sum; PING-PONG becomes CLEAN with alternating tone.
+- **SOURCE "loop" (feedback) in the mixer:** must be tapped from the **dry VCA out, pre-FX and pre-VOLUME** (review 21), so wet latency never enters the ladder loop. Proposed; eng to confirm the tap point.
+- **PINGPONG + echo PAN:** echo PAN sets the start side; no double alternation (review P3).
+- **Mono outputs:** the speaker gets the mono sum; PINGPONG becomes CLEAN with alternating tone.
 
 ## Interactions with other features
 - **Echo sync:** TIME's two scales, FREE / SYNC, TAP, MIDI clock.
-- **Panning and stereo outputs:** ECHO PAN, FOLLOW, the stereo-input reverbs, the mono speaker and mono-on-TS.
+- **Panning and stereo outputs:** echo PAN, LINK, the stereo-input reverbs, the mono speaker and mono-on-TS.
 - **Autotune:** codec IN R is the filter-calibration input; codec IN L doubles as the VCA auto-null monitor (DFP §2).
 - **Paraphonic:** if PARA+4 used the codec (option B in [paraphonic](paraphonic.md)), the wet would go mono. The recommended option A keeps it stereo.
 - **Power:** the Daisy adds ≈ 0.3–1.0 W over the Pico era (ESTIMATE). Hall gating offsets it.
@@ -88,10 +88,10 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 
 ## MIDI
 - **Today:** no FX knob receives or sends MIDI (knob-only). Clock drives the echo tempo in SYNC.
-- **Proposed (open for the owner):** ECHO MIX → CC 103, REVERB MIX → CC 104, so a DAW can automate the effect amounts (review P8). ECHO PAN → CC 102 (proposed); DRY PAN → CC 10 (decided).
+- **Proposed (open for the owner):** ECHO MIX → CC 103, REVERB MIX → CC 104, so a DAW can automate the effect amounts (review P8). echo PAN → CC 102 (proposed); out PAN → CC 10 (decided).
 
 ## Budget (pins / mux / DAC / power / cost)
-- **Mux:** 8 channels (5 pots, 2 rotaries, TAP), in the 48 baseline. FREE / SYNC and ECHO PAN on mux D (architecture).
+- **Mux:** 8 channels (5 pots, 2 rotaries, TAP), in the 48 baseline. FREE / SYNC and echo PAN on mux D (architecture).
 - **Pins:** codec audio pins only (dedicated).
 - **DAC:** codec OUT L / R (both used by the wet).
 - **DSP:** 40–60 % + ≈ 10–15 % of a reverb for stereo inputs (ESTIMATE).
@@ -106,8 +106,8 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 |---|---|
 | Echo + reverb, digital, several great types | decided |
 | Full 8 controls; Daisy Seed | decided |
-| Types TAPE / BBD / CLEAN / PING-PONG and PLATE / HALL / SPRING / SHIMMER; series echo → reverb; wet-only return | eng design (adopted with the decisions above) |
+| Types TAPE / DARK / CLEAN / PINGPONG and PLATE / HALL / SPRING / SHIMMER; series echo → reverb; wet-only return | eng design (adopted with the decisions above) |
 | Stereo-input reverbs | proposed |
-| Level-based send gating; wet limiter; send high-pass; 2 s low-battery fade; SOURCE feedback tap pre-FX | proposed |
+| Level-based send gating; wet limiter; send high-pass; 2 s low-battery fade; SOURCE loop tap pre-FX | proposed |
 | ECHO MIX / REVERB MIX MIDI | open (Q1) |
 | DSP load, codec noise, the RS16211's height | to be measured on the breadboard spike |

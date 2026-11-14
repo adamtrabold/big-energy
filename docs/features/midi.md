@@ -46,7 +46,7 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
 | Message (in) | What it does | Status |
 |---|---|---|
 | **Note on / off** (+ velocity) | plays the voice like a key. **MIDI and the keys share one note pool.** MONO: low-note priority, single trigger, legato glide as with keys. PARA: allocated as the keys are | notes in decided (locked spec); priority = eng default (**proposed** as the rule); merge **proposed** |
-| Note numbers | key 1 of the 25 = **MIDI 48 (C3)** at RANGE 8'. Notes outside the keyboard still play, up to the VCOs' range, and are octave-folded beyond it | proposed |
+| Note numbers | key 1 of the 25 = **MIDI 48 (C3)** at OCTAVE 8'. Notes outside the keyboard still play, up to the VCOs' range, and are octave-folded beyond it | proposed |
 | **Velocity** | the same velocity CV (Seed DAC) through the VELOCITY toggle (LOUD / BOTH / FILT), same curve as the keys. Release velocity ignored | proposed (keys' path decided) |
 | **Pitch bend** (14-bit) | **added to the bend stick** (both centred → 0), clamped. Default **±2 semitones**; **RPN 0** (bend sensitivity) sets 0–12 | in: proposed (review 21: "not stated") |
 | **CC 1 mod** | mod depth (the MOD knob's value), jump-on-move | **decided** |
@@ -67,10 +67,10 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
 | GLIDE | 5 | portamento time | proposed |
 | CUTOFF | 74 | "brightness": what DAWs and controllers default to for cutoff | proposed |
 | TUNE | 20 | undefined range (no GM default can grab it) | proposed |
-| FREQ 2 / FREQ 3 | 21 / 22 | undefined | proposed |
-| RANGE 1 / 2 / 3 | 23 / 24 / 25 | undefined. **If RANGE becomes a detented 6-way rotary (review 13), it's a switch: MIDI never flips switches, so drop these** | proposed / open |
-| **DRY PAN** | **10** (decided) — see the CC 10 problem below | owner decided CC 10 for "the pan" | decided, with an open question |
-| ECHO PAN | 102 | undefined | proposed |
+| PITCH 2 / PITCH 3 (was FREQ) | 21 / 22 | undefined | proposed |
+| OCTAVE 1 / 2 / 3 (was RANGE) | 23 / 24 / 25 | undefined. **If OCTAVE becomes a detented 6-way rotary (review 13), it's a switch: MIDI never flips switches, so drop these** | proposed / open |
+| **out PAN** | **10** (decided) — see the CC 10 problem below | owner decided CC 10 for "the pan" | decided, with an open question |
+| echo PAN | 102 | undefined | proposed |
 | ECHO MIX / REVERB MIX | 103 / 104 | review P8: DAW users automate effect *amounts* more than pans. **Owner's call to add them** (it moves them into the marked set) | open |
 
 **Channel:**
@@ -87,8 +87,8 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
    - CC 121 → every knob back to the panel (above).
    - CC 7 → ignored (VOLUME is analog).
    - Chased automation values → grab their knobs (intended).
-   - **CC 10 = 64 would silently centre DRY PAN** even if the user never automated it (review 15).
-   - **Open, for the owner:** keep CC 10 (the LED shows it, a nudge takes it back), or move DRY PAN to an undefined CC (e.g. 105), with an option for CC 10.
+   - **CC 10 = 64 would silently centre out PAN** even if the user never automated it (review 15).
+   - **Open, for the owner:** keep CC 10 (the LED shows it, a nudge takes it back), or move out PAN to an undefined CC (e.g. 105), with an option for CC 10.
    - **Proposed recommendation:** undefined CC by default. It avoids a pan that moves on its own every time a project opens.
 3. **DAW echo / MIDI thru.** Only matters if the instrument **sends** (free extras). See there: local off and echo suppression.
 4. **Notes doubled.** Keys play the voice locally. If the DAW also records and echoes them back, you hear doubles. That only happens if notes are sent (free extras), so local off belongs with that extra.
@@ -96,16 +96,16 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (�
 6. **PARA from a DAW:**
    - chords allocate like keys;
    - oscillators set to zero in the mixer are silent;
-   - OSC 3 in LFO mode (OSC 3 CTL, review 11) is excluded, which means firmware must read OSC 3 CTL;
-   - review 18's PARA behaviour applies (RANGE 1 for all, retrigger on new notes: proposed).
+   - OSC 3 in LFO mode (oscillator 3 TRACK off, review 11) is excluded, which means firmware must read that switch;
+   - review 18's PARA behaviour applies (OCTAVE 1 for all, retrigger on new notes: proposed).
 7. **Pitch CV out from DAW notes** (review 9): carries the MONO note, or the lowest note in PARA; it includes bend and glide (proposed). It needs its DAC channel (architecture §5.3).
 
 ## Interactions with other features
 - **Echo sync:** clock in from either transport (`echo-clock.md`). TAP is ignored for tempo while the clock runs.
 - **Aftertouch:** pressure in and out (above).
 - **Bend and mod:** the stick and PB sum; MOD and CC 1 share jump-on-move.
-- **Panning:** DRY PAN (digipot, so MIDI-able) and ECHO PAN (DSP).
-- **FOLLOW** is a switch: never flipped by MIDI.
+- **Panning:** out PAN (digipot, so MIDI-able) and echo PAN (DSP).
+- **LINK** is a switch: never flipped by MIDI.
 - **Paraphonic:** shared allocation for keys and MIDI.
 - **Gestures:** the channel combo avoids TAP (architecture O5).
 - **Power:** USB-MIDI works on battery. Charging and MIDI share the one USB-C (decided).
@@ -131,12 +131,12 @@ Owner: send only "if it's free"; sending means thinking about every feature. Eac
 - **Firmware:** the parser, the CC map, jump-on-move (exists), channel select, RPN 0, and the extras.
 
 ## Open questions (for the owner, one at a time)
-1. **DRY PAN on CC 10** (your decision) vs an undefined CC, given that DAWs send CC 10 = 64 on project load and would centre it on their own. Recommendation: undefined CC.
+1. **out PAN on CC 10** (your decision) vs an undefined CC, given that DAWs send CC 10 = 64 on project load and would centre it on their own. Recommendation: undefined CC.
 2. **ECHO MIX and REVERB MIX as MIDI-dot knobs** (CC 103 / 104) so a DAW can automate the effect amounts? (Review P8.)
 3. **Default channel 1** with a power-on channel combo, or **omni**?
 4. **The free extras:** any of X2–X5 wanted at all? (X1 pressure-out is already in the spec.)
 5. **Automation vs the knob:** last message wins (standard), or the knob holds 1 s after you grab it?
-6. (From the review) If RANGE becomes a detented rotary, it leaves the MIDI set. OK?
+6. (From the review) If OCTAVE becomes a detented rotary, it leaves the MIDI set. OK?
 
 ## Status (item by item)
 | Item | Status |
@@ -145,7 +145,7 @@ Owner: send only "if it's free"; sending means thinking about every feature. Eac
 | Knob-only controls send no MIDI; MIDI never flips switches | decided |
 | CC 1 → mod depth, jump-on-move | decided |
 | Clock in → echo (option B) | decided |
-| Pan receives CC 10 (now DRY PAN) | decided; reconsideration open (Q1) |
+| Pan receives CC 10 (now out PAN) | decided; reconsideration open (Q1) |
 | Channel pressure out (+ in) | decided feature; behaviour eng |
 | Not a MIDI controller; send only if free; DAW-first | decided (stance) |
 | Note merge, priority, note mapping, velocity path, PB ±2 + RPN 0, CC 64, CC 120 / 121 / 123 behaviour | proposed |

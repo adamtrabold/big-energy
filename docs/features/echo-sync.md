@@ -26,7 +26,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
   - **Lost:** no tick for 500 ms. The echo holds the last tempo.
   - **Both transports sending:** USB wins while it's ticking; TRS takes over after 500 ms of USB silence.
 - **START:** no effect (a delay has no bar position). **STOP:** tails keep ringing.
-- **Tempo or division changes:** TAPE and BBD **glide** (≈ 150 ms, like a tape motor); CLEAN and PING-PONG **crossfade** two read heads (≈ 50 ms).
+- **Tempo or division changes:** TAPE and DARK **glide** (≈ 150 ms, like a tape motor); CLEAN and PINGPONG **crossfade** two read heads (≈ 50 ms).
 - **TIME's two printed scales:**
   - inner = ms (≈ 20 ms – 2 s, log);
   - outer = 9 divisions: 1/16 · 1/8T · 1/16. · 1/8 · 1/4T · 1/8. · 1/4 · 1/4. · 1/2;
@@ -52,7 +52,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - TIME's and REPEATS' legends sit behind their knobs.
 
 ## Edge cases
-- **Clock appears mid-note:** the tempo glides (TAPE / BBD) or crossfades (CLEAN / PING-PONG); no click.
+- **Clock appears mid-note:** the tempo glides (TAPE / DARK) or crossfades (CLEAN / PINGPONG); no click.
 - **Clock jitter (USB):** smoothed; it only updates on > 0.5 % change.
 - **Clock stops or the cable is pulled:** the echo holds the tempo, and tails ring on.
 - **Two clocks:** USB wins while ticking.

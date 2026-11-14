@@ -902,6 +902,26 @@ Source: `design/reviews/2026-11-13-lid-layout-review.md`. The arrangement (P, §
 - **New checker rule: the rim.** Every legend ends ≥ 1.5 inside the plate's inner edge (x 4.3–281.7, rb `lid_plate2d`), with widths × 1.25 for real Kalam. At x 262.5, SOURCE's line would fail (ends at 283.3); at 258 it passes.
 - **Result:** 0 violations. Closing unchanged (R-LOW 55.2, R-TALL 59.7).
 
+### 18.8 One-word labels (owner rule 19:57; director's `vocabulary.md`, supersedes the 18.7 fixes 3 and 4)
+Owner, verbatim: "Labels should only be one word and follow best practices with obvious tweaks for understanding if there's a better word than the jargon". `layout_check.py` uses every word in `vocabulary.md` and re-measures each one: **0 violations**, rim and the touch ≥ 3 mm rule included. Closing is unchanged (R-LOW 55.2 with the stick as is, R-TALL 59.7).
+
+| Where | Words now (positions left · middle · right) | Geometry change |
+|---|---|---|
+| oscillators | octave · wave · pitch; numerals **1 · 2 · 3** | **Numerals lead each VCO group at knob height** (x 10 / 56 / 121, d 84.55, Kalam 2.35), in the gaps before each group's first knob. There's no room *over* the groups: 2.1 mm between the legends' top (97.5) and "oscillators" (100.2) |
+| oscillator switches | **voices: 1 · 3 · 4**, **mod: off · on**, **track: off · on** | track moves 133.5 → **163.5**, still under VCO 3, clear of the "envelopes" heading |
+| mixer | **1 · 2 · 3 · extra**; **source: noise · input · loop** | SOURCE 258 → **257.5**, so its line ends inside the rim (≈ 280.0 in real-Kalam width) |
+| envelopes | heading **"envelopes"** (3.0) on the axis at d 69.0; sub-heads **"filter"** (flush right at 110.95) and **"amp"** (flush left at 175.05), Kalam 2.35 at d 65.5; attack · decay · sustain under each | the two contour headings are replaced |
+| release | **release: off · on**, centred on the axis at (143, d 61.5), under "envelopes" and between the groups. Its place says "both"; the manual says "on" = release follows decay | — |
+| keys | **velocity: amp · both · filter**, **touch: mod · off · filter** | touch stays at d 36.5: 5.0 mm from "pingpong" |
+| echo | type (**tape · dark · clean · pingpong**) · time (**free · sync** under its switch) · repeats · mix · **pan** | the "(off if follow)" cue goes; a **dot** (Ø 1.2) sits right of "pan" at (120.0, d 3.5) |
+| reverb | type · **decay** · mix | — |
+| out | **pan · link: off · on · volume**; heading "out" moves to (248.5, d 66.5) | the matching **dot** at (268.5, d 34.0), right of "link"'s legend |
+| base | controllers (bend · mod · **blend** · glide) · filter (**resonance** · **track: off · 1/3 · 2/3** · cutoff · **mod: off · on** · **envelope**) · **tuning** (tune · drift) ‖ **tempo** (**tap**) | heading **"tempo"** at (255, y 85), left-aligned over TAP behind its break; "tune" → **"tuning"** |
+| lights | **midi** (131), **status** (155) | kept at their spec positions: the not-in-control light is at 131 (coverage J8). The vocabulary lists them as "status · midi" without positions |
+
+- **"detune" is gone.** The manual covers what pitch 2 / 3 do in para.
+- **Docs mirrored:** effects, echo-sync, panning-and-stereo-outputs, midi (CC map: OCTAVE 1/2/3 was RANGE, PITCH 2/3 was FREQ), aftertouch, paraphonic, firmware-update-and-gestures (RESONANCE), architecture and README now use resonance, echo / out PAN, LINK, DARK, PINGPONG, reverb DECAY, oscillator 3 TRACK, VOICES, EXTRA and SOURCE noise / input / loop. Mode names (mono / para / para+4) stay where they name the feature.
+
 ### 18.5 Open (steer 4)
 - **Eng:**
   - KBD amounts (§18.6);

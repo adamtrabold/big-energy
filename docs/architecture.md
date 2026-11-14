@@ -36,13 +36,13 @@ An analog synth voice with one small computer beside it. The **sound is analog**
 |---|---|---|
 | Voice | 3 VCOs, mixer, 4-pole ladder filter, analog contours, VCA | [voice](features/voice.md) |
 | Keys | 25 silent Choc V2 keys, Hall-sensed velocity, printed or bought key heads | [keys and velocity](features/keys-and-velocity.md) |
-| Aftertouch | pressure strip under the keys, MOD / OFF / FILT | [aftertouch](features/aftertouch.md) |
+| Aftertouch | pressure strip under the keys, MOD / OFF / FILTER | [aftertouch](features/aftertouch.md) |
 | Bend and mod | sprung one-axis stick, MOD knob | [bend and mod](features/bend-and-mod.md) |
 | Paraphonic | MONO / PARA / PARA+4 | [paraphonic](features/paraphonic.md) |
 | Tuning | autotune, held-note correction, DRIFT | [autotune and drift](features/autotune-and-drift.md) |
 | Effects | echo (4 types) → reverb (4 types), wet-only return | [effects](features/effects.md) |
 | Echo sync | FREE / SYNC, TAP, MIDI clock | [echo sync](features/echo-sync.md) |
-| Outputs and panning | stereo phones and line, one speaker, dry pan, echo pan, FOLLOW | [panning and stereo outputs](features/panning-and-stereo-outputs.md) |
+| Outputs and panning | stereo phones and line, one speaker, out pan, echo pan, LINK | [panning and stereo outputs](features/panning-and-stereo-outputs.md) |
 | MIDI | played and automated from a DAW | [MIDI](features/midi.md) |
 | Power | internal battery, one USB-C | [power and battery](features/power-and-battery.md) |
 | Firmware and gestures | updates, boot and settings gestures | [firmware update and gestures](features/firmware-update-and-gestures.md) |
@@ -93,14 +93,14 @@ One table for every shared resource.
   - **mux A** = keys 1–16;
   - **mux B** = keys 17–25, 4 controls, Hall-rail monitor, AT toggle, AT FSR;
   - **mux C** = 16 controls;
-  - **mux D** = PARA, FREE / SYNC, DRY PAN, ECHO PAN, FOLLOW, OSC 3 CTL, PHONES sense, TS sense (or spare with two jacks), battery, charger STAT, VBUS, WAVE 1 (for PARA+4's matched waveform), **4 spare**.
+  - **mux D** = VOICES (para), FREE / SYNC, out PAN, echo PAN, LINK, oscillator 3 TRACK, PHONES sense, TS sense (or spare with two jacks), battery, charger STAT, VBUS, WAVE 1 (for PARA+4's matched waveform), **4 spare**.
 - **D16** stays the last direct analog spare.
 </details>
 
 <details><summary>What fills the mux (53 → 59)</summary>
 
-- **Decided additions:** PARA toggle, FREE / SYNC, DRY PAN, ECHO PAN, FOLLOW (+5).
-- **Proposed:** OSC 3 CTL read, phones-in sense, TS sense on line out, the battery divider moved onto the mux (+4), and optionally charger STAT / VBUS (+2).
+- **Decided additions:** VOICES switch, FREE / SYNC, out PAN, echo PAN, LINK (+5).
+- **Proposed:** oscillator 3 TRACK read, phones-in sense, TS sense on line out, the battery divider moved onto the mux (+4), and optionally charger STAT / VBUS (+2).
 </details>
 
 ---
@@ -125,7 +125,7 @@ One table for every shared resource.
 4. **Peg keys rub the floating key strip.** Widen the holes to ≥ 1 mm clearance (see [keys and velocity](features/keys-and-velocity.md)).
 5. **TAP gestures collide** (one could open the bootloader). Split proposed in [firmware update and gestures](features/firmware-update-and-gestures.md).
 6. **Stale pin table and a ghost part** in older eng files. Mark them superseded.
-7. **Missing pieces:** PITCH CV OUT: proposed on the freed Seed DAC OUT2 (12-bit, ≈ 1.5 cents/step over 5 V, buffered to 1 V/oct). OSC 3 CTL must be read (mux D). Keyboard tracking can't reach "full".
+7. **Missing pieces:** PITCH CV OUT: proposed on the freed Seed DAC OUT2 (12-bit, ≈ 1.5 cents/step over 5 V, buffered to 1 V/oct). oscillator 3 TRACK must be read (mux D). Keyboard tracking can't reach "full".
 8. **Power:** the speaker isn't in the power budget; loudness outdoors is untested.
 9. **Pops** in phones and line at power-on. Add an output mute.
 10. **MIDI questions for the owner** (CC 10, effect-amount CCs, channel, extras): see [MIDI](features/midi.md).

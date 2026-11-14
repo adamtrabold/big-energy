@@ -19,7 +19,7 @@ _To be written._
 | | Route | Behaviour change | Cost / budget |
 |---|---|---|---|
 | **A. A dedicated DAC for the 4th oscillator (recommended)** | Move **velocity and mod-depth CVs** onto a **5th MCP4822** (both are slow CVs). That frees the **Seed's two internal 12-bit DACs** (DAC1_OUT1 / OUT2, DMA-driven at 48 kHz). DAC1_OUT1 then plays the band-limited 4th oscillator → RC reconstruction filter → a fixed resistor into the **ladder's input summing node in the base** (after the hinge ribbon, so no ribbon change) | **none**: effects stay stereo, NOISE / EXT stays free. Its level is set in firmware to match a full-up oscillator; the mixer pots don't control it (they're analog, and the firmware can't see them) | +1 MCP4822 (≈ $4, UNVERIFIED) + 1 chip-select pin. Pins go to 30–31 of 31 (fine if line out uses two jacks, which frees the 4053 pin). Seed DAC quality ≈ 11 ENOB (ESTIMATE): fine for an oscillator that goes through the filter |
-| B. Codec OUT R → the NOISE / EXT input | a 74HC4053 steers OUT R to the mixer's EXT input while PARA+4 is on; the wet return goes mono (OUT L to both sums) | **yes:** effects go mono in PARA+4 and SOURCE must sit on EXT. **Owner** | +1 4053 section, 1 control pin |
+| B. Codec OUT R → the mixer's input (EXTRA, SOURCE = input) | a 74HC4053 steers OUT R to the mixer's EXT input while PARA+4 is on; the wet return goes mono (OUT L to both sums) | **yes:** effects go mono in PARA+4 and SOURCE must sit on EXT. **Owner** | +1 4053 section, 1 control pin |
 | C. Make the toggle 2-way (MONO / PARA) until a path exists | — | **yes:** PARA+4 disappears. **Owner** | 0 |
 
 **Recommendation: A.**

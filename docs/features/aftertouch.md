@@ -7,8 +7,8 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - [expert review](../../design/reviews/2026-11-13-audio-synth-review.md) item 5.
 
 ## What it does (player's view)
-- Press harder on a held key and the sound changes: **more vibrato or filter wobble** (MOD), or **a brighter filter** (FILT).
-- The **AFTERTOUCH** switch chooses MOD, OFF or FILT. It reacts only while a key is held down.
+- Press harder on a held key and the sound changes: **more vibrato or filter wobble** (MOD), or **a brighter filter** (FILTER).
+- The **AFTERTOUCH** switch chooses MOD, OFF or FILTER. It reacts only while a key is held down.
 - Nothing to calibrate: it learns how heavily you rest your fingers.
 
 ## Owner decisions (verbatim, linked)
@@ -31,7 +31,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
   - full scale 8 N, curve γ ≈ 1.5;
   - release ramps to 0 in 20 ms.
 - **Destinations:**
-  - **MOD** adds to the mod-depth CV (+50 % of MOD's range at full pressure): vibrato with OSC MOD on, filter wobble with FILTER MOD on.
+  - **MOD** adds to the mod-depth CV (+50 % of MOD's range at full pressure): vibrato with the oscillators' MOD switch on, filter wobble with the filter's MOD switch on.
   - **FILT** adds up to +2 octaves to the CUTOFF CV (MCP4822 #4 B).
   - Velocity and pressure add on CUTOFF.
 - **FOLD / CATHEDRAL:** the base board **splits** into a floating key strip and a fixed PLAY board, joined by a short ribbon (aftertouch §8.5). The printed base floor under the keys must be flat (a 3 mm acrylic base strip glued in).
@@ -39,7 +39,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 ## Controls and states
 | Control | Positions | Status |
 |---|---|---|
-| **AFTERTOUCH** toggle (ON-OFF-ON) | **MOD / OFF / FILT** (OFF in the centre: there's no amount knob) | decided (own switch); positions eng |
+| **AFTERTOUCH** toggle (ON-OFF-ON) | **MOD / OFF / FILTER** (OFF in the centre: there's no amount knob) | decided (own switch); positions eng |
 | Span and curve | settings (power-on: hold the top key, then keys 6–10) | proposed (gestures doc) |
 
 **Placement:** CATHEDRAL puts AFTERTOUCH on the lid's switch line at (242.5, d 32), beside VELOCITY at 222.5, as a "how the keys respond" pair (proposed).
@@ -73,7 +73,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - **Cost:** ≈ +$18–33 (FSRs $9.98, shipping, toggle, silicone, springs; acrylic from scrap).
 
 ## Open questions
-1. **Switch label: MOD or VIB?** Eng's note: "MOD" is honest (it adds modulation amount: vibrato *or* filter wobble, depending on OSC MOD / FILTER MOD); "VIB" matches your earlier word. *Team recommends MOD.* (Added to the decisions page.)
+1. **Switch label: MOD or VIB?** Eng's note: "MOD" is honest (it adds modulation amount: vibrato *or* filter wobble, depending on the oscillators' / filter's MOD switches); "VIB" matches your earlier word. *Team recommends MOD.* (Added to the decisions page.)
 
 ## Status (item by item)
 | Item | Status |
