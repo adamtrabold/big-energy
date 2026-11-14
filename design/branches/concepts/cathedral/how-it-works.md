@@ -1174,6 +1174,94 @@ Closed: **R-LOW ≈ 55.2** (P5O with the stick lowered), **R-TALL ≈ 59.7**. Th
   - pot body depth over the strip (≥ 2 mm from the cells);
   - with VCO 4: TIM5 CH4, the 6th MCP4822, the mixer's 5th leg.
 
+## 20. The base, regrouped by what each control is for (owner: "the bottom is a bit less senseful")
+**Breakdown.** Every base control falls into one of five concepts, and the Model D's own panel reads in this order, left to right: controllers → mixer → modifiers → output.
+1. **Hands while playing:** bend, mod, glide, release, tap.
+2. **Where mod goes:** the MOD knob's source (blend) and its destinations (pitch, filter).
+3. **Levels feeding the filter:** the mixer (1 · 2 · 3 · extra, source).
+4. **Shaping you ride:** filter (resonance · track · CUTOFF · envelope).
+5. **How much you hear and where:** effect levels (echo, reverb) and out (volume · pan · link).
+
+**Layout rule:** two rows that line up as columns, the front row (what the hands ride) under the rear row (what you set). The columns read in signal order, left to right.
+
+| Column | Front (y 68) | Rear (y 93) |
+|---|---|---|
+| **controllers** | bend 31.65 · mod 51.65 · glide 71.65 | pitch (t) 26.15 · filter (t) 37.15 (mod's destinations, behind bend) · blend 51.65 (behind mod) · release (t) 71.65 (behind glide) |
+| **filter / mixer** | resonance 111 · track (t) 125.8 · **CUTOFF 143** · envelope 163 | 1 102.2 · 2 122.2 · 3 142.2 · extra 162.2 · source (t) 176.8 |
+| **tempo / effects** | tap 201.35 (status light in its ring) | echo 209.2 · reverb 229.2 |
+| **out** | volume 239.7 · pan 259.7 | link (t) 259.7 (behind pan) |
+
+- **Gutters:** front 25.3, rear 18.9. Checker: 0.
+- **Track** sits 17.2 from CUTOFF (visual's 3/9 o'clock ticks), with positions **off · ½ · full** (player review 14, as the architecture proposed).
+- **The two "mod off · on" switches** become **pitch** and **filter**, the MOD knob's destinations, beside it (player review 1).
+- **Out is one group: volume · pan · link** (review 3; owner "the out pan makes no sense"). The lid keeps only echo's own pan.
+- **The midi / status lights** fold into TAP's ring. That's one status light (eng to confirm the LED and the MIDI-hold indication), and it gives TAP its own face (review 13).
+- **Closing (P5R lid):** the bend stick's nearest lid knob is filter attack, 4.55 in plan, so the stick stays as is. Track lands under the window, 24.1 from filter sustain. The rear slides (6 mm) sit under low lid items only. **R-LOW 55.2 / R-TALL 59.7.**
+- **P5O** keeps the steer-5 base until its own re-lay (§21.3): its lid still carries the osc mod, pan and link this base now holds.
+
+## 21. Steer 5 fixes 8: the owner's "this is not a 10" and the player review (round 1)
+### 21.1 P5R, re-laid (checker 0, gap rule included)
+| Row (d) | x | Gaps |
+|---|---|---|
+| **A, 104** | "1" octave 39.4 · wave 59.4 · **tune 79.4 · drift 99.4** ‖ "2" octave 126.9 · wave 146.9 · pitch 166.9 ‖ "3" octave 194.5 · wave 214.5 · pitch 234.5 · **track (t) 249.5** | ends and gaps between VCOs all **12.6** (one tight family) |
+| **B, 64** | **filter** 49.65 · 69.65 · 89.65 · (window) · **amp** 196.35 · 216.35 · 236.35 | 22.9 |
+| **C, 24** | **keys:** voices (t) 44.4 · velocity (t) 59.4 · touch (t) 74.4 (words above) ‖ **echo:** type 108.3 · time 128.3 · free · sync (t) 148.3 · repeats 163.3 · pan 183.3 ‖ **reverb:** type 218.7 · decay 238.7 | ends and gutters **20.5** |
+| headings | "oscillators" (d 120.9) · "filter", "amp" over their own groups (d 79.7) · row C on one line at d 37.4, over the keys' words | |
+
+### 21.2 Each owner fault, as a root cause
+- **"The oscillators are really far apart."** **Cause:** VCO groups spread to fill the row (gaps 22.6), with tuning at the far end.
+  **Fix:** one family. Tune and drift take VCO 1's empty pitch slot; track becomes VCO 3's 4th control; the gaps between VCOs drop to 12.6. In P5O, the rows go to one pitch (25) with 3 or 4 VCOs (§21.3).
+- **"mod and track placements feel random."** **Cause:** switches were put in leftover space, not by what they change.
+  **Fix:**
+  - **track** goes in VCO 3's row;
+  - **voices** goes in **keys** (voice count is how the keys deal notes);
+  - **osc mod** leaves the lid and becomes **pitch** beside the MOD knob on the base, with **filter** (the base's old "mod") next to it.
+  - No two switches share "mod" any more.
+- **"envelopes" label.** **Cause:** one heading for two groups split by the grille sat on the grille.
+  **Fix:** "filter" and "amp" each head their own group. **Not adopted:** the review's single "envelopes" header with margin labels. It needs a header somewhere over or beside the grille, which is the thing he objected to. The lid's "filter" heads the filter envelope, and the base's "filter" heads cutoff. It's one filter, set on the lid and ridden on the base, so the word stays (review 12, answered).
+- **"The out pan makes no sense."** **Cause:** pan and link sat on the lid under "out", while out's volume was on the base.
+  **Fix:** out is volume · pan · link, on the base (§20).
+- **Type labels and knob markings:** these are visual's (391d037). **Geometry that drives them:**
+  - the names line under each type word needs ≈ 4.5 mm below the legend (planned: row C's names sit at d 10.2);
+  - echo TIME's SYNC line is 15 mm wide, so type → time keeps 20 between centres;
+  - the base's track and mod switches are ≥ 17.2 from CUTOFF.
+
+### 21.3 P5O with the amp envelope in the top row (owner: "Yes I meant the amp envelope controls.. the amp group"): not laid yet, and why
+- **What works:** the top row fits at D 132. VCO 1 (octave · wave · tune · drift) | amp 123 / 143 / 163, centred over the speaker | echo type · time · free · sync, at gaps of ≈ 21.5.
+- **What doesn't:** with amp out of the right-hand column, rows R2–R4 to the right of the speaker need **≈ 2 more groups** than the lid has.
+  - Out, the osc mod and voices have now left the lid or moved into keys, which leaves less, not more.
+  - Each window row needs ≈ 60–80 mm of controls between the window and the margin. What's left (filter column, keys, echo's second row, reverb) fills R2 and R3 but leaves **R4 right and the slot under the window** empty: 40–75 mm holes.
+  - Track in VCO 3's row also blocks a filter column left of the window (it would sit 0.4 mm from the window at d 54).
+- **Levers, with numbers:**
+  1. **Deeper halves:** no help. Depth adds rows, and so more to fill.
+  2. **Wider case:** worse, more width to fill.
+  3. **Move the effect levels (echo, reverb) up into their effect groups on the lid:** adds 2 knobs. One group is still short, and it contradicts "volume/mixer on the bottom".
+  4. **VCO 4:** fits in the osc block either way. It changes nothing on the right.
+- **Recommendation (for the owner's "show me all the options"):** show P5R, which has the amp group left to right, as a full row next to the filter, and P5O's top-row study as a drawing with its two empty slots marked. Ask whether he'd accept the amp row one row down (beside the speaker, as P5R), or the effect levels on the lid.
+- **P5O in the checker is still the steer-5 layout** (amp column, the old base) and passes (0). It will be re-laid once he picks.
+
+### 21.4 The player review, point by point
+| # | Point | Answer |
+|---|---|---|
+| 1 | two "mod off · on" switches | **adopted:** pitch / filter beside MOD on the base |
+| 2 | build his amp top row on P5O | **studied; doesn't fit at D 132** (21.3); his call |
+| 3 | out = volume · pan · link on the base | **adopted** |
+| 4 | each switch with what it changes; 1·2·4 vs 1·3·4 | **adopted** (track in VCO 3's row, voices in keys). **Voices: 1 · 3 · 4 with three VCOs, 1 · 2 · 4 only with VCO 4** (§19.5; it's not a typo, the 4th VCO is what makes 2 even) |
+| 5 | even oscillator rows; tune/drift in VCO 1's slot | **adopted** (P5R; P5O at its re-lay) |
+| 6 | margin column for oscillator numbers | **adopted** in P5O (x 11, visual). P5R's VCOs run across the row, so each number leads its group |
+| 7 | one marking rule | visual's (391d037) |
+| 8 | type names on one line; same order; reverbs small → large | **adopted:** type first in both; reverb **spring · plate · hall · shimmer** |
+| 9 | echo TIME in SYNC | **six divisions:** 1/16 · 1/8 · dotted 1/8 · 1/4 · 1/2 · 1/1, printed as a line under "time" (16 · 8 · 8. · 4 · 2 · 1) |
+| 10 | base dead zones, columns | **adopted:** columns line up front over rear (§20) |
+| 11 | release with glide, blend with mod | **adopted** |
+| 12 | "filter" twice | answered in 21.2 |
+| 13 | TAP looks like a key | geometry: TAP's ring becomes the status light. Its face is visual's |
+| 14 | wordmark; track off · ½ · full; source label height | wordmark **removed everywhere**; **track off · ½ · full**; source label: visual |
+
+**Also decided:**
+- **MIDI:** every continuous knob sends and receives MIDI. Stepped selectors (octave, wave, type) send but don't follow incoming MIDI (they're detented). Switches don't take MIDI (architecture).
+- **No name on the panel** (owner).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
