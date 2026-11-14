@@ -126,6 +126,6 @@ One table for every shared resource.
 5. **TAP gestures collide** (one could open the bootloader). Split proposed in [firmware update and gestures](features/firmware-update-and-gestures.md).
 6. **Stale pin table and a ghost part** in older eng files. Mark them superseded.
 7. **Missing pieces:** PITCH CV OUT: proposed on the freed Seed DAC OUT2 (12-bit, ≈ 1.5 cents/step over 5 V, buffered to 1 V/oct). oscillator 3 TRACK must be read (mux D). Keyboard tracking can't reach "full".
-8. **Power:** the speaker isn't in the power budget; loudness outdoors is untested.
+8. **Power:** the speaker is now counted in [power and battery](features/power-and-battery.md) (≈ +0.5–0.8 W loud; runtime ≈ 1.7–2.9 h on the 11 Wh pack as specified, more with Hall gating). Loudness outdoors is untested; measure the LM386 draw.
 9. **Pops** in phones and line at power-on. Add an output mute.
 10. **MIDI questions for the owner** (CC 10, effect-amount CCs, channel, extras): see [MIDI](features/midi.md).
