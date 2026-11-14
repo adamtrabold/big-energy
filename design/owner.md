@@ -265,3 +265,5 @@ Recorded as: lid layout direction from the owner: oscillators stacked in a block
 Recorded as: keep the team's own steer-5 arrangement going AND do his layout; show both.
 2026-11-13 20:44 Owner (verbatim): "I think we can bring the spine back if we can make it look good"
 Recorded as: the spine (closing the back slot) is back on the table, only if it looks good. Reverses the 14:40 "I don’t want a spine" conditionally. Earlier dislikes: the oxblood colour felt unnecessary.
+2026-11-13 20:45 Owner (verbatim): "I kinda want the corners to be softer and to be more architectural like how Apple does theirs"
+Recorded as: corners (case and faceplates) softer, with Apple-style continuous-curvature corners (superellipse / G2 "squircle" rather than a plain circular radius).
