@@ -48,8 +48,8 @@ def draw_C(d, P, lw, D):
 
 if __name__ == "__main__":
     compose("rb_nv5_R_top.png", 132.0, "cathedral-s9-P5R-ratio-A-top-9.9px-per-mm.png",
-            "A  √5 face (≈ 9 : 4) on P5R  ·  286 × 132 per half",
-            "each face 277.4 × 123.4 = a square on the axis (the window's bay) with a ≈ golden wing either side", draw_A)
+            "A  √5: the face's proportion, on P5R  ·  286 × 132 per half",
+            "each face 277.4 × 123.4 (2.25 ≈ √5 = a square plus two ≈ golden wings); the controls are not laid on that division", draw_A)
     compose("rb_s9_P5OBD_C_top.png", 147.3, "cathedral-s9-P5OBD-ratio-C-top-9.9px-per-mm.png",
             "C  double-square face on P5OB-D  ·  286 × 147.3 per half",
             "each face 277.4 × 138.7 = two squares; their seam is the axis, through the window and cutoff", draw_C)

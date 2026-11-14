@@ -697,9 +697,11 @@ class Branch(Fold):
         if plate:
             s += self.lid_face(controls)
         yw = L0 + D
-        s += box(r5.FO_IO_PWR - 5, yw - 0.3, 5.5, r5.FO_IO_PWR + 5, yw + 0.1, 9.5, "#2a2826")
+        # the far wall's USB / jack mouths: 0.02 proud of the wall (were 0.1 / 0.15, which showed as dark ticks past
+        # the wall's rounded edge in exact top views; real sockets sit flush or recessed)
+        s += box(r5.FO_IO_PWR - 5, yw - 0.38, 5.5, r5.FO_IO_PWR + 5, yw + 0.02, 9.5, "#2a2826")
         for x in r5.FO_IO_JACKS:
-            s += f'{c("#151515")} translate([{x},{yw-0.25},7.5]) rotate([-90,0,0]) cylinder(h=0.4,d=4.6,$fn=24);\n'
+            s += f'{c("#151515")} translate([{x},{yw-0.38},7.5]) rotate([-90,0,0]) cylinder(h=0.4,d=4.6,$fn=24);\n'
         s += self.lid_ends(stowed)
         if back_detail:
             s += self.lid_back(walnut)
@@ -2241,12 +2243,12 @@ def top_tall(scene, name, x0, y0, x1, y1, px_per_mm=8, grain_classes=()):
     finally:
         ld.shot_top = old
 
-def nave_env(lid, **env):
+def nave_env(lid, grain=True, **env):
     """a Nave built with layout_check env switches (CATHEDRAL_VCO4, CATHEDRAL_P5R_KEYS) set only while it loads."""
     old = {k: os.environ.get(k) for k in env}
     os.environ.update(env)
     try:
-        return Nave(lid=lid, spine="dark")
+        return Nave(lid=lid, spine="dark", grain=grain)
     finally:
         for k, v in old.items():
             if v is None: os.environ.pop(k, None)
