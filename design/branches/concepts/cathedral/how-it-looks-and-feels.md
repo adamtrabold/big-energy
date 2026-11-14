@@ -21,7 +21,7 @@ Read the lid like a page, top to bottom, and you follow the sound. **Top row:** 
 
 ## His three complaints (16:52), answered
 1. **"off center in that middle section is bad looking … consider the sound of the speaker and the shape."** The speaker window is now **one round opening, centred on the instrument's axis, concentric with the driver, and sized by it**: Ø 46 (the cone plus its surround). Its 15 vertical slots open **≈ 945 mm², about 75 % of the cone's area**, against 265–440 mm² (≈ 20–35 %, choked) in every grille we showed before. Behind it: a foam gasket and a sealed, stuffed back box. It sits directly above CUTOFF, so the window, the hero dial and the keyboard's centre share one vertical line. The shape follows from the sound, not from leftover space.
-2. **"there's a massive horizontal gap -- the speaker doesnt feel resolved."** The gap was never the speaker's. Closed, the base's played row lands under the lid's middle, and the knobs were too tall for anything to sit over them. So the played row now uses **low knobs (Ø 10 × 8, bought)**, and the lid's rows are **evenly spaced, 35 mm apart**, with one switch line between the voice rows. **The only open area left on the lid is the round window itself.** The mixer is mirrored around it: osc 1 / osc 2 on the left, osc 3 / noise on the right.
+2. **"there's a massive horizontal gap -- the speaker doesnt feel resolved."** The gap was never the speaker's. Closed, the base's played row lands under the lid's middle, and the knobs were too tall for anything to sit over them. So the played row now uses **low knobs (Ø 10 × 8, bought)**, and the lid's rows are **evenly spaced, 35 mm apart**. **The only open area left on the lid is the round window itself**, with the contours mirrored either side of it (steer 3 above).
 3. **"i'd rather have more brass than black re: keys."** The lead is now **brass naturals with black sharps** (15 brass, 10 black). The alternate is **all brass**. Both are shown in real metal below. The played row's small knobs are gold aluminium, so what the hands play reads as brass, and what you set on the lid reads as black.
 
 **Moves this costs (⚑ director, then owner):** the mixer re-flowed round the window; CUTOFF and EMPHASIS swapped, so CUTOFF sits on the axis; MOD MIX and DRIFT down to the base; the switches gathered into one line; the effects row re-centred on the axis (x 44–242).
@@ -36,7 +36,7 @@ Read the lid like a page, top to bottom, and you follow the sound. **Top row:** 
 
 <figure>
 <img src="img/cathedral-nave-top-8.3px-per-mm.png" alt="Exact top view of CATHEDRAL open flat: the lid above with evenly spaced rows and the centred slotted window, the base below with the symmetric played row and the keys.">
-<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). Every legend sits where the checker measures it. The section names (oscillators, mixer, contours) are back, in the hand, on one line between the voice block and the effects row, with "mixer" on the axis over the window. The maker's lozenge sits on the axis under the window, just above the seam (blank in this render; see §6 for the name). Switch-line legends sit beside their toggles, not above: above, they read as the names of the knobs over them. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
+<figcaption><b>From above, open flat, exact</b> (scale bar 20 mm). The steer 3 lid above the base's played row. Every legend sits where the checker measures it; headings in the hand at 3.0, legends at 2.35; "big energy" on the plate under the window. Labels check 0 against systems' rules and 0 with the real Kalam metrics, including ticks.</figcaption>
 </figure>
 
 <figure>
@@ -175,7 +175,7 @@ Rev 1's brass was cut from bar. Systems §11 made the visible metal **printed 31
 - **The brass on the stays doesn't need plating or paint** if it's cast. Plating printed 316L to look like brass is possible but it's a finish that wears off a part you handle every time you stand the lid up.
 
 ## Open
-1. **⚑ Director, then owner:** the steer 2 moves (mixer re-flowed, CUTOFF ↔ EMPHASIS, MOD MIX and DRIFT to the base, the switch line, the effects row centred); R-LOW (≈ 55.2 closed with snap-in pots and the lowered stick, else 56.7–58.8; Ø 10 knobs) vs R-TALL (≈ 59.7, today's knobs).
+1. **⚑ Director, then owner:** the steer 2–3 moves (the lid in signal order, CUTOFF ↔ EMPHASIS, MOD MIX and DRIFT to the base); R-LOW (≈ 55.2 closed with snap-in pots and the lowered stick, else 56.7–58.8; Ø 10 knobs) vs R-TALL (≈ 59.7, today's knobs).
 2. **Director:** the hinge ear: accept the 4 mm nub, or ask systems for the offset pivot / knuckles (§6).
 3. **Owner:** keys A (lead) or C; lacquered or unlacquered brass; gold or black low knobs.
 4. **Systems / eng:**
