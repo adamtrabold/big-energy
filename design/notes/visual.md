@@ -1,5 +1,11 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL lid, director's 9 condition (2026-11-13 evening)
+- "filter" heading (21.0, d 66.5, HS 3.0) + rule (x 43.5, d 31.0–58.5) for the kbd / filt mod column, mirroring "out" (262.5, 66.5) / rule (242.5, 7–58.5). FILT MOD → (23.5, d 35.0). Constants `NV_FILT_MOD_D`, `NV_FILTER_HEAD`, `NV_FILTER_RULE` in `rb.py`, applied in `nv_overrides`.
+- `/tmp/scr/nv_kalam.py` now takes control positions from `nv_overrides` (it was using the checker's stale FILT MOD).
+- Checks 0 / 0. Re-rendered lid top, full top, standing. Positions sent to systems for the checker (with the earlier real-Kalam overrides).
+
+
 ## CATHEDRAL, steer 3 fixes (2026-11-13 evening): director's 8 on the lid
 - Systems b3e5525: band B mirrored (filter at 63.5 / 83.5 / 103.5, KBD + FILT MOD column at x 23.5), VCO spacing 20 / 25, my numbered legends + "osc 3 ctl" + contour headings in the checker, HS 3.0.
 - **rb.py:** `nv_overrides` stripped of numbering / contour split (systems own them); now holds only real-Kalam fits: contour headings d 67.5, osc|mixer break from 70.5, oscillators / mixer +0.4, reverb heading +2 x, FOLLOW words beside (off · follow, gap 6.4). `NV_UD_GAP` / `NV_UD_SZ` env-tunable (1.75 / 1.69).

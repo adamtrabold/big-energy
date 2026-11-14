@@ -1476,6 +1476,9 @@ def _lc():
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     return m
 
+NV_FILT_MOD_D = 35.0
+NV_FILTER_HEAD = ("filter", 21.0, 66.5)     # 2.5 left of the mirror (23.5): centred at 23.5 it reached PARA's toggle
+NV_FILTER_RULE = (43.5, 31.0, 58.5)         # mirror of the out rule (x 242.5, d 7-58.5), stopping above the echo row
 NV_UD_GAP = float(os.environ.get("NV_UD_GAP", 1.75))
 NV_UD_SZ = float(os.environ.get("NV_UD_SZ", 1.69))           # up / down toggle words: systems' 1.6 left real Kalam 1.37-1.42 from the toggle
 NV_SECTION_D = 67.5        # lid section names' line
@@ -1530,6 +1533,12 @@ def nv_overrides(lc):
     # put "follow" 1.21 from DRY PAN at any workable size; beside, both words have room (break at 242.5, plate edge)
     lid = [(n, x, d, r, k, "off|follow", "beside") if n == "FOLLOW" else (n, x, d, r, k, lab, w)
            for n, x, d, r, k, lab, w in lc.lid]
+    # director's 9-condition: the kbd / filt mod column gets its own "filter" heading and rule, mirroring the out
+    # column (heading "out" (262.5, d 66.5), rule x 242.5); FILT MOD moves up to d 35 (the switch line's height),
+    # clear of ECHO TYPE's "tape" / "ping-pong" fan
+    lid = [(n, x, NV_FILT_MOD_D, r, k, lab, w) if n == "FILTER MOD" else (n, x, d, r, k, lab, w) for n, x, d, r, k, lab, w in lid]
+    sections.append(NV_FILTER_HEAD)
+    breaks.append(NV_FILTER_RULE)
     return lid, breaks, sections
 
 class Nave(Cathedral):
