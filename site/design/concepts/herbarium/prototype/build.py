@@ -267,7 +267,7 @@ for folder, G, status, line, scoreline, _stems in BRANCH:
             blk = m.group(3); src = re.search(r'src="(img/[^"]+)"', blk)
             if not src: continue
             cap = re.search(r"<figcaption>(.*?)</figcaption>", blk, flags=re.S); alt = re.search(r'alt="([^"]*)"', blk)
-            refs.append(((cap.group(1) if cap else alt.group(1) if alt else "").strip(), src.group(1)))
+            refs.append((html.unescape(re.sub(r"<[^>]+>", "", cap.group(1) if cap else alt.group(1) if alt else "")).strip(), src.group(1)))
         elif m.group(4):
             alt = re.search(r'alt="([^"]*)"', m.group(0)); refs.append((alt.group(1) if alt else "", m.group(4)))
     codes, imap = [], {}
@@ -600,7 +600,16 @@ data = {"project": {"name": "Big Energy", "line": "a portable Model D", "waiting
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,
         "events": events, "clouds": cl, "docs": docs_site, "docsIndex": docs_index, "reviews": reviews, "updated": updated, "waiting": waiting, "ownertests": ownertests}
 
+# the lightbox: Ramka in a React island (lightbox/), bundled to vendor/lightbox/lightbox.js; copied as a static file
+import shutil
+VEND = os.path.join(HERE, "vendor", "lightbox")
+os.makedirs(os.path.join(MEDIA, "vendor"), exist_ok=True)
+shutil.copyfile(os.path.join(VEND, "lightbox.js"), os.path.join(MEDIA, "vendor", "lightbox.js"))
+USED.add("vendor/lightbox.js")
+data["licenses"] = [{"name": "Image viewer: Ramka (@ramka/react 0.0.2), React 18.3.1", "url": "https://ramka.dev",
+                     "text": open(os.path.join(VEND, "LICENSES.txt"), encoding="utf-8").read()}]
 tpl = open(os.path.join(HERE, "app.html"), encoding="utf-8").read()
+
 js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 open(os.path.join(HERE, "index.html"), "w", encoding="utf-8").write(tpl.replace("/*DATA*/", js))
 for dp, _, fs in os.walk(MEDIA):
