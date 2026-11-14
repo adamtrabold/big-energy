@@ -282,3 +282,9 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-14 01:33
 > Also it doesn’t need to say big energy
+
+## 2026-11-14 09:44–09:46
+> We’re getting closer. I’d like a view where I can drag around the controls / align / etc. To a grid and whatnot. What’s the best way to do this? I could do it in figma or if there’s a better app for this kind of design with an mcp
+> Why is there the 5mm grid? Just curious
+> Cool that’s great we have a harmonious grid. I’m curious about that scale, I might play with it. Ideally it’d be derived from the dimensions of the device as well
+> Yeah I would rather base it on the face dimensions / ratio
