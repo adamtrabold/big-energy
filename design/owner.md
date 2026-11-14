@@ -261,3 +261,5 @@ Recorded as: study a 4th ANALOG oscillator (Matriarch-style, its own octave, wav
 
 2026-11-13 20:43 Owner (verbatim): "I feel like the oscillators should all be stacked on the left, then top case filter/envelope where there’s less room cuz of speaker in the middle, then amp controls going left to right in the top row on the top case"
 Recorded as: lid layout direction from the owner: oscillators stacked in a block on the LEFT; filter and envelope controls in the middle area around the speaker (less room there); amp controls running left to right along the lid's top row. ("Amp controls" most likely = the amp envelope; team to confirm against the steer-5 rule that puts volume on the base.)
+2026-11-13 20:43 Owner (verbatim): "Don’t stop the other exploration tho I wanna see what they came up with too"
+Recorded as: keep the team's own steer-5 arrangement going AND do his layout; show both.
