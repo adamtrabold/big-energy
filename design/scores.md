@@ -572,3 +572,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 4: P5R **8** (lid 8, base 9), P5OBD **7** (lid 8, base 7). With fixes (mixer 1–4, bank shift so stick clears, base rows up, header baseline) would defend P5OBD at 10. Says the choice is 4 VCOs = P5OBD, 3 = P5R.
 - Director round 8b: P5R **10** (tempo heading). Critic still P5R 8 (lid capped by long oscillator row).
 - Player critic round 5: P5OBD **9** (lid 9, base 9) "now good"; P5R **8**. P5OBD to 10: drift/tune read as tuning (trim caps or one tuning rule), keys ≥8 mm under reverb names, right block ~3 mm right.
+- Player critic round 6: P5OB-D **10** (lid 10, base 9), stopped arguing. P5R stays 8.
