@@ -25,6 +25,15 @@ Decisions only you can make, newest first. The team keeps working around them; e
 ![P5OB-D: full top with 4 oscillators, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png)
 ![P5OB-D: standing](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-standing.jpg)
 
+**Case ratio, which follows the layout** (your 12:12 question):
+- **With P5OB-D: a double-square face (C), 286 × 147.3 mm per half.** Director **10**. Each face is two squares, and their seam runs through the speaker and cutoff, the layout's real centre line. Open, the two faces make one square. This is 2.3 mm more than the 145 drawn above, about 10 g, with no re-layout.
+- **With P5R: a √5 face (A), today's 286 × 132.** Director **8**. It's the face's proportion, but the square cuts through controls, so it doesn't organise the layout.
+- Dropped: a double-square outer case (B), which comes from the box rather than the face, and golden or 3:2 halves, which are too small or about 45 mm larger.
+
+![C: double-square face on P5OB-D](branches/concepts/cathedral/img/cathedral-s9-P5OBD-ratio-C-top-9.9px-per-mm.png)
+![A: √5 face on P5R](branches/concepts/cathedral/img/cathedral-s9-P5R-ratio-A-top-9.9px-per-mm.png)
+![All three ratios as silhouettes, true scale](branches/concepts/cathedral/img/cathedral-s9-case-ratios-4px-per-mm.png)
+
 **Your layout at 132 mm (study).** Three oscillators, amp envelope on top, filter row below. It fits, but the right side can't be filled without moving the effect levels or out onto the lid.
 
 ![P5OB study at 132 mm](branches/concepts/cathedral/img/cathedral-s7-P5OB-study-top-9.9px-per-mm.png)
