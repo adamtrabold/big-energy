@@ -1378,6 +1378,25 @@ The checker reports what each leaves empty. The visual renders all three.
 - **What doesn't hold at D 132:** the right column has 4 × 25 mm for two headed groups with names lines plus keys. Each headed group needs ≈ 32 mm (heading, ticks, knob, legend, names). Fitting it needs about +15 mm of lid depth (both halves, since FOLD couples them), or keys elsewhere.
 - **Verdict:** P5OB can't reach 0 with this fill. The earlier P5OB (reverb bottom right, the "air" at R3) is 5 by-design gaps and no clashes. It's the cleaner study to show.
 
+## 25. P5OB-D: the critic's four-oscillator P5OB at the depth it needs (`layout_check.py P5OBD`, `CATHEDRAL_D`)
+- **Minimum depth: D 143** (+11 on both halves, since FOLD couples them). At D 142 the keys' switches land 0.9 inside the 3M bottom margin. **Recommended: D 145** (+13), which gives the keys 2 mm of slack. All numbers below are at 145.
+- **Lid:**
+  - rows shift up with the window, now at d 77 (over CUTOFF, base y 68): VCO 1–4 at 117 / 92 / 67 / 42;
+  - amp row on top (123 / 143 / 163, d 117); filter row at the bottom (d 42);
+  - the right column on its own rows: echo 117 / 92 → **reverb 57** (1M under echo's legends, its heading over its ticks) → **keys 22** (words above them);
+  - keys: voices 198 · velocity 213 · touch 228.
+- **Checker (4 VCOs): 7, and all of them gaps by design.** The grille's sides: R2 47.3 / 27.8, end 40; R3 29.5 / 29.3, end 40. R4's gutters are 41.4 (VCO 4 → filter) against 22.9 (filter → keys). **No text clashes.** The four-groups-in-one-column overprint of D 132 is gone.
+- **Three VCOs at D 145: 7.** Keys go back under the bank, so **the bottom right is empty (96 mm)**. Still no three-VCO fill without levels or out on the lid.
+- **Closing thickness:** unchanged. Depth doesn't touch the stack. **55.2 with the stick lowered to 9.0** (58.8 at full height). The stick still lands under VCO 2 / 3 (P5OB has no landing spot, §24.3).
+- **Size against today (D 132):**
+  - each half 286 × 145 (+13 mm, +9.8 % area);
+  - open flat 292 deep (was 266);
+  - closed 286 × 145 × 55.2.
+- **Weight:** ≈ **+55 g** (ESTIMATE: the shell taken as 60 % of each half's mass, scaled with area). The cells and electronics don't change. VCO 4 adds its own ≈ 0.4 W and +$20–30 (§19.5).
+- **Cost:** ≈ +10 % shell material and print time. The stays grow with the depth (pennies). The base gains an empty 13 mm strip behind the battery (room for the cells to move back, eng).
+- **Stand:** tip threshold **6.8 N** with today's stays (59 mm behind), **9.3 N** with stays scaled to the depth. Scale them.
+- **Base:** the same base 6, unchanged at the front; it ends 13 mm deeper at the back.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

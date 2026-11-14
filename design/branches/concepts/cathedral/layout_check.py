@@ -29,15 +29,16 @@ NS = 1.3                          # note / position-word size (Kalam), the small
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5OA", "P5OL", "P5OB") else os.environ.get("CATHEDRAL_LID", "P5O"))
+VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5OA", "P5OL", "P5OB", "P5OBD") else os.environ.get("CATHEDRAL_LID", "P5O"))
 # steer 5 (2026-11-13 evening): both halves 132 deep (D), a two-row base, two lid options:
 #   P5O  the owner's lid direction (20:43): oscillators stacked on the left, filter round the window, amp along the top
 #   P5R  the director's rule laid in rows: oscillators ‖ tuning on top, envelopes round the window, effects below
 # P (steer 4) and S (steer 3) stay as history at D 108.
-STEER5 = VARIANT in ("P5O", "P5R", "P5OA", "P5OL", "P5OB")
+STEER5 = VARIANT in ("P5O", "P5R", "P5OA", "P5OL", "P5OB", "P5OBD")
 M = 5.0                                            # the module (mm): every spacing below is a multiple of it (§19.3)
 if STEER5:
     D = 132.0                                      # +24: a second base row (y 93) and the battery strip behind it
+    if VARIANT == "P5OBD": D = float(os.environ.get("CATHEDRAL_D", "147"))   # P5OB at the depth its right column needs
     WIN = (143.0, D - 68.0, 23.0)                  # the window stays over CUTOFF (base y 68) -> lid d 64
 VCO4 = os.environ.get("CATHEDRAL_VCO4", "0") == "1"   # the optional 4th analog VCO (owner question, §19.5): lid + base mixer 4
 ML, MR = 4.3 + 3 * M, 281.7 - 3 * M                # the margin lines: 3M inside the plate edges (x 19.3 / 266.7)
@@ -60,13 +61,21 @@ SUBHEADS = [] # sub-heads under a heading: (text, x, d), Kalam SUB_S
 DOTS = []     # link dots (Ø 1.2): (name, x, d, paired control)
 def L(n, x, d, k, lab, where): lid.append((n, x, d, KN if k == "k" else TGL, k, lab, where))
 
-if VARIANT == "P5OB":
+if VARIANT in ("P5OB", "P5OBD"):
     # ---- the critic's "centre spine" (§23.3), round 8 fill (§24): amp attack · decay · sustain the top row over the
     # speaker, the filter envelope the bottom row under it; oscillators stacked left at 25; echo top right with
     # reverb moved up under it (one effects block). With VCO 4 (CATHEDRAL_VCO4=1) the bank is four rows and keys go
     # bottom right; with three VCOs keys stay bottom left under the bank and the bottom right is empty (no
     # three-oscillator fill exists without moving levels or out onto the lid).
     R1, R2, R3, R4 = 104.0, 79.0, 54.0, 29.0
+    RV, RK = R3, R4                                                 # reverb's and keys' rows in the right column
+    if VARIANT == "P5OBD":
+        # deeper halves (§25): rows shift up with the window (d D − 68); the right column gets its own rows so each
+        # headed group keeps its heading, ticks, knob, legend and names line: echo R1 / R2, reverb, keys
+        sh = D - 132.0
+        R1, R2, R3, R4 = 104.0 + sh, 79.0 + sh, 54.0 + sh, 29.0 + sh
+        RV = R2 - 35.0                                              # reverb: 1M under echo's legends, heading over its ticks
+        RK = RV - 35.0                                              # keys: under reverb's names line, words above them
     C1 = ML + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)
     NUMX = 11.0
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", OX[2], R1, "tune"),
@@ -89,21 +98,21 @@ if VARIANT == "P5OB":
     L("ECHO TYPE", EC1, R1, "k", "type", "front"); L("ECHO TIME", EC1 + 20, R1, "k", "time", "front")
     L("FREE/SYNC", EC1 + 41.5, R1, "t", "free · sync", "under")
     L("ECHO REPEATS", EC1, R2, "k", "repeats", "front"); L("ECHO PAN", EC1 + 20, R2, "k", "pan", "front")
-    L("REVERB TYPE", EC1, R3, "k", "type", "front"); L("REVERB DECAY", EC1 + 20, R3, "k", "decay", "front")
+    L("REVERB TYPE", EC1, RV, "k", "type", "front"); L("REVERB DECAY", EC1 + 20, RV, "k", "decay", "front")
     KP = 3 * M
     kx = (EC1 - 6.175 + 6.175) if VCO4 else None
     keys = [("PARA", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4")), ("VEL", "velocity|amp · both · filter"),
             ("AFTERTOUCH", "touch|mod · off · filter")]
     KXS = [EC1 - KN + 6.175 + KP * i for i in range(3)] if VCO4 else list(OX[:3])
     for x, (n, lab) in zip(KXS, keys):
-        L(n, x, R4, "t", lab, "above2")
+        L(n, x, RK if VCO4 else R4, "t", lab, "above2")
     SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
     over = lambda d: d + KN + 1.5 + 0.425 * HS
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
-    KTOP = R4 + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6
+    KTOP = (RK if VCO4 else R4) + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS + 1.5 + 0.425 * HS + 0.6
     SECTIONS_LEFT += [("oscillators", ML, HTOP), ("amp", 123.0 - KN, HTOP), ("echo", EC1 - KN, HTOP),
-                      ("filter", 123.0 - KN, H4), ("reverb", EC1 - KN, R3 + KN + 1.7 + 1.5 + 0.425 * HS),
+                      ("filter", 123.0 - KN, H4), ("reverb", EC1 - KN, RV + KN + 1.7 + 1.5 + 0.425 * HS),
                       ("keys", KXS[0] - 6.175, KTOP)]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     FX, FX_BREAKS, SWL = R1, [], R4
