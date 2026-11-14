@@ -229,6 +229,19 @@ details.jump a{display:block;padding:3px 0}
 .proto button.on{font-weight:700}
 .ptog{display:none;text-decoration:none!important}
 @media(max-width:899px){.ptog{display:inline}.plab{display:none}.proto:not(.open) .in>*:not(.ptog){display:none}.proto .in{gap:6px 14px}}
+/* designs: current case, timeline */
+.nowcase{border-top:1.5px solid var(--ink);padding-top:12px;margin-bottom:10px}
+@media(min-width:900px){.gallery.two{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery.two figure:first-child{grid-column:auto}}
+.nowcard{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:6px 0 18px}
+.nowcard img{width:100%;height:auto;max-height:46vh;object-fit:contain;background:var(--paper);display:block}
+@media(min-width:900px){.nowcard{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:24px}}
+.tl{list-style:none;padding:0;margin:0}.tl li{border-top:1px solid var(--rule);padding:12px 0}
+.tlh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.tlh b{font-weight:600}
+.tl p{margin:4px 0;max-width:70ch}
+.tlimgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px;max-width:820px}
+@media(min-width:900px){.tlimgs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tlimgs figure{margin:0}.tlimgs img{width:100%;aspect-ratio:3/2;object-fit:contain;background:var(--paper);display:block}
+.tlimgs figcaption{font-size:12px;color:var(--ink2);margin-top:4px}
 /* physical: case index + gallery */
 .cases{display:grid;grid-template-columns:minmax(0,1fr);gap:26px 22px}
 @media(min-width:700px){.cases{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -350,8 +363,8 @@ function updatedLine(){
   return `<div class="status" title="${esc(u.what)}">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
 const SECTIONS = [ // build-chain order; the site's whole structure
-  ["decide","./","To decide"],["architecture","#architecture","Architecture"],["features","#features","Features"],
-  ["physical","#physical","Physical"],["electronics","#electronics","Electronics"],["parts","#parts","Parts"],["tests","#tests","Tests"],["history","#history","History"]];
+  ["decide","./","To decide"],["physical","#designs","Designs"],["architecture","#architecture","Architecture"],["features","#features","Features"],
+  ["electronics","#electronics","Electronics"],["parts","#parts","Parts"],["tests","#tests","Tests"],["history","#history","History"]];
 function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
   return `<header class="band wrap"><div class="hgrid">
@@ -376,7 +389,10 @@ function groupRow(gc, note){ const g = G[gc]; if (!g) return ""; const m = g.lea
   return `<a class="drow${g.status==="dropped"?" dropped":""}" href="#g-${gc}"><span class="t">${esc(g.title)} <span class="ink2" style="font-weight:400">rev ${esc(g.rev)}</span></span><span class="c">${esc(note || g.line)}</span><span class="ink2" style="font-size:13px">${esc(g.status)}${m?" · "+g.images.length+" images":""}</span></a>`; }
 function vWaiting(){
   const W = D.waiting || {items:[]};
-  return header("decide") + `<main class="wrap wide">${updatedLine()}${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
+  const C = G.CATHEDRAL, lead = C && I[C.lead];
+  return header("decide") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">This site shows Big Energy, the portable Model D-style synth being designed for you: the case designs, how it works, and what's waiting on your decision.</p>
+    ${lead ? `<a class="nowcard" href="#designs"><img src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="CATHEDRAL, the current design"><div><div class="cmeta"><b>Current design: CATHEDRAL</b></div><div class="cline">${esc(C.statusLabel)}</div><div class="u" style="margin-top:4px">See every design and how it got here ›</div></div></a>` : ""}
+    <h2 class="sec">Waiting on you</h2>${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
     ${W.items.length ? `<ol class="wlist">${W.items.map(it=>`<li><a href="#wait-${it.n}"><b>${esc(it.title)}</b>${it.unblocks?`<span class="ink2"> · unblocks ${esc(it.unblocks)}</span>`:""}</a></li>`).join("")}</ol>` : "<p>Nothing is waiting on you.</p>"}
     ${W.items.map(it=>`<section class="wsec" id="wait-${it.n}"><h2>${esc(it.n)}. ${esc(it.title)}</h2><div class="doc-html">${it.html}</div></section>`).join("")}
   </main>${about()}`;
@@ -397,15 +413,19 @@ function caseCard(gc){
     <div class="cline">${esc(g.line)}</div><div class="ink2" style="font-size:12.5px">${g.images.length} image${g.images.length==1?"":"s"}${g.docs.length?" · "+g.docs.length+" doc"+(g.docs.length>1?"s":""):""}</div></a>`;
 }
 function vPhysical(){
-  const sec = (t, list, big) => `<h2 class="sec">${t}</h2><div class="cases${big?" big":""}">${list.map(caseCard).join("")}</div>`;
-  return header("physical") + `<main class="wrap">${point("Every case version, with pictures. Tap one to see all its images large, then its docs.")}
-    ${sec("Current", ["CATHEDRAL"], true)}
-    ${sec("Branches it grew from", ["CHAMBER","RAIN"])}
-    ${sec("Locked in v1.1", ["FOLD","ONESHEET","HUSH"])}
-    ${sec("Dropped branches", ["BUTTERFLY","DIPTYCH"])}
+  const C = G.CATHEDRAL, now = C.timeline[0];
+  const nowImgs = (now.imgs||[]).map(m=>`<figure><a href="#g-CATHEDRAL"><img src="${m.src}" width="${m.w}" height="${m.h}" alt="${esc(m.cap)}"></a><figcaption>${esc(m.cap)}</figcaption></figure>`).join("");
+  const sec = (t, list) => `<h2 class="sec">${t}</h2><div class="cases">${list.map(caseCard).join("")}</div>`;
+  return header("physical") + `<main class="wrap">${point("Every design of the case: the current one first, then every other version and where it stands. Tap one to see all its pictures and how it got there.")}
+    <section class="nowcase"><div class="cmeta" style="font-size:22px"><b>CATHEDRAL</b><span class="cst">current</span></div>
+      <p class="cline" style="font-size:16px;max-width:70ch">${esc(now.what)}</p>
+      <p class="ink2" style="margin:0 0 10px">${esc(now.name)} · scores ${esc(now.score)}</p>
+      <div class="gallery two">${nowImgs}</div>
+      <p><a class="btn" href="#g-CATHEDRAL">All CATHEDRAL pictures, and how it got here ›</a></p></section>
+    ${sec("Where it came from", ["CHAMBER","FOLD"])}
+    ${sec("Other versions", ["ONESHEET","HUSH","RAIN","BUTTERFLY","DIPTYCH"])}
     ${sec("Earlier concepts", ["FOLD113","TYPECASE","HYMNAL","UNDERGLASS"])}
     ${sec("Full instrument (paused)", ["FULLCASE","FULLDOCK","FULLDISH","FULLMOTTO","FULLSLAB"])}
-    <h2 class="sec">Not yet</h2>${notYet("Physical architecture diagrams","at Handoff, once CATHEDRAL is chosen","docs/physical/ (markdown + images)")}${notYet("3D models (STL / STEP) and print files","at the Prints stage","design/models/")}
   </main>${about()}`;
 }
 function vElectronics(){
@@ -623,17 +643,23 @@ function vProto(it){
     <li>Navigation is kept simple until you say how you want it.</li></ul>
     </article><div class="aside">${label({code:it.code, title:"", fields:statusLine(it), revs:it.revs})}</div></main>`;
 }
+function timeline(g){
+  return `<ol class="tl">${(g.timeline||[]).map(s=>`<li><div class="tlh"><span class="ink2">${esc(s.t)}</span><b>${esc(s.name)}</b>${s.score?`<span class="cst">score ${esc(s.score)}</span>`:""}</div>
+    ${s.what?`<p>${esc(s.what)}</p>`:""}${s.why?`<p class="ink2">Why: ${esc(s.why)}</p>`:""}
+    ${(s.imgs||[]).length?`<div class="tlimgs">${s.imgs.map(m=>`<figure><a href="${m.src}" target="_blank" rel="noopener"><img src="${m.thumb}" alt="${esc(m.cap)}" loading="lazy"></a><figcaption>${esc(m.cap)}</figcaption></figure>`).join("")}</div>`:""}</li>`).join("")}</ol>`;
+}
 function vGroup(code){
   const g = G[code]; if (!g) return vMissing(code);
   const gallery = `<div class="gallery">${g.images.map(c=>{ const it = I[c]; return `<figure><a href="#i-${c}"><img src="${it.src}" width="${it.w}" height="${it.h}" alt="${esc(it.title)}" loading="lazy"></a><figcaption>${esc(it.title)}${it.sub?" · "+esc(it.sub):""}</figcaption></figure>`; }).join("")}</div>`;
   const docs = g.docs.map((c,i) => `<details class="gdocd"${i===0&&!g.legacy?" open":""}><summary>${esc(I[c].title)}</summary><div class="doc-html nofig">${I[c].html}</div></details>`).join("");
+  const seed0 = 0;
   const seed = g.seed && G[g.seed] ? `<a class="u" href="#g-${g.seed}">grew from ${esc(G[g.seed].title)}</a>` : "";
-  return header("physical") + backBar("#physical", "Physical", true, "One case version: all its images large, then its docs.") + `<main class="wrap">
+  return header("physical") + backBar("#designs", "Designs", true, "One version of the case: all its pictures, then what changed and why, then its docs.") + `<main class="wrap">
     <div class="gtop"><div><div class="name" style="margin:0">${esc(g.title)} <span class="cst">${esc(g.statusLabel||g.status)}</span></div><div class="oneline">${esc(g.line)}</div><div style="font-size:13px;margin-top:4px">${seed}</div></div>
       <div>${glabel(g,{max:3})}</div></div>
     ${gallery}
+    <h2 class="sec">What changed and why</h2>${timeline(g)}
     ${docs ? `<h2 class="sec">Docs</h2>${docs}` : ""}
-    <h2 class="sec">Revisions</h2><div class="rows">${g.revs.map(r=>`<div class="r"><span class="c">rev ${r.rev}</span><span>${esc(r.line)}</span></div>`).join("")}</div>
   </main>${about()}`;
 }
 function vCompare(code, a, b){
@@ -729,7 +755,7 @@ function route(){
   else if ((m = h.match(/^wait-(\d+)$/))) { html = vWaiting(); setTimeout(() => { const e = document.getElementById("wait-" + m[1]); if (e) e.scrollIntoView(); }, 30); }
   else if (h === "architecture") html = vDocPage("architecture");
   else if (h === "features" || h === "docs") html = vFeatures();
-  else if (h === "physical") html = vPhysical();
+  else if (h === "physical" || h === "designs") html = vPhysical();
   else if (h === "electronics") html = vElectronics();
   else if (h === "parts") html = vParts();
   else if (h === "tests") html = vTests();

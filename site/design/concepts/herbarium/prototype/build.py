@@ -247,7 +247,7 @@ BRANCH = [  # newest first
     ("diptych", "DIPTYCH", "dropped", "a scientific field instrument", "branches round 1: killed by the branches director", ["diptych-standing", "diptych-open", "diptych-closed", "diptych-standing-side-exact", "diptych-top-14.48px-per-mm"]),
 ]
 ROUND2 = {"CHAMBER", "RAIN"}
-LEAD = {"CATHEDRAL": "cathedral-B-standing"}   # a standing 3/4 view leads the visual index
+LEAD = {"CATHEDRAL": "cathedral-s5-P5R-standing"}   # a standing 3/4 view leads the visual index
 STATUS = {"CATHEDRAL": "current", "CHAMBER": "scored 9 · grew into CATHEDRAL", "RAIN": "scored 7 · re-score pending",
           "BUTTERFLY": "dropped · retired at 6", "DIPTYCH": "dropped · killed"}   # round 2 fixes landed 13 Nov; re-score pending
 SEED = {"CATHEDRAL": "CHAMBER", "CHAMBER": "FOLD", "RAIN": "ONESHEET", "BUTTERFLY": "ONESHEET", "DIPTYCH": "FOLD"}
@@ -444,7 +444,8 @@ for d in decisions:
 rounds = []
 sc = rd("design/scores.md")
 for m in re.finditer(r"^## (Round \d)[^\n]*\((2026-\d\d-\d\d)\)(.*?)(?=^## |\Z)", sc, flags=re.S | re.M):
-    rows = re.findall(r"^\|\s*\*{0,2}([A-Z][A-Z0-9 \-()+]*?[A-Z0-9)])\*{0,2}[^|]*\|\s*\*{0,2}(\d{1,2})\*{0,2}\s*\|", m.group(3), flags=re.M)
+    rows = [(re.sub(r"\s*\(.*$", "", n.replace("*", "")).strip(), sc) for n, sc in
+            re.findall(r"^\|\s*\*{0,2}([A-Z][^|]*?)\s*\|\s*\*{0,2}(\d{1,2})\*{0,2}\s*\|", m.group(3), flags=re.M)]
     seen, rr = set(), []
     for n, s in rows:
         n = n.strip()
@@ -514,7 +515,77 @@ _cw = rd("design/branches/concepts/cathedral/how-it-works.md") if os.path.exists
 _m = re.search(r"### Two buy-and-test checks[^\n]*\n(.*?)(?=\n>\s*###|\n## )", _cw, flags=re.S)
 if _m:
     ownertests = md("\n".join(l[1:].lstrip() if l.startswith(">") else l for l in _m.group(1).splitlines()), src="design/branches/concepts/cathedral/how-it-works.md")
-import subprocess
+import subprocess, tempfile
+_tmp = tempfile.mkdtemp()
+def blob(commit, path, name, long=1400):
+    """downscaled copy of an image as it was at an earlier commit (git history); None if that commit isn't here"""
+    out = os.path.join(_tmp, os.path.basename(path))
+    r = subprocess.run(["git", "-C", ROOT, "show", f"{commit}:{path}"], capture_output=True)
+    if r.returncode: return None
+    open(out, "wb").write(r.stdout)
+    return jpg(out, name, long, 80)
+CI = "design/branches/concepts/cathedral/img/"
+def step_imgs(spec):
+    res = []
+    for commit, f, cap in spec:
+        nm = "STEP-" + (commit or "now") + "-" + os.path.splitext(f)[0].replace("cathedral-", "")
+        m = (jpg(CI + f, nm, 1400, 80) if os.path.exists(P(CI + f)) else None) if commit is None else blob(commit, CI + f, nm)
+        if m: res.append({**m, "cap": cap})
+    return res
+TIMELINE = {"CATHEDRAL": [
+    {"t": "13 Nov 21:06", "name": "Steer 5 (now): both halves by one rule",
+     "what": "Two lid options on one shared two-row base: P5O, your stacked oscillators on the left, and P5R, the same rule laid in rows. Softer corners, the spine back, lines for the grille.",
+     "why": "You (20:29): the lid felt cramped; tuning should sit by the oscillators, mixer and volume on the bottom case. You (20:43): “I feel like the oscillators should all be stacked on the left…”",
+     "score": "P5R 8 · P5O 6 · shared base 7 (bar 10)",
+     "imgs": step_imgs([(None, "cathedral-s5-P5R-standing.jpg", "P5R standing"), (None, "cathedral-s5-P5O-standing.jpg", "P5O standing")])},
+    {"t": "13 Nov 20:07", "name": "One-word labels",
+     "what": "Every panel label cut to one word.", "why": "Your rule (19:57): “Labels should only be one word and follow best practices…”", "score": "",
+     "imgs": step_imgs([("fec6093", "cathedral-lid-signal-order-8.7px-per-mm.png", "the lid with one-word labels, exact top view")])},
+    {"t": "13 Nov 19:55", "name": "Steer 4: the panel explains itself",
+     "what": "The synth expert's fixes: words for every switch position, release, echo pan and follow legends.",
+     "why": "You (19:31), on the expert's fixes: “Yes but make it a 10 not a 9”.", "score": "8, then 9 after fixes (bar 10)",
+     "imgs": step_imgs([("4e52223", "cathedral-nave-standing.jpg", "standing"), ("4e52223", "cathedral-lid-signal-order-8.7px-per-mm.png", "the lid, exact top view")])},
+    {"t": "13 Nov 18:29", "name": "Steer 3: the lid in signal order",
+     "what": "The lid regrouped in the order sound travels: oscillators, mixer, filter, amp, effects, out.",
+     "why": "You (18:00): “the items do not appear to be grouped or ordered in a way that makes logical sense”.", "score": "9 (confirmed 19:00)",
+     "imgs": step_imgs([("970a017", "cathedral-lid-signal-order-8.7px-per-mm.png", "the lid in signal order, exact top view")])},
+    {"t": "13 Nov 17:27", "name": "Steer 2: the lid rebuilt",
+     "what": "Three even lid rows, the speaker behind a window, brass keys in metal.",
+     "why": "The speaker band had been leftover space; the director had the layout rebuilt, not restyled.", "score": "8",
+     "imgs": step_imgs([("5cf16b1", "cathedral-nave-standing.jpg", "standing"), ("5cf16b1", "cathedral-nave-top-8.3px-per-mm.png", "exact top view")])},
+    {"t": "13 Nov 14:12", "name": "Steer 1: CHAMBER and FOLD become CATHEDRAL",
+     "what": "The middle ground of CHAMBER and FOLD-105: layouts A and B, then the speaker grille options.",
+     "why": "You (14:12): “i want to lock in on cathedral and fold right now… so i can find the best middle ground”.", "score": "",
+     "imgs": step_imgs([("40f9648", "cathedral-B-standing.jpg", "layout B, standing"), ("40f9648", "cathedral-A-standing.jpg", "layout A, standing"), ("40f9648", "cathedral-speaker-options-standing.jpg", "speaker grille options")])},
+  ],
+  "CHAMBER": [{"t": "13 Nov 14:12", "name": "Became CATHEDRAL", "what": "Merged with FOLD-105 into CATHEDRAL.", "why": "You chose CHAMBER and FOLD as the two to find a middle ground between.", "score": ""},
+              {"t": "13 Nov", "name": "Rev B: round 2 fixes", "what": "The branches director's fixes to rev A.", "why": "", "score": "9"},
+              {"t": "13 Nov 13:09", "name": "Rev A: branches round 1", "what": "FOLD-105 as an organ case: closed it's a case, open it's a console.", "why": "", "score": "8"}],
+  "RAIN": [{"t": "13 Nov 14:12", "name": "Paused", "what": "Set aside when you focused on CHAMBER and FOLD.", "why": "", "score": ""},
+           {"t": "13 Nov", "name": "Rev B: round 2 fixes", "what": "The branches director's fixes; not re-scored.", "why": "", "score": ""},
+           {"t": "13 Nov 13:09", "name": "Rev A: branches round 1", "what": "ONE SHEET as a pond after rain.", "why": "", "score": "7"}],
+  "BUTTERFLY": [{"t": "13 Nov 13:09", "name": "Retired", "what": "ONE SHEET with a walnut top; retired by the branches director.", "why": "CHAMBER and RAIN already covered both of your leans.", "score": "6"}],
+  "DIPTYCH": [{"t": "13 Nov 13:09", "name": "Killed", "what": "A scientific field instrument; killed by the branches director.", "why": "", "score": ""}],
+}
+ALIAS = {"FOLD": ["FOLD", "FOLD-105"], "ONESHEET": ["ONE SHEET"], "HUSH": ["HUSH"], "TYPECASE": ["TYPE CASE"], "HYMNAL": ["HYMNAL"], "UNDERGLASS": ["UNDER GLASS"], "FOLD113": ["FOLD-113"]}
+for gc, names in ALIAS.items():
+    tl = []
+    for r in reversed(rounds):
+        for n, sc in r["scores"]:
+            if n in names: tl.append({"t": r["date"], "name": r["name"], "what": "", "why": "", "score": str(sc)})
+    if gc in ("FOLD", "HUSH", "ONESHEET"):
+        tl = [{"t": "13 Nov", "name": "Locked in v1.1", "what": versions[0]["line"], "why": "", "score": ""},
+              {"t": "13 Nov", "name": "Locked in v1", "what": "First official lock after round 5.", "why": "", "score": ""}] + tl
+    if gc == "FOLD": tl.insert(0, {"t": "13 Nov 14:12", "name": "Grew into CATHEDRAL", "what": "FOLD-105 and CHAMBER became CATHEDRAL.", "why": "", "score": ""})
+    if gc == "ONESHEET": tl.insert(0, {"t": "13 Nov", "name": "Seeded RAIN and BUTTERFLY", "what": "Two branches grew from ONE SHEET.", "why": "", "score": ""})
+    TIMELINE[gc] = tl
+for g in groups:
+    g["timeline"] = TIMELINE.get(g["code"]) or ([{"t": g["date"], "name": "Full instrument, paused" if g.get("full") else "Archived", "what": g["line"], "why": "", "score": ""}])
+SUMMARY = {"CATHEDRAL": "In progress: two lid options, P5O and P5R, on one shared base. Last scores: P5R 8, P5O 6 (bar 10).",
+           "CHAMBER": "Became CATHEDRAL", "RAIN": "Paused · scored 7", "FOLD": "Locked in v1.1 · grew into CATHEDRAL",
+           "ONESHEET": "Locked in v1.1", "HUSH": "Locked in v1.1", "BUTTERFLY": "Dropped · retired at 6", "DIPTYCH": "Dropped · killed"}
+for g in groups:
+    if g["code"] in SUMMARY: g["statusLabel"] = SUMMARY[g["code"]]
 try:
     gl = subprocess.run(["git", "-C", ROOT, "log", "-1", "--format=%ad|%s", "--date=format:%d %b %H:%M"], capture_output=True, text=True).stdout.strip().split("|", 1)
     updated = {"when": gl[0].lstrip("0"), "what": gl[1]}
