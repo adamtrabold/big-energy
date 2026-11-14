@@ -1,79 +1,101 @@
-# CATHEDRAL: how it looks and feels (visual, rev 8: steer 5, both halves by one rule)
+# CATHEDRAL: how it looks and feels (visual, rev 9: steer 5 fixes, both options side by side)
 
-Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 → 16:52). Read with `how-it-works.md`, where systems owns the geometry; **§16** is this revision's layout, closing routes and acoustics. The director's steer 2 is in `design/notes/director.md`.
+Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`.
 
 ## Steer 5: both halves, by one rule
-**His four points, answered.** *Tuning by the oscillators:* tune and drift now sit with the oscillators on the lid (in P5O, tune takes VCO 1's pitch slot, as on a Model D; in P5R they head the row as "tuning"). *Mixer and volume on the bottom case:* the mixer (1 · 2 · 3 · extra, with source), the echo and reverb amounts and volume move to the base. *The organising rule:* **the lid sets what the sound is and where it sits; the base sets how much of it you hear and what your hands ride**, both reading left to right in signal order. The stated exceptions: pans and link stay on the lid (they place the sound), release goes to the base behind the bend stick (it's flipped live), tune and drift stay by the oscillators. *Harmonious spacing:* one 5 mm module runs both halves: 20 mm between knobs in a group, at least 15 mm (3 modules) clear between groups, and the same 15 mm clear from every control to the plate's edge on all four sides of both plates, so the margins read as chosen. Both halves are 24 mm deeper (108 → 132) to make that room; closed thickness is unchanged. Two further notes of his are here too: **softer, Apple-like corners** (continuous-curvature corners on the case, the plates and the window's surround) and **the spine is back**, made to look intended.
 
-Two lid options, on one shared two-row base (systems §19): **P5O**, his direction (oscillators stacked on the left, filter down the window's left, amp along the top, effects and out on the right), and **P5R**, the rule laid in rows (oscillators ‖ tuning, then keys · envelopes · out round the window, then the effect settings).
+**The rule:** the lid sets what the sound is and where it sits; the base sets how much of it you hear and what your hands ride. Both read left to right in signal order. One 5 mm module spaces both halves: 20 mm between knobs in a group, at least 15 mm clear between groups, and the same 15 mm from every control to the plate edge.
 
-### P5O: his lid
+### His four new points, answered
+- **"Don't stop the other exploration tho I wanna see what they came up with too."** Both are drawn below, side by side, on the same base and at the same scale. **P5O** is his layout. **P5R** is the team's rule laid out in rows.
+- **"I think we can bring the spine back if we can make it look good."** It's back, drawn closed, standing and flat. It's walnut bookcloth in the case's own tone, and it wraps the soft back corners. Its two brass lines carry the façade's impost and plinth lines over the back edge (see *The spine*).
+- **"I kinda want the corners to be softer and to be more architectural like how Apple does theirs."** Every corner is a continuous-curvature corner (a superellipse, n = 5): 24 mm on the plates and 28.3 mm on the case, concentric. The closed view shows them best.
+- **"See if we can fit a fourth oscillator."** It fits in P5O, in a slot kept for it on the oscillator block's fourth row. It's drawn as a ghost (light outlines and words) so you can judge it in place. It doesn't fit in P5R without moving tuning away from the oscillators or making the case 32 mm wider (systems §19.5).
+
+### The two lids, side by side
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
 <figure>
-<img src="img/cathedral-s5-P5O-lid-top-10.2px-per-mm.png" alt="Exact top view of the P5O lid: three oscillator rows stacked at the left with tune and drift on the first row, the filter envelope as a column down the window's left, the amp envelope and echo along the top row, keys switches and the reverb at the window's right, and the out pan and link at the bottom right.">
-<figcaption><b>P5O, the lid, exact</b> (scale bar 20 mm). Read by zones, left to right: oscillators (one per row, numbered; tune and drift on the first) → filter (a column down the window's left) → amp (along the top) → echo, keys, reverb and out on the right. Top-row groups are headed above; column groups are headed at their foot.</figcaption>
+<img src="img/cathedral-s5-P5O-top-9.9px-per-mm.png" alt="Exact top view of P5O open flat. Lid: an oscillator block of three rows at the left (octave, pitch, wave; tune and drift on the first row), a fourth row drawn as three pale outlined circles with pale words for VCO 4; the oscillator switches voices, mod and track along the top row, claimed by a hairline running on from the oscillators heading; a filter column down the window's left and an amp column down its right, each headed at the top; the keys switches under the window; echo, reverb and out stacked on the right. Base: two rows, levels behind and what the hands ride in front.">
+<figcaption><b>P5O, his lid</b> (exact, scale bar 20 mm). Left to right in columns: oscillators → filter → (window) → amp → echo, reverb, out. Every heading sits on top of its group. The pale fourth row is <b>VCO 4's slot, drawn as a ghost</b>: built without it, that area is plain plate.</figcaption>
 </figure>
-
 <figure>
-<img src="img/cathedral-s5-P5O-top-9.9px-per-mm.png" alt="Exact top view of the P5O instrument open flat: the lid above, and the base below with a rear row reading release, mixer 1 2 3 extra and source, effects echo and reverb and the two lights, and a front row reading controllers, filter with the red cutoff dial, out with volume, and tempo with the brass tap.">
-<figcaption><b>P5O, lid and base, open flat, exact</b> (scale bar 20 mm). The base's rear row holds the levels (release · mixer · effects · lights); the front row is what the hands ride (controllers · filter · out · tempo). The rear row's names sit behind its knobs and its headings above them, so the front row's headings belong only to the front row.</figcaption>
+<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of P5R open flat. Lid: a top row of oscillators 1, 2 and 3 with tuning at the right behind a short engraved break; a middle row of voices and mod switches, the filter envelope, the window under the envelopes heading, the amp envelope, and the keys switches; a bottom row of echo, reverb and out from left to right. Same base as P5O.">
+<figcaption><b>P5R, the rule in rows</b> (exact, scale bar 20 mm). Top to bottom: oscillators ‖ tuning; voices · filter · (window) · amp · keys; echo → reverb → out. The bottom row now runs to the right margin, so no corner is left empty.</figcaption>
 </figure>
+</div>
 
 <figure>
-<img src="img/cathedral-s5-P5O-standing.jpg" alt="P5O standing at 120 degrees, with the dark walnut spine in the joint between the halves.">
-<figcaption><b>P5O, standing.</b> The spine drapes in the joint behind the base's rear row.</figcaption>
-</figure>
-
-### P5R: the rule in rows
-<figure>
-<img src="img/cathedral-s5-P5R-lid-top-10.2px-per-mm.png" alt="Exact top view of the P5R lid: a top row of oscillators numbered 1 2 3 with tuning at the right, a middle row of keys switches, filter envelope, the window, amp envelope and out, and a bottom row of echo and reverb settings.">
-<figcaption><b>P5R, the lid, exact</b> (scale bar 20 mm). Top to bottom in signal order: oscillators ‖ tuning; keys · filter · (window, under "envelopes") · amp · out; echo · reverb.</figcaption>
-</figure>
-
-<figure>
-<img src="img/cathedral-s5-P5R-top-9.9px-per-mm.png" alt="Exact top view of the P5R instrument open flat, with the same two-row base as P5O.">
-<figcaption><b>P5R, lid and base, open flat, exact</b> (scale bar 20 mm). Same base as P5O.</figcaption>
-</figure>
-
-<figure>
-<img src="img/cathedral-s5-P5R-standing.jpg" alt="P5R standing at 120 degrees.">
-<figcaption><b>P5R, standing.</b></figcaption>
+<img src="img/cathedral-s5-P5R-standing.jpg" alt="P5R standing at 120 degrees on its brass stays, seen from the front left: the cream lid with three rows of black knobs round the slotted window, the base below with its two rows of gold knobs, the red cutoff dial and the brass and black keys.">
+<figcaption><b>P5R, standing.</b> In use, the lid's rows read top to bottom like a page. The base's two rows sit under the hands: the levels behind, what you ride in front.</figcaption>
 </figure>
 
 **The two, by eye:**
-- **P5R reads first time.** One heading line per row, everything in signal order top to bottom, and the window sits under "envelopes" with filter and amp either side. Its weakness: the bottom-right quarter is empty, because the echo and reverb amounts and volume left for the base, and only reverb's type and decay remain. That's an off-centre blank of the kind he dislikes. A fix to try: centre the effect settings under the window (echo left, reverb right, as now, but pulled in 20 mm each), or bring the out column down into that corner.
-- **P5O is the more characterful layout** (a Model D-style oscillator block, a filter column hugging the window), and it's the only one with room for a 4th analog oscillator. But it doesn't read as one order: amp sits above filter, and the right side mixes keys, echo pan, reverb and out with headings at three heights. Its top heading line also misread as drawn: "filter" sat over drift and "keys" over the amp's sustain, so I moved those two headings to the foot of their columns. **My view: P5R for clarity; P5O only if he wants the 4th oscillator.**
-- **The 4th analog oscillator (P5O only):** not drawn; systems' §19.5 places it as a fourth oscillator row (and mixer level 4 on the base rear row). One more row tightens the block to 20 mm rows; drawn when he chooses it.
+- **P5R reads first time,** one heading line per row, in signal order down the page. With out at the end of the bottom row, every row now fills margin to margin. What's left: the voices / mod pair at the middle row's left has no heading of its own, and the row has more air at its ends than at its centre (open question 1).
+- **P5O now reads as one order,** left to right by columns, with every heading on top. The oscillator switches sat unclaimed along the top row. They're now part of the oscillator group: the heading starts on the margin line, and a hairline runs on from it to the end of the switch bank. **P5O is the only option with room for a 4th analog oscillator.** Its cost is the bend stick, which must be lowered to 9.0 to close at 55.2 mm (drawn lowered).
+- **My view:** P5R is still the clearer of the two, but the gap has closed. If he wants the fourth oscillator, P5O is now a layout I'd stand behind.
 
-### The first-time walk (both options; same words)
-- **Lid, the sound:** oscillators 1 · 2 · 3 (octave, pitch, wave; tune and drift by them); keys (velocity, touch); envelopes, filter and amp (attack, decay, sustain); echo (type, time with free · sync, repeats, pan); reverb (type, decay); out (pan, link).
-- **Base, the hands and the levels:** rear row: release (off · on), mixer 1 · 2 · 3 · extra with source (noise · input · loop), effects (echo, reverb: how much of each), the midi and status lights. Front row: controllers (bend, mod, blend, glide), filter (resonance, track, **cutoff**, mod, envelope), out (volume), tempo (tap).
-- **Switches** throw left / right, their words in the same order: voices (1 · 3 · 4), mod (off · on), track (off · on), velocity (amp · both · filter), touch (mod · off · filter), free · sync, link (off · on), release (off · on), source (noise · input · loop), and the filter's track (off · 1/3 · 2/3) and mod (off · on).
+### The fourth oscillator (P5O only)
+- **Drawn as a ghost:** three 0.3 mm outlines at the knobs' real size (Ø 14.9) at octave · pitch · wave, with their words and the numeral "4" in the light ink. They sit exactly where the fitted knobs would go (`CATHEDRAL_VCO4=1`: checker 0, real-font 0). Nothing else on the lid moves.
+- **On the base:** mixer 4 joins the rear row between 3 and extra. The rear gutters tighten from 24.1 to 17.4 mm (still ≥ 15). That isn't drawn: the base as shown is the one without VCO 4.
+- **The look:** fitted, the oscillator block becomes a full 4 × 3 grid. It's squarer and calmer than three rows with a hole under them, so it improves the lid's look as well as its sound. The cost is systems' (≈ +$20–30, ≈ −0.5 h of battery, the last Daisy pin).
 
-### The grille: lines or a grid of dots?
+### The spine, made to belong
+<figure>
+<img src="img/cathedral-s5-closed-spine.jpg" alt="CATHEDRAL closed, seen from behind and above: the walnut case with soft continuous-curvature corners, the brass pipe façade on the lid back with its two horizontal base lines, and below the back edge a walnut cloth spine closing the gap between the halves. Two thin brass lines run along the spine, the same length as the façade's base lines above them, and the cloth wraps round both back corners.">
+<figcaption><b>Closed, from behind.</b> The spine fills the back between the halves in walnut bookcloth, in the case's own tone, and wraps round both soft back corners. <b>Two brass foil lines run along it, x 30–256 and 8 mm apart, the same run and spacing as the façade's impost and plinth lines</b>, so the façade's base appears to fold over the back edge. The corners here are the superellipse ones: the curve leaves the straight edge with no visible kink.</figcaption>
+</figure>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
+<figure>
+<img src="img/cathedral-s5-spine-standing.jpg" alt="Close view of the joint with the lid standing: behind the base's rear row a walnut cloth fold drapes in the gap between the base and the foot of the standing lid. The lid's lower left shows the three pale VCO 4 outlines.">
+<figcaption><b>Standing.</b> About 9 mm of slack drapes in the joint behind the base's rear row, like a book's hinge. The brass lines are on the cloth's outside, which now faces down, so from the player's side the spine shows as a plain walnut fold.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s5-spine-flat.jpg" alt="Close view of the back right corner with the instrument open flat: the two soft walnut corners meet at the seam, and the cream plates run up to the seam with nothing standing between them.">
+<figcaption><b>Flat.</b> The plate edges are 2.1 mm apart, so the cloth tucks down into the seam as a fold, its outside and brass lines turned in. Nothing stands above the plates. Here the two soft corners meet at the seam.</figcaption>
+</figure>
+</div>
+
+- **Why lines along it, not bands across it:** a line parallel to the hinge never bends along its length. It just rides round with the cloth. Stamped foil bands across the spine would crease at every opening and crack in a year. Lining the spine up with the façade's impost makes it read as part of the case. Bands at its ends read as a book's spine stuck onto it.
+- **Colour:** at the previous deep walnut the spine rendered near-black and read as the slot it closes. It's now the case's own tone, so the back reads as one surface.
+- **Only the straight run between the inboard pivots flexes** (x 28.3–257.7). The corner pieces are glued to each half and part at the seam when it opens, like a book's headcaps. **Eng, UNVERIFIED:** the fold's thickness, ≈ 2 × (cloth 0.4 + TPU 0.5) ≈ 1.8 in the 2.1 seam (ESTIMATE), and the corner pieces' joint.
+
+### Softer, architectural corners
+- **The corners are superellipses, n = 5:** curvature runs to zero where the corner meets the straight edge, so the eye sees no point where the corner "starts" (an arc has a kink in curvature there). The same corner, concentric, is used on the case in plan (28.3) and both plates (24). The window keeps its circle, because it's the driver's shape.
+- **24 mm, within systems' limit of 25.5:** the corner knobs sit on the margin lines, so a bigger corner would eat their 15 mm margin.
+
+### The grille: lines (accepted by the director)
 <figure>
 <img src="img/cathedral-s5-grille-lines-vs-dots-20px-per-mm.png" alt="Three grille patterns in the 46 millimetre window at true scale: fifteen vertical slots; a hex grid of large round holes; a hex grid of small round holes.">
 <figcaption><b>The window, both ways, exact</b> (20 px per mm). <b>Left:</b> vertical lines, 15 slots 1.8 wide at 3.0 (≈ 945 mm² open, ≈ 75 % of the cone). <b>Middle:</b> dots, hex grid, Ø 3.0 at 4.2 (≈ 640 mm², ≈ 51 %). <b>Right:</b> dots, hex grid, Ø 1.8 at 3.0 (≈ 510 mm², ≈ 40 %).</figcaption>
 </figure>
 
-**Recommendation: the lines.** They're the better sound (≈ 75 % open against 40–51 %, slower air, a higher top-end corner: systems §19.7). They're also the better look *for this instrument*: vertical lancets inside a round window is the cathedral reading, and they rhyme with the façade's pipes on the lid back. A dot grid is handsome, but it's the generic speaker-grille look of a hundred consumer products, and at Ø 46 the hex grid's outline turns hexagonal (middle) unless the holes get small (right), which costs more air. If he still prefers dots, the middle one (Ø 3.0 at 4.2) is the one to print.
+**Lines** sound better (more open area, slower air: systems §19.7). They also look better here: vertical lancets in a round window are the cathedral reading, and they rhyme with the façade's pipes. Dots are the generic speaker look, and at Ø 46 the hex grid's outline turns hexagonal.
 
-### The spine, made to belong
-<figure>
-<img src="img/cathedral-s5-closed-spine.jpg" alt="CATHEDRAL closed, seen from behind: the soft squircle corners of the walnut case, the pipe façade on the lid back, and a dark walnut cloth spine closing the back between the halves, wrapping round both back corners, with two thin brass bands near each end.">
-<figcaption><b>Closed, from behind.</b> A flexible spine (systems' TPU core) covered in <b>dark walnut bookcloth</b>, two shades deeper than the case. It follows the case's corner curve round both back corners to where the end walls close the slot, so it reads as the case's own back, not a strip laid in a gap. <b>Two thin brass foil bands near each end</b> (stamped, so flexible), as on the spine of a bound hymnal.</figcaption>
-</figure>
+### The name
+"big energy" is now the word alone, in the light ink, on the axis under the window. The lozenge outline is gone. In P5R the reverb fan's "plate" ran through it. In P5O it sat 1.5 mm over the "keys" heading and read as "big energy keys". In the light ink it reads as a maker's mark, not one more heading.
 
-- **Why this:** a walnut spine reads as part of the body (black read as the slot itself in rev 1; cream would mark and stain on the back of a bag-carried instrument). The brass bands give it a reason to exist in the CATHEDRAL vocabulary (a bound book's spine) and use the palette's one metal. Nothing rigid: cloth, foil and TPU.
-- **Open (eng):** with the soft corners, the side pivots at the back corners fall outside the new outline, so they aren't drawn here. The pivot needs to move inboard of the corner curve; that's systems / eng.
+### The first-time walk (both options; same words)
+- **Lid, the sound:** oscillators 1 · 2 · 3 [· 4] (octave, pitch, wave; tune and drift by them; voices, mod, track); envelopes, filter and amp (attack, decay, sustain); keys (velocity, touch); echo (type, time with free · sync, repeats, pan); reverb (type, decay); out (pan, link).
+- **Base, the hands and the levels:** rear row: controllers (release, blend), mixer 1 · 2 · 3 · extra with source (noise · input · loop), effects (echo, reverb), the midi and status lights. Front row: controllers (bend, mod, glide), filter (resonance, track, **cutoff**, mod, envelope), out (volume), tempo (tap).
 
-### Softer, architectural corners
-- **Continuous-curvature corners** (a superellipse, n = 5: the curvature runs to zero where the corner meets the straight edge, so there's no visible kink where an arc would start), on the case in plan and on both plates, concentric (plate 24 mm, case 28.3 mm: one family). The window keeps its circle (it's the driver's shape); it has no surround.
-- **24 mm** is my pick within systems' 16–32.5 range: clearly softer than the old R 7.7, still leaving the margin module and the end pegs and feet clear (systems' checks pass at 24).
+### Checks (rev 9)
+- **Systems' rules run on the visual's positions** (the moved headings, numerals, name, the leader and the new leading): **0** for P5O, P5O with VCO 4, and P5R. `layout_check.py` as committed: 0 for both.
+- **Real Kalam** (measured on the rendered model's text, with the ghost knobs as controls and the leader as a line): **0** for P5O, P5O with VCO 4, and P5R.
+- **Visual fits, for systems to fold into `layout_check.py`:**
+  - P5O "filter" / "amp" headings +0.8 (real Kalam sat 0.8 over "attack");
+  - P5O "reverb" at (241, 60.8), over decay and right of the type fan (it sat 0.8 from "spring" and 1.43 from decay);
+  - P5O "oscillators" left-aligned at the margin line (x 19.3), with a 0.4 mm leader at d 120.9 from x 40.8 to the end of track's legend (182.3);
+  - P5R "reverb" +2.0 x (0.97 from "shimmer"), P5R "keys" +0.5 (1.13 from velocity's nut; my old −1.5 is dropped);
+  - VCO numerals 0.3 further out (1.30 from the octave knobs);
+  - "below2" legends: leading **1.25** between name and positions (at 0.9 "velocity" sat 0.01 over "amp · both · filter"); block top TGL + 2.25 under the switch;
+  - the name: a text box, "big energy", Kalam 2.0, at (143, d 37.3) in P5O and (143, d 34.0) in P5R.
 
-### Visual changes for the checker (checks: systems' rules 0 for both options; real Kalam 0)
-- P5O: "filter" heading at the column's foot (108.5, d 15), "keys" under the touch switch (185, d 45).
-- P5R: "filter" / "amp" sub-heads at d 81.5 (clear of the "decay" legends); "keys" heading 1.5 lower (clear of voices).
-- Base: rear-row legends behind their knobs, rear toggles' legends above them, the lights' names behind them, and "mixer" / "effects" at y 109; old base break lines removed (only out ‖ tempo).
+### Open
+1. **P5R:** the voices / mod pair at the middle row's left has no heading. "oscillators" is two rows up. Options: an "oscillators" leader like P5O's, or moving the pair under VCO 1 (as track sits under VCO 3). Systems / director.
+2. **P5O:** the "out" heading sits between reverb's legends and the out pan. It reads correctly, but it's the tightest heading on the lid.
+3. **Eng:** the spine's fold in the 2.1 seam, and the corner pieces' joint at the seam.
+4. **Owner:** P5O or P5R; the 4th analog oscillator (P5O only); D 132.
 
 ## What CATHEDRAL does to the ideas
 **One sentence: a small cathedral, an organ front for the listener, a nave for the hands, and the wood's own arches.** It answers several of his notes at once:

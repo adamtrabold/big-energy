@@ -1,5 +1,36 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 FIXES (2026-11-13 ~22:00, NEW visual designer; previous session ended): READ THIS FIRST
+**Inputs:** systems a80d7c (§19: equal-gutter base; P5O as columns, headings on top, VCO 4 slot on R4; P5R out at the end of row C; pivots inboard; the gap rule). Director: P5R 8 / P5O 6 / base 7; spine closed, standing and flat, with brass on the façade's impost lines; corners shown closed; the VCO 4 slot shown. Owner 20:43–20:45 (both explorations; spine back if it looks good; Apple-style corners; "See if we can fit a fourth oscillator").
+
+**rb.py (all in `Nave`, nothing outside it changed):**
+- `nv_overrides`: the P5O heading MOVE is dropped (systems puts headings on top now). Real-Kalam FIT dict: P5O filter / amp +0.8 d; P5O reverb +9.25 x / +1.6 d → (241, 60.8), over decay, right of the type fan; P5R reverb +2.0 x; P5R keys +0.5 (my old −1.5 is gone: it sat on velocity's nut).
+- `nv_notes`: VCO numerals −0.3 x (real 1.30 from the octave knobs).
+- Lid "below2" legends (P5O keys): `BELOW2_TOP` 2.25, `BELOW2_LEAD` 1.25 (at 0.9, "velocity" sat 0.01 over its positions). The base still uses 0.9 and passes.
+- P5O "oscillators" is left-aligned on the margin line (x 19.3), with an engraved leader (`OSC_LEADER` = start +21.5, half-width 0.2) at d 120.9 to `osc_bank_end()` (182.3). Why: the voices · mod · track bank was unclaimed. A 1.2 mm leader read as a bar, so it's 0.4 mm.
+- `vco4_ghost()` (`GHOST` True): P5O without VCO 4 draws three 0.3 outlines at Ø 14.9, words, and a "4" in `INK_LIGHT`, at the `CATHEDRAL_VCO4=1` positions.
+- Name: the word alone in the light ink (`NAME_D5`: P5O d 37.3, P5R d 34.0); the lozenge is gone (P5R's "plate" fan ran through it; P5O read as "big energy keys"). Pre-steer-5 lids keep the lozenge.
+- P5O draws the bend stick lowered (`stick_low`), per systems' closing.
+- Spine: colour `#744c2d` (the case's tone; `#3f2716` read as the slot). Brass = two foil LINES along the spine (`SPINE_LINES` x 30–256, `SPINE_PITCH` 8), carrying the façade's impost (d 18) / plinth (d 10) run over the back edge; no bands. `spine_stand` draws the lines on the drape's underside (the cloth's outside). New `spine_flat()`: the U-fold in the 2.1 seam, x 28.3–257.7, below the 3 mm round-over (hidden). It's added in `_model2` for the open state.
+- Jobs: `rb_nv5_spine_stand` (shot4 + relight lo 70), `rb_nv5_spine_flat`; `rb_nv5_closed` camera az 152 el 34.
+- Figures: `/tmp/scr/s5f_figs.py` (it reuses `s5_figs.py`'s brassify / scaled). Checks: `/tmp/scr/s5f_kalam.py <P5O|P5R>` (real Kalam + ghost + leader) and `/tmp/scr/s5f_rules.py <P5O|P5R>` (systems' rules on my positions). Neither is in the repo.
+
+**Checks:** systems' rules on my positions 0 (P5O, P5O+VCO4, P5R); real Kalam 0 (all three); `layout_check.py` 0 both.
+
+**Images (6 re-rendered or new):** P5O-top-9.9, P5R-top-9.9, P5R-standing (same names, overwritten), closed-spine (overwritten), NEW spine-standing.jpg, spine-flat.jpg. **Stale but kept (still linked):** P5O-lid-top-10.2 and P5R-lid-top-10.2 (decisions-open.md lines 15–16); P5O-standing.jpg (site build.py). The orchestrator decides; delete them once they're unlinked.
+
+**Doc:** rev 9. Both options side by side (HTML grid), his four points answered, the spine closed / standing / flat, corners, ghost, name, checks, and the fits for systems.
+
+**Decisions and why:**
+- Spine brass runs along the spine, not across it: a line parallel to the hinge never flexes along its length, while bands crease. It also matches the façade's impost.
+- The ghost is a drawing convention, not a print. A fitted 4 × 3 block looks calmer than three rows with a hole.
+- My view: P5R is clearer; P5O is now defensible, and it's the only one with VCO 4.
+
+**For systems' checker:** the fits above. "below2" leading 1.25 and top 2.25 (it has 0.9 / 2.1). The oscillators heading box is left-aligned plus the leader as a line obstacle. The name as a text box. The ghost knobs as controls in P5O without VCO 4.
+
+**Open:** P5R's voices / mod pair has no heading (a leader, or move it under VCO 1); P5O's "out" heading is the tightest; eng: the fold thickness in the 2.1 seam and the corner pieces; the spine-standing relight darkens the light-ink ghost (the top view is the true ink).
+
+
 ## CATHEDRAL steer 5 (2026-11-13 ~21:30): both halves by one rule; corners; spine; grille
 - Systems §19 (b8e41dd): D 132, two-row base, module 5 mm, lid P5O (owner) / P5R (rule in rows), corners superellipse ≤ 32.5, grille lines recommended.
 - **rb.py:** `_lc(variant)`; `Nave(lid=...)` sets D / AX_Y / LY0 from the checker; squircle geometry (`squircle_pts/2d/block`, `SQ_N` 5); during `Nave.model` for steer 5, `r4.pebble` → squircle block and full-width `rrect2d` → squircle (pockets, groove clips); plates squircle (`PLATE_RC` 24); name plate under the window; side-pivot ears not drawn (`EAR_R None`: pivots fall outside the new corners; eng); spine = dark walnut band following the outline round the back corners + brass foil bands; base rear row legends behind / toggle legends above / light names behind / rear headings y 109 (`base_sections`, `rear()`); `play_breaks()` hook (no old base breaks in steer 5). Grille dots `window_dots` / `speaker_dots`. Jobs `rb_nv5_{O,R}_{lidtop,top,stand}`, `rb_nv5_closed`; figures `/tmp/scr/s5_figs.py`.

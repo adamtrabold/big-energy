@@ -1633,14 +1633,15 @@ def nv_overrides(lc):
     ("left2"): on the right, "track / off · on" ran into the "envelopes" heading on the same line, 2.5 mm apart in
     real Kalam, and read as "track envelopes"; on the left, the toggle sits between its words and the heading."""
     if getattr(lc, "STEER5", False):
-        # steer 5 real-Kalam fits: P5R's "keys" heading 1.5 lower ("keys" sat 0.66 from voices' nut)
-        secs = [(t, x, d - 1.5) if (lc.VARIANT == "P5R" and t == "keys") else (t, x, d) for t, x, d in lc.SECTIONS]
-        if lc.VARIANT == "P5O":
-            # on P5O's top heading line, "filter" sat over DRIFT and "keys" over the amp's SUSTAIN, and read as their
-            # names. Each column's heading goes to the column's outer (bottom) edge instead, like "reverb" and "out":
-            # top-row groups are headed above, column groups below
-            MOVE = {"filter": (108.5, 15.0), "keys": (185.0, 45.0)}
-            secs = [(t, *MOVE[t]) if t in MOVE else (t, x, d) for t, x, d in secs]
+        # (steer 5 fixes, a80d7c: P5O's headings now sit on top of their groups in the checker; the foot MOVE is gone)
+        # real-Kalam fits (steer 5 fixes), for systems to fold:
+        #   P5O "filter" / "amp" +0.8 (sat 0.8 over "attack"); P5O "reverb" to (241, 60.8), over decay, right of the type fan (0.8 from "spring",
+        #   1.43 from decay); P5R "reverb" +2.0 x (0.97 from "shimmer"); P5R "keys" +0.5 (1.13 from velocity's
+        #   nut). The old P5R "keys" -1.5 is dropped (at systems' new place, lowered, it sat on velocity's nut)
+        FIT = {("P5O", "filter"): (0, 0.8), ("P5O", "amp"): (0, 0.8), ("P5O", "reverb"): (9.25, 1.6), ("P5R", "keys"): (0, 0.5),
+               ("P5R", "reverb"): (2.0, 0.0)}
+        secs = [(t, x + FIT.get((lc.VARIANT, t), (0, 0))[0], d + FIT.get((lc.VARIANT, t), (0, 0))[1])
+                for t, x, d in lc.SECTIONS]
         return list(lc.lid), list(lc.BREAKS), secs
     lid = [(n, x, d, r, k, lab, "left2") if (n == "OSC 3 CTL" and w == "right2") else (n, x, d, r, k, lab, w)
            for n, x, d, r, k, lab, w in lc.lid]
@@ -1665,10 +1666,18 @@ def nv_fit_base_notes(lc):
     return list(getattr(lc, "BASE_NOTES", []))
 
 def nv_notes(lc):
-    return list(getattr(lc, "NOTES", []))
+    """steer 5 fixes: the hanging VCO numerals 0.3 further out (real Kalam sat 1.30 from the octave knobs)."""
+    notes = list(getattr(lc, "NOTES", []))
+    if getattr(lc, "STEER5", False):
+        notes = [(t, x - 0.3, d, sz, a) if t in ("1", "2", "3", "4") else (t, x, d, sz, a) for t, x, d, sz, a in notes]
+    return notes
 
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
+OSC_LEADER = (21.5, 0.2)  # P5O "oscillators" leader: starts this far right of the margin line (Kalam Bold 3.0 word ≈ 18.6 + 2.9 clear);
+                          #   half-width 0.2 (a 0.4 engraved hairline: the 1.2 break-line weight read as a bar)
+BELOW2_LEAD = 1.25        # its leading: at 0.9 (the base's) "velocity" sat 0.01 over "amp · both · filter" (y descender over b / f / l)
+BELOW2_TOP = 2.25         # "below2" two-line legends (base front row, P5O keys): block top TGL + 2.25 under the switch (real Kalam ascent)
 TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
                          # 1.1 / 1.25 left FOLLOW's "echo pan" 0.26 over "own · follows dry")
 
@@ -1691,29 +1700,73 @@ class Nave(Cathedral):
         self.LIDH = Chamber.LIDH + lift
 
     # ---- lid
-    SPINE = "#3f2716"        # steer 5 spine: dark walnut bookcloth over the TPU core, two brass foil bands at each end
+    SPINE = "#744c2d"        # steer 5 spine: walnut bookcloth over the TPU core, the case's own tone (at
+                             #   #3f2716 it rendered near-black and read as the slot it closes)
+    SPINE_LINES = (30.0, 256.0)   # brass foil lines: the façade's impost / plinth run (x 30-256), carried onto the spine
+    SPINE_PITCH = 8.0             # the façade's impost (d 18) and plinth (d 10) are 8 apart; so are the spine's lines
+    def _spine_run(self):
+        rc = self.PLATE_RC + 4.3
+        return rc - 2.0, FO_W - rc + 2.0                   # the straight run of the back, between the inboard pivots
+
     def spine_closed(self):
         if not self._sq():
             return super().spine_closed()
         top = 2 * self.AXZ - (LID_PF - 2.5)
         rc = self.PLATE_RC + 4.3
-        x0, x1 = rc - 2.0, FO_W - rc + 2.0                 # the straight run of the back
         # the cloth follows the case's squircle round both back corners to where the end walls close the slot, so it
-        # reads as the case's own back, not a strip laid in a gap: a 0.6 band on the outline, from y D - rc to the back
+        # reads as the case's own back, not a strip laid in a gap: a 0.6 band on the outline, from y D - rc to the back.
+        # (Only the straight run between the pivots flexes; the corner pieces are glued to each half and part at the
+        # seam when it opens, like a book's headcaps: eng, UNVERIFIED)
         D = self.D
         band = (f"intersection(){{ difference(){{ offset(r=0.6) {squircle2d(0, 0, FO_W, D, rc, SQ_N)} "
                 f"{squircle2d(0, 0, FO_W, D, rc, SQ_N)} }} translate([-2,{D - rc}]) square([{FO_W + 4},{rc + 2}]); }}")
         s = f'{c(self.SPINE)} translate([0,0,{BASE_H - 0.4:.2f}]) linear_extrude({top - BASE_H + 0.4:.2f}) {band}\n'
-        for xb in (x0 + 6, x0 + 9, x1 - 9, x1 - 6):     # gilt bands (brass foil), as on a bound book's spine
-            s += box(xb - 0.35, D + 0.55, BASE_H - 0.4, xb + 0.35, D + 0.65, top, "#c9a24e")
+        # two brass foil lines along the spine, on the façade's impost and plinth run (x 30-256) and 8 apart like them,
+        # so the façade's base wraps over the back edge. They run parallel to the hinge axis, so opening never bends
+        # the foil along its length (bands across the spine would crease at every opening)
+        zm = (BASE_H + top) / 2
+        x0, x1 = self.SPINE_LINES
+        for zl in (zm - self.SPINE_PITCH / 2, zm + self.SPINE_PITCH / 2):
+            s += box(x0, D + 0.55, zl - 0.35, x1, D + 0.68, zl + 0.35, "#d6b25c")
         return s
+
+    def _drape(self):
+        a = math.radians(self.STAND)
+        vy, vz = self.LY0 - self.AX_Y, LID_PF - self.AXZ
+        p1 = (self.AX_Y + vy * math.cos(a) - vz * math.sin(a), self.AXZ + vy * math.sin(a) + vz * math.cos(a))
+        p0 = (self.D, BASE_H)
+        mid = ((p0[0] + p1[0]) / 2 + 1.0, min(p0[1], p1[1]) - 6.5)
+        return [((1 - t) ** 2 * p0[0] + 2 * (1 - t) * t * mid[0] + t * t * p1[0],
+                 (1 - t) ** 2 * p0[1] + 2 * (1 - t) * t * mid[1] + t * t * p1[1]) for t in [i / 40 for i in range(41)]]
 
     def spine_stand(self):
         if not self._sq():
             return super().spine_stand()
-        s = super().spine_stand()
-        x0, x1 = self.PLATE_RC + 4.3 - 2.0, FO_W - self.PLATE_RC - 4.3 + 2.0
-        return s.replace("translate([10.5,0,0])", f"translate([{x0:.2f},0,0])").replace("linear_extrude(265)", f"linear_extrude({x1 - x0:.2f})")
+        x0, x1 = self._spine_run()
+        pts = self._drape()
+        prof = pts + [(y, z - 0.8) for y, z in reversed(pts)]
+        poly = ",".join(f"[{y:.3f},{z:.3f}]" for y, z in prof)
+        s = f'{c(self.SPINE)} translate([{x0:.2f},0,0]) rotate([90,0,90]) linear_extrude({x1 - x0:.2f}) polygon([{poly}]);\n'
+        # the brass lines ride on the cloth's outside (now its underside, in the joint), at the same points along it
+        L = [0.0]
+        for p, q in zip(pts, pts[1:]):
+            L.append(L[-1] + math.dist(p, q))
+        top = 2 * self.AXZ - (LID_PF - 2.5); full = top - BASE_H
+        for f in (0.5 - self.SPINE_PITCH / 2 / full, 0.5 + self.SPINE_PITCH / 2 / full):
+            tgt = f * L[-1]
+            i = max(k for k in range(len(L)) if L[k] <= tgt)
+            y, z = pts[min(i, len(pts) - 1)]
+            lx0, lx1 = self.SPINE_LINES
+            s += (f'{c("#d6b25c")} translate([{lx0},{y:.3f},{z - 0.82:.3f}]) rotate([0,90,0]) '
+                  f'cylinder(h={lx1 - lx0},d=0.7,$fn=12);\n')
+        return s
+
+    def spine_flat(self):
+        """open flat: the two plate edges are 2.1 apart (systems §6), so ≈ 20 mm of cloth tucks down into the seam as a
+        U-fold, outside (and its brass lines) in. From above it's a walnut line in the seam, like an open book's gutter.
+        Fold ≈ 2 × (cloth 0.4 + TPU 0.5) = 1.8 in a 2.1 seam: ESTIMATE, eng to confirm."""
+        rc = self.PLATE_RC + 4.3
+        return box(rc, self.D + 0.15, BASE_H - 10.5, FO_W - rc, self.D + 1.85, BASE_H - 3.2, self.SPINE)   # below the edges' 3 mm round-over: hidden
 
     def model(self, state=True, walnut=WAL_P, book=False):
         if self._sq():
@@ -1738,7 +1791,10 @@ class Nave(Cathedral):
         old = (r5.ECHO_POS, r5.VERB_POS)
         r5.ECHO_POS = list(getattr(self.lc, "ECHO_POS", r5.ECHO_POS)); r5.VERB_POS = list(getattr(self.lc, "VERB_POS", r5.VERB_POS))
         try:
-            return super().model(state, walnut, book)
+            m = super().model(state, walnut, book)
+            if self._sq() and self.spine != "none" and (state is True or state == "open"):
+                m += self.spine_flat()
+            return m
         finally:
             TOGGLE_THROW[0] = "fa"
             r5.ECHO_POS, r5.VERB_POS = old
@@ -1773,14 +1829,19 @@ class Nave(Cathedral):
         L0 = self.LY0
         return squircle2d(4.3, L0 + 4.3, FO_W - 4.3, L0 + self.D - 4.3, self.PLATE_RC, SQ_N)
 
+    NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
-        It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose."""
-        nz = self.LY0 + (self.lc.WIN[1] - self.lc.WIN[2] - 1.8 - 5.0 if self._sq() else 2.2)   # steer 5: just under the window
+        It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose.
+        Steer 5 fixes: the word alone, no lozenge, in the light ink. In P5R the reverb fan's "plate" ran through the
+        lozenge; in P5O the lozenge sat 1.5 over "keys" and read as "big energy keys". A light-ink maker's mark under
+        the window reads as the name, not as one more heading."""
+        if self._sq():
+            d = self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7)
+            return txt(143.0, self.LY0 + d, gz + 0.01, self.NAME, 2.0, INK_LIGHT, font=HAND) if self.NAME else ""
+        nz = self.LY0 + 2.2
         s = (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
              f'{rrect2d(135.4,nz+0.4,150.6,nz+4.6,2.1,2.1)} }}\n')
-        # owner: "name to come -- we're calling it big energy". In the panel's own hand, lowercase, like every legend:
-        # Kalam 2.0 ≈ 9.2 wide in the 15.2 x 4.2 inner field (≥ 2.5 clear each side)
         if self.NAME:
             s += txt(143.0, nz + 2.6, gz + 0.01, self.NAME, 2.0, FO_INK, font=HAND)
         return s
@@ -1837,6 +1898,12 @@ class Nave(Cathedral):
                 nm, pos = lab.split("|")
                 s += txt(x + 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="left")
                 s += txt(x + 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="left")
+            elif where == "below2":          # steer 5 (P5O keys): the base front row's style, name over positions under
+                nm, pos = lab.split("|")     #   the switch, centred (top of the block d - TGL - 2.1, 0.9 leading)
+                hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
+                top = L0 + d - lc.TGL - BELOW2_TOP
+                s += txt(x, top - hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                s += txt(x, top - hn - BELOW2_LEAD - hp / 2, z, pos, lc.NS, ink, font=st.font)
             elif where == "updown":
                 a, b = lab.split("|"); sz = lc.LS * 0.72; h = 0.85 * sz; g = getattr(lc, "UD_GAP", NV_UD_GAP)
                 s += txt(x, L0 + d + r + g + h / 2, z, a, sz, ink, font=st.font)
@@ -1852,6 +1919,15 @@ class Nave(Cathedral):
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
         sections = nv_fit_sections(lc, sections)
         for t, x, d in sections:                         # one heading per group, in the hand
+            if t == "oscillators" and getattr(lc, "VARIANT", "") == "P5O":
+                # steer 5 fixes (visual): the oscillator group runs from octave 1 to the switch bank (voices · mod ·
+                # track), 160 mm, and a centred word over the knobs left the bank unheaded. The heading starts on the
+                # margin line and an engraved leader runs on from it to the bank's end, so the whole run is claimed
+                x0 = lc.OX[0] - lc.KN
+                s += txt(x0, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign="left")
+                s += box(x0 + OSC_LEADER[0], L0 + d - OSC_LEADER[1], z, self.osc_bank_end(), L0 + d + OSC_LEADER[1],
+                         z + 0.03, self.rule_col())
+                continue
             s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND)
         for t, x, d in nv_fit_subheads(lc):             # sub-heads under a heading ("filter", "amp")
             s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND)
@@ -1860,6 +1936,30 @@ class Nave(Cathedral):
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
             col = INK_LIGHT if sz <= lc.NS + 1e-6 else ink
             s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
+        s += self.vco4_ghost(z)
+        return s
+
+    def osc_bank_end(self):
+        """x where P5O's oscillator switch bank ends: track's "off · on" (right2), real Kalam ≈ 1.25 x the estimate."""
+        b = [i for i in self.lc.lid if i[0] == "OSC 3 CTL"][0]
+        return b[1] + 6.2 + len("off · on") * 0.5 * self.lc.NS * 1.25
+
+    GHOST = True             # P5O: draw VCO 4's kept slot as a ghost (a drawing convention for the owner, not a print)
+    def vco4_ghost(self, z):
+        """P5O's R4 slot (systems §19.4 / 19.5), drawn so the owner can judge VCO 4 in place: three knob outlines and
+        their words in the light ink, exactly where the fitted knobs would go (CATHEDRAL_VCO4=1 positions). Built
+        without VCO 4, that area is plain plate."""
+        lc = self.lc
+        if not (self.GHOST and getattr(lc, "VARIANT", "") == "P5O" and not getattr(lc, "VCO4", False)):
+            return ""
+        L0, R4 = self.LY0, lc.R4
+        s = ""
+        for x, lab in zip(lc.OX[:3], ("octave", "pitch", "wave")):
+            s += (f'{c(INK_LIGHT)} translate([{x:.3f},{L0 + R4:.3f},{z:.3f}]) linear_extrude(0.03) '
+                  f'difference(){{ circle(r={lc.KN:.3f},$fn=96); circle(r={lc.KN - 0.3:.3f},$fn=96); }}\n')
+            bx = lc.tbox(x, R4, lab, lc.LS, "behind", lc.KN)
+            s += txt(x, L0 + (bx[1] + bx[3]) / 2 + lc.BEHIND_EXTRA, z, lab, lc.LS, INK_LIGHT, font=self.style().font)
+        s += txt(lc.NUMX - 0.3, L0 + R4, z, "4", lc.NUM_S, INK_LIGHT, font=self.style().font)
         return s
 
     # ---- base: the played row, symmetric about x 143
@@ -1893,7 +1993,10 @@ class Nave(Cathedral):
                 s += txt(x, top - hn - 0.9 - hp / 2, z, pos, lc.NS, ink, font=st.font)
                 continue
             if n == "BEND stick":
-                s += joystick(x, y, z, ink)      # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
+                if getattr(lc, "VARIANT", "") == "P5O":   # steer 5: P5O's octave 2 lands 1.6 from it closed, so it's
+                    s += stick_low(x, y, z, ink)          #   lowered to 9.0 (systems §19.4) for R-LOW's 55.2
+                else:
+                    s += joystick(x, y, z, ink)  # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
                 s += txt(x, y - 11.5, z, lab, st.lsize, ink, font=st.font)
             elif n == "CUTOFF":
                 s += item5("CUTOFF", "CUTOFF", x, y, "h", True, z, copy_style(st, ticks=False), "proof", None, True, 143)
@@ -1965,7 +2068,10 @@ def jobs(SZ):
         **{f"rb_nv5_{v}_lidtop": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_lidtop", -2, n.LY0 - 2, W + 2, n.LY0 + n.D + 2, px_per_mm=15, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
         **{f"rb_nv5_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
         **{f"rb_nv5_{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_nv5_{v}_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_nv5_{v}_stand.png")))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
-        "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=160, el=30, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
+        "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=152, el=34, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
+        # steer 5 fixes: the spine standing (from behind and below the joint) and open flat (a back corner, close)
+        "rb_nv5_spine_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_spine_stand", size=SZ, az=-28, el=46, dist=420, center=(95, n.D + 2, 24), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_spine_stand.png"), lo=70, ymax=0.64))(Nave(lid="P5O", spine="dark")),
+        "rb_nv5_spine_flat": lambda: (lambda n: ld.shot(n.model(True, walnut=WAL_R), fp_rect(0, 0, W, 2 * n.D + 2), "rb_nv5_spine_flat", size=SZ, az=125, el=58, dist=230, center=(245, n.D + 1, 14), grain_classes=()))(Nave(lid="P5O", spine="dark")),
         "rb_nv_lidtop": lambda: top4(Nave().model(True), "rb_nv_lidtop", -2, Nave().LY0 - 2, W + 2, Nave().LY0 + D + 2, px_per_mm=15, grain_classes=()),
         "rb_nv_top": lambda: top4(Nave().model(True), "rb_nv_top", -2, -2, W + 2, OPEN + 2, px_per_mm=8, grain_classes=()),
         "rb_nv_closed_side": lambda: shot_ortho(Nave().model(False), "rb_nv_closed_side", "right", -4, D + 4, -1, 60, wmax=W + 2, wood=True),
