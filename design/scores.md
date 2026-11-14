@@ -570,3 +570,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 3: P5R **8** (lid 8, base 8), P5OB **7** (lid 7, base 8). Says P5OB is the better instrument; fill its right with VCO 4 / reverb under echo / keys bottom right → expects 9, 10 once base aligns and stick settled.
 - Director round 8: P5R **9**. Blocker: TAP alone on front row with no heading; add "tempo" heading. Watch: back-row gaps ~42 vs lid ~20.
 - Player critic round 4: P5R **8** (lid 8, base 9), P5OBD **7** (lid 8, base 7). With fixes (mixer 1–4, bank shift so stick clears, base rows up, header baseline) would defend P5OBD at 10. Says the choice is 4 VCOs = P5OBD, 3 = P5R.
+- Director round 8b: P5R **10** (tempo heading). Critic still P5R 8 (lid capped by long oscillator row).

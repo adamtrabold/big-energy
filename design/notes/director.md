@@ -1,6 +1,15 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Round 8 (2026-11-14; 3fa4e78 / d612e32): READ THIS FIRST
+## P5R: 10 (2026-11-14; 039287b / 639dae0 / 057bf26, by eye): READ THIS FIRST
+- **"tempo" heads tap.** Every control on both halves now sits under a heading that names it, in its column or row, with a reason for its place.
+  - Lid: oscillators 1 · 2 · 3 + tuning in one family; filter | window | amp; keys | echo | reverb; "• midi" key.
+  - Base: mixer 1 / 2 / 3 over resonance / cutoff / envelope, echo / reverb over volume / pan.
+  - The standing view matches.
+- **Back-row gaps (28.6 mm) accepted.** They come from real column alignment, not leftover space.
+- **Owner faults (01:32) re-walked one by one: all answered.**
+- **The risk if he turns it down:** he reads the back row as sparse. Record his reasons.
+
+## Round 8 (2026-11-14; 3fa4e78 / d612e32)
 - **P5R: 9. The work really changed:**
   - a "• midi" key at the lid's top right; the dots on a real subset (analog knobs excluded; octave dots gone);
   - VCO numbers as sub-headings;
