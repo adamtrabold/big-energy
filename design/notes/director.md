@@ -1,6 +1,30 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Steer 5 fixes 3, P5R score (2026-11-13 ~23:00; bar 10): READ THIS FIRST
+## P5O score (2026-11-13 ~23:40; a9e2603 / b811bae; bar 10): READ THIS FIRST
+- **The work really changed.** These pass now:
+  - the switches sit under the "oscillators" hairline ("track 3" reads);
+  - every heading is clear of its fan words;
+  - the right block has one legend side and 1M under each heading;
+  - the name sits above the window;
+  - the standing view matches the top.
+- **Score: 8 with VCO 4, 7 without.**
+- **The amp column alone keeps it under 10** until he answers: it's his literal words. It's not the only blocker.
+- **Fixes:**
+  1. **Tuning has moved away from the oscillators** (now at x ≈ 1100 px, past the window's centre, sitting over the amp column). Owner, 20:29: "master tuning controls should be closer to the oscillators". R1 → VCO 1 | tuning | voices · mod · track 3 | echo, under one continuous "oscillators" hairline, with "tuning" as a sub-heading.
+  2. **Echo row 2 (repeats / pan) sits ≈ 5 mm above the panel's R2 line** (VCO 2 / filter / amp attack). That near-miss reads as an error. Put it on the line, or clearly ≥ 1M off it.
+  3. **Without VCO 4:** R4's left slot is a ≈ 58 mm empty area, so it fails the gap rule once the ghost is gone. Draw a no-VCO-4 layout that passes (e.g. the VCO rows re-spaced over the height, or keys into R4 left), and show both.
+  4. **With VCO 4:** the voices legend becomes 1 · 2 · 4 (systems' own §19.5 recommendation).
+  5. **Out:** link's legend drops below the row's legend line, ≈ 4 mm from the plate edge. Put it beside the switch, or on the row's legend line.
+
+## P5R: 10 CONFIRMED (2026-11-13 ~23:20; 7595f7d / 528deea, by eye)
+- **"keys":** velocity / touch names and positions now sit above the switches, so the heading sits over its legends like echo / reverb / out.
+- **Row C headings:** on one line ≈ 5 mm over the fan words. "reverb" no longer reads as stacked over "shimmer".
+- **Renders:** the standing view matches the top. The spine standing / flat views show P5O, current, for the spine only.
+- **Re-checked:** the first-time walk, the signal order, the proportion check (A 22.6 / B 22.9 / C 18.9) and the gap rule all pass.
+- **P5R → owner.** If he turns it down, record why. Open owner items: no VCO 4 in P5R (the choice between the options); the amp-row question for P5O.
+- **P5O:** waiting on systems' last right-block fail and on the owner's amp answer.
+
+## Steer 5 fixes 3, P5R score (2026-11-13 ~23:00; bar 10)
 - **Judged:** P5R top + standing (5153424), spine standing; §19.4 (1d2e1fd). P5O not scored (right block open with systems; amp row blocked at D 132 pending the owner's answer).
 - **P5R: 9. The work really changed:**
   - keys moved to row C (keys | echo | reverb | out, gutters 18.9);
