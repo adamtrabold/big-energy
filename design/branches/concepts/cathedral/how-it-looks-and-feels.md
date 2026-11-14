@@ -42,7 +42,7 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 
 <figure>
 <img src="img/cathedral-s9-case-ratios-4px-per-mm.png" alt="Three case candidates side by side at true scale, columns A, B and C left to right. Each column shows, top to bottom: the closed case from above, its front elevation, the case open flat, and one face with its module grid. Thin brass construction lines mark the ratio: in A a square centred in the face; in B the closed case divided into two squares and the open case crossed as one square; in C the face divided into two squares and the two open faces crossed as one square.">
-<figcaption><b>Three candidate ratios, true scale</b> (4 px per mm, scale bar 50 mm). Columns, left to right: <b>A</b> D 132.4, <b>B</b> D 143, <b>C</b> D 147.3. Rows: closed from above; closed front (55.2 thick, the same for all); open flat; one face with its module grid (M = 277.4 / 56 = 4.954, the 4M pitch lines heavier). Brass lines show the ratio each candidate is built on.</figcaption>
+<figcaption><b>Three candidate ratios, true scale</b> (4 px per mm, scale bar 50 mm; the image labels its columns and rows, at the coordinator's request, so it reads on its own). Columns, left to right: <b>A</b> D 132.4, <b>B</b> D 143, <b>C</b> D 147.3. Rows: closed from above; closed front (55.2 thick, the same for all); open flat; one face with its module grid (M = 277.4 / 56 = 4.954, the 4M pitch lines heavier). Brass lines show the ratio each candidate is built on.</figcaption>
 </figure>
 
 | | **A. √5 face** (≈ 9 : 4, "the major ninth") | **B. The double-square case** | **C. The double-square face** |

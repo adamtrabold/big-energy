@@ -76,7 +76,31 @@ for ci, (nm, D, M) in enumerate(CANDS):
         d.line([X(ox + WALL), X(t3 + WALL), X(ox + W - WALL), X(t3 + 2 * D + SEAM - WALL)], fill=BRASS, width=bw)
         d.line([X(ox + WALL), X(t3 + 2 * D + SEAM - WALL), X(ox + W - WALL), X(t3 + WALL)], fill=BRASS, width=bw)
 img = img.resize((img.width // S, img.height // S), Image.LANCZOS)
-f.scale_bar(ImageDraw.Draw(img), P * 20, img.height - P * 8, P, 50)
+# labels (coordinator: the owner must be able to read it): column headings, row labels, the scale bar's unit
+from PIL import ImageFont
+FB = "/usr/share/fonts/opentype/inter/Inter-SemiBold.otf"; FR = "/usr/share/fonts/opentype/inter/Inter-Regular.otf"
+LW, TH = 78.0, 40.0                                         # left label column, top heading band (mm)
+out = Image.new("RGB", (int(img.width + LW * P), int(img.height + TH * P)), BG)
+out.paste(img, (int(LW * P), int(TH * P)))
+dd = ImageDraw.Draw(out)
+fh, fs = ImageFont.truetype(FB, int(P * 8.0)), ImageFont.truetype(FR, int(P * 6.0))
+HEAD = {"A": ("A  √5 face (≈ 9 : 4)", "286 × 132.4 · face 2.24 : 1"),
+        "B": ("B  double-square case", "286 × 143 · case 2 : 1, open ≈ square"),
+        "C": ("C  double-square face", "286 × 147.3 · face 2 : 1 (recommended)")}
+for ci, (nm, D, M) in enumerate(CANDS):
+    x = (LW + 20 + ci * colw + 20) * P
+    dd.text((x, P * 16), HEAD[nm][0], font=fh, fill=INK, anchor="ls")
+    dd.text((x, P * 27), HEAD[nm][1], font=fs, fill=INK, anchor="ls")
+    dd.text((x, P * 15), "", font=fs, fill=INK)
+rows = ["closed, plan", "closed, front", "open flat", "face + grid"]
+y = 20.0
+for k, lab in enumerate(rows):
+    yc = TH + y + heights[k] / 2
+    dd.text((P * 6, yc * P), lab, font=fh, fill=INK, anchor="lm")
+    y += heights[k] + gap_r
+f.scale_bar(dd, (LW + 20) * P, out.height - P * 10, P, 50); dd.rectangle([(LW + 20 + 50) * P + 2, out.height - P * 14, (LW + 20 + 50) * P + P * 12, out.height - P * 4], fill=BG); dd.text(((LW + 20 + 50) * P + P * 2, out.height - P * 10 + 1), "50 mm", font=fs, fill=INK, anchor="lm")
+dd.text(((LW + 20 + 50) * P + P * 30, out.height - P * 10 + 1), "(true scale, 4 px per mm)", font=fs, fill=INK, anchor="lm")
+img = out
 p = f.dest("cathedral", "cathedral-s9-case-ratios-4px-per-mm.png"); img.save(p, optimize=True); print(p, img.size)
 for nm, D, M in CANDS:
     fh = D - 8.6
