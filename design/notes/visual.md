@@ -1,5 +1,14 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 fixes 3 (2026-11-13 ~22:45; new director, P5R 9 / P5O 8, bar 10): READ THIS FIRST
+- **Inputs:** systems 1d2e1fd (§19.4): P5R keys move to row C, row B is symmetric, row C's headings sit on one line at d 42.0, and VCO switches sit under each VCO. P5O: voices · mod · track 3 follow VCO 1, the top heading line is at d 122.0, and the amp-row study fails the gap rule (amp stays a column pending the owner). New director's tests: headings off fan-word lines; ≥ 5 mm from a legend to the next heading; one legend side per group (P5O right block); flag phrases.
+- **rb.py:**
+  - P5R's row-C heading line +0.4 (in `nv_heads_left`);
+  - `Nave.NAME_AT` overrides NAME_BOX: P5R d 38.0, and P5O d 90.5, above the window as a nameplate.
+- **Checks:** `/tmp/scr/s5g_rules.py <V>` (the new director's tests; fan-to-fan pairs are excluded from phrases), plus `s5f_kalam.py` and `s5f_rules.py` (name from NAME_AT). Real Kalam 0 and rules 0 for all three. The director's tests: P5R 0; P5O 3 (right block, geometry: reverb 1.6 under free · sync, out 2.5 under reverb's type, echo legends on both sides), and only systems can fix them (a separate row pitch for the right block).
+- **Images:** both tops, both standing views (P5O-standing is updated too; the site's build.py links it), spine-standing, spine-flat. The closed view has no panel in it, so it isn't re-rendered.
+- **Doc rev 9.2:** P5R alt text and caption, the by-eye notes, checks, Open.
+
 ## CATHEDRAL steer 5 fixes 2 (2026-11-13 ~22:20): READ THIS FIRST
 - **Inputs:** systems d56403f (folded rev 9) and f8ba494 (fixes for the 10: P5R switches on one line at d 89 under the VCOs, envelopes 5.9 off the axis; P5O SECTIONS_LEFT, octave · wave · pitch, a "tuning" pair after VCO 1, out in R4's right slot, VCO4_CAPTION, GHOST / HAIR / NAME_BOX in the checker). Scores before this: P5R 9, P5O 8.
 - **rb.py:**

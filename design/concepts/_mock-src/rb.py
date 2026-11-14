@@ -1656,7 +1656,9 @@ def nv_heads_left(lc, sections):
     if getattr(lc, "SECTIONS_LEFT", None):
         heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
-    return list(sections), nv_fit_subheads(lc), "center"   # (P5R "keys" +0.7 is in layout_check.py, 9bbedb1)
+    # steer 5 fixes 3: P5R's row-C heading line (d 42.0) +0.4: real Kalam put "reverb" 1.18 from "shimmer"
+    rowc = getattr(lc, "VARIANT", "") == "P5R"
+    return [(t, x, d + (0.4 if rowc and abs(d - 42.0) < 0.1 else 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
 
 def nv_hair(lc):
     """systems' HAIR (run b restarting over the switches is in layout_check.py since 9bbedb1)."""
@@ -1834,7 +1836,11 @@ class Nave(Cathedral):
         L0 = self.LY0
         return squircle2d(4.3, L0 + 4.3, FO_W - 4.3, L0 + self.D - 4.3, self.PLATE_RC, SQ_N)
 
-    NAME_FIT = {}             # (P5O's +0.3 is in layout_check.py's NAME_BOX, 9bbedb1)
+    # steer 5 fixes 3 (name positions, lid d, override NAME_BOX): P5R under the window at d 38.0 (echo pan moved to
+    # x 147.7, so at 34.0 the name sat on its top tick); P5O ABOVE the window at d 90.5, a nameplate over the grille
+    # (under it, the name came 1.5 from "keys", and the new 5 mm legend-to-heading rule can't be met there)
+    NAME_AT = {"P5R": 38.0, "P5O": 90.5}
+    NAME_FIT = {}
     NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
@@ -1844,7 +1850,8 @@ class Nave(Cathedral):
         the window reads as the name, not as one more heading."""
         if self._sq():
             nb = getattr(self.lc, "NAME_BOX", None)
-            d = (nb[2] + self.NAME_FIT.get(getattr(self.lc, "VARIANT", ""), 0.0)) if nb else self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7)
+            v_ = getattr(self.lc, "VARIANT", "")
+            d = self.NAME_AT[v_] if v_ in self.NAME_AT else (nb[2] if nb else self.NAME_D5.get(getattr(self.lc, "VARIANT", ""), self.lc.WIN[1] - self.lc.WIN[2] - 3.7))
             return txt(143.0, self.LY0 + d, gz + 0.01, self.NAME, 2.0, INK_LIGHT, font=HAND) if self.NAME else ""
         nz = self.LY0 + 2.2
         s = (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
