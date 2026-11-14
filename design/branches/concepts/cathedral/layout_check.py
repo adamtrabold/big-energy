@@ -98,7 +98,7 @@ if VARIANT in ("P5OB", "P5OBD"):
     for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
         L(n, x, R4, "k", lab, "front")
     g1 = 123.0 - KN - ((OX[2] if SHIFT else OX[3]) + KN)
-    EC1 = 163.0 + KN + g1 + KN
+    EC1 = 163.0 + KN + g1 + KN + (1.0 if SHIFT else 0.0)             # round 10: the right block 1.0 right (outer margins 20 / 20.35)
     L("ECHO TYPE", EC1, R1, "k", "type", "front"); L("ECHO TIME", EC1 + 20, R1, "k", "time", "front")
     L("FREE/SYNC", EC1 + 41.5, R1, "t", "free · sync", "under")
     L("ECHO REPEATS", EC1, R2, "k", "repeats", "front"); L("ECHO PAN", EC1 + 20, R2, "k", "pan", "front")
@@ -108,7 +108,8 @@ if VARIANT in ("P5OB", "P5OBD"):
     keys = [("PARA", "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4")), ("VEL", "velocity|amp · both · filter"),
             ("AFTERTOUCH", "touch|mod · off · filter")]
     KXS = [EC1 - KN + 6.175 + KP * i for i in range(3)] if VCO4 else list(OX[:3])
-    KW = "above2" if (VCO4 and VARIANT == "P5OBD") else "below2"   # under the bank: words below, clear of octave 3's ticks
+    KW = "below2"                                                  # round 10: keys' words under the switches everywhere, so the
+                                                                    #   heading sits on the switches, ≥ 8 under reverb's names
     if VCO4 and VARIANT == "P5OB": KXS = list(OX[:3])             # D 132 + VCO 4: see P5OBD (keys stay left, no VCO 4 row)
     for x, (n, lab) in zip(KXS, keys):
         L(n, x, RK if (VCO4 and VARIANT == "P5OBD") else R4, "t", lab, KW)
@@ -116,7 +117,8 @@ if VARIANT in ("P5OB", "P5OBD"):
     over = lambda d: d + KN + 1.5 + 0.425 * HS
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
-    KTOP = ((RK + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS) if KW == "above2" else (R4 + TGL)) + 1.5 + 0.425 * HS + 0.6
+    KROW = RK if (VCO4 and VARIANT == "P5OBD") else R4
+    KTOP = ((KROW + TGL + 2.35 + 0.85 * NS + BELOW2_LEAD + 0.85 * SW_LS) if KW == "above2" else (KROW + TGL)) + 1.5 + 0.425 * HS + 0.6
     SECTIONS_LEFT += [("oscillators", ML + SHIFT, HTOP), ("amp", 123.0 - KN, HTOP), ("echo", EC1 - KN, HTOP),
                       ("filter", 123.0 - KN, H4), ("reverb", EC1 - KN, RV + KN + 1.7 + 1.5 + 0.425 * HS),
                       ("keys", KXS[0] - 6.175, KTOP)]

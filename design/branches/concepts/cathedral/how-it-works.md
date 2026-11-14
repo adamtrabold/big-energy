@@ -1437,6 +1437,23 @@ The checker reports what each leaves empty. The visual renders all three.
 
 **P5R:** 0; "tempo" heads TAP (round 8).
 
+## 28. Round 10: the critic's round-5 fixes to P5OB-D
+1. **Tune and drift read as global tuning: one printed "tuning" rule over both.** Smaller trim caps don't fit.
+   - Moving drift up beside tune in row 1 needs the bank shifted left. Row 1 allows at most 17.3 mm (18.8 with Ø9 trims), but the full-height stick needs ≥ 18.06.
+   - Drift in row 1 would also break R1's equal gutters and the echo row.
+   - So the geometry stays: tune at R1 (VCO 1's pitch slot) and drift at R2 (4th column). One "tuning" bracket/rule ties the two and separates them from VCO 2's row. **Visual:** draw it. The checker doesn't model the bracket yet.
+2. **Keys ≥ 8 mm under reverb's type names:** solved by printing the keys words (voices · velocity · touch) *under* the switches, without lowering the switches.
+   - The heading now sits just above the toggles, so "voices" no longer pushes it up. This recovers the 3.8 mm the column was short.
+   - Measured gap from the keys heading top to the reverb names: **11.35 mm** (VCO 4).
+   - Fix in the checker: the keys heading followed R4 instead of the keys' own row, RK. With VCO 4 that put it on reverb's names (−1.52).
+3. **Right block right: +1.0 mm, not 3.** Outer margins are now 20.0 / 20.35. R1's gutters are 21.35 / 22.35, within the 1.0 tolerance.
+   - A 3 mm shift makes R1's gutters unequal (gap rule). Matching the margins exactly needs the R1 gutters re-split, which is a visual call.
+4. **Checker:**
+   - P5R: 0, with and without VCO 4.
+   - P5OB-D with VCO 4: 6, all gap-rule (wide R2/R3 ends and windows; R4 gutters 21.35–23.93, end 31.9). No text clashes.
+   - P5OB-D without VCO 4: 5, all gap-rule.
+   - Closed height unchanged: 55.2 R-LOW / 59.7 R-TALL.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
