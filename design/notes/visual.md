@@ -1,5 +1,13 @@
 # Visual designer notes (instrument; working name retired)
 
+## Case ratio (2026-11-14; owner: "a more pleasing and harmonious case ratio … base it on the face"): READ THIS FIRST
+- **Candidates (W × D per half, outside; face = (W − 8.6) × (D − 8.6)), for systems to check against §30:**
+  - **A. √5 / 9 : 4 face: 286 × 132.4** (face 277.4 × 123.8 = 2.24; module 56 × 25). P5R as is (+0.4). Out for P5OB-D (below 143).
+  - **B. Double-square case: 286 × 143** (case 2.00; open flat 286 × 288 ≈ a square; face 2.06, grid 56 × 27.1, doesn't close). P5OB-D −2 with 0 slack; P5R +11 with a re-lay.
+  - **C. Double-square face: 286 × 147.3** (face 277.4 × 138.7 = 2.00 exact; module 56 × 28; the two open faces make a square). **Recommended**, for P5OB-D (+2.3, ≈ +10 g, no re-layout). Poor for P5R (+15.3).
+- **Excluded:** golden / 3 : 2 per half (D 177 / 191, or below the floor); square-open on P5OB-D (W 292, +6, x re-spread, adds nothing over C).
+- **Image:** `cathedral-s9-case-ratios-4px-per-mm.png` (columns A B C; rows: closed plan, closed front, open flat, face + grid; brass construction lines). Script: `design/concepts/_mock-src/case_ratios.py`. Look doc section "Case ratio".
+
 ## Round 7 (systems e38e035), 2026-11-14: READ THIS FIRST
 - **rb.py:**
   - P5O fits are scoped to `P5O_FAMILY`; new `P5R_HEAD_FIT` (filter / amp +0.8, keys +0.6), because P5R now uses SECTIONS_LEFT;
