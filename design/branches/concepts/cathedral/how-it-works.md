@@ -1291,6 +1291,52 @@ The checker reports what each leaves empty. The visual renders all three.
 
 **The steer-5 P5O that passed** (amp column, bank on R1, out on the lid) is in git at 33229cd. It's the one the director scored 8.
 
+## 23. Round 7 (director P5R 8, player critic P5R 8, base 7)
+### 23.1 P5R lid
+- **Every heading top-left of its group, the base's rule:**
+  - oscillators 31.9 at d 123.5;
+  - filter 42.2 and amp 188.9 at d 79.7, over each group's left edge, not on the decay label;
+  - keys 39.8, echo 100.8 and reverb 211.3 on one line at d 37.4. "echo" starts 19 mm left of the grille.
+- **"tuning"** is a sub-heading (legend size) over tune · drift, d 120.4. To make room, "oscillators" rises to 123.5.
+- **The VCO numbers sit centred in the gap before each VCO,** 4 mm clear of the tick rings (not 0.2).
+- **Checker:** 0. **Closing:** R-LOW 55.2 with the stick as is (filter attack is 4.25 away in plan).
+
+### 23.2 The base (shared), re-laid on columns
+| Column | Front (y 68) | Rear (y 93) |
+|---|---|---|
+| **controllers** | bend 31.95 · mod 51.95 · glide 71.95 | **release (t) 31.95, behind bend** (the Model D's decay switch by the wheels) · **"mod":** pitch (t) 46.45 · filter (t) 57.45 · blend 71.95 |
+| **filter / mixer** | resonance 111 · track (t) 125.8 · CUTOFF 143 · envelope 163 | 1 109.3 · 2 129.3 · 3 149.3 · extra 169.3 · source (t) 183.9 |
+| **out / effects** | **out:** volume 202.05 · pan 222.05 · link (slide) 237.05 | **effects:** echo 220.7 · reverb 240.7 · tap 259.7 |
+
+- **The "mod" sub-heading** (Kalam 1.8, y 108.5) sits over pitch · filter · blend. "controllers", "mixer" and "effects" are at y 112, and "filter" and "out" at y 78. **Nothing stands over the bend stick except release.**
+- **"out" heads only volume · pan · link,** all on the front row, and **"effects" heads echo · reverb · tap.** TAP sets echo's time, so it joins effects. Its ring is the status light, and the separate "tempo" label is gone (one word).
+- **Link is a low slide** (≈ 6 mm). As a 15 mm bat it would land under amp sustain when closed and push the lid to 61.2.
+- **Gutters:**
+  - front 25.0, ends 6.6 / 25.0;
+  - rear 23.3, ends 8.1 / 1.0.
+- **The dead zones, honestly:** the front row's gaps are fixed by CUTOFF (pinned under the grille) and by the stick, which has to stay at x ≤ 33.2 to clear P5R's filter attack when closed. Glide → resonance is 25 mm edge to edge (39 centre to centre). Pulling it in would need the stick lowered. The mixer now sits over the filter (109–184 over 104–170).
+- **Checker:** 0.
+
+### 23.3 P5OB: the critic's "centre spine" for the owner's own layout (a study; checker 5)
+| Row (d) | Left | Centre | Right |
+|---|---|---|---|
+| **R1, 104** | "1" octave · wave · **tune · drift** (under "tuning") | **amp** attack 123 · decay 143 · sustain 163 | **echo** type 199.25 · time 219.25 · free · sync 240.75 |
+| **R2, 79** | "2" octave · wave · pitch | grille | repeats 199.25 · pan 219.25 |
+| **R3, 54** | "3" octave · wave · pitch · track 3 | grille | (air) |
+| **R4, 29** | **keys:** voices · velocity · touch (in the oscillator columns) | **filter** attack 123 · decay 143 · sustain 163 | **reverb** type 221.4 · decay 241.4 |
+
+- **The grille fits between the two envelope rows.**
+  - amp's knob bottoms (96.55) are 9.55 clear of the grille's top (87);
+  - filter's knob tops (36.45) are 4.55 clear of its bottom (41).
+  - No shrinking needed.
+- **Checker: 5 violations,** all of them the empty space the spine leaves by design:
+  - R2: the oscillators to the grille, 47.3; the grille to repeats, 27.8; the right end, 40;
+  - R3: the grille to the right edge, 175 (the "air" before reverb).
+  - Row gutters: R1 21.3, R4 43.0.
+  - Labels and headings are clean.
+- **Closing:** VCO 2's octave lands over the bend stick, so **the stick lowers to 9.0** for 55.2 (as is: 58.8). VCO 4 doesn't fit unless keys leave R4.
+- **For the owner:** this is his layout read literally: amp on top, filter by the speaker, oscillators stacked. The critic would defend it at 9 → 10. The director thinks no P5O reaches 10. The gap rule says the grille's sides and R3 right are holes. He judges by eye.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
