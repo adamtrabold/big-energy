@@ -12,3 +12,9 @@
 - Facts given to the team: artifact capabilities list, no fitting type, "live update" needs a session to publish.
 - Asked the owner: how much interaction he means (view only vs. feedback/decisions there).
 - Found (not fixed): design/concepts/_mock-src/out/ is tracked in git (120 files) though HANDOFF says it is not; .gitignore line points at an old path. No backlog file exists; mention to owner at handback.
+
+## 2026-11-13 ~20:45: state
+- CATHEDRAL scored 10 (owner's bar) after the synth expert review + first-time walk; on the site's To decide page, awaiting owner approval.
+- All 15 feature docs written; architecture.md recounted (settled-today table, budgets, open items). Site: GitHub Pages from gh-pages via site/publish.sh; commits as Adam, no Claude credit (HANDOFF rule).
+- Open owner decisions: see design/decisions-open.md (11 items incl. CATHEDRAL approval, back opening, line-out jacks, MIDI, KBD full tracking, bend range, PARA+4 path, filter note in chords, input jack, drift amount, aftertouch switch wording).
+- Lessons: show options on the site with images before asking; resolve root causes, not leftover space; trace signal order and do a first-time-player walk before scoring; never git add -A (shared tree with another agent).
