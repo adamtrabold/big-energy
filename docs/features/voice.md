@@ -88,7 +88,7 @@ loop (dry VCA out)┘                                │ (overdrive happens here
 - **Power and cost:** see [architecture](../architecture.md); the voice is the bulk of eng's part count (eng §8).
 
 ## Open questions
-1. **Filter track positions.** Today's spec: off · 1/3 · 2/3, so full tracking isn't available. The Model D reaches full with both of its switches on. **Proposed:** firmware reads the switch and scales the CV, giving **off · 1/2 · full** (team recommends; eng to confirm). Owner question on the [decisions page](../../design/decisions-open.md) (item 7).
+1. **Filter track positions.** Today's spec: off · 1/3 · 2/3, so full tracking isn't available. The Model D reaches full with both of its switches on. **Proposed:** **off · 1/2 · full**, either by re-resistoring the same 3-way switch (two resistor values; review item 12) or by having firmware read it and scale the CV. Team recommends; eng to confirm. Owner question on the [decisions page](../../design/decisions-open.md) (item 7).
 2. **Pitch knob span** (± 7 semitones, or Model D's narrower range): eng.
 3. **Source "loop" tap point** (dry VCA out, pre-FX, pre-volume): eng to confirm.
 
