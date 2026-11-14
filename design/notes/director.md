@@ -1,6 +1,24 @@
 # Director notes: Little D (budget instrument), physical design
 
-## OWNER REJECTED P5R 10; round 6 score (2026-11-14; 049e51e / c87738f / 9b14a75): READ THIS FIRST
+## Round 7 (2026-11-14; e38e035 / 2023021): READ THIS FIRST
+- **P5R: 9 (was 8). The work really changed:**
+  - top-left headings on both halves; "echo" now starts clear of the grille;
+  - a "tuning" sub-heading;
+  - release behind bend; a "mod" sub-group;
+  - out = volume · pan · link, under its own heading; tap with the effects;
+  - one tick system; the octave positions line.
+  - Whole-panel pass: every group now has a reason for its place.
+- **Left for 10:**
+  1. **MIDI dots on a subset** (octave, tune, pitch, mod, glide, cutoff, pans), with no key on the panel. They also contradict §21.4 ("every continuous knob receives"; stepped selectors don't, yet octave has a dot). To him that's "markings inconsistent" again. Systems + visual reconcile the spec with midi.md. Then either all continuous knobs (dots dropped, with a one-line rule in the docs), or the subset with a printed key. My preference: drop them, if every continuous knob really receives.
+  2. **The VCO numerals "2" / "3" sit dead-centre in the gaps** (≈ 5 mm from drift and from octave 2), so they don't lead their groups the way "1" does. Fix: "1" "2" "3" become sub-headings top-left over each VCO's octave, the same rule as "tuning".
+- **P5OB (the critic's centre-spine P5O):** the closest to his words (amp row on top, filter by the speaker), but it doesn't reach 10:
+  - large empty areas right of the grille (R2–R3), between the oscillators and the grille, and under the keys;
+  - filter reads below amp, top-down;
+  - "oscillators" overprints octave 1's positions line;
+  - "reverb" touches the knob ticks.
+  - **View refined, not changed:** no P5O reaches 10 within his current rules. The only candidate is P5OB with the effect levels + out (volume · pan · link) on the lid, filling the right-hand holes, and that's conditional on his answer to the question. Show P5OB as the P5O study, with the holes marked.
+
+## OWNER REJECTED P5R 10; round 6 score (2026-11-14; 049e51e / c87738f / 9b14a75)
 - **Owner (01:32), verbatim:** "Also in p50 the oscillators are really far apart, the mod and track control placements feel random. As does the envelops label, the echo types and reverb types knob labels, the markings around the knobs are all inconsistent, the out pan makes no sense. This is not a 10".
   - 01:29: "The top case is looking ok in p50 but the bottom is a bit less senseful".
   - 01:33: "Also it doesn't need to say big energy".
