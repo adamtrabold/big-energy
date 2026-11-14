@@ -20,7 +20,7 @@ Owner (2026-11-13 16:21, `../design/owner.md`): "we need on that site architectu
 | [features/autotune-and-drift.md](features/autotune-and-drift.md) | TIM5 counting, coarse + fine DACs, held-note loop, DRIFT, filter cal | not yet written |
 | [features/effects.md](features/effects.md) | echo (4 types), reverb (4 types), wet-only return, send gating | not yet written |
 | [features/echo-sync.md](features/echo-sync.md) | FREE / SYNC, TAP, MIDI clock, divisions | not yet written (source: `../design/branches/echo-clock.md`) |
-| [features/panning-and-stereo-outputs.md](features/panning-and-stereo-outputs.md) | dry pan, delay pan, FOLLOW, stereo phones / line, mono-on-TS, speaker sum | not yet written (source: cathedral §15) |
+| [features/panning-and-stereo-outputs.md](features/panning-and-stereo-outputs.md) | dry pan, echo pan, FOLLOW, stereo phones / line, mono-on-TS, speaker sum | not yet written (source: cathedral §15) |
 | [features/midi.md](features/midi.md) | MIDI in from a DAW or another device; free extras | **written 2026-11-13** |
 | [features/power-and-battery.md](features/power-and-battery.md) | LiPo, charger, boost, rails, gauge, runtime, Hall gating | not yet written |
 | [features/firmware-update-and-gestures.md](features/firmware-update-and-gestures.md) | DFU, boot gestures, settings gestures, TAP | not yet written |

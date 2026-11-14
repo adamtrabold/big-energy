@@ -70,7 +70,7 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (Â
 | FREQ 2 / FREQ 3 | 21 / 22 | undefined | proposed |
 | RANGE 1 / 2 / 3 | 23 / 24 / 25 | undefined. **If RANGE becomes a detented 6-way rotary (review 13), it's a switch: MIDI never flips switches, so drop these** | proposed / open |
 | **DRY PAN** | **10** (decided) â€” see the CC 10 problem below | owner decided CC 10 for "the pan" | decided, with an open question |
-| DELAY PAN | 102 | undefined | proposed |
+| ECHO PAN | 102 | undefined | proposed |
 | ECHO MIX / REVERB MIX | 103 / 104 | review P8: DAW users automate effect *amounts* more than pans. **Owner's call to add them** (it moves them into the marked set) | open |
 
 **Channel:**
@@ -104,7 +104,7 @@ Status: **written 2026-11-13** (systems). Per item: decided / proposed / open (Â
 - **Echo sync:** clock in from either transport (`echo-clock.md`). TAP is ignored for tempo while the clock runs.
 - **Aftertouch:** pressure in and out (above).
 - **Bend and mod:** the stick and PB sum; MOD and CC 1 share jump-on-move.
-- **Panning:** DRY PAN (digipot, so MIDI-able) and DELAY PAN (DSP).
+- **Panning:** DRY PAN (digipot, so MIDI-able) and ECHO PAN (DSP).
 - **FOLLOW** is a switch: never flipped by MIDI.
 - **Paraphonic:** shared allocation for keys and MIDI.
 - **Gestures:** the channel combo avoids TAP (architecture O5).

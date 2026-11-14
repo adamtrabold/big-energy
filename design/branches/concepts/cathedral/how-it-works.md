@@ -774,6 +774,88 @@ Not found in any source checked: a description of the Take 5's or minilogue xd's
   - or a later base swap of TAP with the stick side (breaks steer 2's symmetry). Not proposed now.
 - **E1 (eng):** the back-box chamfer for DELAY PAN's pot; check the real pot body against the box.
 
+## 18. Steer 4: the panel explains itself (review 2026-11-13, 7/10 for understanding; owner: "make it a 10")
+Source: `design/reviews/2026-11-13-lid-layout-review.md`. The arrangement (P, §17) stays. Fixed: all seven items and both nice-to-haves. `layout_check.py` now also checks **the base row** (gaps, pitch, every legend as R-LOW draws it, the LEDs, the group headings, the stick ↔ TAP mirror). It also measures every new legend: each toggle's name and position words, the "keys" lead-in, the echo pan cue, FOLLOW's name, and the "para: detune" notes. **0 violations.**
+
+### 18.1 Position legends, from the spec (review 1)
+- **Convention (proposed):** the position words list the positions **lever-down → lever-up**. Down is toward the hinge on the lid and toward the keys on the base.
+- Each toggle prints its name, with its positions in a smaller line (Kalam 1.3) under it. Base toggles print both under the toggle.
+
+| Toggle | Positions (in order) | Panel legend | Source | Spec clear? |
+|---|---|---|---|---|
+| PARA | MONO / PARA / PARA+4 | "mono · para · +4" | owner.md (paraphonic approved); paraphonic.md | Yes, but PARA+4's audio path is open (paraphonic.md option C would make it 2-way: "mono · para"). |
+| OSC MOD | off / on | "off · on" | Model D manual p. 19 ("When this switch is set to ON, the Oscillators can be modulated by Oscillator 3, Noise, Filter Contour"); eng/architecture §1.8 (mod bus onto the VCOs) | Yes. On sends the mod mix (osc 3 ↔ noise, scaled by the wheel) to all three VCOs. |
+| OSC 3 CTL | off (free) / on (keys) | "free · keys" | Model D manual p. 19 ("Turning the orange rocker switch to OFF releases OSCILLATOR–3 from keyboard control") | Yes |
+| SOURCE | noise / ext / feedback | "noise · ext · fb" | jobs F2.3; eng/budget-variant (3-way toggle) | Yes |
+| VELOCITY | LOUD / BOTH / FILT | "loud · both · filt" | keys-and-velocity.md (decided) | Yes |
+| TOUCH | MOD / OFF / FILT | "mod · off · filt" | aftertouch.md (decided switch; positions eng) | Yes. The word "mod" vs "vib" is owner question 6 (decisions-open). |
+| KBD (KEYBOARD CONTROL) | off / ⅓ / ⅔ | "off · ⅓ · ⅔" | eng/budget-variant (3-way: off / ⅓ / ⅔); eng/velocity-and-keys-v2; Model D manual p. 30 (KBD 1 = ⅓, KBD 2 = ⅔, both = full) | **Unclear:** eng/architecture item 7 says tracking "can't reach full". **Proposed:** the filter keyboard CV is a DAC channel, so firmware can scale the three positions to **off · ½ · full** (full = 1 V/oct, as the Model D with both switches on). Eng confirms; until then the legend reads "off · ⅓ · ⅔". |
+| FILT MOD | off / on | "off · on" | Model D manual p. 29 ("When this switch is on, the Filter Cutoff Frequency can be modulated by the Noise Generator, Filter Contour"); eng/architecture §1.8 (onto the filter node via 33 k) | Yes |
+| RELEASE (was DECAY) | off / on (= decay) | "off · = decay" | eng/architecture §1.6 (on: release follows DECAY; off: the cap is dumped on key-up) | Yes. **It acts on both contours:** the Model D manual says so for the filter contour (p. 30) and the loudness contour (p. 31). |
+| FREE / SYNC | free / sync | "free" below, "sync" above | echo-sync.md (owner option B) | Yes |
+| FOLLOW | own / follows dry | "own" left, "follows dry" right, "echo pan" under it | panning-and-stereo-outputs.md (FOLLOW = echo pan takes the dry pan's value) | Yes |
+
+### 18.2 What moved on the lid (new x / d; everything else as §17.6)
+| Item | Was | Now | Why |
+|---|---|---|---|
+| PARA | (33.5, d 70) | **(23.5, d 70)**, legend "para / mono · para · +4" | PARA and OSC MOD act on the whole bank, so they sit together at its left (review 3) |
+| OSC MOD | (88.5, d 70), under VCO 2 | **(48.0, d 70)**, "osc mod / off · on" | the same; its block ends at x 59.6, before VCO 2 (61.05) |
+| OSC 3 CTL | (153.5, d 70) | **(133.5, d 70)**, under RANGE 3, "osc 3 ctl / free · keys" | stays VCO 3's own switch |
+| SOURCE | (242.5, d 70), under OSC 3 | **(262.5, d 70)**, under NOISE / EXT, "source / noise · ext · fb" | the selector beside the knob it re-points (review 2) |
+| KBD, FILT MOD | lid column x 23.5, "filter" heading, rule x 43.5 | **base filter group** (§18.4); heading and rule **removed** | review 5, best option |
+| DECAY switch | (222, d 35), under the loudness contour | **RELEASE at (143, d 61.5)**: on the axis, between the two contours, over the window; "release / off · = decay" | it acts on both contours (review 6). The words "decay" now appear only on the two DECAY knobs and REVERB DECAY. |
+| VELOCITY, TOUCH | (178.5 / 199.5, d 35) | **(178.5 / 203.0, d 35)**, with a **"keys"** lead-in (right-aligned at x 172.4, d 35) | room for the position words; "keys" says they're key response, not loudness-only (review 8) |
+| DELAY PAN | "delay pan" (116, d 14.45) | **ECHO PAN**, "echo pan", same place. Cue **"(off if follow)"** centred at (108, d 25.05), just above-left of the knob | one word per concept (review 7). The cue tells the player the knob is overridden when FOLLOW is on. |
+| FOLLOW | "off / follow" | **"own" left · "follows dry" right** (± 6.4), **"echo pan"** under it | names both ends and what it links (review 7) |
+| FREQ 2, FREQ 3 | — | secondary **"para: detune"** (Kalam 1.3) right of each legend, d 96.5 | they become fine detune in PARA (owner.md paraphonic entry; review 9) |
+| Contour headings | flush left at the first knob | **mirrored about the axis:** "filter contour" flush right at x 110.95, "loudness contour" flush left at 175.05 (d 67.5) | flush left, "filter contour" ran into OSC MOD |
+| "out" heading | (262.5, d 66.5) | **(249.0, d 58.0)**, the column's top left, just above its break line | SOURCE now takes d 66–71 at x 262.5 |
+
+**What echo pan does (one line):** it places the echo's output on L / R **and** where the echo enters the reverb, both together (panning-and-stereo-outputs.md: "It places the echo's output on the outputs **and** where it enters the reverb"). "Echo pan" is now the name everywhere in docs/; earlier sections of this file keep "delay pan" as history.
+
+### 18.3 The base regrouped (review 4)
+| Group (heading at y 85, left-aligned, Kalam 2.4) | Controls (x, all at y 68) |
+|---|---|
+| **controllers** (x 14) | BEND stick 25 · MOD 47 · **MOD MIX 67** · GLIDE 87 |
+| **filter** (x 105) | **EMPHASIS 112.5** · **KBD (toggle) 126.4** · CUTOFF 143 (hero, axis) · **FILT MOD (toggle) 159.6** · **AMOUNT 173.5** |
+| **tune** (x 191.5) | **TUNE 199** · DRIFT 230 · TAP 261, legend **"echo tap"** |
+
+- **Groups:** MOD MIX moved next to the wheel it feeds, and TUNE moved to the tune group (they swapped places: 67 ↔ 199).
+- **Mirror:** the stick ↔ TAP mirror (25 ↔ 261) and the hero on the axis are kept.
+- **Filter group:** EMPHASIS (119 → 112.5) and AMOUNT (167 → 173.5) open out by 6.5 each way to seat the toggles. Gaps hold for both R-LOW (Ø 10) and R-TALL (Ø 14.9) knobs. Group gaps: 87 → 112.5 and 173.5 → 199, both 25.5.
+- **Toggle legends** sit under each toggle: "kbd / off · ⅓ · ⅔", "filt mod / off · on". They clear the "emphasis", "cutoff" and "amount" legends and the two LEDs at y 81.
+- **Closing (re-run):**
+  - re-run with every moved knob and the two toggles (bat 15.0, ESTIMATE): the numbers don't change. **R-LOW 55.2, R-TALL 59.7.** Binding: F ATTACK over MOD MIX (MOD MIX now at TUNE's old x 67). EMPHASIS (112.5) now lands under F SUSTAIN's edge and AMOUNT (173.5) under L ATTACK and VELOCITY, at the same heights as the binding pairs, so the face needed stays 40.1 / 44.6;
+  - **New finding:** with KBD gone from the lid's left edge, nothing on the lid sits over the bend stick. R-LOW reaches 55.2 **with the stick as is** (12.6). **The stick no longer needs lowering**, which drops one of R-LOW's two conditions (§16.3).
+
+### 18.4 KBD and FILT MOD beside CUTOFF: the closed-lid check (review 5)
+- Closed, a base point lands under lid d = 108 − y. Both toggles (y 68) land at **lid d 40**: (126.4, 40) and (159.6, 40).
+- That's **4.6 mm inside the Ø 46 window**, under the slotted grille. **No lid knob or toggle is within 3 mm in plan.** The nearest is F SUSTAIN at 12.7 mm (KBD side) and VELOCITY at 10.4 mm (FILT MOD side).
+- So the only thing over each bat is the lid face. The back box is behind the grille, inside the lid, not below the face.
+
+| Route | Lid face z | Free height above the base plate (z 15.6) | Clearance with a 15.0 mm bat (ESTIMATE) | Largest bat that keeps 2.0 |
+|---|---|---|---|---|
+| R-LOW | 40.1 | 24.5 | **9.5 mm** ✓ | 22.5 mm |
+| R-TALL | 44.6 | 29.0 | **14.0 mm** ✓ | 27.0 mm |
+
+- **The 15.0 mm bat is an estimate**: a mini toggle on a low nut, part UNVERIFIED. Even a long-bat toggle (≈ 20 mm) keeps ≥ 2.0 under R-LOW. Eng picks the part.
+- **A condition I'm surfacing (it was already true in steers 2–3):** the closing check assumes every lid item hangs 13.5 mm, toggles included.
+  - Three lid toggles land over base knobs: VELOCITY over AMOUNT, TOUCH over TUNE, FOLLOW over TAP.
+  - A lid toggle bat of 15 mm would need a face of 41.6, so **R-LOW becomes ≈ 56.7** unless the lid toggles stay ≤ 13.5 mm proud of the face (e.g. short-bat mini toggles).
+  - Eng picks the part with that limit.
+- **Fallback (not needed):** under the filter contour knobs, mirroring the loudness side's switches.
+
+### 18.5 Open (steer 4)
+- **Eng:**
+  - KBD amounts (off · ⅓ · ⅔ as specified, or off · ½ · full via the DAC);
+  - the toggle part and its bat height (base and lid);
+  - the back-box corner chamfer for ECHO PAN's pot (§17.6).
+- **Visual:** rb.py to the new tables. In detail:
+  - drop the "filter" heading and rule overrides;
+  - draw the two-line toggle legends (`legend2`), `NOTES`, `BASE_TOGGLES`, `BASE_LEGEND` and `BASE_SECTIONS`;
+  - the base now has two toggles, and TAP's legend is "echo tap".
+- **Arrangement S (§17.4)** isn't updated for steer 4; it stays only as the steer-3 comparison.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

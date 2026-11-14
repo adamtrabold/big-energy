@@ -8,7 +8,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 ## What it does (player's view)
 - **Headphones and line out are stereo.** The echo and reverb spread left and right; the speaker plays one mono mix.
 - **DRY PAN** moves the synth itself left or right on the stereo outputs.
-- **DELAY PAN** moves the echo separately.
+- **ECHO PAN** moves the echo separately.
 - **FOLLOW** makes the echo track the dry pan.
 - **A mono cable in LINE OUT** still gets the whole sound.
 
@@ -17,22 +17,22 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - 15:23 "Stereo line out" → **stereo line out** (TRS).
 - 15:24 "Left channel should be mono tho if stereo isn't plugged in" → **a TS cable carries L + R on the tip** (requirement).
 - 15:44 "Yea sure on midi" → the pan **receives CC 10**.
-- 15:53 "No the pan would be audio signal. Basically I'd like to pan just the delay separately from the full dry but also I'd like to be able to have the pan signals sync" → **a dry pan and a separate delay pan**, with a link.
+- 15:53 "No the pan would be audio signal. Basically I'd like to pan just the delay separately from the full dry but also I'd like to be able to have the pan signals sync" → **a dry pan and a separate echo pan**, with a link.
 - 15:54 "Follow dry" → linked = **the delay follows the dry, same side**.
 
 ## How it works
 ```
 voice (mono, analog) ─► DRY PAN (dual digital pot, analog audio) ─► L sum / R sum ─► VOLUME (dual) ─┬─► PHONES (TRS, headphone driver)
         └─ FX send (placed where the dry sits, in DSP) ─► reverb in (stereo)                      ├─► LINE OUT (TRS, line driver)
-           └─► ECHO ─► DELAY PAN (DSP; = DRY PAN when FOLLOW) ─┬─► L / R sums                     └─► (L+R)/2 ─► LM386 ─► speaker
+           └─► ECHO ─► ECHO PAN (DSP; = DRY PAN when FOLLOW) ─┬─► L / R sums                     └─► (L+R)/2 ─► LM386 ─► speaker
                                                                └─► reverb in (stereo)
 reverb out (stereo) ─► L / R sums
 ```
 - **Summing:** two output summing nodes (one TL072): dry × pan + wet L / wet R. Wet only from the codec, no dry copy.
 - **DRY PAN:** the knob is a plain pot the Daisy reads. A **dual digital pot** (MCP4251-103, UNVERIFIED part) forms two complementary dividers, L = a, R = 1 − a (**constant sum**). The audio stays analog (no converter); eng confirms headroom at 5 V (AC-coupled, mid-rail bias) and that it's acceptable in the "never switched" dry path.
-- **DELAY PAN:** in DSP. It places the echo's output on the outputs **and** where it enters the reverb.
+- **ECHO PAN:** in DSP. It places the echo's output on the outputs **and** where it enters the reverb.
   - The reverbs take **stereo input**: PLATE / SPRING / SHIMMER get two input diffusers, ≈ +10–15 % of one reverb's load (ESTIMATE; spike measures it).
-- **FOLLOW:** a 2-way toggle. FOLLOW = the delay pan takes the dry pan's value; OFF = its own knob.
+- **FOLLOW:** a 2-way toggle. FOLLOW = the echo pan takes the dry pan's value; OFF = its own knob.
 - **The voice's send into the effects follows DRY PAN** (merged; no separate send pan). Review P1 found a separate send pan mostly inaudible.
 - **VOLUME:** a dual-gang 9 mm pot (part and T18 spline UNVERIFIED; cheap gangs mis-track at low settings: a known trade).
 - **Phones:** a stereo headphone driver (NJM4556A class, UNVERIFIED). **Line:** a stereo line driver with **470 Ω–1 kΩ build-out resistors** (review 2).
@@ -42,12 +42,12 @@ reverb out (stereo) ─► L / R sums
 | Control | Range / positions | Notes |
 |---|---|---|
 | **DRY PAN** | full L ↔ full R | centre detent if a 9 mm detent pot exists in T18 (UNVERIFIED), else a firmware dead zone ±3 % |
-| **DELAY PAN** | full L ↔ full R | inactive while FOLLOW is on |
-| **FOLLOW** | OFF / FOLLOW | a switch: MIDI never flips it |
+| **ECHO PAN** | full L ↔ full R | inactive while FOLLOW is on |
+| **FOLLOW** | OWN / FOLLOWS DRY (panel legend "echo pan: own · follows dry") | a switch: MIDI never flips it |
 | PHONES jack | TRS stereo, **switched** (speaker mute) | review 16 |
 | LINE OUT | TRS stereo (see the open question on jacks) | mono-on-TS required |
 
-**Placement (proposed, CATHEDRAL layout B effects row):** … ECHO MIX · **DELAY PAN** | REVERB … | **DRY PAN** · VOLUME, with FOLLOW in front between DRY PAN and VOLUME. [CHECK]: 0 violations; label check pending the model.
+**Placement (proposed, CATHEDRAL layout B effects row):** … ECHO MIX · **ECHO PAN** | REVERB … | **DRY PAN** · VOLUME, with FOLLOW in front between DRY PAN and VOLUME. [CHECK]: 0 violations; label check pending the model.
 
 ## Edge cases
 - **Speaker:** constant-sum laws, so moving either pan doesn't change the speaker's level.
@@ -56,25 +56,25 @@ reverb out (stereo) ─► L / R sums
 - **Balanced inputs** (most audio interfaces' TRS line inputs) hear **L − R**: the centred dry cancels and only the effects' stereo difference is left (review 3).
   - Print **"stereo · unbalanced"** by the jack.
   - Put a **3.5 mm TRS → 2 × TS cable** in the build list.
-- **PING-PONG + DELAY PAN:** PING-PONG already alternates. DELAY PAN sets **which side it starts on**; it doesn't add a second alternation (review P3).
+- **PING-PONG + ECHO PAN:** PING-PONG already alternates. ECHO PAN sets **which side it starts on**; it doesn't add a second alternation (review P3).
 - **Power-on pops:** phones and line get a **shunt mute** held at reset and released after boot calibration + 200 ms. It shares the LM386 enable pin (review 7).
 - **Ground loop** with USB-MIDI and line out into one computer: footprints for a ferrite on USB shield/ground; the line-out ground goes to the analog star; the manual says "run on battery or use an isolator to record" (review 17, UNVERIFIED).
 
 ## Interactions with other features
 - **Effects:** stereo-input reverbs; the echo stays a mono line, and its pan decides where it sits.
-- **MIDI:** DRY PAN receives CC 10 (decided; see the CC 10 problem in [MIDI](midi.md)); DELAY PAN receives CC 102 (proposed).
+- **MIDI:** DRY PAN receives CC 10 (decided; see the CC 10 problem in [MIDI](midi.md)); ECHO PAN receives CC 102 (proposed).
 - **Echo sync:** none (no tempo auto-pan; the owner said the pans are audio).
 - **Power:** the headphone driver draws quiescent current all the time unless it's switched by the PHONES jack's switch (review).
 - **Enclosure:** FOLD's far wall carries PHONES and LINE OUT; one more hole if the owner picks two line jacks.
 
 ## MIDI
 - DRY PAN: **receive CC 10** (decided), jump-on-move, possible because the digipot is set by the Daisy.
-- DELAY PAN: **receive CC 102** (proposed).
+- ECHO PAN: **receive CC 102** (proposed).
 - FOLLOW: none (a switch).
 - Sending: open (see [MIDI](midi.md)).
 
 ## Budget (pins / mux / DAC / power / cost)
-- **Mux:** +3 (DRY PAN, DELAY PAN, FOLLOW), +1 PHONES sense, +1 TS sense (0 with two jacks). See [architecture](../architecture.md).
+- **Mux:** +3 (DRY PAN, ECHO PAN, FOLLOW), +1 PHONES sense, +1 TS sense (0 with two jacks). See [architecture](../architecture.md).
 - **Pins:** +1 digipot chip-select; +1 74HC4053 control (0 with two jacks). Output mute shares D12.
 - **DAC:** 0 (the digipot isn't a DAC channel).
 - **Cost (ESTIMATE, UNVERIFIED):** stereo stage ≈ $3–5; pans, FOLLOW and digipot ≈ $4; 74HC4053 ≈ $0.50 or a second jack ≈ $0.50; mute ≈ $0.30.
@@ -93,9 +93,9 @@ reverb out (stereo) ─► L / R sums
 |---|---|
 | Stereo phones, stereo line out, one speaker | decided |
 | TS cable → L + R on the tip (line out) | decided requirement; **method open** (Q1) |
-| Dry pan + separate delay pan; FOLLOW = same side | decided |
+| Dry pan + separate echo pan; FOLLOW = same side | decided |
 | Pan receives CC 10 | decided (reconsideration open, Q3) |
-| Digipot dry pan, DSP delay pan, constant-sum laws, send follows dry | proposed |
+| Digipot dry pan, DSP echo pan, constant-sum laws, send follows dry | proposed |
 | FOLLOW as a 2-way toggle; placement | proposed |
 | Stereo-input reverbs | proposed |
 | Switched PHONES jack mutes the speaker; output shunt mute; 470 Ω–1 kΩ build-outs; "stereo · unbalanced" label + Y cable | proposed |
