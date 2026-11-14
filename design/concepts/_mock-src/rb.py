@@ -1737,6 +1737,7 @@ def nv_fit_sections(lc, sections):
 
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
 P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6), "oscillators": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"; 3fa4e78: oscillators 0.93 over the "1"
+P5OBD_HEAD_FIT = {}   # 7973b7a: "keys" sits 4.07 under reverb's names line (rule 5); lowering it meets "voices" first: ~3.8 mm short, systems
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
@@ -1747,7 +1748,8 @@ def nv_heads_left(lc, sections):
     voices (6 rule violations), so P5R needs systems' geometry first."""
     if getattr(lc, "SECTIONS_LEFT", None):
         hf = P5O_HEAD_FIT if getattr(lc, "VARIANT", "") in P5O_FAMILY else \
-             (P5R_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5R" else {})   # (e38e035: P5R is top-left too)
+             (P5R_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5R" else
+              (P5OBD_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5OBD" else {}))   # (e38e035: P5R is top-left too)
         heads = [(t, x + hf.get(t, (0, 0))[0], d + hf.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
     # 049e51e real Kalam: P5R row-C headings +1.5 ("keys" sat 0.09 over "velocity"); "filter" / "amp" +1.2 (0.38 / 0.42
@@ -2282,6 +2284,7 @@ def jobs(SZ):
         "rb_nv5_O4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_O4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_O4_stand.png")))(nave_env("P5O", CATHEDRAL_VCO4="1")),
         "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
         # §22 studies (owner judges the amp-row trade by eye; holes kept): full tops only
+        "rb_s8_P5OBD_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_s8_P5OBD_stand", size=SZ, az=-32, el=24, dist=900, center=(143, n.D * 0.6, 62), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_s8_P5OBD_stand.png")))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s8_P5OBD_top": lambda: (lambda n: top_tall(n.model(True), "rb_s8_P5OBD_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
         **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},
