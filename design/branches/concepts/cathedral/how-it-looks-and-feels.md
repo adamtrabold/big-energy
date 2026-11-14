@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 9.5: steer 5 fixes 6, every layout option, both options side by side)
+# CATHEDRAL: how it looks and feels (visual, rev 9.6: the marking system (owner: "the markings around the knobs are all inconsistent"), every layout option, both options side by side)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`; then P5R 9, P5O 8. Rev 9.1 lays out systems' fixes for the 10 (f8ba494): P5R's oscillator switches on one line under the VCOs; P5O's headings top-left, every VCO reading octave · wave · pitch, tune · drift as a headed "tuning" pair after VCO 1, and out in R4's right slot.
 
@@ -11,6 +11,29 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **"I think we can bring the spine back if we can make it look good."** It's back, drawn closed, standing and flat. It's walnut bookcloth in the case's own tone, and it wraps the soft back corners. Its two brass lines carry the façade's impost and plinth lines over the back edge (see *The spine*).
 - **"I kinda want the corners to be softer and to be more architectural like how Apple does theirs."** Every corner is a continuous-curvature corner (a superellipse, n = 5): 24 mm on the plates and 28.3 mm on the case, concentric. The closed view shows them best.
 - **"See if we can fit a fourth oscillator."** It fits in P5O, in a slot kept for it on the oscillator block's fourth row. It's drawn as a ghost (light outlines and words) so you can judge it in place. It doesn't fit in P5R without moving tuning away from the oscillators or making the case 32 mm wider (systems §19.5).
+
+### Knob markings: one system for every knob (rev 9.6; renders follow systems' re-lay)
+**Owner, 2026-11-14:** "the echo types and reverb types knob labels, the markings around the knobs are all inconsistent … This is not a 10". The player review (`design/reviews/2026-11-14-player-review.md` §7–8) counts the inconsistency: octave had 6 long ticks plus a stray short one and a dot; wave had 7 short ticks; pitch had 7 ticks and a dot in another place; echo TIME had an arrow, a triangle and dot clusters; echo TYPE had 4 names but 5–6 ticks; reverb TYPE had its names pushed off centre; the base had 7 ticks and CUTOFF 11; and the MIDI dot moved around. **The rules, applied to every knob on both halves:**
+
+| Rule | Value |
+|---|---|
+| **One ring** | Every tick ends on one circle, **r + 1.7** from the knob's centre (lid Ø 14.9 → 9.15; base Ø 10 → 6.7; CUTOFF r 10.4 → 12.1). |
+| **One weight, two lengths** | All ticks are 0.35 wide. **Major** ticks are 1.0 long, **minor** 0.55, both hanging in from the circle. |
+| **One angle grid** | Every scale sits on a 30° grid, centred on twelve o'clock. |
+| **Continuous** (most knobs, CUTOFF, the base's levels) | **11 ticks, every 30° over 300°** (7 o'clock to 5 o'clock). The two ends are major (the range); the rest are minor. |
+| **Centre-detent** (pans, pitch, tune, blend) | Continuous, plus a **major tick at twelve**: "the middle is a place". |
+| **Stepped** (octave, wave: 6 detents; echo type, reverb type: 4) | **One major tick per detent, at the switch's 30° index**, centred on twelve: octave and wave ±75°, the types ±45°. No minor ticks: a stepped knob shows only where it can stop. |
+| **Named choices** (the two type selectors) | **No words on the ring.** The names print as **one line in step order under the knob's word** (*type* / *tape · dark · clean · pingpong*), the same convention as every switch (*velocity* / *amp · both · filter*). Left to right is counterclockwise to clockwise, so the first name is the first detent. Names on the ring, at one radius as the review suggested, need ≈ 24 mm to each neighbour. At this panel's 20 mm pitch they reach the next knob's ring, which is why the old fan was split onto two heights. |
+| **Ordered steps** (octave, wave) | Ticks only, read low to high like a continuous scale. Footage numbers or wave glyphs at each tick don't fit beside 20 mm neighbours either. |
+| **TIME** | The continuous ring. The arrow, triangle and dot clusters are gone. Its SYNC divisions print as a names line under "time" once their count is settled (spec 9; the review proposes 6: 1/16 · 1/8 · 1/8. · 1/4 · 1/2 · 1/1). **Systems.** |
+| **MIDI dots** | **None.** They sat on 9 knobs in 5 different places, and a dot on almost everything marks nothing. If only some knobs take MIDI CC, the dot goes in one place: just right of the knob word's baseline. **Systems to confirm the CC map.** |
+| **Link dots** ("pan●", "link●") | **Gone.** The player read them as MIDI dots. The word "link" carries the pairing. |
+| **Oscillator numbers** | In a **margin column** at x 11, aligned, clear of the octave rings (review 6). Before, they sat against the ring at nine o'clock and read as octave position numbers. |
+
+- **Checked (real Kalam, every legend ≥ 1.0 from every tick):** 0 on the lid in all four layouts. **One base clash for systems:** with the 30° grid, CUTOFF's ±90° ticks point at the track and mod toggles beside it (−0.1). Those toggles need their centres ≥ 17.2 from CUTOFF (they're at 16.6), or they move with the review's "mod destinations by the mod knob".
+- **"envelopes", for systems:** take the review's §11: one ENVELOPES heading, with FILTER and AMP as row or column labels in the same margin style as the oscillator numbers, off the grille.
+- **The name is off the panel** (owner: "Also it doesn't need to say big energy").
+- **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
 ### The two lids, side by side
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">

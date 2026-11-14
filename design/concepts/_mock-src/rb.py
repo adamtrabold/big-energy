@@ -41,14 +41,60 @@ def _tick(x, y, z, r, a, L, w, col):
     return (f'{c(col)} translate([{x:.3f},{y:.3f},{z:.3f}]) rotate([0,0,{-a+90:.2f}]) '
             f'translate([{r:.2f},{-w/2:.3f},0]) cube([{L:.2f},{w:.3f},0.1]);\n')
 
-def time_dial(x, y, z, r, ink_ms, ink_div, font=None, full=False, size=1.05, up=True):
+# ---- the marking system (owner 2026-11-14: "the markings around the knobs are all inconsistent"). One ring for every
+# knob on both halves: every tick ends on one circle; one weight; two lengths. All scales sit on one 30-degree grid:
+# continuous and centre-detent knobs tick every 30 degrees over 300 (11 ticks, player review 2026-11-14); stepped
+# selectors put one major tick per detent at their switch's 30-degree index, centred on twelve. Named choices (the
+# type selectors) print their names as one line in step order under the knob's word, as every switch prints its
+# positions. No words on the ring, no MIDI dots, no link dots; TIME uses the same ring (its SYNC divisions: open).
+MARK_OUT, MARK_W, MARK_MINOR, MARK_MAJOR = 1.7, 0.35, 0.55, 1.0   # every tick ends on one circle, r + MARK_OUT (0.2 inside
+                     # the old r + 1.9, so every legend keeps 1.0 in real Kalam); majors hang 1.0 in from it, minors 0.55
+MARK_GAP = MARK_OUT - MARK_MAJOR                                   # TIME's inner scale starts where a major does
+NAMED_LEAD = 1.35    # gap between a type selector's word and its names line (real Kalam: 0.05 at 1.0)
+MARK_STEPS = {"RANGE": 6, "WAVE": 6, "ECHO TYPE": 4, "REVERB TYPE": 4}            # stepped selectors: detents
+MARK_CENTRE = ("DRY PAN", "ECHO PAN", "FREQ 2", "FREQ 3", "FREQ 4", "TUNE", "MOD MIX")   # centre-detent (bipolar)
+MARK_NAMED = {"ECHO TYPE": ["tape", "dark", "clean", "pingpong"], "REVERB TYPE": ["plate", "hall", "spring", "shimmer"]}
+
+def mark_kind(name):
+    base = name.rsplit(" ", 1)[0] if name.rsplit(" ", 1)[-1].isdigit() else name
+    if name in MARK_STEPS or base in MARK_STEPS:
+        return "stepped", MARK_STEPS.get(name, MARK_STEPS.get(base))
+    if name in MARK_CENTRE:
+        return "centre", None
+    return "continuous", None
+
+def mark(x, y, z, r, name, ink):
+    """one knob's scale, by kind (see the rules above): continuous / centre-detent 11 ticks every 30 degrees over 300
+    (ends major; centre-detent adds a major at twelve); stepped one major per detent at the switch's 30-degree index,
+    centred on twelve."""
+    kind, n = mark_kind(name)
+    R = r + MARK_OUT
+    s = ""
+    if kind == "stepped":
+        for i in range(n):
+            s += ticks(x, y, z, R - MARK_MAJOR, [(i - (n - 1) / 2) * 30.0], ink, length=MARK_MAJOR, width=MARK_W)
+        return s
+    for i in range(11):
+        a = -150 + 30 * i
+        L = MARK_MAJOR if (abs(a) == 150 or (a == 0 and kind == "centre")) else MARK_MINOR
+        s += ticks(x, y, z, R - L, [a], ink, length=L, width=MARK_W)
+    return s
+
+def time_dial(x, y, z, r, ink_ms, ink_div, font=None, full=False, size=1.05, up=True, std=False):
     """TIME's two scales over +-135 deg (common §2): inner ring = ms (log, 20 ms .. 2 s), outer = 9 divisions.
     Dotted = a dot beside the mark, triplet = a small triangle, straight = a tick. full=True adds the numbers (DIPTYCH)."""
     s = ""
     # inner: ms, log, 11 ticks (decade marks longer)
     for i in range(11):
         a = -135 + 27 * i
-        s += _tick(x, y, z, r + 0.9, a, 1.0 if i % 5 else 1.4, 0.28 if i % 5 else 0.4, ink_ms)
+        if std:
+            a = -150 + 30 * i   # the marking system (steer 5 fixes 7): ring at r + MARK_GAP, one weight, minor / major lengths
+            L_ = MARK_MAJOR if i in (0, 10) else MARK_MINOR
+            s += _tick(x, y, z, r + MARK_OUT - L_, a, L_, MARK_W, ink_ms)
+        else:
+            s += _tick(x, y, z, r + 0.9, a, 1.0 if i % 5 else 1.4, 0.28 if i % 5 else 0.4, ink_ms)
+    if std:            # steer 5 fixes 7: the standard ring only; SYNC's divisions print as a line once their count is set
+        return s
     # outer: divisions
     for i, d in enumerate(DIVS):
         a = -135 + 33.75 * i
@@ -1685,8 +1731,12 @@ def nv_fit_base_notes(lc):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(getattr(lc, "BASE_NOTES", []))
 
+NUM_COL_X = 11.0     # steer 5 fixes 7 (player review 6): VCO numerals in a margin column, clear of the octave rings
 def nv_notes(lc):
-    return list(getattr(lc, "NOTES", []))   # (rev 9's 0.3 numeral shift is in layout_check.py's NUMX, d56403f)
+    notes = list(getattr(lc, "NOTES", []))   # (rev 9's 0.3 numeral shift is in layout_check.py's NUMX, d56403f)
+    if getattr(lc, "STEER5", False) and getattr(lc, "VARIANT", "") == "P5O":
+        notes = [(t, NUM_COL_X, d, sz, a) if t in ("1", "2", "3", "4") else (t, x, d, sz, a) for t, x, d, sz, a in notes]
+    return notes
 
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
@@ -1698,7 +1748,7 @@ TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, position
 class Nave(Cathedral):
     """steer 2: three evenly spaced lid rows + a switch line, the Ø 46 window on the axis, the PLAY row symmetric."""
     route = "R-LOW"
-    NAME = "big energy"  # owner, after the score-8 pass; drawn from the next render pass
+    NAME = None          # owner 2026-11-14: "Also it doesn't need to say big energy" (was "big energy" since the score-8 pass)
     EAR_R = 3.0          # score-8 fix 4 (see the look doc: the axis must sit at or behind the back face; this is the minimum)
 
     def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, lid=None, **kw):
@@ -1904,8 +1954,20 @@ class Nave(Cathedral):
                 f = (wr + 1.0) / dd
                 words.append((wx + (x - wx) * f, L0 + wd + (d - wd) * f))
         nuts = toggle_nuts(rows_, ry, words)
-        s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
-                         nuts=nuts, back=())
+        if self._sq():                                   # steer 5 fixes 7: the marking system (MARK_*)
+            rows_ = {d_: [(n_, l_, x_, k_, False, yo_) for n_, l_, x_, k_, m_, yo_ in v_] for d_, v_ in rows_.items()}
+            old_fan = r5.type_fan; r5.type_fan = lambda *a_, **k_: ""
+            try:
+                s += rows_branch(rows_, ry, LID_PF, copy_style(st, ticks=False), self.tap_style(), 143,
+                                 copy_style(st, ticks=False), 0.0, dict(self.time_kw(), std=True), nuts=(), back=())
+            finally:
+                r5.type_fan = old_fan
+            for n_, x_, d_, r_, k_, lab_, w_ in lid:
+                if k_ == "k" and n_ != "ECHO TIME":
+                    s += mark(x_, L0 + d_, LID_PF, r_, n_, st.scale_ink or ink)
+        else:
+            s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
+                             nuts=nuts, back=())
         z = LID_PF + 0.01
         for n, x, d, r, k, lab, where in lid:          # legends exactly where the checker measures them
             if where == "right":
@@ -1948,6 +2010,10 @@ class Nave(Cathedral):
                 cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0) + \
                       (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") == "P5O" else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
+                if self._sq() and n in MARK_NAMED:       # named choices: their names in step order, under the word
+                    py = cy - (bx[3] - bx[1]) / 2 - NAMED_LEAD - 0.85 * lc.NS / 2 if where != "behind" else \
+                         cy + (bx[3] - bx[1]) / 2 + NAMED_LEAD + 0.85 * lc.NS / 2
+                    s += txt(x, L0 + py, z, " · ".join(MARK_NAMED[n]), lc.NS, ink, font=st.font)
         heads, subs, ha = nv_heads_left(lc, sections)
         for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups
             s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign=ha)
@@ -1955,7 +2021,7 @@ class Nave(Cathedral):
             s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND, halign=ha)
         for nm_, x0, d0, x1, d1 in nv_hair(lc):            # engraved hairlines (P5O: "oscillators" running on)
             s += box(x0, L0 + d0, z, x1, L0 + d1, z + 0.03, self.rule_col())
-        for nm_, x, d, _ in getattr(lc, "DOTS", []):     # matching link dots (echo pan <-> link)
+        for nm_, x, d, _ in ([] if self._sq() else getattr(lc, "DOTS", [])):   # link dots (none in steer 5: read as MIDI dots)
             s += cyl(x, L0 + d, z - 0.005, 0.04, 1.2, ink, fn=24)
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
             col = INK_LIGHT if (sz <= lc.NS + 1e-6 or (t == "4" and self._ghosting())) else ink   # the ghost slot's "4"
@@ -2022,18 +2088,23 @@ class Nave(Cathedral):
                     s += joystick(x, y, z, ink)  # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
                 s += txt(x, y - 11.5, z, lab, st.lsize, ink, font=st.font)
             elif n == "CUTOFF":
-                s += item5("CUTOFF", "CUTOFF", x, y, "h", True, z, copy_style(st, ticks=False), "proof", None, True, 143)
-                # its scale without the ± 90° ticks, which ran into KBD / FILT MOD's bats beside it (steer 4)
-                s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
+                s += item5("CUTOFF", "CUTOFF", x, y, "h", not self._sq(), z, copy_style(st, ticks=False), "proof", None, True, 143)
+                if self._sq():                           # the marking system: CUTOFF's ring like every other knob's
+                    s += mark(x, y, z, st.hero_r, "CUTOFF", ink)
+                else:   # its scale without the ± 90° ticks, which ran into KBD / FILT MOD's bats beside it (steer 4)
+                    s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
             elif n == "TAP":
                 s += r5.tap_cap(x, y, z, self.tap_style())
                 s += txt(x, y - 6 - st.lab_gap - 0.6, z, lab, st.lsize, ink, font=st.font)
             elif self.route == "R-LOW":
                 s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
-                s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
+                if self._sq():
+                    s += mark(x, y, z, LOW_D / 2, n, ink)
+                else:
+                    s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
                 if lab:
                     s += txt(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
-                if n in MIDI_NAMES:
+                if n in MIDI_NAMES and not self._sq():   # steer 5 fixes 7: no MIDI dots (an implementation detail, on 9 knobs)
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
                 s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)

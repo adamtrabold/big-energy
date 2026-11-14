@@ -1,5 +1,20 @@
 # Visual designer notes (instrument; working name retired)
 
+## Marking system (2026-11-14, after the owner's "not a 10" and the player review): READ THIS FIRST
+- **Owner:** markings inconsistent; type labels; "envelopes" placement; then "Also it doesn't need to say big energy".
+- **rb.py:**
+  - `MARK_*`, `mark()`, `mark_kind()`. One circle at r + 1.7, w 0.35, major 1.0 / minor 0.55. Continuous: 11 ticks every 30° over 300°, ends major. Centre-detent (`MARK_CENTRE`: pans, pitch, tune, blend): plus a major at 12. Stepped (`MARK_STEPS`): one major per detent at 30°.
+  - `MARK_NAMED` names line under the type word (`NAMED_LEAD` 1.35);
+  - TIME: `time_dial(std=True)`, the standard ring only;
+  - no MIDI dots, no link dots (steer 5);
+  - numerals at `NUM_COL_X` 11 (P5O);
+  - `NAME = None`;
+  - lid ticks come from `mark()` (rows_branch runs with ticks off, the fans no-op'd); base low knobs and CUTOFF use `mark()`.
+- **Checks:** real Kalam 0 on the lid in all four layouts. Base: CUTOFF ±90 ticks vs track / mod toggles −0.1, so systems must put the toggles ≥ 17.2 from CUTOFF.
+- **Open for systems:** SYNC division count; the CC map (MIDI dots); reverb size order; the "envelopes" heading per review §11; the checker's `decor()` fans → names line under "type"; NAME_BOX removed.
+- **No renders committed:** waiting for systems' re-lay (oscillators, switches, out, base).
+- **Repo hygiene:** on 2026-11-14 a `git stash` of mine swept up another agent's uncommitted site files. I restored the unchanged ones (16 site media) from stash@{0}, unstaged, and kept the stash. index.html was newer in the tree, so it was left as is.
+
 ## CATHEDRAL steer 5 fixes 6 (2026-11-14 ~00:00): READ THIS FIRST
 - **Systems 33229cd (P5O):** tuning beside VCO 1 with a "tuning" sub-heading; echo row 2 at d 79; reverb reads decay · type; link's words beside; voices 1 · 2 · 4 with VCO 4. Without VCO 4, the rows spread to 104 / 69 / 34 (so no ghost any more). The stick is at 9.0 in both. LEGEND_NUDGE (time +0.5) is in the checker.
 - **rb.py:**
