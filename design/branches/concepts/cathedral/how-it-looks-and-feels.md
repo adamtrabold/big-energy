@@ -1,4 +1,4 @@
-# CATHEDRAL: how it looks and feels (visual, rev 9.3: steer 5 fixes 4, both options side by side)
+# CATHEDRAL: how it looks and feels (visual, rev 9.4: steer 5 fixes 5, both options side by side)
 
 Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwards). Read with `how-it-works.md`, where systems owns the geometry; **§19** is this revision's layout (commit a80d7c: equal-gutter base, P5O as columns with a VCO 4 slot, P5R with out at the end of its bottom row, pivots inboard, the gap rule). The director's steer-5 scores (P5R 8, P5O 6, base 7) are in `design/notes/director.md`; then P5R 9, P5O 8. Rev 9.1 lays out systems' fixes for the 10 (f8ba494): P5R's oscillator switches on one line under the VCOs; P5O's headings top-left, every VCO reading octave · wave · pitch, tune · drift as a headed "tuning" pair after VCO 1, and out in R4's right slot.
 
@@ -84,15 +84,15 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **Real Kalam:** 0 for P5O, P5O with VCO 4, and P5R. **Systems' rules on the visual's positions:** 0 for all three. `layout_check.py`: 0.
 - **The director's tests** (real Kalam on the rendered lid):
   - **P5R:** all pass: no heading on a fan-word line, no phrases, ≥ 5 mm from a legend to the next heading.
-  - **P5O:** the 5 mm gaps and one legend side per group now pass in the right block. **One fail is left: "reverb" shares its line with type's fan words "hall" and "spring"**, 16 mm to its right. With reverb reading decay · type, its heading sits top left over decay, at the height of the type knob's inner fan words. It can't rise above them (echo's legends are 5 mm above), so it reads as one line with the fan. A fix is systems': reverb back to type · decay with the heading above the fan, or the right block's R2–R3 spacing ≈ 5 mm wider. "track 3" is approved and drawn.
+  - **P5O (systems a9e2603):** all pass. Reverb is back to type · decay with its heading over the fan, and echo's second row is at d 84, with repeats and pan half a column right. Visual fit: echo's "time" legend +0.5 (real Kalam put it 1.09 from repeats below it). "track 3" is approved and drawn.
 - **Visual fits, for systems to fold:**
-  - P5O "reverb" +1.55 (it sat on decay's top tick, 0.00);
+  - P5O echo "time" legend +0.5 (1.09 from repeats, a9e2603);
   - P5O "out" +0.3 (1.42 from link's nut);
   - "above2" legends (P5R keys): block bottom TGL + 2.35 over the nut, positions then name, leading **1.25** (the checker's box uses 0.9; at 0.9, "velocity"'s descender met its positions);
   - the name stays at P5R d 38.0, and P5O d 90.5 above the window (NAME_BOX still has 34.0 / 37.6).
 
 ### Open
-1. **P5O:** "reverb" on the fan words' line (above).
+1. **P5O:** echo's second row now steps half a column right of its first. It reads as one group because of the shared heading, but it's the one place on the lid that leaves the column grid.
 2. **P5R:** "keys" heads its pair from the shared row-C heading line. With the legends above the switches it now sits 4 mm over "velocity", which is tighter and reads better.
 3. **P5O:** "out" hangs 3.8 mm into the gutter.
 4. **Owner:** P5O or P5R; the 4th analog oscillator (P5O only); "amp controls left to right"; D 132.

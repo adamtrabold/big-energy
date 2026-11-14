@@ -1645,7 +1645,8 @@ def nv_fit_sections(lc, sections):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
     return list(sections)
 
-P5O_HEAD_FIT = {"reverb": (0.0, 1.55), "out": (0.0, 0.3)}   # 7595f7d real Kalam: "reverb" sat on decay's top tick (0.00), "out" 1.42 from link's nut (rev 9.1 fits are in the checker, 9bbedb1)
+LEGEND_FIT = {("P5O", "ECHO TIME"): 0.5}   # a9e2603 real Kalam: "time" sat 1.09 from repeats (now at x 232.95, d 84) below it
+P5O_HEAD_FIT = {}   # 528deea's fits are in the checker (a9e2603); "reverb" moved over the fan, so its +1.55 is gone
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
     real-Kalam fits (P5O_HEAD_FIT, for systems to fold): "filter" / "amp" +0.8 ("amp"'s descender sat 0.24 from the
@@ -1837,7 +1838,7 @@ class Nave(Cathedral):
     # steer 5 fixes 3 (name positions, lid d, override NAME_BOX): P5R under the window at d 38.0 (echo pan moved to
     # x 147.7, so at 34.0 the name sat on its top tick); P5O ABOVE the window at d 90.5, a nameplate over the grille
     # (under it, the name came 1.5 from "keys", and the new 5 mm legend-to-heading rule can't be met there)
-    NAME_AT = {"P5R": 38.0, "P5O": 90.5}
+    NAME_AT = {}   # (both now in layout_check.py's NAME_BOX, a9e2603)
     NAME_FIT = {}
     NAME_D5 = {"P5O": 37.3, "P5R": 34.0}   # steer 5: the name's centre line (lid d), on the axis under the window
     def name_mark(self, gz):
@@ -1934,6 +1935,7 @@ class Nave(Cathedral):
                 sz = lc.LS if k == "k" else lc.LS * 0.85
                 bx = lc.tbox(x, d, lab, sz, where, r)
                 cy = (bx[1] + bx[3]) / 2 + (lc.BEHIND_EXTRA if where == "behind" else 0.0)
+                cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
         heads, subs, ha = nv_heads_left(lc, sections)
         for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups

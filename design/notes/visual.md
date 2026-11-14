@@ -1,5 +1,11 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 fixes 5 (2026-11-13 ~23:20): READ THIS FIRST
+- **Systems a9e2603 (P5O only):** reverb is back to type · decay, its heading over the fan (d 68.5); echo row 2 at d 84, repeats / pan at 232.95 / 253; my 528deea numbers are folded (out +0.3, NAME_BOX 90.5 / 38.0, above2 leading).
+- **rb.py:** P5O_HEAD_FIT and NAME_AT emptied. New `LEGEND_FIT` {("P5O", "ECHO TIME"): +0.5}, because real Kalam put "time" 1.09 from repeats; it's for systems to fold.
+- **Checks:** real Kalam, rules and the director's tests are 0 for P5O, P5O+VCO4 and P5R. P5R's geometry is unchanged by a9e2603. Its re-render differs only in random knob-pointer angles, so it isn't committed.
+- **Images:** P5O top and P5O standing. Doc rev 9.4.
+
 ## CATHEDRAL steer 5 fixes 4 (2026-11-13 ~23:05): READ THIS FIRST
 - **Inputs:** systems 7595f7d. P5R: keys legends "above2", row-C headings at d 43.5. P5O: the right block re-spaced (legends under), reverb reads decay · type, out reads link (switch, d 20) · pan; "track 3" is approved.
 - **rb.py:**
