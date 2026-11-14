@@ -1,5 +1,14 @@
 # Visual designer notes (instrument; working name retired)
 
+## CATHEDRAL steer 5 (2026-11-13 ~21:30): both halves by one rule; corners; spine; grille
+- Systems §19 (b8e41dd): D 132, two-row base, module 5 mm, lid P5O (owner) / P5R (rule in rows), corners superellipse ≤ 32.5, grille lines recommended.
+- **rb.py:** `_lc(variant)`; `Nave(lid=...)` sets D / AX_Y / LY0 from the checker; squircle geometry (`squircle_pts/2d/block`, `SQ_N` 5); during `Nave.model` for steer 5, `r4.pebble` → squircle block and full-width `rrect2d` → squircle (pockets, groove clips); plates squircle (`PLATE_RC` 24); name plate under the window; side-pivot ears not drawn (`EAR_R None`: pivots fall outside the new corners; eng); spine = dark walnut band following the outline round the back corners + brass foil bands; base rear row legends behind / toggle legends above / light names behind / rear headings y 109 (`base_sections`, `rear()`); `play_breaks()` hook (no old base breaks in steer 5). Grille dots `window_dots` / `speaker_dots`. Jobs `rb_nv5_{O,R}_{lidtop,top,stand}`, `rb_nv5_closed`; figures `/tmp/scr/s5_figs.py`.
+- **Fits (for systems):** P5O "filter" (108.5, 15) / "keys" (185, 45) headings at column feet; P5R sub-heads d 81.5, "keys" −1.5; base as above; base toggle block gap 2.25 (front) / 2.35 (rear).
+- **Checks:** systems' rules + fits 0 (both, base_check 0); real Kalam 0 (both); steer5_checks at plate corner 24: 0 (both).
+- **Images:** 8 new (2 × lid top, 2 × full top, 2 × standing, closed spine, grille 20 px/mm); deleted steer-4 lid / top / standing and the D108 closed side. Kept window drawing and keys.
+- **Views:** P5R clearer (bottom-right blank to fix); P5O characterful, 4th VCO only fits there (not drawn). Grille: lines (sound + cathedral lancets; dots generic, hex outline). Spine: walnut cloth + brass foil bands, wraps corners.
+
+
 ## Track under "3" (2026-11-13 ~21:00)
 - Systems 3673f3d (OSC 3 CTL x 121) + 6f7c036 (my three fits in the checker): `nv_fit_*` now pass-through.
 - Real-Kalam "track" vs "envelopes": 2.49 mm (systems' estimate 3.85) but it read as "track envelopes" on one line, so `nv_overrides` puts OSC 3 CTL's legend left ("left2"); checks 0 both ways. For systems to fold.

@@ -535,7 +535,7 @@ class Branch(Fold):
             s += pg_layers(self.base_plate2d(), BASE_H)
             s += r4.keys_flat(8, 4.5, 17.5, bed_z=12.6)
         gz = BASE_H + 0.02
-        for xb in F.vb_play:
+        for xb in self.play_breaks():
             xb += self.play_dx()
             s += box(xb - self.RULE_HW, 53.5, gz, xb + self.RULE_HW, D - 5.5, gz + 0.03, self.rule_col())
         s += cyl(25 + self.play_dx(), 68, BASE_H - 0.05, 0.08, 18.6, "#e6dfcf", fn=72)
@@ -580,6 +580,9 @@ class Branch(Fold):
 
     def play_dx(self):
         return 0.0
+
+    def play_breaks(self):
+        return F.vb_play
 
     def tap_style(self):
         return "proof"
@@ -1074,6 +1077,67 @@ def window_slots(D, w=1.6, pitch=2.8, edge=0.0):
         area += 2 * yh * w + math.pi * (w / 2) ** 2
     return out, area
 
+# ---- steer 5: continuous-curvature ("squircle", G2) corners, owner: "softer and more architectural like how Apple does
+# theirs". Each corner is a superellipse quadrant |x/r|^n + |y/r|^n = 1 (n ≈ 5: curvature runs to zero where it meets
+# the straight edge, so there's no visible "kink" where a circular radius would start). The plate and the case share
+# one corner family: the plate's corner is the case's corner offset inward by the wall (same n, r - wall).
+SQ_N = 5.0
+def squircle_pts(x0, y0, x1, y1, r, n=SQ_N, seg=24):
+    """closed outline of a rectangle with superellipse corners of extent r (mm)."""
+    r = min(r, (x1 - x0) / 2, (y1 - y0) / 2)
+    pts = []
+    for cx, cy, a0 in ((x1 - r, y1 - r, 0), (x0 + r, y1 - r, 90), (x0 + r, y0 + r, 180), (x1 - r, y0 + r, 270)):
+        for i in range(seg + 1):
+            t = math.radians(a0 + 90.0 * i / seg)
+            ct, st = math.cos(t), math.sin(t)
+            px = r * math.copysign(abs(ct) ** (2.0 / n), ct)
+            py = r * math.copysign(abs(st) ** (2.0 / n), st)
+            pts.append((cx + px, cy + py))
+    return pts
+
+def squircle2d(x0, y0, x1, y1, r, n=SQ_N, seg=24):
+    return "polygon([" + ",".join(f"[{x:.3f},{y:.3f}]" for x, y in squircle_pts(x0, y0, x1, y1, r, n, seg)) + "]);"
+
+def squircle_block(x0, y0, W, D, H, r, n=SQ_N, rt=3.0, rb=6.0, z0=0.0, slices=10):
+    """a block with squircle plan corners and rounded top / bottom edges (rt / rb), built as stacked slices whose
+    outline is inset by the edge round's profile (quarter circles), so the edges stay soft and the plan stays G2."""
+    out = "union(){\n"
+    def inset(z):
+        if z < rb:
+            return rb - math.sqrt(max(rb * rb - (rb - z) ** 2, 0))
+        if z > H - rt:
+            return rt - math.sqrt(max(rt * rt - (z - (H - rt)) ** 2, 0))
+        return 0.0
+    zs = sorted(set([0.0] + [rb * k / slices for k in range(1, slices + 1)] + [H - rt + rt * k / slices for k in range(slices)] + [H]))
+    for za, zb in zip(zs[:-1], zs[1:]):
+        e = inset((za + zb) / 2)
+        out += (f" translate([0,0,{z0+za:.3f}]) linear_extrude({zb-za:.3f}) "
+                f"{squircle2d(x0 + e, y0 + e, x0 + W - e, y0 + D - e, max(r - e, 0.5), n)}\n")
+    return out + "}\n"
+
+def window_dots(D, hole=1.6, pitch=2.4, hexgrid=True, edge=0.0):
+    """steer 5 grille option: a grid of round holes in the Ø D opening (hex or square), each hole wholly inside the
+    circle. Returns [(x, y)] centres and the open area."""
+    R = D / 2 - edge
+    pts = []
+    dy = pitch * (math.sqrt(3) / 2 if hexgrid else 1.0)
+    n = int(R / dy) + 1
+    for j in range(-n, n + 1):
+        y = j * dy
+        off = (pitch / 2 if (hexgrid and j % 2) else 0.0)
+        m = int(R / pitch) + 2
+        for i in range(-m, m + 1):
+            x = i * pitch + off
+            if math.hypot(x, y) + hole / 2 <= R:
+                pts.append((x, y))
+    return pts, len(pts) * math.pi * (hole / 2) ** 2
+
+def speaker_dots(cx, cy, z, D=46.0, hole=1.6, pitch=2.4, hexgrid=True, col="#1d1b19"):
+    s = ""
+    for x, y in window_dots(D, hole, pitch, hexgrid)[0]:
+        s += cyl(cx + x, cy + y, z - 0.4, 0.43, hole, col, fn=16)
+    return s
+
 def speaker_window(cx, cy, z, D=44.0, w=1.6, pitch=2.8, col="#1d1b19", ring=None, ribs=(-11.0, 11.0)):
     """draws the window; ribs are the hidden rear tie ribs (behind the plate, not drawn from the front)."""
     s = ""
@@ -1284,6 +1348,8 @@ class Cathedral(Chamber):
             return ""
         s = ""
         r_ear = getattr(self, "EAR_R", 5.2)
+        if r_ear is None:
+            return ""
         for x0 in (0.0, FO_W - 4.05):
             if r_ear >= 5.0:      # rev 1-4: ear hulled down to the base top (a lobe past the back in side view)
                 s += (f'{c(walnut)} hull(){{ translate([{x0},{self.AX_Y},{self.AXZ}]) rotate([0,90,0]) cylinder(h=4.05,r={r_ear},$fn=48); '
@@ -1470,10 +1536,18 @@ class Diptych(Branch):
 # base row), so the render and the checker can't drift. Visual adds: low gold knobs on the played row, the lowered
 # stick, the Ø 46 vertical-slot window, brass keys A, headings, breaks.
 _LC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "branches", "concepts", "cathedral", "layout_check.py")
-def _lc():
+def _lc(variant=None):
     import importlib.util
-    spec = importlib.util.spec_from_file_location("ct_layout_check", _LC_PATH)
-    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    old = os.environ.get("CATHEDRAL_LID")
+    if variant:
+        os.environ["CATHEDRAL_LID"] = variant
+    try:
+        spec = importlib.util.spec_from_file_location("ct_layout_check_" + (variant or "default"), _LC_PATH)
+        m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    finally:
+        if variant:
+            if old is None: os.environ.pop("CATHEDRAL_LID", None)
+            else: os.environ["CATHEDRAL_LID"] = old
     return m
 
 NV_FILT_MOD_D = 35.0
@@ -1558,6 +1632,16 @@ def nv_overrides(lc):
     """everything else is in layout_check.py. One visual fit: VCO 3's "track" (x 121) takes its legend on the LEFT
     ("left2"): on the right, "track / off · on" ran into the "envelopes" heading on the same line, 2.5 mm apart in
     real Kalam, and read as "track envelopes"; on the left, the toggle sits between its words and the heading."""
+    if getattr(lc, "STEER5", False):
+        # steer 5 real-Kalam fits: P5R's "keys" heading 1.5 lower ("keys" sat 0.66 from voices' nut)
+        secs = [(t, x, d - 1.5) if (lc.VARIANT == "P5R" and t == "keys") else (t, x, d) for t, x, d in lc.SECTIONS]
+        if lc.VARIANT == "P5O":
+            # on P5O's top heading line, "filter" sat over DRIFT and "keys" over the amp's SUSTAIN, and read as their
+            # names. Each column's heading goes to the column's outer (bottom) edge instead, like "reverb" and "out":
+            # top-row groups are headed above, column groups below
+            MOVE = {"filter": (108.5, 15.0), "keys": (185.0, 45.0)}
+            secs = [(t, *MOVE[t]) if t in MOVE else (t, x, d) for t, x, d in secs]
+        return list(lc.lid), list(lc.BREAKS), secs
     lid = [(n, x, d, r, k, lab, "left2") if (n == "OSC 3 CTL" and w == "right2") else (n, x, d, r, k, lab, w)
            for n, x, d, r, k, lab, w in lc.lid]
     return lid, list(lc.BREAKS), list(lc.SECTIONS)
@@ -1567,8 +1651,14 @@ def nv_fit_sections(lc, sections):
     return list(sections)
 
 def nv_fit_subheads(lc):
-    """pass-through: visual's fit is in layout_check.py (6f7c036)."""
-    return list(getattr(lc, "SUBHEADS", []))
+    """steer 4's fit is in layout_check.py (6f7c036). Steer 5, P5R: "filter" / "amp" on the "envelopes" heading line
+    (see below), centred over their groups: at d 79.5 they sat 0.5 from the "decay" legends (real Kalam)."""
+    subs = list(getattr(lc, "SUBHEADS", []))
+    if getattr(lc, "VARIANT", "") == "P5R":
+        subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
+                                                      #   still below the oscillator switches (at 91.8 they read as
+                                                      #   names of the oscillator knobs above)
+    return subs
 
 def nv_fit_base_notes(lc):
     """pass-through: visual's fit is in layout_check.py (6f7c036)."""
@@ -1588,16 +1678,62 @@ class Nave(Cathedral):
     NAME = "big energy"  # owner, after the score-8 pass; drawn from the next render pass
     EAR_R = 3.0          # score-8 fix 4 (see the look doc: the axis must sit at or behind the back face; this is the minimum)
 
-    def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, **kw):
+    def __init__(self, route="R-LOW", palette="brass-black", low_col=GOLD_K, lid=None, **kw):
         super().__init__("B", palette=palette, **kw)
         self.route, self.low_col = route, low_col
-        self.lc = _lc()
+        self.lc = _lc(lid)
+        if getattr(self.lc, "STEER5", False):          # steer 5: both halves 132 deep (systems §19.2)
+            self.D = self.lc.D; self.AX_Y = self.D + 1.0; self.LY0 = self.D + 2.0
+            self.EAR_R = None                           # side pivots: the squircle corners cut the end walls away at
+                                                        #   the back corners; pivot placement is open (eng / systems)
         lift = 2.5 if route == "R-LOW" else 7.0          # lid face +2.5 (R-LOW) / +7.0 (R-TALL), systems §16.3
         self.AXZ = Chamber.AXZ + lift / 2
         self.LIDH = Chamber.LIDH + lift
 
     # ---- lid
+    SPINE = "#3f2716"        # steer 5 spine: dark walnut bookcloth over the TPU core, two brass foil bands at each end
+    def spine_closed(self):
+        if not self._sq():
+            return super().spine_closed()
+        top = 2 * self.AXZ - (LID_PF - 2.5)
+        rc = self.PLATE_RC + 4.3
+        x0, x1 = rc - 2.0, FO_W - rc + 2.0                 # the straight run of the back
+        # the cloth follows the case's squircle round both back corners to where the end walls close the slot, so it
+        # reads as the case's own back, not a strip laid in a gap: a 0.6 band on the outline, from y D - rc to the back
+        D = self.D
+        band = (f"intersection(){{ difference(){{ offset(r=0.6) {squircle2d(0, 0, FO_W, D, rc, SQ_N)} "
+                f"{squircle2d(0, 0, FO_W, D, rc, SQ_N)} }} translate([-2,{D - rc}]) square([{FO_W + 4},{rc + 2}]); }}")
+        s = f'{c(self.SPINE)} translate([0,0,{BASE_H - 0.4:.2f}]) linear_extrude({top - BASE_H + 0.4:.2f}) {band}\n'
+        for xb in (x0 + 6, x0 + 9, x1 - 9, x1 - 6):     # gilt bands (brass foil), as on a bound book's spine
+            s += box(xb - 0.35, D + 0.55, BASE_H - 0.4, xb + 0.35, D + 0.65, top, "#c9a24e")
+        return s
+
+    def spine_stand(self):
+        if not self._sq():
+            return super().spine_stand()
+        s = super().spine_stand()
+        x0, x1 = self.PLATE_RC + 4.3 - 2.0, FO_W - self.PLATE_RC - 4.3 + 2.0
+        return s.replace("translate([10.5,0,0])", f"translate([{x0:.2f},0,0])").replace("linear_extrude(265)", f"linear_extrude({x1 - x0:.2f})")
+
     def model(self, state=True, walnut=WAL_P, book=False):
+        if self._sq():
+            old_peb, old_rr = r4.pebble, (r4.rrect2d, r5.rrect2d, globals()["rrect2d"])
+            rc = self.PLATE_RC + 4.3
+            r4.pebble = lambda x0, y0, W, D, H, Rf, Rr, rt, rb, z0=0.0, fn=160: squircle_block(x0, y0, W, D, H, rc, SQ_N, rt, rb, z0)
+            def rr(x0, y0, x1, y1, rf, rr_, _o=old_rr[0]):
+                # full-width outlines (pockets, groove clips) follow the case's squircle, inset by their distance in
+                if x0 < 8.0 and x1 > FO_W - 8.0:
+                    return squircle2d(x0, y0, x1, y1, max(rc - x0, 1.0), SQ_N)
+                return _o(x0, y0, x1, y1, rf, rr_)
+            r4.rrect2d = r5.rrect2d = rr; globals()["rrect2d"] = rr
+            try:
+                return self._model2(state, walnut, book)
+            finally:
+                r4.pebble = old_peb
+                r4.rrect2d, r5.rrect2d, globals()["rrect2d"] = old_rr
+        return self._model2(state, walnut, book)
+
+    def _model2(self, state=True, walnut=WAL_P, book=False):
         TOGGLE_THROW[0] = "lr" if getattr(self.lc, "THROW", "") == "left-right" else "fa"
         old = (r5.ECHO_POS, r5.VERB_POS)
         r5.ECHO_POS = list(getattr(self.lc, "ECHO_POS", r5.ECHO_POS)); r5.VERB_POS = list(getattr(self.lc, "VERB_POS", r5.VERB_POS))
@@ -1607,10 +1743,40 @@ class Nave(Cathedral):
             TOGGLE_THROW[0] = "fa"
             r5.ECHO_POS, r5.VERB_POS = old
 
+    def play_breaks(self):
+        return [] if self._sq() else F.vb_play          # steer 5: only the checker's BASE_BREAKS
+
+    REAR_Y = 80.0            # base items behind this y are the rear (levels) row
+    def rear(self, y):
+        return self._sq() and y > self.REAR_Y
+
+    def base_sections(self):
+        """steer 5 (visual): the rear row's legends go BEHIND their knobs and its headings above them (y 109), so
+        the front row's headings (y 78) aren't sandwiched between the rear legends and the front knobs."""
+        secs = list(getattr(self.lc, "BASE_SECTIONS", []))
+        if self._sq():
+            secs = [(t, x, 109.0 if y > 100 else y) for t, x, y in secs]
+        return secs
+
+    PLATE_RC = 24.0          # visual's pick within systems' 16-32.5 (§19.6): soft and architectural, one family
+    def _sq(self):
+        return getattr(self.lc, "STEER5", False)
+
+    def peg_plate2d(self):
+        if not self._sq():
+            return super().peg_plate2d()
+        return squircle2d(4.3, 4.3, FO_W - 4.3, self.D - 4.3, self.PLATE_RC, SQ_N)
+
+    def lid_plate2d(self):
+        if not self._sq():
+            return super().lid_plate2d()
+        L0 = self.LY0
+        return squircle2d(4.3, L0 + 4.3, FO_W - 4.3, L0 + self.D - 4.3, self.PLATE_RC, SQ_N)
+
     def name_mark(self, gz):
         """score-8 pass: with the effects row re-centred, the 16 x 5 lozenge at d 94.6 sat in REVERB TYPE's fan names.
         It moves to the axis under the window, just above the seam (d 2.2-7.2), like a foundation stone under a rose."""
-        nz = self.LY0 + 2.2
+        nz = self.LY0 + (self.lc.WIN[1] - self.lc.WIN[2] - 1.8 - 5.0 if self._sq() else 2.2)   # steer 5: just under the window
         s = (f'{c(FO_INK)} translate([0,0,{gz}]) linear_extrude(0.04) difference(){{ {rrect2d(135,nz,151,nz+5,2.5,2.5)} '
              f'{rrect2d(135.4,nz+0.4,150.6,nz+4.6,2.1,2.1)} }}\n')
         # owner: "name to come -- we're calling it big energy". In the panel's own hand, lowercase, like every legend:
@@ -1701,7 +1867,7 @@ class Nave(Cathedral):
         return []                                                # drawn in base_extra (low knobs, lowered stick)
 
     def base_names(self):
-        secs = getattr(self.lc, "BASE_SECTIONS", [(14, "pitch", 85.0), (105.5, "filter", 85.0), (188.0, "mod", 85.0)])
+        secs = self.base_sections() if hasattr(self, "base_sections") else getattr(self.lc, "BASE_SECTIONS", [])
         return "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
 
     def base_extra(self, walnut):
@@ -1716,7 +1882,13 @@ class Nave(Cathedral):
             if n in BT:                                     # steer 4: KBD / FILT MOD beside CUTOFF, legend under it
                 nm, pos = BT[n].split("|")
                 s += toggle(x, y, z)
-                top = y - lc.TGL - 2.1; hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS      # 2.1 / 0.9: real Kalam's ascent
+                hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
+                if self.rear(y):                            # rear row: name over positions, ABOVE the toggle
+                    bot = y + lc.TGL + 2.35
+                    s += txt(x, bot + hp / 2, z, pos, lc.NS, ink, font=st.font)
+                    s += txt(x, bot + hp + 0.9 + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                    continue
+                top = y - lc.TGL - 2.25                     # 2.25 / 0.9: real Kalam's ascent
                 s += txt(x, top - hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
                 s += txt(x, top - hn - 0.9 - hp / 2, z, pos, lc.NS, ink, font=st.font)
                 continue
@@ -1734,12 +1906,15 @@ class Nave(Cathedral):
                 s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
                 s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
                 if lab:
-                    s += txt(x, y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
+                    s += txt(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
                 if n in MIDI_NAMES:
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
                 s += item5(n, lab or " ", x, y, "k", n in MIDI_NAMES, z, st, "proof", None, True, 143)
         for t, x, y in nv_fit_base_notes(lc):                # the two lights named (midi / status)
+            if self.rear(y + 10):                            # steer 5: behind the light, like the rear legends
+                ly = [ly_ for lx_, ly_, lr_ in lc.BASE_LEDS if abs(lx_ - x) < 0.1][0]
+                y = ly + 2.5 + 1.8 + 0.85 * lc.SW_LS / 2
             s += txt(x, y, z + 0.01, t, lc.SW_LS, ink, font=st.font)
         for bx, y0, y1 in getattr(lc, "BASE_BREAKS", []):   # tune ‖ echo tap (steer 4): engraved, nothing raised
             s += box(bx - self.RULE_HW, y0, z + 0.02, bx + self.RULE_HW, y1, z + 0.05, self.rule_col())
@@ -1787,6 +1962,10 @@ def jobs(SZ):
         **{f"rb_ct3_{sp}_band": (lambda sp=sp: shot4(Cathedral("B", speaker=sp, centre_play=True).model("stand"), fp_rect(0, 0, W, D + 64), f"rb_ct3_{sp}_band", size=SZ, az=-32, el=24, dist=260, center=Cathedral("B").stand_point(150.0, 38.0), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_ct3_{sp}_band.png"), ymax=1.0))
            for sp in ("P1b", "P1c")},
         "rb_nv_stand": lambda: shot4(Nave().model("stand"), fp_rect(0, 0, W, D + 64), "rb_nv_stand", size=SZ, az=-32, el=24, dist=760, center=(143, D * 0.6, 52), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv_stand.png")),
+        **{f"rb_nv5_{v}_lidtop": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_lidtop", -2, n.LY0 - 2, W + 2, n.LY0 + n.D + 2, px_per_mm=15, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
+        **{f"rb_nv5_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_nv5_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
+        **{f"rb_nv5_{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_nv5_{v}_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_nv5_{v}_stand.png")))(Nave(lid="P5" + v, spine="dark"))) for v in "OR"},
+        "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=160, el=30, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
         "rb_nv_lidtop": lambda: top4(Nave().model(True), "rb_nv_lidtop", -2, Nave().LY0 - 2, W + 2, Nave().LY0 + D + 2, px_per_mm=15, grain_classes=()),
         "rb_nv_top": lambda: top4(Nave().model(True), "rb_nv_top", -2, -2, W + 2, OPEN + 2, px_per_mm=8, grain_classes=()),
         "rb_nv_closed_side": lambda: shot_ortho(Nave().model(False), "rb_nv_closed_side", "right", -4, D + 4, -1, 60, wmax=W + 2, wood=True),
