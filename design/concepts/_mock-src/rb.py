@@ -81,6 +81,42 @@ def mark(x, y, z, r, name, ink):
         s += ticks(x, y, z, R - L, [a], ink, length=L, width=MARK_W)
     return s
 
+# ---- round 6 (player review round 2): MIDI dots back, one place; stepped pointers on a detent; octave positions
+MIDI_DOT = ("MOD", "GLIDE", "CUTOFF", "TUNE", "FREQ 2", "FREQ 3", "FREQ 4", "RANGE 1", "RANGE 2", "RANGE 3", "RANGE 4",
+            "DRY PAN", "ECHO PAN")   # docs/features/midi.md "the MIDI-dot parameters" (ECHO / REVERB MIX: owner's open call)
+TAP_CAP = "#3a3632"   # TAP's cap: matte warm black, a shade lighter than the bezel, so the lit ring reads between them
+MIDI_DOT_D, MIDI_DOT_GAP = 0.9, 1.0   # Ø 0.9, 1.0 clear right of the knob word's last letter, on its x-height centre
+OCTAVE_LINE = "lo · 32 · 16 · 8 · 4 · 2"   # RANGE's six firmware positions (eng/budget-variant.md: LO, 32'-2')
+_WB = {}
+def word_box(s_, size, font="Kalam:style=Bold"):
+    """the word's real box (final font), measured once with OpenSCAD and cached with branch_check's cache."""
+    import json, tempfile, subprocess, re
+    key = json.dumps([s_, size, font, "center", "center"])
+    cache_p = "/tmp/branch_check_textbox.json"
+    if not _WB and os.path.exists(cache_p):
+        _WB.update(json.load(open(cache_p)))
+    if key not in _WB:
+        with tempfile.TemporaryDirectory() as td:
+            src = os.path.join(td, "t.scad"); out = os.path.join(td, "t.svg")
+            open(src, "w").write(f'text("{s_}", size={size}, font="{font}", halign="center", valign="center", $fn=24);')
+            subprocess.run(["openscad", "-o", out, src], capture_output=True, timeout=120)
+            num = r"-?[\d.]+(?:[eE][-+]?\d+)?"
+            pts = [(float(a), float(b)) for a, b in re.findall(rf"({num}),({num})", open(out).read())] if os.path.exists(out) else []
+        _WB[key] = (min(a for a, b in pts), min(-b for a, b in pts), max(a for a, b in pts), max(-b for a, b in pts)) if pts else None
+    return _WB[key] or (-len(s_) * 0.3125 * size, -0.425 * size, len(s_) * 0.3125 * size, 0.425 * size)
+
+def midi_dot(x, y, z, word, size, ink):
+    """one MIDI dot, always in the same place: MIDI_DOT_GAP right of the knob word, centred on the word's x-height."""
+    b = word_box(word, size)
+    return cyl(x + b[2] + MIDI_DOT_GAP + MIDI_DOT_D / 2, y - 0.12 * size, z, 0.04, MIDI_DOT_D, ink, fn=16)
+
+def snap_detent(name, a):
+    kind, n = mark_kind(name)
+    if kind != "stepped":
+        return a
+    det = [(i - (n - 1) / 2) * 30.0 for i in range(n)]
+    return min(det, key=lambda d_: abs(d_ - a))
+
 def time_dial(x, y, z, r, ink_ms, ink_div, font=None, full=False, size=1.05, up=True, std=False):
     """TIME's two scales over +-135 deg (common §2): inner ring = ms (log, 20 ms .. 2 s), outer = 9 divisions.
     Dotted = a dot beside the mark, triplet = a small triangle, straight = a tick. full=True adds the numbers (DIPTYCH)."""
@@ -1858,6 +1894,17 @@ class Nave(Cathedral):
 
     def _model2(self, state=True, walnut=WAL_P, book=False):
         TOGGLE_THROW[0] = "lr" if getattr(self.lc, "THROW", "") == "left-right" else "fa"
+        if self._sq():                                   # round 6: a stepped knob always points at a detent
+            o_ang = r4.ang
+            snapped = lambda key, _o=o_ang: snap_detent(key[0], _o(key)) if isinstance(key, tuple) and key else _o(key)
+            r4.ang = snapped; r5.random_ang = snapped
+            try:
+                return self._model3(state, walnut, book)
+            finally:
+                r4.ang = o_ang; r5.random_ang = o_ang
+        return self._model3(state, walnut, book)
+
+    def _model3(self, state=True, walnut=WAL_P, book=False):
         old = (r5.ECHO_POS, r5.VERB_POS)
         r5.ECHO_POS = list(getattr(self.lc, "ECHO_POS", r5.ECHO_POS)); r5.VERB_POS = list(getattr(self.lc, "VERB_POS", r5.VERB_POS))
         try:
@@ -2016,7 +2063,11 @@ class Nave(Cathedral):
                 cy += LEGEND_FIT.get((getattr(lc, "VARIANT", ""), n), 0.0) + \
                       (getattr(lc, "LEGEND_NUDGE", {}).get(n, 0.0) if getattr(lc, "VARIANT", "") in P5O_FAMILY else 0.0)
                 s += txt(x, L0 + cy, z, lab, sz, ink, font=st.font)
-                named_ = getattr(lc, "NAMED_LINES", None) or {k_: " · ".join(v_) for k_, v_ in MARK_NAMED.items()}
+                if self._sq() and n in MIDI_DOT:
+                    s += midi_dot(x, L0 + cy, z, lab, sz, ink)
+                named_ = dict(getattr(lc, "NAMED_LINES", None) or {k_: " · ".join(v_) for k_, v_ in MARK_NAMED.items()})
+                for k_ in ("RANGE 1", "RANGE 2", "RANGE 3", "RANGE 4"):
+                    named_.setdefault(k_, OCTAVE_LINE)   # round 6: octave's positions (systems to add to NAMED_LINES)
                 if self._sq() and n in named_:           # named choices: their names in step order, under the word
                     py = cy - (bx[3] - bx[1]) / 2 - NAMED_LEAD - 0.85 * NAMED_S / 2 if where != "behind" else \
                          cy + (bx[3] - bx[1]) / 2 + NAMED_LEAD + 0.85 * NAMED_S / 2
@@ -2098,10 +2149,15 @@ class Nave(Cathedral):
                 s += item5("CUTOFF", "CUTOFF", x, y, "h", not self._sq(), z, copy_style(st, ticks=False), "proof", None, True, 143)
                 if self._sq():                           # the marking system: CUTOFF's ring like every other knob's
                     s += mark(x, y, z, st.hero_r, "CUTOFF", ink)
+                    s += midi_dot(x, y - st.hero_r - st.lab_gap - 0.6, z, "cutoff", st.lsize, ink)
                 else:   # its scale without the ± 90° ticks, which ran into KBD / FILT MOD's bats beside it (steer 4)
                     s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
             elif n == "TAP":
-                s += r5.tap_cap(x, y, z, self.tap_style())
+                if getattr(lc, "BASE6", False):          # round 6: TAP is not a key, so not brass: a matte black cap
+                    s += cyl(x, y, z, 0.6, 14.2, "#2a2724", fn=48)                       # bezel
+                    s += cyl(x, y, z + 0.6, 3.4, 12.0, TAP_CAP, fn=48, d2=11.6)          # flat-topped cap, chamfered
+                else:
+                    s += r5.tap_cap(x, y, z, self.tap_style())
                 if getattr(lc, "BASE6", False):          # §20: the one status light is TAP's ring (lit, a thin green ring)
                     s += (f'{c("#9fd36b")} translate([{x:.3f},{y:.3f},{z + 0.62:.3f}]) linear_extrude(0.05) '
                           f'difference(){{ circle(r=7.05,$fn=96); circle(r=6.3,$fn=96); }}\n')   # on the bezel's top face
@@ -2114,6 +2170,8 @@ class Nave(Cathedral):
                     s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
                 if lab:
                     s += txt(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
+                    if self._sq() and n in MIDI_DOT:
+                        s += midi_dot(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink)
                 if n in MIDI_NAMES and not self._sq():   # steer 5 fixes 7: no MIDI dots (an implementation detail, on 9 knobs)
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:
