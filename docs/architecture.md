@@ -113,10 +113,10 @@ One table for every shared resource.
 - **D16** stays the last direct analog spare.
 </details>
 
-<details><summary>What fills the mux (53 → 59)</summary>
+<details><summary>What fills the mux (53 → 60)</summary>
 
 - **Decided additions:** VOICES switch, FREE / SYNC, out PAN, echo PAN, LINK (+5).
-- **Proposed:** oscillator 3 TRACK read, phones-in sense, TS sense on line out, the battery divider moved onto the mux (+4), and optionally charger STAT / VBUS (+2).
+- **Proposed:** oscillator 3 TRACK read, phones-in sense, TS sense on line out (0 with two jacks), the battery divider moved onto the mux, WAVE 1 for the 4th oscillator (+4–5), and optionally charger STAT / VBUS (+2).
 </details>
 
 ---
