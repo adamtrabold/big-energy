@@ -1634,14 +1634,8 @@ def nv_overrides(lc):
     real Kalam, and read as "track envelopes"; on the left, the toggle sits between its words and the heading."""
     if getattr(lc, "STEER5", False):
         # (steer 5 fixes, a80d7c: P5O's headings now sit on top of their groups in the checker; the foot MOVE is gone)
-        # real-Kalam fits (steer 5 fixes), for systems to fold:
-        #   P5O "filter" / "amp" +0.8 (sat 0.8 over "attack"); P5O "reverb" to (241, 60.8), over decay, right of the type fan (0.8 from "spring",
-        #   1.43 from decay); P5R "reverb" +2.0 x (0.97 from "shimmer"); P5R "keys" +0.5 (1.13 from velocity's
-        #   nut). The old P5R "keys" -1.5 is dropped (at systems' new place, lowered, it sat on velocity's nut)
-        FIT = {("P5O", "filter"): (0, 0.8), ("P5O", "amp"): (0, 0.8), ("P5O", "reverb"): (9.25, 1.6), ("P5R", "keys"): (0, 0.5),
-               ("P5R", "reverb"): (2.0, 0.0)}
-        secs = [(t, x + FIT.get((lc.VARIANT, t), (0, 0))[0], d + FIT.get((lc.VARIANT, t), (0, 0))[1])
-                for t, x, d in lc.SECTIONS]
+        # (rev 9 real-Kalam heading fits now live in layout_check.py, d56403f)
+        secs = list(lc.SECTIONS)
         return list(lc.lid), list(lc.BREAKS), secs
     lid = [(n, x, d, r, k, lab, "left2") if (n == "OSC 3 CTL" and w == "right2") else (n, x, d, r, k, lab, w)
            for n, x, d, r, k, lab, w in lc.lid]
@@ -1666,11 +1660,7 @@ def nv_fit_base_notes(lc):
     return list(getattr(lc, "BASE_NOTES", []))
 
 def nv_notes(lc):
-    """steer 5 fixes: the hanging VCO numerals 0.3 further out (real Kalam sat 1.30 from the octave knobs)."""
-    notes = list(getattr(lc, "NOTES", []))
-    if getattr(lc, "STEER5", False):
-        notes = [(t, x - 0.3, d, sz, a) if t in ("1", "2", "3", "4") else (t, x, d, sz, a) for t, x, d, sz, a in notes]
-    return notes
+    return list(getattr(lc, "NOTES", []))   # (rev 9's 0.3 numeral shift is in layout_check.py's NUMX, d56403f)
 
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
@@ -1934,7 +1924,7 @@ class Nave(Cathedral):
         for nm_, x, d, _ in getattr(lc, "DOTS", []):     # matching link dots (echo pan <-> link)
             s += cyl(x, L0 + d, z - 0.005, 0.04, 1.2, ink, fn=24)
         for t, x, d, sz, a in nv_notes(lc):              # small free legends: lead-ins in the ink, notes / cues light
-            col = INK_LIGHT if sz <= lc.NS + 1e-6 else ink
+            col = INK_LIGHT if (sz <= lc.NS + 1e-6 or (t == "4" and self._ghosting())) else ink   # the ghost slot's "4"
             s += txt(x, L0 + d, z, t, sz, col, font=st.font, halign=a)
         s += self.vco4_ghost(z)
         return s
@@ -1944,13 +1934,17 @@ class Nave(Cathedral):
         b = [i for i in self.lc.lid if i[0] == "OSC 3 CTL"][0]
         return b[1] + 6.2 + len("off · on") * 0.5 * self.lc.NS * 1.25
 
+    def _ghosting(self):
+        lc = self.lc
+        return self.GHOST and getattr(lc, "VARIANT", "") == "P5O" and not getattr(lc, "VCO4", False)
+
     GHOST = True             # P5O: draw VCO 4's kept slot as a ghost (a drawing convention for the owner, not a print)
     def vco4_ghost(self, z):
         """P5O's R4 slot (systems §19.4 / 19.5), drawn so the owner can judge VCO 4 in place: three knob outlines and
         their words in the light ink, exactly where the fitted knobs would go (CATHEDRAL_VCO4=1 positions). Built
         without VCO 4, that area is plain plate."""
         lc = self.lc
-        if not (self.GHOST and getattr(lc, "VARIANT", "") == "P5O" and not getattr(lc, "VCO4", False)):
+        if not self._ghosting():
             return ""
         L0, R4 = self.LY0, lc.R4
         s = ""
@@ -1959,7 +1953,7 @@ class Nave(Cathedral):
                   f'difference(){{ circle(r={lc.KN:.3f},$fn=96); circle(r={lc.KN - 0.3:.3f},$fn=96); }}\n')
             bx = lc.tbox(x, R4, lab, lc.LS, "behind", lc.KN)
             s += txt(x, L0 + (bx[1] + bx[3]) / 2 + lc.BEHIND_EXTRA, z, lab, lc.LS, INK_LIGHT, font=self.style().font)
-        s += txt(lc.NUMX - 0.3, L0 + R4, z, "4", lc.NUM_S, INK_LIGHT, font=self.style().font)
+        # (its "4" is the checker's NOTE since d56403f, drawn light in lid_face)
         return s
 
     # ---- base: the played row, symmetric about x 143
