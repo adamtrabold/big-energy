@@ -11,7 +11,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 - An **echo** feeds a **reverb**, both digital, both with four characters.
 - Turn **ECHO MIX** or **REVERB MIX** up from zero and the effect fades in under the dry sound. At zero the synth is purely analog.
 - Echo: **TIME** (how far apart the repeats are), **REPEATS** (how many, up to a controlled runaway on TAPE) and **TAP**.
-- Reverb: **DECAY** (how long it rings).
+- Reverb: **TAIL** (how long it rings; panel word "tail", so "decay" means only the contours' decay).
 - Tails ring on after you lift a key.
 
 ## Owner decisions (verbatim, linked)
@@ -39,7 +39,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
   - **HALL** (FDN / CloudSeed class);
   - **SPRING;**
   - **SHIMMER.**
-  - DECAY scales size and damping together, per type.
+  - TAIL scales size and damping together, per type.
 - **Stereo:**
   - The echo is a mono line; **ECHO PAN** places it.
   - **The reverbs take stereo input** (proposed; review P6): PLATE / SPRING / SHIMMER need two input diffusers (≈ +10–15 % of one reverb's load, ESTIMATE). HALL is stereo-in already.
@@ -60,7 +60,7 @@ Status: **written 2026-11-13** (systems). Per item below. Sources:
 | ECHO REPEATS | 9 mm pot | feedback; controlled runaway on TAPE | decided |
 | ECHO MIX | 9 mm pot | echo wet level | decided |
 | REVERB TYPE | 4-way rotary | PLATE / HALL / SPRING / SHIMMER | decided |
-| REVERB DECAY | 9 mm pot | size and damping together | decided |
+| REVERB TAIL (was DECAY; the name is proposed) | 9 mm pot | size and damping together | decided (control) |
 | REVERB MIX | 9 mm pot | reverb wet level | decided |
 | TAP | momentary | tap tempo / echo length (see [echo sync](echo-sync.md)) | decided |
 | FREE / SYNC | toggle | see [echo sync](echo-sync.md) | decided |

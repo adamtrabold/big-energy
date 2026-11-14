@@ -18,6 +18,7 @@ WIN = (143.0, 32.0, 23.0)                          # Ø 46 opening, concentric w
 LS = 2.35                                          # FOLD legend size (Kalam)
 SW_LS = 1.55                                       # switch legends beside their toggle (right, x + 6.2)
 HS = 3.0                                           # group heading size: above the 2.35 legends (director fix 2)
+TS_LEAD = (1.1, 1.25)             # two-line toggle legend: name centre d + 1.1, positions centre d - 1.25
 NS = 1.3                          # note / position-word size (Kalam), the smallest legend on the panel
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
@@ -42,11 +43,11 @@ if VARIANT == "P":
     BREAKS.append((188.0, 70.5, A + 9.0))                           # oscillators | mixer (from d 70.5, above the contour heading)
     # steer 4: every toggle carries its positions under its name, listed lever-down -> lever-up (§18.1)
     L("PARA", 23.5, A2, "t", "para|mono · para · +4", "right2")     # whole bank: PARA + OSC MOD together at the bank's left
-    L("OSC MOD", 48.0, A2, "t", "osc mod|off · on", "right2")       #   (review 3; the Model D's osc mod sits at the bank's top-left)
+    L("OSC MOD", 50.0, A2, "t", "osc mod|off · on", "right2")       #   (review 3; x 50: visual, PARA's positions reached it at 48)
     L("OSC 3 CTL", 133.5, A2, "t", "osc 3 ctl|free · keys", "right2")   # VCO 3's own switch, under VCO 3
     L("SOURCE", 262.5, A2, "t", "source|noise · ext · fb", "right2")   # under NOISE / EXT, the knob it re-points (review 2)
-    NOTES += [("para: detune", 88.5 + 3.525 + 1.6, A + KN + 3.5 + BEHIND_EXTRA, NS, "left"),   # FREQ 2 / 3 in PARA (review 9)
-              ("para: detune", 153.5 + 3.525 + 1.6, A + KN + 3.5 + BEHIND_EXTRA, NS, "left")]
+    NOTES += [("detune", 88.5 + 3.525 + 2.4, A + KN + 3.5 + BEHIND_EXTRA, NS, "left"),   # FREQ 2 / 3 in PARA (review 9)
+              ("detune", 153.5 + 3.525 + 2.4, A + KN + 3.5 + BEHIND_EXTRA, NS, "left")]
     SECTIONS += [("oscillators", 98.5, A + 16.9), ("mixer", 232.5, A + 16.9)]   # d 101.45 (visual: real Kalam vs "freq 2")
     # ---- band 2: CONTOURS. Score-8 fix 1: symmetric about the axis. Filter contour at the mirror of the loudness
     # contour's x (63.5 / 83.5 / 103.5 <-> 182.5 / 202.5 / 222.5), read A D S left to right; its two switches form a
@@ -57,10 +58,14 @@ if VARIANT == "P":
         L(n, x, B, "k", lab, "behind")
     # KBD + FILT MOD leave the lid for the base filter group, beside CUTOFF (review 5; §18.4); the lone "filter"
     # heading and its rule go with them.
-    L("VEL", 178.5, B2, "t", "velocity|loud · both · filt", "right2")  # the keys pair, under a small "keys" lead-in
-    L("AFTERTOUCH", 203.0, B2, "t", "touch|mod · off · filt", "right2")
-    NOTES.append(("keys", 173.9 - 1.5, B2, SW_LS, "right"))
-    L("RELEASE", 143.0, 61.5, "t", "release|off · = decay", "right2")  # acts on BOTH contours (Model D), so it sits
+    # visual (c38bf1f): the keys pair as a "keys" column at the band's left, mirroring "out" (x 48 <-> 238 about the
+    # axis is not exact: at x 23.5 both would land over the bend stick closed, R-LOW 58.8; at 48 they land over MOD /
+    # MOD MIX at the binding height, 55.2). Legends left of the toggles (left2). Band 2 now reads keys -> filter contour
+    # -> release -> loudness contour -> out.
+    L("VEL", 48.0, B, "t", "velocity|loud · both · filt", "left2")
+    L("AFTERTOUCH", 48.0, B2, "t", "touch|mod · off · filt", "left2")
+    SECTIONS.append(("keys", 37.0, 58.0))                           # the mirror of "out" (249, d 58)
+    L("RELEASE", 143.0, 61.5, "t", "release|off · on", "right2")        # acts on BOTH contours (Model D), so it sits
                                                                     #   between them, on the axis over the window (review 6)
     # one heading per contour, each flush to the knob edge nearest the window, so the pair mirrors about the axis
     # (filter flush right at 110.95, loudness flush left at 175.05); flush left, "filter contour" ran into OSC MOD
@@ -69,13 +74,13 @@ if VARIANT == "P":
     # ---- band 3 (nearest the hinge, the BOTTOM): EFFECTS -> OUT. Echo left, the opening, reverb right; out in a column.
     for n, x, lab in [("ECHO TYPE", 23.5, "type"), ("ECHO TIME", 43.5, "time"), ("ECHO REPEATS", 76.0, "repeats"),
                       ("ECHO MIX", 96.0, "mix"), ("ECHO PAN", 116.0, "echo pan"),
-                      ("REVERB TYPE", 182.5, "type"), ("REVERB DECAY", 202.5, "decay"), ("REVERB MIX", 222.5, "mix"),
+                      ("REVERB TYPE", 182.5, "type"), ("REVERB DECAY", 202.5, "tail"), ("REVERB MIX", 222.5, "mix"),
                       ("VOLUME", 262.5, "volume")]:
         L(n, x, C, "k", lab, "front")
     L("FREE/SYNC", 62.0, C, "t", "sync|free", "updown")             # in the echo row, right of TIME's scale, before REPEATS
     L("DRY PAN", 262.5, B, "k", "dry pan", "behind")                # out column: DRY PAN -> FOLLOW -> VOLUME, top to bottom
     L("FOLLOW", 262.5, 32.8, "t", "own|follows dry", "beside")     # ends beside at ± 6.4, its name under it (review 7)
-    NOTES += [("echo pan", 262.5, 32.8 - TGL - UD_GAP - 0.85 * SW_LS / 2, SW_LS, "center"),
+    NOTES += [("echo pan", 262.5, 32.8 - TGL - UD_GAP - 0.85 * SW_LS / 2 - 0.3, SW_LS, "center"),
               ("(off if follow)", 108.0, 25.05, NS, "center")]      # the cue by ECHO PAN: FOLLOW overrides it
     BREAKS.append((242.5, 7.0, B + 9.0))                            # reverb / loudness | out column
     SECTIONS += [("echo", 69.5, 26.5), ("reverb", 204.5, 26.5), ("out", 249.0, 58.0)]   # "out": top-left of its column (SOURCE took d 66.5)
@@ -115,7 +120,7 @@ def base(hk, hstick, hcut=12.15, htap=8.0, hbat=BAT_H):
             ("EMPHASIS", 112.5, 68, KN, hk), ("KBD CTRL", 126.4, 68, TGL, hbat), ("CUTOFF", 143, 68, CUT, hcut),
             ("FILTER MOD", 159.6, 68, TGL, hbat), ("CONTOUR AMT", 173.5, 68, KN, hk),
             ("TUNE", 199, 68, KN, hk), ("DRIFT", 230, 68, KN, hk), ("TAP", 261, 68, TAPR, htap)]
-BASE_TOGGLES = {"KBD CTRL": "kbd|off · ⅓ · ⅔", "FILTER MOD": "filt mod|off · on"}
+BASE_TOGGLES = {"KBD CTRL": "kbd|off · 1/3 · 2/3", "FILTER MOD": "filt mod|off · on"}   # spelled out: Kalam has no ⅓ ⅔
 BASE_LEGEND = {"BEND stick": "bend", "MOD": "mod", "MOD MIX": "mod mix", "GLIDE": "glide", "EMPHASIS": "emphasis",
                "CUTOFF": "cutoff", "CONTOUR AMT": "amount", "TUNE": "tune", "DRIFT": "drift", "TAP": "echo tap"}
 BASE_SECTIONS = [("controllers", 14.0, 85.0), ("filter", 105.0, 85.0), ("tune", 191.5, 85.0)]   # left-aligned, Kalam 2.4
@@ -135,11 +140,11 @@ def base_check():
         if n in BASE_TOGGLES:
             nm, pos = BASE_TOGGLES[n].split("|"); labs.append((n, legend2(x, y, nm, pos, "below2"))); continue
         t = BASE_LEGEND[n]; w, hh = len(t) * 0.5 * LS, 0.85 * LS
-        cy = y - 11.5 if n == "BEND stick" else y - BASE_R_DRAWN.get(n, 5.0) - 3.5
+        cy = {"BEND stick": y - 11.5, "CUTOFF": y - CUT - 3.5, "TAP": y - TAPR - 3.5}.get(n, y - 10.95)   # R-LOW render
         labs.append((n, (x - w / 2, cy - hh / 2, x + w / 2, cy + hh / 2)))
     for t, x, y in BASE_SECTIONS:
         labs.append(("base head " + t, (x, y - 0.425 * 2.4, x + len(t) * 0.5 * 2.4, y + 0.425 * 2.4)))
-    ctl = [(n, x, y, (r if n not in BASE_R_DRAWN or BASE_R_DRAWN[n] else r) if r != KN else 5.0) for n, x, y, r, h in bs]
+    ctl = [(n, x, y, 7.0 if r == KN else r) for n, x, y, r, h in bs]   # low knobs measured to their tick ring (6.0 + 1.0)
     ctl += [("led", x, y, r) for x, y, r in BASE_LEDS]
     for ln, b in labs:
         for n, x, y, r in ctl:
@@ -191,10 +196,12 @@ def legend2(x, d, nm, pos, where="right2"):
     under the toggle (base), name line first. Returns the block's box."""
     hn, hp = 0.85 * SW_LS, 0.85 * NS
     w = max(len(nm) * 0.5 * SW_LS, len(pos) * 0.5 * NS)
-    if where == "right2":
-        return (x + 6.2, d - 1.0 - hp / 2, x + 6.2 + w, d + 0.85 + hn / 2)
-    top = d - TGL - 1.6
-    return (x - w / 2, top - hn - 0.5 - hp, x + w / 2, top)
+    if where == "right2":                                           # real-Kalam leading (visual): d + 1.1 / d - 1.25
+        return (x + 6.2, d - TS_LEAD[1] - hp / 2, x + 6.2 + w, d + TS_LEAD[0] + hn / 2)
+    if where == "left2":                                            # the mirror: right-aligned at x - 6.2
+        return (x - 6.2 - w, d - TS_LEAD[1] - hp / 2, x - 6.2, d + TS_LEAD[0] + hn / 2)
+    top = d - TGL - 2.1                                             # base: under the toggle, 0.9 between the lines
+    return (x - w / 2, top - hn - 0.9 - hp, x + w / 2, top)
 
 def note_boxes():
     out = []
@@ -210,7 +217,7 @@ def labels():
         if w == "right":
             wdt = len(lab) * 0.5 * SW_LS; h = 0.85 * SW_LS
             out.append((n, (x + 6.2, d - h / 2, x + 6.2 + wdt, d + h / 2)))
-        elif w in ("right2", "below2"):                             # name over its positions, as one block
+        elif w in ("right2", "left2", "below2"):                             # name over its positions, as one block
             nm, pos = lab.split("|"); bx = legend2(x, d, nm, pos, w); out.append((n, bx))
         elif w == "updown":                                         # 'top|bottom', at FREE / SYNC's size, centred
             a, b = lab.split("|"); s = LS * 0.72; h = 0.85 * s
