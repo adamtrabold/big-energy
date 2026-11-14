@@ -555,3 +555,6 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Lid steer 4 (bar 10): **8**. All expert items in; first-time walk fails on switch positions (printed beside up/down levers). Fixes: all toggles throw left/right with positions in throw order (one convention); single FOLLOW label; release legend; echo tap own break; KBD real positions; checker.
 - Lid steer 4 fixes: **9** (bar 10). First-time walk passes every switch. To 10: FOLLOW on the out column line; label the two lights by CUTOFF; "contour amt"; SOURCE "fdbk"; touch label ≥3 mm from echo type names; checker; re-render. Director checks by eye.
 - Lid after vocabulary + track move: **10** (owner bar). → owner.
+
+## CATHEDRAL steer 5 (2026-11-13, director, bar 10)
+- P5R (team rows): **8**. P5O (owner layout): **6**. Shared two-row base: **7**. Work really changed. Fixes: equal-gutter row distribution (gap ≤ one gutter), P5R out at bottom-row end, P5O rebuilt as left-to-right columns with headings on top, pivots inboard, spine shown in all states.
