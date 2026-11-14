@@ -1030,6 +1030,13 @@ Owner, verbatim:
 | **R3, 49** | "3" · octave · wave · pitch ‖ filter decay · (window) · amp decay ‖ **reverb:** type 219.25 · decay 239.25 | **20** ×2; window 13.5; right end 20 |
 | **R4, 24** | **VCO 4 slot** ("4" · octave · wave · pitch; drawn as a ghost, checked as controls) ‖ filter sustain ‖ **keys:** velocity (t) 135.3 · touch (t) 151.05, under the window ‖ amp sustain ‖ **out:** pan 219.25 · link (t) 239.25 | **20** ×4 |
 
+- **Steer 5 fixes 4, P5O's right block on its own spacing (inside D 132, amp still a column):** every legend in the block now sits **under** its control. Each heading keeps **≥ 1M** under the legend zone above it.
+  - **echo:** R1 type 219.25 · time 239.25; R2 free · sync (t) 216.4 · repeats 239.25 · pan 259.25.
+  - **reverb (R3, d 49):** reads **decay 219.25 · type 244.25**, with type 25 (not 20) from decay. Its fan words then sit ≥ 8 mm to the side of the heading, so "reverb" (d 59.2) sits just over decay and **6.6 mm under echo's legends**. Over the fan it would need 7.75 mm that the block doesn't have.
+  - **out (R4):** reads **link · pan**, with link a switch at d 20 (names under it) and pan at 239.25, d 24. "out" (d 27.4) sits over a 9.2 switch, not a 14.9 knob: **8.4 mm under reverb's legends**.
+  - The top heading line rises to d 123.5, 3 mm over echo type's fan words.
+  - The checker now holds three new rules: **legend zone → next heading ≥ 1M**, **one legend side per group**, and **headings ≥ 3 mm over fan words**.
+- **P5R (director's two fixes for a 10):** velocity and touch print their names and positions **above** each switch, as the base's rear switches do, so "keys" sits over words. All four row-C headings move to **d 43.5**, 3.0 mm over the type words (it was 1.5 over "shimmer"). P5R keeps plain "track"; P5O's "track 3" is approved.
 - **New director, O2 (switches):** R1 now runs **VCO 1 | voices · mod · track 3 | tuning | echo** at 22.2 gutters (voices 81.0, mod 101.0, track 3 121.0; tune 162.1, drift 182.1). The switches sit straight after VCO 1 under "oscillators", with its hairline running on over them, unbroken. VCO 3's switch is named **"track 3"** so it can't read as the base filter's "track" (vocabulary tweak for the director).
 - **O3:** P5O's top heading line rises to **d 122.0**, 1.5 above echo type's fan words. "echo" no longer sits on "tape"'s line. The phrase rule passes.
 - **O1, amp left to right on R1 (attack · decay · sustain at 123 / 143 / 163): it can't pass the gap rule at D 132. Exactly why:**
@@ -1050,8 +1057,8 @@ Owner, verbatim:
 | **A, 104** | "1" octave 26.75 · wave 46.75 ‖ "2" octave 84.25 · wave 104.25 · pitch 124.25 ‖ "3" octave 161.75 · wave 181.75 · pitch 201.75 ‖ break 220.5 ‖ **tuning:** tune 239.25 · drift 259.25 | **22.6** ×3 |
 | **A', 89** | voices (t) 36.75 · mod (t) 104.25 · track (t) 181.75, each centred under its VCO | — |
 | **B, 64** | **filter** 49.65 · 69.65 · 89.65 · (window) · **amp** 196.35 · 216.35 · 236.35 | ends and window gaps **22.9** each (row A's gutter, within 0.5: `GAP_REF`) |
-| **C, 24** | **keys:** velocity (t) 25.5 · touch (t) 40.5 (3M apart, name and positions under each) ‖ **echo:** type 72.7 · time 92.7 · free · sync (t) 112.7 · repeats 127.7 · pan 147.7 ‖ **reverb:** type 181.5 · decay 201.5 ‖ **out:** pan 235.3 · link (t) 255.3 | **18.9** ×3 (≥ 15) |
-| headings | centred over their groups: "oscillators", "tuning" (d 120.9); "envelopes" (d 91.8) with "filter", "amp" (d 79.5); **row C on one line at d 42.0** (keys 32.8 · echo 110.2 · reverb 191.5 · out 247.3), 1.5 above the type knobs' fan words (top 39.2) | |
+| **C, 24** | **keys:** velocity (t) 25.5 · touch (t) 40.5 (3M apart, name and positions above each) ‖ **echo:** type 72.7 · time 92.7 · free · sync (t) 112.7 · repeats 127.7 · pan 147.7 ‖ **reverb:** type 181.5 · decay 201.5 ‖ **out:** pan 235.3 · link (t) 255.3 | **18.9** ×3 (≥ 15) |
+| headings | centred over their groups: "oscillators", "tuning" (d 120.9); "envelopes" (d 91.8) with "filter", "amp" (d 79.5); **row C on one line at d 43.5** (keys 32.8 · echo 110.2 · reverb 191.5 · out 247.3), 3.0 above the type knobs' fan words (top 39.2) | |
 
 - Reading order wraps from amp to keys, which feed amp and filter.
 - **Closing (R-LOW 55.2, stick as is):** keys land at base y 108, behind the rear row (release slide 6.1 / blend 4.9 in plan, ≥ 3 ✓). The bend stick's nearest lid item is filter attack, 7.8. CUTOFF, track and mod stay under the window.
