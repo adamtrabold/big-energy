@@ -1735,6 +1735,7 @@ def nv_fit_sections(lc, sections):
     return list(sections)
 
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
+P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
     """steer 5 score fixes 2. P5O: systems' SECTIONS_LEFT (every heading top-left of its group), with the visual's
@@ -1744,7 +1745,9 @@ def nv_heads_left(lc, sections):
     P5R keeps systems' centred headings: left-aligned, "echo" / "reverb" land on their type fans and "envelopes" on
     voices (6 rule violations), so P5R needs systems' geometry first."""
     if getattr(lc, "SECTIONS_LEFT", None):
-        heads = [(t, x + P5O_HEAD_FIT.get(t, (0, 0))[0], d + P5O_HEAD_FIT.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
+        hf = P5O_HEAD_FIT if getattr(lc, "VARIANT", "") in P5O_FAMILY else \
+             (P5R_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5R" else {})   # (e38e035: P5R is top-left too)
+        heads = [(t, x + hf.get(t, (0, 0))[0], d + hf.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
     # 049e51e real Kalam: P5R row-C headings +1.5 ("keys" sat 0.09 over "velocity"); "filter" / "amp" +1.2 (0.38 / 0.42
     # over "decay")
@@ -1761,7 +1764,7 @@ def nv_fit_subheads(lc):
     subs = list(getattr(lc, "SUBHEADS", []))
     if getattr(lc, "VARIANT", "") in P5O_FAMILY:  # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
         subs = [(t, x, d + 0.2) if t == "tuning" else (t, x, d) for t, x, d in subs]
-    if getattr(lc, "VARIANT", "") == "P5R":
+    if getattr(lc, "VARIANT", "") == "P5R" and any(t in ("filter", "amp") for t, x, d in subs):
         subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
                                                       #   still below the oscillator switches (at 91.8 they read as
                                                       #   names of the oscillator knobs above)
@@ -1927,8 +1930,10 @@ class Nave(Cathedral):
         """steer 5 (visual): the rear row's legends go BEHIND their knobs and its headings above them (y 109), so
         the front row's headings (y 78) aren't sandwiched between the rear legends and the front knobs."""
         secs = list(getattr(self.lc, "BASE_SECTIONS", []))
-        if self._sq():
+        if self._sq() and not getattr(self.lc, "BASE6", False):   # (BASE6: systems places them, e38e035)
             secs = [(t, x, 109.0 if y > 100 else y) for t, x, y in secs]
+        elif getattr(self.lc, "BASE6", False):          # e38e035 real Kalam: the rear heading line +0.4 ("controllers"
+            secs = [(t, x, y + 0.4 if y > 100 else y) for t, x, y in secs]   # sat 1.17 over the "mod" sub-heading)
         return secs
 
     PLATE_RC = 24.0          # visual's pick within systems' 16-32.5 (§19.6): soft and architectural, one family
@@ -2115,7 +2120,10 @@ class Nave(Cathedral):
 
     def base_names(self):
         secs = self.base_sections() if hasattr(self, "base_sections") else getattr(self.lc, "BASE_SECTIONS", [])
-        return "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
+        s = "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
+        # e38e035: base sub-headings ("mod" over pitch · filter · blend), left-aligned, Kalam 1.8
+        s += "".join(txt(x, y, BASE_H + 0.01, t, 1.8, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
+        return s
 
     def base_extra(self, walnut):
         s = self.grooves_base(walnut) if self.grain else ""
@@ -2246,6 +2254,7 @@ def jobs(SZ):
         "rb_nv5_O4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_nv5_O4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_nv5_O4_stand.png")))(nave_env("P5O", CATHEDRAL_VCO4="1")),
         "rb_nv5_Rfb_top": lambda: (lambda n: top4(n.model(True), "rb_nv5_Rfb_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5R", CATHEDRAL_P5R_KEYS="line")),
         # §22 studies (owner judges the amp-row trade by eye; holes kept): full tops only
+        "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
         **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},
         "rb_nv5_closed": lambda: (lambda n: ld.shot(n.model(False, walnut=WAL_R), fp_rect(0, 0, W, n.D), "rb_nv5_closed", size=SZ, az=152, el=34, dist=760, center=(143, n.D * 0.55, 26), grain_classes=()))(Nave(lid="P5O", spine="dark")),
         # steer 5 fixes: the spine standing (from behind and below the joint) and open flat (a back corner, close)

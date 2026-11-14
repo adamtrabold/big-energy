@@ -1,5 +1,15 @@
 # Visual designer notes (instrument; working name retired)
 
+## Round 7 (systems e38e035), 2026-11-14: READ THIS FIRST
+- **rb.py:**
+  - P5O fits are scoped to `P5O_FAMILY`; new `P5R_HEAD_FIT` (filter / amp +0.8, keys +0.6), because P5R now uses SECTIONS_LEFT;
+  - P5R's old subhead d = 81.5 override applies only to filter / amp sub-heads (it had moved "tuning" into the filter row);
+  - base: systems places the headings when BASE6, plus my rear line +0.4; draws `BASE_SUBS` ("mod", Kalam 1.8);
+  - job `rb_s7_P5OB_top`.
+- **Round 6 items live:** `snap_detent` (stepped pointers), `OCTAVE_LINE`, `MIDI_DOT` + `midi_dot()` (`word_box` measures real Kalam via OpenSCAD, cached in /tmp/branch_check_textbox.json), `TAP_CAP` black + lit bezel.
+- **Checks:** P5R 0 / 0 / 0. P5OB: octave line −0.38 under "oscillators" (needs 1.9 mm, flagged), plus filter / reverb on ticks and keys 0.94 (study, systems).
+- **Images:** P5R top, P5R standing, `cathedral-s7-P5OB-study-top-9.9px-per-mm.png`.
+
 ## P5R on 049e51e + P5O studies (2026-11-14): READ THIS FIRST
 - **P5R:** marking system applied. Names lines from `lc.NAMED_LINES` at `NAMED_S` 1.2. TAP bezel lit (BASE6). Fits: row C +0.88 (keys +0.92), filter / amp +1.2, `ABOVE2_BOT` 1.9 / `ABOVE2_LEAD` 1.2, base rear leading 1.25. Real Kalam 0 (the window rule is systems' 1.0 in `s5f_kalam`). Rendered top + standing (c87738f).
 - **Studies (§22, systems 74ef961 / 2ae6833):** P5O / P5OA / P5OL, jobs `rb_s6_<V>_top`. `P5O_FAMILY` gives the studies P5O's treatment. `P5O_HEAD_FIT` is now filter / amp +0.8 (the old reverb fit dropped). Files: `cathedral-s6-P5O-study-amp-column-top-9.9px-per-mm.png`, `cathedral-s6-P5OA-study-amp-row-top-9.9px-per-mm.png`, `cathedral-s6-P5OL-study-levels-on-lid-top-9.9px-per-mm.png`. The holes are kept. Remaining clashes are systems' (reverb pinched; filter / amp ticks into the window).
