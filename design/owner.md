@@ -270,3 +270,6 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-14 01:27
 > I want to see all the layout options before I make a call. Yes I meant the amp envelope controls.. the amp group.
+
+## 2026-11-14 01:29
+> The top case is looking ok in p50 but the bottom is a bit less senseful
