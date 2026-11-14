@@ -4,29 +4,20 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL: approve it, or send it back
-**Scored 10 by the director** (your bar), after the synth expert's review and a first-time-player walk of every label and switch. Passes every job.
+## 1. CATHEDRAL: two layouts in progress (not ready to approve yet)
+**Status:** in progress after your 20:29–20:45 notes. Director's latest scores (bar 10): team rows **P5R 8**, your layout **P5O 6**, shared base **7**. Both are being fixed (equal gaps, clear reading order, headings on top) and you'll see both again. These pictures are the current drafts, not finished.
 
-- **Reads in signal order, top to bottom:** oscillators 1 · 2 · 3 → mixer → envelopes (filter · amp, mirrored around the speaker) → echo → reverb → out (pan, link, volume; volume last, above tap).
-- **Every switch sits under the group it changes,** throws left/right, and shows its positions in the order the lever moves (e.g. voices: 1 · 3 · 4).
-- **One-word labels, plain words:** octave, pitch, voices, track, extra, resonance, envelope, blend, tap (under "tempo"), pan/link with matching dots.
-- **Base row:** controllers (bend · mod · blend · glide) · filter (resonance · track · cutoff · mod · envelope) · tuning (tune · drift) · tempo (tap).
-- **Speaker:** Ø 46 mm round window on the centre line, ≈ 75 % of the cone open, sealed back box; "big energy" on the plate.
-- **Keys:** brass naturals, black-plated brass sharps (lead); all brass (alternate).
-- **Closed thickness:** ≈ 55.2 mm with snap-in pots and small (Ø 10 gold) played-row knobs; ≈ 59.7 mm keeping the big knobs.
-- **Hinge:** hidden pins; a 4 mm bump at each back corner from the side.
-- **Costs:** batteries move to the back of the base (eng check); stand tip force ≈ 6.9 → 8.4 N.
+- **Rule:** the lid sets what the sound is; the base sets how much you hear and what your hands ride, left to right.
+- **Both halves 24 mm deeper** (108 → 132 mm) so the base fits a second row; closed thickness unchanged.
+- **Softer continuous-curve corners**, the **spine back** (dark walnut cloth, brass bands), **lines** for the grille (more open than dots).
+- **4th analog oscillator:** fits your layout; whether to add it is yours to decide once both are ready.
 
-![Lid top view, true scale](branches/concepts/cathedral/img/cathedral-lid-signal-order-8.7px-per-mm.png)
-![Standing](branches/concepts/cathedral/img/cathedral-nave-standing.jpg)
-![Full top, lid and base](branches/concepts/cathedral/img/cathedral-nave-top-8.3px-per-mm.png)
-![Closed, side: 55.2 mm](branches/concepts/cathedral/img/cathedral-nave-closed-side-14px-per-mm.png)
-![Speaker window, front and section](branches/concepts/cathedral/img/cathedral-nave-speaker-window-20px-per-mm.png)
-![Keys A (brass naturals) and C (all brass), ray-traced](branches/concepts/cathedral/img/cathedral-keys-brass-A-C.jpg)
-
-The first-time-player walk of every switch is on the CATHEDRAL page (Physical).
-
-**Also yours within it:** keys A or C; small knobs (55 mm) or big knobs (60 mm).
+![Team rows (P5R): lid top, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-lid-top-10.2px-per-mm.png)
+![Your layout (P5O): lid top, draft](branches/concepts/cathedral/img/cathedral-s5-P5O-lid-top-10.2px-per-mm.png)
+![Team rows (P5R): full top, draft](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
+![Your layout (P5O): full top, draft](branches/concepts/cathedral/img/cathedral-s5-P5O-top-9.9px-per-mm.png)
+![Closed, with the spine, draft](branches/concepts/cathedral/img/cathedral-s5-closed-spine.jpg)
+![Grille: lines vs dots, 1:1](branches/concepts/cathedral/img/cathedral-s5-grille-lines-vs-dots-20px-per-mm.png)
 
 ---
 
