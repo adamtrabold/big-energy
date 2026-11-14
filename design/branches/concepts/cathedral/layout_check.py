@@ -17,7 +17,7 @@ A, A2, B, B2, C = 84.55, 70.0, 49.5, 35.0, 14.45   # band rows: A knobs, A' swit
 WIN = (143.0, 32.0, 23.0)                          # Ø 46 opening, concentric with the 50 mm driver (unchanged)
 LS = 2.35                                          # FOLD legend size (Kalam)
 SW_LS = 1.55                                       # switch legends beside their toggle (right, x + 6.2)
-HS = 2.0                                           # group heading size (checked like a legend)
+HS = 3.0                                           # group heading size: above the 2.35 legends (director fix 2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
 VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S") else os.environ.get("CATHEDRAL_LID", "P"))
 
@@ -28,26 +28,34 @@ def L(n, x, d, k, lab, where): lid.append((n, x, d, KN if k == "k" else TGL, k, 
 
 if VARIANT == "P":
     # ---- band 1 (far edge, the TOP): SOURCES. Oscillators by VCO, then the mixer, one row; their switches beneath.
-    for n, x, lab in [("RANGE 1", 28.5, "range"), ("WAVE 1", 48.5, "wave"), ("RANGE 2", 68.5, "range"), ("FREQ 2", 88.5, "freq 2"),
-                      ("WAVE 2", 108.5, "wave"), ("RANGE 3", 128.5, "range"), ("FREQ 3", 148.5, "freq 3"), ("WAVE 3", 168.5, "wave"),
-                      ("OSC 1", 197.5, "osc 1"), ("OSC 2", 217.5, "osc 2"), ("OSC 3", 237.5, "osc 3"), ("NOISE/EXT", 257.5, "noise / ext")]:
-        L(n, x, A, "k", lab, "behind")
-    BREAKS.append((183.0, A2 - 6.0, A + 9.0))                       # oscillators | mixer
-    L("PARA", 38.5, A2, "t", "para", "right")                       # voice mode, under VCO 1 (the voice's first switch)
+    # Score-8 fix 3: VCO 1 | 2 | 3 grouped by spacing: 20 inside a VCO, 25 between VCOs (edge gaps 5.1 vs 10.1), so the
+    # row reads as three runs. Uses the row's whole width (RANGE 1 and NOISE / EXT both at the 16 mm edge rule).
+    for n, x, lab in [("RANGE 1", 23.5, "range 1"), ("WAVE 1", 43.5, "wave 1"),
+                      ("RANGE 2", 68.5, "range 2"), ("FREQ 2", 88.5, "freq 2"), ("WAVE 2", 108.5, "wave 2"),
+                      ("RANGE 3", 133.5, "range 3"), ("FREQ 3", 153.5, "freq 3"), ("WAVE 3", 173.5, "wave 3"),
+                      ("OSC 1", 202.5, "osc 1"), ("OSC 2", 222.5, "osc 2"), ("OSC 3", 242.5, "osc 3"), ("NOISE/EXT", 262.5, "noise / ext")]:
+        L(n, x, A, "k", lab, "behind")                              # legends numbered (visual): which VCO, at a glance
+    BREAKS.append((188.0, 68.5, A + 9.0))                           # oscillators | mixer (starts above the contour heading)
+    L("PARA", 33.5, A2, "t", "para", "right")                       # voice mode, under VCO 1 (the voice's first switch)
     L("OSC MOD", 88.5, A2, "t", "osc mod", "right")                 # wheel -> pitch, under VCO 2 (acts on all VCOs)
-    L("OSC 3 CTL", 148.5, A2, "t", "osc 3", "right")                # VCO 3 keyboard on/off (LFO), under VCO 3
-    L("SOURCE", 237.5, A2, "t", "source", "right")                  # noise / ext / feedback, under the mixer
-    SECTIONS += [("oscillators", 98.5, A + 16.0), ("mixer", 227.5, A + 16.0)]
-    # ---- band 2: CONTOURS. Filter contour left of the opening, loudness contour right; their switches beneath.
-    for n, x, lab in [("F ATTACK", 23.5, "attack"), ("F DECAY", 43.5, "decay"), ("F SUSTAIN", 63.5, "sustain"),
+    L("OSC 3 CTL", 153.5, A2, "t", "osc 3 ctl", "right")            # VCO 3 keyboard on/off (LFO), under VCO 3 (visual's legend)
+    L("SOURCE", 242.5, A2, "t", "source", "right")                  # noise / ext / feedback, under the mixer
+    SECTIONS += [("oscillators", 98.5, A + 16.5), ("mixer", 232.5, A + 16.5)]
+    # ---- band 2: CONTOURS. Score-8 fix 1: symmetric about the axis. Filter contour at the mirror of the loudness
+    # contour's x (63.5 / 83.5 / 103.5 <-> 182.5 / 202.5 / 222.5), read A D S left to right; its two switches form a
+    # left-edge column at x 23.5 that mirrors the out column at 262.5 (KBD <-> DRY PAN at d 49.5, FILT MOD <-> FOLLOW at
+    # d 32.8). No break left of the filter knobs: the column belongs to the filter contour (the out column is another group).
+    for n, x, lab in [("F ATTACK", 63.5, "attack"), ("F DECAY", 83.5, "decay"), ("F SUSTAIN", 103.5, "sustain"),
                       ("L ATTACK", 182.5, "attack"), ("L DECAY", 202.5, "decay"), ("L SUSTAIN", 222.5, "sustain")]:
         L(n, x, B, "k", lab, "behind")
-    L("KBD CTRL", 46.0, B2, "t", "kbd", "right")                    # keyboard -> cutoff
-    L("FILTER MOD", 66.0, B2, "t", "filt mod", "right")             # wheel -> cutoff
+    L("KBD CTRL", 23.5, B, "t", "kbd", "right")                     # keyboard -> cutoff
+    L("FILTER MOD", 23.5, 32.8, "t", "filt mod", "right")           # wheel -> cutoff
     L("VEL", 178.5, B2, "t", "velocity", "right")                   # loud / both / filt: the keys' dynamics pair,
     L("AFTERTOUCH", 199.5, B2, "t", "touch", "right")               #   under the loudness contour (VEL's default)
     L("DECAY tgl", 222.0, B2, "t", "decay", "right")                # release = decay, loudness contour's own switch
-    SECTIONS += [("contours", 143.0, 62.0)]                         # one heading on the axis over the opening, between the two
+    # one heading per contour (visual), flush left at its first knob's edge, between the contour legends and A'
+    for t, x0 in (("filter contour", 63.5 - KN), ("loudness contour", 182.5 - KN)):
+        SECTIONS.append((t, x0 + len(t) * 0.5 * HS / 2, 65.5))
     # ---- band 3 (nearest the hinge, the BOTTOM): EFFECTS -> OUT. Echo left, the opening, reverb right; out in a column.
     for n, x, lab in [("ECHO TYPE", 23.5, "type"), ("ECHO TIME", 43.5, "time"), ("ECHO REPEATS", 76.0, "repeats"),
                       ("ECHO MIX", 96.0, "mix"), ("DELAY PAN", 116.0, "delay pan"),
@@ -56,7 +64,7 @@ if VARIANT == "P":
         L(n, x, C, "k", lab, "front")
     L("FREE/SYNC", 62.0, C, "t", "sync|free", "updown")             # in the echo row, right of TIME's scale, before REPEATS
     L("DRY PAN", 262.5, B, "k", "dry pan", "behind")                # out column: DRY PAN -> FOLLOW -> VOLUME, top to bottom
-    L("FOLLOW", 262.5, 32.0, "t", "follow|off", "updown")
+    L("FOLLOW", 262.5, 32.8, "t", "follow|off", "updown")
     BREAKS.append((242.5, 7.0, B + 9.0))                            # reverb / loudness | out column
     SECTIONS += [("echo", 69.5, 26.5), ("reverb", 202.5, 26.5), ("out", 262.5, 66.5)]
     FX, FX_BREAKS = C, [242.5]                                      # kept for rb.py: the effects row and its break(s)

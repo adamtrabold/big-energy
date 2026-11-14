@@ -681,11 +681,11 @@ Not found in any source checked: a description of the Take 5's or minilogue xd's
 **P: page order (the director's lead).** Three bands, top → bottom = signal order:
 ```
  far edge (top)
- A  d 84.55  range wave | range freq wave | range freq wave  ‖  osc1 osc2 osc3 noise      <- oscillators ‖ mixer
- A' d 70       para        osc mod            osc 3                source
- B  d 49.5   f.attack decay sustain    (   window   )   l.attack decay sustain  ‖ dry pan   <- contours ‖ out
- B' d 35       kbd  filt mod           (   Ø 46     )   velocity touch decay      ‖ follow
- C  d 14.45  type time [free/sync] repeats mix delaypan ( ) type decay mix        ‖ volume   <- echo · reverb ‖ out
+ A  d 84.55  range1 wave1  ·  range2 freq2 wave2  ·  range3 freq3 wave3  ‖  osc1 osc2 osc3 noise   <- oscillators ‖ mixer
+ A' d 70     para            osc mod              osc 3 ctl                source
+ B  d 49.5   kbd | f.attack decay sustain  (  window  )  l.attack decay sustain ‖ dry pan         <- contours, mirrored ‖ out
+ B' d 33–35  filt mod                      (   Ø 46   )  velocity touch decay    ‖ follow
+ C  d 14.45  type time [free/sync] repeats mix delaypan ( ) type decay mix        ‖ volume          <- echo · reverb ‖ out
  hinge (bottom) — base: bend mod tune glide | emphasis CUTOFF amount | mod mix drift TAP
 ```
 - **Groups:**
@@ -737,25 +737,28 @@ Not found in any source checked: a description of the Take 5's or minilogue xd's
 - **The live controls (effects, pans, VOLUME) move nearest the hand.**
 - Cost: the oscillators move farthest away. They're the set-and-leave group; the Model D's oscillator bank is likewise not its played row.
 
-### 17.6 New x / d table (P, live in `layout_check.py`)
-| Band (lid d) | Left of the window (x) | Centre | Right of the window (x) | Out column (x 262.5) |
-|---|---|---|---|---|
-| **A, d 84.55** (legends behind) | RANGE 1 28.5 · WAVE 1 48.5 · RANGE 2 68.5 · FREQ 2 88.5 · WAVE 2 108.5 · RANGE 3 128.5 · FREQ 3 148.5 · WAVE 3 168.5 | | **break x 183** · OSC 1 197.5 · OSC 2 217.5 · OSC 3 237.5 · NOISE / EXT 257.5 | (NOISE / EXT) |
-| **A', d 70** (legends right) | PARA 38.5 · OSC MOD 88.5 · OSC 3 CTL 148.5 | | SOURCE 237.5 | |
-| **B, d 49.5** (legends behind) | F ATTACK 23.5 · F DECAY 43.5 · F SUSTAIN 63.5 | Ø 46 window (143, d 32), unchanged | L ATTACK 182.5 · L DECAY 202.5 · L SUSTAIN 222.5 | **break x 242.5 (d 7–58.5)** · DRY PAN (d 49.5, legend behind) |
-| **B', d 35** (legends right) | KBD CTRL 46 · FILTER MOD 66 | | VELOCITY 178.5 · TOUCH 199.5 · DECAY 222 | FOLLOW (d 32; "follow" above, "off" below) |
-| **C, d 14.45** (legends in front) | ECHO TYPE 23.5 · TIME 43.5 · FREE / SYNC 62 ("sync" above, "free" below) · REPEATS 76 · MIX 96 · DELAY PAN 116 | | REVERB TYPE 182.5 · DECAY 202.5 · MIX 222.5 | VOLUME (d 14.45, legend in front) |
-| **Headings** (Kalam 2.0) | "oscillators" (98.5, d 100.55) · "echo" (69.5, d 26.5) | "contours" (143, d 62) | "mixer" (227.5, d 100.55) · "reverb" (202.5, d 26.5) | "out" (262.5, d 66.5) |
+### 17.6 New x / d table (P, live in `layout_check.py`; score-8 fixes 1, 3, 5 applied)
+| Band (lid d) | Left edge column (x 23.5) | Left of the window (x) | Centre | Right of the window (x) | Out column (x 262.5) |
+|---|---|---|---|---|---|
+| **A, d 84.55** (legends behind, numbered) | RANGE 1 "range 1" | WAVE 1 43.5 ·· RANGE 2 68.5 · FREQ 2 88.5 · WAVE 2 108.5 ·· RANGE 3 133.5 · FREQ 3 153.5 · WAVE 3 173.5 | | **break x 188.0 (d 68.5–93.5)** · OSC 1 202.5 · OSC 2 222.5 · OSC 3 242.5 | NOISE / EXT |
+| **A', d 70** (legends right) | | PARA 33.5 · OSC MOD 88.5 · OSC 3 CTL 153.5 ("osc 3 ctl") | | SOURCE 242.5 | |
+| **B, d 49.5** (legends behind) | **KBD CTRL (toggle)** | F ATTACK 63.5 · F DECAY 83.5 · F SUSTAIN 103.5 | Ø 46 window (143, d 32), unchanged | L ATTACK 182.5 · L DECAY 202.5 · L SUSTAIN 222.5 | **break x 242.5 (d 7–58.5)** · DRY PAN |
+| **d 32.8 / B', d 35** (legends right) | **FILTER MOD (d 32.8)** | (none) | | VELOCITY 178.5 · TOUCH 199.5 · DECAY 222 (d 35) | FOLLOW (d 32.8; "follow" above, "off" below) |
+| **C, d 14.45** (legends in front) | ECHO TYPE | TIME 43.5 · FREE / SYNC 62 ("sync" above, "free" below) · REPEATS 76 · MIX 96 · DELAY PAN 116 | | REVERB TYPE 182.5 · DECAY 202.5 · MIX 222.5 | VOLUME |
+| **Headings** (Kalam 3.0, above the 2.35 legends) | | "oscillators" (98.5, d 101.05) · "filter contour" flush left at x 56.05, d 65.5 · "echo" (69.5, d 26.5) | | "mixer" (232.5, d 101.05) · "loudness contour" flush left at x 175.05, d 65.5 · "reverb" (202.5, d 26.5) | "out" (262.5, d 66.5) |
 
-- **FREE / SYNC moved** from beside TIME to the right of TIME's printed scale. The scale's "1/4" reaches to x ≈ 56; the toggle edge is at 57.4.
-- **KBD moved to x 46** to clear ECHO TYPE's "ping-pong". **VELOCITY moved to 178.5** to clear REVERB TYPE's "plate" / "shimmer".
-- **For the visual (rb.py `Nave.lid_face`):**
-  - the voice breaks (x 93.5 / 192.5) and the FX headings are hard-coded to steer 2. They should read `BREAKS` and `SECTIONS` from the checker;
-  - switch legends with placement "right" and "updown" need drawing. Today only `d == SWL` (now band B') is drawn beside;
-  - FREE / SYNC and FOLLOW are now "updown". Run on today's rb.py, the real-Kalam check (`nv_kalam`) flags the hard-coded headings and beside-legends, as expected.
-- **For eng:**
-  - DELAY PAN's pot (x 116, d 14.45) comes within ≈ 32 mm of the window centre. The 60 × 60 back box (x 113–173) needs its lower-left corner chamfered ≈ 18 × 18 to clear the pot body. That costs ≈ 1.6 cm³, so ≈ 19–24 cm³ net [CALC];
-  - the pots and switches move, but the lid harness and the mux allocation don't change (same controls).
+- **Fix 1 (band B balance):**
+  - every band-B x mirrors about the axis (23.5 / 63.5 / 83.5 / 103.5 ↔ 262.5 / 222.5 / 202.5 / 182.5); the checker confirms;
+  - the filter contour's two switches form a left-edge column (KBD at d 49.5, FILT MOD at d 32.8), opposite the out column (DRY PAN at d 49.5, FOLLOW at d 32.8);
+  - there's no break line on the left: the column is part of the filter contour, and the out column is another group;
+  - FILT MOD sits 2.3 mm clear of ECHO TYPE's "bbd" name.
+- **Fix 3 (VCO groups):** 20 mm pitch inside a VCO, 25 mm between VCOs (edge gaps 5.1 vs 10.1), using the row's full width. The legends carry the VCO number. Underlines aren't needed; the visual can add them if the spacing doesn't read in the render.
+- **Fix 5 (labels):** "range 1…3" / "wave 1…3", "osc 3 ctl" and the two contour headings are now in the checker. **0 violations, with headings at 3.0.** Closing is unchanged (R-LOW 55.2 / R-TALL 59.7).
+- **For the visual (rb.py `nv_overrides`):** the checker now carries these labels, headings and the break start itself.
+  - Drop `lab_of`'s numbering and the "contours" split, or the render prints "range 1 1".
+  - `lc.HS` is now 3.0.
+- FREE / SYNC: moved from beside TIME to the right of TIME's printed scale ("1/4" reaches to x ≈ 56; the toggle edge is at 57.4).
+- **Eng:** the 60 × 60 back box (x 113–173) needs its lower-left corner chamfered ≈ 18 × 18 to clear DELAY PAN's pot (x 116, d 14.45). That costs ≈ 1.6 cm³, so ≈ 19–24 cm³ net [CALC]. The lid harness and mux allocation don't change.
 
 ### 17.7 Open (steer 3)
 - **V1 (visual):** rb.py to the new table: breaks, headings, "right" / "updown" legends. Then the real-Kalam check.
