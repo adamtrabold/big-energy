@@ -243,3 +243,6 @@ Recorded as: DECISION — the instrument is named **Big Energy**. Replace "( nam
 
 2026-11-13 18:00 Owner (verbatim), with a screenshot of the CATHEDRAL lid panel (design/owner-refs/2026-11-13-1800-top-panel.png): "lets focus on top panel first -- the items do not appear to be grouped or ordered in a way that makes logical sense. have the team break down which concepts belong together, and reorient accordingly.  there are tons of examples on the internet of good organization beyond the model d itself for the add'l functionality. also i dont like the effects controls at the top ... when i think of signal order it's synth stuff -> fx stuff -> output stuff like volume. so it at the top of the layout is confusing"
 Recorded as: CATHEDRAL not approved yet. Focus on the TOP (lid) PANEL first. Its controls are not grouped or ordered logically: break down which concepts belong together and reorganise. Look at well-organised synths beyond the Model D for the added functions (effects, pans, sync, etc.). Signal order must read synth → effects → output (volume etc.); effects across the top is confusing.
+
+2026-11-13 19:20 Owner (verbatim): "run it by the audio engineer synth expert for understanding"
+Recorded as: independent expert (audio engineer / synth designer) review of the new CATHEDRAL lid layout: does a player understand it?
