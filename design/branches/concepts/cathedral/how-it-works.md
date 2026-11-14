@@ -1408,6 +1408,35 @@ The checker reports what each leaves empty. The visual renders all three.
 - **The rear row's gaps** (28.6 edge to edge, ≈ 42 centre to centre) stay. The mixer's columns over the filter and the effects over out fix both ends of the middle group, so narrowing them would break the alignment.
 - **Checker:** P5R 0 (with and without VCO 4 on the base); P / S 0.
 
+## 27. Round 9: the critic's four P5OB-D fixes, tested
+1. **Mixer 1 · 2 · 3 · 4 over track · resonance · CUTOFF · envelope, with extra / source one column on:** done. Echo / reverb stand exactly over volume / pan again, and both base rows end on the margin.
+   - **Cost:** the rear controllers close up to the left. Release is at 24.85, 6.9 left of bend; pitch / filter at 35.85 / 46.85; blend at 60.4, under "mod" and its hairline.
+   - Rear gutters 28.6.
+   - Checker: 0 for the base, with and without VCO 4.
+2. **The bank 20 mm right, so the closed stick lands in the numbers' margin:** done. **The stick goes back to full height.**
+   - The nearest knobs when closed are octave 2 / 3 at 7.8 / 4.6 in plan (≥ 3).
+   - **Closing: 55.2**, bound by low knobs, as in P5R.
+   - **The catch:** row 1 can't keep drift. Its 4th slot would sit 1.35 from amp attack, which stays centred over the speaker. **Drift moves to VCO 2's empty 4th slot** (x 106.75, d 92), so tune stays VCO 1's pitch slot under "tuning", and drift sits one row down beside it. It may read as VCO 2's; that's the trade for the full-height stick.
+   - **The air bands don't match:**
+     - margins are 20 left and 40 right;
+     - the grille's side gaps are 8.8 / 10.0 on the left (drift and track 3 sit in the bank's 4th column, close to the grille) against 27.8 / 29.2 on the right.
+     - The critic's ≈ 30 / 30 assumed that column empty.
+3. **Base knob rows up 6–8 mm into the hinge band:** not done.
+   - On FOLD, the lid's window sits at d = D − (CUTOFF's y), so raising the base rows by b moves the whole P5OB-D lid b toward the hinge. Its keys row (d 22) is already 2 mm off the bottom margin.
+   - +7 needs **D 152** (+7 on both halves).
+   - The band is battery room. The cells could move back 13 mm instead, which leaves the knobs where they are.
+4. **One baseline for the top headings:** oscillators, amp and echo share d 122.7; "tuning" is a sub-heading (legend size). The visual's real-Kalam fits may still move single words; the checker's estimate puts them on one line.
+
+**P5OB-D checker:**
+- **4 VCOs: 6 violations, all gaps:**
+  - the grille's right side 27.8 / 29.2 against its left side's 8.8 / 10.0;
+  - right ends 40;
+  - R4's end 32.9.
+  - No text clashes.
+- **3 VCOs: 5,** with the 96 mm bottom-right hole.
+
+**P5R:** 0; "tempo" heads TAP (round 8).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
