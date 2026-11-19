@@ -37,6 +37,29 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### P5RS-a and P5RS-b (systems §31.3, 7394af9): his choice by eye
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
+<figure>
+<img src="img/cathedral-s11-P5RSa-top-9.9px-per-mm.png" alt="Exact top view of P5RS-a open flat: oscillators 1 to 3 stacked at the left, a tuning pair (tune, drift) over the slotted window, the filter envelope over the amp envelope at the right, and echo and reverb along the lid's bottom. Base: rear row keys switches, blend, then the mod switches, the mixer and the effect levels; front row bend, mod, glide, the filter round the red cutoff, tempo with tap, out.">
+<figcaption><b>P5RS-a: tuning over the window</b> (exact). The pair sits 5 mm left of the axis, with filter / amp 10 mm right, so the top row's gaps are even.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s11-P5RSb-top-9.9px-per-mm.png" alt="Exact top view of P5RS-b open flat: the same, but tune and drift sit in VCO 1's row beside wave under a tuning sub-heading, leaving the space above the window open.">
+<figcaption><b>P5RS-b: tuning beside VCO 1</b> (exact). Tune · drift are in VCO 1's row under a "tuning" sub-heading. This leaves a 72 mm open crown over the window, 10 mm right of the axis.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s11-P5RSa-standing.jpg" alt="P5RS-a standing at 120 degrees.">
+<figcaption>P5RS-a, standing.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s11-P5RSb-standing.jpg" alt="P5RS-b standing at 120 degrees.">
+<figcaption>P5RS-b, standing.</figcaption>
+</figure>
+</div>
+
+- **Both:** blend now sits between the keys and mod switch groups on the base. Real Kalam 0, the director's tests 0; the one checker flag is systems' pinned base back-row gap (15.0 / 28.6).
+- **By eye:** **a** reads as one composition: a row of three groups across the top, and the window crowned by its tuning pair. **b** keeps "tune is by the oscillators" (the owner's 20:29 note), but its crown is empty and off the axis, the thing he called "unresolved" over the speaker. **My lean: a.**
+
 ### P5RS: the owner's markup over P5R (systems §31, 0375919)
 <figure>
 <img src="img/cathedral-s10-P5RS-top-9.9px-per-mm.png" alt="Exact top view of P5RS open flat. Lid: oscillators 1, 2 and 3 stacked at the left (octave with its positions line, wave, and pitch on VCOs 2 and 3; track 3 by VCO 3); a centred tuning pair (tune, drift) over the slotted window; the filter envelope over the amp envelope at the top right; a bottom row of echo (type, time, free · sync, repeats, pan) and reverb (type, decay). Base: rear row keys (release, voices, velocity and touch with their positions on two lines), mod (pitch, filter, blend), mixer (1, 2, 3, extra, source) and effects (echo, reverb); front row bend, mod, glide, filter with the red cutoff, tempo with the black tap in its lit ring, out (link, volume, pan).">
