@@ -1,6 +1,21 @@
 # Director notes: Little D (budget instrument), physical design
 
-## P5RS, the owner's markup (2026-11-19; 0375919 / 80c575c / 8f3d775): READ THIS FIRST
+## P5RS after fixes (2026-11-19; f9036a9 / 6fe8a48): READ THIS FIRST
+- **Owner 14:08 (verbatim):** "when i said to move the keys stuff, i was hoping the grid could be altered in that section along, making the switches a bit tighter / in a proprotional multiple of the grid" / "i dont want those two knobs to move, as your analysis said".
+- **Score: 9 (was 8). The work really changed:**
+  - the levels are back on the base, over out;
+  - the mixer is back over the filter;
+  - keys + mod switches sit on M/4, as he asked;
+  - the tuning pair fills the crown over the grille;
+  - the standing view matches.
+- **Left:**
+  1. **Row 1 gutters are unequal:** VCO 1 → tuning ≈ 46 mm, tuning → filter ≈ 26. Tuning reads as nearer the filter.
+     - Fix: move the filter / amp column ≈ 10 mm right (≈ 20 mm room to the margin) → ≈ 36 / 36.
+  2. **My option (b) puts master tuning about 36–46 mm from VCO 1.** That trades his 20:29 "master tuning controls should be closer to the oscillators" against the crown gap he hates. That's an owner call: one question with both renders. "Tuning centred over the speaker (fills the gap above it), or beside VCO 1 (closer, leaves air above the speaker)?"
+  3. **Pinned rear gap (15.1 vs 28.6): no owner call, keep every switch.** Slide the keys + mod group right until both rear gaps are equal (≈ 13 mm). Its row starts inboard of the margin, and release should land about behind bend, a better column. Checker exception noted.
+  - Row 3 hole right of amp: acceptable; it's inside the window's band.
+
+## P5RS, the owner's markup (2026-11-19; 0375919 / 80c575c / 8f3d775)
 - **Owner (verbatim):** "what about a version with changes like this?"; markup at `design/owner-refs/2026-11-19-1353-P5R-markup.png`. It asks for:
   - VCO 2/3 stacked under VCO 1;
   - filter to the top right, over amp;
