@@ -1,6 +1,20 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Case ratio on the device (3cac55b, by eye): READ THIS FIRST
+## P5RS, the owner's markup (2026-11-19; 0375919 / 80c575c / 8f3d775): READ THIS FIRST
+- **Owner (verbatim):** "what about a version with changes like this?"; markup at `design/owner-refs/2026-11-19-1353-P5R-markup.png`. It asks for:
+  - VCO 2/3 stacked under VCO 1;
+  - filter to the top right, over amp;
+  - keys to the base ("will probably need to be a tighter proportional grid for these if all the key controls are in one area?");
+  - echo / reverb row "center?".
+- **Score: 8.** The markup is honoured on all four, and the standing view matches. Three additions or side effects stop it:
+  1. **Effect levels on the lid:** not in his markup, and they contradict 20:29 "volume/mixer controls on the bottom case". The row centres without them. Put echo / reverb levels back on the base, over out.
+  2. **Drift in VCO 2's 4th column under the L-rule:** same fault as P5OB-D. Row 1's 4th column (beside tune) is empty here. Put drift there under "tuning" and drop the L-rule; if the checker forbids it, show the numbers.
+  3. **Row 1 has ≈ 70–90 mm of empty plate** above the grille, between tuning and filter: his "massive horizontal gap" trigger (16:52).
+     - Systems compares, with numbers: (a) fix 2 + visual's filter / amp column 20 mm left; (b) tune · drift as a centred "tuning" pair in the crown over the grille (VCO 1 then reads octave · wave, like the Model D's osc 1).
+  4. **Base columns broken:** the mixer no longer sits over the filter; mixer 1 sits over envelope, and 2 / 3 over tempo. Restore the rear-over-front columns: keys + mod over controllers, mixer over filter, effect levels over out. If keys + mod don't fit over the controllers, say so with numbers.
+- **Can reach 10:** yes, no owner-level blocker, once 1–4 land.
+
+## Case ratio on the device (3cac55b, by eye)
 - **C on P5OB-D: 10.** The seam is the real axis (window, amp / filter decay, mixer 3, cutoff); the diagonals are construction only.
   - Check: small dark marks sit on the lid's top edge (x ≈ 540–1275 px) in this render only. Confirm they're real parts or remove them.
 - **A on P5R: 8 (was 9).** On the device, the "window's bay" square lines cut through tune, filter sustain, amp attack, VCO 3 octave / wave, and on the base blend and source. The ratio doesn't organise the layout, so the caption's claim is false.
