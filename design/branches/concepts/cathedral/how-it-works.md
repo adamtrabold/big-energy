@@ -1851,6 +1851,40 @@ The lid's oscillator rows are tied to the speaker window (d = D − 68), so they
   - T4's tuning has them in front **on purpose**, to read apart from the bank. If one side everywhere wins, T4's tuning needs another separator (its rule and sub-heading stay).
   - Changing the effects rows to "behind" costs ≈ 3.5 mm per row (the names lines move up between rows). T4 has it; T2's lid has 11.2 at the top.
 
+### 32.5 Visual's single type rule (a79fb19), folded into T1–T4
+**The rule is now in the checker** (`LABELS_ABOVE` for the taxonomy layouts): any lid control whose word isn't above it fails as `SIDE`.
+- Base words are above too: bend's, CUTOFF's and tap's flip to y + 11.5 / r + 3.5.
+- Headings are 3.0 on both halves; sub-headings are 2.0 with a hairline.
+- **Every heading is placed from its own group's highest word or names line + 1.5,** not from the knobs.
+  - The lid's top headings share one line (d 122.2 in T4).
+  - The base front headings sit at **y 85.7**, from the words (visual estimated 82.8).
+  - The rear row moves **3 back** (y 96) in T1 / T3 / T4; T2's is already 10 back. The rear headings sit at 110.7.
+
+**Geometry moved:**
+- T4's row 4 (tuning · filter contour · echo time / repeats) goes 5 down. The filter contour's words met the window, and tuning's sub-heading met VCO 3.
+- T1 / T3 row 4 goes 5 down too.
+- T2's reverb goes 5 under row 2, so its heading clears amp.
+- FREE/SYNC's legend becomes "sync / free · sync", above the switch.
+
+**Checker (the 14–18 clashes are gone):**
+- **T4: 3**, all the known gap-rule items: row 1 41 / 61; the base back row 19 / 31, column-locked; row 2 right of the speaker.
+- **T1: 4** and **T3: 3**, all gap rule as before.
+- **T2: 1 text clash + row 1 accepted.** ECHO PAN's word meets REVERB TYPE's knob by **0.4**.
+  - T2's right column has amp, reverb and echo's two rows inside 50 mm. With words above, reverb needs ≥ 28.5 under amp and ≥ 21.9 over echo row 3: 50.4 in all, so it's 0.4 short.
+  - Fix, either: amp's row 0.5 up on the right (invisible), or reverb's names line 0.4 tighter (visual's lead).
+  - Not applied: it's a visual call.
+
+**Tuning in T4 with its words above.** It no longer differs from the bank by label side. What still separates it:
+- its own "tuning" sub-heading with a hairline (the same style as mod / keys, never used for an oscillator);
+- **no numeral** in the margin;
+- a **30** gap under VCO 3, not the bank's 25 (from the row-4 move).
+- Visual should judge it by eye. If it still reads as a 4th oscillator, the next lever is offsetting tune · drift by half a column.
+
+**Closing:** unchanged.
+- T4 / T1 / T3: 55.2 with the stick at full height.
+- T2: 55.2 with the stick lowered (58.8 full).
+- All 59.7 at R-TALL.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

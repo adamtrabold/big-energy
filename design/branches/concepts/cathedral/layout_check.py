@@ -348,11 +348,13 @@ elif VARIANT in ("T2", "T4"):
     # goes back over the filter row it feeds, and the mod / keys groups stand over the controllers.
     T4L = VARIANT == "T4"
     sh = D - 132.0
-    LOWER = 7.5 if (VARIANT == "T2" and D > 140) else 0.0            # §32.4: T2's four rows 7.5 lower (the crown tuning's window clearance stops it there)
+    LOWER = 7.5 if (VARIANT == "T2" and D > 140) else 0.0
+    R4DOWN = 5.0 if VARIANT == "T4" else 0.0                         # §32.5: words above -> T4's row 4 1M down (filter words vs window)            # §32.4: T2's four rows 7.5 lower (the crown tuning's window clearance stops it there)
     R1, R2, R3, R4 = 104.0 + sh - LOWER, 79.0 + sh - LOWER, 54.0 + sh - LOWER, 29.0 + sh - LOWER
     # §32.2: above the 135.75 minimum, T2's spare depth is spread instead of collecting at the bottom: the bottom group
     # (osc 4 · filter contour, and reverb) drops DROP, and the base's back row moves back RYD (both whole M)
     DROP = float(os.environ.get("T2_DROP", "0"))                      # §32.4: superseded by LOWER (every row on a lid row)
+    R4 -= R4DOWN
     R4F = R4 - DROP                                                  # director: the 4 oscillator rows keep one spacing (25);
                                                                      #   the drop goes round the filter row and into the margin
     OX = (46.75, 66.75, 86.75, 106.75) if T4L else (26.75, 46.75, 66.75, 86.75)   # T4 (critic r11): 20 right, the
@@ -375,7 +377,7 @@ elif VARIANT in ("T2", "T4"):
         # bottom row over CUTOFF; echo top right in two rows; reverb bottom right
         # tuning under the bank, made a different group: legends in front (the bank's are behind), its own
         # "tuning" sub-heading and rule, and no numeral in the margin (§32.3)
-        L("TUNE", OX[0], R4, "k", "tune", "front"); L("DRIFT", OX[1], R4, "k", "drift", "front")
+        L("TUNE", OX[0], R4, "k", "tune", "behind"); L("DRIFT", OX[1], R4, "k", "drift", "behind")
         AMPD, ECD = R1, R1
     else:
         L("TUNE", WIN[0] - 10, R1, "k", "tune", "behind"); L("DRIFT", WIN[0] + 10, R1, "k", "drift", "behind")
@@ -384,16 +386,16 @@ elif VARIANT in ("T2", "T4"):
     for n, x, lab in zip(("L ATTACK", "L DECAY", "L SUSTAIN"), AX5, ("attack", "decay", "sustain")):
         L(n, x, AMPD, "k", lab, "behind")
     for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
-        L(n, x, R4F, "k", lab, "front")
+        L(n, x, R4F, "k", lab, "behind")
     # §32.4 (critic r12, the taxonomy's rule): echo time · repeats · free/sync on the lid's bottom row (nearest the
     # player), over the echo / reverb levels; echo type · pan the row above; reverb top right (T4: row 1; T2: row 2,
     # under amp). Every effects row is a lid row (no floating reverb). H: echo over 219–259 covers the echo level
     # (239.25); reverb at 239.25 / 259.25 stands over its level (259.25)
-    L("ECHO TIME", RC[0], R4, "k", "time", "front"); L("ECHO REPEATS", RC[1], R4, "k", "repeats", "front")
-    L("FREE/SYNC", RC[2], R4, "t", "free · sync", "under")
-    L("ECHO TYPE", RC[0], R3, "k", "type", "front"); L("ECHO PAN", RC[1], R3, "k", "pan", "front")
-    RV = R1 if T4L else R2
-    L("REVERB TYPE", RC[1], RV, "k", "type", "front"); L("REVERB DECAY", RC[2], RV, "k", "decay", "front")
+    L("ECHO TIME", RC[0], R4, "k", "time", "behind"); L("ECHO REPEATS", RC[1], R4, "k", "repeats", "behind")
+    L("FREE/SYNC", RC[2], R4, "t", "sync|free · sync", "above2")
+    L("ECHO TYPE", RC[0], R3, "k", "type", "behind"); L("ECHO PAN", RC[1], R3, "k", "pan", "behind")
+    RV = R1 if T4L else R2 - 5.0                                    # T2: 1M under row 2 so its heading clears amp (words above)
+    L("REVERB TYPE", RC[1], RV, "k", "type", "behind"); L("REVERB DECAY", RC[2], RV, "k", "decay", "behind")
     ECD = R3
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
@@ -433,6 +435,7 @@ elif TAX:
     #  * the bank's edge clears the closed stick (bend at x 25.3) by 3.0, so its columns start at 41.75.
     sh = D - 132.0
     R1, R2, R3, R4 = 104.0 + sh, 79.0 + sh, 54.0 + sh, 29.0 + sh
+    R4 -= 5.0                                                        # §32.5: words above -> row 4 1M down (window / bank clearance)
     OX = (41.75, 61.75, 81.75, 101.75)
     RC = (219.25, 239.25, 259.25)                                    # right column = the levels' / volume · pan columns
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"),
@@ -450,11 +453,11 @@ elif TAX:
     if CROWN_TUNING:
         L("TUNE", WIN[0] - 10, R1, "k", "tune", "behind"); L("DRIFT", WIN[0] + 10, R1, "k", "drift", "behind")
         for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
-            L(n, x, R4, "k", lab, "front")                          # below the speaker, over resonance · CUTOFF · envelope
+            L(n, x, R4, "k", lab, "behind")                          # below the speaker, over resonance · CUTOFF · envelope
     else:
         for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
             L(n, x, R1, "k", lab, "behind")                         # the crown, over resonance · CUTOFF · envelope
-        L("TUNE", OX[0], R4, "k", "tune", "front"); L("DRIFT", OX[1], R4, "k", "drift", "front")     # the bank's foot
+        L("TUNE", OX[0], R4, "k", "tune", "behind"); L("DRIFT", OX[1], R4, "k", "drift", "behind")     # the bank's foot
     for n, x, lab in [("L ATTACK", RC[0], "attack"), ("L DECAY", RC[1], "decay"), ("L SUSTAIN", RC[2], "sustain")]:
         L(n, x, R1, "k", lab, "behind")                             # amp: the top row, right (owner 20:43)
     # echo as one row beside the speaker (repeats over its level), reverb 1M under echo's legends (35, as P5OB-D),
@@ -462,10 +465,10 @@ elif TAX:
     EC = RC[2] - 75
     for n, x, lab in [("ECHO TYPE", EC, "type"), ("ECHO TIME", EC + 20, "time"), ("ECHO REPEATS", EC + 55, "repeats"),
                       ("ECHO PAN", EC + 75, "pan")]:
-        L(n, x, R2, "k", lab, "front")
-    L("FREE/SYNC", EC + 40, R2, "t", "free · sync", "under")
+        L(n, x, R2, "k", lab, "behind")
+    L("FREE/SYNC", EC + 40, R2, "t", "sync|free · sync", "above2")
     RV = R2 - 35.0
-    L("REVERB TYPE", RC[1], RV, "k", "type", "front"); L("REVERB DECAY", RC[2], RV, "k", "decay", "front")
+    L("REVERB TYPE", RC[1], RV, "k", "type", "behind"); L("REVERB DECAY", RC[2], RV, "k", "decay", "behind")
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
     SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("amp", RC[0] - KN, HTOP), ("echo", EC - KN, over(R2)),
@@ -754,16 +757,16 @@ if TAX:
     BASE_SECTIONS = [("controllers", PF[0] - STK, 78.0), ("filter", FL, 78.0), ("tempo", TAPX - TAPR, 78.0),
                      ("out", OUTX[0] - TGL, 78.0), ("mixer", MX - BK, 112.4), ("effects", LVX[0] - BK, 112.4)]
     BASE_SUBS = [("mod", MODX[0] - BK, 108.5), ("keys", KYX[0] - TGL, 108.5)]
-    BASE_HAIR = [("mod hairline", MODX[0] - BK + len("mod") * 0.5 * 1.8 + 1.5, 108.3, MODX[2] + TGL, 108.7),
-                 ("keys hairline", KYX[0] - TGL + len("keys") * 0.5 * 1.8 + 1.5, 108.3, KYX[2] + TGL, 108.7)]
+    BASE_HAIR = [("mod hairline", MODX[0] - BK + len("mod") * 0.5 * 2.0 + 1.6, 108.3, MODX[2] + TGL, 108.7),
+                 ("keys hairline", KYX[0] - TGL + len("keys") * 0.5 * 2.0 + 1.6, 108.3, KYX[2] + TGL, 108.7)]
     BASE_LEDS, BASE_NOTES = [], []
     MIXG = [f"OSC {i + 1}" for i in range(NM)] + ["NOISE/EXT", "SOURCE"]; CTLG = ["MOD MIX", "PITCH MOD", "FILTER MOD", "PARA", "VEL", "AFTERTOUCH"]
     BASE_GAP_ROWS = [("base front", 68, [["BEND stick", "MOD", "GLIDE", "RELEASE"], ["KBD CTRL", "EMPHASIS", "CUTOFF", "CONTOUR AMT"],
                                          ["TAP"], ["FOLLOW", "VOLUME", "DRY PAN"]]),
                      ("base rear", 93, ([CTLG, MIXG] if T4B else [MIXG, CTLG]) + [["ECHO MIX", "REVERB MIX"]])]
 
-if VARIANT == "T2":
-    RYD = float(os.environ.get("T2_RYD", "10" if D > 140 else "0"))   # §32.2: the back row (and the cells under it) move back
+if TAX:
+    RYD = float(os.environ.get("T2_RYD", "10" if D > 140 else "3")) if VARIANT == "T2" else 3.0   # §32.5: words above -> rear row ≥ 3 back   # §32.2: the back row (and the cells under it) move back
     if RYD:
         BASE5 = [(n, x, (y + RYD if y == 93 else y), r, h) for n, x, y, r, h in BASE5]
         BASE_SECTIONS = [(t, x, (y + RYD if y > 100 else y)) for t, x, y in BASE_SECTIONS]
@@ -778,7 +781,7 @@ def base_labels(bs):
     (y > 80) behind the knob (y + 10.95) and, for switches, name over positions ABOVE the switch (from y + TGL + 2.35)."""
     labs = []
     for n, x, y, r, h in bs:
-        rear = STEER5 and y > 80
+        rear = STEER5 and (y > 80 or TAX)                         # TAX: every base word above too (visual a79fb19)
         if n in BASE_TOGGLES:
             nm, pos = BASE_TOGGLES[n].split("|")
             if rear:
@@ -790,7 +793,8 @@ def base_labels(bs):
                 labs.append((n, legend2(x, y, nm, pos, "below2")))
             continue
         t = BASE_LEGEND[n]; w, hh = len(t) * 0.5 * LS, 0.85 * LS
-        cy = {"BEND stick": y - 11.5, "CUTOFF": y - CUT - 3.5, "TAP": y - TAPR - 3.5}.get(n, y + 10.95 if rear else y - 10.95)
+        cy = ({"BEND stick": y + 11.5, "CUTOFF": y + CUT + 3.5, "TAP": y + TAPR + 3.5} if TAX else
+              {"BEND stick": y - 11.5, "CUTOFF": y - CUT - 3.5, "TAP": y - TAPR - 3.5}).get(n, y + 10.95 if rear else y - 10.95)
         labs.append((n, (x - w / 2, cy - hh / 2, x + w / 2, cy + hh / 2)))
     return labs
 
@@ -805,10 +809,11 @@ def base_check():
     labs = base_labels(bs)
     for t, x, y in BASE_NOTES:
         w, hh = len(t) * 0.5 * SW_LS, 0.85 * SW_LS; labs.append(("base note " + t, (x - w / 2, y - hh / 2, x + w / 2, y + hh / 2)))
+    BH, BSB = (3.0, 2.0) if TAX else (2.4, 1.8)                     # visual a79fb19: one heading (3.0) and sub-heading (2.0) style
     for t, x, y in BASE_SECTIONS:
-        labs.append(("base head " + t, (x, y - 0.425 * 2.4, x + len(t) * 0.5 * 2.4, y + 0.425 * 2.4)))
+        labs.append(("base head " + t, (x, y - 0.425 * BH, x + len(t) * 0.5 * BH, y + 0.425 * BH)))
     for t, x, y in BASE_SUBS:
-        labs.append(("base sub " + t, (x, y - 0.425 * 1.8, x + len(t) * 0.5 * 1.8, y + 0.425 * 1.8)))
+        labs.append(("base sub " + t, (x, y - 0.425 * BSB, x + len(t) * 0.5 * BSB, y + 0.425 * BSB)))
     labs += [(n, (x0, y0, x1, y1)) for n, x0, y0, x1, y1 in BASE_HAIR]
     ctl = [(n, x, y, 7.0 if r == KN else r) for n, x, y, r, h in bs]   # low knobs measured to their tick ring (6.0 + 1.0)
     ctl += [("led", x, y, r) for x, y, r in BASE_LEDS]
@@ -926,7 +931,51 @@ def labels():
             out.append((n, bx))
     return out
 
+LABELS_ABOVE = TAX     # visual a79fb19: every word, position line and switch legend above its control (lid and base)
+if TAX:
+    # §32.5: headings clear their own words: each heading sits 1.5 over the highest word / names line of its group
+    def _tops(names):
+        tops = []
+        lb = dict(labels()); dc = {}
+        for n, b in decor(): dc.setdefault(n.replace(" names", ""), []).append(b)
+        for n, x, d, r, k, *_ in lid:
+            if n in names:
+                tops.append(d + r)
+                if n in lb: tops.append(lb[n][3])
+                tops += [b[3] for b in dc.get(n, [])]
+        return max(tops)
+    HEAD_OF = {"oscillators": ["RANGE 1", "WAVE 1"] + ([] if any(t == "tuning" for t, x, d in SECTIONS_LEFT) or VARIANT == "T4" else ["TUNE", "DRIFT"]),
+               "tuning": ["TUNE", "DRIFT"], "amp": ["L ATTACK", "L DECAY", "L SUSTAIN"],
+               "filter": ["F ATTACK", "F DECAY", "F SUSTAIN"], "echo": ["ECHO TYPE", "ECHO PAN"] if VARIANT in ("T2", "T4") else ["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"],
+               "reverb": ["REVERB TYPE", "REVERB DECAY"]}
+    if VARIANT == "T3": HEAD_OF["oscillators"] = ["RANGE 1", "WAVE 1"]
+    SECTIONS_LEFT = [(t, x, _tops(HEAD_OF[t]) + 1.5 + 0.425 * HS) for t, x, d in SECTIONS_LEFT]
+    top1 = max(d for t, x, d in SECTIONS_LEFT if t in ("oscillators", "amp", "filter", "tuning", "reverb", "echo") and d > R1)
+    SECTIONS_LEFT = [(t, x, top1 if d > R1 else d) for t, x, d in SECTIONS_LEFT]   # one heading line along the top
+    SECTIONS = [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
+    SUBHEADS = [(t, x, (_tops(["TUNE", "DRIFT"]) + 1.5 + 0.425 * SUB_S) if t == "tuning" else d) for t, x, d in SUBHEADS]
+    HAIR = [((n, x0, [d for t, xx, d in SUBHEADS if t == "tuning"][0] - 0.2, x1, [d for t, xx, d in SUBHEADS if t == "tuning"][0] + 0.2)
+             if n == "tuning rule" else (n, x0, y0, x1, y1)) for n, x0, y0, x1, y1 in HAIR]
+    NOTES = [(t, x, top1 if t == "• midi" else d, sz, a) for t, x, d, sz, a in NOTES]
+
+if TAX:
+    # §32.5: base headings clear their own words (front row: ≈ y 82.8; rear row from its words)
+    _bl = dict((n, b) for n, b in base_labels(base(9.0, 12.6)))
+    _bs = {n: (x, y, r) for n, x, y, r, h in base(9.0, 12.6)}
+    def _btop(names): return max(max(_bs[n][1] + _bs[n][2], _bl[n][3]) for n in names if n in _bs)
+    BASE_HEAD_OF = {"controllers": ["BEND stick", "MOD", "GLIDE", "RELEASE"], "filter": ["KBD CTRL", "EMPHASIS", "CUTOFF", "CONTOUR AMT"],
+                    "tempo": ["TAP"], "out": ["FOLLOW", "VOLUME", "DRY PAN"],
+                    "mixer": [n for n in _bs if n.startswith("OSC ") or n in ("NOISE/EXT", "SOURCE")], "effects": ["ECHO MIX", "REVERB MIX"]}
+    _front = max(_btop(BASE_HEAD_OF[t]) for t in ("controllers", "filter", "tempo", "out")) + 1.5 + 0.425 * 3.0
+    _rear = max(_btop(BASE_HEAD_OF[t]) for t in ("mixer", "effects")) + 1.5 + 0.425 * 3.0
+    _subs = max(_btop(["MOD MIX", "PITCH MOD", "FILTER MOD", "PARA", "VEL", "AFTERTOUCH"]), 0) + 1.5 + 0.425 * 2.0
+    _rear = max(_rear, _subs)
+    BASE_SECTIONS = [(t, x, _front if y < 90 else _rear) for t, x, y in BASE_SECTIONS]
+    BASE_SUBS = [(t, x, _subs) for t, x, y in BASE_SUBS]
+    BASE_HAIR = [(n, x0, _subs - 0.2, x1, _subs + 0.2) for n, x0, y0, x1, y1 in BASE_HAIR]
+
 def check():
+    side_bad = [f"SIDE {n}: word not above" for n, x, d, r, k, lab, w in lid if LABELS_ABOVE and w not in ("behind", "above2")]
     bad = []
     for a, b in itertools.combinations(lid, 2):
         dd = math.dist(a[1:3], b[1:3])
@@ -1008,7 +1057,7 @@ def check():
     if tb:
         for ln, b in labs:
             if ln.startswith("ECHO TYPE fan") and gap_bb(tb, b) < 3.0 - 1e-6: bad.append(f"TOUCH vs {ln} {gap_bb(tb, b):.2f}")
-    return bad
+    return bad + side_bad
 
 # ---- steer 5: the module system and the softer corners (§19.3, §19.6) -----------------------------------------
 SE_N = 5.0          # corner exponent: |u|^n + |v|^n = 1, a continuous-curvature (G2-like) corner, not an arc (owner 20:5x)
