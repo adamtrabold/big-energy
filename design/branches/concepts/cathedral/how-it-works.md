@@ -1784,6 +1784,13 @@ The lid's oscillator rows are tied to the speaker window (d = D − 68), so they
   - face 277.4 × 127.15.
 - Positions are on M = 5. The face module (A, 4.954) is the one re-grid step left.
 
+**32.2 revised (director: VCO 4 looked detached):**
+- All four oscillator rows now keep one spacing, 25 (d 119.3 / 94.3 / 69.3 / 44.3).
+- The 10 mm drop goes only to the filter contour (d 34.3, 10 under VCO 4's row) and reverb (d 24.3). So the spare sits around the filter row and in the bottom margin.
+- Lid margins stay 3.7 / 5.6. The base is as above.
+- Checker: 1 violation (row 4's pinned gutters, as before) + row 1 accepted.
+- Closing: 55.2 with the stick lowered / 58.8 full height / 59.7 R-TALL.
+
 ### 32.3 T4 to 10 (critic round 11) and the critic's four-oscillator claim, tested
 **T4, 3 oscillators at 132:**
 - **The bank moves 20 right** (columns 46.75 / 66.75 / 86.75 / 106.75). The closed stick lands in the numbers' margin, **8.0 clear**: it **closes at 55.2 with the stick at full height** (59.7 at R-TALL). The binding pair is a lid knob over a base knob (RANGE 2 over MOD), not the stick.

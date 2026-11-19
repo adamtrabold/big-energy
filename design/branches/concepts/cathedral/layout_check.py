@@ -352,7 +352,8 @@ elif VARIANT in ("T2", "T4"):
     # §32.2: above the 135.75 minimum, T2's spare depth is spread instead of collecting at the bottom: the bottom group
     # (osc 4 · filter contour, and reverb) drops DROP, and the base's back row moves back RYD (both whole M)
     DROP = float(os.environ.get("T2_DROP", "10" if (VARIANT == "T2" and D > 140) else "0"))
-    R4 -= DROP
+    R4F = R4 - DROP                                                  # director: the 4 oscillator rows keep one spacing (25);
+                                                                     #   the drop goes round the filter row and into the margin
     OX = (46.75, 66.75, 86.75, 106.75) if T4L else (26.75, 46.75, 66.75, 86.75)   # T4 (critic r11): 20 right, the
                                                                     #   closed stick lands in the numbers' margin at full height
     RC = (219.25, 239.25, 259.25)
@@ -382,7 +383,7 @@ elif VARIANT in ("T2", "T4"):
     for n, x, lab in zip(("L ATTACK", "L DECAY", "L SUSTAIN"), AX5, ("attack", "decay", "sustain")):
         L(n, x, AMPD, "k", lab, "behind")
     for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
-        L(n, x, R4, "k", lab, "front")
+        L(n, x, R4F, "k", lab, "front")
     L("ECHO TYPE", RC[0], ECD, "k", "type", "front"); L("ECHO TIME", RC[1], ECD, "k", "time", "front")
     L("FREE/SYNC", RC[2], ECD, "t", "free · sync", "under")
     L("ECHO REPEATS", RC[0], ECD - 25, "k", "repeats", "front"); L("ECHO PAN", RC[1], ECD - 25, "k", "pan", "front")
@@ -392,7 +393,7 @@ elif VARIANT in ("T2", "T4"):
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
     SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("amp", AX5[0] - KN, HTOP if AMPD == R1 else over(AMPD)),
                       ("echo", RC[0] - KN, HTOP if ECD == R1 else over(ECD)), ("reverb", RC[1] - KN, over(RV)),
-                      ("filter", 123.0 - KN, over(R4))]
+                      ("filter", 123.0 - KN, over(R4F))]
     if T4L:
         TSUB = R4 + KN + 1.7 + 1.5 + 0.425 * SUB_S
         SUBHEADS += [("tuning", OX[0] - KN + len("tuning") * 0.25 * SUB_S, TSUB)]
