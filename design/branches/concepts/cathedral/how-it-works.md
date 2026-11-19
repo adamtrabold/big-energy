@@ -1898,6 +1898,33 @@ The lid's oscillator rows are tied to the speaker window (d = D − 68), so they
   - T4: 3, T1: 4, T3: 3, all gap rule, no text clashes.
 - **Closing:** unchanged (T4 55.2 at full stick; T2 55.2 lowered / 58.8 full).
 
+### 32.7 T4-sig (director: signal order top to bottom) and T2's right column (`layout_check.py T4S`, `T2`)
+**T4-sig changes only T4's right column. Echo is above reverb as one block on shared columns, over the base levels:**
+- echo type · pan at x 239.25 / 259.25 (row 2);
+- echo time · repeats · free/sync at 219.25 / 239.25 / 259.25 (row 3);
+- reverb type · decay directly under, at 239.25 / 259.25 (row 4, 30 under row 3: T4's row 4 is already 1M down, so reverb's heading fits).
+
+All of it is on lid rows. Amp stays top centre; everything else is T4.
+- **Checker: 5, all gap rule, no text clashes:**
+  - **row 1 right of amp is now empty** (96: reverb left the top right). That is the price of signal order;
+  - row 4 41.35 / 61.35;
+  - the base back row 18.9 / 30.9 (column-locked);
+  - the grille gaps.
+- **Closing:** 55.2 with the stick at full height (59.7 R-TALL).
+- **The owner's picture question:** T4 (reverb top right, filled top row; hands / "the row nearest the player is echo time") vs T4-sig (echo over reverb, signal order down the column, open top-right corner).
+
+**T2, echo over reverb too.** It can't be fully on the lid's row grid, because amp sits over the right column. With words above, a headed group needs 30 under the one above it, against the bank's 25.
+- On the grid (echo rows 2 / 3, reverb row 4), the checker gives echo's heading −2.3 into amp's decay and reverb's heading −2.6 into echo repeats.
+- The minimum: the column runs **5 under the grid**:
+  - echo type · pan at row 2 − 5;
+  - time · repeats · free/sync at row 3 − 5;
+  - reverb 30 under, at row 4 − 10.
+- That's still 1M, one module, and the bank keeps 25.
+- **Checker:** 1 violation (row 4 gutters, pinned) + row 1 accepted.
+- **Margins:** lid 11.3 / 15.1.
+- **Closing:** 55.2 with the stick lowered / 58.8 full height.
+- To be exactly on the grid, T2 needs amp out of the right column, for example in the crown with tuning in VCO 1's row, as T4. Then T2 is "T4-sig with four oscillators", but VCO 4's row then has to stay 25 under VCO 3 while reverb needs 30.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

@@ -29,14 +29,16 @@ NS = 1.3                          # note / position-word size (Kalam), the small
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5RS", "P5RSA", "P5RSB", "P5OA", "P5OL", "P5OB", "P5OBD", "T1", "T2", "T3", "T4") else os.environ.get("CATHEDRAL_LID", "P5O"))
+VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5RS", "P5RSA", "P5RSB", "P5OA", "P5OL", "P5OB", "P5OBD", "T1", "T2", "T3", "T4", "T4S") else os.environ.get("CATHEDRAL_LID", "P5O"))
 RS_TUNING = {"P5RSA": "a", "P5RSB": "b"}.get(VARIANT, os.environ.get("CATHEDRAL_RS_TUNING", "a"))   # P5RS-a / -b (§31.3)
 if VARIANT in ("P5RSA", "P5RSB"): VARIANT = "P5RS"
 # steer 5 (2026-11-13 evening): both halves 132 deep (D), a two-row base, two lid options:
 #   P5O  the owner's lid direction (20:43): oscillators stacked on the left, filter round the window, amp along the top
 #   P5R  the director's rule laid in rows: oscillators ‖ tuning on top, envelopes round the window, effects below
 # P (steer 4) and S (steer 3) stay as history at D 108.
-STEER5 = VARIANT in ("P5O", "P5R", "P5RS", "P5OA", "P5OL", "P5OB", "P5OBD", "T1", "T2", "T3", "T4")
+STEER5 = VARIANT in ("P5O", "P5R", "P5RS", "P5OA", "P5OL", "P5OB", "P5OBD", "T1", "T2", "T3", "T4", "T4S")
+TSIG = VARIANT == "T4S"                # §32.7: T4-sig, the director's signal-order right column (echo over reverb)
+if TSIG: VARIANT = "T4"
 TAX = VARIANT in ("T1", "T2", "T3", "T4")   # §32: laid fresh from docs/control-taxonomy.md
 M = 5.0                                            # the module (mm): every spacing below is a multiple of it (§19.3)
 if STEER5:
@@ -391,17 +393,27 @@ elif VARIANT in ("T2", "T4"):
     # player), over the echo / reverb levels; echo type · pan the row above; reverb top right (T4: row 1; T2: row 2,
     # under amp). Every effects row is a lid row (no floating reverb). H: echo over 219–259 covers the echo level
     # (239.25); reverb at 239.25 / 259.25 stands over its level (259.25)
-    EDN = 0.0 if T4L else 5.0                                        # visual afc8a34: T2's whole echo group 1M down
-    L("ECHO TIME", RC[0], R4 - EDN, "k", "time", "behind"); L("ECHO REPEATS", RC[1], R4 - EDN, "k", "repeats", "behind")
-    L("FREE/SYNC", RC[2], R4 - EDN, "t", "|free · sync", "above2")
-    L("ECHO TYPE", RC[0], R3 - EDN, "k", "type", "behind"); L("ECHO PAN", RC[1], R3 - EDN, "k", "pan", "behind")
-    RV = R1 if T4L else R2 - 5.0                                    # T2: 1M under row 2 so its heading clears amp (words above)
+    SIGCOL = TSIG or VARIANT == "T2"                                 # §32.7: echo over reverb, one block on shared columns
+    if SIGCOL:
+        # echo type · pan, then time · repeats · free/sync, reverb type · decay directly under, all on lid rows
+        # T4-sig: on the grid (row 4 is 30 under row 3 in T4, room for reverb's heading). T2: amp sits over the right
+        # column, and with words above a headed group needs 30 under the one above, against the bank's 25: the
+        # column runs 5 under the grid (echo 30 under amp, reverb 30 under echo's time row) (§32.7)
+        EA, EB = (R2, R3) if T4L else (R2 - 5.0, R3 - 5.0)
+        RV = R4 if T4L else EB - 30.0
+        L("ECHO TYPE", RC[1], EA, "k", "type", "behind"); L("ECHO PAN", RC[2], EA, "k", "pan", "behind")
+    else:
+        EA, EB = R3, R4
+        RV = R1
+        L("ECHO TYPE", RC[0], EA, "k", "type", "behind"); L("ECHO PAN", RC[1], EA, "k", "pan", "behind")
+    L("ECHO TIME", RC[0], EB, "k", "time", "behind"); L("ECHO REPEATS", RC[1], EB, "k", "repeats", "behind")
+    L("FREE/SYNC", RC[2], EB, "t", "|free · sync", "above2")
     L("REVERB TYPE", RC[1], RV, "k", "type", "behind"); L("REVERB DECAY", RC[2], RV, "k", "decay", "behind")
     ECD = R3
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
     SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("amp", AX5[0] - KN, HTOP if AMPD == R1 else over(AMPD)),
-                      ("echo", RC[0] - KN, over(R3)), ("reverb", RC[1] - KN, HTOP if RV == R1 else over(RV)),
+                      ("echo", (RC[1] if SIGCOL else RC[0]) - KN, over(EA)), ("reverb", RC[1] - KN, HTOP if RV == R1 else over(RV)),
                       ("filter", 123.0 - KN, over(R4F))]
     if T4L:
         TSUB = R4 + KN + 1.7 + 1.5 + 0.425 * SUB_S
@@ -415,7 +427,12 @@ elif VARIANT in ("T2", "T4"):
     NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
     FX, FX_BREAKS, SWL = ECD, [], R4
     e_a = ["ECHO TYPE", "ECHO PAN"]; e_b = ["ECHO TIME", "ECHO REPEATS", "FREE/SYNC"]; rv = ["REVERB TYPE", "REVERB DECAY"]
-    if T4L:
+    if SIGCOL:
+        GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"] + ([] if T4L else []), (["L ATTACK", "L DECAY", "L SUSTAIN"] if T4L else ["TUNE", "DRIFT"])] + ([] if T4L else [["L ATTACK", "L DECAY", "L SUSTAIN"]])),
+                    ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", e_a]),
+                    ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", e_b]),
+                    ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["TUNE", "DRIFT"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"], rv])]
+    elif T4L:
         GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["L ATTACK", "L DECAY", "L SUSTAIN"], rv]),
                     ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN"]),
                     ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", e_a]),
