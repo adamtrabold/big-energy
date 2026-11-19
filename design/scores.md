@@ -584,3 +584,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 9 taxonomy **8**: fix job labels (release=play, mod switches/envelope amount), release with glide not keys, missing glide on/off, PARA vibrato, aftertouch amount, hidden settings, volume vs line out; add hinge-alignment rule; bend-and-mod doc contradiction.
 - Director taxonomy + treemap: 9 → fixes in (Q0 first, proportional boxes); published to owner.
 - Director T-round: T1 **8**, T2 **9** (take to 10: mixer onto oscillator columns; echo two rows filling right hole; accept top-row gaps), T3 **7**. Owner now: top row tuning+amp (T2) vs both envelopes (T3); VCO 4 in/out.
+- Player critic round 10: T1 **8**, T2 **7**, T3 **7**. Proposes merged layout: mod switches by mod knob, mixer over filter row; tune/drift under oscillators; amp top centre over grille; echo top right; reverb bottom; filter env over cutoff. Would defend as 10.
