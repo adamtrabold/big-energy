@@ -1,6 +1,15 @@
 # Director notes: Little D (budget instrument), physical design
 
-## T2 fixed + T4 (8dfdbf0 / 0c386cc): READ THIS FIRST
+## T2 / T4 (4b1c3ee / b9c2c90): READ THIS FIRST
+- **T2: 9, not ready.** Spreading the spare height opened a larger pitch between VCO 3 and VCO 4 than between rows 1–3, so VCO 4 reads detached, like an add-on. That's the owner's "oscillators really far apart" again.
+  - Fix: the 4 bank rows at one pitch; put the spare in the margins and around the filter row instead.
+- **T4: 9, ready.**
+  - Tuning under the bank reads as its own group (heading, rule, no numeral), not a 4th oscillator.
+  - The top row is even; the stick closes at full height; the base columns line up.
+  - The ≈ 45 mm open plate right of the speaker (vs ≈ 14 mm left) is the honest 3-VCO cost: it's held by H (effects over their levels). State it in the caption.
+- **Show both** once T2's bank is re-pitched, with "Four oscillators (T2) or three (T4)?"
+
+## T2 fixed + T4 (8dfdbf0 / 0c386cc)
 - **T2: 9.** Both fixes landed:
   - mixer 1–4 exactly under the bank's columns;
   - echo in two rows over its level, reverb under it.
