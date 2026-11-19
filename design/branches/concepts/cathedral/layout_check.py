@@ -29,12 +29,12 @@ NS = 1.3                          # note / position-word size (Kalam), the small
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5OA", "P5OL", "P5OB", "P5OBD") else os.environ.get("CATHEDRAL_LID", "P5O"))
+VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5RS", "P5OA", "P5OL", "P5OB", "P5OBD") else os.environ.get("CATHEDRAL_LID", "P5O"))
 # steer 5 (2026-11-13 evening): both halves 132 deep (D), a two-row base, two lid options:
 #   P5O  the owner's lid direction (20:43): oscillators stacked on the left, filter round the window, amp along the top
 #   P5R  the director's rule laid in rows: oscillators ‖ tuning on top, envelopes round the window, effects below
 # P (steer 4) and S (steer 3) stay as history at D 108.
-STEER5 = VARIANT in ("P5O", "P5R", "P5OA", "P5OL", "P5OB", "P5OBD")
+STEER5 = VARIANT in ("P5O", "P5R", "P5RS", "P5OA", "P5OL", "P5OB", "P5OBD")
 M = 5.0                                            # the module (mm): every spacing below is a multiple of it (§19.3)
 if STEER5:
     D = 132.0                                      # +24: a second base row (y 93) and the battery strip behind it
@@ -273,6 +273,56 @@ elif VARIANT == "P5R":
                                ["REVERB TYPE", "REVERB DECAY"]])]
     GAP_REF = {"lid B": "lid C"}   # row B has no gutter of its own; row C's (20.5) is the nearest proportion
     GAP_REF_TOL = 2.5              # row B's window gaps are fixed at 22.9 by the window and CUTOFF (§21)
+elif VARIANT == "P5RS":
+    # ---- owner markup 2026-11-19 13:53 over P5R ("what about a version with changes like this?"), §31:
+    # VCO 2 and 3 stack under VCO 1 on the left (25 rows, as P5OB's bank); the filter envelope goes top right, over
+    # amp (same columns); echo + reverb a centred bottom row; keys leave the lid for the base's controllers (with
+    # release). Base 6's rear row has no room for three more switches, so echo / reverb LEVEL come up into the
+    # effects row (which centring leaves room for) and the mixer moves right one group (1 over envelope).
+    R1, R2, R3, R4 = 104.0, 79.0, 54.0, 29.0
+    B5 = D - 68.0                                                   # amp on the window's row (d 64), as P5R
+    gB = (120.0 - ML - (2 * KN + 40)) / 2                           # 22.9: margin = OSC -> window = window -> amp = end
+    C1 = ML + gB + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)         # 49.65: the bank's edge 4.45 clear of the closed stick
+    AXS = 286.0 - C1 - 40                                           # amp (and the filter over it): 196.35
+    for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", OX[2], R1, "tune"),
+                         ("DRIFT", OX[3], R1, "drift"),
+                         ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
+                         ("RANGE 3", OX[0], R3, "octave"), ("WAVE 3", OX[1], R3, "wave"), ("FREQ 3", OX[2], R3, "pitch")]:
+        L(n, x, d, "k", lab, "behind")
+    L("OSC 3 CTL", OX[3], R3, "t", "track 3|off · on", "above2")   # VCO 3's switch in the 4th column, under drift
+    NUMX = OX[0] - KN - 5.0
+    NOTES += [(t, NUMX, d, NUM_S, "center") for t, d in (("1", R1), ("2", R2), ("3", R3))]
+    for n, x, lab in [("F ATTACK", AXS, "attack"), ("F DECAY", AXS + 20, "decay"), ("F SUSTAIN", AXS + 40, "sustain")]:
+        L(n, x, R1, "k", lab, "behind")
+    for n, x, lab in [("L ATTACK", AXS, "attack"), ("L DECAY", AXS + 20, "decay"), ("L SUSTAIN", AXS + 40, "sustain")]:
+        L(n, x, B5, "k", lab, "behind")
+    # bottom row: echo (type · time · free/sync · repeats · pan · level) | reverb (type · decay · level), centred:
+    # both ends = the gutter
+    wE, wR = 2 * KN + 95, 2 * KN + 40
+    g4 = (MR - ML - wE - wR) / 3
+    EC = ML + g4 + KN; RVC = EC - KN + wE + g4 + KN
+    for n, x, lab in [("ECHO TYPE", EC, "type"), ("ECHO TIME", EC + 20, "time"), ("ECHO REPEATS", EC + 55, "repeats"),
+                      ("ECHO PAN", EC + 75, "pan"), ("ECHO LEVEL", EC + 95, "level"),
+                      ("REVERB TYPE", RVC, "type"), ("REVERB DECAY", RVC + 20, "decay"), ("REVERB LEVEL", RVC + 40, "level")]:
+        L(n, x, R4, "k", lab, "front")
+    L("FREE/SYNC", EC + 40, R4, "t", "free · sync", "under")
+    SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
+    HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
+    HB = B5 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * HS + 0.8
+    H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
+    SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("filter", AXS - KN, HTOP), ("amp", AXS - KN, HB),
+                      ("echo", EC - KN, H4), ("reverb", RVC - KN, H4)]
+    SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
+    KEYS_LINE = False
+    MIDI_KEY = ("• midi", MR, HTOP, NS)
+    NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
+    FX, FX_BREAKS, SWL = R4, [], R4
+    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["F ATTACK", "F DECAY", "F SUSTAIN"]]),
+                ("lid B", B5, ["OSC", "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
+                ("lid R4", R4, [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN", "ECHO LEVEL"],
+                                ["REVERB TYPE", "REVERB DECAY", "REVERB LEVEL"]])]
+    GAP_REF = {"lid B": "lid R4"}
+    GAP_REF_TOL = 5.0              # row B's gaps are fixed at 22.9 by the window and the bank column; R4's gutter is 27.5
 elif VARIANT == "P":
     # Steer 4, owner rule 19:57 ("Labels should only be one word ..."): every word from the director's vocabulary.md.
     # ---- band 1 (far edge, the TOP): oscillators (VCO 1 | 2 | 3 by spacing, 20 inside / 25 between) ‖ mixer.
@@ -472,6 +522,30 @@ if STEER5:
     # fix (d): the side pivots move inboard of the soft corners. Each pivot is a pair of 4 mm brass leaves on an
     # internal bulkhead just inside where the back wall turns straight (x = case corner), axis y D + 1, z 26.25
     PIVOT_W = 4.0
+
+if VARIANT == "P5RS":
+    # §31: keys join release on the base (the owner's "all the key controls in one area"), on a finer M/2 step:
+    # release · voices · velocity · touch (12.5 · 12.5 · 15: the position words set it) | "mod" pitch · filter · blend;
+    # echo / reverb levels went up to the lid's effects row; the mixer moves one group right (1 over envelope)
+    RLX = CX; KX5 = (RLX + 12.5, RLX + 25.0, RLX + 40.0)
+    PMX = RLX + 62.5; FMX = PMX + 12.5; BLX = FMX + 17.5
+    MX = ENVX
+    BASE5 = [b for b in BASE5 if b[2] == 68] + \
+            [("RELEASE", RLX, 93, TGL, "l"), ("PARA", KX5[0], 93, TGL, "l"), ("VEL", KX5[1], 93, TGL, "l"),
+             ("AFTERTOUCH", KX5[2], 93, TGL, "l"), ("PITCH MOD", PMX, 93, TGL, "l"), ("FILTER MOD", FMX, 93, TGL, "l"),
+             ("MOD MIX", BLX, 93, KN, "k")] + \
+            [(f"OSC {i + 1}", MX + 20 * i, 93, KN, "k") for i in range(NMIX)] + \
+            [("NOISE/EXT", MX + 20 * NMIX, 93, KN, "k"), ("SOURCE", MX + 20 * NMIX + SRC, 93, TGL, "l")]
+    BASE_TOGGLES.update({"PARA": "voices|" + ("1 · 2 · 4" if VCO4 else "1 · 3 · 4"), "VEL": "velocity|amp · both · filter",
+                         "AFTERTOUCH": "touch|mod · off · filter"})
+    BASE_SECTIONS = [("controllers", RLX - TGL, 112.4), ("mixer", MX - BK, 112.4), ("filter", FL, 78.0),
+                     ("out", LKX6 - TGL, 78.0), ("tempo", TAPX - TAPR, 78.0)]
+    BASE_SUBS = [("keys", RLX - TGL, 108.5), ("mod", PMX - TGL, 108.5)]
+    BASE_HAIR = [("keys hairline", RLX - TGL + len("keys") * 0.5 * 1.8 + 1.5, 108.3, KX5[2] + 5.85, 108.7),
+                 ("mod hairline", PMX - TGL + len("mod") * 0.5 * 1.8 + 1.5, 108.3, BLX + BK, 108.7)]
+    BASE_GAP_ROWS = [BASE_GAP_ROWS[0],
+                     ("base rear", 93, [["RELEASE", "PARA", "VEL", "AFTERTOUCH", "PITCH MOD", "FILTER MOD", "MOD MIX"],
+                                        [f"OSC {i + 1}" for i in range(NMIX)] + ["NOISE/EXT", "SOURCE"]])]
 
 def base_labels(bs):
     """every base legend as rb draws it (visual rev 8): front row in front of the knob / under the switch; rear row
@@ -811,7 +885,8 @@ def gap_rule(verbose=False):
         for a, b in zip(seq, seq[1:]):
             if "WIN" in (a, b):
                 grp = b if a == "WIN" else a
-                cl = min(math.dist((src[n][0], src[n][1]), WIN[:2]) - src[n][2] - WIN[2] for n in grp[2])
+                cl = (min(math.dist((src[n][0], src[n][1]), WIN[:2]) - src[n][2] - WIN[2] for n in grp[2]) if grp[2] else
+                      (WIN[0] - WIN[2] - grp[1] if a != "WIN" else grp[0] - WIN[0] - WIN[2]))   # a column pseudo-group: plan gap
                 gaps.append(("win", cl))
             else:
                 gaps.append(("gut", b[0] - a[1]))

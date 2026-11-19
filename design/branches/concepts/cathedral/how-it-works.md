@@ -1530,6 +1530,54 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 
 **Visual:** proportion is yours. Any candidate inside 30.1 is buildable. Send me W × D and I'll run it.
 
+## 31. P5RS: the owner's markup over P5R (2026-11-19 13:53, "what about a version with changes like this?"), `layout_check.py P5RS`
+**It fits at P5R's half height, 132.** The √5 face (277.4 × 123.4) is kept, and no ratio change is needed.
+
+**Readings taken where the arrows are ambiguous:**
+1. **"Stack" (VCO 2, 3 → the filter's place):** both can't fit beside the grille (7 controls in ≈ 100 mm). So VCO 2 and VCO 3 stack under VCO 1 as a left column on 25 rows (d 104 / 79 / 54, as P5OB's bank). Octave, wave and pitch share columns, and VCO 3's track sits in the 4th column under drift. The numerals 1 · 2 · 3 sit in the margin.
+2. **Filter envelope → top right:** it sits *over* amp, in the same three columns (attack / decay / sustain read down as pairs), at d 104. Amp stays on the grille's row (d 64).
+3. **"center?" for echo + reverb:** a bottom row (d 29) centred on the panel, with both ends equal to its gutter (27.5).
+4. **Keys → the base:** they join release as a **"keys"** sub-group of the controllers: release · voices · velocity · touch, then **"mod"** pitch · filter · blend.
+
+**Two changes the markup didn't draw, needed to make 4 fit:**
+- **Echo / reverb level move up from the base into the lid's effects row:** echo type · time · free/sync · repeats · pan · **level**; reverb type · decay · **level**.
+  - Without this, base 6's rear row is ≈ 29 mm short for three more switches, even on the finer step.
+  - Centring the effects left ≈ 41 mm ends, so the levels fill them and every gap becomes 27.5.
+  - The lid goes to 24 knobs + 2 switches.
+- **The base mixer moves one group right:** 1 · 2 · 3 · extra · source at 163 / 183 / 203 / 223 / 237.6, so "1" stands over envelope.
+  - **Cost:** the critic's round-9 alignment (mixer over resonance · CUTOFF · envelope) is lost.
+  - Blend now stands over resonance (124.25 / 123).
+
+**The lid (x, d):**
+- VCO bank at x 49.65 / 69.65 / 89.65 / 109.65.
+- Filter and amp at 196.35 / 216.35 / 236.35.
+- Echo at 54.3 / 74.3 / sync 94.3 / 109.3 / 129.3 / 149.3; reverb at 191.7 / 211.7 / 231.7.
+- Headings top-left: oscillators and filter on one line, then amp, then echo and reverb. "tuning" sits over tune (VCO 1's pitch slot) and drift. "• midi" is right-aligned on the top heading line.
+- **Row on the grille (d 64):** margin 22.9 | bank | 22.9 | grille | 22.9 | amp | 22.9. All equal, because the bank's edge is placed where P5R's filter was.
+
+**Its one open question for visual: a 72 mm open field in the top row between VCO 1 and the filter, over the grille.**
+- It passes the gap rule, since it's that row's only gutter. It is still the panel's largest empty area.
+- The filter can't move left: centred over the grille it would touch drift.
+- Visual's call: the grille's own headroom, or something printed.
+
+**The base's finer grid (the owner's question): yes, an M/2 = 2.5 step in the controllers' rear.**
+- Release → voices → velocity → touch at **12.5 · 12.5 · 15**. Then a 2M+ sub-gutter, then pitch · filter (12.5) and blend.
+- **Velocity → touch can't go below 15.** Their position words ("amp · both · filter" 12.35, "mod · off · filter" 11.7 wide) need ≥ 13.5, and the next step on the M/2 grid is 15. So the words set the pitch, not the parts.
+- **Finger clearance holds.**
+  - On the base these are **low 3-way slides** (6 tall, like track and link). A 15 mm bat under the lid would raise the closed thickness.
+  - At 12.5 the Ø 9.2 nuts are 3.3 apart, and the slide caps (≈ 4 wide, UNVERIFIED part) about 8.5 apart.
+  - The knob pitch everywhere stays 20 (4M).
+
+**Checker:**
+- **P5RS: 0 violations.** This includes the gap rule.
+  - Lid gaps: top row ends 22.9 / gutter 71.8; grille row 22.9 × 4; bottom row 27.5 × 3.
+  - Base gaps: front unchanged; rear gutter 24.8, ends 7.8 / 22.6.
+- **Closed stick landing:** at full height the stick lands between VCO 2 and VCO 3, 4.45 clear of the bank's edge.
+- **Closed thickness unchanged: 55.2 (R-LOW) / 59.7 (R-TALL).** The binding pair is RANGE 2 over MOD, the standard knob-over-knob case.
+- Stand tip: 7.0 N with today's stays, 8.8 N with stays scaled.
+- With `CATHEDRAL_VCO4=1` (not asked; no lid row for VCO 4): 0, with the base mixer's 4 fitting to x 264.
+- P5R 0, P5OB-D 6 / 5, unchanged.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
