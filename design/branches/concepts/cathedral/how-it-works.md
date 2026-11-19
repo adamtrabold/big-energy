@@ -1578,6 +1578,18 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 - With `CATHEDRAL_VCO4=1` (not asked; no lid row for VCO 4): 0, with the base mixer's 4 fitting to x 264.
 - P5R 0, P5OB-D 6 / 5, unchanged.
 
+### 31.1 Visual 55ec7af: centring the top row's open field
+- **The problem:** the open field sat 25.9 left of the axis and 45.9 right of it. Centring it always leaves the right end 20 wider than the left, whatever moves, because VCO 1 is one knob wider than the filter. So visual's fix (the filter / amp column 20 left) doesn't balance the margins.
+  - Moving amp as well puts it 2.9 from the grille.
+  - Moving the filter alone breaks the filter-over-amp columns.
+- **The fix taken: drift goes down to the 4th column in VCO 2's row (d 79).** This is P5OB-D's solution, under the engraved "tuning" L-rule from tune to drift that visual drew in round 10 and the critic scored 10. Drift and track now share the 4th column.
+- **Result:**
+  - The field runs x 97.1–188.9, **centred on 143.0**, 91.8 wide. Ends are **22.9 / 22.9**.
+  - The filter stays over amp, and every grille-row gap stays 22.9.
+- **Checker:** 0, also with VCO 4.
+- **Closed thickness:** unchanged, 55.2 / 59.7 (RANGE 2 over MOD). The stick lands as before.
+- **Visual:** the field is now wider, by design. It reads as the grille's nave. The "tuning" L-rule needs redrawing on P5RS.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

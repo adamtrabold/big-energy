@@ -285,7 +285,8 @@ elif VARIANT == "P5RS":
     C1 = ML + gB + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)         # 49.65: the bank's edge 4.45 clear of the closed stick
     AXS = 286.0 - C1 - 40                                           # amp (and the filter over it): 196.35
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", OX[2], R1, "tune"),
-                         ("DRIFT", OX[3], R1, "drift"),
+                         ("DRIFT", OX[3], R2, "drift"),   # visual 55ec7af: drift down to the 4th column (as P5OB-D, under the
+                                                          #   tuning L-rule), so row 1's open field centres on the grille
                          ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
                          ("RANGE 3", OX[0], R3, "octave"), ("WAVE 3", OX[1], R3, "wave"), ("FREQ 3", OX[2], R3, "pitch")]:
         L(n, x, d, "k", lab, "behind")
@@ -317,7 +318,7 @@ elif VARIANT == "P5RS":
     MIDI_KEY = ("• midi", MR, HTOP, NS)
     NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
     FX, FX_BREAKS, SWL = R4, [], R4
-    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["F ATTACK", "F DECAY", "F SUSTAIN"]]),
+    GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE"], ["F ATTACK", "F DECAY", "F SUSTAIN"]]),
                 ("lid B", B5, ["OSC", "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
                 ("lid R4", R4, [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN", "ECHO LEVEL"],
                                 ["REVERB TYPE", "REVERB DECAY", "REVERB LEVEL"]])]
