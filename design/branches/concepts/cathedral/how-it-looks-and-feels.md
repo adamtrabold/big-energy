@@ -37,6 +37,18 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### P5RS: the owner's markup over P5R (systems §31, 0375919)
+<figure>
+<img src="img/cathedral-s10-P5RS-top-9.9px-per-mm.png" alt="Exact top view of P5RS open flat. Lid: oscillators 1, 2 and 3 stacked at the left (octave with its positions line, wave, pitch; tune and drift on VCO 1's row under tuning; track 3 by VCO 3); the filter envelope over the amp envelope at the top right; the slotted window between them; a bottom row of echo (type, time, free · sync, repeats, pan, level) and reverb (type, decay, level). Base: rear row keys (release, voices, velocity, touch), mod (pitch, filter, blend) and mixer (1, 2, 3, extra, source); front row bend, mod, glide, filter with the red cutoff, tempo with the black tap in its lit ring, out (link, volume, pan).">
+<figcaption><b>P5RS, his markup</b> (exact, scale bar 20 mm), with the marking system and the MIDI key. Real Kalam 0, systems' rules 0, the director's tests 0.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s10-P5RS-standing.jpg" alt="P5RS standing at 120 degrees: the oscillator stack at the left of the lid, filter and amp at the right, echo and reverb along the bottom of the lid; the base with its keys switches at the back left.">
+<figcaption><b>P5RS, standing.</b></figcaption>
+</figure>
+
+- **The 72 mm above the grille (systems' flag), by eye:** an empty crown over the window is fine, because it reads as the window's headroom. What reads wrong is that **it isn't centred on the axis**. Drift's edge is at x 117.1 and filter attack's at 188.9, so the gap runs 25.9 left of the axis and 45.9 right, and its centre sits 10 mm right of the window's. Below it, the echo / reverb row is centred, so the offset shows. **Proposal for systems:** move the filter / amp column 20 left (one knob pitch, attack to x 176.35). Then the crown sits on the axis (25.9 / 25.9) and the right margin gains 20. Or leave the column and accept the offset. Not changed here.
+
 ### Case ratio (owner: "is there a more pleasing and harmonious case ratio … derived from the dimensions of the device … base it on the face dimensions / ratio")
 **What's fixed and what isn't.** The width is set by the keyboard (15 naturals at 18 mm): 286 outside, a 277.4 face. The closed thickness (55.2) doesn't change with depth. So the one free dimension is each half's depth D, and with it the face height (D − 8.6). That's inside systems' envelope (§30.1): P5R needs D ≥ 132; P5OB-D needs ≥ 143, and its stick landing holds at any D ≥ 143. Width has no upper limit, but each extra mm re-spreads every row, so the keys keep it at 286. Golden (1.618) or 3 : 2 per half would need D 177 / 191, a third deeper than any layout needs: deep, half-empty plates in a bag-sized object. They're out.
 
