@@ -1744,14 +1744,13 @@ LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229c
 P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6), "oscillators": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"; 3fa4e78: oscillators 0.93 over the "1"
 TUNING_RULE_GAP = 1.5   # the rule starts 1.5 after "tuning"
 # c0e7eec (words above), real-Kalam fits for systems to fold: lid headings clear their words / names lines by 1.5
-_TAXF = {"filter": (0.0, 0.7), "echo": (0.0, 0.65), "reverb": (0.0, 0.65), "oscillators": (0.0, 0.45)}
-TAX_HEAD_FIT = {"T1": _TAXF, "T2": dict(_TAXF, echo=(0.0, 0.65 - 5.0)), "T3": _TAXF, "T4": _TAXF}
-TAX_MOVE = {"T2": {n_: (0.0, -5.0) for n_ in ("ECHO TYPE", "ECHO PAN", "ECHO TIME", "ECHO REPEATS", "FREE/SYNC")}}
-           # T2: echo pan's word met reverb type (real −0.70). The whole echo group drops 5 (one M, so rows stay on the module) into the slack above the
-           # bottom margin (reverb can't rise: its heading would meet amp); systems to fold
-TAX_BASE_HEAD = 0.3      # base headings +0.3 ("effects" 1.27 over "echo")
-TAX_BASE_SUB = 0.6       # base sub-headings +0.6 ("mod" 0.96 over "blend"); hairlines ride with them
-TAX_CUTOFF_WORD = 0.5    # "cutoff" +0.5 above its 12 o'clock tick (0.58)
+# (afc8a34's TAX fits are folded into layout_check.py since 3e29130; kept as zeros so the hooks stay)
+_TAXF = {}
+TAX_HEAD_FIT = {}
+TAX_MOVE = {}
+TAX_BASE_HEAD = 0.0
+TAX_BASE_SUB = 0.0
+TAX_CUTOFF_WORD = 0.5    # "cutoff" +0.5 above its 12 o'clock tick (0.58): rb-only (the checker doesn't measure ticks)
 P5OBD_HEAD_FIT = {"keys": (0.0, 0.35)}   # 7973b7a: "keys" sits 4.07 under reverb's names line (rule 5); lowering it meets "voices" first: ~3.8 mm short, systems
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
