@@ -1785,6 +1785,8 @@ def nv_fit_subheads(lc):
     subs = list(getattr(lc, "SUBHEADS", []))
     if getattr(lc, "VARIANT", "") in P5O_FAMILY:  # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
         subs = [(t, x, d + 0.2) if t == "tuning" else (t, x, d) for t, x, d in subs]
+    if getattr(lc, "VARIANT", "") == "T3":         # 8aa5e58: "tuning" +0.6 (real Kalam: 0.90 over tune's top tick)
+        subs = [(t, x, d + 0.6) if t == "tuning" else (t, x, d) for t, x, d in subs]
     if getattr(lc, "VARIANT", "") == "P5R" and any(t in ("filter", "amp") for t, x, d in subs):
         subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
                                                       #   still below the oscillator switches (at 91.8 they read as
@@ -2314,6 +2316,8 @@ def jobs(SZ):
         "rb_s10_P5RS_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_s10_P5RS_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_s10_P5RS_stand.png")))(Nave(lid="P5RS", spine="dark")),
         **{f"rb_s11_P5RS{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s11_P5RS{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5RS", CATHEDRAL_RS_TUNING=v))) for v in "ab"},
         **{f"rb_s11_P5RS{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_s11_P5RS{v}_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_s11_P5RS{v}_stand.png")))(nave_env("P5RS", CATHEDRAL_RS_TUNING=v))) for v in "ab"},
+        **{f"rb_s12_{v}_top": (lambda v=v: (lambda n: (top_tall if n.D > 140 else top4)(n.model(True), f"rb_s12_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96 if n.D > 140 else 8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("T1", "T2", "T3")},
+        **{f"rb_s12_{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_s12_{v}_stand", size=SZ, az=-32, el=24, dist=860 if n.D < 140 else 900, center=(143, n.D * 0.6, 58 if n.D < 140 else 62), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_s12_{v}_stand.png")))(Nave(lid=v, spine="dark"))) for v in ("T1", "T2", "T3")},
         "rb_s8_P5OBD_top": lambda: (lambda n: top_tall(n.model(True), "rb_s8_P5OBD_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
         **{f"rb_s6_{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s6_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("P5O", "P5OA", "P5OL")},

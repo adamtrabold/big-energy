@@ -37,6 +37,29 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### T1 · T2 · T3: laid fresh from the approved taxonomy (systems §32, 8aa5e58)
+Owner, 16:19: "yes these categories look correct. *now* let's try and lay these out". Each layout keeps its checker gaps visible on purpose, for judging. All three use the marking system and the MIDI key. Real Kalam 0 and the director's tests 0 (visual fit: T3 "tuning" +0.6, 0.90 over tune's top tick).
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:start">
+<figure>
+<img src="img/cathedral-s12-T1-top-9.9px-per-mm.png" alt="Exact top view of T1 open flat: three oscillators stacked at the lid's left, a tuning pair centred over the slotted window, amp across the top right, echo and reverb on the right, the filter envelope under the window. Base: rear row mixer, mod and keys groups and the effect levels; front row controllers, filter round the red cutoff, tempo, out.">
+<figcaption><b>T1</b>: 3 oscillators, √5 face, D 132. Tuning over the speaker; amp top right, filter contour under the window. 4 gaps.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s12-T2-top-9.9px-per-mm.png" alt="Exact top view of T2 open flat at D 147.3: four oscillators stacked at the lid's left, tuning over the window, amp top right, echo and reverb on the right, filter envelope under the window; the base with the mixer 1 to 4.">
+<figcaption><b>T2</b>: 4 oscillators, double-square face, D 147.3. T1's plan with the bank's fourth row and mixer 4. 3 gaps.</figcaption>
+</figure>
+<figure>
+<img src="img/cathedral-s12-T3-top-9.9px-per-mm.png" alt="Exact top view of T3 open flat: three oscillators stacked at the lid's left with tuning under them, the filter contour and amp sharing the top row, echo and reverb on the right, and an open area under the window.">
+<figcaption><b>T3</b>: 3 oscillators, √5. Filter contour and amp share the top row; tuning sits under the bank. 3 gaps (the largest is under the window).</figcaption>
+</figure>
+<figure><img src="img/cathedral-s12-T1-standing.jpg" alt="T1 standing at 120 degrees."><figcaption>T1, standing.</figcaption></figure>
+<figure><img src="img/cathedral-s12-T2-standing.jpg" alt="T2 standing at 120 degrees, the deeper halves."><figcaption>T2, standing.</figcaption></figure>
+<figure><img src="img/cathedral-s12-T3-standing.jpg" alt="T3 standing at 120 degrees."><figcaption>T3, standing.</figcaption></figure>
+</div>
+
+- **By eye:** T3 reads most like a synth's top row (both contours together, the Model D's own pairing), but it leaves the window's lower field empty. T1 / T2 put the filter contour under the window, nearest the base's filter group (rule H), at the cost of splitting the two contours. T2 is T1 with the fourth oscillator. Its deeper face carries the extra row without crowding.
+
 ### P5RS-a and P5RS-b (systems §31.3, 7394af9): his choice by eye
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
 <figure>
