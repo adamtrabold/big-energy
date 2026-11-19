@@ -1757,7 +1757,8 @@ def nv_heads_left(lc, sections):
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
     # 049e51e real Kalam: P5R row-C headings +1.5 ("keys" sat 0.09 over "velocity"); "filter" / "amp" +1.2 (0.38 / 0.42
     # over "decay")
-    fit = {"keys": 0.92, "echo": 0.88, "reverb": 0.88, "filter": 1.2, "amp": 1.2}   # keys 0.04 over the line: invisible; echo is held by the window (1.0) if getattr(lc, "VARIANT", "") == "P5R" else {}
+    fit = ({"keys": 0.92, "echo": 0.88, "reverb": 0.88, "filter": 1.2, "amp": 1.2}   # keys 0.04 over the line: invisible;
+           if getattr(lc, "VARIANT", "") == "P5R" else {})                             #   echo is held by the window (1.0)
     return [(t, x, d + fit.get(t, 0.0)) for t, x, d in sections], nv_fit_subheads(lc), "center"
 
 def nv_hair(lc):
@@ -1816,6 +1817,14 @@ NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
 ABOVE2_BOT, ABOVE2_LEAD = 1.9, 1.2   # lid "above2" (P5R keys): tighter, so row C's one heading line clears both the keys' words and the window
 STACK_LEAD = 1.2         # stacked position lines (§31.2), the checker's gap
+# ---- one type system (player review round 12, §6): ONE heading style, ONE sub-heading style, ONE label side.
+# Applies to the taxonomy layouts (TAX: T1-T4); older records keep the style they were rendered in.
+TYPE_HEAD = 3.0      # every group heading, lid and base: Kalam Bold 3.0, top-left of its group, no rule
+TYPE_SUB = 2.0       # every sub-group heading (tuning, mod, keys): Kalam Bold 2.0 + an engraved hairline over its span
+LABEL_SIDE = "above" # every control's word sits ABOVE it (the Model D's own convention); a position / names line sits
+                     # above its word; a switch's name and positions sit above the switch
+def tax(lc):
+    return getattr(lc, "TAX", False)
 BELOW2_LEAD = 1.25        # its leading: at 0.9 (the base's) "velocity" sat 0.01 over "amp · both · filter" (y descender over b / f / l)
 BELOW2_TOP = 2.25         # "below2" two-line legends (base front row, P5O keys): block top TGL + 2.25 under the switch (real Kalam ascent)
 TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
@@ -2058,6 +2067,9 @@ class Nave(Cathedral):
             s += rows_branch(rows_, ry, LID_PF, st, self.tap_style(), 143, copy_style(st, ticks=False), 0.0, self.time_kw(),
                              nuts=nuts, back=())
         z = LID_PF + 0.01
+        if tax(lc) and LABEL_SIDE == "above":           # one label side: every word above its control
+            lid = [(n, x, d, r, k, lab, {"front": "behind", "below2": "above2", "under": "over"}.get(w, w))
+                   for n, x, d, r, k, lab, w in lid]
         for n, x, d, r, k, lab, where in lid:          # legends exactly where the checker measures them
             if where == "right":
                 s += txt(x + 6.2, L0 + d, z, lab, lc.SW_LS, ink, font=st.font, halign="left")
@@ -2065,6 +2077,9 @@ class Nave(Cathedral):
                 nm, pos = lab.split("|")
                 s += txt(x - 6.2, L0 + d + TS_LEAD[0], z, nm, lc.SW_LS, ink, font=st.font, halign="right")
                 s += txt(x - 6.2, L0 + d - TS_LEAD[1], z, pos, lc.NS, ink, font=st.font, halign="right")
+            elif where == "over":            # TAX: one line centred over the toggle ("free · sync")
+                h = 0.85 * lc.SW_LS
+                s += txt(x, L0 + d + r + NV_UNDER_GAP + h / 2, z, lab, lc.SW_LS, ink, font=st.font)
             elif where == "under":           # one line centred under the toggle (FREE / SYNC: "free · sync")
                 h = 0.85 * lc.SW_LS
                 s += txt(x, L0 + d - r - NV_UNDER_GAP - h / 2, z, lab, lc.SW_LS, ink, font=st.font)
@@ -2110,9 +2125,9 @@ class Nave(Cathedral):
                     s += txt(x, L0 + py, z, named_[n], NAMED_S, ink, font=st.font)
         heads, subs, ha = nv_heads_left(lc, sections)
         for t, x, d in heads:                            # steer 5 score fixes 2: P5O's headings top-left of their groups
-            s += txt(x, L0 + d, z, t, lc.HS, FO_INK, font=HAND, halign=ha)
-        for t, x, d in subs:                             # sub-heads ("filter", "amp")
-            s += txt(x, L0 + d, z, t, lc.SUB_S, FO_INK, font=HAND, halign=ha)
+            s += txt(x, L0 + d, z, t, TYPE_HEAD if tax(lc) else lc.HS, FO_INK, font=HAND, halign=ha)
+        for t, x, d in subs:                             # sub-heads ("filter", "amp"; TAX: "tuning")
+            s += txt(x, L0 + d, z, t, TYPE_SUB if tax(lc) else lc.SUB_S, FO_INK, font=HAND, halign=ha)
         for nm_, x0, d0, x1, d1 in nv_hair(lc):            # engraved hairlines (P5O: "oscillators" running on)
             s += box(x0, L0 + d0, z, x1, L0 + d1, z + 0.03, self.rule_col())
         for nm_, x, d, _ in ([] if self._sq() else getattr(lc, "DOTS", [])):   # link dots (none in steer 5: read as MIDI dots)
@@ -2164,9 +2179,11 @@ class Nave(Cathedral):
 
     def base_names(self):
         secs = self.base_sections() if hasattr(self, "base_sections") else getattr(self.lc, "BASE_SECTIONS", [])
-        s = "".join(txt(x, y, BASE_H + 0.01, t, 2.4, FO_INK, font=HAND, halign="left") for t, x, y in secs)
+        hs_ = TYPE_HEAD if tax(self.lc) else 2.4
+        s = "".join(txt(x, y, BASE_H + 0.01, t, hs_, FO_INK, font=HAND, halign="left") for t, x, y in secs)
         # e38e035: base sub-headings ("mod" over pitch · filter · blend), left-aligned, Kalam 1.8
-        s += "".join(txt(x, y, BASE_H + 0.01, t, 1.8, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
+        ss_ = TYPE_SUB if tax(self.lc) else 1.8
+        s += "".join(txt(x, y, BASE_H + 0.01, t, ss_, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
         for nm_, x0, y0, x1, y1 in getattr(self.lc, "BASE_HAIR", []):   # round 8: "mod" runs on as a hairline over blend
             s += box(x0, y0, BASE_H + 0.02, x1, y1, BASE_H + 0.05, self.rule_col())
         return s
@@ -2184,7 +2201,7 @@ class Nave(Cathedral):
                 nm, pos = BT[n].split("|")
                 s += toggle(x, y, z)
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
-                if self.rear(y):                            # rear row: name over positions, ABOVE the toggle
+                if self.rear(y) or tax(lc):                 # rear row (TAX: every row): name over positions, ABOVE
                     bot = y + lc.TGL + 2.35
                     pl = pos.split("/")                     # §31.2: "/" stacks position words, first line on top
                     yy = bot
@@ -2203,12 +2220,15 @@ class Nave(Cathedral):
                     s += stick_low(x, y, z, ink)          #   lowered to 9.0 (systems §19.4) for R-LOW's 55.2
                 else:
                     s += joystick(x, y, z, ink)  # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
-                s += txt(x, y - 11.5, z, lab, st.lsize, ink, font=st.font)
+                s += txt(x, y + 11.5 if tax(lc) else y - 11.5, z, lab, st.lsize, ink, font=st.font)
             elif n == "CUTOFF":
-                s += item5("CUTOFF", "CUTOFF", x, y, "h", not self._sq(), z, copy_style(st, ticks=False), "proof", None, True, 143)
+                s += item5("CUTOFF", " " if tax(lc) else "CUTOFF", x, y, "h", not self._sq(), z, copy_style(st, ticks=False), "proof", None, True, 143)
                 if self._sq():                           # the marking system: CUTOFF's ring like every other knob's
                     s += mark(x, y, z, st.hero_r, "CUTOFF", ink)
-                    s += midi_dot(x, y - st.hero_r - st.lab_gap - 0.6, z, "cutoff", st.lsize, ink)
+                    cy_ = y + st.hero_r + st.lab_gap + 0.6 if tax(lc) else y - st.hero_r - st.lab_gap - 0.6
+                    if tax(lc):                          # TAX: the word above (item5 drew none)
+                        s += txt(x, cy_, z, "cutoff", st.lsize, ink, font=st.font)
+                    s += midi_dot(x, cy_, z, "cutoff", st.lsize, ink)
                 else:   # its scale without the ± 90° ticks, which ran into KBD / FILT MOD's bats beside it (steer 4)
                     s += ticks(x, y, z, 11.3, [a for a in range(-150, 151, 30) if abs(a) != 90], ink, length=1.4, width=0.45)
             elif n == "TAP":
@@ -2220,7 +2240,7 @@ class Nave(Cathedral):
                 if getattr(lc, "BASE6", False):          # §20: the one status light is TAP's ring (lit, a thin green ring)
                     s += (f'{c("#9fd36b")} translate([{x:.3f},{y:.3f},{z + 0.62:.3f}]) linear_extrude(0.05) '
                           f'difference(){{ circle(r=7.05,$fn=96); circle(r=6.3,$fn=96); }}\n')   # on the bezel's top face
-                s += txt(x, y - 6 - st.lab_gap - 0.6, z, lab, st.lsize, ink, font=st.font)
+                s += txt(x, y + 6 + st.lab_gap + 0.6 if tax(lc) else y - 6 - st.lab_gap - 0.6, z, lab, st.lsize, ink, font=st.font)
             elif self.route == "R-LOW":
                 s += low_knob(x, y, z, rnd.uniform(-130, 130), self.low_col)
                 if self._sq():
@@ -2228,9 +2248,10 @@ class Nave(Cathedral):
                 else:
                     s += ticks(x, y, z, 6.0, [-150, -100, -50, 0, 50, 100, 150], ink, length=1.0, width=0.35)
                 if lab:
-                    s += txt(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink, font=st.font)
+                    ly_ = y + 10.95 if (self.rear(y) or tax(lc)) else y - 7.45 - 2.9 - 0.6
+                    s += txt(x, ly_, z, lab, st.lsize, ink, font=st.font)
                     if self._sq() and n in MIDI_DOT:
-                        s += midi_dot(x, y + 10.95 if self.rear(y) else y - 7.45 - 2.9 - 0.6, z, lab, st.lsize, ink)
+                        s += midi_dot(x, ly_, z, lab, st.lsize, ink)
                 if n in MIDI_NAMES and not self._sq():   # steer 5 fixes 7: no MIDI dots (an implementation detail, on 9 knobs)
                     s += cyl(x + 6.3, y - 6.3, z, 0.04, 0.9, ink, fn=16)
             else:

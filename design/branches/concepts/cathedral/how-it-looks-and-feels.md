@@ -37,6 +37,22 @@ Seed: CHAMBER rev 2 + FOLD-105 v1.1. Owner record: `design/owner.md` (14:12 onwa
 - **The name is off the panel** (owner: "Also it doesn't need to say big energy").
 - **Reverb names in size order** (spring · plate · hall · shimmer, review 8) is a change to the DSP's position order. **Systems / director.**
 
+### One type system: headings, sub-headings, label side (player review round 12, §6)
+The critic found three heading styles and words above some knobs and below others with no rule. **The rule, for every layout from the taxonomy on (T1–T4), lid and base alike:**
+
+| | Rule |
+|---|---|
+| **Heading** | **One style:** Kalam Bold **3.0**, top left of its group, no rule line. Every group gets one: oscillators, amp, filter, echo, reverb on the lid; controllers, **mixer**, filter, effects, tempo, out on the base. So **"mixer" is exactly as strong as "filter"**, which answers "why are the mixer numbers under the filter envelope?" The base headings were 2.4; now they match the lid. |
+| **Sub-heading** | **One style, used only for a sub-group inside a group:** Kalam Bold **2.0** plus an engraved hairline running over the sub-group's span. Used for **tuning** (under oscillators), **mod** and **keys** (under controllers), and nothing else. T4's "tuning" was heading-sized with a rule, the critic's stray third style; now it's a sub-heading like mod and keys. |
+| **Label side** | **Every control's word sits above it**, the Model D's own convention. Read down a group: heading → word → control. A position or names line (octave's, the types', time's) sits **above its word**. A switch's name and positions sit **above the switch**. No exceptions for top rows, bottom rows, or type knobs. |
+
+- **Applied in `rb.py`** (`TYPE_HEAD`, `TYPE_SUB`, `LABEL_SIDE`, `tax()`), for the TAX layouts only. P5R, P5RS and older records keep the style they were rendered in.
+- **For systems (needed before the re-render):** on today's T geometry, flipping the words above puts 14–18 clashes into each layout. Every heading now has to clear its own words, not sit just over the knobs:
+  - lid headings ≥ 1.5 over the top of their row's words, and over a names line where there is one (echo, reverb);
+  - the base front headings (filter, controllers, tempo, out at y 78) collide with the front row's words (word centre y + 10.95). They need ≈ y 82.8, which puts them 2.2 under the rear row's tick rings, so the rear row should go back about 3;
+  - the filter contour's words meet the window in T4 (decay −1.7), so the row has to come down about 3.
+  - The checker's `tbox` "behind" offset is already the above position: r + 3.5 + BEHIND_EXTRA, plus TGL + 2.35 for switches (above2).
+
 ### T1 · T2 · T3: laid fresh from the approved taxonomy (systems §32, 8aa5e58)
 Owner, 16:19: "yes these categories look correct. *now* let's try and lay these out". Each layout keeps its checker gaps visible on purpose, for judging. All three use the marking system and the MIDI key. Real Kalam 0 and the director's tests 0 (visual fit: T3 "tuning" +0.6, 0.90 over tune's top tick).
 
