@@ -1,6 +1,21 @@
 # Director notes: Little D (budget instrument), physical design
 
-## T2 / T4 (4b1c3ee / b9c2c90): READ THIS FIRST
+## T2 / T4 after critic round 12 (998617f…3e29130 / a79fb19…8c2023b): READ THIS FIRST
+- **Changed and good:**
+  - one heading style (sub-headings only for tuning, mod, keys);
+  - every word above its control;
+  - "mixer" as strong as "filter";
+  - T2's bank at one pitch.
+- **T4: 8 (down from 9).** The critic's right column regressed:
+  - reverb now sits top right with a ≈ 60 mm hole under it, and echo below;
+  - read top-down, that's reverb → echo, the reverse of the signal.
+- **T2: 9.** Same reversal (amp → reverb → echo), and echo / reverb sit on staggered columns (echo type ≈ 13 mm left of reverb type), so the right column reads ragged.
+- **Fix, both:**
+  - echo then reverb, top to bottom, as one block on shared columns (x 239 / 259 over their levels, H): echo type · pan / time · repeats · free·sync, then reverb type · decay directly under;
+  - T4: the block starts at row 2 so the hole closes; amp stays in the crown.
+  - Then I check by eye. Don't show either until the right column reads in signal order.
+
+## T2 / T4 (4b1c3ee / b9c2c90)
 - **T2: 9, not ready.** Spreading the spare height opened a larger pitch between VCO 3 and VCO 4 than between rows 1–3, so VCO 4 reads detached, like an add-on. That's the owner's "oscillators really far apart" again.
   - Fix: the 4 bank rows at one pitch; put the spare in the margins and around the filter row instead.
 - **T4: 9, ready.**

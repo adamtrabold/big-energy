@@ -589,3 +589,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 11: T4 **9** (lid 9, base 10, best base yet); T2-fixed **7**. To 10: T4 bank ~20 mm right so stick at full height, tune/drift under bank; 4-osc = T4 + row (mixer 1 over resonance).
 - Director final: T4 **9** ready (caption the right-of-speaker space); T2 **9** not ready (VCO 4 detached; even oscillator rows, spare into margins/filter row).
 - Player critic (fresh) round 12: T4 **8**, T2 **6.5**. T4 to 10: echo time/repeats/free·sync on lid bottom row over levels, reverb top right; strong mixer heading; one heading style, one label side. T2: mod switches far from mod knob.
+- Director round 13: T4 **8** (reverb above echo reverses signal; hole), T2 **9** (same reversal; staggered columns). Fix: echo above reverb as one block on shared columns.
