@@ -300,3 +300,8 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 ## 2026-11-19 14:08
 > re: the echo and reverb levels moving.. when i said to move the keys stuff, i was hoping the grid could be altered in that section along, making the switches a bit tighter / in a proprotional multiple of the grid.
 > i dont want those two knobs to move, as your analysis said
+
+## 2026-11-19 14:36
+> yeah this still isnt perfect to me. i think we should go back to the fundamentals and figure out how to make these lay out in a more logical sense. let's start by doing a tree map or something first and just define the categories of controls and what controls belong in those categories before laying anything out.
+
+(Attached: design/owner-refs/Minimoog_Model_D_Manual.pdf)
