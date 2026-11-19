@@ -4,54 +4,25 @@ Decisions only you can make, newest first. The team keeps working around them; e
 
 ---
 
-## 1. CATHEDRAL layouts: every option, side by side
-**Your call:** which layout. In practice it comes down to **three oscillators (P5R)** or **four, with your stacked layout (P5OB-D)**. Nothing is approved yet.
+## 1. CATHEDRAL layout, laid out from your approved control categories
+Every category is one block, in the tree's order. Wherever a category is split across the hinge, its two halves line up: oscillators over the mixer, filter envelope over cutoff, effects over their levels. One heading style, every label above its control, and the echo and reverb levels stay on the base.
 
-| | Director | Synth-player critic |
-|---|---|---|
-| **P5R** (3 oscillators, 132 mm) | **10** | **8**: oscillators in one long row, filter envelope far from cutoff |
-| **P5OB-D** (4 oscillators, 145 mm) | **9**: empty plate on the right; drift split from tune | **10**: "I'd play it and defend every control" |
+**Question 1: in the effects column, which goes on top?**
+- **T4 (three oscillators).** Reverb sits top right, and echo time and repeats are on the row nearest your hands. Synth-player critic **10**: "I'd play it and defend every control." Director **8**: top to bottom it reads reverb, then echo, the reverse of the signal.
+- **T4-sig.** It's the same as T4, except echo sits above reverb in signal order. This leaves the top row open to the right of amp.
 
-**New, from your 19 Nov markup: P5RS (three oscillators, 132 mm, the √5 face).** Oscillators 1–3 are stacked on the left, the filter envelope sits over the amp on the right, and echo and reverb form a centred row along the bottom. On the base, the keys switches join release, and the switches sit on a quarter step (11.25 mm) of the grid. The echo and reverb levels stay on the base, as you asked. Director **9**, synth-player critic **9**. Both rate it ahead of P5R for three oscillators.
+![T4: reverb on top](branches/concepts/cathedral/img/cathedral-s13-T4-top-9.9px-per-mm.png)
+![T4-sig: echo on top](branches/concepts/cathedral/img/cathedral-s14-T4S-top-9.9px-per-mm.png)
+![T4: standing](branches/concepts/cathedral/img/cathedral-s13-T4-standing.jpg)
+![T4-sig: standing](branches/concepts/cathedral/img/cathedral-s14-T4S-standing.jpg)
 
-**One question: where does tuning go?**
-- **a. Centred over the speaker.** It fills the space above the speaker, but tune sits about 45 mm from oscillator 1. Visual leans a.
-- **b. Beside oscillator 1's wave knob.** This keeps it close to the oscillators, as you asked on 13 Nov, but leaves about 72 mm of open space above the speaker, 10 mm off-centre.
+**Question 2 (after that): three oscillators or four?**
+- **T2: four oscillators, half height 147.3.** Director **9**, critic **7**. The panel fills. The catch: with four oscillators, the pitch and filter mod switches end up about 110 mm from the mod knob, and fixing that would mean moving the echo and reverb levels. It also needs the bend stick lowered to 9 mm to keep today's closed thickness. The 4th oscillator adds roughly $20–30 and costs about half an hour of battery.
 
-![P5RS-a: tuning over the speaker](branches/concepts/cathedral/img/cathedral-s11-P5RSa-top-9.9px-per-mm.png)
-![P5RS-a: standing](branches/concepts/cathedral/img/cathedral-s11-P5RSa-standing.jpg)
-![P5RS-b: tuning beside oscillator 1](branches/concepts/cathedral/img/cathedral-s11-P5RSb-top-9.9px-per-mm.png)
-![P5RS-b: standing](branches/concepts/cathedral/img/cathedral-s11-P5RSb-standing.jpg)
+![T2: four oscillators](branches/concepts/cathedral/img/cathedral-s12-T2-top-9.9px-per-mm.png)
+![T2: standing](branches/concepts/cathedral/img/cathedral-s12-T2-standing.jpg)
 
-Still to check: the base switches at 11.25 mm leave about 2 mm between switch nuts. They need a hand test with real parts.
-
-**P5R: team rows, three oscillators, 132 mm deep.**
-
-![P5R: full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
-![P5R: standing](branches/concepts/cathedral/img/cathedral-s5-P5R-standing.jpg)
-
-**P5OB-D: your layout, four oscillators, 145 mm deep.** Oscillators are stacked on the left, the amp envelope is the top row, and the filter envelope is a row beside the speaker, right above cutoff.
-- **Costs:** both halves are 13 mm deeper (each half 286 × 145 mm, about 10% more area). Closed thickness is unchanged. It weighs about 55 g more. The 4th oscillator adds about $20–30 and 0.4 W.
-- **Compromise 1:** drift sits under oscillator 2, joined to tune by a printed "tuning" line. Putting them side by side would force the bend stick to be lowered.
-- **Compromise 2:** about 50 mm of empty plate right of echo and reverb. Filling it would mean moving the effect levels from the base onto the lid.
-
-![P5OB-D: full top with 4 oscillators, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-top-9.9px-per-mm.png)
-![P5OB-D: standing](branches/concepts/cathedral/img/cathedral-s8-P5OBD-study-standing.jpg)
-
-**Case ratio, which follows the layout** (your 12:12 question):
-- **With P5OB-D: a double-square face (C), 286 × 147.3 mm per half.** Director **10**. Each face is two squares, and their seam runs through the speaker and cutoff, the layout's real centre line. Open, the two faces make one square. This is 2.3 mm more than the 145 drawn above, about 10 g, with no re-layout.
-- **With P5R: a √5 face (A), today's 286 × 132.** Director **8**. It's the face's proportion, but the square cuts through controls, so it doesn't organise the layout.
-- Dropped: a double-square outer case (B), which comes from the box rather than the face, and golden or 3:2 halves, which are too small or about 45 mm larger.
-
-![C: double-square face on P5OB-D](branches/concepts/cathedral/img/cathedral-s9-P5OBD-ratio-C-top-9.9px-per-mm.png)
-![A: √5 face on P5R](branches/concepts/cathedral/img/cathedral-s9-P5R-ratio-A-top-9.9px-per-mm.png)
-![All three ratios as silhouettes, true scale](branches/concepts/cathedral/img/cathedral-s9-case-ratios-4px-per-mm.png)
-
-**Your layout at 132 mm (study).** Three oscillators, amp envelope on top, filter row below. It fits, but the right side can't be filled without moving the effect levels or out onto the lid.
-
-![P5OB study at 132 mm](branches/concepts/cathedral/img/cathedral-s7-P5OB-study-top-9.9px-per-mm.png)
-
-All three share softer corners, the spine back, a line grille, no name on the panel, one knob-marking system, and dots on the knobs that take MIDI. The full reviews are under Reviews (player review, rounds 1–6).
+The earlier options (P5R, P5RS, P5OB-D and the case ratios) are in the history.
 
 ---
 
