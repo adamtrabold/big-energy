@@ -585,3 +585,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Director taxonomy + treemap: 9 → fixes in (Q0 first, proportional boxes); published to owner.
 - Director T-round: T1 **8**, T2 **9** (take to 10: mixer onto oscillator columns; echo two rows filling right hole; accept top-row gaps), T3 **7**. Owner now: top row tuning+amp (T2) vs both envelopes (T3); VCO 4 in/out.
 - Player critic round 10: T1 **8**, T2 **7**, T3 **7**. Proposes merged layout: mod switches by mod knob, mixer over filter row; tune/drift under oscillators; amp top centre over grille; echo top right; reverb bottom; filter env over cutoff. Would defend as 10.
+- Director: T2-fixed **9** (spread spare 11.5 mm evenly → 10), T4 **8** (open corners, 3-osc cap). Owner question: four oscillators (T2) or three (T4).

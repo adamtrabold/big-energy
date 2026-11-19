@@ -1,6 +1,16 @@
 # Director notes: Little D (budget instrument), physical design
 
-## T1 / T2 / T3, laid from the taxonomy (8aa5e58 / 9b4e8ff): READ THIS FIRST
+## T2 fixed + T4 (8dfdbf0 / 0c386cc): READ THIS FIRST
+- **T2: 9.** Both fixes landed:
+  - mixer 1–4 exactly under the bank's columns;
+  - echo in two rows over its level, reverb under it.
+  - It reads as one instrument, left to right.
+- **T2's one fix:** at 147.3 the spare ≈ 11.5 mm over the 135.75 minimum all collects as a dead band (the lid's bottom margin is ≈ 2× its top; the base's top band is deep). Spread it evenly across the row pitches and margins of both halves, or drop to 135.75 if the ratio isn't wanted. Then I check by eye → 10.
+- **T4: 8.** Honest as the 3-VCO version (tuning in VCO 1's row, amp crown, filter over cutoff, mod by the hands). But its open corners (under VCO 3, right of the speaker, between echo and reverb) are his "massive horizontal gap" trigger. It can't reach 10 at 3 VCOs.
+- **Show both** (T2 after the spacing fix), with the stick-at-9.0 cost in both captions.
+- **The one question:** "Four oscillators (T2: the panel fills, ≈ +$20–30, ≈ −0.5 h battery) or three (T4: same logic, open corners)?"
+
+## T1 / T2 / T3, laid from the taxonomy (8aa5e58 / 9b4e8ff)
 - **Owner 16:19 (verbatim):** "yes these categories look correct. *now* let's try and lay these out".
 - **What works in all three:**
   - the method (one block per category, rule H);
