@@ -1668,6 +1668,60 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
   - P5R: 0.
 - **Closing:** unchanged, 55.2 / 59.7.
 
+## 32. T1 / T2 / T3: laid fresh from the control taxonomy (owner 16:19: "yes these categories look correct. *now* let's try and lay these out"), `layout_check.py T1|T2|T3`
+**Method.**
+- Each taxonomy category / sub-category is one block, its controls in the taxonomy's order (two exceptions, below).
+- The blocks follow the tree: lid = oscillators → tuning → contours → effects; base = controllers → filter → tempo → out (front) and mixer → mod ‖ keys → effect levels (rear).
+- Rule H runs across the hinge. Every open question takes the team's default unless a default contradicts H; where it does, the layout says so.
+- Knob pitch 20 (4M); switch steps on M/4 (11.25 / 13.75). The closed-stick and closing checks are as before.
+
+**What the constraints force, in all three (derived, not chosen):**
+1. **CUTOFF under the speaker window** (the closing: no lid knob may land on the tall CUTOFF) pins the filter four (track · resonance · CUTOFF · envelope) at the centre of the base front. By H, the **filter contour goes in the centre column of the lid**: in the crown above the speaker, or below it.
+2. **Echo / reverb levels over volume / pan** (owner 14:08) pins them at the base's right end (239.25 / 259.25). By H, the **effects stand in the lid's right column, over their levels**:
+   - echo as one row beside the speaker, with repeats over the echo level;
+   - reverb 35 below it (the P5OB-D spacing), over its level.
+3. **The closed stick** (bend at x 25.3) puts the bank's columns at 41.75 / 61.75 / 81.75 / 101.75: the bank's edge is 3.0 clear of the stick.
+4. **Q1 (a) and Q4 can't both hold with H.** The crown is the only place where both "tuning centred over the speaker" and "filter contour in the top row, over the filter" want to be.
+   - T1 / T2 give the crown to tuning (Q1 a).
+   - T3 gives it to the filter contour (Q4).
+
+**The base (shared; T2 differs only in the mixer):**
+- **Front (the hands):** performance bend 25.3 · mod 40.3 · glide 60.3 · release 74.05 | filter track 103 · resonance 123 · **CUTOFF 143** · envelope 163 | tempo tap 194.8 | out link 224.25 · volume 239.25 · pan 259.25. Gutters 19.15 / 18.8 / 18.8.
+- **Rear (levels and set-ups):** mixer 1 · 2 · 3 · extra · source (41.75 … 115.5) | mod blend · pitch · filter ‖ keys voices · velocity · touch (break 9.5) | effects echo 239.25 · reverb 259.25. Gutters 17.2 / 17.2.
+  - The mixer's channels stand exactly under the bank's columns (H).
+  - The levels stand exactly over volume / pan.
+- **Two deviations from the taxonomy's in-block order, both forced:**
+  - the filter reads track · resonance · CUTOFF · envelope, not cutoff-first. CUTOFF is pinned on the axis, and cutoff-first leaves no room for tap + out on the front.
+  - out reads link · volume · pan, not volume · pan · link, so that volume / pan stand under the levels.
+- **Finger clearance:** knobs at 20.
+  - Bend → mod is 15: the mod cap is 4 mm from the stick's cap. That is the tightest spot, and it's what lets release join performance.
+  - Switches at 11.25, as §31.2.
+
+| | **T1: three oscillators, √5 (half height 132)** | **T2: four oscillators, double-square face (147.3)** | **T3: three oscillators, √5, envelopes around the speaker** |
+|---|---|---|---|
+| lid top row | osc 1 · **tuning centred in the crown** (133 / 153) · amp (219.25 …) | the same, at d 119.3 | osc 1 · **filter contour in the crown** (123 / 143 / 163, over resonance · CUTOFF · envelope) · amp |
+| beside the speaker | osc 2, osc 3 + track | osc 2, osc 3 + track | osc 2, osc 3 + track |
+| below the speaker | **filter contour** (123 / 143 / 163, over the filter four) | osc 4 · **filter contour** | **tuning at the bank's foot** (41.75 / 61.75, under octave · wave) |
+| right column | echo (184.25 … 259.25, d 79) over the echo level; reverb (239.25 / 259.25, d 44) over its level | the same (d 94.3 / 59.3) | the same as T1 |
+| base mixer | under the bank, exactly | from the margin (26.3 …): a 4-channel mixer plus keys on the rear only fits there, so the bank stands over the mixer **as a block, 15.45 off its columns** | as T1 |
+| checker | **4, all gap rule** (no text clashes): row 1's gutters 56.35 / 51.35; the bank's foot empty (R4 left, 96); R3 right of the speaker open (between echo and reverb) | **3, all gap rule**: row 1 56.35 / 51.35; R4 right of the filter contour; R3 right | **3, all gap rule**: row 1 46.35 / 41.35; R4 from tuning to the reverb's legends (197); R3 right |
+| closing | 55.2 / 59.7 (RANGE 2 over MOD); the stick lands 3.0 clear of the bank | 55.2 / 59.7; stick as T1 | 55.2 / 59.7; stick as T1 |
+| stand (today's stays) | 7.0 N | 6.7 N (scale the stays) | 7.0 N |
+| depends on | Q1 = a; Q4 = no (filter contour below the speaker; amp in the top row, as your 20:43). Q2a–d, Q3, Q5, Q6, Q7, Q8 = yes; Q12 = 3 VCOs | as T1 + Q12 = with VCO 4. Q2d = yes costs the mixer-under-bank columns | Q4 = yes for the filter contour (amp stays top right, not under it); **Q1 = neither a nor b: tuning at the bank's foot**. Others as T1 |
+| one line | tuning crowns the speaker, the filter contour sits under it over the filter: every split lines up | the full instrument: the 4-row bank fills the left, the lid has no empty quarter | both envelopes on the top row, tuning under the oscillators, the speaker framed by the filter's two halves |
+
+**The gap-rule misses are structural, not slips:**
+- Row 1 can't be even. Tuning (or the filter contour) is pinned on the axis, and amp at the right edge falls 5 short: VCO 1 is two knobs, amp is three.
+- The empty areas are where 24 lid controls (3 VCOs) don't fill 4 rows. T2's fourth oscillator fills them. That is the honest argument for T2 at 147.3: it is the only one without an empty quarter.
+
+**Grid.** Positions are on M = 5 with M/4 switch steps. The face-module candidate A (277.4 / 56 = 4.954, §29) scales every position by −0.9 % from the plate edge. At 147.3, T2's face is exactly 56 × 28 modules of A. Not re-gridded yet: one step, once the owner picks.
+
+**Your later answers map to changes:**
+- **Q1 = b:** T1 / T2 lose the crown pair. Tuning goes beside wave, overlapping the crown's filter-contour place, so the result becomes T3 with tuning in row 1.
+- **Q4 amp below the filter contour:** T3's amp moves to below the speaker (in T1 / T2 that is the filter contour's place).
+- **Q2d = no (keys on the lid):** T2's mixer goes back under the bank, with rear gutters ≈ 28.
+- **Q7 (output on the lid):** frees the base front right; tap and out re-space.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

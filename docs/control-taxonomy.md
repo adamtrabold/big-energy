@@ -1,5 +1,5 @@
 # Control taxonomy: what every control is for, before any layout
-Status: **proposed** (team), for the owner to correct · revised 2026-11-19 after director 8 / critic 8 · sources:
+Status: **categories decided** (owner Q0, 2026-11-19 16:19); Q1–Q12 still proposed defaults · revised 2026-11-19 · sources:
 - [owner.md](../design/owner.md) (the 2026-11-19 14:36 ask);
 - the Minimoog Model D manual ([`design/owner-refs/Minimoog_Model_D_Manual.pdf`](../design/owner-refs/Minimoog_Model_D_Manual.pdf), "Features & Controls", pp. 15–33);
 - the [feature docs](README.md);
@@ -189,7 +189,7 @@ Big Energy: 53 panel controls (49 without VCO 4)
 | S6 | **Glide and MIDI CC 65** (portamento on / off) | not handled | open, only if S1 adds a switch |
 
 ## 8. Owner questions, each with the team's default (answer "yes" to take it)
-0. **Q0** Are these the right categories (§2), with each control in the right one (§3)? *Default: yes.*
+0. **Q0** Are these the right categories (§2), with each control in the right one (§3)? *Default: yes.* **Answered yes (owner, 2026-11-19 16:19):** "yes these categories look correct. *now* let's try and lay these out".
 2. **Q2a** Release sits beside glide (performance), not with voices · velocity · touch? *Default: yes.*
 3. **Q2b** Glide stays a knob with the performance controls (bend · mod · glide · release)? *Default: yes.*
 4. **Q2c** The mod group (blend · pitch · filter) sits next to the key controls on the base, but as its own group? *Default: yes.*
