@@ -579,3 +579,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Director P5RS **8**: honours markup; levels-on-lid not acceptable; drift L-rule not acceptable (slot beside tune empty); top-row gap; base columns lost. Can reach 10.
 - Player critic round 7: P5RS **7** (lid 8, base 7). Fixes: raise grille ~20 mm into the empty top centre; levels back to base; mixer over filter, keys/mod on one spacing; check base switches clear lid echo knobs when closed. Could be the 10 for three oscillators.
 - Director P5RS **9**. Fixes: filter/amp ~10 mm right to even top row; slide keys/mod group ~13 mm right to equalise back row. Owner call: tuning centred over speaker vs beside VCO 1 (two renders).
+- Player critic round 8: P5RS **9** (lid 9, base 9), ahead of P5R for three oscillators. To 10: gap between keys and mod switch groups (~6 mm) + hand test; owner call on tuning placement.
