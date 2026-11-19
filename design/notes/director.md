@@ -1,6 +1,20 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Taxonomy rev 2 + treemap (592b705 / 75e423b): READ THIS FIRST
+## T1 / T2 / T3, laid from the taxonomy (8aa5e58 / 9b4e8ff): READ THIS FIRST
+- **Owner 16:19 (verbatim):** "yes these categories look correct. *now* let's try and lay these out".
+- **What works in all three:**
+  - the method (one block per category, rule H);
+  - base columns: mixer under the bank, levels over volume / pan;
+  - the filter contour over the filter four.
+- **T1: 8.** It has a ≈ 96 mm empty quarter under the bank, plus open plate between echo and reverb. These are structural: 24 lid controls don't fill 4 rows. It can't reach 10 at 3 VCOs without a shallower lid.
+- **T2: 9.** VCO 4 fills the quarter, and amp in the top row = his 20:43. Take it to 10. Fixes:
+  1. **The mixer is 15.45 off the bank's columns, which breaks H on the clearest pair.** Systems shows the trade with numbers: the bank 15 left with the stick lowered to 9.0, or keys + mod on M/4 tighter so mixer 1–4 fit under 41.75 … 101.75.
+  2. **The right column's hole** (under echo type / time, R3–R4). Echo as two rows (type · time · free·sync / repeats · pan) on R2–R3, reverb on R4, all at x 219–259 so H still holds over the levels.
+  3. Row 1's 56 / 51 gutters: accepted as forced (2-knob VCO 1 vs 3-knob amp).
+- **T3: 7.** It has the cleanest top row (oscillators | filter | amp), but a ≈ 200 mm empty band across the lid's lower centre, and tuning far from VCO 1's pitch knobs reads as a 4th oscillator row.
+- **Q1 / Q4 goes to the owner now, as one picture question:** "Top row: tuning over the speaker with the amp envelope (T2), or both envelopes (T3)?" It decides every layout's top row, and the team can't resolve it under H. Ask Q12 (VCO 4) with it, since T2 depends on it.
+
+## Taxonomy rev 2 + treemap (592b705 / 75e423b)
 - **Score: 9.** The work really changed:
   - 53 panel controls (49 without VCO 4), with the non-controls in their own list;
   - release with glide; a keys-setup group;
