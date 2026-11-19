@@ -1,6 +1,17 @@
 # Director notes: Little D (budget instrument), physical design
 
-## Control taxonomy (2026-11-19; c786101 / f46065e): READ THIS FIRST
+## Taxonomy rev 2 + treemap (592b705 / 75e423b): READ THIS FIRST
+- **Score: 9.** The work really changed:
+  - 53 panel controls (49 without VCO 4), with the non-controls in their own list;
+  - release with glide; a keys-setup group;
+  - 15 questions with defaults; an eng list;
+  - a treemap on the site, readable on desktop and phone.
+- **Left for 10:**
+  1. **The caption claims "each box is sized by its number of controls", but it isn't.** Output (3) is as tall as Effects (10); Controllers (10) is as tall as Oscillators (14). Fix: widths (or areas) proportional within each row, or drop the claim.
+  2. **The question the tree exists to answer is missing:** "Are these the right categories, with each control in the right one?" Add it as Q0, first. Q1 (tuning) is a layout question, so it goes last, after the tree is agreed.
+- **Ask first:** Q0, the tree itself. Default yes.
+
+## Control taxonomy (2026-11-19; c786101 / f46065e)
 - **Owner 14:36 (verbatim):** "yeah this still isnt perfect to me. i think we should go back to the fundamentals and figure out how to make these lay out in a more logical sense. let's start by doing a tree map or something first and just define the categories of controls and what controls belong in those categories before laying anything out."
 - **Score: 8.** Strong as data:
   - the Model D's 5 sections + Effects + Connections;

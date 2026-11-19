@@ -582,3 +582,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Player critic round 8: P5RS **9** (lid 9, base 9), ahead of P5R for three oscillators. To 10: gap between keys and mod switch groups (~6 mm) + hand test; owner call on tuning placement.
 - Director taxonomy **8**: needs treemap graphic on site page; count panel controls only (~55); fix questions (add tuning a/b, split Q2, move Q7/Q9 to eng, defaults); R7 quote.
 - Player critic round 9 taxonomy **8**: fix job labels (release=play, mod switches/envelope amount), release with glide not keys, missing glide on/off, PARA vibrato, aftertouch amount, hidden settings, volume vs line out; add hinge-alignment rule; bend-and-mod doc contradiction.
+- Director taxonomy + treemap: 9 → fixes in (Q0 first, proportional boxes); published to owner.
