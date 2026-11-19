@@ -12,6 +12,19 @@ Decisions only you can make, newest first. The team keeps working around them; e
 | **P5R** (3 oscillators, 132 mm) | **10** | **8**: oscillators in one long row, filter envelope far from cutoff |
 | **P5OB-D** (4 oscillators, 145 mm) | **9**: empty plate on the right; drift split from tune | **10**: "I'd play it and defend every control" |
 
+**New, from your 19 Nov markup: P5RS (three oscillators, 132 mm, the √5 face).** Oscillators 1–3 are stacked on the left, the filter envelope sits over the amp on the right, and echo and reverb form a centred row along the bottom. On the base, the keys switches join release, and the switches sit on a quarter step (11.25 mm) of the grid. The echo and reverb levels stay on the base, as you asked. Director **9**, synth-player critic **9**. Both rate it ahead of P5R for three oscillators.
+
+**One question: where does tuning go?**
+- **a. Centred over the speaker.** It fills the space above the speaker, but tune sits about 45 mm from oscillator 1. Visual leans a.
+- **b. Beside oscillator 1's wave knob.** This keeps it close to the oscillators, as you asked on 13 Nov, but leaves about 72 mm of open space above the speaker, 10 mm off-centre.
+
+![P5RS-a: tuning over the speaker](branches/concepts/cathedral/img/cathedral-s11-P5RSa-top-9.9px-per-mm.png)
+![P5RS-a: standing](branches/concepts/cathedral/img/cathedral-s11-P5RSa-standing.jpg)
+![P5RS-b: tuning beside oscillator 1](branches/concepts/cathedral/img/cathedral-s11-P5RSb-top-9.9px-per-mm.png)
+![P5RS-b: standing](branches/concepts/cathedral/img/cathedral-s11-P5RSb-standing.jpg)
+
+Still to check: the base switches at 11.25 mm leave about 2 mm between switch nuts. They need a hand test with real parts.
+
 **P5R: team rows, three oscillators, 132 mm deep.**
 
 ![P5R: full top, 1:1 at 9.9 px/mm](branches/concepts/cathedral/img/cathedral-s5-P5R-top-9.9px-per-mm.png)
