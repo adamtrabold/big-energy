@@ -1722,6 +1722,50 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 - **Q2d = no (keys on the lid):** T2's mixer goes back under the bank, with rear gutters ≈ 28.
 - **Q7 (output on the lid):** frees the base front right; tap and out re-space.
 
+### 32.1 T2 fixed (director 9) and T4, the critic's merged layout (round 10): `layout_check.py T2`, `T4` (`CATHEDRAL_VCO4=1` for T4 with 4 VCOs)
+**T2, mixer on the oscillator columns: the two ways, by the numbers. Pick: (a).**
+- **(a) The bank 15 left, onto the margin (columns 26.75 / 46.75 / 66.75 / 86.75), with the stick lowered.**
+  - The mixer's 1 · 2 · 3 · 4 · extra stand exactly under the bank's columns.
+  - The closed stick then lands under the bank: **55.2 with the stick lowered to 9.0** (as R-LOW already assumes), 58.8 at full height, 59.7 at R-TALL.
+  - The base back row fits with gutters 15.1 / 15.1 (mod ‖ keys break 8.75).
+- **(b) Keep the bank at 41.75 and tighten keys + mod so mixer 1–4 fit under it: impossible.**
+  - That rear row would need mod + keys ≤ 62.6 wide. Even at the switches' 10.7 minimum it's 75.3: short 12.7 mm.
+
+**T2 lid:**
+- Echo is two rows at x 219.25 / 239.25 / 259.25 (type · time · free·sync at d 94.3; repeats · pan at d 69.3).
+- Reverb sits 35 under repeats · pan (d 34.3) at 239.25 / 259.25, over its level. Echo's level is under time.
+- The top-row gutters (71.35 / 51.35, wider now the bank moved left) are reported as "accepted by ruling".
+- **Checker: 1 violation:** row 4's gutters are 41.35 (osc 4 → filter contour) vs 61.35 (filter contour → reverb). All three are pinned (bank / H over cutoff / H over the level), so it is structural.
+- **Is the deeper face still needed? Yes, but not for the bank.**
+  - At half height 132, reverb (35 under echo, the spacing its heading needs) breaks the bottom margin by 3.75. T2's minimum is **≈ 135.75**.
+  - 147.3 is the double-square face's choice (C), not a requirement.
+
+**T4 (the critic's layout):**
+- **Lid:**
+  - oscillators left, with tune · drift in VCO 1's empty pitch slot and 4th column under a "tuning" sub-heading. This is not a row at the bank's foot, which the director said reads as a 4th oscillator.
+  - amp across the top centre over the grille (123 / 143 / 163);
+  - the filter contour in the bottom row over CUTOFF;
+  - echo top right in two rows (d 104 / 79);
+  - reverb bottom right (d 29), over its level.
+  - **Cost:** tuning in row 1 needs the bank 15 left to clear amp, so the stick is lowered as in T2 (a).
+- **Base:**
+  - mod (blend · pitch · filter) at the left of the back row, over bend · mod (blend 26.3 / bend 25.3, pitch 40.05 / mod 40.3);
+  - keys beside it (break 9.5);
+  - the mixer back over the filter row (1 · 2 · 3 over resonance · CUTOFF · envelope, extra 183, source 196.75);
+  - the levels over volume / pan.
+- **T4, 3 oscillators at 132: 6 violations, all gap rule** (no text clashes):
+  - row 1 21.35 / 41.35;
+  - row 4's left empty (96: tuning moved up);
+  - the back-row gutters 18.9 / 30.9: column-locked, the critic's "row 1 lines up with row 2" rule, not yet ruled;
+  - grille gaps 47.3 vs 41.35;
+  - row 3 right of the speaker open (175): the critic's one deliberate band.
+- **T4, 4 oscillators: doesn't fit, at 132 or 147.3.**
+  - Mixer 1–4 over track · resonance · CUTOFF · envelope starts at x 96. Mod + keys need 77.5 + a gutter on its left, but only 76.7 is there: they overlap mixer 1 (base gap −1.3, gutter −0.85).
+  - With four oscillators, either keys go to the lid (Q2d = no) or the mixer goes under the bank. The second is T2 fixed: **T4 converges into T2 at 4 VCOs.**
+  - The lid itself fits at 132.
+
+**Closing (both):** 55.2 at R-LOW with the stick lowered to 9.0; 58.8 with the stick at full height; 59.7 at R-TALL. The binding pair is RANGE 2 over the stick.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
