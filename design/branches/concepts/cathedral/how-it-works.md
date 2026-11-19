@@ -1817,6 +1817,40 @@ The lid's oscillator rows are tied to the speaker window (d = D − 68), so they
 - **The lid has no tuning place either:** VCO 4 takes row 4 under the bank, and VCO 1's row is blocked by the centred amp (above).
 - So the four-oscillator candidate stays **T2**. T4-4 would need the levels off out, or a narrower mixer (e.g. extra / source moved). Both are owner-level changes.
 
+### 32.4 Critic round 12 (T4 8, T2 6.5): the effects rows, T2's mod switches, flags for visual
+**1. Echo time · repeats · free/sync on the lid's bottom row (the taxonomy's rule), reverb top right.**
+- In both layouts the effects now sit on lid rows (no floating reverb):
+  - echo time / repeats / free·sync on row 4 at 219.25 / 239.25 / 259.25;
+  - echo type · pan on row 3;
+  - reverb on row 1 (T4) or row 2 under amp (T2), at 239.25 / 259.25.
+- **H holds:** the echo block (219–259) covers the echo level (239.25), and reverb stands over its level (259.25).
+- Row 4 now reads tuning / osc 4 | filter contour | echo, with **even gutters 41.35 / 41.35** in both.
+- **T4:** 3 violations, all gap rule:
+  - row 1 41.35 / 61.35: reverb is pinned over its level, amp over the grille;
+  - the base back row 18.9 / 30.9 (column-locked, not ruled);
+  - row 2 right of the speaker is open. That is the one remaining corner; reverb moved out of it to the top.
+- **T2:** **0 violations** (+ row 1 accepted). Every row is now a lid row, so the 147.3 spare can't sit between rows (the director's VCO-4 fix).
+  - All four rows move 7.5 lower round the window, until tuning in the crown is 2.05 clear of the speaker.
+  - Lid margins 11.2 top / 18.1 bottom (was 8.7 / 20.6 before lowering).
+  - The base back row stays 10 back (band above the mixer 19.6).
+  - At 135.75: 0 + 1 accepted.
+- **Closing:**
+  - T4: 55.2 with the stick at full height.
+  - T2: 55.2 with the stick lowered to 9.0, 58.8 full height.
+  - Both 59.7 at R-TALL.
+
+**2. T2's mod switches (70–85 mm from the mod knob): 4 oscillators forbid moving them, by 4.1 mm.**
+- Bringing mod (blend · pitch · filter) to the back row's left, as T4 does, means the mixer leaves the bank's columns. The only other place for the mixer is over the filter row.
+- With 4 channels that runs to x 221.35, against the levels over out at 232.25: a 10.9 gutter vs 15. This is the T4-4 test (§32.3).
+- Keeping the mixer on the bank's columns (T2's H pair) takes the back row's left 105 mm, so mod + keys can only sit after it.
+- The way out is an owner call: the levels leave out, extra / source move, or keys go to the lid.
+
+**3. For visual (one heading style, one label-side rule, a mixer heading as strong as "filter"): geometry to know:**
+- The base's "filter" heading sits on the front row's line (y 78) and "mixer" on the back row's (y 112.4 / 122.4 in T2). Both are top-left of their groups, so the same style fits both lines.
+- **Label sides today:** oscillators, amp and the crown tuning have legends *behind* (above). Every effects row and the filter contour have them *in front* (below), because their names lines need the side away from the next row up.
+  - T4's tuning has them in front **on purpose**, to read apart from the bank. If one side everywhere wins, T4's tuning needs another separator (its rule and sub-heading stay).
+  - Changing the effects rows to "behind" costs ≈ 3.5 mm per row (the names lines move up between rows). T4 has it; T2's lid has 11.2 at the top.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

@@ -348,10 +348,11 @@ elif VARIANT in ("T2", "T4"):
     # goes back over the filter row it feeds, and the mod / keys groups stand over the controllers.
     T4L = VARIANT == "T4"
     sh = D - 132.0
-    R1, R2, R3, R4 = 104.0 + sh, 79.0 + sh, 54.0 + sh, 29.0 + sh
+    LOWER = 7.5 if (VARIANT == "T2" and D > 140) else 0.0            # §32.4: T2's four rows 7.5 lower (the crown tuning's window clearance stops it there)
+    R1, R2, R3, R4 = 104.0 + sh - LOWER, 79.0 + sh - LOWER, 54.0 + sh - LOWER, 29.0 + sh - LOWER
     # §32.2: above the 135.75 minimum, T2's spare depth is spread instead of collecting at the bottom: the bottom group
     # (osc 4 · filter contour, and reverb) drops DROP, and the base's back row moves back RYD (both whole M)
-    DROP = float(os.environ.get("T2_DROP", "10" if (VARIANT == "T2" and D > 140) else "0"))
+    DROP = float(os.environ.get("T2_DROP", "0"))                      # §32.4: superseded by LOWER (every row on a lid row)
     R4F = R4 - DROP                                                  # director: the 4 oscillator rows keep one spacing (25);
                                                                      #   the drop goes round the filter row and into the margin
     OX = (46.75, 66.75, 86.75, 106.75) if T4L else (26.75, 46.75, 66.75, 86.75)   # T4 (critic r11): 20 right, the
@@ -384,15 +385,20 @@ elif VARIANT in ("T2", "T4"):
         L(n, x, AMPD, "k", lab, "behind")
     for n, x, lab in [("F ATTACK", 123.0, "attack"), ("F DECAY", 143.0, "decay"), ("F SUSTAIN", 163.0, "sustain")]:
         L(n, x, R4F, "k", lab, "front")
-    L("ECHO TYPE", RC[0], ECD, "k", "type", "front"); L("ECHO TIME", RC[1], ECD, "k", "time", "front")
-    L("FREE/SYNC", RC[2], ECD, "t", "free · sync", "under")
-    L("ECHO REPEATS", RC[0], ECD - 25, "k", "repeats", "front"); L("ECHO PAN", RC[1], ECD - 25, "k", "pan", "front")
-    RV = (ECD - 25 - 35.0) if T4L else ECD - 25 - 35.0 - DROP       # 7M under repeats · pan (legend -> heading ≥ 1M), T2 + DROP
+    # §32.4 (critic r12, the taxonomy's rule): echo time · repeats · free/sync on the lid's bottom row (nearest the
+    # player), over the echo / reverb levels; echo type · pan the row above; reverb top right (T4: row 1; T2: row 2,
+    # under amp). Every effects row is a lid row (no floating reverb). H: echo over 219–259 covers the echo level
+    # (239.25); reverb at 239.25 / 259.25 stands over its level (259.25)
+    L("ECHO TIME", RC[0], R4, "k", "time", "front"); L("ECHO REPEATS", RC[1], R4, "k", "repeats", "front")
+    L("FREE/SYNC", RC[2], R4, "t", "free · sync", "under")
+    L("ECHO TYPE", RC[0], R3, "k", "type", "front"); L("ECHO PAN", RC[1], R3, "k", "pan", "front")
+    RV = R1 if T4L else R2
     L("REVERB TYPE", RC[1], RV, "k", "type", "front"); L("REVERB DECAY", RC[2], RV, "k", "decay", "front")
+    ECD = R3
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
     SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("amp", AX5[0] - KN, HTOP if AMPD == R1 else over(AMPD)),
-                      ("echo", RC[0] - KN, HTOP if ECD == R1 else over(ECD)), ("reverb", RC[1] - KN, over(RV)),
+                      ("echo", RC[0] - KN, over(R3)), ("reverb", RC[1] - KN, HTOP if RV == R1 else over(RV)),
                       ("filter", 123.0 - KN, over(R4F))]
     if T4L:
         TSUB = R4 + KN + 1.7 + 1.5 + 0.425 * SUB_S
@@ -405,17 +411,17 @@ elif VARIANT in ("T2", "T4"):
     MIDI_KEY = ("• midi", MR, HTOP, NS)
     NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
     FX, FX_BREAKS, SWL = ECD, [], R4
-    e_a = ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]; e_b = ["ECHO REPEATS", "ECHO PAN"]
+    e_a = ["ECHO TYPE", "ECHO PAN"]; e_b = ["ECHO TIME", "ECHO REPEATS", "FREE/SYNC"]; rv = ["REVERB TYPE", "REVERB DECAY"]
     if T4L:
-        GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["L ATTACK", "L DECAY", "L SUSTAIN"], e_a]),
-                    ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", e_b]),
-                    ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN"]),
-                    ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["TUNE", "DRIFT"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"]])]
+        GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["L ATTACK", "L DECAY", "L SUSTAIN"], rv]),
+                    ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN"]),
+                    ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", e_a]),
+                    ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["TUNE", "DRIFT"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"], e_b])]
     else:
         GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
-                    ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", e_a]),
-                    ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", e_b]),
-                    ("lid R4", R4, [["RANGE 4", "WAVE 4", "FREQ 4"], ["F ATTACK", "F DECAY", "F SUSTAIN"], ["REVERB TYPE", "REVERB DECAY"]])]
+                    ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", rv]),
+                    ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN", e_a]),
+                    ("lid R4", R4, [["RANGE 4", "WAVE 4", "FREQ 4"], ["F ATTACK", "F DECAY", "F SUSTAIN"], e_b])]
     GAP_REF = {"lid R2": "lid R1", "lid R3": "lid R1"}
     ACCEPTED = ["GAP lid R1: gutters unequal"] if not T4L else []   # director: T2's row-1 gutters accepted as forced
 elif TAX:
