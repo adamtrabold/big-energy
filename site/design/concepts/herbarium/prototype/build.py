@@ -220,7 +220,7 @@ for f in sorted(os.listdir(P("eng"))):
 for code, path, *_ in DOCS:
     DOCMAP[os.path.basename(path)] = code; PATHMAP[os.path.normpath(path)] = "#i-" + code
 # docs/ and design/reviews/ become pages of their own
-SITE_DOCS = [("architecture", "docs/architecture.md")] + [(os.path.splitext(f)[0], "docs/features/" + f) for f in sorted(os.listdir(P("docs/features"))) if f.endswith(".md")]
+SITE_DOCS = [("architecture", "docs/architecture.md"), ("control-taxonomy", "docs/control-taxonomy.md")] + [(os.path.splitext(f)[0], "docs/features/" + f) for f in sorted(os.listdir(P("docs/features"))) if f.endswith(".md")]
 for slug, path in SITE_DOCS: PATHMAP[path] = "#doc-" + slug
 PATHMAP["docs/README.md"] = "#docs"
 REVIEWS = [(os.path.splitext(f)[0], "design/reviews/" + f) for f in sorted(os.listdir(P("design/reviews")), reverse=True) if f.endswith(".md")] if os.path.isdir(P("design/reviews")) else []
