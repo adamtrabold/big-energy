@@ -577,3 +577,4 @@ HUSH, ONE SHEET and FOLD-105, all at 9, once S1 is applied.
 - Director case ratios: A (√5 face, P5R) **9**, B (double-square case) **7** drop, C (double-square face, P5OB-D 147.3) **9**. To 10: construction lines over each layout's exact top view.
 - Director ratio overlays: C **10** (check stray marks on lid top edge); A **8**: square cuts through controls; honest caption caps at 9.
 - Director P5RS **8**: honours markup; levels-on-lid not acceptable; drift L-rule not acceptable (slot beside tune empty); top-row gap; base columns lost. Can reach 10.
+- Player critic round 7: P5RS **7** (lid 8, base 7). Fixes: raise grille ~20 mm into the empty top centre; levels back to base; mixer over filter, keys/mod on one spacing; check base switches clear lid echo knobs when closed. Could be the 10 for three oscillators.
