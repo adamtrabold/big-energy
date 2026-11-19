@@ -1765,6 +1765,13 @@ def nv_hair(lc):
     P5OB-D "tuning" rule (c9a4255, §28): tune sits on row 1 and drift in VCO 2's 4th slot, so one engraved rule, an L,
     runs on from the "tuning" sub-heading over tune to drift's column and drops to just above drift's word."""
     out = list(getattr(lc, "HAIR", []))
+    if getattr(lc, "VARIANT", "") == "T4":   # 4b1c3ee: the rule starts 1.5 after the real word, on the raised sub-head
+        sub = [(t, x, d) for t, x, d in getattr(lc, "SUBHEADS", []) if t == "tuning"]
+        if sub:
+            t_, xc, d0 = sub[0]; d0 += 0.6
+            x0 = xc - len("tuning") * 0.25 * lc.SUB_S + (lambda b: b[2] - b[0])(word_box("tuning", lc.SUB_S)) + TUNING_RULE_GAP
+            out = [(n, x0, d0 - 0.2, x1, d0 + 0.2) if n == "tuning rule" else (n, a, b, x1, c_)
+                   for n, a, b, x1, c_ in out]
     if getattr(lc, "VARIANT", "") in ("P5OBD", "P5RS"):   # P5RS since 80c575c (drift in VCO 2's 4th column)
         X = {n: (x, d, r) for n, x, d, r, k, lab, w in lc.lid}
         if "TUNE" in X and "DRIFT" in X and abs(X["TUNE"][1] - X["DRIFT"][1]) > 1.0:   # only when drift sits a row down
@@ -1785,7 +1792,7 @@ def nv_fit_subheads(lc):
     subs = list(getattr(lc, "SUBHEADS", []))
     if getattr(lc, "VARIANT", "") in P5O_FAMILY:  # 33229cd: "tuning" +0.2 (real Kalam: 1.37 over "tune")
         subs = [(t, x, d + 0.2) if t == "tuning" else (t, x, d) for t, x, d in subs]
-    if getattr(lc, "VARIANT", "") == "T3":         # 8aa5e58: "tuning" +0.6 (real Kalam: 0.90 over tune's top tick)
+    if getattr(lc, "VARIANT", "") in ("T3", "T4"): # 8aa5e58 / 4b1c3ee: "tuning" +0.6 (real Kalam: 0.90 over tune's top tick)
         subs = [(t, x, d + 0.6) if t == "tuning" else (t, x, d) for t, x, d in subs]
     if getattr(lc, "VARIANT", "") == "P5R" and any(t in ("filter", "amp") for t, x, d in subs):
         subs = [(t, x, 81.5) for t, x, d in subs]     # 2 mm higher than systems' 79.5: clear of the "decay" legends,
