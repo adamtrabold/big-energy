@@ -134,7 +134,7 @@ Big Energy: 53 panel controls (49 without VCO 4)
 | 1b Modulation (blend, pitch, filter) | **base** | with mod (§4) | the destination question (Q5) |
 | 1c Keyboard setup (voices, velocity, touch) | **base** | R5 | which controls R5 covers (Q2a–d) |
 | 2 Oscillator bank | **lid** | R4 | no |
-| 2e Tuning | **lid** | R2 | **yes:** beside oscillator 1, or centred over the speaker (Q1) |
+| 2e Tuning | **lid** | R2 | **yes:** beside oscillator 1, or centred over the speaker (Q1, a layout question after the tree) |
 | 3 Mixer | **base** | R1; under the oscillators (H) | no |
 | 4a Filter, the played four | **base** | play; CUTOFF on the speaker's axis | R4's "filter/envelope … around the speaker" (Q3) |
 | 4b–4c Contours | **lid** | R4; over the filter (H) | which contour takes the top row (Q4) |
@@ -189,7 +189,7 @@ Big Energy: 53 panel controls (49 without VCO 4)
 | S6 | **Glide and MIDI CC 65** (portamento on / off) | not handled | open, only if S1 adds a switch |
 
 ## 8. Owner questions, each with the team's default (answer "yes" to take it)
-1. **Q1 Tuning:** tune · drift **centred over the speaker** as their own pair (P5RS-a), rather than beside oscillator 1's wave (P5RS-b, which leaves a 71.8 mm open space above the speaker)? *Default: yes, centred (a).* Both are drawn so you can choose by eye.
+0. **Q0** Are these the right categories (§2), with each control in the right one (§3)? *Default: yes.*
 2. **Q2a** Release sits beside glide (performance), not with voices · velocity · touch? *Default: yes.*
 3. **Q2b** Glide stays a knob with the performance controls (bend · mod · glide · release)? *Default: yes.*
 4. **Q2c** The mod group (blend · pitch · filter) sits next to the key controls on the base, but as its own group? *Default: yes.*
@@ -204,6 +204,9 @@ Big Energy: 53 panel controls (49 without VCO 4)
 13. **Q10** Aftertouch amounts fixed in firmware, with span / curve as a power-on setting: no amount knob (S3)? *Default: yes.*
 14. **Q11** Volume sets phones, line out and the speaker together (S5)? *Default: yes. Saying no adds a phones level, or fixes line out.*
 15. **Q12** VCO 4: the next layout is drawn with 3 oscillators, and VCO 4 is shown as the option it is? *Default: yes.*
+
+**After the tree is agreed (a layout question):**
+16. **Q1 Tuning:** tune · drift **centred over the speaker** as their own pair (P5RS-a), rather than beside oscillator 1's wave (P5RS-b, which leaves a 71.8 mm open space above the speaker)? *Default: yes, centred (a).* Both are drawn so you can choose by eye.
 
 ## 9. Engineering list (not layout questions)
 - **E1:** phones jack placement: player's side or rear (enclosure).
