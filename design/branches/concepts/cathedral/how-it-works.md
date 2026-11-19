@@ -1590,6 +1590,48 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 - **Closed thickness:** unchanged, 55.2 / 59.7 (RANGE 2 over MOD). The stick lands as before.
 - **Visual:** the field is now wider, by design. It reads as the grille's nave. The "tuning" L-rule needs redrawing on P5RS.
 
+### 31.2 Owner 14:08, director P5RS 8, critic round 7
+**Owner:** "i dont want those two knobs to move". He wanted the keys section on a tighter, proportional grid instead.
+- **Done:** echo and reverb levels are back on the base, over volume / pan.
+- **The lid's effects row** is echo (type · time · free/sync · repeats · pan) | reverb (type · decay), centred, with ends = gutter = 40.9.
+
+**Top-row gap: three options, by the numbers. Pick: (b).**
+
+| | top row | other effects | checker |
+|---|---|---|---|
+| **(a)** drift beside tune (VCO 1 four wide) + filter / amp 20 left | the field is 51.8, centred; ends 22.9 / 42.9 | amp sits **2.9** from the grille; the grille row reads 22.9 / 22.9 / 2.9 / end 42.9 | ✗ grille row (end 42.9) |
+| **(b)** tune · drift as a centred "tuning" pair over the grille (x 133 / 153); VCO 1 = octave · wave, like the Model D's osc 1 | 22.9 \| bank \| **28.45** \| tuning \| **28.45** \| filter \| 22.9. The widest air is 28.45 | none. The bank's column (VCO 1's empty pitch slot) is the left group, so the pair is exactly on the axis | **lid 0** |
+| **(c)** the grille 20 up (critic): centre d 84, spanning d 61–107 | drift has to go back beside tune. The grille's gaps are then 8.4 (drift) / 26.5 (filter attack): unequal, because VCO 1 is a knob wider than the filter. The leftover air is a ≈ 17–19 band, d ≈ 42–61, over the effects | the window is no longer over CUTOFF (the axis since steer 2). The speaker moves 20 toward row 1's pots under the plate: sound path and board need eng (UNVERIFIED) | ✗ grille gaps, plus eng risk |
+
+- **Why (b):** it is the only option at 0 with the top row's air down to 28.45. It honours "tuning" as a named pair.
+- **What (b) doesn't fix:** the small hole on the right of row 3 (between amp and reverb) that the critic noted.
+- **No L-rule.** Drift is in row 1, under the "tuning" heading.
+
+**Base (fix 4): the columns are restored.**
+- The mixer is over the filter: 1 · 2 · 3 at 123 / 143 / 163.
+- Echo / reverb levels are over volume / pan.
+- **Keys + mod over the controllers:** release · voices · velocity · touch | pitch · filter, all at **11.25** (9 × M/4), then blend at +13.75 (11 × M/4). That puts them at x 23.9 / 35.15 / 46.4 / 57.65 / 68.9 / 80.15, with blend at 93.9.
+- **Words:** velocity's and touch's position words stack on two lines ("amp · both" / "filter", "mod · off" / "filter"). That is all 11.25 needs; no words are shortened.
+
+**Why M/4 rather than M/2 or M/3:**
+- The parts set the pitch: two Ø 9.2 nuts + 1.5 = 10.7 minimum.
+  - M/2 → 12.5: the section needs 87.9.
+  - M/3 → 11.67: it needs 83.3, leaving a 13.4 gutter (< 15).
+  - M/4 → 11.25: it needs 81.6, leaving a 15.1 gutter.
+- **Finger clearance holds, narrowly:** 2.05 between nuts. The low slide caps (≈ 4 wide, UNVERIFIED part) are ≈ 7 apart at rest and ≈ 3 at worst, when both are thrown toward each other. A hand test is wanted.
+
+**Checker: 1 violation, and it is structural. GAP base rear: gutters 15.1 vs 28.6.**
+- With the mixer pinned over the filter and the levels pinned over out, the second gutter is fixed at 28.6. Equal gutters would let keys + mod have 69 mm, but six switches + blend need ≥ 81.6 even at the nut limit with the words stacked. **They don't fit with equal gutters; short ≈ 13 mm.**
+- **Ways to 0:**
+  - (i) rule the rear row "pinned on both sides" (as lid row B is by the window), keeping 15.1 / 28.6. **My pick:** exact columns read stronger than equal gutters.
+  - (ii) the mixer 6.75 right, for even gutters of 21.85. Its knobs then sit 6.75 off resonance / CUTOFF / envelope, which looks like a mistake.
+  - (iii) one switch fewer on the base (e.g. pitch / filter as one 3-way, a spec change).
+
+**Closing (critic item 5):**
+- The base switches under the lid's echo row (touch / pitch under echo type, filter under echo time) clear by **5.0 at R-LOW / 9.5 at R-TALL**. This takes the low slides at 6.0 tall (ESTIMATE, UNVERIFIED part), not the critic's estimate of ≈ 3.
+- The binding pairs are unchanged: lid knob over base knob at 2.0 (e.g. VCO 3 pitch over blend, echo repeats over mixer 1).
+- **Closed thickness 55.2 / 59.7**, unchanged. The stick lands as before.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
