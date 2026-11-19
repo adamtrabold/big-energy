@@ -1,6 +1,30 @@
 # Director notes: Little D (budget instrument), physical design
 
-## P5RS after fixes (2026-11-19; f9036a9 / 6fe8a48): READ THIS FIRST
+## Control taxonomy (2026-11-19; c786101 / f46065e): READ THIS FIRST
+- **Owner 14:36 (verbatim):** "yeah this still isnt perfect to me. i think we should go back to the fundamentals and figure out how to make these lay out in a more logical sense. let's start by doing a tree map or something first and just define the categories of controls and what controls belong in those categories before laying anything out."
+- **Score: 8.** Strong as data:
+  - the Model D's 5 sections + Effects + Connections;
+  - every control has a job and a player-terms line;
+  - §4 names the real signal-vs-hands conflicts.
+  - The categories are right. Every panel control sits in one findable branch.
+- **Blocks a 10:**
+  1. **He asked for "a tree map"** and got an ASCII tree in a table-heavy doc. He's a designer, and he said "i dont want a bunch of .md docs, i want this stuff on website". Fix (visual): one treemap graphic on the site page: a box per branch, sized by its control count, tinted by job (set / shape / play / level), with a small lid / base tag. The text stays below as the reference.
+  2. **Controls are mixed with non-controls.** Jacks, speaker, status light, the "• midi" print and the touch sensor inflate it to "66 controls". Fix: count panel controls only (≈ 55 incl. VCO 4). The rest go to a "not on the panel" list.
+  3. **Questions:**
+     - (a) the live one is missing: tuning beside osc 1, or centred over the speaker (P5RS-a / -b);
+     - (b) Q2 can't be answered in a word: split it into yes / no for release, glide, and the mod group;
+     - (c) Q7 and Q9 aren't layout questions: move them to an eng list;
+     - (d) give each question the team's default, so "yes" is an answer;
+     - (e) R7 is vague and unquoted: quote it or drop it.
+
+## P5RS-a / -b (2026-11-19; 7394af9 / 5a4de05)
+- **P5RS-a: 9.** The gaps are even (43.45 / 43.45), but tuning now sits ≈ 5 mm left of the grille's axis, directly over the round window. Owner 16:52, verbatim: "off center in that middle section is bad looking". That's worse than uneven gutters.
+  - Fix: tuning back on the axis, keeping filter / amp +10 → 48.45 / 38.45. That's acceptable: the left group is 2 knobs, and the symmetry about the window reads first.
+- **P5RS-b: 9, ready as the other half of the question.** Tune · drift sit beside wave under "tuning". The 71.8 mm open crown over the grille is exactly what the question asks him to judge.
+- **Base:** blend as the keys | mod break works (one knob, findable). The pinned back-row gutters (15.0 / 28.6) are accepted: they come from the mixer-over-filter / effects-over-out columns. No owner call, no switch removed.
+- **Show both** once -a has tuning back on the axis. "Tuning centred over the speaker (fills the gap above it), or beside VCO 1 (closer, leaves air above the speaker)?"
+
+## P5RS after fixes (2026-11-19; f9036a9 / 6fe8a48)
 - **Owner 14:08 (verbatim):** "when i said to move the keys stuff, i was hoping the grid could be altered in that section along, making the switches a bit tighter / in a proprotional multiple of the grid" / "i dont want those two knobs to move, as your analysis said".
 - **Score: 9 (was 8). The work really changed:**
   - the levels are back on the base, over out;
