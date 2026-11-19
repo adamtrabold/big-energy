@@ -558,7 +558,7 @@ function vDocPage(slug){
   const d = D.docs.find(x => x.slug === slug); if (!d) return vMissing(slug);
   const i = D.docs.indexOf(d), prev = D.docs[i-1], next = D.docs[i+1];
   const arch = d.slug === "architecture";
-  return header(arch ? "architecture" : "features") + `<div class="wrap">${point(arch ? "How the whole instrument fits together: signal paths, control and data, power, budgets, and what's decided or still open." : "One feature set: what it does, your decisions, how it works, and what's still open.")}</div><div class="back wrap">${arch?"<span></span>":'<a href="#features">‹ Features</a>'}<button data-copy="1">copy link</button></div><main class="wrap item">
+  return header(arch ? "architecture" : "features") + `<div class="wrap">${point(arch ? "How the whole instrument fits together: signal paths, control and data, power, budgets, and what's decided or still open." : "One feature set: what it does, your decisions, how it works, and what's still open.")}</div><div class="back wrap">${arch?"<span></span>":'<a href="#features">‹ Features</a>'}<button data-copy="1">copy link</button></div>${d.treemap?`<div class="wrap">${d.treemap}</div>`:""}<main class="wrap item">
     <article class="doc-html" id="doc">${d.stub?`<p><b>Not written yet.</b>${d.covers?` It will cover ${esc(d.covers)}.`:""}</p>`:jumpList(d.jump)+d.html}
       <div class="chips" style="margin-top:28px">${prev?`<a href="#doc-${prev.slug}">‹ ${esc(prev.title)}</a>`:""}${next?`<a href="#doc-${next.slug}">${esc(next.title)} ›</a>`:""}</div></article>
     <div class="aside"><div class="label"><div class="lh"><b>${esc(d.title)}</b></div><div class="lf">doc · ${esc(d.written)}</div>${d.stub?"":counts(d.counts)}</div>${d.stub?"":LEGEND}</div></main>`;

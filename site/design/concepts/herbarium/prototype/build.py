@@ -14,7 +14,9 @@ import numpy as np
 from PIL import Image, ImageChops
 from scipy import ndimage
 from scipy.io import wavfile
-import markdown
+import markdown, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import taxonomy_treemap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "../../../../.."))
@@ -491,8 +493,9 @@ for slug, path in SITE_DOCS:
     cov, written = covers.get(path, ("", ""))
     stub = "not yet written" in t.split("\n", 3)[1] if t.count("\n") > 1 else True
     cnt = {w: len(re.findall(rf'class="st st-{w}"', hh)) for w in ("decided", "proposed", "open")}
+    tm = taxonomy_treemap.build(t) if slug == "control-taxonomy" else ""   # HTML/CSS treemap, from the doc's own tree + table
     docs_site.append({"slug": slug, "path": path, "title": h1(t) or slug, "covers": cov, "written": written or ("not yet written" if stub else "written"),
-                      "stub": stub, "counts": cnt, "html": hh, "jump": [h for h, _ in sections(t) if h][:40], "lead": first_para(t)})
+                      "stub": stub, "counts": cnt, "html": hh, "jump": [h for h, _ in sections(t) if h][:40], "lead": first_para(t), "treemap": tm})
 reviews = []
 for slug, path in REVIEWS:
     t = rd(path)
