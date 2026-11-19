@@ -9,7 +9,7 @@ import re
 
 JOBS = [("set once", "set"), ("shape", "shape"), ("play", "play"), ("level", "level")]   # doc wording -> css key
 JOB_LABEL = {"set": "set once", "shape": "shape", "play": "play", "level": "level / output"}
-ROWS = [["1", "2", "3"], ["4", "5", "6"]]       # Model D order, left to right; two rows on a desktop
+ROWS = [["1", "2"], ["3", "4"], ["5", "6"]]     # Model D order, read row by row; three rows on a desktop
 
 
 def _clean(s):
@@ -112,7 +112,7 @@ def build(md_text):
         name = names.get(code, code)
         st = " ★" if code in star else ""
         tag = " · ".join(halves)
-        return (f'<div class="tm-sub{" tm-sub-opt" if opt else ""}" style="flex-grow:{n}">'
+        return (f'<div class="tm-sub{" tm-sub-opt" if opt else ""}" style="--n:{n}">'
                 f'<div class="tm-hd"><b>{E(code)} {E(name)}{st}</b><span class="tm-n">{cnt}</span><span class="tm-tag tm-{halves[0] if not mixed else "mix"}">{E(tag)}</span></div>'
                 f'<div class="tm-cs">{"".join(chip(c, mixed) for c in items)}</div></div>')
 
@@ -129,7 +129,7 @@ def build(md_text):
                 inner = box(top, subs[top], 1).replace(f"<b>{top} {E(name)}{st}</b>", "<b>controls</b>", 1)
             else:
                 inner = "".join(box(code, items, 2) for code, items in sorted(subs.items()))
-            cells.append(f'<section class="tm-cat" style="flex-grow:{n}"><h3><span>{E(top)} {E(name)}{st}</span><span class="tm-n">{n}</span></h3>'
+            cells.append(f'<section class="tm-cat" style="--n:{n}"><h3><span>{E(top)} {E(name)}{st}</span><span class="tm-n">{n}</span></h3>'
                          f'<div class="tm-subs">{inner}</div></section>')
         rows_html.append(f'<div class="tm-row" style="--rn:{row_n}">{"".join(cells)}</div>')
     legend = "".join(f'<span class="tm-c tm-{k}">{E(v)}</span>' for k, v in JOB_LABEL.items())
@@ -138,16 +138,16 @@ def build(md_text):
 .tm{{--tm-set:#E4E4E4;--tm-shape:#BFCDD6;--tm-play:#E9A55B;--tm-level:#A9C2A4;margin:6px 0 26px}}
 .tm-legend{{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:8px 0 12px;font-size:12.5px;color:var(--ink2)}}
 .tm-rows{{display:flex;flex-direction:column;gap:6px}}
-.tm-row{{display:flex;gap:6px;min-height:calc(var(--rn) * 11.5px)}}
-.tm-cat{{flex-basis:0;min-width:0;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:8px}}
+.tm-row{{display:flex;gap:6px;height:calc(var(--rn) * 12px)}}
+.tm-cat{{flex:var(--n) 1 0;min-width:0;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:7px}}
 .tm-cat h3{{display:flex;justify-content:space-between;gap:8px;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase}}
-.tm-subs{{flex:1;display:flex;flex-direction:column;gap:5px}}
-.tm-sub{{flex-basis:auto;flex-shrink:0;display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:4px;padding:5px 6px;background:var(--cell)}}
+.tm-subs{{flex:1;display:flex;gap:5px;min-height:0}}
+.tm-sub{{flex:var(--n) 1 0;min-width:0;display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:4px;padding:5px 6px;background:var(--cell);overflow:hidden}}
 .tm-sub-opt{{border-style:dashed;background:transparent}}
-.tm-hd{{display:flex;align-items:baseline;gap:6px;font-size:12.5px;margin-bottom:4px}}
+.tm-hd{{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;font-size:12.5px;margin-bottom:5px}}
 .tm-hd b{{font-weight:600}}
 .tm-n{{color:var(--ink2);font-size:11.5px;font-variant-numeric:tabular-nums}}
-.tm-tag{{margin-left:auto;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--rule);border-radius:9px;padding:0 6px;white-space:nowrap}}
+.tm-tag{{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--rule);border-radius:9px;padding:0 6px;white-space:nowrap}}
 .tm-tag.tm-base{{color:var(--ink);border-color:var(--ink2)}}
 .tm-cs{{display:flex;flex-wrap:wrap;gap:4px}}
 .tm-c{{font-size:12.5px;line-height:1.2;padding:3px 7px;border-radius:3px;background:var(--tm-set);color:var(--ink);white-space:nowrap}}
@@ -156,10 +156,10 @@ def build(md_text):
 .tm-c.tm-opt{{background:transparent;outline:1.3px dashed var(--ink2);outline-offset:-1.3px}}
 .tm-h{{font-style:normal;font-size:10px;color:var(--ink2);margin-left:5px;letter-spacing:.04em}}
 .tm-note{{font-size:12.5px;color:var(--ink2);margin-top:8px}}
-@media (max-width:760px){{.tm-row{{flex-direction:column;min-height:0}}.tm-cat{{flex-grow:0!important}}.tm-sub{{min-height:0;flex-grow:0!important}}}}
+@media (max-width:760px){{.tm-row{{flex-direction:column;height:auto}}.tm-cat{{flex:none}}.tm-subs{{flex-direction:column}}.tm-sub{{flex:none}}}}
 </style>
 <figure class="tm" aria-label="Treemap of the {total} panel controls by category">
 <div class="tm-legend"><b style="color:var(--ink)">Job</b>{legend}</div>
 <div class="tm-rows">{"".join(rows_html)}</div>
-<figcaption class="tm-note">{total} panel controls ({total - opt} without the optional VCO 4), in the Model D's left-to-right order. Each box is sized by its number of controls; each control is coloured by its job (a second job as the stripe at its right); each box is tagged with the half it sits on today (P5RS), and a box spanning both halves names each control's half. ★ = an addition to the Model D. Generated from the table below.</figcaption>
+<figcaption class="tm-note">{total} panel controls ({total - opt} without the optional VCO 4), in the Model D's left-to-right order. On a wide screen every box's area is proportional to its number of controls (rows by height, categories and their parts by width); on a phone the boxes stack in order. Each control is coloured by its job (a second job as the stripe at its right); each box is tagged with the half it sits on today (P5RS), and a box spanning both halves names each control's half. ★ = an addition to the Model D. Generated from the table below.</figcaption>
 </figure>'''
