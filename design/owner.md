@@ -299,3 +299,4 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-19 14:08
 > re: the echo and reverb levels moving.. when i said to move the keys stuff, i was hoping the grid could be altered in that section along, making the switches a bit tighter / in a proprotional multiple of the grid.
+> i dont want those two knobs to move, as your analysis said
