@@ -1765,7 +1765,7 @@ def nv_hair(lc):
     P5OB-D "tuning" rule (c9a4255, §28): tune sits on row 1 and drift in VCO 2's 4th slot, so one engraved rule, an L,
     runs on from the "tuning" sub-heading over tune to drift's column and drops to just above drift's word."""
     out = list(getattr(lc, "HAIR", []))
-    if getattr(lc, "VARIANT", "") == "P5OBD":
+    if getattr(lc, "VARIANT", "") in ("P5OBD", "P5RS"):   # P5RS since 80c575c (drift in VCO 2's 4th column)
         X = {n: (x, d, r) for n, x, d, r, k, lab, w in lc.lid}
         if "TUNE" in X and "DRIFT" in X:
             sub = [(t, x, d) for t, x, d in getattr(lc, "SUBHEADS", []) if t == "tuning"]
