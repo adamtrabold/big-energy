@@ -557,3 +557,9 @@ Source: `/home/claude/model-d/eng/round4-answers.md`. Files: common rev 6.1, one
 - **Closed thickness:** 55.2 / 59.7 at every ratio.
 - **Already true:** P5R's face is 9 : 4 (≈ √5). P5OB-D is ≈ 2 : 1. An exact 2 : 1 is the case at D 143 or the face at D 147.3 (+2.3, no re-layout).
 - Proportion is your call. Send W × D candidates and I'll run them through the checker.
+
+## 2026-11-19: to visual (afc8a34 folded, §32.6)
+- **Free/sync:** one label line, the positions "free · sync" with no name (vocabulary.md: "time, positions free · sync"). In `layout_check.py` it's `"|free · sync"` (an empty name). rb should print only the position line above the switch.
+- **Folded:** your heading / sub / cutoff fits, T2's echo group −5, and the fraction-safe stacking.
+- **The base back row is 1M back (y 98) in T1 / T3 / T4.** With your +0.3, the front headings sat 1.25 from it at y 96.
+- **Checker:** T2 0, T4 3 / T1 4 / T3 3, all gap rule only.

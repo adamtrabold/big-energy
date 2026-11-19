@@ -1885,6 +1885,19 @@ The lid's oscillator rows are tied to the speaker window (d = D − 68), so they
 - T2: 55.2 with the stick lowered (58.8 full).
 - All 59.7 at R-TALL.
 
+### 32.6 Visual afc8a34 folded; the free/sync label
+- **Folded:**
+  - T2's whole echo group 5 down;
+  - lid heading fits (filter +0.7, echo / reverb +0.65, oscillators +0.45);
+  - base headings +0.3, sub-headings and hairlines +0.6, "cutoff" +0.5;
+  - stacked position words split only on a "/" that isn't a fraction (track's "off · 1/2 · full").
+- **The base back row is now 5 back** (y 98) in T1 / T3 / T4. At 3 back, the +0.3 base headings sat 1.25 from the back row's knobs.
+- **Free/sync printed "sync" over "free · sync".** It now gets one line, its positions **"free · sync"**, no name. This is vocabulary.md's own entry ("time, positions free · sync"): the switch belongs to echo's time, and its heading and neighbour say "echo · time". The checker's box is one line.
+- **Checker:**
+  - T2: 0 (+ row 1 accepted).
+  - T4: 3, T1: 4, T3: 3, all gap rule, no text clashes.
+- **Closing:** unchanged (T4 55.2 at full stick; T2 55.2 lowered / 58.8 full).
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

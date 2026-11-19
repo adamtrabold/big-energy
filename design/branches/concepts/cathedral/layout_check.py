@@ -10,7 +10,7 @@ clears it by >= 2.0 in z; legends (estimated Kalam metrics: width 0.50 x size pe
 from controls and other legends, >= 1.0 from the window. CATHEDRAL today: lid face closed z 37.6 (closed 52.7 incl.
 pegs, lid +2.6). Distances d are from the hinge; d grows towards the lid's far edge, which reads as the TOP of the
 panel both lying flat behind the base and standing (§17.2)."""
-import math, itertools, os, sys
+import math, itertools, os, re, sys
 KN, TGL, CUT, STK, TAPR = 7.45, 4.6, 10.4, 6.0, 6.0
 D = 108.0
 A, A2, B, B2, C = 84.55, 70.0, 49.5, 35.0, 14.45   # band rows: A knobs, A' switches, B knobs, B' switches, C knobs
@@ -391,9 +391,10 @@ elif VARIANT in ("T2", "T4"):
     # player), over the echo / reverb levels; echo type · pan the row above; reverb top right (T4: row 1; T2: row 2,
     # under amp). Every effects row is a lid row (no floating reverb). H: echo over 219–259 covers the echo level
     # (239.25); reverb at 239.25 / 259.25 stands over its level (259.25)
-    L("ECHO TIME", RC[0], R4, "k", "time", "behind"); L("ECHO REPEATS", RC[1], R4, "k", "repeats", "behind")
-    L("FREE/SYNC", RC[2], R4, "t", "sync|free · sync", "above2")
-    L("ECHO TYPE", RC[0], R3, "k", "type", "behind"); L("ECHO PAN", RC[1], R3, "k", "pan", "behind")
+    EDN = 0.0 if T4L else 5.0                                        # visual afc8a34: T2's whole echo group 1M down
+    L("ECHO TIME", RC[0], R4 - EDN, "k", "time", "behind"); L("ECHO REPEATS", RC[1], R4 - EDN, "k", "repeats", "behind")
+    L("FREE/SYNC", RC[2], R4 - EDN, "t", "|free · sync", "above2")
+    L("ECHO TYPE", RC[0], R3 - EDN, "k", "type", "behind"); L("ECHO PAN", RC[1], R3 - EDN, "k", "pan", "behind")
     RV = R1 if T4L else R2 - 5.0                                    # T2: 1M under row 2 so its heading clears amp (words above)
     L("REVERB TYPE", RC[1], RV, "k", "type", "behind"); L("REVERB DECAY", RC[2], RV, "k", "decay", "behind")
     ECD = R3
@@ -466,7 +467,7 @@ elif TAX:
     for n, x, lab in [("ECHO TYPE", EC, "type"), ("ECHO TIME", EC + 20, "time"), ("ECHO REPEATS", EC + 55, "repeats"),
                       ("ECHO PAN", EC + 75, "pan")]:
         L(n, x, R2, "k", lab, "behind")
-    L("FREE/SYNC", EC + 40, R2, "t", "sync|free · sync", "above2")
+    L("FREE/SYNC", EC + 40, R2, "t", "|free · sync", "above2")
     RV = R2 - 35.0
     L("REVERB TYPE", RC[1], RV, "k", "type", "behind"); L("REVERB DECAY", RC[2], RV, "k", "decay", "behind")
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
@@ -766,7 +767,7 @@ if TAX:
                      ("base rear", 93, ([CTLG, MIXG] if T4B else [MIXG, CTLG]) + [["ECHO MIX", "REVERB MIX"]])]
 
 if TAX:
-    RYD = float(os.environ.get("T2_RYD", "10" if D > 140 else "3")) if VARIANT == "T2" else 3.0   # §32.5: words above -> rear row ≥ 3 back   # §32.2: the back row (and the cells under it) move back
+    RYD = float(os.environ.get("T2_RYD", "10" if D > 140 else "5")) if VARIANT == "T2" else 5.0   # §32.5/6: words above -> rear row 1M back   # §32.2: the back row (and the cells under it) move back
     if RYD:
         BASE5 = [(n, x, (y + RYD if y == 93 else y), r, h) for n, x, y, r, h in BASE5]
         BASE_SECTIONS = [(t, x, (y + RYD if y > 100 else y)) for t, x, y in BASE_SECTIONS]
@@ -785,7 +786,7 @@ def base_labels(bs):
         if n in BASE_TOGGLES:
             nm, pos = BASE_TOGGLES[n].split("|")
             if rear:
-                pl = pos.split("/")                                      # "/" stacks the position words (§31.2)
+                pl = re.split(r"(?<![0-9])/(?![0-9])", pos)              # "/" stacks the position words (§31.2), never a fraction (1/2)
                 hn, hp = 0.85 * SW_LS, 0.85 * NS * len(pl) + 0.5 * (len(pl) - 1)
                 w = max(len(nm) * 0.5 * SW_LS, *[len(q) * 0.5 * NS for q in pl]); bot = y + TGL + 2.35
                 labs.append((n, (x - w / 2, bot, x + w / 2, bot + hp + 0.9 + hn)))
@@ -793,7 +794,7 @@ def base_labels(bs):
                 labs.append((n, legend2(x, y, nm, pos, "below2")))
             continue
         t = BASE_LEGEND[n]; w, hh = len(t) * 0.5 * LS, 0.85 * LS
-        cy = ({"BEND stick": y + 11.5, "CUTOFF": y + CUT + 3.5, "TAP": y + TAPR + 3.5} if TAX else
+        cy = ({"BEND stick": y + 11.5, "CUTOFF": y + CUT + 4.0, "TAP": y + TAPR + 3.5} if TAX else
               {"BEND stick": y - 11.5, "CUTOFF": y - CUT - 3.5, "TAP": y - TAPR - 3.5}).get(n, y + 10.95 if rear else y - 10.95)
         labs.append((n, (x - w / 2, cy - hh / 2, x + w / 2, cy + hh / 2)))
     return labs
@@ -886,6 +887,9 @@ def legend2(x, d, nm, pos, where="right2"):
     under the toggle (base), name line first. Returns the block's box."""
     hn, hp = 0.85 * SW_LS, 0.85 * NS
     w = max(len(nm) * 0.5 * SW_LS, len(pos) * 0.5 * NS)
+    if where == "above2" and not nm:                                # positions only, one line (FREE/SYNC: no name, §32.6)
+        bot = d + TGL + 2.35
+        return (x - w / 2, bot, x + w / 2, bot + hp)
     if where == "right2":                                           # real-Kalam leading (visual): d + 1.1 / d - 1.25
         return (x + 6.2, d - TS_LEAD[1] - hp / 2, x + 6.2 + w, d + TS_LEAD[0] + hn / 2)
     if where == "above2":                                           # name over positions ABOVE the switch (base rear-row style)
@@ -949,7 +953,8 @@ if TAX:
                "filter": ["F ATTACK", "F DECAY", "F SUSTAIN"], "echo": ["ECHO TYPE", "ECHO PAN"] if VARIANT in ("T2", "T4") else ["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"],
                "reverb": ["REVERB TYPE", "REVERB DECAY"]}
     if VARIANT == "T3": HEAD_OF["oscillators"] = ["RANGE 1", "WAVE 1"]
-    SECTIONS_LEFT = [(t, x, _tops(HEAD_OF[t]) + 1.5 + 0.425 * HS) for t, x, d in SECTIONS_LEFT]
+    HEAD_FIT = {"filter": 0.7, "echo": 0.65, "reverb": 0.65, "oscillators": 0.45}   # visual afc8a34 real-Kalam fits
+    SECTIONS_LEFT = [(t, x, _tops(HEAD_OF[t]) + 1.5 + 0.425 * HS + HEAD_FIT.get(t, 0.0)) for t, x, d in SECTIONS_LEFT]
     top1 = max(d for t, x, d in SECTIONS_LEFT if t in ("oscillators", "amp", "filter", "tuning", "reverb", "echo") and d > R1)
     SECTIONS_LEFT = [(t, x, top1 if d > R1 else d) for t, x, d in SECTIONS_LEFT]   # one heading line along the top
     SECTIONS = [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
@@ -970,7 +975,9 @@ if TAX:
     _rear = max(_btop(BASE_HEAD_OF[t]) for t in ("mixer", "effects")) + 1.5 + 0.425 * 3.0
     _subs = max(_btop(["MOD MIX", "PITCH MOD", "FILTER MOD", "PARA", "VEL", "AFTERTOUCH"]), 0) + 1.5 + 0.425 * 2.0
     _rear = max(_rear, _subs)
-    BASE_SECTIONS = [(t, x, _front if y < 90 else _rear) for t, x, y in BASE_SECTIONS]
+    _subs += 0.6                                                      # visual afc8a34: sub-headings (+ hairlines) +0.6
+    _rear = max(_rear + 0.3, _subs + 0.425 * (3.0 - 2.0))
+    BASE_SECTIONS = [(t, x, (_front + 0.3) if y < 90 else _rear) for t, x, y in BASE_SECTIONS]   # base headings +0.3
     BASE_SUBS = [(t, x, _subs) for t, x, y in BASE_SUBS]
     BASE_HAIR = [(n, x0, _subs - 0.2, x1, _subs + 0.2) for n, x0, y0, x1, y1 in BASE_HAIR]
 
