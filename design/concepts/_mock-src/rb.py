@@ -2192,7 +2192,7 @@ class Nave(Cathedral):
                 s += txt(x, top - hn - 0.9 - hp / 2, z, pos, lc.NS, ink, font=st.font)
                 continue
             if n == "BEND stick":
-                if getattr(lc, "VARIANT", "") in P5O_FAMILY:   # steer 5: P5O's octave 2 lands 1.6 from it closed, so it's
+                if getattr(lc, "VARIANT", "") in P5O_FAMILY + ("T2", "T4"):   # steer 5: P5O's octave 2 (and T2 / T4, 8dfdbf0) lands 1.6 from it closed, so it's
                     s += stick_low(x, y, z, ink)          #   lowered to 9.0 (systems §19.4) for R-LOW's 55.2
                 else:
                     s += joystick(x, y, z, ink)  # steer 4 (systems §18.3): nothing on the lid lands over it now, so no lowering
@@ -2317,6 +2317,8 @@ def jobs(SZ):
         **{f"rb_s11_P5RS{v}_top": (lambda v=v: (lambda n: top4(n.model(True), f"rb_s11_P5RS{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(nave_env("P5RS", CATHEDRAL_RS_TUNING=v))) for v in "ab"},
         **{f"rb_s11_P5RS{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_s11_P5RS{v}_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_s11_P5RS{v}_stand.png")))(nave_env("P5RS", CATHEDRAL_RS_TUNING=v))) for v in "ab"},
         **{f"rb_s12_{v}_top": (lambda v=v: (lambda n: (top_tall if n.D > 140 else top4)(n.model(True), f"rb_s12_{v}_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96 if n.D > 140 else 8, grain_classes=()))(Nave(lid=v, spine="dark"))) for v in ("T1", "T2", "T3")},
+        "rb_s13_T4_top": lambda: (lambda n: top4(n.model(True), "rb_s13_T4_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="T4", spine="dark")),
+        "rb_s13_T4_stand": lambda: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), "rb_s13_T4_stand", size=SZ, az=-32, el=24, dist=860, center=(143, n.D * 0.6, 58), grain_classes=(), wood=True) and relight(os.path.join(OUT, "rb_s13_T4_stand.png")))(Nave(lid="T4", spine="dark")),
         **{f"rb_s12_{v}_stand": (lambda v=v: (lambda n: shot4(n.model("stand"), fp_rect(0, 0, W, n.D + 64), f"rb_s12_{v}_stand", size=SZ, az=-32, el=24, dist=860 if n.D < 140 else 900, center=(143, n.D * 0.6, 58 if n.D < 140 else 62), grain_classes=(), wood=True) and relight(os.path.join(OUT, f"rb_s12_{v}_stand.png")))(Nave(lid=v, spine="dark"))) for v in ("T1", "T2", "T3")},
         "rb_s8_P5OBD_top": lambda: (lambda n: top_tall(n.model(True), "rb_s8_P5OBD_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=9.96, grain_classes=()))(nave_env("P5OBD", CATHEDRAL_D="145", CATHEDRAL_VCO4="1")),
         "rb_s7_P5OB_top": lambda: (lambda n: top4(n.model(True), "rb_s7_P5OB_top", -2, -2, W + 2, 2 * n.D + 4, px_per_mm=8, grain_classes=()))(Nave(lid="P5OB", spine="dark")),
