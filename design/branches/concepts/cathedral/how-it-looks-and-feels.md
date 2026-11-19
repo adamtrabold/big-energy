@@ -83,7 +83,7 @@ Owner, 16:19: "yes these categories look correct. *now* let's try and lay these 
 
 <figure>
 <img src="img/cathedral-s14-T4S-top-9.9px-per-mm.png" alt="Exact top view of T4-sig open flat: as T4, but the right column runs echo type and pan on row 2, echo time, repeats and free · sync on row 3, and reverb type and decay directly under on row 4, at the same columns; the top row is open to the right of amp.">
-<figcaption><b>T4-sig</b> (b2783bc, §32.7): T4 with only its right column changed. Echo over reverb on shared columns (type · pan; time · repeats · free · sync; reverb type · decay under them), so the played echo controls are nearest the player and reverb lines up under echo. The top row is open right of amp. 5 gaps, kept. The stick is full height (T4's bank closes over it since 4b1c3ee; the s13 T4 renders still show it lowered). Real Kalam 0.</figcaption>
+<figcaption><b>T4-sig</b> (b2783bc, §32.7): T4 with only its right column changed. Echo over reverb on shared columns (type · pan; time · repeats · free · sync; reverb type · decay under them), so the played echo controls are nearest the player and reverb lines up under echo. The top row is open right of amp. 5 gaps, kept. The stick is full height, as in T4 (its bank closes over it since 4b1c3ee). Real Kalam 0.</figcaption>
 </figure>
 <figure><img src="img/cathedral-s14-T4S-standing.jpg" alt="T4-sig standing at 120 degrees."><figcaption>T4-sig, standing.</figcaption></figure>
 
