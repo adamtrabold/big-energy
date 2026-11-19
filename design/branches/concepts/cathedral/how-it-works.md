@@ -1766,6 +1766,50 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 
 **Closing (both):** 55.2 at R-LOW with the stick lowered to 9.0; 58.8 with the stick at full height; 59.7 at R-TALL. The binding pair is RANGE 2 over the stick.
 
+### 32.2 T2: the spare depth spread (director: the ≈ 11.5 mm above the 135.75 minimum collected as dead bands)
+The lid's oscillator rows are tied to the speaker window (d = D − 68), so they can't move up. The spare goes down, and into the base's row spacing. Both moves are whole M:
+- **Lid:** the bottom group (osc 4 · filter contour, and reverb) drops **10**.
+  - Row 3 → row 4 is 35 (was 25); echo → reverb is 45 (was 35).
+  - Content margins: top **3.7**, bottom **5.6** (were 3.7 / 15.6, about 4×).
+- **Base:** the back row (and the cells and Daisy under it) moves back **10**.
+  - The front → back rows are 68 / 103 (spacing 35, was 25). Cells at y 110–136 (eng: re-check the pot bodies vs the cells; there's 2 mm).
+  - The band above the mixer goes from 29.6 to **19.6**.
+- **Checker (147.3):** 1 violation, row 4's gutters (41.35 / 61.35, pinned as before). Row 1's gutters are listed as accepted by ruling.
+- **Closing:** 55.2 with the stick lowered to 9.0, 58.8 at full height, 59.7 at R-TALL. Stand 6.7 N with today's stays, 9.3 N scaled.
+- **The 135.75 variant** (if the double-square ratio is dropped; nothing to spread):
+  - lid content margins 3.7 / 4.0;
+  - base band above the mixer 18.0;
+  - the same 1 violation, the same closing;
+  - stand 6.9 / 8.9 N;
+  - face 277.4 × 127.15.
+- Positions are on M = 5. The face module (A, 4.954) is the one re-grid step left.
+
+### 32.3 T4 to 10 (critic round 11) and the critic's four-oscillator claim, tested
+**T4, 3 oscillators at 132:**
+- **The bank moves 20 right** (columns 46.75 / 66.75 / 86.75 / 106.75). The closed stick lands in the numbers' margin, **8.0 clear**: it **closes at 55.2 with the stick at full height** (59.7 at R-TALL). The binding pair is a lid knob over a base knob (RANGE 2 over MOD), not the stick.
+- **Tuning goes under the bank, not in VCO 1's row.** With the bank 20 right, VCO 1's 3rd / 4th columns (86.75 / 106.75) end at 114.2, 1.35 from amp's attack (amp is centred over the grille). Row 1 can't hold it.
+  - Under the bank it's made to read as its own group, not a 4th oscillator:
+    - legends **in front** of the knobs (the bank's are behind);
+    - its own "**tuning**" sub-heading with an engraved rule over tune · drift;
+    - **no numeral** in the margin.
+  - That answers the director's concern as far as print can; visual should judge it by eye.
+- **Row 1 is now even: 41.35 / 41.35** (osc 1 | amp | echo).
+- **Corners:**
+  - Under VCO 3 is filled (tuning).
+  - Reverb moves up to 35 under echo (d 44, as P5OB-D), which halves the hole right of the speaker.
+  - What's left is the open plate between the speaker and echo / reverb (≈ 50 × 30) and the bottom row right of the filter contour (above it sit reverb's legends).
+- **Checker: 4, all gap rule, no clashes:**
+  - row 4 right of the filter contour;
+  - base back-row gutters 18.9 / 30.9 (column-locked: the critic's "row 1 lines up with row 2", not ruled);
+  - the grille gaps 27.8 / 47.3;
+  - row 3 right of the speaker.
+
+**T4-4 (critic: "mixer 1 over resonance frees room"): tested, doesn't fit.**
+- **The left does fit:** mixer 1 at 123 leaves mod + keys a gutter of 18.9 / 19.15.
+- **The right doesn't:** mixer 1–4 · extra · source run to x 221.35, and the levels over volume / pan start at 232.25. The gutter is **10.9 < 15**, short 4.1.
+- **The lid has no tuning place either:** VCO 4 takes row 4 under the bank, and VCO 1's row is blocked by the centred amp (above).
+- So the four-oscillator candidate stays **T2**. T4-4 would need the levels off out, or a narrower mixer (e.g. extra / source moved). Both are owner-level changes.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?

@@ -349,7 +349,12 @@ elif VARIANT in ("T2", "T4"):
     T4L = VARIANT == "T4"
     sh = D - 132.0
     R1, R2, R3, R4 = 104.0 + sh, 79.0 + sh, 54.0 + sh, 29.0 + sh
-    OX = (26.75, 46.75, 66.75, 86.75)
+    # §32.2: above the 135.75 minimum, T2's spare depth is spread instead of collecting at the bottom: the bottom group
+    # (osc 4 · filter contour, and reverb) drops DROP, and the base's back row moves back RYD (both whole M)
+    DROP = float(os.environ.get("T2_DROP", "10" if (VARIANT == "T2" and D > 140) else "0"))
+    R4 -= DROP
+    OX = (46.75, 66.75, 86.75, 106.75) if T4L else (26.75, 46.75, 66.75, 86.75)   # T4 (critic r11): 20 right, the
+                                                                    #   closed stick lands in the numbers' margin at full height
     RC = (219.25, 239.25, 259.25)
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"),
                          ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
@@ -366,7 +371,9 @@ elif VARIANT in ("T2", "T4"):
         # tuning in VCO 1's empty pitch slot + its 4th column, under a "tuning" sub-heading (not a row of its own,
         # which reads as a 4th oscillator, director); amp across the top centre over the grille; filter contour in the
         # bottom row over CUTOFF; echo top right in two rows; reverb bottom right
-        L("TUNE", OX[2], R1, "k", "tune", "behind"); L("DRIFT", OX[3], R1, "k", "drift", "behind")
+        # tuning under the bank, made a different group: legends in front (the bank's are behind), its own
+        # "tuning" sub-heading and rule, and no numeral in the margin (§32.3)
+        L("TUNE", OX[0], R4, "k", "tune", "front"); L("DRIFT", OX[1], R4, "k", "drift", "front")
         AMPD, ECD = R1, R1
     else:
         L("TUNE", WIN[0] - 10, R1, "k", "tune", "behind"); L("DRIFT", WIN[0] + 10, R1, "k", "drift", "behind")
@@ -379,7 +386,7 @@ elif VARIANT in ("T2", "T4"):
     L("ECHO TYPE", RC[0], ECD, "k", "type", "front"); L("ECHO TIME", RC[1], ECD, "k", "time", "front")
     L("FREE/SYNC", RC[2], ECD, "t", "free · sync", "under")
     L("ECHO REPEATS", RC[0], ECD - 25, "k", "repeats", "front"); L("ECHO PAN", RC[1], ECD - 25, "k", "pan", "front")
-    RV = R4 if T4L else ECD - 25 - 35.0                             # T2: 7M under repeats · pan (legend -> heading ≥ 1M, as P5OB-D)
+    RV = (ECD - 25 - 35.0) if T4L else ECD - 25 - 35.0 - DROP       # 7M under repeats · pan (legend -> heading ≥ 1M), T2 + DROP
     L("REVERB TYPE", RC[1], RV, "k", "type", "front"); L("REVERB DECAY", RC[2], RV, "k", "decay", "front")
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     over = lambda d: d + KN + 1.7 + 1.5 + 0.425 * HS
@@ -387,7 +394,9 @@ elif VARIANT in ("T2", "T4"):
                       ("echo", RC[0] - KN, HTOP if ECD == R1 else over(ECD)), ("reverb", RC[1] - KN, over(RV)),
                       ("filter", 123.0 - KN, over(R4))]
     if T4L:
-        SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
+        TSUB = R4 + KN + 1.7 + 1.5 + 0.425 * SUB_S
+        SUBHEADS += [("tuning", OX[0] - KN + len("tuning") * 0.25 * SUB_S, TSUB)]
+        HAIR.append(("tuning rule", OX[0] - KN + len("tuning") * 0.5 * SUB_S + 1.5, TSUB - 0.2, OX[1] + KN, TSUB + 0.2))
     else:
         SECTIONS_LEFT += [("tuning", WIN[0] - 10 - KN, HTOP)]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
@@ -397,10 +406,10 @@ elif VARIANT in ("T2", "T4"):
     FX, FX_BREAKS, SWL = ECD, [], R4
     e_a = ["ECHO TYPE", "ECHO TIME", "FREE/SYNC"]; e_b = ["ECHO REPEATS", "ECHO PAN"]
     if T4L:
-        GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"], e_a]),
+        GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["L ATTACK", "L DECAY", "L SUSTAIN"], e_a]),
                     ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", e_b]),
                     ("lid R3", R3, [["RANGE 3", "WAVE 3", "FREQ 3", "OSC 3 CTL"], "WIN"]),
-                    ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else []) + [["F ATTACK", "F DECAY", "F SUSTAIN"], ["REVERB TYPE", "REVERB DECAY"]])]
+                    ("lid R4", R4, ([["RANGE 4", "WAVE 4", "FREQ 4"]] if VCO4 else [["TUNE", "DRIFT"]]) + [["F ATTACK", "F DECAY", "F SUSTAIN"]])]
     else:
         GAP_ROWS = [("lid R1", R1, [["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"], ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
                     ("lid R2", R2, [["RANGE 2", "WAVE 2", "FREQ 2"], "WIN", e_a]),
@@ -712,7 +721,7 @@ if TAX:
     LVX = (RC[1], RC[2])
     T4B = VARIANT == "T4"
     if T4B:
-        MX = (TRX if VCO4 else RESX)                                 # T4: the mixer back over the filter row it feeds
+        MX = RESX                                                    # T4: mixer 1 over resonance (critic r11: also with 4 VCOs)
         BLX = ML + BK                                                # mod (blend · pitch · filter) over bend · mod
     else:
         MX = OX[0]                                                   # mixer 1 · 2 (· 3 · 4) · extra on the bank's columns
@@ -745,6 +754,17 @@ if TAX:
     BASE_GAP_ROWS = [("base front", 68, [["BEND stick", "MOD", "GLIDE", "RELEASE"], ["KBD CTRL", "EMPHASIS", "CUTOFF", "CONTOUR AMT"],
                                          ["TAP"], ["FOLLOW", "VOLUME", "DRY PAN"]]),
                      ("base rear", 93, ([CTLG, MIXG] if T4B else [MIXG, CTLG]) + [["ECHO MIX", "REVERB MIX"]])]
+
+if VARIANT == "T2":
+    RYD = float(os.environ.get("T2_RYD", "10" if D > 140 else "0"))   # §32.2: the back row (and the cells under it) move back
+    if RYD:
+        BASE5 = [(n, x, (y + RYD if y == 93 else y), r, h) for n, x, y, r, h in BASE5]
+        BASE_SECTIONS = [(t, x, (y + RYD if y > 100 else y)) for t, x, y in BASE_SECTIONS]
+        BASE_SUBS = [(t, x, y + RYD) for t, x, y in BASE_SUBS]
+        BASE_HAIR = [(n, x0, y0 + RYD, x1, y1 + RYD) for n, x0, y0, x1, y1 in BASE_HAIR]
+        BASE_GAP_ROWS = [(r, (d + RYD if d == 93 else d), g) for r, d, g in BASE_GAP_ROWS]
+        BATTERY = (BATTERY[0], BATTERY[1] + RYD, BATTERY[2], BATTERY[3] + RYD)
+        DAISY = (DAISY[0], DAISY[1] + RYD, DAISY[2], DAISY[3] + RYD)
 
 def base_labels(bs):
     """every base legend as rb draws it (visual rev 8): front row in front of the knob / under the switch; rear row
