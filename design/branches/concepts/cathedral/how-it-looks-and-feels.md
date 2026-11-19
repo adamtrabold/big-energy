@@ -47,11 +47,12 @@ The critic found three heading styles and words above some knobs and below other
 | **Label side** | **Every control's word sits above it**, the Model D's own convention. Read down a group: heading → word → control. A position or names line (octave's, the types', time's) sits **above its word**. A switch's name and positions sit **above the switch**. No exceptions for top rows, bottom rows, or type knobs. |
 
 - **Applied in `rb.py`** (`TYPE_HEAD`, `TYPE_SUB`, `LABEL_SIDE`, `tax()`), for the TAX layouts only. P5R, P5RS and older records keep the style they were rendered in.
-- **For systems (needed before the re-render):** on today's T geometry, flipping the words above puts 14–18 clashes into each layout. Every heading now has to clear its own words, not sit just over the knobs:
-  - lid headings ≥ 1.5 over the top of their row's words, and over a names line where there is one (echo, reverb);
-  - the base front headings (filter, controllers, tempo, out at y 78) collide with the front row's words (word centre y + 10.95). They need ≈ y 82.8, which puts them 2.2 under the rear row's tick rings, so the rear row should go back about 3;
-  - the filter contour's words meet the window in T4 (decay −1.7), so the row has to come down about 3.
-  - The checker's `tbox` "behind" offset is already the above position: r + 3.5 + BEHIND_EXTRA, plus TGL + 2.35 for switches (above2).
+- **Applied, systems c0e7eec (§32.5):** the words-above rule is in the checker; base headings at y 85.7, the rear row at y 96, T4's bottom row 5 down. **T2 and T4 re-rendered under it.** Real Kalam 0, the director's tests 0.
+- **Visual fits for systems to fold** (`TAX_HEAD_FIT`, `TAX_MOVE`, `TAX_BASE_*` in rb.py):
+  - lid headings "filter" +0.7, "echo" / "reverb" +0.65, "oscillators" +0.45 (each sat 0.8–1.1 from its own words or names line);
+  - base headings +0.3; base sub-headings and their hairlines +0.6; "cutoff" +0.5 over its 12 o'clock tick;
+  - **T2: the whole echo group drops 5 (one M, so the rows stay on the module).** Echo pan's word met reverb type's knob (real −0.70, the checker's −0.40). Reverb can't rise: its heading would meet amp's decay.
+  - stacked positions split only on a "/" that isn't a fraction (base track's "off · 1/2 · full" was being stacked).
 
 ### T1 · T2 · T3: laid fresh from the approved taxonomy (systems §32, 8aa5e58)
 Owner, 16:19: "yes these categories look correct. *now* let's try and lay these out". Each layout keeps its checker gaps visible on purpose, for judging. All three use the marking system and the MIDI key. Real Kalam 0 and the director's tests 0 (visual fit: T3 "tuning" +0.6, 0.90 over tune's top tick).
@@ -80,7 +81,7 @@ Owner, 16:19: "yes these categories look correct. *now* let's try and lay these 
 </figure>
 <figure><img src="img/cathedral-s13-T4-standing.jpg" alt="T4 standing at 120 degrees."><figcaption>T4, standing.</figcaption></figure>
 
-- **T4, by eye:** the most resolved. The two contours frame the speaker, and the effects stack at the right like the oscillators at the left. **Does tuning read as a 4th oscillator row? No, with one caveat.** It has no numeral, its own sub-heading and rule, words below the knobs (every oscillator row's are above), only two knobs, and a wider gap above it than between the oscillator rows. The caveat: tune and drift sit exactly in the octave / wave columns, so at a glance the column pull is there. If he reads it as VCO 4, shift the pair half a column right (10 mm) to break the column. Visual fits: "tuning" +0.6 (0.90 over tune's top tick), and the rule starts 1.5 after the real word (the checker's estimate ran it through "tuning"). Real Kalam 0, the director's tests 0.
+- **T4, by eye (c0e7eec):** the most resolved. **Tuning doesn't read as a 4th oscillator row.** It has no numeral, a sub-heading with its hairline (the one sub-heading style, the same as mod and keys), only two knobs, and a 30 mm gap above it against 25 between the oscillator rows. The column pull (tune and drift sit in the octave / wave columns) is still there, but the sub-heading breaks it. Leave it. Note for systems: T2 / T4's free · sync switch prints "sync" over "free · sync", the word twice. "free · sync" alone (one line, no name) would be the one-word rule.
 - **By eye:** T3 reads most like a synth's top row (both contours together, the Model D's own pairing), but it leaves the window's lower field empty. T1 / T2 put the filter contour under the window, nearest the base's filter group (rule H), at the cost of splitting the two contours. T2 is T1 with the fourth oscillator. Its deeper face carries the extra row without crowding.
 
 ### P5RS-a and P5RS-b (systems §31.3, 7394af9): his choice by eye

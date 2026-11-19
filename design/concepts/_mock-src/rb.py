@@ -6,7 +6,7 @@ reuses the v1.1 models in r5.py / r4.py unchanged (the board is the constant; on
 Run: python3 rb.py [--test] [job ...]   Outputs out/rb_*.png.  Cards (phone-first): cards_rb.py.
 Coordinates as r5: origin front-left outer corner, x right, y away from the player, z up. mm.
 """
-import math, os, sys, random
+import math, os, re, sys, random
 import ld, r4, r5
 from ld import box, cyl, txt, c, toggle, led, ticks
 from r4 import rrect2d, ext, knob_black, pg_layers, halo, shot4, top4, MAPLE, MAPLE_DK, WAL_P, WAL_R, FO_INK, K_RED, Style
@@ -1723,6 +1723,9 @@ def nv_overrides(lc):
         # (rev 9 real-Kalam heading fits now live in layout_check.py, d56403f)
         secs = list(lc.SECTIONS)
         lid = list(lc.lid)
+        mv = TAX_MOVE.get(getattr(lc, "VARIANT", ""), {})
+        if mv:
+            lid = [(n, x + mv.get(n, (0, 0))[0], d + mv.get(n, (0, 0))[1], r, k, lab, w) for n, x, d, r, k, lab, w in lid]
         if getattr(lc, "VARIANT", "") == "P5R" and getattr(lc, "KEYS_LINE", False):
             # P5R fallback (keys on the switch line, d 89): the pair 0.6 higher; real Kalam put velocity's positions
             # 0.91 under amp sustain's legend (for systems to fold)
@@ -1740,6 +1743,15 @@ def nv_fit_sections(lc, sections):
 LEGEND_FIT = {}   # (echo "time" +0.5 is the checker's LEGEND_NUDGE since 33229cd; read below)
 P5R_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8), "keys": (0.0, 0.6), "oscillators": (0.0, 0.6)}   # e38e035 real Kalam: filter / amp 0.83 / 0.79 over "attack"; keys 0.94 over "voices"; 3fa4e78: oscillators 0.93 over the "1"
 TUNING_RULE_GAP = 1.5   # the rule starts 1.5 after "tuning"
+# c0e7eec (words above), real-Kalam fits for systems to fold: lid headings clear their words / names lines by 1.5
+_TAXF = {"filter": (0.0, 0.7), "echo": (0.0, 0.65), "reverb": (0.0, 0.65), "oscillators": (0.0, 0.45)}
+TAX_HEAD_FIT = {"T1": _TAXF, "T2": dict(_TAXF, echo=(0.0, 0.65 - 5.0)), "T3": _TAXF, "T4": _TAXF}
+TAX_MOVE = {"T2": {n_: (0.0, -5.0) for n_ in ("ECHO TYPE", "ECHO PAN", "ECHO TIME", "ECHO REPEATS", "FREE/SYNC")}}
+           # T2: echo pan's word met reverb type (real −0.70). The whole echo group drops 5 (one M, so rows stay on the module) into the slack above the
+           # bottom margin (reverb can't rise: its heading would meet amp); systems to fold
+TAX_BASE_HEAD = 0.3      # base headings +0.3 ("effects" 1.27 over "echo")
+TAX_BASE_SUB = 0.6       # base sub-headings +0.6 ("mod" 0.96 over "blend"); hairlines ride with them
+TAX_CUTOFF_WORD = 0.5    # "cutoff" +0.5 above its 12 o'clock tick (0.58)
 P5OBD_HEAD_FIT = {"keys": (0.0, 0.35)}   # 7973b7a: "keys" sits 4.07 under reverb's names line (rule 5); lowering it meets "voices" first: ~3.8 mm short, systems
 P5O_HEAD_FIT = {"filter": (0.0, 0.8), "amp": (0.0, 0.8)}   # 74ef961 studies: the old reverb fit is dropped (that heading moved); filter / amp +0.8 clear their attack knobs' top ticks (real 0.24 / 0.28). Was {"reverb": (-3.8, 1.55)}   # 33229cd: "reverb" over decay again: +1.55 clears decay's top tick (real 0.00); -3.8 hangs it into the gutter exactly like "out", so it sits >= 20 from the type fan (systems' zone rule)
 def nv_heads_left(lc, sections):
@@ -1752,7 +1764,8 @@ def nv_heads_left(lc, sections):
     if getattr(lc, "SECTIONS_LEFT", None):
         hf = P5O_HEAD_FIT if getattr(lc, "VARIANT", "") in P5O_FAMILY else \
              (P5R_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5R" else
-              (P5OBD_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5OBD" else {}))   # (e38e035: P5R is top-left too)
+              (P5OBD_HEAD_FIT if getattr(lc, "VARIANT", "") == "P5OBD" else
+               TAX_HEAD_FIT.get(getattr(lc, "VARIANT", ""), {})))   # (e38e035: P5R is top-left too)
         heads = [(t, x + hf.get(t, (0, 0))[0], d + hf.get(t, (0, 0))[1]) for t, x, d in lc.SECTIONS_LEFT]
         return heads, [(t, x - len(t) * 0.25 * lc.SUB_S, d) for t, x, d in nv_fit_subheads(lc)], "left"
     # 049e51e real Kalam: P5R row-C headings +1.5 ("keys" sat 0.09 over "velocity"); "filter" / "amp" +1.2 (0.38 / 0.42
@@ -2180,12 +2193,14 @@ class Nave(Cathedral):
     def base_names(self):
         secs = self.base_sections() if hasattr(self, "base_sections") else getattr(self.lc, "BASE_SECTIONS", [])
         hs_ = TYPE_HEAD if tax(self.lc) else 2.4
-        s = "".join(txt(x, y, BASE_H + 0.01, t, hs_, FO_INK, font=HAND, halign="left") for t, x, y in secs)
+        dh = TAX_BASE_HEAD if tax(self.lc) else 0.0
+        s = "".join(txt(x, y + dh, BASE_H + 0.01, t, hs_, FO_INK, font=HAND, halign="left") for t, x, y in secs)
         # e38e035: base sub-headings ("mod" over pitch · filter · blend), left-aligned, Kalam 1.8
         ss_ = TYPE_SUB if tax(self.lc) else 1.8
-        s += "".join(txt(x, y, BASE_H + 0.01, t, ss_, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
+        dsb = TAX_BASE_SUB if tax(self.lc) else 0.0
+        s += "".join(txt(x, y + dsb, BASE_H + 0.01, t, ss_, FO_INK, font=HAND, halign="left") for t, x, y in getattr(self.lc, "BASE_SUBS", []))
         for nm_, x0, y0, x1, y1 in getattr(self.lc, "BASE_HAIR", []):   # round 8: "mod" runs on as a hairline over blend
-            s += box(x0, y0, BASE_H + 0.02, x1, y1, BASE_H + 0.05, self.rule_col())
+            s += box(x0, y0 + dsb, BASE_H + 0.02, x1, y1 + dsb, BASE_H + 0.05, self.rule_col())
         return s
 
     def base_extra(self, walnut):
@@ -2203,7 +2218,7 @@ class Nave(Cathedral):
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
                 if self.rear(y) or tax(lc):                 # rear row (TAX: every row): name over positions, ABOVE
                     bot = y + lc.TGL + 2.35
-                    pl = pos.split("/")                     # §31.2: "/" stacks position words, first line on top
+                    pl = re.split(r"(?<!\d)/(?!\d)", pos)   # §31.2: "/" stacks position words (not a fraction's "1/2")
                     yy = bot
                     for q in reversed(pl):
                         s += txt(x, yy + hp / 2, z, q.strip(), lc.NS, ink, font=st.font)
@@ -2225,7 +2240,7 @@ class Nave(Cathedral):
                 s += item5("CUTOFF", " " if tax(lc) else "CUTOFF", x, y, "h", not self._sq(), z, copy_style(st, ticks=False), "proof", None, True, 143)
                 if self._sq():                           # the marking system: CUTOFF's ring like every other knob's
                     s += mark(x, y, z, st.hero_r, "CUTOFF", ink)
-                    cy_ = y + st.hero_r + st.lab_gap + 0.6 if tax(lc) else y - st.hero_r - st.lab_gap - 0.6
+                    cy_ = y + st.hero_r + st.lab_gap + 0.6 + TAX_CUTOFF_WORD if tax(lc) else y - st.hero_r - st.lab_gap - 0.6
                     if tax(lc):                          # TAX: the word above (item5 drew none)
                         s += txt(x, cy_, z, "cutoff", st.lsize, ink, font=st.font)
                     s += midi_dot(x, cy_, z, "cutoff", st.lsize, ink)
