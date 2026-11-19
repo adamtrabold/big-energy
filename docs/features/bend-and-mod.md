@@ -1,13 +1,13 @@
 # Bend and mod
-Status: per item below · last updated 2026-11-13 · sources: [owner.md](../../design/owner.md), [eng/budget-variant.md](../../eng/budget-variant.md) §v1.5, [eng/daisy-first-principles.md](../../eng/daisy-first-principles.md) §0, §4.3, [eng/architecture.md](../../eng/architecture.md) §1.8, [cathedral §18](../../design/branches/concepts/cathedral/how-it-works.md) (base row)
+Status: per item below · last updated 2026-11-19 · sources: [owner.md](../../design/owner.md), [eng/budget-variant.md](../../eng/budget-variant.md) §v1.5, [eng/daisy-first-principles.md](../../eng/daisy-first-principles.md) §0, §4.3, [eng/architecture.md](../../eng/architecture.md) §1.8, [cathedral §18](../../design/branches/concepts/cathedral/how-it-works.md) (base row)
 
-Panel words follow the one-word vocabulary. The base's **controllers** group reads **bend · mod · blend · glide**. The **mod** switches sit with the oscillators and with the filter.
+Panel words follow the one-word vocabulary. On the base, **performance** reads **bend · mod · glide** (with release), and the **mod** group reads **blend · pitch · filter**. The two destination switches sit **with mod**, not at the oscillators and the filter: one "where does the wobble go" group ([control taxonomy](../control-taxonomy.md) §4, which supersedes the earlier "on oscillators and filter" placement).
 
 ## What it does (player's view)
 - **bend:** a small joystick at the left end of the played row. Push it up or down and the pitch bends. Let go and it springs back to centre.
 - **mod:** a knob that stays where you leave it. It sets how much modulation reaches the oscillators and the filter, like the Model D's mod wheel.
 - **blend:** what the modulation is, from **oscillator 3** (a smooth wobble or FM) to **noise** (random).
-- **Where it goes:** the oscillators' **mod** switch sends it to pitch (vibrato), the filter's **mod** switch sends it to the cutoff (wah). With both off, mod does nothing.
+- **Where it goes:** in the mod group, the **pitch** switch sends it to the oscillators (vibrato) and the **filter** switch sends it to the cutoff (wah). With both off, mod does nothing.
 - **Pressing into a held key** can add to mod (touch: mod), see [aftertouch](aftertouch.md).
 
 ## Owner decisions (verbatim, linked to owner.md)
@@ -21,8 +21,8 @@ Panel words follow the one-word vocabulary. The base's **controllers** group rea
 bend stick (one axis, sprung) ─► mux ─► Daisy ─► added to every VCO's pitch sum ─► coarse + fine DACs
 mod knob ─► mux ─► Daisy ─► Seed DAC1_OUT2 (or the 5th MCP4822, PARA+4 option A) ─► AS3360 mod VCA
 osc 3 ─┐                                                                                    │ depth
-noise ─┴─► blend (analog pot) ─────────────────────────────────────────────────────────────► AS3360 ─┬─► oscillators' mod switch ─► VCO mod bus
-                                                                                                      └─► filter's mod switch ─► cutoff node (33 k)
+noise ─┴─► blend (analog pot) ─────────────────────────────────────────────────────────────► AS3360 ─┬─► pitch switch (mod group) ─► VCO mod bus
+                                                                                                      └─► filter switch (mod group) ─► cutoff node (33 k)
 ```
 - **Bend is digital:** the stick's position is read through the mux and added to each VCO's pitch value before the DACs (budget-variant §v1.5). Spring-to-centre is mechanical. Firmware takes a small dead zone at centre so "let go" is exactly in tune.
 - **The stick:** an Adafruit #2765 mini two-axis thumbstick ($2.50), with **one axis used**, gated to one axis by a slot in the plate (budget-variant §v1.5, "pick for cost"). A true single-axis lever pot costs ≈ $229, so it was rejected.
@@ -36,8 +36,8 @@ noise ─┴─► blend (analog pot) ──────────────
 | **bend** (stick) | down ↔ centre ↔ up, sprung | **± 2 semitones** (proposed: matches the MIDI pitch-bend default; the range is open) |
 | **mod** (knob) | 0 → full depth | stays put; MIDI CC 1 with jump-on-move |
 | **blend** (MOD MIX) | osc 3 ↔ noise | analog pot |
-| oscillators' **mod** | off · on | on: the mod bends all three VCOs |
-| filter **mod** (base) | off · on | on: the mod moves the cutoff |
+| **pitch** (mod group) | off · on | on: the mod bends all three VCOs |
+| **filter** (mod group) | off · on | on: the mod moves the cutoff |
 | **glide** | 0 → long | firmware, saturating curve like the original (eng §1.8) |
 
 ## Edge cases
@@ -71,5 +71,5 @@ noise ─┴─► blend (analog pot) ──────────────
 | Bend = one-axis sprung joystick, up and down; reads as a joystick | decided |
 | Mod = a control that stays put; depth MIDI-controllable with jump-on-move | decided |
 | #2765 stick slot-gated to one axis; AS3360 mod VCA; feedthrough null | proposed (eng) |
-| Panel words bend · mod · blend · glide; mod switches on oscillators and filter | proposed (director's vocabulary) |
+| Panel words bend · mod · glide; mod group blend · pitch · filter, the destination switches with mod (taxonomy §4; supersedes "on oscillators and filter") | proposed |
 | Bend range ± 2 semitones | open |

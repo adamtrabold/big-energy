@@ -11,7 +11,7 @@ Owner (2026-11-13 16:21, `../design/owner.md`): "we need on that site architectu
 ## Index
 | Doc | What it covers | Status |
 |---|---|---|
-| [control-taxonomy.md](control-taxonomy.md) | every control, its job, the category tree (from the Model D's sections), which half each category belongs on, owner questions | **proposed 2026-11-19** |
+| [control-taxonomy.md](control-taxonomy.md) | the 53 panel controls (49 without VCO 4), their jobs, the category tree from the Model D's sections, which half each category belongs on, what's not on the panel, spec gaps, owner questions with defaults | **proposed 2026-11-19** (rev. 2) |
 | [architecture.md](architecture.md) | system overview, signal paths, control/data flow, power, budgets, decisions log, open items | started 2026-11-13 |
 | [features/voice.md](features/voice.md) | 3 VCOs, mixer, ladder filter, contours, VCA, SOURCE, filter TRACK | **written 2026-11-13** |
 | [features/keys-and-velocity.md](features/keys-and-velocity.md) | 25 Choc V2 keys, Hall sensing, velocity, key tops / pegs | **written 2026-11-13** |
