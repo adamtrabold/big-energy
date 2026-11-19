@@ -64,7 +64,7 @@ Owner, 16:19: "yes these categories look correct. *now* let's try and lay these 
 </figure>
 <figure>
 <img src="img/cathedral-s12-T2-top-9.9px-per-mm.png" alt="Exact top view of T2 open flat at D 147.3: four oscillators stacked at the lid's left, tuning over the window, amp top right, echo and reverb on the right, filter envelope under the window; the base with the mixer 1 to 4.">
-<figcaption><b>T2</b> (343c4d4): 4 oscillators, double-square face, D 147.3. The four oscillator rows are all 25 apart; the spare depth goes round the filter contour and reverb. The oscillators are on the margin with the mixer exactly under them; echo in two rows. 1 gap. The stick is lowered to 9.0.</figcaption>
+<figcaption><b>T2</b> (b2783bc): 4 oscillators, double-square face, D 147.3. The four oscillator rows are all 25 apart; the right column is echo over reverb, one module below the grid. The oscillators are on the margin with the mixer exactly under them; echo in two rows. 1 gap. The stick is lowered to 9.0.</figcaption>
 </figure>
 <figure>
 <img src="img/cathedral-s12-T3-top-9.9px-per-mm.png" alt="Exact top view of T3 open flat: three oscillators stacked at the lid's left with tuning under them, the filter contour and amp sharing the top row, echo and reverb on the right, and an open area under the window.">
@@ -80,6 +80,12 @@ Owner, 16:19: "yes these categories look correct. *now* let's try and lay these 
 <figcaption><b>T4</b> (4b1c3ee): 3 oscillators, √5, D 132. The bank sits 20 mm in, so the stick closes at full height. Tune · drift form their own group under the bank ("tuning" sub-heading and rule, words below the knobs, no numeral). Amp is over the window, the filter contour under it over CUTOFF; echo top right, reverb 35 under it. On the base, mod sits over bend · mod with keys beside it, and the mixer over the filter. 4 gaps, kept.</figcaption>
 </figure>
 <figure><img src="img/cathedral-s13-T4-standing.jpg" alt="T4 standing at 120 degrees."><figcaption>T4, standing.</figcaption></figure>
+
+<figure>
+<img src="img/cathedral-s14-T4S-top-9.9px-per-mm.png" alt="Exact top view of T4-sig open flat: as T4, but the right column runs echo type and pan on row 2, echo time, repeats and free · sync on row 3, and reverb type and decay directly under on row 4, at the same columns; the top row is open to the right of amp.">
+<figcaption><b>T4-sig</b> (b2783bc, §32.7): T4 with only its right column changed. Echo over reverb on shared columns (type · pan; time · repeats · free · sync; reverb type · decay under them), so the played echo controls are nearest the player and reverb lines up under echo. The top row is open right of amp. 5 gaps, kept. The stick is full height (T4's bank closes over it since 4b1c3ee; the s13 T4 renders still show it lowered). Real Kalam 0.</figcaption>
+</figure>
+<figure><img src="img/cathedral-s14-T4S-standing.jpg" alt="T4-sig standing at 120 degrees."><figcaption>T4-sig, standing.</figcaption></figure>
 
 - **T4, by eye (c0e7eec):** the most resolved. **Tuning doesn't read as a 4th oscillator row.** It has no numeral, a sub-heading with its hairline (the one sub-heading style, the same as mod and keys), only two knobs, and a 30 mm gap above it against 25 between the oscillator rows. The column pull (tune and drift sit in the octave / wave columns) is still there, but the sub-heading breaks it. Leave it. Since 3e29130 the free · sync switch prints "free · sync" alone, my fits are folded into the checker, and the base's rear row sits 1M further back.
 - **By eye:** T3 reads most like a synth's top row (both contours together, the Model D's own pairing), but it leaves the window's lower field empty. T1 / T2 put the filter contour under the window, nearest the base's filter group (rule H), at the cost of splitting the two contours. T2 is T1 with the fourth oscillator. Its deeper face carries the extra row without crowding.
