@@ -1806,6 +1806,7 @@ def nv_notes(lc):
 NV_KEYS_COLUMN = True
 NV_UNDER_GAP = 2.0        # "free · sync" under its toggle: at 1.75 real Kalam sat 1.27 from the nut
 ABOVE2_BOT, ABOVE2_LEAD = 1.9, 1.2   # lid "above2" (P5R keys): tighter, so row C's one heading line clears both the keys' words and the window
+STACK_LEAD = 1.2         # stacked position lines (§31.2), the checker's gap
 BELOW2_LEAD = 1.25        # its leading: at 0.9 (the base's) "velocity" sat 0.01 over "amp · both · filter" (y descender over b / f / l)
 BELOW2_TOP = 2.25         # "below2" two-line legends (base front row, P5O keys): block top TGL + 2.25 under the switch (real Kalam ascent)
 TS_LEAD = (1.2, 1.3)     # two-line toggle legend: name centre d + 1.2, positions centre d - 1.3 (real Kalam leading;
@@ -2176,8 +2177,13 @@ class Nave(Cathedral):
                 hn, hp = 0.85 * lc.SW_LS, 0.85 * lc.NS
                 if self.rear(y):                            # rear row: name over positions, ABOVE the toggle
                     bot = y + lc.TGL + 2.35
-                    s += txt(x, bot + hp / 2, z, pos, lc.NS, ink, font=st.font)
-                    s += txt(x, bot + hp + (BELOW2_LEAD if self._sq() else 0.9) + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
+                    pl = pos.split("/")                     # §31.2: "/" stacks position words, first line on top
+                    yy = bot
+                    for q in reversed(pl):
+                        s += txt(x, yy + hp / 2, z, q.strip(), lc.NS, ink, font=st.font)
+                        yy += hp + STACK_LEAD
+                    yy -= STACK_LEAD
+                    s += txt(x, yy + (BELOW2_LEAD if self._sq() else 0.9) + hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
                     continue
                 top = y - lc.TGL - 2.25                     # 2.25 / 0.9: real Kalam's ascent
                 s += txt(x, top - hn / 2, z, nm, lc.SW_LS, ink, font=st.font)
