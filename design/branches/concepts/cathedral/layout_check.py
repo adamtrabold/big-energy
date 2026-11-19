@@ -29,7 +29,9 @@ NS = 1.3                          # note / position-word size (Kalam), the small
 UD_GAP = 1.75                     # up / down toggle words: 1.75 from the toggle, at LS x 0.72 = 1.69 (visual)
 BESIDE_GAP = {"FOLLOW": 6.4}      # beside words' offset from the toggle centre (default 6.2)
 BEHIND_EXTRA = 1.0                                 # behind-legends sit 1.0 further back (clear of the knobs' top ticks)
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5RS", "P5OA", "P5OL", "P5OB", "P5OBD") else os.environ.get("CATHEDRAL_LID", "P5O"))
+VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("P", "S", "P5O", "P5R", "P5RS", "P5RSA", "P5RSB", "P5OA", "P5OL", "P5OB", "P5OBD") else os.environ.get("CATHEDRAL_LID", "P5O"))
+RS_TUNING = {"P5RSA": "a", "P5RSB": "b"}.get(VARIANT, os.environ.get("CATHEDRAL_RS_TUNING", "a"))   # P5RS-a / -b (§31.3)
+if VARIANT in ("P5RSA", "P5RSB"): VARIANT = "P5RS"
 # steer 5 (2026-11-13 evening): both halves 132 deep (D), a two-row base, two lid options:
 #   P5O  the owner's lid direction (20:43): oscillators stacked on the left, filter round the window, amp along the top
 #   P5R  the director's rule laid in rows: oscillators ‖ tuning on top, envelopes round the window, effects below
@@ -284,10 +286,13 @@ elif VARIANT == "P5RS":
     gB = (120.0 - ML - (2 * KN + 40)) / 2                           # 22.9: margin = OSC -> window = window -> amp = end
     C1 = ML + gB + KN; OX = (C1, C1 + 20, C1 + 40, C1 + 60)         # 49.65: the bank's edge 4.45 clear of the closed stick
     AXS = 286.0 - C1 - 40                                           # amp (and the filter over it): 196.35
+    # §31.3 (director / critic 9, fix 1): in -a, filter / amp 10 right and the tuning pair 5 left of the axis, so the
+    # gaps VCO 1 -> tuning -> filter are equal (2t + s = 20 is the only way: VCO 1 reads two knobs, the filter three)
+    if RS_TUNING == "a": AXS += 10.0
     # director P5RS 8, fix 3(b): tune · drift a "tuning" pair centred in the crown over the grille (x 133 / 153); VCO 1
     # reads octave · wave, as the Model D's oscillator 1. Row 1's left group is the bank's column (its pitch slot is
     # VCO 1's empty one), so the gutters each side of the pair are equal (28.45)
-    TUX = WIN[0] - 10.0
+    TUX = WIN[0] - 15.0 if RS_TUNING == "a" else OX[2]               # -b: tune · drift in VCO 1's row, beside wave
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", TUX, R1, "tune"),
                          ("DRIFT", TUX + 20, R1, "drift"),
                          ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
@@ -313,14 +318,17 @@ elif VARIANT == "P5RS":
     HTOP = R1 + KN + 3.5 + BEHIND_EXTRA + 2.0 + 1.5 + 0.425 * HS + 2.0
     HB = B5 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * HS + 0.8
     H4 = R4 + KN + 1.7 + 1.5 + 0.425 * HS
-    SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP), ("tuning", TUX - KN, HTOP), ("filter", AXS - KN, HTOP), ("amp", AXS - KN, HB),
+    if RS_TUNING == "b":
+        SUBHEADS += [("tuning", OX[2] - KN + len("tuning") * 0.25 * SUB_S, R1 + KN + 3.5 + BEHIND_EXTRA + 1.0 + 1.5 + 0.425 * SUB_S * 2)]
+    SECTIONS_LEFT += [("oscillators", OX[0] - KN, HTOP)] + ([("tuning", TUX - KN, HTOP)] if RS_TUNING == "a" else []) + [("filter", AXS - KN, HTOP), ("amp", AXS - KN, HB),
                       ("echo", EC - KN, H4), ("reverb", RVC - KN, H4)]
     SECTIONS += [(t, x + len(t) * 0.25 * HS, d) for t, x, d in SECTIONS_LEFT]
     KEYS_LINE = False
     MIDI_KEY = ("• midi", MR, HTOP, NS)
     NOTES.append((MIDI_KEY[0], MIDI_KEY[1], MIDI_KEY[2], MIDI_KEY[3], "right"))
     FX, FX_BREAKS, SWL = R4, [], R4
-    GAP_ROWS = [("lid R1", R1, ["OSC", ["TUNE", "DRIFT"], ["F ATTACK", "F DECAY", "F SUSTAIN"]]),
+    GAP_ROWS = [("lid R1", R1, ([["RANGE 1", "WAVE 1"], ["TUNE", "DRIFT"]] if RS_TUNING == "a" else [["RANGE 1", "WAVE 1", "TUNE", "DRIFT"]])
+                               + [["F ATTACK", "F DECAY", "F SUSTAIN"]]),
                 ("lid B", B5, ["OSC", "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
                 ("lid R4", R4, [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"],
                                 ["REVERB TYPE", "REVERB DECAY"]])]
@@ -533,8 +541,11 @@ if VARIANT == "P5RS":
     # switch -> blend 13.75 = 11 × M/4). Velocity / touch position words stack on two lines so 11.25 holds.
     SUBM = M / 4
     RLX = ML + TGL
-    KS = [RLX + 9 * SUBM * i for i in range(6)]                     # release · voices · velocity · touch · pitch · filter
-    BLX = KS[5] + 11 * SUBM
+    # §31.3 (critic 9, fix 2): blend moves between the two switch groups, so a knob is the findable break: keys
+    # (release · voices · velocity · touch) | mod (blend · pitch · filter: source, then destinations)
+    KS = [RLX + 9 * SUBM * i for i in range(4)]                     # release · voices · velocity · touch
+    BLX = KS[3] + 11 * SUBM
+    KS += [BLX + 11 * SUBM, BLX + 11 * SUBM + 9 * SUBM]             # pitch · filter
     BASE5 = [b for b in BASE5 if b[0] not in ("RELEASE", "PITCH MOD", "FILTER MOD", "MOD MIX")]
     BASE5 += [("RELEASE", KS[0], 93, TGL, "l"), ("PARA", KS[1], 93, TGL, "l"), ("VEL", KS[2], 93, TGL, "l"),
               ("AFTERTOUCH", KS[3], 93, TGL, "l"), ("PITCH MOD", KS[4], 93, TGL, "l"), ("FILTER MOD", KS[5], 93, TGL, "l"),
@@ -543,9 +554,9 @@ if VARIANT == "P5RS":
                          "AFTERTOUCH": "touch|mod · off/filter"})
     BASE_SECTIONS = [("controllers", RLX - TGL, 112.4), ("mixer", MX - BK, 112.4), ("effects", EX - BK, 112.4),
                      ("filter", FL, 78.0), ("out", LKX6 - TGL, 78.0), ("tempo", TAPX - TAPR, 78.0)]
-    BASE_SUBS = [("keys", RLX - TGL, 108.5), ("mod", KS[4] - TGL, 108.5)]
+    BASE_SUBS = [("keys", RLX - TGL, 108.5), ("mod", BLX - BK, 108.5)]
     BASE_HAIR = [("keys hairline", RLX - TGL + len("keys") * 0.5 * 1.8 + 1.5, 108.3, KS[3] + len("mod · off") * 0.5 * NS / 2, 108.7),
-                 ("mod hairline", KS[4] - TGL + len("mod") * 0.5 * 1.8 + 1.5, 108.3, BLX + BK, 108.7)]
+                 ("mod hairline", BLX - BK + len("mod") * 0.5 * 1.8 + 1.5, 108.3, KS[5] + TGL, 108.7)]
 
 def base_labels(bs):
     """every base legend as rb draws it (visual rev 8): front row in front of the knob / under the switch; rear row

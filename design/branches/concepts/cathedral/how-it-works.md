@@ -1632,6 +1632,29 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 - The binding pairs are unchanged: lid knob over base knob at 2.0 (e.g. VCO 3 pitch over blend, echo repeats over mixer 1).
 - **Closed thickness 55.2 / 59.7**, unchanged. The stick lands as before.
 
+### 31.3 Director 9 / critic 9: last fixes, and P5RS-a vs P5RS-b for the owner (`layout_check.py P5RSA` / `P5RSB`)
+**1. Even top-row gaps in -a.**
+- Moving filter / amp 10 right alone gives 48.45 / 38.45, still uneven. VCO 1 reads two knobs and the filter three, so evening them needs 2t + s = 20 (t = the pair left, s = the filter right).
+- **Taken:** s = 10, t = 5. The tuning pair sits at 128 / 148, 5 left of the grille's axis. Filter / amp sit at 206.35 / 226.35 / 246.35.
+- **Top row:** 22.9 | VCO 1 | **43.45** | tuning | **43.45** | filter | 12.9.
+- **Grille row:** 22.9 | bank | 22.9 | grille | 32.9 | amp | 12.9. Amp has more air from the grille; its right end is 10 tighter than the left.
+
+**2. A findable break between keys and mod.**
+- A 6 mm *gap* can't be had. The back row already lacks ≈ 13 mm for equal gutters (§31.2), and a gap makes that 19. So "slide right to equal gutters" would put release at x ≈ 4, past the margin, not behind bend.
+- **Fix instead: blend moves between the groups,** so a knob is the break: keys release · voices · velocity · touch | mod **blend** · pitch · filter (source, then destinations).
+- Touch → pitch is now 27.5 apart with a knob between: findable by finger, no extra width.
+- **Positions:** 23.9 / 35.15 / 46.4 / 57.65 | 71.4 | 85.15 / 96.4. Switch pitch 11.25 (9 × M/4); switch ↔ blend 13.75 (11 × M/4). 12.5 doesn't fit.
+- **Still 1 violation:** back-row gutters 15.0 / 28.6 (pinned columns, §31.2 (i)). Release stays at 23.9, 7.85 left of bend.
+
+**3. The owner chooses by eye.**
+- **P5RS-a:** a tuning pair over the speaker, gaps as in 1.
+- **P5RS-b:** tune · drift in VCO 1's row beside wave, under a "tuning" sub-heading (VCO 1 = octave · wave · tune · drift).
+- **What -b does above the speaker:** row 1's open field returns to **71.8 wide** (x 117.1–188.9). It runs 25.9 left of the axis and 45.9 right, so it sits ≈ 10 right of the grille's centre. Ends 22.9 / 22.9. Filter / amp stay at 196.35 and the grille row is 22.9 × 4.
+
+**Checker:**
+- **-a:** 1. **-b:** 1. In both it's the base back-row gutters; the lid is 0 in both.
+- **Closing:** both 55.2 / 59.7, unchanged (RANGE 2 over MOD). Base switches under lid knobs clear by **5.0** at R-LOW (echo type over touch, echo time over pitch / filter). Knob over knob is 2.0 (echo type over blend). The stick lands as before.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
