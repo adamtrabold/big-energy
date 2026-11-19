@@ -291,3 +291,8 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 
 ## 2026-11-14 12:12
 > Re the case dimensions is there a more pleasing and harmonious case ratio for the concept? Have the team look
+
+## 2026-11-19 13:53
+> what about a version with changes like this?
+
+(Screenshot: design/owner-refs/2026-11-19-1353-P5R-markup.png, a markup of P5R with ratio A. Blue box "Stack" round VCO 2 and VCO 3 (and track), with an arrow to the filter-envelope position. Red box round the filter envelope, with an arrow to the top right where VCO 2/3 sit. Orange box round echo + reverb: "center?". Magenta box round keys (voices, velocity, touch), with an arrow to the base: "will probably need to be a tighter proportional grid for these if all the key controls are in one area?")
