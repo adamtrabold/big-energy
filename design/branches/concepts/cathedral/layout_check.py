@@ -51,6 +51,7 @@ GHOST = []     # P5O without VCO 4: the slot's knob outlines (light ink), checke
 NAME_BOX = None  # owner 2026-11-14: "it doesn't need to say big energy": no name on any panel
 HAIR = []      # engraved hairlines checked as obstacles: (name, x0, d0, x1, d1)
 BELOW2_LEAD, BELOW2_TOP = 1.25, 2.25   # under-switch legends (visual rev 9): line gap, block top under the nut
+ACCEPTED = []  # director rulings: violation prefixes reported apart, not hidden (§31.4)
 RESERVED = []  # (row, x0, x1): a slot kept for VCO 4, drawn blank; the gap rule counts it as a group
 
 lid = []      # name, x, d, r, kind ('k' knob / 't' toggle), legend, legend placement
@@ -292,7 +293,7 @@ elif VARIANT == "P5RS":
     # director P5RS 8, fix 3(b): tune · drift a "tuning" pair centred in the crown over the grille (x 133 / 153); VCO 1
     # reads octave · wave, as the Model D's oscillator 1. Row 1's left group is the bank's column (its pitch slot is
     # VCO 1's empty one), so the gutters each side of the pair are equal (28.45)
-    TUX = WIN[0] - 15.0 if RS_TUNING == "a" else OX[2]               # -b: tune · drift in VCO 1's row, beside wave
+    TUX = WIN[0] - 10.0 if RS_TUNING == "a" else OX[2]               # director: the pair stays on the speaker's centre               # -b: tune · drift in VCO 1's row, beside wave
     for n, x, d, lab in [("RANGE 1", OX[0], R1, "octave"), ("WAVE 1", OX[1], R1, "wave"), ("TUNE", TUX, R1, "tune"),
                          ("DRIFT", TUX + 20, R1, "drift"),
                          ("RANGE 2", OX[0], R2, "octave"), ("WAVE 2", OX[1], R2, "wave"), ("FREQ 2", OX[2], R2, "pitch"),
@@ -332,6 +333,7 @@ elif VARIANT == "P5RS":
                 ("lid B", B5, ["OSC", "WIN", ["L ATTACK", "L DECAY", "L SUSTAIN"]]),
                 ("lid R4", R4, [["ECHO TYPE", "ECHO TIME", "FREE/SYNC", "ECHO REPEATS", "ECHO PAN"],
                                 ["REVERB TYPE", "REVERB DECAY"]])]
+    ACCEPTED = ["GAP base rear: gutters unequal"] + (["GAP lid R1: gutters unequal"] if RS_TUNING == "a" else [])   # director 2026-11-19 (§31.4)
     GAP_REF = {"lid B": "lid R4"}
     GAP_REF_TOL = 5.0              # row B's gaps are fixed at 22.9 by the window and the bank column; R4's gutter is 27.5
 elif VARIANT == "P":
@@ -983,7 +985,9 @@ def reach(name, frm=(143.0, 68.0)):
 if __name__ == "__main__":
     v = check() + base_check() + (steer5_checks() if STEER5 else [])
     print(f"variant {VARIANT}: {sum(1 for i in lid if i[4] == 'k')} knobs, {sum(1 for i in lid if i[4] == 't')} toggles")
+    acc = [x for x in v if any(x.startswith(a) for a in ACCEPTED)]; v = [x for x in v if x not in acc]
     print(f"open layout + labels: {len(v)} violations"); [print("  ", x) for x in v]
+    if acc: print(f"accepted by ruling: {len(acc)}"); [print("  ", x) for x in acc]
     print("closed (lid face today z 37.6; closed 52.7):")
     for nm, hk, hs in [("R-TALL: today's knobs (13.5), stick 12.6", 13.5, 12.6),
                        ("R-LOW: Tayda 10 x 8 knobs (seat 1.0 → 9.0), stick as is 12.6", 9.0, 12.6),

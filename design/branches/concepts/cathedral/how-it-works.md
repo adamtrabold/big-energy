@@ -1655,6 +1655,19 @@ Costs are against today: P5R 286 × 132, P5OB-D 286 × 145. Weight is the shell 
 - **-a:** 1. **-b:** 1. In both it's the base back-row gutters; the lid is 0 in both.
 - **Closing:** both 55.2 / 59.7, unchanged (RANGE 2 over MOD). Base switches under lid knobs clear by **5.0** at R-LOW (echo type over touch, echo time over pitch / filter). Knob over knob is 2.0 (echo type over blend). The stick lands as before.
 
+### 31.4 Director ruling: tuning on the speaker's centre (owner: "off center in that middle section is bad looking")
+- **P5RS-a:** the tuning pair is back on the axis (x 133 / 153). Filter / amp keep their 10 mm move right (206.35 …).
+  - Top row: 22.9 | VCO 1 | **48.45** | tuning | **38.45** | filter | 12.9.
+  - Grille row: 22.9 / 22.9 / 32.9 / 12.9.
+- **Accepted by ruling, reported apart by the checker** (`ACCEPTED`, printed as "accepted by ruling", not hidden):
+  - row 1's uneven gutters in -a;
+  - the base back row's pinned gutters (15.0 / 28.6) in both.
+- **Checker:**
+  - -a: 0 violations, 2 accepted.
+  - -b: 0 violations, 1 accepted.
+  - P5R: 0.
+- **Closing:** unchanged, 55.2 / 59.7.
+
 ## 9. Open questions
 1. **⚑ D+O:** option B (all FX + VOLUME on the lid back row, speaker in the base PLAY row: costs reach and v1.1's "amounts in front") or option A (layout as is; the gap becomes a rose-window band)?
 2. **Owner:** spine: none, body colour, or oxblood?
