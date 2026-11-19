@@ -47,7 +47,7 @@ Owner, 16:19: "yes these categories look correct. *now* let's try and lay these 
 </figure>
 <figure>
 <img src="img/cathedral-s12-T2-top-9.9px-per-mm.png" alt="Exact top view of T2 open flat at D 147.3: four oscillators stacked at the lid's left, tuning over the window, amp top right, echo and reverb on the right, filter envelope under the window; the base with the mixer 1 to 4.">
-<figcaption><b>T2</b> (4b1c3ee): 4 oscillators, double-square face, D 147.3. The spare depth is spread: the lid's bottom group drops 10 and the base's back row moves back 10. The oscillators are on the margin with the mixer exactly under them; echo in two rows. 1 gap. The stick is lowered to 9.0.</figcaption>
+<figcaption><b>T2</b> (343c4d4): 4 oscillators, double-square face, D 147.3. The four oscillator rows are all 25 apart; the spare depth goes round the filter contour and reverb. The oscillators are on the margin with the mixer exactly under them; echo in two rows. 1 gap. The stick is lowered to 9.0.</figcaption>
 </figure>
 <figure>
 <img src="img/cathedral-s12-T3-top-9.9px-per-mm.png" alt="Exact top view of T3 open flat: three oscillators stacked at the lid's left with tuning under them, the filter contour and amp sharing the top row, echo and reverb on the right, and an open area under the window.">
