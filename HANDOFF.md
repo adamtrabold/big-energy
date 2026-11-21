@@ -1,3 +1,39 @@
+# Orchestrator handoff — CURRENT STATUS (2026-11-21). Read this section first.
+
+**The project pivoted on 2026-11-21.** The Model D voice is no longer the instrument. Everything below the line "Earlier handoff" describes the Model D / Big Energy work as of 2026-11-13; treat it as history and as a platform to reuse, not as the plan. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
+
+## What Adam wants now
+- Two new instruments, both more inspiring to him than the Model D: a **string machine** and a **portable analog poly** named **Port-a-poly** (working name). A Model D build may come back later.
+- What draws him: **"Analog voices, shimmer and warmth"**. He likes blending several oscillators per voice, the Juno's chorus and warmth, and he built a Dreadbox Antiphon (8 analog sine oscillators, spring reverb). Portability matters.
+- **Next work: build plans for the string machine, the Big Energy way** (design loop, first principles, spec, verification), while proving out the shared platform. Port-a-poly plans come after. **Which one gets built first is undecided — don't ask him to pick yet.**
+- He was skeptical of mixing analog and digital voices inside one chord ("if it hasn't been done before it may be for a reason").
+
+## How to work with him (unchanged)
+- Work as his design-buds skill says. You are the orchestrator; no design calls by you.
+- Open questions one at a time, short and plain replies, no flattery.
+- Append every owner decision verbatim to `design/owner.md`. Commit as Adam Trabold <adamtrabold@users.noreply.github.com>, never credit Claude, and run `bash site/publish.sh` after committing.
+
+## Facts already checked in chat (2026-11-21)
+- **How string machines work:** a master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave, so every key has a tone running and can sound at once. All notes share one filter and, usually, one envelope (paraphonic: a new note doesn't get its own attack). The raw tone is square-based and thin; a multi-stage bucket-brigade (BBD) ensemble with slow LFOs makes the string shimmer. Precedents: Eminent/ARP Solina (1974), Roland RS-202, Elka, Crumar Trilogy (combo synth + strings). Behringer sells a Solina clone today (~$259). Per-note articulation exists (Polymoog had a VCF/VCA/EG board per note) but is costly. Classic top-octave chips are vintage parts; modern DIY builds often generate the tones on a microcontroller.
+- **Paraphony references:** Korg Volca Keys is paraphonic (3 VCOs, 1 VCF, 1 VCA, 1 EG), not a true poly.
+- **Behringer Pro-800:** 8 voices, 2 CoolAudio 3340 VCOs + V3320 filter per voice; envelopes and LFO computed in firmware (checked in GliGli's open p600fw); cheap because of in-house chips, software control and factory scale.
+- **Poly research already in the repo:** `explore/poly-hybrid.md` (4-voice Juno-style "Little J" ≈ $350–520 and Prophet-600-ish ≈ $380–560, one unit, estimates).
+
+## Ideas discussed, none decided
+- Poly: Juno-style DCO voices; SEM-style state-variable filter per voice; Daisy for envelopes, LFOs and voice allocation; Daisy ensemble/chorus plus reverb and echo; 4–6 voices; a mode with digital oscillators into the analog filters (Novation Peak/Summit-style).
+- String machine: as its own instrument, or as a minimal "strings" layer inside Port-a-poly (one level knob). Ideas for something new: per-key swells, pressure-controlled bowing, drift between notes, sine stacking like the Antiphon.
+
+## Open, the owner's
+- What carries over from the Big Energy platform: 25 Hall-sensor velocity keys, FSR aftertouch, battery and USB-C, built-in speaker, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, the ONE SHEET / FOLD / CATHEDRAL enclosure work.
+- Budget ceiling (the ~$100 Big Energy target doesn't carry over automatically). Name for the string machine.
+
+## Prompt for Adam to paste into a new session
+> Attach and clone my repo adamtrabold/big-energy. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
+
+---
+
+# Earlier handoff (2026-11-13) — history
+
 # Model D project ("big energy") — orchestrator handoff (2026-11-13)
 
 Repo: https://github.com/adamtrabold/big-energy · Viewing page (artifact): https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD

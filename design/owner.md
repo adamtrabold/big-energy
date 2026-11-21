@@ -335,3 +335,8 @@ Recorded as: both the string machine and the analog poly are inspiring. Owner fl
 > Port-a-poly is an amazing name for the portable poly tho. Maybe I do a model d later
 
 Recorded as: working name for the portable analog poly: PORT-A-POLY. A Model D build may come back later (the paused full-instrument work stays in archive/). String machine as the first build is still awaiting confirmation.
+
+## 2026-11-21 18:19 (chat)
+> No build decisions is wrong. I want to make build plans like big energy idk what I'll build first is all
+
+Recorded as: make full build plans (the Big Energy way: design loop, specs, verification) for the string machine, and later Port-a-poly. Which one gets built first is undecided. Don't ask him to pick the first build yet.
