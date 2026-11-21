@@ -323,3 +323,10 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 > I want to pivot— I don't need a model d it's not inspiring to me
 
 Recorded as: PIVOT APPROVED. The Model D voice is no longer the instrument. Direction: a portable polyphonic instrument with analog voices, shimmer and warmth. Open: what carries over from the current build, budget ceiling, name.
+
+## 2026-11-21 18:09 (chat)
+> String machine and analog poly are way more inspiring than model d.  We could go back to first principles with string machine too while still proving out the platform
+
+(Context: asked whether a string machine is cheaper and easier to build first. Orchestrator's answer: easier, likely cheaper but the shared platform costs the same, partly on target since it has no individual analog voices.)
+
+Recorded as: both the string machine and the analog poly are inspiring. Owner floated building the string machine first, from first principles, as the way to prove out the platform. Pending owner confirmation that it is the first build.
