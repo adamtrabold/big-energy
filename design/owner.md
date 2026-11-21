@@ -330,3 +330,8 @@ Recorded as: PIVOT APPROVED. The Model D voice is no longer the instrument. Dire
 (Context: asked whether a string machine is cheaper and easier to build first. Orchestrator's answer: easier, likely cheaper but the shared platform costs the same, partly on target since it has no individual analog voices.)
 
 Recorded as: both the string machine and the analog poly are inspiring. Owner floated building the string machine first, from first principles, as the way to prove out the platform. Pending owner confirmation that it is the first build.
+
+## 2026-11-21 18:10 (chat)
+> Port-a-poly is an amazing name for the portable poly tho. Maybe I do a model d later
+
+Recorded as: working name for the portable analog poly: PORT-A-POLY. A Model D build may come back later (the paused full-instrument work stays in archive/). String machine as the first build is still awaiting confirmation.
