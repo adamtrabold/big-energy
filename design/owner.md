@@ -340,3 +340,8 @@ Recorded as: working name for the portable analog poly: PORT-A-POLY. A Model D b
 > No build decisions is wrong. I want to make build plans like big energy idk what I'll build first is all
 
 Recorded as: make full build plans (the Big Energy way: design loop, specs, verification) for the string machine, and later Port-a-poly. Which one gets built first is undecided. Don't ask him to pick the first build yet.
+
+## 2026-11-21 18:31 (chat)
+> Right now I'm thinking big energy is the model d clone with 4 voice paraphony, port-a-poly is the true poly, and the string machine needs a cool name
+
+Recorded as (current thinking, three instruments): **Big Energy** = the Model D clone with 4-voice paraphony (as specced: voices 1 · 3 · 4). **Port-a-poly** = the true analog poly. **String machine** = needs a name. This supersedes "the Model D voice is no longer the instrument" from earlier today: the Model D lives on as Big Energy. Build order still undecided.

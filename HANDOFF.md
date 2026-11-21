@@ -1,9 +1,9 @@
 # Orchestrator handoff — CURRENT STATUS (2026-11-21). Read this section first.
 
-**The project pivoted on 2026-11-21.** The Model D voice is no longer the instrument. Everything below the line "Earlier handoff" describes the Model D / Big Energy work as of 2026-11-13; treat it as history and as a platform to reuse, not as the plan. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
+**The project widened on 2026-11-21 into three instruments** (owner's current thinking, 18:31): **Big Energy** = the Model D clone with 4-voice paraphony (as specced, voices 1 · 3 · 4); **Port-a-poly** = a true portable analog poly; a **string machine** that still needs a name. Build order is undecided. Earlier that day he said the Model D "is not inspiring"; his 18:31 entry keeps it as Big Energy. Everything below "Earlier handoff" is the Big Energy record as of 2026-11-13 and still applies to Big Energy. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
 
 ## What Adam wants now
-- Two new instruments, both more inspiring to him than the Model D: a **string machine** and a **portable analog poly** named **Port-a-poly** (working name). A Model D build may come back later.
+- Two new instruments he finds more inspiring than the Model D: a **string machine** (needs a name) and a **portable analog poly**, **Port-a-poly**. Big Energy (Model D + 4-voice paraphony) stays as the third.
 - What draws him: **"Analog voices, shimmer and warmth"**. He likes blending several oscillators per voice, the Juno's chorus and warmth, and he built a Dreadbox Antiphon (8 analog sine oscillators, spring reverb). Portability matters.
 - **Next work: build plans for the string machine, the Big Energy way** (design loop, first principles, spec, verification), while proving out the shared platform. Port-a-poly plans come after. **Which one gets built first is undecided — don't ask him to pick yet.**
 - He was skeptical of mixing analog and digital voices inside one chord ("if it hasn't been done before it may be for a reason").
@@ -25,7 +25,7 @@
 
 ## Open, the owner's
 - What carries over from the Big Energy platform: 25 Hall-sensor velocity keys, FSR aftertouch, battery and USB-C, built-in speaker, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, the ONE SHEET / FOLD / CATHEDRAL enclosure work.
-- Budget ceiling (the ~$100 Big Energy target doesn't carry over automatically). Name for the string machine.
+- Budget ceilings for the string machine and Port-a-poly. **A name for the string machine** (a naming round is a team task; Adam decides).
 
 ## Prompt for Adam to paste into a new session
 > Attach and clone my repo adamtrabold/big-energy. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
