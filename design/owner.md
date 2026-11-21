@@ -310,3 +310,16 @@ Recorded as: corners (case and faceplates) softer, with Apple-style continuous-c
 > yes these categories look correct. *now* let's try and lay these out
 
 (Q0 answered yes: taxonomy categories and membership approved.)
+
+## 2026-11-21 13:38–14:17 (chat, comparing the Behringer Pro-800, paraphony and polyphony)
+> I like the synths you mentioned more than the model d sound wise. Just chose model d for simplicity. Polyphonic would be amazing.
+
+> I'm more thinking the portability factor.
+
+> Analog voices, shimmer and warmth
+
+(Answer to "what grabs you most" across the OB-6, the SEM and string machines.)
+
+> I want to pivot— I don't need a model d it's not inspiring to me
+
+Recorded as: PIVOT APPROVED. The Model D voice is no longer the instrument. Direction: a portable polyphonic instrument with analog voices, shimmer and warmth. Open: what carries over from the current build, budget ceiling, name.
