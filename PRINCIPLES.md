@@ -40,7 +40,7 @@ Portable synthesizers Adam designs with agents and builds himself.
 
 ## 7. Building
 - Adam builds it, and it must be feasible for him. No machining.
-- **For now, the case is entirely 3D printed** (2026-11-22). Printing by an outside service is fine. "Cloth wrapping is fine as long as the core is printed."
+- **For now, the case is entirely 3D printed** (2026-11-22), metal parts included: "it was all supposed to be 3d printed even metal." "Case should be 3d printed except for knobs and stuff." Printing by an outside service is fine. "Cloth wrapping is fine as long as the core is printed."
 - Agents only: Adam measures nothing. Choices rest on published evidence or on virtual models built from it. Anything that needs a measurement is unverified.
 - Reliable choices: proven parts and approaches.
 - Surface mount is fine if necessary.

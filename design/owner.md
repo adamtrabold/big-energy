@@ -600,3 +600,12 @@ Recorded as: **the module (9) and YOKE (9) are turned down on shape.** Big Energ
 > Cathedral but dimensions can change. Log that in a handoff
 
 Recorded as: **floss's form follows Big Energy's CATHEDRAL**, and its dimensions can change to suit the module.
+
+## 2026-11-22 17:58 (chat): printed case for the family; floss on CATHEDRAL cues
+> Re: cathedral it was all supposed to be 3d printed even metal. Not sure about the bookcloth spine but that feels weird to me. Case should be 3d printed except for knobs and stuff. This should change on the whole family.
+
+Recorded as: **family principle: the case is 3D printed, metal parts included (metal printing is allowed); knobs and similar bought parts are the exception.** CATHEDRAL was always meant to be fully printed. The bookcloth spine "feels weird" to him (not banned; not wanted as is).
+
+> Cathedral was a model so take the cues we need. But we no longer need a keyboard so all controls should fit in a single plane, even if there is still a folding cover or something tbd. I do think it should still have the capability to sit at an angle, but maybe the case could do that without needing folding / movable parts and just by shape idk do some more pushing and exploration. Don’t anchor on my ideas just include them as possibilities.
+
+Recorded as: **CATHEDRAL is a model to take cues from, not a form to copy.** floss has no keyboard, so **all controls sit in a single plane**. A folding cover is possible, not decided. **floss should be able to sit at an angle**; doing that by the case's shape alone, with no folding or moving parts, is one possibility, not a requirement. The team explores further; his ideas are possibilities, not anchors.
