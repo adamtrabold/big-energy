@@ -482,3 +482,12 @@ Recorded as: **preferred feel is soft silicone** (LinnStrument/Seaboard-like), i
 > I don’t want to measure anything. I’m truly to see how far agents alone can get me. How would an agent solve this problem? Also how do real instruments do it?
 
 Recorded as: **Adam measures nothing.** Choices must rest on published evidence: datasheets, teardowns, papers and shipping products. This project tests how far agents alone can get. Any part whose key spec is unpublished counts as unverified.
+
+## 2026-11-22 11:52–12:00 (chat): bought or transplanted controller
+> It feels like the keyboard is the most expensive part. What if instead we made it Bluetooth MIDI or usb MIDI capable and just used a portable MIDI controller for the keyboard like the Korg nano key
+
+> I’m getting curious now about stealing a keyboard from an existing controller
+
+> Yeah research the options
+
+Recorded as: research floss played by an **existing controller**, either separate (USB/BLE MIDI) or **transplanted** inside floss's case (the controller's own board and firmware kept, connected internally over USB). Rewiring bare keys is out (it needs measuring). Candidate donor: KMI QuNexus (silicone keys, velocity, poly aftertouch, tilt).
