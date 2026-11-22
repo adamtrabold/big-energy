@@ -1,44 +1,69 @@
-# GNOMON: how it looks and feels (visual, idea level)
+# GNOMON: how it looks and feels (visual, idea level) — rev 2
 
-2026-11-22. PROPOSAL (the director's idea). Read with `how-it-works.md` (systems): a slab T 35 × D 105, sin θ = T / D ≈ 19.5°, the back ≈ 70 = 2T, 280 wide. Picture: `sheet.png`. Source: `../_src/cathedral_sheets.py`.
+2026-11-22. PROPOSAL (the director's idea). Round 1 score: 8. Rev 2 folds in the director's fixes 1–6 (`notes/director.md`) and systems' `how-it-works.md` rev 2. That file sets the geometry:
+- tan θ = T / D ≈ 18.4° (T 35, D 105);
+- the rear face is 2T = 70, square to the plate;
+- the back stands ≈ 66 tall;
+- angled footprint 280 × 111; overall ≈ 280 × 122 × 66, including the front face's forward lean.
+
+Picture: `sheet.png` (14 × 25 in at 200 dpi: end view 3:2, 3/4 views 1:2). Source: `../_src/cathedral_sheets.py`, `sheet_gnomon()`.
 
 ## The idea, as you see it
-CATHEDRAL's lid standing on its own ends. A framed slab of constant thickness, the same slab eng already proved holds everything. At each end the rim doesn't stop: it carries straight down into a wedge cheek.
+CATHEDRAL's lid standing on its own ends. A framed slab of constant thickness. At each end the rim carries on down into a cheek, and the slab is open underneath between the cheeks.
 
-From the end it's one walnut face: the slab plus its own thickness again. It's an irregular pentagon with soft corners, leaning forward like a sundial's gnomon. Its angle is its "latitude", sin θ = T / D.
+The end face is a true gnomon: the plate and the rear face meet square, and the table line closes it. So **one shape has two feet**:
+- **angled** on its runners (≈ 18.4°), his first choice;
+- **upright** on its rear face, with the plate exactly vertical and turned to face you, his "90". The drivers then fire straight at the listener.
+
+There are no parts and nothing moves. **Flat is not offered;** he ranked it last.
+
+## What changed in this pass, and why
+| Fix | What I drew | Why |
+|---|---|---|
+| 1. Hairline | One engraved hairline on each end face, parallel to the plate and one slab thickness (T) below it, from the front foot to the rear face. The face stays flush and the rings run straight across it | The end face now reads as **the lid plus its own thickness** (2T at the back) without turning into a box on legs. It's the family's section-rule mark, the same as CATHEDRAL's sub-heading hairline |
+| 2. Rear 3/4 | View 3: from behind, low (12°), on a light footprint. You see the slab spanning between the two cheeks with the hollow under it, and the right end with its jacks | This is the view that proves it isn't a solid wedge. **The front 3/4 can't show the hollow** (the front edge sits on the table), so the idea needs this second view. The front view carries the hairline instead |
+| 3. Port | No brass ring. A Ø 16 dark mouth, one narrow groove ring round it, and the growth rings centred on the mouth (in the slab band, high on the left cheek) | The ring read as a hose fitting and became the focal point. Now the rings are the subject and the mouth is their heart. If cast metal counts, a narrow flush brass ring is still possible, but I don't recommend it |
+| 4. Lip | The front face rounded into the plate (r 16, against r 6 on the other corners) | The end view stops reading as a chamfered pentagon. The front becomes a soft nose your wrist rests on |
+| 5. Packed | View 5: on SHOE (with the stretcher). View 7: loose, module and keyboard separate, at the **same 1:2** | Shows it doesn't depend on SHOE. The stretcher exists only with SHOE (director ruling) |
+| 6. Square rear face | The end view rebuilt as a gnomon with a right-angle mark at the back corner. View 4: upright 3/4. View 6: both poses as end silhouettes side by side | His "angled, 90, flat" order, met by shape alone. Upright, the rear face leans in like a buttress: a cathedral cue with a structural reason |
 
 ## Why the shape (not costume)
-- Nothing is added to the slab except its ends. The cheeks are the rim carried down, not legs.
-- The proportion is visible and comes from the device itself: the back stands at twice the slab's thickness (PRINCIPLES §2).
-- **The end face is flush:** slab and cheek are one surface. The growth rings run across both, so it reads as one block of wood, never as a box on legs.
-- The port mouth sits in that face, at the centre of the rings, high and to the back where the speaker box is.
-- **Seen from the player, it is CATHEDRAL's standing lid:** a cream plate in a thick walnut frame, black knobs, two lancet windows. The brass stay is gone because the ends do its job.
+- **The slab is the instrument.** The cheeks are the rim carried down, not legs.
+- **Every proportion comes from the slab itself:** the rear face is 2T, and the angle is tan⁻¹(T / D). Nobody picked them.
+- **The two poses fall out of one right angle.** That right angle is the gnomon, and also the reason for the name.
+- **One flush end face** with growth rings across it reads as one block of wood. The hairline tells you which part is the lid.
 
 ## CATHEDRAL cues it carries
 | Cue | On GNOMON |
 |---|---|
-| Framed plate | Exactly CATHEDRAL's lid: cream plate, walnut rim, superellipse corners |
+| Framed plate | CATHEDRAL's lid: cream plate in a walnut rim, soft corners |
 | Lancet grille | Two round lancet windows in the plate, over speaker E's drivers |
-| Cathedral grain | Growth rings across both end faces, centred on the port mouth on the left |
-| Soft architectural corners | Every corner of the end face rounded (drawn r 6) |
-| Brass, the one metal | The port ring and the runner ends, only if cast counts. Otherwise TPU strips do the grip and there's no metal |
+| Cathedral grain | Growth rings across both end faces, centred on the port mouth (left end) |
+| Section-rule hairline | The end-face hairline, at T below the plate |
+| Soft architectural corners | Every end-face corner rounded; the lip the most |
+| Brass, the one metal | **None drawn.** The port is grooves; the grip strips are printed TPU. Brass returns only if the owner says cast counts *and* it earns a job |
 | Black knobs, one red hero | Two rows, DEPTH in red |
-| Pipe façade | **None.** The underside is never seen in a normal state (director turn 5 §5) |
+| Pipe façade | None (no surface that's seen in normal use) |
+
+## Ports, as drawn
+- **Port mouth:** left end, in the slab band.
+- **Jacks, power, device USB-C, TUNE and split:** one row in the slab band of the right end face. They're small at 1:2, so view 3 has a leader.
+- **Host USB-C:** on the front face. It's on top when upright; it isn't drawn at this scale.
+- **Rear face:** a foot, with TPU strips and nothing mounted.
 
 ## Materials (all printed except the knobs)
-- **Slab and cheeks:** printed walnut-brown, with the rings printed in.
-- **Plate:** printed cream.
-- **Grip strips:** printed TPU under the runners.
-- **Knobs:** bought.
-- **Stretcher (SHOE variant only):** a flat printed bar in walnut-brown between the cheeks at table level, y ≈ 20–80. It's **drawn dashed in the end view and docked in the packed view**, because it isn't decided: the director still has to rule. Without SHOE there's no stretcher, and the underside is open.
+- Slab and cheeks: printed walnut-brown, rings and hairline printed in.
+- Plate: printed cream.
+- TPU grip strips on the runners and the rear face.
+- Knobs: bought, black, one red.
+- Stretcher (SHOE only): one flat print.
 
 ## Feel
-- **The calmest of the three.** It sits like a lap desk: one runner per thigh, the plate meeting your hands at a writing angle.
-- **Lean on the front edge** and it pushes down into the footprint. Nothing rocks.
-- **Ports:** the jacks face back and up on the raised rear face, the easiest reach of the three.
-- **Packed:** it's a wedge. With the keyboard on the stretcher's SHOE dock, the hollow becomes a closed cable bay.
+- **Angled:** a lap desk. One runner per thigh, your wrist on the rounded lip, the plate at a writing angle.
+- **Upright:** a small radio-like front for listening, a shelf, or a friend across the table. It's for light knob turns; the systems file gives about 1–1.5 N of pull on the top edge before it tips toward you.
+- **Carrying:** pick it up by the back, where the slab and cheeks meet.
 
 ## Open
-- **Risk:** it reads as furniture (a writing slope) and is the least surprising. That's a nod to the classics if it stays plain; it turns into costume if we lean in.
-- **Stretcher:** the director's ruling.
-- **Overall depth:** 111 including the forward lean of the front face (the footprint is ≈ 99).
+- The owner judges the 3/4 view. The front 3/4 still shows a wedge-like object. What tells it apart is the end face (hairline, rings, rounded lip), backed by the rear 3/4 and the upright pose. Whether that's enough is the director's call.
+- What "90" is for, playing or standing it up, is still a question for the owner (director's note). It changes how much the upright pose matters for hands.
+- Systems says D 115 gives 16.9°; the sheet is drawn at D 105.

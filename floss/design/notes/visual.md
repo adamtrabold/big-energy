@@ -400,3 +400,42 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
 5. Cast metal counting as printed (owner).
 
 **Next:** the director scores. Then fix what's objected to. Once one is approved, write the handoff's "how it looks and feels" for every state in systems' how-it-works.
+
+---
+
+## 2026-11-22 (night): GNOMON pass 2 (director fixes 1–6, systems rev 2)
+
+**State:**
+- Round 1 scores: GNOMON 8, CASKET-B 7, DROP 6 (killed).
+- The owner then said "Honestly my preference order would be angled, 90, flat" and "Multiple angles is fine". CASKET-B retires; GNOMON carries the round.
+- Systems rev 2: tan θ = T / D ≈ 18.4°; rear face 2T = 70, square to the plate; back ≈ 66; footprint 280 × 111.
+
+**Updated in place:**
+- `concepts/c-gnomon/sheet.png`, now 14 × 25 in (2800 × 5000) so the loose view fits at 1:2. Seven views:
+  1. end view 3:2;
+  2. playing 3/4;
+  3. from behind, low (open underneath, jacks on the right end);
+  4. upright 3/4;
+  5. packed on SHOE;
+  6. both poses as end silhouettes;
+  7. loose at the same size.
+- `concepts/c-gnomon/how-it-looks-and-feels.md` rev 2.
+- Source: `sheet_gnomon()` in `concepts/_src/cathedral_sheets.py`. `GN_TH` is now atan(T / D). The other two sheets' functions are left as they were, and I didn't re-render their PNGs.
+
+**Decisions and why:**
+- **Hairline** at T below the plate on the end faces: the lid plus its own thickness, the face still flush.
+- **Port:** grooves only, no brass. The ring was a hose fitting.
+- **Lip** rounded r 16 into the plate, so it's no longer a chamfered pentagon.
+- **Rear 3/4 at 12° elevation:** below θ, so the underside shows. This is the only view that can show the hollow.
+- **Upright view** lit from the plate's side, so the cream doesn't render grey.
+- **No brass anywhere now.**
+
+**Director's standing objection:** the 3/4 view reads as a generic wedge. My answer: the hairline and rings show in the front 3/4, and the rear 3/4 and the upright pose carry the idea. The front 3/4 physically can't show an underside that sits on the table, and I said so in the md.
+
+**Open:**
+1. Is the front 3/4 now enough for the owner? (director)
+2. "90" for playing or for standing it up? (owner)
+3. D 105 vs 115 (eng).
+4. Cast metal counting as printed is now moot unless brass earns a job.
+
+**Next:** the director re-scores GNOMON alone. If it reaches 9, it goes to the owner. After approval, the handoff's "how it looks and feels" for every state (angled, upright, packed with SHOE, loose, no keyboard).
