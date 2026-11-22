@@ -434,3 +434,20 @@ Recorded as: the synths-to-go instruments form a **shared universe**. floss (and
 > Budget ceiling should be what we can to hit the desired goal. Let’s go on the design loop
 
 Recorded as: **no fixed budget ceiling for floss.** Spend what it takes to reach the goal, while still costing everything honestly. **The floss build-plans design loop starts now.** Work folder: `floss/design/`.
+
+## 2026-11-22 09:22–09:29 (chat): process for floss
+> How is the design loop helpful right now? Is it like we design the look first then the architecture to fit? Or is the designer designing the architecture? Do we have all of the components and circuits figured out?
+
+> Pressure test this plan with another agent
+
+> I don’t know what the right process is with synth design
+
+> I would imagine we’d need requirements first
+
+> Surface mount is fine if necessary. I don’t want to test the keys they should be reliable copies
+
+Recorded as: the order of work changes to **requirements first** (decisions plus measurable targets Adam confirms), then an **engineering gate** (2–3 engine options costed side by side, fit against each case with the battery, and per-key pressure judged on proven designs), then concepts revised and scored, then Adam picks, then the full spec. The design loop's round 2 is paused until the gate is done. **SMD is allowed for floss where necessary**, which relaxes Big Energy's through-hole rule. **No physical key test by Adam:** the keys and the pressure sensing must be reliable choices (corrected below).
+
+> Choices *
+
+(Correction to "reliable copies" above.) Recorded as: the keys and pressure sensing must be **reliable choices**, meaning proven parts and approaches, not experimental ones.
