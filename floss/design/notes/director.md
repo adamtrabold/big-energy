@@ -59,3 +59,66 @@ Started 2026-11-22. Concept phase, jam pass 1 (my turn 3). No scores yet.
 - **Biggest risk:** BOW's 75 tone outputs (strands) may need FPGA/CPLD; eng to size before scoring; build-skill question for the owner.
 - **Owner questions held:** fixed breath vs louder-with-every-key; FPGA/CPLD acceptable?; 25 off-centre vs 24 centred (only if needed).
 - **Next:** visual pass-2 turn, then I end the jam and decide READY (expected: BOW, KEPT, TIDE).
+
+---
+
+## Concept round 1: steer, READY and scores (2026-11-22)
+Judged: `concepts/compare-faces.png`, `bow/mock-A-look.png`, `tide/mock-A-look.png`, all six concept docs and both common docs. KEPT judged from compare-faces plus its docs (its mock-A not opened). I didn't read `jobs.md` in full.
+
+### Rulings on the open calls
+1. **BOW's coral stays on the pressure selector, not on the collars.** "One coral control per concept" is a clean family rule, and 25 coral collars break it. Coral felt also soils in a park. The selector names what a lean does, so it's the right word for "life in the finger".
+2. **The middle-C rim tick is enough,** as long as it can also be felt (a small notch at the rim, not just ink: eyes-closed rule). Middle C belonging to the upper half is the usual convention on split keyboards. **24 keys is closed;** it doesn't go to the owner.
+3. **BOW's 2.6 mm tab clearance:** move the strand columns back 3 mm (y 58–92). No knob sits in the column's x span, so that's free. Keep the collars Ø 16.7 on every key, so the lean feels the same everywhere.
+4. **TIDE's empty back third:** don't fill it with controls. Its depth has to come from something: the board plus the speaker box, then a proportion check (the owner wanted the case ratio "derived from the dimensions of the device" on Big Energy). The lantern field is TIDE's face, so size it as a deliberate window worked out from the driver, and let the pebble shrink to fit. Felt left over from HUSH's old board is not a reason.
+
+### Kill: KEPT
+It can't get to 9. Its point of view is "look 1974, feel new", and it fails both halves. Visual's own note: ONE SHEET's staggered Choc caps read as a modern mini keyboard, so the face is 1974 in layout only. Systems (rightly) moved velocity to loudness, so its touch is what any modern keyboard does: loud strike, vibrato lean. Making 1974 visible would need materials outside the family, which breaks the shared universe. The owner asked to "innovate on the original string synth", and he left the Model D because it wasn't inspiring. BOW does everything KEPT does and more, and KEPT's only edge (cheaper, slimmer) isn't the owner's priority (no budget ceiling).
+**Salvage:**
+- the bass voicing on the left-half bus (a cheap fallback if BOW's strands prove too costly);
+- velocity as loudness, as a firmware curve option in BOW;
+- "ensemble" as a plain label if the owner reads "shimmer" as an effect name.
+
+### READY: BOW, TIDE
+
+### Scores (concept phase: the idea)
+**BOW: 8.** The most complete idea. The lid has a job, which answers "smaller CATHEDRAL?". Strands per half are what "floss" means and close to the Antiphon. Strike, lean and lift make a whole bow stroke. Likely owner objections:
+- (a) **Signal order:** shimmer and depth (an effect) sit in the left region, before the strands and the voice. That breaks his "synth → fx → output" rule from Big Energy.
+- (b) **A visible blank slot** (rear right, a dashed circle) at one end. It's asymmetric, and he dislikes gaps.
+- (c) **Dark naturals:** the reversed key colours are an open owner question on Big Energy.
+- (d) **Lap tipping** with a speaker box in the standing lid.
+- (e) **Chip count:** 25 VCAs, 13 counters and 19 CD4066s, about 57 DIP chips plus the Daisy, in a 286 × 132 base with the battery. Build effort is J21.
+
+Fixes:
+1. Put the ensemble (shimmer, depth) after the voice in signal order: in the right ("room") region with echo and reverb. Then rebalance. Or argue it on the panel with a heading that makes the ensemble part of the voice. I prefer moving it.
+2. No blank slot: rebalance both rows so the face is symmetric about the gutter, with no dashed circle.
+3. Eng: the centre of mass at 120° on a lap. Show the lap pose, or a lower stand angle.
+4. Show the normal key colouring beside the dark one, so the owner sees the choice. Bundle it with Big Energy's open question.
+5. Eng: board area for the 25 VCAs, 13 counters, 19 switches and the battery under CATHEDRAL's base. If it doesn't fit, say where the strands fall back (the bass-bus voicing from KEPT).
+6. Move the tab columns back 3 mm (ruling 3).
+7. "Thinning without pressure": keep it, but label it a test-key item. If it annoys, it goes.
+
+**TIDE: 7.** The most distinctive idea. Plant-and-tend HOLD, with a re-strike to pull a note out, is genuinely new. So are inverted velocity and pressure that plants drift. It's the strongest fit for "take this to the park and be inspired". But the face contradicts the idea: 16 round controls plus HOLD is as many as BOW, on the concept that's meant to be quietest. Likely owner objections:
+- (a) The panel is busy for a "quiet" instrument.
+- (b) An empty back third.
+- (c) Felt in a park: dirt, damp, pilling, sun fade.
+- (d) Grey felt sits outside the family's walnut and cream.
+- (e) No registers. The split he asked for (two parts, an octave each) matters less here.
+- (f) Which notes are held is invisible (honest, and minor).
+
+Fixes:
+1. Make the panel visibly the leanest, at 13 or fewer round controls. For example, one LENGTH knob replaces ATTACK and RELEASE (velocity places each note within it). Keep the settled echo sync.
+2. Size the depth from the board plus the speaker, and make the lantern field the deliberate back face (ruling 4).
+3. Answer the felt question: a removable, washable skin, or a tougher wool blend, said plainly.
+4. Bring the felt into the family's palette (oatmeal or warm cream rather than mid-grey), or show why grey belongs.
+5. Show the split's job in TIDE: a flow and a picture of two planted parts (left low, right high).
+6. Make the HOLD peg unmistakable from a key by touch, not only by size.
+7. Test swatch: the lantern through Ø 1.7 holes in felt, in shade.
+
+**KEPT: 6, killed** (reasons above).
+
+### What keeps blocking a 9 (first scored round, a pattern to watch)
+**The body's leftovers are driving the layout.** Every concept wears an inherited family body, and its spare dimensions have turned into blank slots (BOW, KEPT, TIDE), an empty back third (TIDE) and a face larger than its idea (TIDE). That's Big Energy's lesson again: "when the owner names a gap, find what forces the gap before styling what fills it." Dimensions must come from the instrument's needs, not the borrowed shell's.
+The convergence worry didn't recur: BOW and TIDE differ in kind.
+
+### Next
+Round 2 on BOW and TIDE with the fixes above. Eng sizing (strand chips, lid box and lap, TIDE's depth) is the gate for BOW's next score.

@@ -1,5 +1,46 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22, concept round 1: my turn done)
+- Written:
+  - `../concepts/common-how-it-works.md` (shared engine and behaviours, panel grammar, common coverage);
+  - `../concepts/bow/how-it-works.md`, `../concepts/kept/how-it-works.md` and `../concepts/tide/how-it-works.md` (structure, panel map, engine departures, flows, states, coverage, risks).
+- The owner hasn't answered on `jobs.md` yet; fold his answer in when it comes.
+- **Settled in common (they were my open items):**
+  - all tabs off = that half silent (a feature: mute a half);
+  - echo sync = the family's FREE / SYNC toggle (Big Energy owner option B);
+  - a rear TUNE trim, ±50 cents;
+  - "knob not in control" = no indicator (jump-on-move is audible; the light keeps three meanings);
+  - MIDI SPLIT is a rear slide switch;
+  - MIDI CC 64 holds every note;
+  - note-off velocity carries lift;
+  - octave knobs are 5-position (−2 … +2), with 0 / 0 = C3–C5 and middle C in the centre.
+- **Per-concept decisions:**
+  - **BOW:**
+    - strands made the 1974 way: 2f per key → a CD4520 counter per key (13 DIPs), plus 75 CD4066 gates (≈ 19 DIPs); a CPLD is the alternative (owner question, J21);
+    - velocity = speed only;
+    - in swell, a held note thins to −6 dB over 4 s without pressure (off with HOLD and on the shared strip);
+    - lid = power (Hall at the hinge), plus a rear ship-mode cutoff;
+    - three-deep strand column fits (mini rockers turned 10 deep, y 55–89, x 117–132 / 154–169);
+    - left of the gutter = the instrument, right = the room.
+  - **KEPT:**
+    - **reshaped: velocity = loudness** (the director's "crescendo per note" would have made it identical to BOW's speed);
+    - no TONE knob;
+    - tabs: bass (left bus only), strings, brass;
+    - label "ensemble";
+    - pressure default vibrato;
+    - two rows on ONE SHEET.
+  - **TIDE:**
+    - per-key drift on the DRIFT knob (±25 c, PROPOSAL);
+    - velocity inverted (soft = longest and most wandering);
+    - pressure positions drift · swell · tone · shimmer, with drift remembered when held;
+    - **HOLD on the whole keyboard adds notes, and re-striking a held note pulls it out;**
+    - the centre widens to about 28 mm for DRIFT, and TAP moves to the echo group.
+- **Kills proposed:** none. All three differ in kind: velocity meaning (speed / loudness / lifespan), registers (strands / Solina tabs / none), HOLD (replace left / replace left / add-and-pull, everything), body (CATHEDRAL / ONE SHEET / HUSH).
+- **Weak spots I flagged honestly:**
+  - BOW: J21 (chip count) and J15 (lap tipping);
+  - KEPT: J18 (shared colour) and the sleeve;
+  - TIDE: J7 (no registers) and J13 (which notes are held is invisible).
+
 ## Where things stand (2026-11-22, jam closed; jobs.md rev 1 written)
 - **The jam closed after six turns.** Turn 5 (director) killed WIND, put TIDE forward on a condition (velocity and pressure must matter in TIDE), and named the SWELL word clash. Turn 6 (visual) gave the faces:
   - BOW = CATHEDRAL with the lid as soundbox, dark naturals, coral pressure selector;
