@@ -475,3 +475,10 @@ Recorded as: floss uses **pressure pads, not moving keys** (keys.md S3 family: L
 > I like the soft silicone idea if we’re not going button or classic keys
 
 Recorded as: **preferred feel is soft silicone** (LinnStrument/Seaboard-like), if floss doesn't use buttons or classic keys. The ≈ $300 of bought FSRs is **too expensive**: find cheaper reliable sensing under silicone. Side-to-side position, metal tops, layered boards and glide strips were exploration, not requirements. Layered boards are out on feel.
+
+## 2026-11-22 11:27–11:30 (chat): no measuring, agents only
+> Do more research on the response time thing
+
+> I don’t want to measure anything. I’m truly to see how far agents alone can get me. How would an agent solve this problem? Also how do real instruments do it?
+
+Recorded as: **Adam measures nothing.** Choices must rest on published evidence: datasheets, teardowns, papers and shipping products. This project tests how far agents alone can get. Any part whose key spec is unpublished counts as unverified.
