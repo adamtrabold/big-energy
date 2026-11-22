@@ -1,267 +1,254 @@
-# floss module: how it works (shared by FALLBOARD, SPINE and CLOTH)
+# floss module: how it works (shared by FALLBOARD, SPINE and YOKE)
 
-Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2, second systems turn. Brought to the director's R1–R4 (new-director steer 1) and to the owner's 14:08 principle that **the case is entirely 3D printed** (PRINCIPLES §7). Read with `../../jobs.md` (rev 3.1), `how-it-looks-and-feels.md` (visual) and `floss/eng/module-r2.md`. There is one floss module, and every kit carries it unchanged. Each kit's `how-it-works.md` covers only the carry.
+Status: **rev 3, 2026-11-22**, product designer (systems focus). It folds in:
+- the director's steer 2 (S1 YOKE takes CLOTH's place; S2 knob A is the baseline, with B as a column);
+- `floss/eng/module-r3.md` (the stack, the knob, the driver, print, cables, and **speaker option E, adopted as the baseline** per the owner's "Speaker let's figure out what will sound best idc method");
+- the owner's "25 is good for the string machine" (25 voices, decided).
 
-Marks: **[r2]** from `floss/eng/module-r2.md` · **[eng]** from `floss/eng/module.md` · **[calc]** my arithmetic · **PROPOSAL** systems design, not approved · **UNVERIFIED** not checked · **ENG** needs engineering to confirm (all collected in §11).
+Rev 2's tables are superseded where this file differs. Read with `../../jobs.md` (rev 3.2), `how-it-looks-and-feels.md` (visual) and `module-r3.md`.
+
+Marks: **[r3]** / **[r2]** from the engineering files · **[calc]** my arithmetic · **PROPOSAL** systems design, not approved · **UNVERIFIED** · **ENG** needs engineering (collected in §11).
 
 ---
 
 ## 1. What the module is
-**floss is a sound module.** It has 25 voices allocated from incoming MIDI, a bucket-brigade ensemble plus Daisy modes, echo and reverb, a 22.2 Wh battery, one sealed speaker and a panel. It's played by any class-compliant USB-MIDI keyboard on its USB-C host port, which powers the keyboard.
-- It sits in every kit unchanged, held by two ¼"-20 threaded inserts underneath (S4).
-- It also works alone (at home, on a desk, on a tripod) and with no keyboard (from a computer, TRS, or a planted chord).
-- **The case is printed** (owner 14:08): shell, deck, crown, rail, target and dividers. Bought parts are the electronics, knobs, switches, jacks, the threaded inserts and fasteners. Printing by an outside service is fine (owner 2026-11-13).
+**floss is a sound module.** It has 25 voices allocated from incoming MIDI, a bucket-brigade ensemble plus Daisy modes, echo and reverb, a 22.2 Wh battery, **two speakers in one ported box** and a panel. It's played by any class-compliant USB-MIDI keyboard on its USB-C host port, which powers the keyboard.
+- **It sits in every kit unchanged**, held by its two ¼"-20 inserts underneath (S4). It also works alone (desk, tripod) and with no keyboard (computer, TRS, a planted chord).
+- **The case is printed** (owner 14:08): **ASA** recommended [r3 §6] (survives a parked car's seat and sun; it needs an enclosed printer or a service), with PETG as the easier fallback (keep it out of hot cars). The house colour is warm walnut-brown, from the spool (director S3; visual's call). Bought parts: electronics, knobs, switches, jacks, drivers, the threaded inserts and fasteners.
 
-**The honest "analog voices" sentence:** floss's tones start in a microcontroller, one crystal-timed tone per voice, the way the 1974 Solina's started in divider chips. Everything that shapes them is analog: each voice's own keyer and envelope, the octave strands and their mix, the tone filter and the bucket-brigade ensemble. The Daisy modes, echo and reverb are digital, and each one can be switched off. (The family goal is analog-first, with digital used where it serves: owner 14:06.)
+**The honest "analog voices" sentence:** floss's tones start in a microcontroller, one crystal-timed tone per voice, the way the 1974 Solina's started in divider chips. Everything that shapes them is analog: each voice's own keyer and envelope, the octave strands and their mix, the tone filter and the bucket-brigade ensemble. The Daisy modes, echo and reverb are digital, and each one can be switched off.
 
-## 2. Size, ratio and outline (job 30, T4)
-The owner: "It just needs to be portable and make sense and be harmonious" (13:51); "it also does not have to be a rectangle. It should be a thoughtful ratio base" (13:29). PRINCIPLES §2: proportions come from a deliberate ratio derived from the device itself.
+## 2. Size, ratio and outline (job 30)
+"It just needs to be portable and make sense and be harmonious" (owner 13:51). PRINCIPLES §2: sizes come from the parts, and a deliberate ratio tunes them.
 
-**280 × 105 × 35 mm. Each size comes from a part; the ratio then tunes them** (visual's derivation, adopted):
+**Baseline: 280 × 105 × 35 with knob A and speaker E. The depth is conditional (§2.2).**
 
-| Need | From | Gives |
-|---|---|---|
-| Panel width | the map (§3): two 34 mm jambs + seven 22 mm columns + six 7 mm group gaps = 264 | ≥ 264 + an end margin |
-| End margin | the jamb's tabs clear the rim (4) and a fingertip (4) | 8 each end → **280** |
-| Depth on the axis | the speaker crown: the driver's Ø 56 column behind the rear row [r2] | **105** (conditional: §2.2) |
-| Depth at the ends | jambs only: front row + tabs to y 47.5 + rim | ≥ 56 → **70** |
-| Height | the driver needs a 32 mm body [r2]; the knobs sit inside the rim | 32 + 3 → **35** (conditional: §2.1) |
+| Need | From | Knob **A** (Ø 10 × 8): baseline | Knob **B** (Ø 14.5 × 13.5): for the owner |
+|---|---|---|---|
+| Panel width | the map (§3): two 34 mm jambs + seven 22 mm columns + six 7 mm gaps = 264, + 8 each end | **280** | 280 |
+| Height | rim = deck 25 + seat 1 + knob + 1 [r3 §1] | **35** (knob tops at 34) | **≈ 40–42** [r3: ≈ 40–41; director: 42] |
+| Rows | front row y 14; rear row 7 mm behind its edge | **y 14 / 31** | y 14 / 35.9 |
+| Crown foot (5 mm finger room) | rear knob edge + 5 | **y 41** | y 48.4 |
+| Depth on the axis | the speaker box behind the rear row (§2.2) | **105** (E, ≈ 4 % margin) · **≈ 115** if the margin doesn't hold | ≈ 112 (director) to ≈ 120 with E [calc: B's foot is 7.4 mm further back] |
+| Ratio | | **8 : 3 : 1 on one 35 mm unit**, if 105 holds | restated after the fact (the director's objection to B) |
 
-**The ratio:** it falls on one **35 mm unit, 8 : 3 : 1**. Each half of the plan (140 × 105) is 4 : 3, one per keyboard half, with the split axis between them. Centre depth : end depth = 105 : 70 = 3 : 2. One sentence for the owner: "the parts set 280 × 105 × 35; it happens to fall on one 35 mm unit, 8 : 3 : 1, a fourth for each half."
+- **Ratio sentence for the owner (A, 105):** "the parts set 280 × 105 × 35; it falls on one 35 mm unit, 8 : 3 : 1, a fourth for each half."
+- **If E needs 115:** 280 × 115 × 35 is **8 : 1 in length to height, with the depth set by the speaker**. It is not on the unit, and I'd say so rather than invent a new ratio (director R1: "we don't fake 35").
 
 **The hull outline (plan):**
-- **Front edge:** straight, full length. It faces the keyboard and carries the target rail, the host port and the port light. Corners r 10.
+- **Front edge:** straight, full length (rail, host port, port light). Corners r 10.
 - **Ends:** straight, 70 deep. You pick it up by them.
-- **Rear:** one fair arc from 70 at each end to 105 on the axis (R ≈ 297.5 [calc]), deep only where the speaker is.
-- **Two flat port facets** on the arc, either side of the crown (§5).
-- It's symmetric about the axis (PRINCIPLES §6).
+- **Rear:** one fair arc from 70 at the ends to the full depth on the axis, with **exactly two flat port facets** on it (director S4.2: no polygonal chamfers).
+- Symmetric about the axis.
 
-**Section:** a sunk deck, a rim at 35 all round, and a speaker crown 70 wide (x 105–175) on the axis, its top level with the rim and its front raked from the deck up to the top. The wordmark sits on the crown's rear face, between the facets (visual, director R4). The deck carries nothing but controls and their words.
+**Section:**
+- a sunk deck at **25**, the rim at 35 all round;
+- a **crown ≈ 125 wide** on the axis, top level with the rim, holding **two grilles** symmetric about the axis (E) [r3 §8];
+- the crown's front **raked ≥ ≈ 63°** from its foot at y 41, so the drivers' frames clear it [r3 §3];
+- the wordmark on the crown's rear face, between the facets.
+- **The cream stage ends a few mm behind the rear row; the house colour rises behind it as the roof to the rim, with the crown in the roof** (director S4.1; visual draws it). Systems note: the roof is the speaker box's lid, so it isn't decoration.
 
-### 2.1 Condition: the height stays 35 only if the knob allows it (R1 condition 2), ENG
-Deck height = rim 35 − 1 clearance − knob height − ≈ 1 seat. Eng's flat stack needs the deck top at ≥ 23.5 (floor 2.4 + cells 7.5 + parts 3 + board 1.6 + top parts 6.5 + deck 2.5 [r2 §3]) [calc]:
+### 2.1 Knob: A is the baseline (director S2)
+- **A: Tayda aluminium 3010, Ø 10 × 8, 6 mm 18T, $0.59** [r3, chk]. **Gold: 186 in stock; black out of stock until 3 Jan 2027** [r3]. The colour is visual's (the black / coral question).
+- **B: the family 18T push-on, Ø 14.5 × 13.5.** Kept as a column for the owner (above).
+- No Ø 14–15 knob ≤ 9 mm tall with a published height exists [r3 §2].
+- **The 22 mm pitch stays with A** (a rule for the hand; director S2). The width doesn't reopen.
+- **Pots** [r3 §1]: PCB to shaft tip ≤ ≈ 21 mm. Bourns PTV09A-3 is the candidate (its L reference plane is UNVERIFIED). Bushingless pots are held by the board, so the board is fixed to the shell on standoffs and the deck has clearance holes.
 
-| Knob (published height) | Deck can be at most | Holds 35? |
-|---|---|---|
-| Family 18T push-on, 14.5 × 13.5 (Tayda; family file `design/concepts/common-how-it-works.md`) | 19.5 | **No.** Needs a rim at ≈ 41 |
-| KN1250, 14.86 × 10.45 (Tayda; `eng/round4-answers.md`). Round-bore set-screw, so it needs round-shaft pots; the family moved off it | 22.6 | **No, by ≈ 1 mm.** Needs a rim at ≈ 36.5 |
-| Tayda aluminium Ø 10 × 8, 6 mm 18T (Big Energy CATHEDRAL's low knobs) | **25** | **Yes:** deck at 25, 1.5 mm to spare |
-
-- **So "knob tops at 34, deck at 26" doesn't hold with any knob the family has named at Ø 14.9.** Eng (or visual) should look for a Ø 14–15 knob ≤ 8–9 mm tall with a published height. If there isn't one, the choice is: **Ø 10 × 8 knobs and 35 stays**, or **Ø 14.9 knobs and the height becomes ≈ 41**, with the ratio restated. We don't fake 35 (director R1).
-- **Systems' preference: Ø 10 × 8**, unless a low Ø 14.9 part turns up. It's the shared-universe part (CATHEDRAL already plays a row of them), it keeps 35, and it solves §2.2. The cost is a smaller knob under the hand. Director and owner decide.
-
-### 2.2 Condition: finger room behind the crown vs the driver (R1 condition 3), ENG
-The driver's Ø 55 frame has to fit under the crown's top, from the crown foot back to the rear wall's inside (y 102.5 on the axis). The foot must sit ≥ 5 mm behind the rear-row knobs [calc]:
-
-| Rows | Rear knob's rear edge | Crown foot ≥ | Driver needs to y | Fits 105? |
+### 2.2 Speaker: E is the baseline, D the fallback (owner: "what will sound best"; eng r3 §8)
+| | **E (baseline)** | **D (fallback)** | C | A (rev 2) |
 |---|---|---|---|---|
-| Ø 14.9, rows at y 16 / 40 (as drawn) | 47.5 | 52.5 | 107.5 + wall | **No** (≈ 110 deep) |
-| Ø 14.9, rows pulled to y 14 / 35.9 (7 mm between rows, the family minimum) | 43.4 | 48.4 | 103.4 + wall | **No, by ≈ 1 mm** |
-| **Ø 10 × 8, rows at y 14 / 31** | 36 | 41 | 96 + wall | **Yes, 6.5 mm spare** |
+| What | **2 × TEBM28C10-4B, mono, one class-D channel each, one ported box ≈ 190 cm³ net**, port Ø 16 × ≈ 140 flared, Fb ≈ 145 Hz, speaker feed high-passed ≈ 115 Hz | the same pair, sealed, 150 cm³ | 1 × TEBM28, ported, 120 cm³ | 1 × TEBM28, sealed, 76 cm³ |
+| Gain over A [r3] | **+5.4 dB/W across 150–800 Hz** (80 dB at 1 m for 0.48 W, not 1.66); **+11 / +8 dB** clean headroom; f3 ≈ 152 Hz | +3 dB/W, +6 dB headroom; most robust | f3 140, +6 dB at 100–200 | — |
+| Module | **all of the rear region behind the rear row is the box**: cells move to the ends under the jambs; electronics become **two stacked boards in the front band**. **105 holds with ≈ 4 % volume margin; safe at ≈ 115** | crown ≈ 125 wide; holds 280 × 105 × 35 | crown + wings; holds 105 | as rev 2 |
+| Cost | +1 driver, 2-channel amp, ≈ +$27–30, ≈ +63 g [r3] | +1 driver | — | — |
 
-- Even visual's drawn crown (foot at y 47) puts the frame under the knobs' edge. Visual noted that "its Ø 55 frame is about the crown's flat depth."
-- **With Ø 14.9 knobs, 105 can't give 5 mm of finger room.** The module goes to ≈ 108–110 deep (and the ratio is restated), or the knobs shrink.
-- A tilted driver doesn't rescue it: the crown top is only 50 mm deep behind a 52.5 foot [calc].
-- **With Ø 10 × 8 knobs, 280 × 105 × 35 holds on both counts.** That's why it's systems' preference in §2.1.
-- **Ø 10 knobs and the 22 mm pitch:** Ø 10 would satisfy the ≥ 7 mm rule at a 17 mm pitch, which would narrow the panel. I keep the family's 22 mm grid (R2, as on CATHEDRAL), because it's a family rule for the hand, not a knob-size rule. So 264 still comes from the family grid. **Director to confirm**, because otherwise the width reopens.
+- **I draw E at 105 and say plainly that it's conditional.** A 4 % margin on a printed airtight box with a gasketed driver seat, a flared port and ribs is thin. **If eng's detailed box loses more than ≈ 8 cm³ net, the module goes to ≈ 115** (all kits +10 mm in depth; the ratio is restated as in §2), **or the owner takes D at 105.** ENG to settle.
+- **What moves with E:** the crown widens to ≈ 125 with two grilles; the rear region becomes one box (no board, no cells behind the rear row); the cells move under the jambs; the board becomes two stacked boards in the front band.
+- **Grille:** each driver gets **a Ø 46 field of Ø 2.0 holes on a 2.6 pitch**, ≈ 770 mm² nominal, ≥ 620 even if the holes print 0.2 mm small [r3 §3]. The drawn Ø 1.8 / Ø 43 field fails.
+- **The box is its own airtight printed part** (≤ 250 long), with gasketed driver seats [r3 §5, §8].
+- **Speaker feed only** is high-passed; phones and line stay full range.
+- **No passive radiator** (none publishes its excursion [r3]). The owner's "passive radiator would be cool" is answered by E's port.
 
-**The positions below are drawn for Ø 14.9 at y 16 / 40 (the current sheet).** If §2.1 / §2.2 go to Ø 10 × 8, the rows move to y 14 / 31, the tabs to y 23.5–38.5 and the crown foot to y 41. No x position changes.
+### 2.3 Cells, inserts and the family's S4 spacing, ENG + FAMILY CALL
+- **E puts the cells under the jambs at the ends.** Eng needs **≥ 2 mm printed-part margins** on every side [r3 §1]. Rev 2's placement beside the crown is withdrawn.
+- **The S4 inserts at x 60 / 220 (160 apart) sit close to end-mounted cells** [r3 §8]. Something gives a few mm: the inserts, the cells, or the family's 160 mm spacing.
+- **Systems' proposal: keep the family's 160 mm spacing and let the module's insides give way** (the inserts may move in y, and the cells shift). S4 is the interface every carry, every module and a tripod attach to. Changing it changes Big Energy and port-a-poly too, while moving a cell changes only floss. **Director / owner call** (PRINCIPLES §3: the carry and connection are one family standard).
+- **Insert bosses Ø 16–18** (Ø 13.5 is the minimum for a standard ¼"-20 heat-set insert, OD 9.5, length 9.5–12.7; Prusa / CNC Kitchen 20-pack $11.99 [r3 §5, chk]).
+- **Everything that attaches by S4** (FALLBOARD's and SPINE's thumbscrews, YOKE's arms, a tripod) follows wherever the inserts land. Only the y coordinate would change if the spacing holds.
 
-### 2.3 Condition: the cells beside the crown, ENG
-The two cells (50 × 60 × 7.5 [r2]) go under the board, either side of the sealed box: **x 49–109 and 171–231, y 38–88** [calc].
-- The hull's inner wall at x 49 is at y 88.2, so the margin is ≈ 0.
-- The insert bosses (x 60 / 220, y 30, Ø ≈ 14) clear the cells by ≈ 1 mm.
-- Eng to confirm, along with the U-shaped board around the box.
+## 3. Panel map (two rows, family pitch; knob A)
+**Rules:**
+- **Pitch** 22 mm within a group; ≥ 7 mm between knob edges.
+- **Group gaps** add 7 mm, with a **flush divider** at each gap's centre: pressed-in black TPU 95A strip, or a printed groove as the fallback (director S3).
+- **Each end owns its half.** Coral on DEPTH, on the axis.
+- **Amounts in the front row; kinds, times and set-then-left in the rear row.**
 
-## 3. Panel map (two rows, family pitch)
-**Rules carried over:**
-- **Pitch:** 22 mm within a group; ≥ 7 mm between knob edges (family R2).
-- **Group gaps:** each adds 7 mm, with a **flush divider** at its centre (§3.1).
-- **Each end owns its half** (the jambs).
-- **Coral on DEPTH, and the shimmer group on the exact centre line.**
-- **Amounts in the front row, nearest the hand. Kinds, times and set-then-left controls in the rear row.**
+x from the left end, **axis x = 140**. **Front row y = 14, rear row y = 31** (A).
 
-The groups **mirror about the axis**: jamb, a 1-column group, a 2-column group on each side. ATTACK and RELEASE sit in voice (rev 1's regrouping, unchanged).
-
-x from the left end, **axis at x = 140**. Front row at y = 16, rear row at y = 40 (see §2.2) [calc].
-
-| Group | x (centre) | Front row (amounts, played) | Rear row (kinds, times) |
+| Group | x | Front row | Rear row |
 |---|---|---|---|
-| **Jamb L** (left half) | 25 | OCTAVE L (5-step, −2 … +2) | strand tabs **low · main · high**, side by side (3 mini rockers, 34 wide) |
+| **Jamb L** | 25 | OCTAVE L (5 steps, −2 … +2) | strand tabs **low · main · high** (3 mini rockers, 34 wide) |
 | *divider* | 45.5 | | |
-| **Touch** | 60 | **HOLD** (latching, larger) | **PRESSURE** (4-step: swell · drift · tone · shimmer) |
+| **Touch** | 60 | **HOLD** (latching) | **PRESSURE** (4 steps: swell · drift · tone · shimmer) |
 | *divider* | 74.5 | | |
 | **Voice** | 89 | ATTACK | RELEASE |
 | | 111 | TONE | DRIFT |
 | *divider* | 125.5 | | |
-| **Shimmer (axis)** | **140** | **DEPTH (coral)** | SHIMMER mode (4-step: analog · wide · glass · tape) |
+| **Shimmer (axis)** | **140** | **DEPTH (coral)** | SHIMMER mode (4 steps: analog · wide · glass · tape) |
 | *divider* | 154.5 | | |
 | **Echo** | 169 | ECHO (level and repeats) | TIME |
 | | 191 | **TAP** (its lit ring is the status light, §7) | FREE / SYNC (toggle) |
 | *divider* | 205.5 | | |
-| **Out** | 220 | VOLUME | REVERB (decay grows with amount) |
+| **Out** | 220 | VOLUME | REVERB |
 | *divider* | 234.5 | | |
-| **Jamb R** (right half) | 255 | OCTAVE R | strand tabs **low · main · high** |
+| **Jamb R** | 255 | OCTAVE R | strand tabs **low · main · high** |
 
-- **Width check [calc]:** two 34 mm jambs + seven 22 mm columns = 222; six gaps × 7 = 42; total 264 + 2 × 8 = **280**. The dividers mirror: 45.5 ↔ 234.5, 74.5 ↔ 205.5, 125.5 ↔ 154.5.
-- **Count:** 13 round controls (OCTAVE ×2, PRESSURE and SHIMMER stepped; ATTACK, RELEASE, TONE, DRIFT, DEPTH, ECHO, TIME, REVERB, VOLUME pots), plus HOLD, TAP, FREE / SYNC, 6 tabs and 2 lights.
-- **Reading it, eyes closed:** from the left end, a stepped knob in front of three tabs, a gap, HOLD, a gap, the voice's four knobs, a gap, the coral centre. The right side mirrors it. Signal order left to right: touch → voice → shimmer → echo → out (PRINCIPLES §6).
-- **Rear row:** the tabs (15 deep, centred at y 40) span y 32.5–47.5. They fit the 70 mm ends: 47.5 + rim < 70.
-- **Behind the rear row:** the crown on the axis (the speaker); either side of it, a plain deck over the board and cells. No controls go there.
-- **Knob sizes:** §2.1 decides. If Ø 14.9 survives, the rear row's kinds (PRESSURE, SHIMMER, FREE / SYNC) step down to Ø 10 (visual).
+- **Width:** 222 + 42 = 264, + 2 × 8 = **280**. The dividers mirror.
+- **Rear row:** the tabs (15 deep) span **y 23.5–38.5**. The rear knobs' rear edges are at 36, and the crown foot is at 41.
+- **Count:** 13 round controls, HOLD, TAP, FREE / SYNC, 6 tabs, 2 lights.
+- **Stepped controls are now firmware-stepped 9 mm pots** [r3 §1]. 16 mm rotary switches don't fit under a 25 mm deck. This applies to OCTAVE ×2, PRESSURE and SHIMMER, read in steps as on Big Energy's RANGE.
+  - **The cost: no tactile detent.** You see the step from the pointer and the tick ring, and hear it, but don't feel it. That's a feel trade-off for the owner (§13).
+  - The family tick ring stays as the only marking of steps.
+- **Knob B column:** rows y 14 / 35.9, tabs y 28.4–43.4, crown foot y 48.4.
 
-### 3.1 Dividers: flush and printed (director R2 + owner 14:08)
-- **Flush with the deck.** Nothing stands up between knobs (PRINCIPLES §6: dividers mustn't get in the hands' way).
-- **You find the groups by touch** from the 7 mm wider gap, and by a change you can feel at the divider line.
-- **Printed, not brass.** The look is visual's call. Three ways to make it, each a standard printing method (job 26):
-  1. **a shallow groove** printed into the deck (one material; you feel the edge);
-  2. **a contrasting inlay printed in place**, using a multi-material printer, level with the deck;
-  3. **a separately printed strip pressed into a printed slot**, level with the deck.
-  - None needs sanding, machining or measuring.
+### 3.1 Dividers (flush)
+Flush with the deck; you find the groups by the 7 mm wider gap and the strip's different feel. Making them: press a printed TPU strip into a printed slot, or print a groove (job 26). The look is visual's.
 
-## 4. Front face (the edge facing the keyboard)
-Centred on the axis:
-- **Target rail:** a graduated printed rail along the top front edge, ≥ 264 mm, with a **printed target** that slides on it. The graduation is printed (every 10 mm, with a longer centre mark).
-  - Range ± 132 mm about the axis. On any centred slim keyboard, B3 | C4 falls a little left of the keyboard's centre (after 7 of 15 white keys on a C-to-C 25-key keyboard [calc]), well inside the range.
-  - **No sentence on the module** (director R4). "Keep the keyboard at its home octave" goes on the 1:1 card in each kit's pocket and on the site.
-- **USB-C host port** (S2), on the axis, low on the face. Cold socket: VBUS goes on only when a keyboard is detected, current-limited at ≈ 550–600 mA [r2].
-- **Port light**, beside the host port.
-- **The two USB-C sockets are a body apart:** host on the front face, charging and computer on the rear facet. A charger in the wrong socket is safe [r2] and flashes the port light.
-- **Why floss can't know which key is which**, the one line for the owner (it goes on the card and the site): a USB keyboard sends only note numbers, and its octave button changes the numbers without telling floss. So floss splits at a fixed number, and the target shows where that number sits on today's keyboard.
+### 3.2 Where the print splits (if it isn't one piece)
+**The shell splits at the divider lines x 74.5 and 205.5** into 74.5 + 131 + 74.5 [r3 §5], so the seams hide in the divider slots and the crown stays whole. **The speaker box is a separate airtight part.** A one-piece 280 shell needs a bed of ≥ ≈ 300 mm or a service; a 256 bed can't take it at any angle [r3].
+
+## 4. Front face (toward the keyboard)
+- **Target rail:** a printed rail along the top front edge, ≥ 264, with a printed target. Printed graduation (10 mm, longer centre mark). **No sentence on the module**; the home-octave line is on the 1:1 card and the site.
+- **USB-C host port**, on the axis, in a **recessed pocket ≈ 25–30 mm deep** (PROPOSAL from [r3 §7]).
+  - The module end takes a **straight** plug that sits inside the pocket, so nothing sticks out and the YOKE cap and the kits' lids close over it.
+  - The kit cable needs a right angle only at the keyboard end (§9 S3).
+  - The pocket takes space at the front-centre, where E's stacked boards are. ENG to fit.
+  - Cold socket: VBUS only once a keyboard is detected, ≈ 550–600 mA.
+- **Port light** beside the pocket.
+- **Two USB-C sockets a body apart:** the host on the front, charging and computer on the rear facet.
 
 ## 5. Rear facets and underside
-- **Two flat port facets on the arc**, either side of the crown (visual §2):
-  - **plan-left, set once:** POWER (the one switch, a recessed slide, so it can't switch on in a bag) · USB-C (charging and computer MIDI) · TUNE (trim, ±50 c) · MIDI SPLIT (slide);
-  - **plan-right, sound and MIDI:** PHONES · LINE · MIDI IN · MIDI OUT (TRS).
-  - The rigid kits put a window in their rear wall in line with each facet, so plugs pass.
-- **Underside:** **two ¼"-20 threaded inserts** (S4), **160 mm apart at x = 60 and 220, y = 30**, under the control band and clear of the crown; four feet.
-  - In a printed shell these are heat-set (or press-in) inserts: fastener hardware, not a finish (product with ¼"-20 thread UNVERIFIED; ENG).
-  - The rigid kits hold the module by these inserts with thumbscrews; a tripod uses one.
+- **Plan-left facet, set once:** POWER (recessed slide) · USB-C (charging and computer) · TUNE · MIDI SPLIT.
+- **Plan-right facet:** PHONES · LINE · MIDI IN · MIDI OUT.
+- Jack and socket centres sit at z ≈ 14–19 [r3 §1], which sets the facet openings and the kits' windows.
+- **Underside:** the two ¼"-20 inserts (S4; §2.3), bosses Ø 16–18, and four feet.
 
-## 6. The voice (from jam turn 4, accepted in turn 6; unchanged)
+## 6. The voice (unchanged from rev 2, except that the count is decided)
 | | Behaviour |
 |---|---|
-| **Voices** | 25, **in fixed pools: 1–12 serve the left half, 13–25 the right.** Stealing (oldest first) happens within a half. A 25-key keyboard played live never steals. Eng to confirm. |
-| **Split** | Fixed at B3 \| C4 (note 59 \| 60). OCTAVE L and R add −2 … +2 octaves to each side. Equal = one keyboard. A held note keeps its pitch through an octave change. |
-| **Velocity** | Speed: soft bows in slowly, hard speaks at once, inside ATTACK's range. Loudness doesn't change (a firmware option, with no control). |
-| **Release velocity** | Sets the tail inside RELEASE's range (out to ≈ 30 s) when the keyboard sends it; otherwise RELEASE's value. |
-| **Strands** | Up to three per note: octave below · at pitch · octave above. Three tabs per half. **All off = that half silent:** a mute, shown by the tabs. |
-| **DRIFT** | Each voice wanders on its own slow random walk: 0 = steady, full ≈ ±25 c (PROPOSAL). |
-| **Lean (PRESSURE)** | **swell** (that note's level grows), **drift** (that note's wander widens and speeds up, so a full lean becomes a ≈ 5–6 Hz vibrato; a planted note keeps the drift it was planted with), **tone** and **shimmer** (whole instrument, following the hardest lean). A lean only adds to the knob and returns exactly to it. |
-| **Lean source** | Poly aftertouch / MPE → per note; channel pressure → every note; **CC1** (mod wheel, strip or button) → every note; nothing → velocity still works. floss uses the best source the keyboard sends; the panel doesn't change. |
-| **Bend** | ±2 semitones; per note with MPE. |
-| **HOLD** | **Plant and tend.** While on, every note played joins the held set. A re-strike pulls that note out; the re-strike's velocity sets its fade (soft = long). Off: all fade on their tails. **Held notes survive the keyboard** (unplug, swap, hand-over). |
-| **HOLD's scope** (owner proposal) | Octaves equal → plants everything. Octaves different (a split) → plants the left half; the right half plays live. Notes already planted stay when the scope changes. |
-| **CC64** | Ordinary sustain on every note, separate from HOLD. |
-| **Breath** | The sum grows with about √(voices sounding), recovering over ≈ 200 ms; no control. |
-| **Shimmer** | **analog** (3 × V3207 bucket-brigade, LFOs ≈ 1 Hz and ≈ 6 Hz at 0 / 120 / 240° [eng]) · three Daisy modes (working names wide · glass · tape). DEPTH 0 = dry. Paths spread left / centre / right on phones and line; the speaker gets the mono sum, high-passed at ≈ 100 Hz [r2]. |
-| **Echo, reverb** | ECHO raises level and repeats together. TIME: milliseconds in FREE, a note division in SYNC (tempo from MIDI clock if present, otherwise TAP). REVERB: amount, with decay growing with it. No clicks when the clock starts, stops or drops out. |
-| **MIDI** | Big Energy's rules. MIDI SPLIT on: left half on channel 1, right on 2, in and out. Velocity, pressure and release velocity go out. Panel settings follow the family CC map (S6) with jump-on-move takeover. |
-| **Keyboard power** | 5 V from a cold socket, current-limited at ≈ 550–600 mA, only while floss is on [r2]. |
+| **Voices** | **25 (owner: "25 is good for the string machine")**, in fixed pools: 1–12 left half, 13–25 right; oldest stolen within a half; a 25-key keyboard played live never steals. Pools: eng to confirm |
+| **Split** | Fixed at B3 \| C4 (note 59 \| 60); OCTAVE L / R add −2 … +2; equal = one keyboard; a held note keeps its pitch through an octave change |
+| **Velocity** | Speed (soft bows in slowly, hard speaks at once) inside ATTACK's range |
+| **Release velocity** | Sets the tail inside RELEASE's range (to ≈ 30 s) when sent |
+| **Strands** | Octave below · at pitch · octave above; three tabs per half; all off = that half silent |
+| **DRIFT** | Each voice's own slow random walk, 0 to ≈ ±25 c (PROPOSAL) |
+| **Lean (PRESSURE)** | swell · drift (a full lean becomes a ≈ 5–6 Hz vibrato) · tone · shimmer; adds to the knob and returns to it |
+| **Lean source** | poly AT / MPE → per note; channel pressure → every note; CC1 → every note; nothing → velocity still works |
+| **Bend** | ±2 semitones; per note with MPE |
+| **HOLD** | Plant and tend: notes add, a re-strike pulls one out (its velocity sets the fade); held notes survive the keyboard. Scope (owner proposal): everything when the octaves are equal, the left half when split |
+| **CC64** | Ordinary sustain |
+| **Breath** | Sum grows ≈ √(voices), recovering over ≈ 200 ms |
+| **Shimmer** | analog (3 × V3207, LFOs ≈ 1 / 6 Hz at 0 / 120 / 240°) · Daisy wide · glass · tape; DEPTH 0 = dry. Paths spread L / C / R on phones and line; **the speakers get the mono sum, high-passed at ≈ 115 Hz (E)** |
+| **Echo, reverb** | ECHO = level + repeats; TIME ms (FREE) or division (SYNC: clock, else TAP); REVERB decay grows with amount |
+| **MIDI** | Big Energy's rules; MIDI SPLIT → channels 1 / 2; velocity, pressure and release velocity go out; family CC map with jump-on-move |
+| **Keyboard power** | 5 V cold socket, ≈ 550–600 mA, only while on |
 
-## 7. Lights (two; director R3)
+## 7. Lights (two)
 | Light | Where | Meanings |
 |---|---|---|
-| **Status** | **TAP's lit ring** (as on Big Energy's CATHEDRAL; shared universe) | steady = on and fine · slow pulse = charging · fast flash = low battery · tempo blink = TAP's tempo (only in SYNC with no MIDI clock) |
-| **Port** | front face, beside the host port | off = nothing connected · steady = keyboard connected and powered · **a short blink per note received** · fast flash = fault (too much current, or a charger in the host socket) |
+| **Status** | TAP's lit ring | steady = fine · slow pulse = charging · fast flash = low battery · tempo blink (SYNC, no MIDI clock) |
+| **Port** | beside the host pocket | off = nothing · steady = connected · a blink per note received · fast flash = fault |
 
-**Status priority, highest first (when two apply, the ring shows the higher one):**
-1. **Low battery** (fast flash): overrides everything.
-2. **Tempo blink** (SYNC, no MIDI clock, so TAP is setting the tempo).
-3. **Charging** (slow pulse).
-4. **Steady.**
-
-No third light (turn-3 ruling: two lights).
+**Status priority:** low battery > tempo blink > charging > steady. Both lights amber (visual, as the director accepted).
 
 ## 8. States
 | State | What happens | What you see / hear |
 |---|---|---|
-| Off | nothing; the host socket is cold | all dark |
-| On, no keyboard | silent, ready; plays from USB-C or TRS; the host socket stays cold | ring steady; port off |
+| Off | host socket cold | dark |
+| On, no keyboard | silent, ready; plays from USB-C or TRS | ring steady; port off |
 | Keyboard plugged in | detected → VBUS on → enumerated | port steady |
 | Playing | notes sound | port blinks per note |
-| **Silent, keyboard connected** (job 29) | — | port steady with **no blink** on a key → notes aren't arriving (dead keyboard or charge-only cable). Blinks but silent → VOLUME, all tabs off in a half, phones plugged in |
-| Port light off with a keyboard plugged in | a non-compliant cable, or the keyboard isn't detected | use the **C-to-A adapter** with the keyboard's own cable [r2]; firmware's always-on fallback is in reserve (owner trade-off) |
-| Keyboard draws too much / charger in the host socket | keyboard power cut; floss keeps running | port flashes fast |
-| Unplugged mid-chord | unheld notes fade on their tails; **held notes keep sounding** | port off |
-| HOLD on, notes planted, keyboard gone | the drone continues; every knob still works | HOLD latched down; port off |
-| HOLD on, a half full (12 or 13 planted) | the next note in that half replaces its oldest | — |
-| A half with all tabs off | silent in and out (with MIDI SPLIT) | the tabs show it |
-| Lean source = nothing | PRESSURE has no effect; velocity still works | — |
-| SYNC, no clock, no tap yet | echo runs at the last tempo (120 BPM at power-on, PROPOSAL) | ring blinks that tempo |
-| SYNC, MIDI clock present | echo follows the clock | ring steady (no tempo blink) |
-| Charging while playing | normal | ring slow pulse, unless the tempo blink applies (priority, §7) |
-| Low battery | warning before it stops (eng sets the threshold) | ring fast flash, over anything else |
-| Headphones in | speaker mutes | — |
-| Computer and keyboard together | notes merge if host and device work at once (unverified [r2]); otherwise TRS to the computer | — |
-| Big home keyboard (49–61 keys) | plays if it draws ≤ ≈ 500 mA; note 60 is near its middle (UNVERIFIED per model); a half can steal past 12 / 13 | — |
+| **Silent, keyboard connected** (job 29) | — | steady with no blink → notes not arriving (dead keyboard, charge-only cable); blinking but silent → VOLUME, tabs, phones |
+| Port off with a keyboard plugged | non-compliant cable / not detected | use the C-to-A adapter with the keyboard's own cable |
+| Over-current / charger in the host socket | keyboard power cut; floss runs on | port fast flash |
+| Unplugged mid-chord | unheld notes fade; **held notes keep sounding** | port off |
+| HOLD on, keyboard gone | the drone goes on; knobs work | HOLD latched; port off |
+| A half full (12 / 13 planted) | the next replaces its oldest | — |
+| A half with all tabs off | silent in and out | tabs show it |
+| Lean source = nothing | PRESSURE has no effect | — |
+| SYNC, no clock | echo at the last tempo (120 BPM at power-on, PROPOSAL); TAP sets it | ring blinks the tempo |
+| SYNC, clock present | follows the clock | ring steady |
+| Charging while playing | normal | slow pulse, unless the tempo blink applies |
+| Low battery | warning before it stops | fast flash over everything |
+| Headphones in | **both speakers mute** | — |
+| Very loud bass on the speakers | the ≈ 115 Hz high-pass keeps the drivers inside their excursion below the port tuning [r3] | — |
+| Stepped control between steps | the firmware holds the nearest step (with hysteresis), so it never flickers between two (PROPOSAL) | the pointer sits on a tick |
+| Computer and keyboard together | merge if host and device work at once (unverified); else TRS | — |
+| Big home keyboard | plays if ≤ ≈ 500 mA; a half can steal | — |
 
-## 9. The family interfaces this module meets (job 28)
+## 9. Family interfaces (job 28)
 | | Interface | floss's value |
 |---|---|---|
-| S1 | keyboard envelope the carry takes | 325–388 × 83–135 × 11–16 mm, ≤ 0.6 kg [eng] (the carry's job) |
-| S2 | host port | USB-C, cold socket, ≈ 550–600 mA, front face on the axis [r2] |
-| S3 | cable | **0.3–0.5 m** [r2]. **The kit cable is C-to-C with flat right-angle plugs** (PROPOSAL): a USB-C plug is reversible, so one flat right-angle plug can exit left or right by flipping it, and it sticks out only ≈ 10–15 mm [r2 §6]. Keyboards without USB-C use their own cable on **one C-plug-to-A-receptacle adapter**, carried in every kit [r2]. A coiled cable for sharing is an optional extra (product UNVERIFIED) |
-| S4 | attachment | two ¼"-20 inserts, 160 mm apart at x 60 / 220 |
-| S5 | plug behaviour | §8: any order, notes release on unplug, held notes survive, port light, cold socket, keyboard powered only while on |
-| S6 | CC map | CC64 sustain, CC1 lean fallback, CC74 tone, CC11 expression, bend ±2; the full list goes in the spec |
-| S7 | split rule | fixed note B3 \| C4 + the target rail; the advice line on the card and the site |
-
-- **Reused unchanged by Big Energy and port-a-poly:** S1–S7; the target rail and target; the port light's meanings; the kit cable and adapter; the keyboard bed, end blocks and printed scale (carry parts).
-- **Their module size is their own** (owner, 13:25).
+| S1 | keyboard the carry takes | **25-key portable controllers** (owner: "The carry should fit a portable MIDI controller"); slim class 325–388 × 83–135 × 11–16, ≤ 0.6 kg [eng]. Chunky minis per kit |
+| S2 | host port | USB-C, cold socket, ≈ 550–600 mA, front face on the axis, **in a recessed pocket ≈ 25–30 deep** |
+| S3 | cable | **C-to-C, straight at the module (into the pocket), flat sideways right-angle at the keyboard**. A reversible plug exits left or right by flipping. Checked product: Pimoroni flat sideways right-angle, **0.2 m (too short) or 1 m (coils in the kit)** [r3 §7, chk]. A 0.3–0.5 m version is a marketplace item (UNVERIFIED). Non-C keyboards: their own cable on **one C-to-A adapter**, in every kit. Old micro-B Xkey: adapter + StarTech A-to-angled-micro-B [r3] |
+| S4 | attachment | two ¼"-20 inserts, **160 apart** (§2.3: keep the spacing), bosses Ø 16–18 |
+| S5 | plug behaviour | §8 |
+| S6 | CC map | CC64, CC1 lean fallback, CC74 tone, CC11, bend ±2 |
+| S7 | split | fixed B3 \| C4 + target rail; the line on the card and the site |
 
 ## 10. Making steps outside the electronics (job 26)
-| Step | Craft | Source or method | Needs trial or measuring? |
+| Step | Craft | Source or method | Trial or measuring? |
 |---|---|---|---|
-| Shell, deck, crown, rail, target | **3D printing** (PETG, as eng's weights assume [r2]) | our print files. **280 mm long needs a printer bed of ≥ ≈ 300 mm** (common 220–256 mm beds are too small) or **an outside print service**. Fallback: split the shell on the axis, with a keyed, screwed joint (ENG; visual for how the seam reads) | no |
-| Dividers | printing (§3.1: groove, multi-material inlay, or pressed-in printed strip) | the printer's own methods | no |
-| Threaded inserts | heat-set with a soldering iron (standard practice for printed parts) | ¼"-20 insert product UNVERIFIED | no |
-| Feet | bought stick-on feet | — | no |
+| Shell (deck, roof, crown, rail, target): **ASA** (PETG fallback) | 3D printing | our files; **one piece on a ≥ 300 bed or a service, or three pieces split at x 74.5 / 205.5** [r3] | no |
+| Speaker box, a separate airtight part with gasketed driver seats and a flared Ø 16 port | printing + a bought gasket | our files | no |
+| Dividers | pressed-in printed TPU strip, or a printed groove | our files | no |
+| Shell joints (if split) | keyed laps in the divider slots + M3 screws into heat-set inserts | standard practice | no |
+| ¼"-20 inserts | heat-set with a soldering iron, in Ø 16–18 bosses | Prusa / CNC Kitchen pack [r3, chk] | no |
+| Board standoffs (bushingless pots) | printed bosses + screws | our files | no |
+| Feet | bought | — | no |
 
-## 11. Engineering questions (one list; director's steer item 7)
-1. **The deck at 26 (or 25) with the cells beside the crown:** my placement is x 49–109 / 171–231, y 38–88, with ≈ 0 margin to the hull wall and ≈ 1 mm to the insert bosses (§2.3). Confirm the stack and the U-shaped board.
-2. **The knob, with a published height:** is there a Ø 14–15 knob ≤ 8–9 mm tall? If not, it's Ø 10 × 8 (35 holds) or Ø 14.9 at ≈ 41 tall (§2.1).
-3. **The driver position for ≥ 5 mm of finger room:** it fits 105 only with Ø 10 knobs; with Ø 14.9 the module needs ≈ 108–110 deep (§2.2).
-4. **Grille ≥ 620 mm² open** on the crown top (a Ø 46 field, or Ø 1.9 holes).
-5. **Ported in the crown:** a ported box needs ≥ 130 cm³ and a folded port [r2]. The crown's box is ≈ 76 cm³ (visual), so I expect **no**. Confirm, so the owner's sealed / ported trade-off is stated honestly.
-6. **Weight of the printed hull** and the shell lever (walls 2.0 with ribs). I assume eng's BLOCK figure, **0.67–0.93 kg**, not recalculated.
-7. **Print bed:** a one-piece 280 shell on a ≥ 300 mm bed or by a service, vs an axis split.
-8. **The ¼"-20 heat-set insert** product and its boss in PETG.
-9. **The flat right-angle C-to-C cable** (S3): a product, and whether slim keyboards' USB-C sockets are mounted flat (UNVERIFIED per model).
+## 11. Engineering questions (open after r3)
+1. **E's box at 105:** does the detailed box keep ≥ 190 cm³ net (a 4 % margin) with ribs, gaskets, the port and the host pocket? If not: 115, or D.
+2. **The host-port pocket (25–30 deep) and E's stacked front-band boards:** do they fit together at the front-centre?
+3. **Cells under the jambs** with ≥ 2 mm margins, **and S4 kept at 160 apart** (§2.3): where do the inserts land in y?
+4. **The PTV09A-3's L reference plane** (≤ 21 mm PCB to tip).
+5. **Two drivers' frames under a ≥ 63° rake** at the crown foot y 41 (r3 checked one driver at y 73; E's pair sits side by side at ≈ 62 mm centres).
+6. **Weight:** module ≈ 0.70–0.85 kg with E, PETG [r3]; ASA ≈ 40 g lighter.
+7. **A 0.3–0.5 m flat sideways right-angle C-to-C cable** with a published listing.
 
-## 12. Coverage: the jobs the module answers in every kit (against `jobs.md` rev 3.1)
+## 12. Coverage (against `jobs.md` rev 3.2)
 | Job | Where |
 |---|---|
-| 1 strings anywhere | §1, §6 |
-| 2 one cable, USB-C, any keyboard | §4, §6, §9 S2 / S3 (flat right-angle cable; adapter) |
-| 4 every note | §6 voices (pools) |
-| 5 split and octaves | §3 jambs, §6 |
-| 6 where the split lands | §4 (target and rail; the advice line on the card and the site) |
-| 7 velocity | §6 |
-| 8 lean, selectable | §3, §6 |
-| 9 no pressure | §6 lean source |
-| 10 extras | §6 |
-| 11 colour per half | §3 tabs, §6 |
-| 12 shimmer | §3 axis, §6 |
-| 13 echo, reverb, tempo | §3, §6, §7 (tempo blink) |
+| 1 strings anywhere | §1, §2.2, §6 |
+| 2 one cable, USB-C, any keyboard | §4, §9 S2 / S3 |
+| 4 every note (25, decided) | §6 |
+| 5 split and octaves | §3, §6 |
+| 6 where the split lands | §4 |
+| 7–10 velocity, lean, no pressure, extras | §6 |
+| 11 colour per half | §3, §6 |
+| 12 shimmer | §3, §6 |
+| 13 echo, reverb, tempo | §3, §6, §7 |
 | 14 hold | §6 |
-| 15 speaker / phones | §2, §5, §8 |
-| 16 computer / other keyboard | §5, §8 |
-| 17 MIDI out | §6 |
-| 18 read the state | §3, §3.1 (groups by touch), §4, §7 (priority) |
-| 19 one switch; battery and charging | §5, §7, §8 |
-| 21 many vs one | §6 breath |
-| 22 in tune | §5 TUNE; crystal tones [eng] |
-| 26 printed case, proven parts; fix | §1, §10; host port and battery reachable (eng's layout) |
+| 15 speaker / phones, **the best sound** | §2.2 (E), §8 |
+| 16, 17 computer, MIDI | §5, §6, §8 |
+| 18 read the state | §3 (stepped pots read by pointer and ticks), §3.1, §4, §7 |
+| 19 one switch, battery | §5, §7, §8 |
+| 21 many vs one | §6 |
+| 22 in tune | §5 TUNE |
+| 26 printed, proven parts, fix | §1, §10 |
 | 29 why silent | §7, §8 |
-| 30 portable, makes sense, harmonious; ratio from the parts; any outline | §2 (conditional on §2.1–2.3) |
-| 3, 20, 23, 24, 25, 27, 28 | partly §9; the rest in each kit's file |
+| 30 portable, makes sense, harmonious | §2 (105 conditional on E's margin) |
+| 3, 20, 23, 24, 25, 27, 28 | §9 + each kit's file |
 
-**At risk:** job 30's 35 and 105 depend on the knob decision (§2.1, §2.2). Either outcome still answers job 30, as long as the ratio is restated honestly if the sizes move.
+**At risk:** job 30's 105 (E's margin); job 18's feel of steps (no detents, which only weakens it; the steps can still be read by eye).
 
-## 13. Owner trade-offs (from `module-r2.md` and this turn)
-1. **Speaker loading:** sealed (f3 ≈ 255 Hz, robust, smallest) vs ported (f3 ≈ 105–135 Hz, +6 dB at 100 Hz). The passive radiator doesn't earn its place at this size [r2], which reverses the owner's "passive radiator would be cool". **Drawn sealed** (director R5). Ported is offered only if eng shows it fits the crown (§11.5).
-2. **Height 35:** vs the 23–25 he saw earlier [r2 trade-off 2]. With Ø 14.9 knobs it becomes ≈ 41 (§2.1).
-3. **Knob size: Ø 10 × 8 (keeps 280 × 105 × 35) vs Ø 14.9 (≈ 280 × 110 × 41).** New this turn.
-4. **Weight:** module ≈ 0.67–0.93 kg (printed, BLOCK-class [r2]). The kit totals are in each kit's file. T5 is withdrawn (owner 13:49): reported, lighter is better.
-5. Fixed voice pools 12 / 13; split-scoped HOLD.
+## 13. Owner trade-offs
+1. **Speaker: E** (best: +5 dB/W, f3 152, +8–11 dB headroom; 105 with a thin margin, or 115) / **D** (robust pair, sealed, 105) / C / A. Systems draws E; D is the fallback.
+2. **Knob: A** Ø 10 × 8 (35 tall, keeps 8 : 3 : 1) / **B** Ø 14.5 (≈ 42 tall, ≈ 112–120 deep, kits +7). Director recommends A.
+3. **Stepped controls:** firmware-stepped pots (no detent you can feel) / rotary switches (≈ +5 mm height) [r3].
+4. **Filament:** ASA / PETG.
+5. **Print:** one piece (≥ 300 bed or a service) / three pieces at the dividers.
+6. **S4 spacing:** keep 160 (the module's insides move) / change the family spacing (§2.3).
+7. Split-scoped HOLD; fixed voice pools.

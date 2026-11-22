@@ -1,5 +1,60 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22, round 2: the systems turn after the director's steer 2, plus eng r3)
+- **New input:**
+  - **Director steer 2** (`director.md`): **S1** YOKE becomes a concept and absorbs CLOTH (the wrap and the grass mat become YOKE options); **S2** knob A is the module baseline, with B as a column for the owner; **S3** the house colour is walnut-brown (visual's); S4 face fixes (visual's); S5 SPINE's area overlap is mine to fix. Going on: **FALLBOARD, SPINE, YOKE**.
+  - **Owner:** "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule" / "25 keys idk about voices" / "25 is good for the string machine" (**25 voices, decided**, per the coordinator) / "Speaker let's figure out what will sound best idc method".
+  - **`eng/module-r3.md` landed:**
+    - **speaker E** (2 × TEBM28, one ported box ≈ 190 cm³, a flared Ø 16 × 140 port, Fb ≈ 145, a ≈ 115 Hz high-pass): **105 deep with ≈ 4 % margin, safe at ≈ 115**; cells to the ends; two stacked boards in the front band; ≈ 125 crown with two grilles; D (the pair, sealed) is the fallback;
+    - deck 25; firmware-stepped 9 mm pots (no rotary switches);
+    - cell margins ≥ 2 mm; rake ≥ 63°; grille Ø 46 field, Ø 2.0 holes at 2.6 pitch;
+    - ASA; split at the dividers (x 74.5 / 205.5) with the speaker box as its own airtight part;
+    - bosses Ø 16–18;
+    - FALLBOARD's lid needs a 17.5 grid / 1.2 skin;
+    - a recessed host pocket ≈ 25–30 deep;
+    - SPINE knuckles fine;
+    - Pimoroni flat sideways right-angle C-to-C exists at 0.2 / 1 m only.
+- **Written (no git):**
+  - `concepts/module/how-it-works.md` **rev 3**:
+    - knob A baseline (rows y 14 / 31, tabs 23.5–38.5, crown foot 41) with a B column (≈ 42 tall, ≈ 112–120 deep);
+    - **E adopted, 105 drawn and stated as conditional** (the trigger for 115: the detailed box losing > ≈ 8 cm³ net; at 115 the ratio is restated as "8 : 1 length : height, depth set by the speaker", not faked);
+    - firmware-stepped pots, with "between steps" added to the states;
+    - host pocket; S3 cable = straight at the module, sideways right-angle at the keyboard;
+    - ASA; three-piece print;
+    - **S4: keep the 160 spacing and let the module's insides move** (family call flagged);
+    - 25 voices decided;
+    - §11 new ENG list.
+  - `concepts/yoke/how-it-works.md` **rev 1, new.** Mechanism (my findings on visual's sketch, §0):
+    1. **Fixed-angle arms reaching the end's middle cross the end keys in play** → cups hang at the keyboard's **rear corner** and reach forward along the end; the arm never passes over the keyboard.
+    2. **The keyboard stays at carry height, so the module stands ≈ 37 up and tips back** → **the cap is the module's rear foot in play** (S1.1); three-point stance; on a lap, the cap pegs into the module's foot sockets (PROPOSAL).
+    3. **Widths need different angles** → the pivot is clamped at any angle by the module's own thumbscrew; **the keyboard is the jig**; an index ring keeps the keyboard centred.
+    - Numbers [calc]: reach 105–147, one 45 mm slot; arm a T-section 10 tall (a flat 4 mm plate would bend ≈ 15 mm); cup = 21 mm gap, 5 mm foam each jaw (11–16), lip ≤ 8 mm over the end cap, one M4 locks slot + swivel.
+    - **Carried 395 × 135 × 74 with an Xkey** (thicker than visual's 64: the rib and the cap).
+    - Carry 0.14–0.20 kg.
+    - Cable coil on the left arm, adapter on the right, **charger loose** (or in the wrap's pocket).
+    - **Chunky minis out** (the wrap can bundle one).
+    - Empty: arms off, module + cap.
+    - No tilt, no shade (stated).
+  - `concepts/cloth/how-it-works.md`: **RETIRED** banner pointing to YOKE §6 (kept as the wrap's making reference).
+  - `concepts/spine/how-it-works.md` **rev 2.1**: **area fixed** (lane 280 × 30 = 84; bays 62 × 135 + crescent ≈ 100 each; sums to 404 × 135); r3 weights; knuckles cleared; lane 20 if the module is 115.
+  - `concepts/fallboard/how-it-works.md` **rev 2.1**: lid 1.2 skin on a 17.5 grid (+30–60 g); r3 weights; straight plug in the host pocket; 412 × 275 if the module is 115.
+  - `jobs.md` **rev 3.2**: job 3 (25-key portable controller; attachment point is enough; chunky minis out of every carry, the wrap can bundle one); job 4 (25 voices, decided); job 15 (best sound, E); job 20 (grass); job 18 (stepped pots); the owner's open questions updated.
+- **Kit weights now** (module 0.70–0.85 with E):
+  - FALLBOARD 1.51–2.10;
+  - SPINE 1.40–2.01;
+  - **YOKE 1.12–1.69** (+0.23–0.36 with the wrap).
+- **Randomness:** none drawn this turn. The work was mechanism-checking a sketch, not ideation.
+- **Next:** visual's turn (director's steer 2 visual list):
+  - the module A2 sheet (walnut house, the roof behind the stage, fair arc + 2 facets, B beside it; **and now E's ≈ 125 crown with two grilles**);
+  - YOKE A redrawn to this mechanism (cups at the rear corners, the cap as rear foot in play, the 74 stack), plus YOKE B (wrapped, on the grass, in a pack);
+  - FALLBOARD and SPINE recoloured.
+  - Then the director calls READY and scores. **Then my 9+ coverage check** against rev 3.2.
+- **Open:**
+  - **Director:** accept YOKE's three mechanism changes (§0) and the 74 mm stack; the cap as a required part; SPINE's 30 lane (still open); S4 kept at 160 (family call).
+  - **Visual:** E's crown in the face; the cap's look (it's a visible part in play); YOKE's index ring.
+  - **Eng:** E's box at 105 (margin) and the host pocket with the stacked boards; cells + inserts with S4 at 160; YOKE arm stiffness (T-section) and the thumbscrew's hold at any angle; foam for 50 % compression; a 0.3–0.5 m flat sideways cable.
+  - **Owner (with the concepts):** E / D / C and the depth; knob A / B; stepped pots without detents; ASA / PETG; FALLBOARD, SPINE or YOKE (+ wrap); split-scoped HOLD; S4 spacing.
+
 ## Where things stand (2026-11-22, round 2 second systems turn; new systems seat)
 - **New seat:** a new agent took the seat from here. Everything below is history, not commandment.
 - **Owner since the last section:**

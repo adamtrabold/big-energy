@@ -2,12 +2,12 @@
 
 ## The jobs, short (for the owner: anything wrong or missing?)
 
-floss is a sound module you play from a small MIDI keyboard you carry with it. **new** = a job added in rev 3; **changed** = reworded in rev 3; **rev 3.1** = reworded in rev 3.1.
+floss is a sound module you play from a small MIDI keyboard you carry with it. **new** = a job added in rev 3; **changed** = reworded in rev 3; **rev 3.1** / **rev 3.2** = reworded in that revision.
 
 1. Play warm, shimmering string chords anywhere: battery, built-in speaker, no setup.
 2. Plug any travel keyboard into floss's USB-C port with one cable and play: floss powers it, and any standard USB MIDI keyboard works, not one model. **changed**
-3. Carry floss and a travel keyboard together as one kit, cable included, without damage, in a backpack comfortably. The kit holds the keyboard by its ends, never across its keys, takes any slim travel keyboard (325–388 mm wide), and still packs neatly with no keyboard in it. **changed**
-4. Play as many notes at once as my keyboard can, every note sounding.
+3. Carry floss and a 25-key portable controller together as one kit, cable included, without damage, in a backpack comfortably. The carry fits the controller but needn't surround it: an attachment point is enough. It holds the keyboard by its ends, never across its keys, takes any slim controller (325–388 mm wide), and still packs neatly with no keyboard in it. **rev 3.2**
+4. Play as many notes at once as my keyboard can, every note sounding: 25 voices. **rev 3.2**
 5. Split the keyboard on floss and set each half's octave on floss's knobs; set both the same and it's one keyboard.
 6. Know where the split lands on the keyboard I brought: floss splits at a fixed note and shows where that falls with a marker on its front edge; the card in the kit and the site explain "keep the keyboard at its home octave". (inferred) **rev 3.1**
 7. Shape each note by how hard I strike it.
@@ -18,12 +18,12 @@ floss is a sound module you play from a small MIDI keyboard you carry with it. *
 12. Choose the shimmer, analog ensemble or a digital mode, and how much.
 13. Add echo and reverb; the echo follows MIDI tempo when there is one, and I can tap a tempo when there isn't.
 14. Hold a chord or drone without holding the keys, building it a note at a time and pulling notes out, and keep it sounding even if the keyboard is unplugged. (inferred) **changed**
-15. Hear it on the speaker; plug in headphones and the speaker goes quiet.
+15. Hear it on the best-sounding speaker we can make, by any method; plug in headphones and the speaker goes quiet. **rev 3.2**
 16. Play floss from a computer or from another keyboard, including a full-size one at home.
 17. Use it with other gear over MIDI: play other things from it, split the halves onto two channels or not, and send velocity and pressure.
 18. Read everything from floss's panel, with no screen, by eye or by touch, including the split, whether the keyboard is connected and whether notes are arriving. **changed**
 19. Switch on with one switch and be playing within seconds, keyboard included; know the battery and the charging. (inferred) **changed**
-20. Take the kit to the park and play on a bench or my lap, in sun or shade. (inferred)
+20. Take the kit to the park and play on a bench, my lap or the grass, in sun or shade. (inferred) **rev 3.2**
 21. Lots of notes don't distort, and one note doesn't sound thin. (inferred)
 22. Play in tune with other instruments.
 23. Share it: a friend holds the keyboard beside me on its cable while I work the knobs. (inferred) **changed**
@@ -39,9 +39,18 @@ The plan for every synths-to-go instrument: a portable sound module with a way t
 
 ---
 
-Status: **rev 3.1, 2026-11-22**, product designer (systems focus). Rev 3.1 rewrites job 30 to the owner's 13:51 words and PRINCIPLES §2, takes the sentence off the module in job 6 (director R4), and folds in the owner's 14:08 principle that the case is entirely 3D printed (job 26). Rev 3: It follows the closed module jam (`jam-module.md`, turns 1–6 and the director's addendum) and the owner's direction at 13:25 ("The module does not have to match keyboard width") and 13:29 ("It needs to fit in a backpack comfortably. Ideally like the size of a sheet of paper length wise. But it also does not have to be a rectangle. It should be a thoughtful ratio base"). Rev 2 (12:26, the module shape) and rev 1 (built-in keys) are superseded.
+Status: **rev 3.2, 2026-11-22**, product designer (systems focus). Rev 3.2 folds in the owner's words on the carry ("The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule"), on voices ("25 is good for the string machine") and on the speaker ("Speaker let's figure out what will sound best idc method"), and the director's steer 2 (YOKE replaces CLOTH). Rev 3.1 rewrites job 30 to the owner's 13:51 words and PRINCIPLES §2, takes the sentence off the module in job 6 (director R4), and folds in the owner's 14:08 principle that the case is entirely 3D printed (job 26). Rev 3: It follows the closed module jam (`jam-module.md`, turns 1–6 and the director's addendum) and the owner's direction at 13:25 ("The module does not have to match keyboard width") and 13:29 ("It needs to fit in a backpack comfortably. Ideally like the size of a sheet of paper length wise. But it also does not have to be a rectangle. It should be a thoughtful ratio base"). Rev 2 (12:26, the module shape) and rev 1 (built-in keys) are superseded.
 
 **"Inferred"** means the owner didn't say it. A concept may answer an inferred job weakly but must say so. A stated job a concept can't do sends it back.
+
+## What changed from rev 3.1 to rev 3.2, and why
+| Job | Change | Why |
+|---|---|---|
+| 3 | **A 25-key portable controller; the carry needn't surround it: an attachment point is enough** (not a rule, it removes the assumption). Chunky minis: **out of every carry**; YOKE's wrap can bundle one beside the module (two objects in play). CLOTH's lines move to YOKE | Owner: "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point"; director steer 2, S1 (CLOTH killed, merged into YOKE) |
+| 4 | **25 voices, decided** | Owner: "25 is good for the string machine" |
+| 15 | **The best sound, any method** (eng's option E: two drivers, one ported box) | Owner: "Speaker let's figure out what will sound best idc method"; `eng/module-r3.md` §8 |
+| 20 | Adds **the grass** (YOKE on the ground, or on the wrap as a mat) | Director steer 1 R6 / steer 2 S1 (CLOTH's ground pose carried over) |
+| 18 | Stepped controls (OCTAVE, PRESSURE, SHIMMER) become **firmware-stepped pots**: steps read by the pointer and tick ring, with no detent you can feel | `module-r3.md` §1: rotary switches don't fit under a 25 mm deck |
 
 ## What changed from rev 3 to rev 3.1, and why
 | Job | Change | Why |
@@ -75,8 +84,8 @@ Status: **rev 3.1, 2026-11-22**, product designer (systems focus). Rev 3.1 rewri
 |---|---|---|---|
 | 1 | Strings anywhere | stated | sounds like strings on its own speaker from battery, with only the keyboard plugged in |
 | 2 | One cable, floss powers the keyboard, any class-compliant USB MIDI keyboard | stated (owner 12:26, 12:28, 12:52) | a **USB-C host port on the module's keyboard-facing edge**, current-limited 5 V (≈ 550–600 mA [eng]); works with the K-Board C, Xkey 25 and velocity-only keyboards; cold socket (VBUS only when a keyboard is detected); cable 0.3–0.5 m, C-to-C, or the keyboard's own cable on **one C-plug-to-A-receptacle adapter** carried in every kit [`module-r2.md`] |
-| 3 | Carry module + keyboard + cable as one kit, in a backpack | stated ("carried with the module"; "not reliant on a single model"; 13:29 "fit in a backpack comfortably") | where the keyboard, module and cable go packed; **held by the keyboard's ends, nothing across a key**; takes 325–388 wide, 83–135 deep, 11–16 tall (eng's slim class; end blocks: 8 mm in, 32 mm travel each, ≈ 404 inside); **packs with no keyboard** (blocks lock, nothing rattles); the cable path accepts a socket **anywhere along the keyboard's rear edge or either end**: room for a straight plug (≈ 25–35 mm) where the kit has it, otherwise the kit's **flat right-angle C-to-C cable** (≈ 10–15 mm) [`module-r2.md` §6]; ≥ 15 mm notch in each end block; **every area outside the keyboard and module has one job** (director R6), the cable and adapter included; closed size and weight (T5) beside a backpack's main compartment. Chunky minis: CLOTH only, unless the owner says otherwise |
-| 4 | Every note sounding | stated (T1) | 25 voices: **12 serve the left half, 13 the right**; oldest stolen within a half; a 25-key keyboard played live never steals |
+| 3 | Carry module + keyboard + cable as one kit, in a backpack | stated ("carried with the module"; "not reliant on a single model"; 13:29 "fit in a backpack comfortably") | where the keyboard, module and cable go packed; **held by the keyboard's ends, nothing across a key**; takes 325–388 wide, 83–135 deep, 11–16 tall (eng's slim class; end blocks: 8 mm in, 32 mm travel each, ≈ 404 inside); **packs with no keyboard** (blocks lock, nothing rattles); the cable path accepts a socket **anywhere along the keyboard's rear edge or either end**: room for a straight plug (≈ 25–35 mm) where the kit has it, otherwise the kit's **flat right-angle C-to-C cable** (≈ 10–15 mm) [`module-r2.md` §6]; ≥ 15 mm notch in each end block; **every area outside the keyboard and module has one job** (director R6), the cable and adapter included; closed size and weight beside a backpack's main compartment. **The carry needn't surround the keyboard** (owner): an attachment point (YOKE) is as valid as a tray (FALLBOARD) or a box (SPINE). **Chunky minis: out of every carry**; YOKE's wrap option can bundle one beside the module (two objects in play) |
+| 4 | Every note sounding | stated (T1; **owner: "25 is good for the string machine"**) | **25 voices (decided)**: **12 serve the left half, 13 the right**; oldest stolen within a half; a 25-key keyboard played live never steals |
 | 5 | Split and octaves on floss | stated (settled) | OCTAVE L and OCTAVE R; equal = one keyboard; a held note keeps its pitch through an octave change |
 | 6 | Where the split lands | inferred | split fixed at B3 \| C4 (note 59 \| 60); a **printed target** on a graduated rail, set once over the keyboard's B \| C; **no sentence on the module**: "keep the keyboard at its home octave" and the one line on why floss can't know which key is which (it only receives note numbers) go on the 1:1 card in the kit and on the site |
 | 7 | Velocity per note | stated (settled) | **velocity = speed**: soft bows in slowly, hard speaks at once, inside ATTACK's range |
@@ -87,12 +96,12 @@ Status: **rev 3.1, 2026-11-22**, product designer (systems focus). Rev 3.1 rewri
 | 12 | Shimmer | stated (settled) | analog BBD mode + Daisy modes; DEPTH (coral, on the axis); fully off possible |
 | 13 | Echo, reverb, tempo | stated (Big Energy rules); tap inferred | ECHO (level and repeats together), TIME, FREE / SYNC, TAP; REVERB (decay grows with amount); clock from USB or TRS |
 | 14 | Hold | inferred | HOLD **plants**: notes add, a re-strike pulls one out (its velocity sets the fade); off = all fade; **held notes survive an unplug**; CC64 = ordinary sustain on every note. **Owner proposal:** HOLD plants everything when the octaves are equal, the left half only when they differ |
-| 15 | Speaker; headphones mute it | stated (settled) | as rev 1 |
+| 15 | Speaker; headphones mute it; **the best sound** | stated (settled; **owner: "what will sound best idc method"**) | the best published-data speaker eng can model: **option E** (2 × TEBM28C10-4B, one ported box ≈ 190 cm³, a ≈ 115 Hz high-pass on the speaker feed only) as the baseline, D (the pair, sealed) the fallback; the size it costs is stated (`module-r3.md` §8); headphones mute both drivers |
 | 16 | Play from a computer or another keyboard | stated in part | USB-C device port and TRS in both play floss; host and device at once is unverified [eng], with TRS to the computer as the fallback |
 | 17 | MIDI out to other gear | stated (settled) | re-sends notes, split onto channels 1 / 2 when MIDI SPLIT is on, with velocity and pressure |
-| 18 | Read the state, keyboard included | stated (no screens); connection inferred | knob and tab positions are the state; **port light** beside the host port: off / steady (connected) / a blink per note received / fast flash (power fault); **status light** (TAP's ring): steady fine / slow pulse charging / fast flash low battery / tempo blink in SYNC with no clock, with low battery > tempo > charging > steady; the target |
+| 18 | Read the state, keyboard included | stated (no screens); connection inferred | knob and tab positions are the state (stepped controls are firmware-stepped pots: the step is read from the pointer and the tick ring, with no detent to feel); **port light** beside the host port: off / steady (connected) / a blink per note received / fast flash (power fault); **status light** (TAP's ring): steady fine / slow pulse charging / fast flash low battery / tempo blink in SYNC with no clock, with low battery > tempo > charging > steady; the target |
 | 19 | Playing within seconds | inferred | **one power switch on the module**; power on → keyboard powered → play, no pairing |
-| 20 | The kit in the park | inferred (T2) | open on a bench and **on a lap**; the cable doesn't cross hands, speaker or panel; readable in sun |
+| 20 | The kit in the park | inferred (T2; "take this to the park") | open on a bench, **on a lap** and **on the grass**; the cable doesn't cross hands, speaker or panel; readable in sun |
 | 21 | Many notes vs one | inferred | the fixed breath |
 | 22 | In tune | stated (T9) | TUNE trim on the rear wall; ±3 cents |
 | 23 | Share it | inferred | on the 0.3–0.5 m cable the friend sits beside you holding the keyboard (an optional coiled cable reaches a separate lap); you hold the module; a second keyboard via TRS in, with MIDI SPLIT giving each player a half |
@@ -211,9 +220,12 @@ Parts and making steps listed per concept; host port, battery and flash reachabl
    - ~~the module's ratio and outline~~ settled: 280 × 105 × 35, 8 : 3 : 1, hull (director R1), conditional on the knob height and driver position (module §2.1–2.2);
    - where the module sits against the keyboard, open and packed, per kit.
 3. **Owner (with the concepts):**
-   - board, book or cloth;
+   - board, box or yoke (FALLBOARD, SPINE, YOKE; CLOTH retired into YOKE's wrap);
    - the split-scoped HOLD;
    - a charger in the kit;
    - slim keyboards only or all sizes;
-   - knob size: Ø 10 × 8 (keeps 35) vs Ø 14.9 (≈ 41 tall, ≈ 108–110 deep) (module §2.1–2.2).
+   - knob size: **A** Ø 10 × 8 (keeps 280 × 105 × 35; director recommends) vs **B** Ø 14.5 (≈ 42 tall, ≈ 112–120 deep) (module §2.1);
+   - speaker: E / D / C (module §2.2), with the depth E costs (105 with a thin margin, or ≈ 115);
+   - stepped controls without detents vs rotary switches (+≈ 5 mm);
+   - ASA vs PETG; the S4 spacing (keep 160; module §2.3).
    - ~~does CLOTH's wrap count as a case~~ answered 14:08: "Cloth wrapping is fine as long as the core is printed".

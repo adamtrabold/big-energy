@@ -1,6 +1,6 @@
 # SPINE: how it works (systems)
 
-Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2, second systems turn. Brought to the director's R6 (a geometric stop at flat; one job either side of the module) and to the owner's 14:08 principle that **the case is entirely 3D printed**. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** · **[calc]** · **[est]** · **PROPOSAL** · **UNVERIFIED** · **ENG**.
+Status: **rev 2.1, 2026-11-22**, product designer (systems focus). Rev 2.1 fixes the double-counted area (director S5), folds in `module-r3.md` (module 0.70–0.85 kg with speaker E; knuckles checked; host pocket) and notes the depth if E needs 115. Rev 2: Brought to the director's R6 (a geometric stop at flat; one job either side of the module) and to the owner's 14:08 principle that **the case is entirely 3D printed**. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** · **[calc]** · **[est]** · **PROPOSAL** · **UNVERIFIED** · **ENG**.
 
 **The idea:** a clamshell (solander) box: two trays of one outline, one shallow and one deep, joined by a spine, closing square. The bookbinder's answer to "one thin cover and one fat cover is not a book" (the earlier director's addendum). **It's now printed, not bound** (14:08): the solander survives as the form; its making is printing plus a steel hinge rod.
 - the **keyboard tray** (shallow);
@@ -20,8 +20,8 @@ It's the rival to FALLBOARD: the smallest rigid kit in the bag.
 |---|---|
 | **Closed** | **412 × ≈ 148 × ≈ 59** [calc]. The spine stands 2–5 mm outside the trays' edges, which adds ≈ 5 to the depth. **+3 on the director's 56**: that's the stop's 5 mm face (§3). ≈ 65 if the module goes to 41 (module §2.1) |
 | **Open flat** | 412 × ≈ 335 (143 + 49 + 143) |
-| **Carry weight** | **≈ 0.42–0.52 kg** printed (two trays, spine, end blocks, Ø 3 steel rods ≈ 46 g, strap) [calc/est, ENG]. **Heavier than rev 1's board-and-cloth 0.3–0.4**: printing costs weight here |
-| **Kit weight** (module 0.67–0.93 [r2] + carry + ≈ 35 g of cable and adapter) | nanoKEY2 ≈ 1.37–1.73 · K-Board C ≈ 1.47–1.83 · Xkey 25 ≈ 1.73–2.09 kg [calc]. Charger + ≈ 0.06–0.1 (UNVERIFIED). T5 withdrawn: reported |
+| **Carry weight** | **≈ 0.42–0.52 kg** printed (two trays, spine, end blocks, Ø 3 steel rods ≈ 46 g, strap) [calc/est]; eng ≈ 0.49 [r3]. **Heavier than rev 1's board-and-cloth 0.3–0.4**: printing costs weight here |
+| **Kit weight** (module **0.70–0.85 with speaker E** [r3] + carry + ≈ 35 g of cable and adapter) | nanoKEY2 ≈ 1.40–1.65 · K-Board C ≈ 1.50–1.75 · Xkey 25 ≈ 1.76–2.01 kg [calc]. Charger + ≈ 0.06–0.1 (UNVERIFIED). T5 withdrawn: reported |
 
 **What sets the outline (director R6.5):**
 - **412** = the family bed (404 inside) + walls.
@@ -39,10 +39,12 @@ It's the rival to FALLBOARD: the smallest rigid kit in the bag.
 | Area | cm² | Its one job |
 |---|---|---|
 | Module (hull) | 262 | floss |
-| **Cable lane**, 404 × 30, between the module's face and the spine | 121 | **the cable's run**: open, from the spine gap to the host port; packed, from the host port to the left bay |
-| **Left bay**, 62 × 135 + the crescent behind the shoulder | ≈ 92 | **the coil and the C-to-A adapter** |
-| **Right bay**, the same | ≈ 92 | **the charger** and its cable (≈ 30 mm cube class, UNVERIFIED) |
+| **Cable lane**, **280 × 30**, in front of the module's face only, between the two bays | 84 | **the cable's run**: open, from the spine gap to the host pocket; packed, from the host pocket to the left bay |
+| **Left bay**, 62 × 135 (full depth) + the crescent behind the module's shoulder (≈ 16) | ≈ 100 | **the coil and the C-to-A adapter** |
+| **Right bay**, the same | ≈ 100 | **the charger** and its cable (≈ 30 mm cube class, UNVERIFIED) |
+| **Check** | 262 + 84 + 2 × 100 ≈ **546 = 404 × 135** ✓ | rev 2 counted the lane at 404 wide, so the 62 × 30 corners were counted in both the lane and the bays (director S5) |
 
+- **If the module goes to ≈ 115 deep (speaker E's margin, module §2.2):** the lane shrinks to 20 and the box doesn't change. With knob B (42 tall), the module tray and the closed box grow 7.
 - **Why the 30 mm lane stays (it can't go):** the module tray's depth is the keyboard tray's (one outline), and that's set by the Xkey's 135. Moving the module to the spine edge only shifts the 30 mm to the back, where it would have no job, and it would block the port windows. So the 30 mm sits where the cable needs it. **Director to accept or rule.**
 - **Keyboard tray (inside 404 × 135):** the keyboard against the near wall, plus end-block travel. **Behind a shallow keyboard, the space is the plug's room**, continuous with the spine gap (§4).
 - **Closed, the bays face down onto the keyboard tray's end-block zones**, so their contents are trapped between the trays. A foam pad on each bay floor stops rattle (bought).
@@ -51,7 +53,7 @@ It's the rival to FALLBOARD: the smallest rigid kit in the bag.
 The same printed end blocks, T-slot, ≥ 15 mm notch and printed scale as FALLBOARD (one family part), set from the near wall:
 - **Xkey 25:** blocks fully in.
 - **325 × 83 keyboards:** blocks fully out.
-- **Chunky minis:** don't fit (CLOTH).
+- **Chunky minis:** don't fit (out of every carry; YOKE's wrap option can bundle one).
 
 Closed, a foam strip on the module tray's rim presses on the keyboard. **Empty:** blocks lock.
 
@@ -65,7 +67,7 @@ Closed, a foam strip on the module tray's rim presses on the keyboard. **Empty:*
 **What it holds, and what it doesn't:**
 - **Holds:** any load that would drop a tray's far edge below flat relative to the spine. That's a keypress, or the module tray hanging off your knees, with the spine and trays on your thighs or a bench.
 - **Doesn't:** "bridged", meaning supported only at the front and back edges and pressed in the middle. That's the closing direction, so the joints fold. **Don't play it bridged** (as rev 1).
-- **Load check [calc]:** a 20 N press at 143 mm is ≈ 2.9 N·m, which is ≈ 570 N across a 5 mm face. Spread over 412 mm of face and ≈ 6 knuckles per hinge, that's ≈ 95 N per knuckle. **ENG to size the printed knuckles** around a Ø 3 steel rod.
+- **Load check [calc]:** a 20 N press at 143 mm is ≈ 2.9 N·m, which is ≈ 570 N across a 5 mm face. Spread over 412 mm of face and ≈ 6 knuckles per hinge, that's ≈ 95 N per knuckle. **Eng confirms: fine,** > 15× margin (≥ 4× under a whole palm) with knuckle OD ≥ 9, length ≥ 20 and a printed Ø 3.3 hole for the Ø 3 rod [r3 §0].
 - **The trial step is gone** (PRINCIPLES §7: Adam measures nothing).
 
 **Why 5 mm, not more:** each mm of stop face adds a mm to the closed box. 5 gives ≈ 570 N; 3 would be ≈ 950 N on the same knuckles. ENG can move it.
@@ -162,4 +164,4 @@ The module's printed target and rail face the spine, readable from the playing p
 | 28 one system | yes | §10 |
 | 30 module | yes (module §2) | — |
 
-**Unsupported jobs: none.** **At risk:** knuckle strength (ENG); the closed box at 59, not 56; the 30 mm lane (director).
+**Unsupported jobs: none.** **At risk:** the closed box at 59, not 56; the 30 mm lane (director). Knuckles: cleared by eng [r3].

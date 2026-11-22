@@ -1,6 +1,6 @@
 # FALLBOARD: how it works (systems)
 
-Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2, second systems turn. Brought to the director's R6 ("fewer notes": no gutter, one job per area, lighter lid, no lamp) and to the owner's 14:08 principle that **the case is entirely 3D printed**. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** `floss/eng/module-r2.md` · **[calc]** · **[est]** · **PROPOSAL** · **UNVERIFIED** · **ENG**.
+Status: **rev 2.1, 2026-11-22**, product designer (systems focus). Rev 2.1 folds in `module-r3.md`: the lid gets a 1.2 mm skin on a 17.5 mm rib grid; module 0.70–0.85 kg with speaker E; the straight plug in the module's recessed host pocket; the depth if E needs 115. Rev 2: Brought to the director's R6 ("fewer notes": no gutter, one job per area, lighter lid, no lamp) and to the owner's 14:08 principle that **the case is entirely 3D printed**. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** `floss/eng/module-r2.md` · **[calc]** · **[est]** · **PROPOSAL** · **UNVERIFIED** · **ENG**.
 
 **The idea:** one plane, one lid. A piano puts the keys in front, the works behind and a fallboard over both. FALLBOARD is a shallow printed tray: the guest keyboard lies in a bed at the front, floss sits behind it, and one lid closes over the pair. It's the lead kit, on notice (director R6).
 
@@ -19,12 +19,12 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2
 |---|---|
 | **Footprint** | **412 × 265** (was 412 × 288 with the 35 mm gutter) [calc] |
 | **Closed thickness** | **≈ 42** (floor 1.2 + module 35 + 4 clearance + lid skin ≈ 1) [calc]. ≈ 48 if the module goes to 41 (module §2.1) |
-| **Carry weight** | **≈ 0.52–0.60 kg** printed; **≈ 0.47–0.55** with the open-grid bed (§8) [calc/est, ENG] |
-| **Kit weight** (module 0.67–0.93 [r2] + carry + cable and adapter ≈ 35 g) | nanoKEY2 ≈ 1.42–1.81 · K-Board C ≈ 1.52–1.91 · Xkey 25 ≈ 1.78–2.17 kg [calc]. Add ≈ 0.06–0.1 if the charger rides along (product UNVERIFIED). T5 withdrawn: reported, lighter is better |
+| **Carry weight** | **≈ 0.53–0.61 kg** printed with the stiffer lid (§5); ≈ 0.48–0.56 with the open-grid bed (§8). Eng ≈ 0.50–0.55 before the lid fix [r3] |
+| **Kit weight** (module **0.70–0.85 with speaker E** [r3] + carry + cable and adapter ≈ 35 g) | nanoKEY2 ≈ 1.51–1.74 · K-Board C ≈ 1.61–1.84 · Xkey 25 ≈ 1.87–2.10 kg [calc]. Add ≈ 0.06–0.1 if the charger rides along (product UNVERIFIED). T5 withdrawn: reported, lighter is better |
 
 **What sets the outline (director R6.5):**
 - **412** = the bed's 404 inside (the Xkey's 388 + two end blocks fully in at 8 each) + two 4 mm walls.
-- **265** = 4 + 137 + 15 + 105 + 4.
+- **265** = 4 + 137 + 15 + 105 + 4. **If speaker E needs the module at ≈ 115 deep** (module §2.2), FALLBOARD becomes 412 × 275 (25 mm clear in a 300 pack). With knob B, the closed thickness grows 7.
 - **Neither is a multiple of the module's 35 mm unit, and I haven't forced one** (412 ≈ 11.8 units, 265 ≈ 7.6). Where it costs nothing, the unit shows: the lid's ribs and the open bed's grid are on a 35 mm pitch.
 
 **Where the module sits, and why:** behind the keyboard, in the same plane, open and packed.
@@ -51,7 +51,7 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2
 |---|---|---|---|
 | CME Xkey 25 (largest) | 388 × 135 × 16 | **fully in, 8 mm each** | 17: **flat right-angle plug** |
 | K-Board C / nanoKEY2 / QuNexus (smallest) | 325 × 83–84 × 11–16 | **fully out, ≈ 40 mm each** | **68–69**: a straight plug, or the adapter |
-| Chunky minis | up to 406 × 192 × 49 | — | **don't fit**: they play beside the kit. CLOTH carries them |
+| Chunky minis | up to 406 × 192 × 49 | — | **don't fit**: they play beside the kit (YOKE's wrap option can bundle one) |
 
 **The keyboard sits against the front wall (PROPOSAL; this reverses rev 1's "keyboard against the gutter, empty strip in front").**
 - **Why:** the strip a shallow keyboard leaves then falls behind it, where the plug is, so it has a job. Every keyboard packs to the same datum.
@@ -69,9 +69,10 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2
 - **Where sockets are:** anywhere along the keyboard's rear edge or on either end. Positions are mostly unpublished [r2 §6].
 - **The kit cable** (module §9 S3, PROPOSAL): **0.3–0.5 m C-to-C with flat right-angle plugs at both ends.**
   - A USB-C plug is reversible, so a flat right-angle plug exits left or right by flipping it. The "which way does the angle point" problem that drove the 35 mm gutter [r2 §6] goes away for any USB-C keyboard whose socket is mounted flat (UNVERIFIED per model; ENG).
-  - It sticks out ≈ 10–15 mm [r2]: inside the lane at the module end, and behind even an Xkey at the keyboard end (17 mm).
+  - **At the module end the plug is straight and sits inside the module's recessed host pocket** (≈ 25–30 deep, module §4), so nothing sticks into the lane. At the keyboard end, a flat **sideways** right-angle plug sticks out ≈ 10–15 mm, which fits behind even an Xkey (17 mm).
+  - Checked product: Pimoroni flat sideways right-angle C-to-C, 0.2 m or 1 m [r3 §7]. The 1 m coils in the left pocket; a 0.3–0.5 m one is UNVERIFIED.
 - **Keyboards without USB-C** use their own cable on the **C-to-A adapter** at the host port. That's ≈ 50–60 mm out from the module's face [est]. It fits behind any keyboard ≤ ≈ 92 mm deep, which covers the nanoKEY2 (mini-B, 83 deep).
-  - **Residual: a micro-B Xkey 25 (older units)** has only 17 mm, so it needs a right-angle micro-B-to-C cable (product UNVERIFIED) or plays lifted out of the bed. Named, not hidden.
+  - **Residual: a micro-B Xkey 25 (older units)** has only 17 mm. It takes the adapter plus a StarTech USB-A to right-angle or up-angle micro-B cable [r3 §7, listing titles], or plays lifted out of the bed.
 - **It never crosses hands, speaker or panel:** hands over the bed, cable in the lane and behind the keyboard, panel above it, speaker on the crown.
 - **Friend:** a 0.5 m cable lets a friend beside you on the bench hold the keyboard. For a separate lap, the optional coiled cable (product UNVERIFIED).
 - **Packed:** the cable stays in the host port. Its tail runs along the lane, and the coil and adapter lie in the left pocket.
@@ -80,10 +81,11 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2
 The module's printed target and rail face the bed: set the target over B | C once. **No sentence on the module or the tray** (director R4). The 1:1 card in the right pocket carries the home-octave line and the CC map.
 
 ## 5. Lid
-- **Printed, in four quarters** (206 × 132.5 each), joined into one panel: a 0.8–1.2 mm skin with ribs underneath on the 35 mm grid, 3–4 mm deep [calc].
-  - The ribs sit inside the 4 mm clearance over the module's rim; over the keyboard there's plenty of room.
-  - ≈ 0.14–0.20 kg [calc], against rev 1's ply lid (≈ 0.22–0.28 scaled). The bookcloth-over-board lever [r2] isn't available any more (printed case), so this is the lighter lid that's possible.
-  - **Lid stiffness at a 0.8 mm skin: ENG.**
+- **Printed, in four quarters** (206 × 132.5 each; each fits a 256 bed; the cross seam accepted, director S5), joined into one panel: **a 1.2 mm skin with ribs underneath on a 17.5 mm grid** (half the module's unit), 3–4 mm deep.
+  - **Why:** eng found a 0.8 mm skin on a 35 mm grid sags ≈ 22–25 mm under a 20 N press and oil-cans 0.7 mm under a fingertip. The 17.5 grid halves the sag, and the 1.2 skin brings oil-canning to 0.2 mm [r3 §0, 6c]. **Cost ≈ +30–60 g.**
+  - Closed, the lid also rests on the module's rim and the keyboard's foam strip.
+  - The ribs sit inside the 4 mm clearance over the module's rim.
+  - ≈ 0.17–0.26 kg [calc].
 - **Hinges: printed lift-off knuckle hinges** (two, on the rear top edge), each with a bought steel pin fixed in one leaf. Lift the lid at "open" and it comes off.
 - **Stay: a printed over-centre brace** (as on a folding chair: two printed links that lock straight at ≈ 100° and fold flat inside the lid). It's geometric, so it needs no fitting by trial.
 - **Catch:** two bought magnets in printed pockets at the front edge.
@@ -156,7 +158,7 @@ The module's printed target and rail face the bed: set the target over B | C onc
 1. **Size:** closed 412 × 265 × ≈ 42, about a 15-inch laptop's footprint and 2.5 times as thick.
    - **Backpack:** 265 in a ≈ 300 mm compartment leaves ≈ 35 mm (was 12). It stands on its 265 edge in a pack ≥ ≈ 420 mm tall inside (general pack sizes UNVERIFIED).
    - It's too big for a laptop sleeve.
-2. **Weight:** carry ≈ 0.47–0.60 kg printed. It's lighter than rev 1 (0.5–0.7) at the top end, from the shallower tray, the cut lamp and the ribbed lid, but **printing removed the bookcloth-lid lever**, so the gain is modest. The heaviest kit still.
+2. **Weight:** carry ≈ 0.48–0.61 kg printed, with the stiffer lid. About rev 1's 0.5–0.7: **printing removed the bookcloth-lid lever**, and the lid fix adds back 30–60 g. The heaviest kit, ≈ 0.35–0.45 kg over YOKE.
 3. **Craft:** printing only, with joints (§8).
 4. **The keyboard against the front wall**, not the module (§2).
 5. **Speaker:** sealed, published [r2]. Passive radiator dropped (module §13).
@@ -182,4 +184,4 @@ The module's printed target and rail face the bed: set the target over B | C onc
 | 28 one system | yes | §10 |
 | 30 module | yes (module §2) | — |
 
-**Unsupported jobs: none.** **At risk:** the flat right-angle cable (product; socket orientation per keyboard); the old micro-B Xkey; lid stiffness at a 0.8 mm skin.
+**Unsupported jobs: none.** **At risk:** the cable's length (a 0.3–0.5 m flat sideways cable is UNVERIFIED; the 1 m one exists); socket orientation per keyboard; the old micro-B Xkey. The lid: fixed per eng.

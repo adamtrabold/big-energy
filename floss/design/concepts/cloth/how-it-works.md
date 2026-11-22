@@ -1,3 +1,5 @@
+> **RETIRED, 2026-11-22 (director steer 2, S1).** CLOTH as a standalone kit is killed. Its wrap (the near-black coated quilt, the pocket, the outline, the corner weights) and its mat on the grass are now **options of YOKE**: see `../yoke/how-it-works.md` §6. Its job lines moved to YOKE in `../../jobs.md` rev 3.2. This file is kept as history and as the wrap's making reference (§7).
+
 # CLOTH: how it works (systems)
 
 Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2, second systems turn. Brought to the director's R6 (the near-black family cloth, the pose on the ground, FALLBOARD's footprint) and to the owner's 14:08 words: **"Cloth wrapping is fine as long as the core is printed."** The core here is the printed module; CLOTH has no other rigid part. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** · **[calc]** · **PROPOSAL** · **UNVERIFIED**.
