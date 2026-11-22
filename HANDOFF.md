@@ -25,7 +25,7 @@
 
 ## Open, the owner's
 - What carries over from the Big Energy platform: 25 Hall-sensor velocity keys, FSR aftertouch, battery and USB-C, built-in speaker, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, the ONE SHEET / FOLD / CATHEDRAL enclosure work.
-- Budget ceilings for the string machine and Port-a-poly. **A name for the string machine** (a naming round is a team task; Adam decides).
+- Budget ceilings for the string machine and Port-a-poly. String-machine name: not a priority; Adam names instruments himself along the way. Don't run a naming round.
 
 ## Prompt for Adam to paste into a new session
 > Attach and clone my repo adamtrabold/big-energy. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.

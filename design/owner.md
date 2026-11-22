@@ -345,3 +345,8 @@ Recorded as: make full build plans (the Big Energy way: design loop, specs, veri
 > Right now I'm thinking big energy is the model d clone with 4 voice paraphony, port-a-poly is the true poly, and the string machine needs a cool name
 
 Recorded as (current thinking, three instruments): **Big Energy** = the Model D clone with 4-voice paraphony (as specced: voices 1 · 3 · 4). **Port-a-poly** = the true analog poly. **String machine** = needs a name. This supersedes "the Model D voice is no longer the instrument" from earlier today: the Model D lives on as Big Energy. Build order still undecided.
+
+## 2026-11-21 19:12 (chat)
+> No I named big energy along the way name isn't important right now
+
+Recorded as: no naming round for the string machine. Adam names instruments himself along the way; the name isn't a priority now.
