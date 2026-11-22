@@ -1,3 +1,20 @@
+# floss design loop: brief context, REV 2 (orchestrator, 2026-11-22 12:55)
+
+## READ THIS FIRST: what changed
+floss is now a **keyless portable sound module played by a travel MIDI keyboard over USB-C**. floss is the USB host and powers the keyboard, and **floss is designed so a keyboard can be carried with it**. It's a **family principle** for every synths-to-go instrument, Big Energy included later: "This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard." / "I’m saying big energy has to change too yes this is a systems philosophy decision". No built-in buttons: "No hybrid." Proportions are open: "Let’s do USB c and we can riff on the dimension ratios".
+
+What this supersedes below: everything about built-in keys, Hall keys, pads, per-key pressure sensing and the key strip; the "25 keys or fewer" line now applies to the keyboard floss is carried with. BOW and TIDE as drawn (round 1) assumed built-in keys. KEPT is dead.
+
+Read these, in this order:
+- `floss/REQUIREMENTS.md` (rev 2): decisions and targets T1–T12. T4 (size) is open while proportions are explored.
+- `floss/design/jobs.md` (rev 2, 28 jobs, including carrying and swapping keyboards and job 28's family carry standard).
+- `floss/eng/module.md`: the engineering baseline. 25 voices allocated from MIDI, an analog ensemble plus Daisy modes, a USB host port (now USB-C) at 500 mA, a 22.2 Wh battery, a minimum body of ≈ 250–290 × 90–110 × 30–35 mm, and slim travel keyboards 325–388 mm wide, 83–135 deep and 11–16 tall.
+- `design/owner.md`: the entries from 2026-11-21 onward, verbatim.
+
+Process rules from Adam: he builds it himself; he measures nothing ("I’m truly to see how far agents alone can get me"); reliable choices only, on published evidence.
+
+---
+
 # floss design loop: brief context (orchestrator, 2026-11-22)
 
 Every teammate gets this file. It holds the owner's words, his direction, what's settled versus open, and the paths to everything. Teammates can't see the chat with the owner.

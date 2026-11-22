@@ -515,3 +515,8 @@ Recorded as: **a systems philosophy decision for the whole family. Big Energy ch
 > No hybrid. We’ll go back to big energy later
 
 Recorded as: **no built-in buttons** (no Organelle-style hybrid). The Big Energy module rework comes **later**, after floss.
+
+## 2026-11-22 12:52 (chat): controller port, proportions
+> Let’s do USB c and we can riff on the dimension ratios
+
+Recorded as: floss's controller (host) port is **USB-C**, not USB-A. Proportions are **open for the design team to explore**: module size, how it relates to the keyboard, and one package versus two. T4's 290 mm is not a hard cap while they riff; trade-offs come back to Adam. Still to confirm (engineer's recommendations, used provisionally): the carry fits the slim class of travel keyboards; the faster charger and two-cell battery; a slim passive radiator; 25 voices.
