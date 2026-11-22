@@ -6,7 +6,8 @@
 
 ## FLOSS STATUS (2026-11-22 15:15), read first after PRINCIPLES.md
 - floss is a keyless sound module plus a carried 25-key USB-C keyboard. Requirements rev 2 (`floss/REQUIREMENTS.md`), jobs rev 3.2 (`floss/design/jobs.md`), engineering `floss/eng/module-r3.md` (speaker E: two drivers, ported; ASA; deck 25).
-- **Concepts sent to Adam for approval:** the **module** (280 × 105 × 35, walnut-brown printed house, cream deck, gold Ø 10 knobs; director 9) and **YOKE** (printed arms on the module's ¼"-20 inserts to clip any slim keyboard on for the go; optional cloth wrap and grass mat; director 9). SPINE scored 7 (fallback) and FALLBOARD 6 (retired). Files: `floss/design/concepts/{module,yoke}/`; scores in `floss/design/notes/director.md`.
+- **15:15: Adam turned both down on shape: "I hate the shape of these. Let’s take the big energy as the guide".** Next: redo the module form from Big Energy's design language (ask which: CATHEDRAL, ONE SHEET or FOLD). Record the rejection reason for the director.
+- **Concepts sent to Adam for approval (turned down):** the **module** (280 × 105 × 35, walnut-brown printed house, cream deck, gold Ø 10 knobs; director 9) and **YOKE** (printed arms on the module's ¼"-20 inserts to clip any slim keyboard on for the go; optional cloth wrap and grass mat; director 9). SPINE scored 7 (fallback) and FALLBOARD 6 (retired). Files: `floss/design/concepts/{module,yoke}/`; scores in `floss/design/notes/director.md`.
 - **Adam's choices open:** approve the module plus YOKE (or SPINE); knob A (Ø 10, 35 tall) or B (Ø 14.5, 42 tall); stepped controls as firmware-stepped pots or click switches (+5 mm); walnut or black; speaker E or D; module depth 105 or 115 if E needs it; the family's 160 mm insert spacing.
 - Adam's process notes today: stop over-designing before concept approval; keep his words separate from agent proposals; he measures nothing.
 - The keyboard **doesn't have to be** permanently attached (it may be).

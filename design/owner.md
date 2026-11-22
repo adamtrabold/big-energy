@@ -591,3 +591,8 @@ Recorded as: **the keyboard doesn't have to be permanently attached** (it may be
 > I didn’t say never or that it couldn’t be I said it doesn’t have to be. How’s your context
 
 Recorded as: correction. The keyboard **doesn't have to be** permanently attached; it isn't "never".
+
+## 2026-11-22 15:15 (chat): concepts turned down
+> I hate the shape of these. Let’s take the big energy as the guide
+
+Recorded as: **the module (9) and YOKE (9) are turned down on shape.** Big Energy's design is the guide for floss's form (which design, CATHEDRAL, ONE SHEET or FOLD, to be confirmed). This is the first rejection of 9s in this loop; give it to the director as the signal for what a 9 means to Adam.
