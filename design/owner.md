@@ -609,3 +609,8 @@ Recorded as: **family principle: the case is 3D printed, metal parts included (m
 > Cathedral was a model so take the cues we need. But we no longer need a keyboard so all controls should fit in a single plane, even if there is still a folding cover or something tbd. I do think it should still have the capability to sit at an angle, but maybe the case could do that without needing folding / movable parts and just by shape idk do some more pushing and exploration. Don’t anchor on my ideas just include them as possibilities.
 
 Recorded as: **CATHEDRAL is a model to take cues from, not a form to copy.** floss has no keyboard, so **all controls sit in a single plane**. A folding cover is possible, not decided. **floss should be able to sit at an angle**; doing that by the case's shape alone, with no folding or moving parts, is one possibility, not a requirement. The team explores further; his ideas are possibilities, not anchors.
+
+## 2026-11-22 17:59 (chat): working principle in CLAUDE.md
+> Have an agent Add that line about my ideas and how to think about them to the general working principles .. I think that’d be the Claude.md
+
+Recorded as: CLAUDE.md item 5 quotes "Don’t anchor on my ideas just include them as possibilities." When Adam floats an idea (not a decision), agents treat it as one possibility among others.
