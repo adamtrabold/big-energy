@@ -500,3 +500,39 @@ Systems structural pass on DROP, GNOMON and CASKET, plus the shared carry; then 
 - **Façade only on a seen surface:** CASKET-B's lid, yes; GNOMON's underside, no (decoration); DROP none (its lancets do the job).
 - The three concepts now hold whatever the owner answers on flat, strap, hold, pads and casting; each answer has a strong option (table in jam turn 5 §6).
 - **Next:** visual draws one idea-level sheet per concept, all at the same scale (end face big, 3/4 play, packed with SHOE plus a loose-in-bag inset; CASKET-B closed too). Then READY and score all three in one pass, owner objections first.
+
+---
+
+# CATHEDRAL-cues round: concepts scored (2026-11-22)
+**Judged from:** `concepts/c-drop/sheet.png`, `c-gnomon/sheet.png`, `c-casket/sheet.png` (end view at 3:2, play 3/4 at 1:2, packed, loose inset; CASKET also closed and underside), each concept's two md files, `c-shoe.md`. I scored on the idea, but **the owner judges the shape first** (he turned down my last two 9s on it), so the 3/4 view, which is what he'll look at, carries the most weight.
+
+## Rulings on the open points
+1. **GNOMON's stretcher:** only with SHOE. Its jobs are the S9 dock and the cable-bay floor. **The cheeks' racking stiffness must not depend on it**: the slab ties the cheeks, and without SHOE the underside stays open.
+2. **CASKET-B's lid ≈ 80 behind:** yes, it reads as a box on a tray. The end view shows it plainly, and that's the reason for the 7.
+3. **CASKET-B 10° vs 11°:** whatever the groove's position under eng's centre of mass gives. State it; don't round to match an earlier turn.
+4. **DROP's end view:** hair dryer / tape dispenser, not one rim. The 3/4 is a loaf. Killed.
+
+## Scores
+- **GNOMON 8** · **CASKET-B 7** · **DROP 6 (killed)**. Reasons and objections are in `scores.md`. No 9s, so nothing goes to the owner.
+
+## GNOMON: fixes to reach 9 (one visual pass, idea level, the same sheet updated in place)
+1. **Make the slab legible on the end face** without breaking it into "box on legs": one engraved hairline (the family's section-rule mark) parallel to the plate at T below it, so the end face reads as the lid plus its own thickness (2T at the back). Keep the face flush and the rings continuous.
+2. **Show the hollow:** add a **rear 3/4** (or a low 3/4 from behind) where the open underside and the raised rear face with its jacks are visible. That view is what proves it isn't a solid wedge. Draw the cheeks as thick as the rim, not as a solid infill.
+3. **Shrink the brass port ring** to a flush, narrow ring, or grooves only (if cast doesn't count, it's grooves only anyway). At its current size it reads as a hose fitting, and it becomes the focal point of the end face instead of the rings.
+4. **Front edge:** the lip face leans back 19.5°, which makes the end silhouette an irregular pentagon. Round the lip into the plate with the same superellipse family as CATHEDRAL's corners, so the front reads as a soft edge and not as a chamfer.
+5. **Packed view:** show it docked on SHOE **and** the stretcher-less loose version at the same size, so the owner sees it isn't dependent on SHOE.
+
+## CASKET-B: the path to 9, only if the owner says "flat too"
+- Contain the lid in the footprint. The only clean way found: **TRIPTYCH**, the lid hinged at the module's rear base edge and folded under, ≈ asin(15 / 107) ≈ 8° [calc], with nothing showing behind. It costs the one moving part he hoped to avoid. The other route is for the owner to accept the overhang.
+- If he says angled is enough, CASKET retires and GNOMON carries the round alone.
+
+## What keeps blocking a 9 (this round)
+- **The idea lives in the end view, but the owner sees the 3/4.** DROP's logic (pipe = box + port + grip) and GNOMON's (slab on its cheeks) are both clear in section and invisible or wrong in the object. Fix: judge every concept from the 3/4 first, as he will.
+- **Angle-by-adding-something leaves a leftover** (CASKET's 80 mm of lid behind): the old "leftover space" pattern, now in the play pose.
+- **Round masses** (DROP, and ROSE before it) keep landing as household objects. CATHEDRAL's language is slab and frame. Stay inside it.
+
+## Has the work changed since my last score?
+These are new concepts, scored for the first time. The turned-down module and YOKE aren't comparable.
+
+## Next
+A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the owner "sit flat too?" now (it's already pending): yes → a TRIPTYCH pass for CASKET; no → GNOMON alone. SHOE stays the shared carry, pending the owner's answers on pads and the underside hold.

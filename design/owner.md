@@ -619,3 +619,8 @@ Recorded as: CLAUDE.md item 5 quotes "Don’t anchor on my ideas just include th
 > We’re defining the beginning of a platform here so there are reusable principles and decisions that impact the individual instrument approaches. That’s the goal of what we’re working on right now alongside defining string machine specifics. So make sure we’re logging those decisions to the right place
 
 Recorded as: the current work defines **the platform** (reusable principles and decisions) alongside floss's specifics. Every decision is logged verbatim here, then routed: family/platform decisions to `PRINCIPLES.md`, instrument decisions to that instrument's `REQUIREMENTS.md` (CLAUDE.md item 3 now says so). floss's form decisions from today were added to `floss/REQUIREMENTS.md`.
+
+## 2026-11-22 18:38 (chat)
+> Ask me one question at a time
+
+Recorded as: questions to Adam go one at a time (reaffirms the handoff rule; the orchestrator had batched five).
