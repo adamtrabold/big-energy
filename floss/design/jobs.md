@@ -5,8 +5,8 @@
 floss is now a sound module you play from a small MIDI keyboard you carry with it. **new** = a job the module creates; **changed** = reworded since the last list.
 
 1. Play warm, shimmering string chords anywhere: battery, built-in speaker, no setup.
-2. Plug in my travel keyboard with one cable and play: floss powers it, and any standard USB MIDI keyboard works. **new**
-3. Carry floss and the keyboard together as one kit, cable included, without damage. **new**
+2. Plug in any travel keyboard with one cable and play: floss powers it, and any standard USB MIDI keyboard works, not one model. **new**
+3. Carry floss and a travel keyboard together as one kit, cable included, without damage, and the carry fits any travel keyboard in a size range, not one model. **new**
 4. Play as many notes at once as my keyboard can, every note sounding. **changed**
 5. Split the keyboard on floss and set each half's octave on floss's knobs; set both the same and it's one keyboard. **changed**
 6. Pressing the keyboard's own octave buttons doesn't break the split. (inferred) **new**
@@ -30,13 +30,16 @@ floss is now a sound module you play from a small MIDI keyboard you carry with i
 24. See one clear point of view in the object, keyboard included, and want to play it. **changed**
 25. Belong to the same family as Big Energy: same case family, parts and way of building.
 26. Build it myself from proven parts, and open it up to fix it. **changed**
-27. Swap to another keyboard if mine breaks or goes out of production. (inferred) **new**
+27. Swap to a different keyboard whenever I like (another model, a broken one replaced, one that goes out of production) and the plugging in and carrying still work. **new**
+28. Use the same way of carrying and connecting a keyboard on every portable sound module we build. **new**
+
+The plan for every synths-to-go instrument: a portable sound module with a way to carry a keyboard with it, not tied to any one keyboard model.
 
 Dropped since the last list: the built-in keys themselves. "Shape how each note ends by how I lift off" is now part of job 10, because only some keyboards send it.
 
 ---
 
-Status: **rev 2, 2026-11-22**, product designer (systems focus). It follows the owner's 12:26 change: "I like the idea of focusing on the sound module now and making it so a travel MIDI controller can be carried with the module". It's drawn from `floss/REQUIREMENTS.md` rev 2, `design/owner.md` (2026-11-22 entries) and `floss/eng/controller.md` rev 0. Rev 1 (built-in keys) is superseded; its jam reasoning still holds where it doesn't depend on keys.
+Status: **rev 2, 2026-11-22**, product designer (systems focus). It follows the owner's 12:26 change and his addition ("This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard."). The 12:26 change: "I like the idea of focusing on the sound module now and making it so a travel MIDI controller can be carried with the module". It's drawn from `floss/REQUIREMENTS.md` rev 2, `design/owner.md` (2026-11-22 entries) and `floss/eng/controller.md` rev 0. Rev 1 (built-in keys) is superseded; its jam reasoning still holds where it doesn't depend on keys.
 
 **"Inferred"** means the owner didn't say it. A concept may answer an inferred job weakly but must say so. A stated job a concept can't do sends it back.
 
@@ -52,14 +55,14 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus). It follows the 
 | J18 duet on two halves | **23**: one plays, one tends the knobs | One controller; a second player on a second keyboard is possible via TRS MIDI in (see 16), but it isn't the main case |
 | J19 point of view | **24** includes the keyboard | The controller's look isn't floss's (eng trade-off 2) |
 | J21 build it himself | **26** adds proven parts; SMD allowed | Owner 09:2x: "reliable choices", SMD fine; he measures nothing |
-| — | **2, 3, 16, 27** new | Plugging in, carrying, other sources, controller swap |
+| — | **2, 3, 16, 27, 28** new | Plugging in, carrying (a size range, not one model), other sources, controller swap, one family system |
 
 ## Jobs in detail
 | # | Job | Source | What a concept must show |
 |---|---|---|---|
 | 1 | Strings anywhere | stated | sounds like strings on its own speaker from battery, with only the controller plugged in |
-| 2 | One cable, floss powers the controller, any class-compliant USB MIDI controller | stated (REQUIREMENTS rev 2: floss is USB host and powers it); "any" from the coordinator and eng trade-off 3 | a USB host socket with a cable path; a current-limited 5 V supply; works with the K-Board C and Xkey 25 (in view) and with velocity-only keyboards |
-| 3 | Carry module + controller as one kit | stated ("carried with the module"; T4) | where the controller and its cable go when packed (beside it in a sleeve, strapped on, docked, or in the lid), and that nothing gets damaged. Controller sizes: K-Board C 325 × 84 × 11 mm, ≈ 0.35 kg (eng §2); the Xkey 25's size is for eng to confirm |
+| 2 | One cable, floss powers the controller, any class-compliant USB MIDI controller | stated (REQUIREMENTS rev 2: floss is USB host and powers it; owner: "flexible and not reliant on a single model of keyboard") | a USB host socket with a cable path; a current-limited 5 V supply; works with the K-Board C and Xkey 25 (in view) and with velocity-only keyboards |
+| 3 | Carry module + controller as one kit, for any travel keyboard in a size range | stated ("carried with the module"; T4; owner: "not reliant on a single model of keyboard") | where the controller and its cable go when packed, and that nothing gets damaged. **The carry must take a size range, not one model's outline: no recess cut to one keyboard.** Adjustable (straps, a sleeve, a clamp or a lid that takes a range) beats exact. Known points: K-Board C and nanoKEY2 ≈ 325 × 84 × 11–16 mm (eng §2); Xkey 25 to confirm. **Eng sets the range** from published sizes of 25-key travel controllers (PROPOSAL to check: up to ≈ 390 × 140 × 25 mm, ≈ 0.7 kg, which needs the Xkey 25's real size) |
 | 4 | Every note sounding | stated (T1) | 25 voices allocated oldest-first; a 26th note steals the oldest |
 | 5 | Split and octaves in floss | stated (settled, REQUIREMENTS rev 2) | OCTAVE L and OCTAVE R on floss's panel; equal = one keyboard; the split point is fixed by note number |
 | 6 | Controller octave buttons don't break the split | inferred (eng §5 catch) | a stated rule for what happens: e.g. the split follows the controller's shift, or the panel says "keep the controller at its default" (a concept chooses; the honest minimum is to say so) |
@@ -83,7 +86,8 @@ Status: **rev 2, 2026-11-22**, product designer (systems focus). It follows the 
 | 24 | Point of view, keyboard included | stated (Big Energy J20) | the kit reads as one idea even though the controller isn't floss's own design |
 | 25 | Big Energy family | stated (settled) | as rev 1 |
 | 26 | Build from proven parts; fix | stated (REQUIREMENTS: reliable choices, SMD where necessary, measures nothing) | parts with published specs; battery, firmware flash and host port reachable |
-| 27 | Swap controllers | inferred (eng trade-off 3: the K-Board C is KMI-branded only until stock sells out) | nothing in floss depends on one controller's size or features; the carry solution takes more than one controller |
+| 27 | Swap controllers | stated (owner: "flexible and not reliant on a single model of keyboard"); eng trade-off 3 (K-Board C stock) | nothing in floss depends on one controller's size, socket (USB-A, USB-C or micro-USB via its own cable) or features; the carry takes the whole size range |
+| 28 | One carry-and-connect system for every module | stated (owner: "This is the plan for all modular portable synths that we build") | the carry and the host port are designed as a family standard that Big Energy and port-a-poly could reuse: same size range, same way of attaching, same port and power rules |
 
 **Settled constraints:** no built-in keys; the controller carried with it is 25 keys or fewer; no screens or encoders; battery; echo and reverb on the Daisy; no fixed budget, costed honestly; targets T1–T12 are the baseline, and any miss or beat is a trade-off for the owner.
 
@@ -151,8 +155,8 @@ As rev 1.
 ### F14 Share (23)
 A friend takes the controller; you take floss's panel.
 
-### F15 Swap the controller (27)
-Plug a different class-compliant keyboard into the host socket: it plays. Its features (pressure or not) change what job 8 does, and nothing else.
+### F15 Swap the controller (27, 28)
+Plug a different class-compliant keyboard (any in the size range, any USB socket type via its own cable) into the host socket: it plays, and it packs the same way. Its features (pressure or not) change what job 8 does, and nothing else.
 
 ### F16 Build and fix (26)
 As rev 1, with the host port and its power switch added.
@@ -162,9 +166,11 @@ As rev 1, with the host port and its power switch added.
    - USB host and device at the same time (`controller.md` §4);
    - over-current behaviour on the host port;
    - the Xkey 25's size and power;
+   - the travel-keyboard size and weight range for the carry (job 3);
+   - the most power the host port should supply (it sets which keyboards work, job 2);
    - whether 12 voices (one RP2350B) is acceptable against T1 (it's an owner trade-off if so).
 2. **Concepts:**
-   - the carry solution (job 3);
+   - the carry solution for a size range, as a family standard (jobs 3, 28);
    - the octave-button rule (job 6);
    - how "keyboard connected" shows (job 18);
    - what velocity-only players get (job 9).

@@ -6,6 +6,10 @@
 - **`../jobs.md` is rev 2:** 27 jobs, a short paste-ready list at the top with new / changed marks, a rev 1 → rev 2 change table, a detail table, flows F1–F16, and open questions.
   - **New jobs:** plug in with one cable (2), carry as a kit (3), controller octave buttons vs the split (6), expressive without pressure (9), play from a computer or another keyboard (16), swap controllers (27).
   - **Changed:** voices allocated (4), split and octaves on floss (5), pressure per note only when the controller sends it (8), tilt / bend / lift where available (10), "keyboard connected" as state (18), duet = one plays, one tends (23).
+- **Owner addition:** "This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard."
+  - Jobs 2, 3 and 27 now say "any travel keyboard in a size range, not one model". No recess cut to one outline; adjustable carry beats exact.
+  - **New job 28:** one carry-and-connect system for every synths-to-go module (a family standard Big Energy and port-a-poly can reuse).
+  - **Eng to set:** the size and weight range (my placeholder, up to ≈ 390 × 140 × 25 mm and ≈ 0.7 kg, is unverified until the Xkey 25's published size is checked), and the host port's power budget.
 - **Concepts are on hold.** The director re-steers after the engineering baseline. **Don't edit `../concepts/` until then.**
 - **What survives from the concepts, as I see it (for the re-steer):**
   - the breath, octave knobs as the split, the PRESSURE selector, HOLD, FREE / SYNC, the status light, the TOUCH → … → VOLUME order;
