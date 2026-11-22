@@ -552,3 +552,8 @@ Recorded as: **`PRINCIPLES.md`** at the repo root holds the family's foundationa
 > Remove any language that isn’t necessary from the principles/mds. The sound things / shimmer and warmth things are overstated those were notes about the string machine. The goal is analog-first, but that doesn’t mean digital won’t be used or should be completely avoided.
 
 Recorded as: PRINCIPLES.md and CLAUDE.md trimmed to what's necessary. **"Analog voices, shimmer and warmth" is floss-specific, not a family goal.** The family goal is **analog-first; digital is used where it serves.** The site and README now say "portable, analog-first synthesizers".
+
+## 2026-11-22 14:08 (chat): 3D-printed cases
+> Let’s make it an overarching principle that for now the case will be entirely 3d printed
+
+Recorded as: **family principle, for now: the case is entirely 3D printed.** That covers the module enclosure and any rigid carry; no walnut, ply, bookcloth or brass on the case. (Earlier, 2026-11-13: "They can be printed externally too", so outside print services are fine.) Whether CLOTH's soft wrap counts as a case is open.
