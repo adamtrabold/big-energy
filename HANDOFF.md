@@ -1,6 +1,12 @@
 # Orchestrator handoff — CURRENT STATUS (2026-11-21). Read this section first.
 
+**Update 20:35:** the string machine is named **floss** (folder `floss/`). Site names and tabs are lowercase.
+
 **The project widened on 2026-11-21 into three instruments** (owner's current thinking, 18:31): **Big Energy** = the Model D clone with 4-voice paraphony (as specced, voices 1 · 3 · 4); **Port-a-poly** = a true portable analog poly; a **string machine** that still needs a name. Build order is undecided. Earlier that day he said the Model D "is not inspiring"; his 18:31 entry keeps it as Big Energy. Everything below "Earlier handoff" is the Big Energy record as of 2026-11-13 and still applies to Big Energy. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
+
+## Repo and site (2026-11-21 19:17)
+- The repo is being renamed **synths-to-go** (Adam does it in GitHub Settings). The site moves to https://adamtrabold.github.io/synths-to-go/ and the old big-energy address stops working. Git links redirect.
+- The site is organised as **Synths to go** (working title), with three sections: Big Energy (all the earlier pages), Port-a-poly and floss (the string machine, named 2026-11-21 20:35). Each has a folder (`port-a-poly/README.md`, `floss/README.md`) that its section builds from. Keep those READMEs current.
 
 ## What Adam wants now
 - Two new instruments he finds more inspiring than the Model D: a **string machine** (needs a name) and a **portable analog poly**, **Port-a-poly**. Big Energy (Model D + 4-voice paraphony) stays as the third.
@@ -28,7 +34,7 @@
 - Budget ceilings for the string machine and Port-a-poly. String-machine name: not a priority; Adam names instruments himself along the way. Don't run a naming round.
 
 ## Prompt for Adam to paste into a new session
-> Attach and clone my repo adamtrabold/big-energy. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
+> Attach and clone my repo adamtrabold/synths-to-go. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
 
 ---
 

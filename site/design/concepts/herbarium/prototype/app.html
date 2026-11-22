@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Big Energy · project site</title>
+<title>synths-to-go</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,6 +53,16 @@ nav.filters{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:0;b
 @media(min-width:1024px){.wrap:has(>nav.filters){margin-bottom:36px}}
 @media(max-width:599px){nav.filters{gap:16px}nav.filters::after{content:"";flex:none;width:8px}nav.filters.fade{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}}
 nav.filters a{font-size:15px;color:var(--ink2);padding:6px 0 9px;border-bottom:2px solid transparent;flex:none}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:nowrap}
+.brand a{color:var(--ink);text-decoration:none;white-space:nowrap}
+@media(max-width:599px){.brand{font-size:20px;gap:8px}.brand select{max-width:62vw;text-overflow:ellipsis}}
+.brand .pipe{color:var(--ink2);font-weight:300}
+.brand .pick{position:relative;display:inline-flex;align-items:baseline}
+.brand select{appearance:none;-webkit-appearance:none;font:inherit;font-weight:400;color:var(--ink);background:transparent;border:0;padding:0 22px 0 0;margin:0;cursor:pointer;border-radius:0}
+.brand .pick::after{content:"";position:absolute;right:4px;top:50%;width:7px;height:7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:translateY(-75%) rotate(45deg);pointer-events:none}
+.brand select:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.hrule{height:1px;background:var(--rule);background-clip:content-box;margin-bottom:24px}
+@media(min-width:1024px){.hrule{margin-bottom:36px}}
 nav.filters a.on{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
 nav.filters .more{margin-left:auto;color:var(--ink);font-weight:600}
 @media(min-width:1024px){
@@ -385,19 +395,47 @@ function updatedLine(){
   return `<div class="status" title="${esc(u.what)}">Updated <b>${esc(u.when)}</b> · ${esc(u.what)}</div>`;
 }
 const SECTIONS = [ // build-chain order; the site's whole structure
-  ["decide","./","To decide"],["physical","#designs","Designs"],["architecture","#architecture","Architecture"],["features","#features","Features"],
-  ["electronics","#electronics","Electronics"],["parts","#parts","Parts"],["tests","#tests","Tests"],["history","#history","History"]];
+  ["decide","#big-energy","to decide"],["physical","#designs","designs"],["architecture","#architecture","architecture"],["features","#features","features"],
+  ["electronics","#electronics","electronics"],["parts","#parts","parts"],["tests","#tests","tests"],["history","#history","history"]];
+const INST = (D.instruments||[]);
+function instName(i){ return i.untitled ? `${esc(i.name)} <span class="ink2" style="font-weight:400">(untitled)</span>` : esc(i.name); }
+function topbar(cur, sub, rule = true){ // synths-to-go | instrument dropdown; no stacked tabs
+  const opts = [["home","overview"]].concat(INST.map(i=>[i.code, i.name]));
+  return `<header class="band wrap"><div class="hgrid">
+    <div class="name brand"><a href="./">${esc(D.umbrella.name)}</a><span class="pipe" aria-hidden="true">|</span><span class="pick"><select aria-label="Instrument" onchange="location.hash = this.value === 'home' ? '' : this.value">${opts.map(([k,t])=>`<option value="${k}"${k===cur?" selected":""}>${esc(t)}</option>`).join("")}</select></span></div>
+    <div class="sub">${sub || esc(D.umbrella.line)}</div>
+  </div></header>${rule ? '<div class="wrap hrule"></div>' : ""}`;
+}
 function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
-  return `<header class="band wrap"><div class="hgrid">
-    <div class="name">${esc(D.project.name)}</div>
-    <div class="sub">${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a></div>
-  </div></header>
-  <div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
+  return topbar("big-energy", `${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a>`, false) + `<div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
+}
+function vOverview(){
+  const C = G.CATHEDRAL, lead = C && I[C.lead];
+  const card = i => `<a class="drow" href="#${i.code}"><span class="t">${instName(i)}</span><span class="c">${esc(i.line)}</span><span class="ink2" style="font-size:13px">${esc(i.status)}</span></a>`;
+  return topbar("home") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">synths-to-go is a family of portable instruments being designed for you, with analog voices, shimmer and warmth. Pick an instrument below or from the menu at the top to see where it stands and what's waiting on you.</p>
+    ${INST.map(card).join("")}
+    ${lead ? `<h2 class="sec">Big Energy, current design</h2><a class="nowcard" href="#designs"><img src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="CATHEDRAL, the current Big Energy design"><div><div class="cmeta"><b>CATHEDRAL</b></div><div class="cline">${esc(C.statusLabel)}</div><div class="u" style="margin-top:4px">See every Big Energy design ›</div></div></a>` : ""}
+  </main>${about()}`;
+}
+function vInstrument(code){
+  const i = INST.find(x => x.code === code);
+  if (!i || !i.html) return vMissing(code);
+  return topbar(code) + `<main class="wrap"><div class="ink2" style="font-size:13px;margin-bottom:6px">${esc(i.status)} · source ${esc(i.path)}</div>
+    <h1 style="margin:0 0 12px">${instName(i)}</h1>
+    <article class="doc-html">${i.html}</article>
+    <h2 class="sec">Still to come</h2>${["Designs","Architecture","Features","Electronics","Parts","Tests"].map(t=>notYet(t,"with the build plans")).join("")}
+  </main>${about()}`;
+}
+function vResearch(slug){
+  const r = (D.research||[]).find(x => x.slug === slug);
+  if (!r) return vMissing(slug);
+  return topbar("port-a-poly") + `<main class="wrap item"><div class="ink2" style="font-size:13px;margin-bottom:6px">Research · source ${esc(r.path)}</div><article class="doc-html">${r.html}</article></main>${about()}`;
 }
 function point(t){ return `<p class="purpose">${esc(t)}</p>`; }
 function about(){
   return `<footer class="wrap about"><div class="cap">Where things live</div><p>
+    <b>Port-a-poly</b> ← port-a-poly/ · <b>floss</b> ← floss/ · everything below is Big Energy ·
     <b>To decide</b> ← design/decisions-open.md · <b>Architecture</b> ← docs/architecture.md · <b>Features</b> ← docs/features/ ·
     <b>Physical</b> ← design/branches/concepts/ (now), design/concepts/, versions/, archive/; 3D models later in design/models/ ·
     <b>Electronics</b> ← eng/, eng/sim/; boards and schematics later in eng/boards/ · <b>Parts</b> ← eng/cost-estimate.md, eng/key-sourcing.md; the BOM later in eng/bom/ ·
@@ -412,7 +450,7 @@ function groupRow(gc, note){ const g = G[gc]; if (!g) return ""; const m = g.lea
 function vWaiting(){
   const W = D.waiting || {items:[]};
   const C = G.CATHEDRAL, lead = C && I[C.lead];
-  return header("decide") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">This site shows Big Energy, the portable Model D-style synth being designed for you: the case designs, how it works, and what's waiting on your decision.</p>
+  return header("decide") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">Big Energy is the Model D clone with 4-voice paraphony. This section has its case designs, how it works, and what's waiting on your decision.</p>
     ${lead ? `<a class="nowcard" href="#designs"><img src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="CATHEDRAL, the current design"><div><div class="cmeta"><b>Current design: CATHEDRAL</b></div><div class="cline">${esc(C.statusLabel)}</div><div class="u" style="margin-top:4px">See every design and how it got here ›</div></div></a>` : ""}
     <h2 class="sec">Waiting on you</h2>${point("Decisions only you can make. Each says what it unblocks, the options, and what the team recommends. Answer in chat; the team records it and removes it here.")}
     ${W.items.length ? `<ol class="wlist">${W.items.map(it=>`<li><a href="#wait-${it.n}"><b>${esc(it.title)}</b>${it.unblocks?`<span class="ink2"> · unblocks ${esc(it.unblocks)}</span>`:""}</a></li>`).join("")}</ol>` : "<p>Nothing is waiting on you.</p>"}
@@ -474,7 +512,7 @@ function vTests(){
   </main>${about()}`;
 }
 function vHistoryHub(tab){
-  const tabs = [["decisions","Decisions"],["versions","Versions"],["reviews","Reviews"],["day","By day"],["round","By round"]];
+  const tabs = [["decisions","decisions"],["versions","versions"],["reviews","reviews"],["day","by day"],["round","by round"]];
   const nav = `<div class="grain">${tabs.map(([k,t])=>`<a class="${k===tab?"on":""}" href="#history-${k}">${t}</a>`).join("")}</div>`;
   let body = "";
   if (tab === "decisions") body = decisionsBody();
@@ -603,7 +641,7 @@ function backBar(href, text, copy, pt){
 }
 function vItem(code, revSel){
   const it = I[code]; if (!it) return vMissing(code);
-  const back = it.group ? ["#g-" + it.group, G[it.group] ? G[it.group].title : it.group] : ["./", "all"];
+  const back = it.group ? ["#g-" + it.group, G[it.group] ? G[it.group].title : it.group] : ["#big-energy", "Big Energy"];
   if (it.kind === "image") return vImage(it, revSel, back);
   if (it.kind === "test") return vTest(it, back);
   if (it.kind === "prototype") return vProto(it);
@@ -651,7 +689,7 @@ function vDoc(it, back){
   </main>`;
 }
 function vProto(it){
-  return backBar("./", "To decide") + `<main class="wrap item"><article class="doc-html">
+  return backBar("#big-energy", "To decide") + `<main class="wrap item"><article class="doc-html">
     <h1>${esc(it.title)}</h1><p>${esc(it.lead)} A prototype is a kind of item the site hosts: a page you open and use, with a label like any other item.</p>
     <h2>How it's made</h2><ul>
     <li><code>build.py</code> reads the repo and writes this page plus <code>media/</code>. Markdown stays the source; what you read here is HTML.</li>
@@ -773,7 +811,10 @@ let audio = null, raf = 0;
 function route(){
   const h = (location.hash || "").slice(1);
   let html, m;
-  if (h === "" || h === "home") html = vWaiting();
+  if (h === "" || h === "home") html = vOverview();
+  else if (h === "big-energy") html = vWaiting();
+  else if (h === "port-a-poly" || h === "floss") html = vInstrument(h);
+  else if ((m = h.match(/^r-([\w-]+)$/))) html = vResearch(m[1]);
   else if ((m = h.match(/^wait-(\d+)$/))) { html = vWaiting(); setTimeout(() => { const e = document.getElementById("wait-" + m[1]); if (e) e.scrollIntoView(); }, 30); }
   else if (h === "architecture") html = vDocPage("architecture");
   else if (h === "features" || h === "docs") html = vFeatures();
@@ -807,7 +848,14 @@ function rerender(keepScroll){ const y = window.scrollY; route(); if (keepScroll
 window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); });
 
 /* ------- wiring per view */
+function fitPick(){ // the dropdown is as wide as the chosen name, so the chevron sits right after it
+  const sel = document.querySelector(".brand select"); if (!sel) return;
+  const cs = getComputedStyle(sel), c = fitPick.c || (fitPick.c = document.createElement("canvas").getContext("2d"));
+  c.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+  sel.style.width = Math.ceil(c.measureText(sel.options[sel.selectedIndex].text).width + 22) + "px";
+}
 function wire(){
+  fitPick();
   const nv = document.querySelector("nav.filters"), on = nv && nv.querySelector("a.on");
   if (nv){ const fade = () => nv.classList.toggle("fade", nv.scrollLeft + nv.clientWidth < nv.scrollWidth - 4);
     if (on && nv.scrollWidth > nv.clientWidth) nv.scrollLeft = Math.max(0, on.offsetLeft - nv.offsetLeft - 16);

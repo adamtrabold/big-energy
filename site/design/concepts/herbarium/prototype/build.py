@@ -602,7 +602,23 @@ except Exception:
 docs_index = {"intro": md("\n".join(l for l in readme.split("## Index")[0].splitlines()[1:]), src="docs/README.md"),
               "template": md("## Template" + readme.split("## Template", 1)[1], src="docs/README.md") if "## Template" in readme else ""}
 
-data = {"project": {"name": "Big Energy", "line": "a portable Model D", "waiting": "CATHEDRAL approval", "then": "then the handoff",
+# Synths to go: the instruments. Big Energy is everything above; the others build from their own folders.
+RESEARCH = [("poly-hybrid", "explore/poly-hybrid.md")]
+for slug, path in RESEARCH: PATHMAP[path] = "#r-" + slug
+def inst_page(path):
+    t = rd(path)
+    lines = t.splitlines()
+    return {"title": h1(t), "lead": first_para(t), "html": md("\n".join(lines[1:]), src=path), "path": path}
+instruments = [
+    {"code": "big-energy", "name": "big energy", "line": "The Model D clone with 4-voice paraphony", "status": "Case design: CATHEDRAL waiting on you"},
+    {"code": "port-a-poly", "name": "port-a-poly", "line": "A true portable analog poly", "status": "Not started", **inst_page("port-a-poly/README.md")},
+    {"code": "floss", "name": "floss", "line": "The string machine: analog strings with shimmer, from first principles", "status": "Next up for build plans", **inst_page("floss/README.md")},
+]
+research = [{"slug": s, "path": p, "title": h1(rd(p)), "html": md(rd(p), src=p)} for s, p in RESEARCH]
+
+data = {"umbrella": {"name": "synths-to-go", "line": "Portable instruments with analog voices, shimmer and warmth"},
+        "instruments": instruments, "research": research,
+        "project": {"name": "Big Energy", "line": "the Model D clone with 4-voice paraphony", "waiting": "CATHEDRAL approval", "then": "then the handoff",
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
         "stages": ["Concept", "Lock", "Handoff", "Spec", "BOM", "Breadboard", "Boards", "Prints", "Assembly"],
         "groups": groups, "items": items, "order": order, "decisions": decisions, "rounds": rounds, "versions": versions,

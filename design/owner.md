@@ -350,3 +350,22 @@ Recorded as (current thinking, three instruments): **Big Energy** = the Model D 
 > No I named big energy along the way name isn't important right now
 
 Recorded as: no naming round for the string machine. Adam names instruments himself along the way; the name isn't a priority now.
+
+## 2026-11-21 19:17 (chat)
+> First let’s get the feedback site organized. Big energy should be a section, as should port a poly, as should this untitled steering machine. The repo should be more about the synths to go concept
+
+Answers to follow-up questions (19:2x): rename the repo to **synths-to-go** (Adam renames it in GitHub Settings; the site moves to adamtrabold.github.io/synths-to-go); "Synths to go" is a **working title only**; run the restructure as a **tweak**.
+
+Recorded as: the site gets an umbrella, "Synths to go" (working title), with three sections: Big Energy, Port-a-poly and the untitled string machine. The repo is reframed around the synths-to-go idea and renamed synths-to-go. Each new instrument has its own folder (`port-a-poly/`, `string-machine/`); Big Energy's files stay where they are for now.
+
+## 2026-11-21 20:14 (chat)
+> Let’s make it “synths-to-go” with a pipe next to it and a dropdown for the page selector so there aren’t stacked tabs
+
+Recorded as: the site header reads "synths-to-go | <instrument>", where the instrument is a dropdown (Overview, Big Energy, Port-a-poly, String machine). There's only one row of tabs: an instrument's own sections, such as Big Energy's. The umbrella is written "synths-to-go".
+
+## 2026-11-21 20:35 (chat)
+> Make names and tabs all lowecase
+
+> Call string machine floss
+
+Recorded as: on the site, instrument names and tabs are all lowercase (big energy, port-a-poly, floss; to decide, designs, …). The string machine is named **floss**, and its folder is `floss/`.

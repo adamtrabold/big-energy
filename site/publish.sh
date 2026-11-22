@@ -17,4 +17,4 @@ export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME" GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EM
 git commit -qm "Site build from main $(git -C "$ROOT" rev-parse --short HEAD)"
 git remote add origin "$(git -C "$ROOT" remote get-url origin)"
 git push -q -f origin gh-pages
-echo "Published to gh-pages: https://adamtrabold.github.io/big-energy/"
+echo "Published to gh-pages: https://adamtrabold.github.io/synths-to-go/"
