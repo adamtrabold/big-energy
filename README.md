@@ -1,6 +1,6 @@
 # synths-to-go
 
-Portable instruments with analog voices, shimmer and warmth. **The family principle:** each one is a portable sound module with a way to carry a keyboard with it, flexible and not tied to any one keyboard model. "synths-to-go" is a working title. They're designed with an AI product team (an orchestrator, a systems designer, a visual designer and a design director) following Adam's design-buds process.
+Portable, analog-first synthesizers. Each one is a sound module with a way to carry a keyboard, not tied to any one keyboard model. "synths-to-go" is a working title. They're designed with an AI product team (an orchestrator, a systems designer, a visual designer and a design director) following Adam's design-buds process.
 
 Site: https://adamtrabold.github.io/synths-to-go/
 

@@ -1,6 +1,6 @@
-# synths-to-go: instructions for agents
+# synths-to-go: agent instructions
 
-1. Read `PRINCIPLES.md` first. It holds Adam's foundational principles and goals for every instrument (portable, harmonious proportion, sound module plus a carried keyboard, shared universe, agents-only with published evidence, and more). Don't reopen them per instrument.
-2. Then read `HANDOFF.md` for where things stand, and the instrument's own `REQUIREMENTS.md` (e.g. `floss/REQUIREMENTS.md`).
-3. Adam's verbatim record is `design/owner.md` (newest at the bottom). Append every owner decision there verbatim.
-4. Commits carry no Claude or AI attribution: no Co-Authored-By lines, nothing that shows Claude as a collaborator.
+1. Read `PRINCIPLES.md` first. It applies to every instrument.
+2. Then `HANDOFF.md`, and the instrument's `REQUIREMENTS.md`.
+3. Record every owner decision verbatim at the bottom of `design/owner.md`.
+4. No Claude or AI attribution in commits.

@@ -617,7 +617,7 @@ instruments = [
 research = [{"slug": s, "path": p, "title": h1(rd(p)), "html": md(rd(p), src=p)} for s, p in RESEARCH]
 
 _pr = rd("PRINCIPLES.md")
-data = {"umbrella": {"name": "synths-to-go", "line": "Portable instruments with analog voices, shimmer and warmth"},
+data = {"umbrella": {"name": "synths-to-go", "line": "Portable, analog-first synthesizers"},
         "principles": {"html": md("\n".join(_pr.splitlines()[1:]), src="PRINCIPLES.md"), "path": "PRINCIPLES.md"},
         "instruments": instruments, "research": research,
         "project": {"name": "Big Energy", "line": "the Model D clone with 4-voice paraphony", "waiting": "CATHEDRAL approval", "then": "then the handoff",

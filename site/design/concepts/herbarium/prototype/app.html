@@ -411,14 +411,14 @@ function header(sel){
   return topbar("big-energy", `${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a>`, false) + `<div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
 }
 function vPrinciples(){
-  return topbar("principles") + `<main class="wrap"><div class="ink2" style="font-size:13px;margin-bottom:6px">The source of truth for every instrument · source ${esc(D.principles.path)}</div>
-    <h1 style="margin:0 0 12px">principles and goals</h1><article class="doc-html">${D.principles.html}</article></main>${about()}`;
+  return topbar("principles") + `<main class="wrap"><div class="ink2" style="font-size:13px;margin-bottom:6px">source ${esc(D.principles.path)}</div>
+    <h1 style="margin:0 0 12px">principles</h1><article class="doc-html">${D.principles.html}</article></main>${about()}`;
 }
 function vOverview(){
   const C = G.CATHEDRAL, lead = C && I[C.lead];
   const card = i => `<a class="drow" href="#${i.code}"><span class="t">${instName(i)}</span><span class="c">${esc(i.line)}</span><span class="ink2" style="font-size:13px">${esc(i.status)}</span></a>`;
-  return topbar("home") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">synths-to-go is a family of portable instruments being designed for you, with analog voices, shimmer and warmth. Pick an instrument below or from the menu at the top to see where it stands and what's waiting on you.</p>
-    <a class="drow" href="#principles"><span class="t">principles and goals</span><span class="c">Portable, harmonious proportion, a sound module plus a carried keyboard, a shared universe. These guide every instrument.</span><span class="ink2" style="font-size:13px">read first</span></a>
+  return topbar("home") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">synths-to-go is a family of portable, analog-first synthesizers. Each is a sound module with a way to carry a keyboard.</p>
+    <a class="drow" href="#principles"><span class="t">principles</span><span class="c">The rules for every instrument.</span><span class="ink2" style="font-size:13px">read first</span></a>
     <h2 class="sec">instruments</h2>
     ${INST.map(card).join("")}
     ${lead ? `<h2 class="sec">Big Energy, current design</h2><a class="nowcard" href="#designs"><img src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="CATHEDRAL, the current Big Energy design"><div><div class="cmeta"><b>CATHEDRAL</b></div><div class="cline">${esc(C.statusLabel)}</div><div class="u" style="margin-top:4px">See every Big Energy design ›</div></div></a>` : ""}

@@ -547,3 +547,8 @@ Recorded as: **the sheet-of-paper size was an example, not a target.** The modul
 > I want the website to serve as the source of truth and guiding light for this project
 
 Recorded as: **`PRINCIPLES.md`** at the repo root holds the family's foundational principles and goals in Adam's words, with dates. **`CLAUDE.md`** tells every agent to read it first. **The project site is the source of truth and guiding light:** it gets a "principles" page (built from PRINCIPLES.md) and leads its overview with it. Repo files feed the site, so the two stay in step.
+
+## 2026-11-22 14:06 (chat): trim principles; analog-first
+> Remove any language that isn’t necessary from the principles/mds. The sound things / shimmer and warmth things are overstated those were notes about the string machine. The goal is analog-first, but that doesn’t mean digital won’t be used or should be completely avoided.
+
+Recorded as: PRINCIPLES.md and CLAUDE.md trimmed to what's necessary. **"Analog voices, shimmer and warmth" is floss-specific, not a family goal.** The family goal is **analog-first; digital is used where it serves.** The site and README now say "portable, analog-first synthesizers".
