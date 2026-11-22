@@ -312,3 +312,107 @@ There was no scored round under REV 2; this is the first steer of concept round 
 
 ## Next
 Systems turn, then visual turn. Then I rule again or call READY and score the module plus all surviving kits in one pass. If FALLBOARD still doesn't fit a pack comfortably after the gutter fix, it's killed or demoted below SPINE at that point.
+
+---
+
+# Concept round 2, steer 2 (2026-11-22, after systems rev 2 and visual turn 2)
+## New owner words folded in (verbatim, from the coordinator)
+- "Let’s make it an overarching principle that for now the case will be entirely 3d printed" (now in PRINCIPLES.md).
+- "Cloth wrapping is fine as long as the core is printed".
+- "The goal is analog-first, but that doesn’t mean digital won’t be used or should be completely avoided". The analog sentence stands as written.
+- "Speaker let’s figure out what will sound best idc method". Eng is on it in `eng/module-r3.md`, **not landed**. That reopens the crown and possibly the depth.
+- "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I’m just saying don’t assume not making a rule". Not a rule; it removes the enclosing assumption.
+- "25 keys idk about voices" / "25 is good for the string machine". I read it as 25 voices being fine. **The coordinator should confirm the reading**; systems keeps 25.
+
+## Judged from
+- `module/module-1to1-A2.png`, `yoke/yoke-A-carry-and-play.png`, `fallboard/fallboard-A-in-use.png`, `spine/spine-A-in-use.png`.
+- Words: `yoke/how-it-looks-and-feels.md`, systems' `module/how-it-works.md` §2 (knob finding), the top of `notes/visual.md` (its questions only, as the coordinator asked).
+- Not opened this turn: the B sheets of FALLBOARD and SPINE, and both CLOTH sheets. I took those from the words.
+
+## Did the work change since steer 1?
+Yes, and it took the steer:
+- the gutter is gone (FALLBOARD 412 × 265 × 42, 35 mm clear in a 300 pack);
+- the lamp is gone, and so is the engraved line;
+- the wordmark is on the crown's rear face;
+- flush dividers;
+- grille 737 mm²;
+- 5 mm finger room;
+- SPINE's stop is geometric (the tray face meets the bead at 180°; the pin only hinges);
+- one pocket job each.
+
+Systems found the honest consequence of R1 condition 2: 35 holds only with a Ø 10 × 8 knob.
+
+## Rulings
+### S1. YOKE becomes a concept, and it absorbs CLOTH.
+- It's the most direct answer to the owner's newest words: an attachment point, not a surround. It's also the best fit to PRINCIPLES §1 (≈ 0.1 kg of carry), §3 (one family standard: it hangs on S4, so any module of any size gets it) and §7 (4 small prints).
+- Its carry pose is nearly its play pose, and the keyboard never flips.
+- **CLOTH as a standalone kit is killed.** Its two real gifts become YOKE's optional parts:
+  - **the wrap:** the near-black, coated, quilted square over the printed core (the owner's "cloth wrapping is fine as long as the core is printed");
+  - **the mat on grass.**
+
+  That fixes YOKE's exposure and CLOTH's two objects on a lap, together. CLOTH alone couldn't get to 9 (two objects on a lap, soft protection), and the overlap with a wrapped YOKE was total.
+- **Conditions for YOKE's concept turn:**
+  1. **Panel exposure without a case:** the rim alone, or one printed cap that clips over the rim. If there's a cap, it has to do a second job in play (e.g. a riser under the module's rear that tilts the panel toward you). If it can't, the wrap is the protection and there's no cap.
+  2. **The cup grip has to hold whatever the end-cap shape** (end shapes are unpublished: design around it). Clamp between the cup's floor and its lip over 11–16 mm of thickness with foam take-up, and lock the cup on its slot. Nothing may rely on a particular keyboard's end.
+  3. **Eng:** arm stiffness at a 165 mm reach under a keypress on a lap; thumbscrew hold at the play detent; no rattle in carry. Published PETG properties only.
+  4. **The charger rides loose:** accepted and stated. It's any USB-C charger, the one already in the bag. The adapter clips to an arm.
+  5. Chunky minis: say whether a taller cup takes them, or state that they're out.
+
+### S2. Knob: both options go to the owner as a trade-off. My recommendation is A.
+- **A:** Ø 10 × 8 aluminium (CATHEDRAL's low knob, already a family part). It keeps 280 × 105 × 35 and the 35 unit. **B:** Ø 14.5 × 13.5 (the family 18T); the module becomes 280 × 112 × 42 and the kits grow 7 mm.
+- **Why A:** the parts-first derivation survives intact. B's restated 14-unit 20 : 8 : 3 is a ratio found after the fact, which is exactly the retrofitting R1 warned against. A is also smaller and lighter, it's already a family part, and floss's knobs are set and tended, not ridden.
+- **What A costs, said plainly:** a smaller knob under the hand.
+- **The 22 mm pitch stays with A** (it's a rule for the hand, not the knob). The width doesn't reopen.
+- Show it to the owner at 1:1 in words plus the existing A2 sheet. No new images.
+
+### S3. Colour and material: keep the system, change the house colour.
+- **Kept:** colour only from the spool, never paint; two spools plus a little TPU; a cream deck for the stage; cream marks (target, ticks, crown words, wordmark); one coral (DEPTH); both lights amber; carries carry no name; the one-spool debossed version as a fallback for Adam's own printer, not the baseline.
+- **Changed: the house is warm walnut-brown PETG, not near-black.** Reasons:
+  1. "Warmth" is the owner's own word for what draws him, and near-black matte is the default colour of every synth and controller. It doesn't look like itself (§5).
+  2. Shared universe (§4): the family language so far is walnut and cream, and the earlier module was already walnut-brown PETG. Black would be a family-wide language change nobody asked for.
+  3. All-black kits read as black boxes on a bench (the in-use sheets prove it).
+  4. Black PETG in full sun runs hottest to the touch. A park is the use case. It's a small margin over dark brown, so it's a tiebreaker, not the reason.
+- **Drop "stage blacks and spike marks" as the story.** It came from a random draw and it describes theatre, not floss. Keep its structure (house dark, stage lit, marks cream) under floss's own idea. The owner sees black as the alternative, in one line.
+- **Dividers:** pressed-in black TPU 95A strip, flush. Accepted; the printed-groove fallback too. With a brown house the TPU stays black or matches the house; visual's call, and one line why.
+
+### S4. The module's face: two fixes (both from the A2 sheet)
+1. **The empty cream shoulders.** With A's rows at y 14 / 31, the deck either side of the crown (from about y 40 back to the arc) is a large empty cream field. It's the leftover pattern, now on the module itself. **The cream stage ends a few mm behind the rear row; behind that, the house colour rises as the roof to the rim** (the crown sits in the roof). The lit surface is only where the hands work, which is the stage idea done properly, and the face loses its gap.
+2. **The rear outline has gone polygonal** (straight chamfers, which read as a gable). Printing makes curves free. **Go back to one fair arc with exactly two flat port facets,** or say why the chamfers belong. Don't let it drift there unstated.
+
+### S5. Visual's other questions
+- **FALLBOARD's lid: the cross seam (4 panels), accepted** over six panels: fewer parts and joints, and each quarter fits a 256 bed (206 × 133). Seams are left as honest lines.
+- **CLOTH liner-up:** it carries over to YOKE's wrap/mat (the coated face to the ground). Accepted.
+- **SPINE lane/bay overlap (62 × 30 counted twice):** systems fixes the count.
+- **Rows and crown foot:** draw for A as the baseline and keep B as a column in the tables until the owner picks.
+
+## Kills
+- **CLOTH** (as a standalone; merged into YOKE, S1).
+- Concepts going on: **FALLBOARD** (board and lid: surround and stand), **SPINE** (closed box: full protection, smallest rigid), **YOKE** (attachment point, optional wrap). They differ in kind: open frame, closed box, no case.
+
+## Likely owner objections now
+1. Walnut-brown vs black: he hasn't seen the brown printed, so show it in words, with the reason.
+2. A Ø 10 knob feels small.
+3. The speaker is still open (r3); the crown or depth may move.
+4. FALLBOARD is the heaviest carry (0.47–0.60) and the largest box (4.6 L) now that the owner has said a surround isn't needed.
+5. YOKE's exposure, and its lap rigidity resting on two thumbscrews.
+6. SPINE: 6 printed halves plus rods; "bridged, it folds: don't" is a use rule, not a design.
+
+## What keeps blocking a 9
+The same pattern, now visible in the module's own face: **space the parts don't use becomes a surface that has to be dressed** (cream shoulders; FALLBOARD's bed behind a shallow keyboard). The carries are better: each pocket now has one job. YOKE is the first answer with no leftover at all, because it starts from the two objects. Secondary pattern: **a turn's random draw becomes the product's story** ("stage blacks"). Draws are tools; the story has to come from floss.
+
+## Steer to the designers (round 2, third pair of turns)
+**Systems first:**
+1. Write `yoke/how-it-works.md`: the arms, slot, cups, detents, carry and play states, cable, adapter clip, the wrap and mat as options, the chunky-mini answer, coverage of jobs 3, 20, 23, 24, 27, 28, and making steps (4 prints, 2 pins, the module's thumbscrews; the wrap's sewing as an option). Answer S1's conditions 1–5.
+2. Retire `cloth/` (mark it superseded, pointing to YOKE).
+3. Module: A as the baseline (rows y 14 / 31, crown foot 41); B kept as a column. Fold `eng/module-r3.md`'s speaker in **when it lands**, and say what moves (crown, depth, height).
+4. Fix the SPINE area count.
+5. jobs.md: CLOTH's job lines move to YOKE; chunky minis per S1.5.
+
+**Then visual:**
+1. Module A2 sheet: walnut-brown house, cream stage ending behind the rear row with the roof rising (S4.1), fair arc plus two facets (S4.2). Keep B beside it at 1:1.
+2. YOKE: one sheet each for A (carry and play, which exists, redrawn to systems' mechanism) and B (wrapped, on the grass as the mat, in a pack). No more.
+3. FALLBOARD and SPINE: recolour only (update the sheets, no new ones).
+4. Every image updated in place (PRINCIPLES §10).
+
+## Next
+I call READY once both turns are in **and** `module-r3.md` has landed and been folded in. Then I score the module, FALLBOARD, SPINE and YOKE in one pass. The knob goes to the owner as a trade-off with the concepts, not before.
