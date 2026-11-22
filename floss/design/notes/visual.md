@@ -1,16 +1,75 @@
 # floss: visual designer notes
 
-## Where things stand (2026-11-22, REV 2 module jam closed from my side after turn 5)
-- **The owner changed direction (REV 2):** floss is a keyless portable sound module played by a carried travel keyboard over USB-C (host port, floss powers it). It's a family principle for all of synths-to-go, Big Energy included later. No hybrid. Proportions are open.
-- **The jam is `jam-module.md`, five turns:**
-  1. systems: kits and S1–S7;
-  2. me: own-the-outline, S8, RAIL, FALLBOARD;
-  3. director: rulings;
-  4. systems: the one voice, layout D, end blocks, jobs rev 3 proposal;
-  5. me: everything drawn to those numbers.
-- The coordinator said turn 5 was the **last jam turn before concepts**. NEXT went to the director, to close the jam and send the kits into concepts.
+## Where things stand (2026-11-22, concept round 2, my first concept turn)
+- **The jam is closed:** director turn 6 plus its addendum. Three kits go to concepts: **FALLBOARD (lead), SPINE (now a solander box), CLOTH**. **One module goes into all three.**
+- **Owner direction since the jam (verbatim, `design/owner.md`):**
+  - 13:25 "The module does not have to match keyboard width": **S8 is withdrawn**;
+  - 13:29 "It needs to fit in a backpack comfortably … does not have to be a rectangle … a thoughtful ratio base";
+  - later: "don't anchor on the page size thing … It just needs to be portable and make sense and be harmonious";
+  - "I didn't create the weight target. The principles are portable": **T5 is withdrawn as a number**. Show weights, lighter is better, nothing pass/fail.
+  - The project root now has `PRINCIPLES.md`, which all agents read first (see its §2 harmonious proportion, §6 separation mustn't get in the way of hands, §10 images only where needed).
+- **Systems wrote** `concepts/module/how-it-works.md` (297 × 105, 2√2 : 1, speaker on the axis, two-row map) and `concepts/{fallboard,spine,cloth}/how-it-works.md`. The coordinator said the module's proportion is **my call, and systems follows it**.
+- **Eng wrote** `floss/eng/module-r2.md`:
+  - sealed **TEBM28C10-4B** speaker, body ≈ 32, "≈ 40 with knobs"; **no passive radiator**;
+  - cold-socket USB-C with a C-to-A adapter in every kit;
+  - weights;
+  - lid lamp ≈ 0.05–0.1 W.
 
-## Director's rulings (turn 3): binding for concepts
+## What I did this turn
+- **Draw** for the outline: "a ship hull in plan" + "Go slowly all the way round the outside" (Python `secrets`).
+- **Module proportion (my call): 280 × 105 × 35 = 8 : 3 : 1 in a 35 mm unit.**
+  - **From the parts:** 264 of panel + 8 per end = 280; the speaker sets 105 at the centre; the jambs need only ≈ 56 at the ends → 70; the speaker needs 32 → 35.
+  - **The ratio, from string lengths:** each half is 4 : 3 (a fourth), the whole 8 : 3, centre : end = 3 : 2 (a fifth), length : height = 8 : 1.
+  - **297 × 105 rejected:** paper-derived, and 17 mm longer with no part in it.
+  - Systems must move every x by −8.5 (axis 140); pockets become ≈ 59.
+- **Outline:** a hull in plan.
+  - Straight front with the brass rail; r 10 front corners; straight 70 ends.
+  - A fair rear arc to 105 (R 297.5).
+  - Two flat port facets on the arc: plan-left power · USB-C · tune · split; plan-right phones · line · MIDI in · MIDI out.
+- **Height PROPOSAL 35, not 40.**
+  - Deck sunk to 26 over eng's flat stack, with the cells beside the crown.
+  - Knob tops at 34, rim at 35.
+  - A speaker crown 70 wide on the axis, its top at 35, with a raked front (y 47 → 55) carrying DRIFT · SHIMMER · TIME labels; the wordmark on the crown top.
+  - Kits get thinner: FALLBOARD 43 (48), SPINE 56 (61).
+- **Panel visuals:**
+  - systems' two-row map;
+  - PRESSURE and SHIMMER mode at Ø 10;
+  - DEPTH coral on the axis;
+  - brass frets (raised 1 mm, with a flush inlay as fallback per PRINCIPLES §6);
+  - organ stop jambs at both ends.
+- **Pictures, all opened and checked** (source `concepts/_src/r2.py`, run `python3 r2.py [module fallboard spine cloth]` from `_src`):
+  - `concepts/module/module-1to1-A3.png` + `.pdf`: true 1:1 on A3 (plan, front, rear, section);
+  - `concepts/fallboard/fallboard-A-in-use.png`, `fallboard-B-closed-and-packing.png`;
+  - `concepts/spine/spine-A-in-use.png`, `spine-B-closed-and-packing.png`;
+  - `concepts/cloth/cloth-A-in-use.png`, `cloth-B-closed-and-packing.png`.
+  - **A sheets:** bench (or table) and lap, plan and side; the keyboard range (smallest and largest with end blocks; CLOTH adds a chunky MPK); the cable path and pockets enlarged; the rear wall with windows on the port facets.
+  - **B sheets:** closed beside a 16-inch laptop (≈ 356 × 248 × 17, ≈ 2.1 kg) and a hardback (≈ 156 × 234 × 35); standing in an illustrative 300 × 450 daypack; end views (pale = with a 40-tall module); weights (no target); five packing steps.
+- **Words:** `how-it-looks-and-feels.md` in `concepts/module/` and in each kit folder.
+
+## Key numbers now (mine unless marked)
+| | FALLBOARD | SPINE | CLOTH |
+|---|---|---|---|
+| Closed | 412 × 288 × 43 (48) | 412 × 143 × 56 (61) | ≈ 400 × 150 × 65 with an Xkey; ≈ 335 × 115 × 60 with a nanoKEY2 |
+| Kit weight, nanoKEY2 → Xkey (systems from [r2]) | 1.45–1.91 → 1.80–2.27 kg | 1.25–1.61 → 1.60–1.97 kg | 1.17–1.56 → 1.53–1.92 kg |
+| In a 300-wide pack | fits on its short edge, **only just** (288) | easily | soft |
+
+## Kit looks (decisions)
+- **FALLBOARD:**
+  - walnut tray and lid; a cream label with a coral line on the lid;
+  - a near-black bookcloth bed; dark-brown pocket floors;
+  - brass scale, thumb locks, catch and stay;
+  - the optional lamp is visible only when lit.
+- **SPINE:**
+  - walnut-brown bookcloth trays, a darker spine;
+  - brass book corners, a cream label, a strap;
+  - carried by the spine.
+- **CLOTH:**
+  - a dark slate green coated quilt, with the outline, centre line and home-octave words in cream thread;
+  - brass corner weights;
+  - a lighter green pocket and sleeve.
+  - On a lap it's two objects; that's stated.
+
+## Director's rulings (turn 3), as amended by turn 6 and its addendum (S8 and layout D withdrawn; one module; coral on DEPTH, the shimmer group on the axis)
 - **One voice, the same in every kit.** Concepts differ on the kit only. Systems wrote the voice in turn 4: velocity = speed; strands low·main·high per half; DRIFT; lean selector swell·drift·tone·shimmer with the poly AT → channel → CC1 → nothing ladder; HOLD = plant-and-tend, surviving the keyboard, its scope following the split (an owner question).
 - **Kits forward:** FALLBOARD (lead), SPINE (its real rival, wins on bag space), CLOTH (the two-package answer). LAMP, TETHER and BACKBONE are killed (light → FALLBOARD's lid; strap → an S4 accessory).
 - **S8:** an owner proposal, worded "floss adds no width to the keyboard you carry". It's now ≈ 412 with end blocks, so the wording becomes "about an inch over the widest travel keyboard". CLOTH's 270 BLOCK is the exception.
@@ -129,40 +188,38 @@
 - Not yet ruled: everything in turn 5.
 
 ## Open questions
-1. **Eng [spk]:**
-   - the speaker path and body depth (every closed thickness);
-   - the speaker box in a 412 × 95 rail with a 6 mm channel over the front 58;
-   - kit weights at 412 (T5);
-   - the coiled cable's diameter vs the 12 mm gutter;
-   - lid lamp power;
-   - keyboard socket positions;
-   - a coated bookcloth product (UNVERIFIED).
+1. **Eng:**
+   - the flat stack at deck 26 with the cells beside the crown, and the U-shaped board in the 280 hull;
+   - the driver under the raked crown;
+   - grille ≥ 620 mm² (drawn ≈ 560: widen the field);
+   - insert bosses at x 60 / 220;
+   - FALLBOARD's lid foam (≈ 20–24 mm strip).
 2. **Director:**
-   - the face (jambs, frets, nameboard);
-   - stop-tab words: low·main·high (my default) vs 16′·8′·4′;
-   - brass frets vs a walnut ridge;
-   - the stop-at-flat spine (± slat);
-   - CLOTH as a bench kit;
-   - sheet c as the owner's comparison.
-3. **Owner (later):**
+   - 8 : 3 : 1 and the hull;
+   - raised vs flush frets (PRINCIPLES §6);
+   - TAP's ring carrying status plus tempo;
+   - the near-black bed vs the pocket shade;
+   - SPINE's clip-on lamp;
+   - CLOTH's green vs oatmeal.
+3. **Owner (with the concepts):**
    - board, book or cloth;
-   - S8 at ≈ 412;
+   - the lamp;
+   - a kit that only just fits a 300-wide pack;
+   - bookbinding craft for SPINE;
+   - CLOTH as a bench-and-table kit;
    - the split-scoped HOLD;
-   - charger only in CLOTH.
-4. **Mine, for concepts:**
-   - the lid's strut and standing angle;
-   - target graduations (every 10 mm with a centre zero, as drawn, or per white key?);
-   - FALLBOARD's spine label when stood on end (250 × 38–46 face);
-   - the tick-ring marking at pitch 22 inside a 58 mm channel;
-   - the stop-tab part (a bought mini rocker, engraved or printed);
-   - the fret part.
+   - a charger in the kit.
+4. **Systems, to follow my proportion call:**
+   - the module at 280 (x map −8.5);
+   - pockets ≈ 59;
+   - closed thicknesses 43 / 56;
+   - the rear wall as two facets on the arc (their file says a flat rear wall).
+5. **Parts:** a coral Ø 14.9 knob; engraved stop-tab rockers; brass fret stock; bookcloth; brass hardware; hem weights (all UNVERIFIED).
 
 ## Next
-- Read the director's close of the jam. Then build the concept sheets with systems for FALLBOARD, SPINE and CLOTH, each showing:
-  - a 3/4 view (fl.py);
-  - a real-size plan with two keyboards;
-  - the closed, shelf and open states;
-  - the lid or cover states;
-  - the making steps (job 26);
-  - every job in `jobs.md` (rev 3 when systems writes it).
-- Then write "How it looks and feels" for the approved one.
+- The director scores round 2. Fix what's objected to.
+- For the approved kit: write "How it looks and feels" in `handoff.md` for every state in systems' "how it works". Then:
+  - real 3/4 views (`fl.py`, adapted to the hull);
+  - the knob, tab and fret parts chosen;
+  - the marking system at 1:1.
+- Keep images to what must be visual (PRINCIPLES §10). The images are for the site, not for print. The 1:1 sheet is the exception the director asked for.
