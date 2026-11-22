@@ -1,5 +1,46 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22 evening): jam closed; jobs rev 3 written; concepts round 2 started (my turn done)
+- **Owner direction since the jam:**
+  - **13:25** "The module does not have to match keyboard width" → S8 and layout D withdrawn; **one module in all three kits**, sized by its parts.
+  - **13:29** "fit in a backpack comfortably … the size of a sheet of paper length wise … does not have to be a rectangle … a thoughtful ratio base" → T4 updated.
+- **Director turn 6 + addendum:**
+  - the one voice accepted; split-scoped HOLD → owner; REPEATS tie and voice pools 12 / 13 accepted;
+  - coral on DEPTH with the shimmer group on the axis; brass frets; tab words low · main · high;
+  - end blocks + one brass scale (carry parts, 404 in / ≈ 412 out); the pocket in every kit, no charger in the rigid kits (now revisited: pockets beside the narrower module take one);
+  - one power switch; two lights; job 29;
+  - must-shows per concept (turn 6 §4, amended).
+- **`module-r2.md` landed (eng):**
+  - sealed TEBM28C10-4B, ≥ 60–100 cm³ (≈ 62 × 75 × 27 inside); body 32, ≈ 40 at the rim; **passive radiator not recommended**; ported = more bass;
+  - USB-C cold socket; **one C-to-A-receptacle adapter** in every kit;
+  - BLOCK fits tight; **no kit with an Xkey meets T5**;
+  - sockets can be anywhere on the rear edge or ends → gutter ≈ 35 for straight plugs, end-block notch ≥ 15;
+  - cable 0.3–0.5 m;
+  - lamp ≈ 50–100 mW (wired or AAA).
+- **Written:**
+  - `../jobs.md` **rev 3**: 30 jobs. **Changed:** 2, 3, 6, 9, 11, 14, 18, 19, 23, 26, 28. **New:** 29 (why silent), 30 (paper length, ratio, any shape). r2 facts folded in.
+  - `../concepts/module/how-it-works.md`: the one module.
+    - **Size:** **297 × 105, 2√2 : 1** (two A6 end to end; the axis splits it into two √2 halves, one per keyboard half). Letter 279 × 98.6 is the alternative but forces the speaker under a jamb.
+    - **Speaker box on the axis** in the rear band under the wordmark; U-shaped board (eng to confirm).
+    - **Two-row panel map with x coordinates.** ATTACK / RELEASE regrouped into voice, so the frets mirror: jamb | touch (HOLD / PRESSURE) | voice (ATTACK / RELEASE, TONE / DRIFT) | **shimmer on the axis (DEPTH coral / SHIMMER)** | echo (ECHO / TIME, TAP / FREE-SYNC) | out (VOLUME / REVERB) | jamb. 264 of controls; frets at 54 / 83 / 134 / 163 / 214 / 243.
+    - Also: front face (target rail with the engraved line, host port, port light), rear wall, ¼"-20 inserts at x 68.5 / 228.5, the voice table, lights, states, S1–S7, coverage.
+  - `../concepts/fallboard/how-it-works.md`: 412 × 288 tray; bed 140; **gutter 35**; module centred in the rear band with **charger and spare pockets** either side (option B, a stepped tray, shown); lid on lift-off hinges + stay; self-powered AAA lamp; closed 48; kit 1.45–2.27 kg (**T5 only with the nanoKEY2 at the light end**).
+  - `../concepts/spine/how-it-works.md`: **reworked as a clamshell (solander) box**: two trays of the same outline (412 × 143), shallow keyboard tray + deep module tray, a stop-at-flat spine whose open gap is the cable gutter; closed 61; kit 1.25–1.97; one fit trial for the spine.
+  - `../concepts/cloth/how-it-works.md`: 800 quilted furoshiki, a stitched outline 412 × 288, a washable module sleeve, a pocket (cable, adapter, charger), curtain-weight corners; packed with the module at the bottom panel-up and the keyboard keys-down on the sleeve; bench kit (on a lap it's two objects); lightest kit, 1.17–1.92.
+  - All three cover every job; **at risk: T5** (all, with an Xkey); SPINE's spine trial; CLOTH's lap and impact protection (weak, inferred).
+- **Decisions and why:**
+  - the line "keep the keyboard at its home octave" is **engraved on the module** next to the target, so no kit needs its own place;
+  - the lamp is self-powered, keeping the module identical across kits;
+  - the gutter is deepened to 35 so no keyboard needs a particular right-angle cable;
+  - 297 over 279 because the speaker needs a 57-deep column on the axis.
+- **Old round-1 folders (bow, kept, tide) and common-*.md are kept as history.**
+- **Next:** visual draws the module (ratio and outline jointly with me) and the three kits per the must-shows; the director scores; then my 9+ coverage check against `jobs.md` rev 3.
+- **Open:**
+  - **Visual (joint):** the 2√2 ratio and outline (speaker crown option); knob sizes in the rear row; separating and marking the two USB-C sockets.
+  - **Director:** TAP's ring carrying status + tempo, or a separate dot.
+  - **Eng:** U-shaped board around the axis box; insert bosses; voice pools; whether a ported box fits the axis band.
+  - **Owner (with the concepts):** board, book or cloth; split-scoped HOLD; charger in the kit; slim only or all; **the r2 trade-offs** (sealed / ported / radiator dropped; body 32 / 40; T5 missed with an Xkey; cold socket).
+
 ## Where things stand (2026-11-22 late): module jam pass 2, my turn 4 done
 - **Jam so far:**
   - turn 1: me;

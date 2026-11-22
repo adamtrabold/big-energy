@@ -776,3 +776,112 @@ All at one scale, with a 16-inch laptop (≈ 356 × 248 × 17, the MacBook Pro 1
    - charger in the kit (only CLOTH).
 
 NEXT: design director — every visual ask from turn 3 is drawn to systems' turn-4 numbers (FALLBOARD with end blocks, the grouped rail and the pocket; SPINE closed and on a lap; CLOTH as a frame; the closed-kit comparison). The face answer and the sag finding need the director's ruling, and this was the last jam turn, so it's time to close the jam and send the three kits into concepts.
+
+---
+
+## Turn 6: design director, pass 2 (closes the jam)
+
+No new draw: this is convergence. I checked sheets 3a and 3c by eye; I took 3b (SPINE and CLOTH) from turn 5's text.
+
+### 1. The jam is closed. Three kits go to concepts: FALLBOARD, SPINE, CLOTH
+- **FALLBOARD** (one plane, one lid) stays the lead.
+- **SPINE** (a book) stays the rival. Turn 5's geometry is right: on a lap the spine runs across both thighs, so the sag I raised is mostly a false alarm. Its real costs are closed thickness and hinge craft.
+- **CLOTH** (two objects in a frame) stays, honestly labelled **a bench-and-table kit**. It's the only answer where the module alone meets T4, and the only kit that carries a charger and the chunky minis. The owner should see that trade with his own eyes, not hear it from us.
+
+They differ in kind, carry the same voice, and share the family standard. The owner is choosing a carry, which is what job 28 asks.
+
+### 2. Rulings
+1. **The one voice (turn 4 §1): accepted as written.** Velocity = speed; release velocity sets the tail; strands; DRIFT, with a full lean turning drift into vibrato (good use of "one of each kind"); plant-and-tend HOLD that survives the keyboard; the lean ladder; the breath.
+2. **Split-scoped HOLD: goes to the owner as a proposal,** as systems asked. I think it's right, because its scope follows a state you can already see at the two jambs. But it's a rule he could find surprising, and it costs nothing to change.
+3. **REPEATS tied to ECHO: accepted.** Don't raise it unless he asks.
+4. **Fixed voice pools (12 left / 13 right): accepted,** with eng to confirm in `module-r2.md`. It's the honest consequence of strands on allocated voices, and a 25-key keyboard played live never steals.
+5. **Layout D (a front row of amounts plus a back line of three kinds): accepted for every kit.** The three kinds sit behind what they qualify, smaller, so the hand meets the amounts first.
+6. **S8 ≈ 412: accepted, as an owner proposal.** The wording is turn 4's: "floss adds about an inch to the widest travel keyboard." CLOTH's 270 module is the deliberate exception.
+7. **End blocks with one brass scale, no self-centring linkage.** No mechanism, one scale across the kit. Accepted.
+8. **Stop-tab words: low · main · high.** The owner's one-plain-word rule beats 16′ · 8′ · 4′. The organ idea can live in the jambs' form, not the words.
+9. **Brass frets: yes.** They count by touch, and brass is the family's. List them as bought or cut parts in the making steps.
+10. **SPINE's stop-at-flat spine: accepted as the fix. No locking slat.** A part you have to remember to slide in will be forgotten. If the stop-at-flat spine can't be shown to hold under a keypress load from bookbinding practice, SPINE says so.
+11. **The pocket is the gutter. No charger in the rigid kits.** That's honest. "Charger in the kit?" joins the owner questions, and CLOTH is the yes.
+12. **Sheet c is the right form for the owner,** with two additions: eng's weight per kit (T5), and one lap view per kit.
+
+### 3. Two new rulings from the sheets
+- **Coral moves from PRESSURE to DEPTH, and the shimmer group sits on the axis.** Coral marks where the life lives. After §0 of my last turn, the lean belongs to the guest keyboard's sensors, so PRESSURE is no longer floss's life. The owner's own words were "analog voices, shimmer and warmth", and shimmer is what floss is for. On sheet 3a the shimmer group (depth with its mode behind) already lands almost exactly on the rail's centre. Make it exact: the shimmer group is the axis, with the wordmark above it in the grille and the host port and brass target's home below it in the gutter. That gives a centred face (the owner's Big Energy rule: off-centre in the middle reads as a mistake), and it gives the coral a reason. PRESSURE stays in the back line in the family's normal knob colour.
+- **FALLBOARD and SPINE carry the same panel.** Same layout D, same order, same parts. SPINE's module board is deeper (145, so the book closes square), and its extra depth goes to the speaker box, never to more controls. The owner should compare carries, not panels. CLOTH's 270 module has to fit the same controls in a different arrangement; showing that it does is its first job (§4).
+
+### 4. What every concept must show
+**Pictures:**
+1. **Open on a bench** and **open on a lap** (the lap view is new for all three).
+2. **Closed,** with sheet c's numbers plus eng's weight (T5).
+3. **Packing, step by step** (the tea-box order), with the cable going into the pocket.
+4. **The panel at 1:1:** layout D, groups counted by frets, the shimmer group on the axis in coral, the jambs, and the back line.
+5. **The keyboard range:** the smallest (325 × 83) and largest (388 × 135) slim keyboard in the kit, with end blocks at both ends of their travel. CLOTH shows a chunky mini too.
+6. **The cable path:** host port and port light centred, a coiled cable, the pocket. The cable never crosses hands, speaker or panel.
+7. **The split target** and where "keep the keyboard at its home octave" is written.
+8. **The rear wall:** the one power switch, USB-C, phones, line, TRS in and out, TUNE, MIDI SPLIT.
+
+**Words:**
+9. **States:** no keyboard; keyboard fault; "why is it silent?" (job 29); keyboard unplugged with notes planted; a friend holding the keyboard on the stretched cable.
+10. **The family:** which parts Big Energy and port-a-poly would reuse unchanged (S1–S8: bed, blocks, scale, target rail, gutter, lid hinge or spine, inserts, cable).
+11. **Making steps outside the electronics,** each with its craft and a published source or product where one exists: bookcloth, the hinge or spine, end blocks and track, frets, the lid strut and lamp, the foam, sewing. He builds it himself and measures nothing, so a step that needs measuring or trial-and-error must say so.
+12. **Thickness on both speaker paths** until `module-r2.md` lands. After it lands, only the path eng chooses.
+13. **The honest "analog voices" sentence,** reworded for allocated voices.
+
+### 5. Owner objections the concepts must answer up front
+1. **Size.** FALLBOARD closed is 412 × 250 × 38–46, about three laptops' volume and far past the old 290 × 135. Lead with "floss adds about an inch to the widest travel keyboard" and sheet c, and let CLOTH show the small-module alternative.
+2. **Weight** against T5 (1.5 kg) with an Xkey. Waits on eng.
+3. **Craft load.** The making-steps list (§4 item 11) is the answer. If it's long, say so.
+4. **"Why do I have to keep the keyboard at its home octave?"** Rule A is honest, but a printed instruction can look like a workaround. The concept says in one line why floss can't know which key is which on a borrowed keyboard, and what the brass target does about it.
+5. **The lid lamp:** delight or clutter? It's one strip and a few tens of mW. Show it once, lit, and let him decide.
+6. **The speaker:** no concept may depend on the slim radiator path unless `module-r2.md` backs it with published data (his "measures nothing" rule).
+
+### 6. Where the pattern stands
+- **The body's leftovers: watched and held.** Width comes from the guest (S8), depth from the parts, and SPINE's spare depth goes to the speaker. The one place it could come back is the bed's empty front strip with a shallow keyboard (≈ 55 mm). It stays empty bed, never a home for controls.
+- **Convergence: not a risk now.** The kits differ in kind, and the voice is deliberately one.
+
+### 7. Owner questions to hold (send with the concepts, not before)
+1. Board, book or cloth (sheet c).
+2. S8 ≈ 412 for the whole family.
+3. Split-scoped HOLD.
+4. A charger in the kit (CLOTH only).
+5. Slim keyboards only, or all sizes (CLOTH carries the chunky minis).
+
+NEXT: product designer (systems focus) — write jobs.md rev 3 (turn 4 §5 plus this turn's rulings and §4 must-shows), then start the concepts.
+
+---
+
+## Turn 6, addendum: design director, folding in the owner's 13:25 direction
+
+Owner, verbatim (`design/owner.md` 13:25): **"The module does not have to match keyboard width."** That's direction, not a proposal. S8 is not adopted, and I'm not re-arguing it. What changes in my closing rulings:
+
+### 1. Superseded
+- **Ruling 6 (S8 ≈ 412): withdrawn.** The module's size comes from its own parts. Eng's minimum body is ≈ 250–290 × 90–110 mm, thicker on the published-data speaker path (`module-r2.md` decides). The **412 belongs to the carry**, which still takes any slim keyboard (325–388 × 83–135 × 11–16). The owner question "S8 for the whole family" is dropped.
+- **Ruling 5 (layout D): withdrawn.** It existed only because one row wouldn't fit a 400–412 rail. On a body of about 270–290 wide, **two rows** hold the voice (eng's estimate: two rows at the family's 20–24 pitch ≈ 180–210 × 60–70 [eng]). Systems sets the exact map.
+- **"FALLBOARD and SPINE carry the same panel" becomes stronger: all three kits carry the same module.** One floss module, sized by its parts, goes into every kit. The concepts are now three **carries** for one module, which is exactly job 28's family standard: "fix the connections, not the sizes" (systems' S1–S7). The S4 inserts are how each carry holds the module. CLOTH's BLOCK is no longer an exception; it's simply the module.
+
+### 2. Kept from my closing rulings (they don't depend on width)
+- The one voice. The split-scoped HOLD as an owner proposal. REPEATS tied to ECHO. Voice pools 12 / 13.
+- Grouped controls you can count by touch (brass frets, or gaps, between groups). Tab words low · main · high. **Each end owns its half:** OCTAVE plus three tabs at each side of the panel (the jambs), in whatever two-row form fits.
+- **Coral on DEPTH, the shimmer group on the panel's exact centre line**, with the wordmark above it.
+- End blocks with one brass scale, nothing crossing a key. These are the carry's parts, still 404 inside and about 412 outside.
+- The pocket in every kit. No measured speaker path. One power switch. Two lights. Job 29.
+
+### 3. What each kit has to work out again (concepts, not a new jam)
+- **FALLBOARD:** the bed is still keyboard-wide (412), but the module is now narrower (≈ 270–290). Where it sits behind the keyboard, and what the walnut either side of it is, is the question. **Watch my round-1 pattern:** the space beside the module must be the carry's own job or it must go. A pocket is a real job, and with a narrower module **the charger may now fit beside it**. Bare walnut "cheeks" to make the width up are not a job. The tray can also step: a narrower rear section where the module sits. Show the choice.
+- **SPINE:** the two boards no longer match, so the book doesn't close square as drawn. Options include the module riding in a 412 board-frame, a keyboard board with the module nested on it, or something else. Rework it, or say plainly that SPINE no longer earns its place. A book with one thin cover and one fat cover is not a book.
+- **CLOTH:** mostly unchanged. It gains, because its module is now the family module, not a special one.
+- **New freedom to try in each:** the module and the keyboard no longer have to sit edge to edge. On top of the keyboard when packed, behind it, beside it at the end: each kit picks the relation that suits its carry, and says why.
+
+### 4. Must-shows (turn 6 §4), amended
+- Item 4, **the panel at 1:1: draw it once, shared,** in a common file. Each concept shows the module in its carry.
+- Item 5, **the keyboard range:** unchanged (the carry takes it).
+- **New:** each concept shows **where the module sits relative to the keyboard, open and packed, and why**, and accounts for every square centimetre of the carry outside the keyboard and module: pocket, block travel, or nothing.
+- Item 10, **the family:** now a module of any size, plus the carry interfaces (S1–S7 and the end-block bed).
+
+### 5. Owner objections, revised
+- **Size eases.** The module itself can now land near the old 290 × 135. The kit is still keyboard-sized because the keyboard is. Say it that way: "the module is about the size you asked for; the kit is the size of the keyboard you bring."
+- Weight, the craft load, the home-octave line, the lid lamp and the speaker path stand as before.
+
+### 6. Owner questions held for the concept send
+Board, book or cloth; split-scoped HOLD; a charger in the kit; slim keyboards only or all sizes. (S8 is gone.)
+
+NEXT: product designer (systems focus) — write jobs.md rev 3 (turn 4 §5, turn 6 and this addendum: S8 out, one module across all kits, the module's size from its parts), then start the concepts.

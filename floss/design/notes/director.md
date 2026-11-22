@@ -152,3 +152,44 @@ The owner turned floss into a keyless sound module played by a carried travel ke
 - **Watch:** the bed's spare width (67 mm with a 325 mm keyboard) must stay a frame, never a place to put things. The leftover-space pattern from round 1 again.
 - **Owner questions to hold:** S8 / 400 wide; one package or two; slim class only or all (CLOTH carries all).
 - **Next:** pass 2, systems first (the one voice, RAIL fit, end-block range, speaker flag), then visual (the redrawn kits and a closed-kit comparison sheet), then I end the jam and call concepts.
+
+## Jam-module pass 2, my turn 6 (jam closed)
+- Read turns 4 (systems) and 5 (visual). Checked sheets 3a and 3c by eye; 3b taken from the text. `eng/module-r2.md` is still pending (speaker by virtual model from published data, USB-C host, fit, weights).
+- **Kits to concepts:** FALLBOARD (lead), SPINE (rival; the sag was mostly a false alarm, since the spine runs across both thighs on a lap), CLOTH (labelled a bench-and-table kit; the two-package / T4 / charger / chunky-mini test).
+- **Accepted:**
+  - the one voice (turn 4 §1);
+  - REPEATS tied to ECHO;
+  - fixed voice pools 12 / 13 (eng to confirm);
+  - layout D for every kit;
+  - S8 ≈ 412 as an owner proposal ("floss adds about an inch to the widest travel keyboard");
+  - end blocks with one brass scale, no linkage;
+  - tab words low · main · high;
+  - brass frets;
+  - SPINE's stop-at-flat spine, no slat;
+  - the gutter as pocket, no charger in the rigid kits;
+  - sheet c as the owner's comparison, plus weights and lap views.
+- **Split-scoped HOLD:** goes to the owner as a proposal.
+- **New rulings:**
+  - **coral moves to DEPTH**, with the shimmer group on the exact axis (the wordmark above, host port and target home below). The lean is the guest's now; shimmer is the owner's stated draw;
+  - **FALLBOARD and SPINE share the same panel.** SPINE's extra depth goes to the speaker, not to controls. CLOTH must prove the same controls fit 270.
+- **Must-shows for concepts:** turn 6 §4 (13 items: bench and lap, closed with weight, packing, panel 1:1, keyboard range, cable path, split target and home-octave line, rear wall, states incl. job 29, family reuse, making steps with sources, thickness on both speaker paths until eng lands, the analog sentence).
+- **Owner objections to pre-empt:** size (FALLBOARD ≈ 3 laptop volumes), weight T5, craft load, the "home octave" instruction, the lid lamp, the speaker path.
+- **Owner questions held for the concept send:** board / book / cloth; S8 412; split-scoped HOLD; charger; slim only or all.
+- **Next:** systems writes jobs.md rev 3, then the concepts. I score concepts when both designers have built them, judging the idea per the brief, harder on FALLBOARD because it's the favourite I helped shape.
+
+## Owner 13:25, folded into the closing rulings (addendum to turn 6)
+- Owner, verbatim: "The module does not have to match keyboard width." That's direction; I'm not re-arguing it.
+- **Withdrawn:**
+  - S8 ≈ 412 (the 412 now belongs only to the carry: 404 inside, end blocks);
+  - layout D (it only existed for the single-row rail; a ≈ 270–290-wide body takes two rows);
+  - the owner question about S8.
+- **New:** **one floss module in all three kits**, sized by its parts (eng minimum ≈ 250–290 × 90–110, thickness from module-r2). The concepts are now three carries for one module. That fits job 28 / systems' "fix the connections, not the sizes" (S1–S7, the S4 inserts).
+- **Kept:** the one voice; split-scoped HOLD (owner proposal); REPEATS tied to ECHO; pools 12 / 13; groups countable by touch; low · main · high; each end owns its half (octave + tabs); coral on DEPTH with shimmer on the exact axis; end blocks + one scale; pocket; no measured speaker; one switch; two lights; job 29.
+- **Rework per kit:**
+  - FALLBOARD: what sits beside a narrower module in a 412 bed. Only a real job (pocket, charger) or nothing. No walnut cheeks to make up the width: watch the leftover pattern.
+  - SPINE: boards no longer match, so rework it or drop it honestly.
+  - CLOTH: gains (its module is the family module).
+  - Each kit chooses and justifies how the module relates to the keyboard, open and packed.
+- **Must-shows amended:** the panel drawn once, shared; each concept accounts for every area of the carry outside the keyboard and module.
+- **Objection 1 eases:** "the module is about the size you asked for; the kit is the size of the keyboard you bring."
+- **Watch next round:** SPINE may not survive the change. If its rework is a book with mismatched covers, it scores low and should be replaced or dropped rather than patched.
