@@ -586,4 +586,8 @@ Recorded as: **floss has 25 voices** (decided).
 ## 2026-11-22 15:11 (chat)
 > I will look at the clamp version but the keyboard does not need to be permanently attached would just be nice for when on the go. I think weee going really hard on design before I’ve even been able to appprove a concept
 
-Recorded as: **the keyboard is never permanently attached**; attaching it is a nice-to-have for on the go. **The team over-designed before concept approval.** Concepts go to Adam now, at idea level, with no more refinement rounds first.
+Recorded as: **the keyboard doesn't have to be permanently attached** (it may be; not a rule either way); attaching it is a nice-to-have for on the go. **The team over-designed before concept approval.** Concepts go to Adam now, at idea level, with no more refinement rounds first.
+
+> I didn’t say never or that it couldn’t be I said it doesn’t have to be. How’s your context
+
+Recorded as: correction. The keyboard **doesn't have to be** permanently attached; it isn't "never".
