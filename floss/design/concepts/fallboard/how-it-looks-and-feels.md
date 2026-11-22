@@ -1,79 +1,62 @@
 # FALLBOARD: how it looks and feels (visual)
 
-Status: **rev 1, 2026-11-22**, product designer (visual focus), concept round 2. The module's look is in `../module/how-it-looks-and-feels.md`; this file covers the carry. It's read with systems' `how-it-works.md`, with two changes from my module call:
-- **module 280 × 105 × 35** (not 297 × 105 × 40);
-- so **pockets ≈ 59 × 105** and **closed ≈ 43 mm** (48 with a 40-tall module).
+Status: **rev 2, 2026-11-22**, product designer (visual focus), concept round 2, visual turn 2. Redone for the printed case (PRINCIPLES §7) and the director's R6. **Rev 1's walnut tray, bookcloth bed, brass scale, catch and stay, the gutter and the lamp are withdrawn.** The module's look is in `../module/how-it-looks-and-feels.md` (drawn here with knob option A); systems' `how-it-works.md` rev 2 sets the structure.
 
-**Pictures:**
-- `fallboard-A-in-use.png`: on a bench (lid up, lamp), on a lap (lid off), the keyboard range, the cable path and pockets, the rear wall.
-- `fallboard-B-closed-and-packing.png`: closed beside a 16-inch laptop and a hardback, standing in a daypack, end views, weights, and the five packing steps.
-- Source: `../_src/r2.py`.
+**Pictures** (source `../_src/r3.py`, `python3 r3.py fallboard`):
+- `fallboard-A-in-use.png`: on a bench (lid standing), side with the brace, on a lap (side and plan, lid off), the keyboard range, the lane and pockets enlarged, the rear wall.
+- `fallboard-B-closed-and-packing.png`: closed beside a 16-inch laptop and a hardback, standing in the same 300 × 450 pack outline with its clearance, end views (pale = knob option B), weights, five packing steps.
 
 ## 1. Point of view
-**A piano's fallboard over a borrowed keyboard.** One walnut tray, one plane, one lid. The guest keyboard lies in a dark bed at the front, held by its ends. floss sits behind it like a nameboard. Open, the lid stands behind it all. The kit always reads as one instrument, whatever keyboard is in it.
+**A piano's fallboard over a borrowed keyboard, printed in one black.** One shallow tray, one plane, one lid. The guest keyboard lies against the front wall; floss sits behind it like a nameboard, its cream deck the only lit surface in a black frame. The kit is the house; the deck is the stage.
 
-## 2. Materials and colour
+## 2. Materials and colour (the family story: stage blacks and spike marks)
 | Part | Finish |
 |---|---|
-| Tray walls, lid | walnut-faced ply, oiled; the lid's outside is plain walnut with a **cream label "floss" and one coral line**, centred |
-| Bed and gutter | **near-black coated bookcloth** (wipeable, library-binding class; product UNVERIFIED) |
-| Rear band floor and pockets | dark brown bookcloth, one shade lighter than the bed, so the pockets read as storage, not as the bed |
-| End blocks | walnut, with a darker lip; **brass thumb-lock knobs** |
-| Brass scale | a bought brass rule cut to length (systems §8), set flush into the front lip, 0–32 from each end |
-| Catch, lid stay, hinge pins | brass |
-| Lamp (optional) | a warm strip under the lid's top edge, **visible only when lit** |
+| Tray (four printed quarters), lid (four quarters), end blocks, brace, hinges | **warm near-black matte PETG**, one colour throughout. Bed, lane and pocket floors are the same black (director R6.3): pockets show by their walls |
+| Wall tops | the same black; they catch light, so in plan they read a shade lighter than the floors |
+| Printed scale (0–32 from each end, on the front lip) and an axis tick | **cream** marks (second spool), or debossed 0.6 mm on a one-spool build |
+| End-block faces | bought closed-cell foam, black |
+| Print seams | on the axis and on the lane's centre line (systems §8). **Left as honest lines**, and on the lid made deliberate: a 1 mm V-groove cross, printed into a one-piece lid too, so a service-printed lid and a jointed one look the same |
+| Name | **none on the carry.** The wordmark is on the module (crown rear face), seen through the rear wall's centre between the windows when the module's out |
 
-Brass is used for what you set (scale, thumb locks, target, catch). Coral appears once, on the lid label: the closed kit is only floss.
+No coral on the kit: the closed object is plain black. Coral lives on the module (DEPTH).
 
 ## 3. Every state
 | State | Look and feel (sheet) |
 |---|---|
-| **Open on a bench** (A, top left) | Lid at ≈ 100° on its stay, standing behind the module as a dark walnut wall: a music stand and a low-sun shade. Keyboard nearest you, module behind, pockets either side of the module |
-| **Lamp on, at night** (A, side) | A warm wash from the lid's top edge down onto the keys. Dim, about a reading lamp [r2: ≈ 20–50 lux]. Shown once so the owner can say delight or clutter (director objection 5) |
-| **On a lap** (A, right) | Lid lifted off its pins. **One stiff 412 × 288 board** across both thighs, keys nearest you, module toward the knees. The side view shows it lying along the thighs' slope with nothing to fold |
-| **Smallest keyboard** (A, range: nanoKEY2 / K-Board C, 325 × 83) | Blocks slid fully out (≈ 40 mm each). **≈ 57 mm of empty bed in front, kept empty** (director). The dark bed makes it a frame, not a gap |
-| **Largest keyboard** (A, range: Xkey 25, 388 × 135) | Blocks fully in (8 mm); nearly no bed shows |
-| **Cable path** (A, enlarged) | The live run goes from the keyboard's socket (rear or end, through the block's 15 mm notch) along the 35 mm gutter to the **host port on the module's axis**, port light beside it. It never crosses hands, speaker or panel |
-| **Pockets** (A, enlarged) | **Left ≈ 59 × 105:** a ≈ 30 mm charger. **Gutter:** the coiled 0.3–0.5 m cable and the C-to-A adapter. **Right ≈ 59 × 105:** spare cable, strap, and the 1:1 card (folded) |
-| **Rear wall** (A, bottom right) | Two windows in the tray's rear wall line up with the module's **port facets**. Power and charging can be reached while playing. Unplug the phones before closing the lid |
-| **No keyboard** | Blocks thumb-locked in; the empty bed shows as a dark field framed in walnut. Nothing rattles |
-| **A friend holds the keyboard** | The cable lifts out of the gutter at the back corner; 0.5 m reaches beside you on a bench |
-| **Closed** (B) | One board: walnut, the cream label, a brass catch on the front edge. **412 × 288 × 43** (48 with a 40-tall module) |
-| **In a backpack** (B) | Standing on its short edge: **288 wide in a ≈ 300-wide compartment** (illustrative pack). It fits, but only just: say so |
+| **Open on a bench** (A, top left) | Lid at ≈ 100° on its **printed over-centre brace** (two links lock straight), standing behind the module as a black wall: music stand and a low-sun shade. Keyboard nearest you against the front wall, the 15 mm lane, the module, a pocket each side |
+| **Night** | No lamp (R6.1): a lamp was considered and dropped. Only TAP's amber ring and the amber port light glow, on the cream deck |
+| **On a lap** (A, right) | Lid lifted off its knuckle hinges. **One stiff 412 × 265 board** along both thighs, keys nearest you |
+| **Smallest keyboard** (A, range, nanoKEY2 / K-Board C) | Blocks fully out (≈ 40 each). The keyboard sits on the front wall; **the 54 mm behind it is the plug's room** (straight plug or adapter), with a job, not an empty strip |
+| **Largest keyboard** (Xkey 25) | Blocks fully in (8). 2 mm of bed + the 15 mm lane behind it: the flat right-angle plug |
+| **The lane and pockets** (A, enlarged) | Live run: keyboard socket → across the room behind it → the lane → host port on the axis. **Left pocket 59 × 105: the coil and the C-to-A adapter. Right pocket: the charger, the 1:1 card flat under it.** The cream target sits over B \| C on the module's rail |
+| **Rear wall** (A, bottom right) | Two windows in line with the module's facets; power, charging, phones and MIDI reachable while it plays. The axis seam is a thin line |
+| **No keyboard** | Blocks thumb-locked in; the empty bed is a black field with the cream scale at its front edge |
+| **A friend holds the keyboard** | The cable leaves the room behind the keyboard at a back corner; 0.5 m reaches beside you |
+| **Closed** (B) | One black board: **412 × 265 × 42**, the lid's only mark the seam cross, two magnet pockets at the front edge |
+| **In a backpack** (B) | On its 265 edge in the 300-wide outline: **35 mm spare across (17.5 a side)**, was 12 with the gutter. Comfortable by any reading of "comfortably" I can defend; the pack outline is illustrative |
 
-## 4. Packing (the tea-box order, sheet B)
-1. Switch off at the rear, through the left window.
-2. Unplug the keyboard end. Coil the cable and adapter into the gutter (the cable stays in the host port).
+## 4. Packing (sheet B)
+1. Switch off at the module's rear facet, through the left window.
+2. Unplug the keyboard end; the tail runs along the lane; coil it and the adapter into the left pocket (the cable stays in the host port).
 3. Thumb-lock both end blocks.
-4. Close the lid; the foam strip under it pins the keyboard. The knobs sit under the module's rim.
-5. Brass catch. Into the backpack standing on its short edge, with the charger in the left pocket.
+4. Lid down: the foam strip presses the keyboard; the knobs sit under the module's rim.
+5. Magnets catch. Into the pack on its 265 edge. Charger and card ride in the right pocket.
 
-**Unpack** is the reverse, and it ends with the lid standing, so opening the kit sets up the stand.
+## 5. Size and weight (sheet B)
+- **Closed 412 × 265 × 42** (knob option B: 48, and 412 × 272). About a 15-inch laptop's footprint, 2½ times as thick.
+- **Weight** (systems [calc/est] from eng [r2]; lighter is better, no target): carry 0.47–0.60 kg; kit + nanoKEY2 1.42–1.81, + K-Board C 1.52–1.91, + Xkey 25 1.78–2.17 kg. **Still the heaviest kit**; printing removed the bookcloth-lid lever, so the gain over rev 1 is modest. Said plainly on the sheet.
 
-## 5. Size and weight, honestly (sheet B)
-- **Closed: 412 × 288 × 43** [calc]: about a 16-inch laptop's footprint (≈ 356 × 248 × 17), 56 × 40 mm larger and 2½ times as thick.
-- **Weight** (eng estimates, the owner set no weight target; lighter is better):
+## 6. How it compares with the attachment-point answer (YOKE)
+The owner's correction (the carry "does not need to surround it, just have an attachment point") makes FALLBOARD's tray an assumption, not a requirement. Against YOKE (`../yoke/`): FALLBOARD protects everything and gives the best bench pose (the lid as stand and shade) and a home for every loose part, but it costs ≈ 0.4–0.5 kg more carry and ≈ 1.2 L more volume. If the owner reads "attachment point" as a preference, FALLBOARD is the most "surrounding" kit and the most exposed to it.
 
-  | | Weight |
-  |---|---|
-  | Carry parts | ≈ 0.5–0.7 kg |
-  | Module | 0.67–0.93 kg [r2] |
-  | Kit + nanoKEY2 | **1.45–1.91 kg** |
-  | Kit + K-Board C | **1.55–2.01 kg** |
-  | Kit + Xkey 25 | **1.80–2.27 kg** |
+## 7. Why
+- **One plane, one black:** the tray fixes the mapping and the cable path; the black frame makes the guest keyboard's plastic recede and puts the cream deck forward.
+- **Keyboard against the front wall:** every keyboard packs to one datum, and the leftover depth falls behind it, where the plug is (every area one job, R6.2).
+- **The lid earns its place twice:** protection and a stand/shade.
+- **Seams left as lines, no name:** an honest printed object; floss's name is on floss.
 
-  A 16-inch laptop is ≈ 2.1 kg. **FALLBOARD is the heaviest of the three kits.** Eng's levers: a bookcloth-over-board lid (−80 to −120 g), thinner shell walls, lighter knobs.
-
-## 6. Why
-- **One plane:** the pair sits as a piano does, so the per-half mapping and the cable path are fixed by the tray, not by where you put things.
-- **Owns the outline, hosts the keys:** the walnut edge is always floss's, and the bed absorbs any keyboard's plastic.
-- **The lid earns its place three ways:** protection, a stand, and light. Without the lamp it still earns two.
-- **The pockets aren't cheeks:** the space beside the narrower module carries the charger and the spares (director: account for every square centimetre).
-
-## 7. Open questions
-1. **Owner:**
-   - the lamp, delight or clutter;
-   - is a kit that only just fits a 300-wide pack "comfortable"?
-2. **Director:** the near-black bed against the dark-brown pocket floors: is one shade apart enough?
-3. **Eng:** the lid's foam strip thickness with the 35 module (lid underside at 39, keyboard tops at 15–20 → a ≈ 20–24 mm strip compressing).
-4. **Parts:** brass lift-off hinges, stay and catch (UNVERIFIED products); the bookcloth.
+## 8. Open questions
+1. **Owner:** does a plain black carry with no name feel right? Is 35 mm spare "comfortable"?
+2. **Director:** the seam cross on the lid as the lid's one mark (vs. a six-panel lid that keeps the axis seamless, at the cost of more joints).
+3. **Eng:** lid stiffness at a 0.8 mm skin (systems); the foam strip thickness (lid underside ≈ 41, keyboard tops 12–17 → ≈ 24–29 mm of foam compressing); magnet product.

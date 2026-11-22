@@ -1,70 +1,51 @@
 # CLOTH: how it looks and feels (visual)
 
-Status: **rev 1, 2026-11-22**, product designer (visual focus), concept round 2. The module's look is in `../module/how-it-looks-and-feels.md`; this file covers the carry. It's read with systems' `how-it-works.md`, with my module call applied: **module 280 × 105 × 35**.
+Status: **rev 2, 2026-11-22**, product designer (visual focus), concept round 2, visual turn 2. Redone to the director's R6: **near-black coated cloth, cream thread, the pose on the grass**. Rev 1's slate green, brass corner weights, lighter-green pocket and the stitched home-octave sentence are withdrawn. Systems' `how-it-works.md` rev 2 sets the structure.
 
-**Pictures:**
-- `cloth-A-in-use.png`: spread on a table, on a lap (two objects), the keyboard range (smallest, largest slim, and a chunky mini), the cable and pocket, the module's rear.
-- `cloth-B-closed-and-packing.png`: wrapped beside a 16-inch laptop and a hardback, standing in a daypack, end views, weights, and the five wrapping steps.
-- Source: `../_src/r2.py`.
+**Pictures** (source `../_src/r3.py`, `python3 r3.py cloth`):
+- `cloth-A-in-use.png`: **on the grass** (plan and side), spread on a table, on a lap (two objects), the keyboard range including a chunky mini, the pocket enlarged, and the family palette strip (one story across module and carries).
+- `cloth-B-closed-and-packing.png`: the knotted bundle beside a laptop and a hardback, in the pack outline, end views, weights, five wrapping steps.
 
 ## 1. Point of view
-**A tea set in its cloth.** Two objects and one square, unpacked in a fixed order. Spread, the cloth is the frame: a stitched outline (the same 412 × 288 as FALLBOARD's footprint) shows where the module and keyboard go, so "own the outline, host the keys" holds in the soft kit too. It's the lightest kit, and the only one that carries the chunky minis and a charger.
+**The family bed, made soft.** An 800 quilted square in the same near-black as the printed kits. Spread, a cream-stitched 412 × 265 outline (FALLBOARD's footprint, one family number) and a dashed centre line say where the keyboard and module go. On the grass it's also the mat you sit on: a stage cloth, with spike marks sewn in.
 
 ## 2. Materials and colour
 | Part | Finish |
 |---|---|
-| Cloth, outside | **dark slate green**, coated (wipeable), ≈ 800 square, quilted |
-| Liner | washable, the same green one shade lighter |
-| Stitched outline and centre line | **pale cream thread** (412 × 288, a dashed centre line) |
-| Words | stitched beside the centre line: *keep the keyboard at its home octave* |
-| Corners | **four brass weights** (sewn-in curtain hem weights; size UNVERIFIED): they hold the cloth flat outdoors and make the knot's corners |
-| Pocket and module sleeve | lighter green, sewn; the sleeve is removable and washable |
+| Outer | **near-black coated cloth** (wipeable; product UNVERIFIED) |
+| Liner | **near-black** washable cotton canvas (UNVERIFIED), so both faces match |
+| Quilting | tonal near-black thread, 100 mm channels |
+| Outline (412 × 265), centre line, pocket edge | **cream thread** (the family's spike marks). Quilting stitches pass through both layers, so **the outline shows on both faces** |
+| Module sleeve, pocket | the same near-black |
+| Corner weights | **sewn into the hem, unseen** (brass gone; "fewer notes") |
 
-CLOTH's own colour is the green. The module stays walnut, cream and brass, and the brass weights tie the cloth to the family.
+## 3. Which face is up (a finding for systems)
+Systems' ground flow spreads the cloth coated side down (against damp). Because the outline shows on both faces, that works; I make it the rule everywhere: **spread liner-up, always; the coated face always meets the world** (grass, bench, bag). One ritual, and the face you play on is the soft, washable one.
 
-## 3. Every state
+## 4. Every state
 | State | Look and feel (sheet) |
 |---|---|
-| **Spread on a table** (A, top left) | Green square, cream outline, the module at the back, the keyboard in front, centred on the dashed line. The pocket at the front-left corner, the sleeve at the back-right |
-| **On a bench** | The 800 cloth hangs over the bench's front edge like a tablecloth. It works, but a table is its home (honest) |
-| **On a lap** (A, centre) | **Two objects:** the keyboard on your lap, the module on the bench by your hip on its folded cloth, the 0.5 m cable between. The cloth drapes, so it stops being a frame. That's the weak inferred job (20), stated |
-| **Smallest keyboard** (A, range) | nanoKEY2 inside the outline, centred; more green shows round it |
-| **Largest slim** (A, range) | Xkey 25 fills the outline's front half |
-| **Chunky mini** (A, range) | MPK Mini IV (348 × 192 × 46): **the module sits past the stitched line** because the keyboard is deeper. Only CLOTH carries it |
-| **Cable and pocket** (A, enlarged) | The sewn pocket (200 × 150) holds the cable, the C-to-A adapter, a spare and **the charger**. The live run crosses a few centimetres of cloth from the keyboard's socket to the host port on the module's axis |
-| **Rear** (A, bottom right) | The module's own rear with nothing in front of it: every port is open while playing |
-| **No keyboard** | The module alone in its sleeve, knotted: about a 290 × 115 × 45 bundle |
-| **Wrapped** (B) | A soft green bundle with a cloth knot and two brass weights for a handle: **≈ 400 × 150 × 65** with an Xkey, **≈ 335 × 115 × 60** with a nanoKEY2 [calc, ± a few mm of loft] |
-| **In a backpack** (B) | Standing on its short side: soft, so it takes the pack's shape |
+| **On the grass** (A, plan + side) | Cloth liner-up on the grass, the outline 100 mm from the far edge; **you sit cross-legged on the 435 mm of near cloth**, the keyboard on the outline in front of your knees, the module behind it; the pocket by your left hip; the crown fires up, so grass and cloth don't muffle it. The black square reads as a small stage on the lawn |
+| **On a table** (A) | The square spread, the pair on the outline |
+| **On a lap** (A) | **Two objects**, honestly: keyboard on the lap, module on the folded cloth beside you, on the 0.5 m cable |
+| **Keyboard range** (A) | nanoKEY2 and Xkey sit inside the outline; a chunky MPK Mini pushes the module past the stitched line (still fine: nothing holds the keys) |
+| **Pocket** (A, enlarged) | 200 × 150 at the near-left corner, its edge in cream thread: cable, C-to-A adapter, charger, the 1:1 card |
+| **Wind** | hem weights hold the corners |
+| **Wet or dirty** | shake the coated face; sleeve and liner wash; black hides park dirt (director) |
+| **Wrapped** (B) | a soft black bundle with a knot handle: ≈ 400 × 150 × 65 with an Xkey; the module alone ≈ 290 × 115 × 45 |
 
-## 4. Wrapping (a fixed order, sheet B)
-1. Cable, adapter and charger into the sewn pocket.
-2. The module into its sleeve at the cloth's centre, panel up. The knobs sit under its rim.
-3. The keyboard keys-down on the sleeve's quilted top. The keys bear only the keyboard's own weight.
-4. Fold two opposite corners over the pair.
-5. Tie the other two corners (with their brass weights) into the handle knot. Into the backpack.
+## 5. Weight
+Carry 0.23–0.36 kg; kit + nanoKEY2 1.18–1.57, + K-Board C 1.28–1.67, + Xkey 25 1.54–1.93 kg. The lightest enclosing kit.
 
-Unwrapping is the reverse, and the spread cloth is the playing surface.
+## 6. How it compares with the attachment-point answer (YOKE)
+CLOTH and YOKE are the two light answers (0.23–0.36 vs ≈ 0.08–0.12 kg of carry). CLOTH wins on the ground (the mat) and carries any keyboard including chunky minis; YOKE wins on a lap (one rigid piece where CLOTH is two objects) and needs no sewing. **They combine:** the module with YOKE's arms could sit on CLOTH's outline on the grass, and wrap in it. I note it; the director decides whether it's worth a look.
 
-## 5. Size and weight, honestly (sheet B)
-- **The lightest kit** (eng estimates; no target, lighter is better):
+## 7. Why
+- **Near-black:** the family's one story (the director's ruling, and now the printed kits' colour), and dirt-hiding.
+- **Cream thread both faces, liner-up always:** one ritual; the outline is always readable.
+- **Hidden weights:** nothing on the cloth but marks with a job.
 
-  | | Weight |
-  |---|---|
-  | Carry parts | ≈ 0.23–0.36 kg |
-  | Module | 0.67–0.93 kg [r2] |
-  | Kit + nanoKEY2 | **1.17–1.56 kg** |
-  | Kit + K-Board C | **1.27–1.66 kg** |
-  | Kit + Xkey 25 | **1.53–1.92 kg** |
-
-- **Protection is soft** (named): the module's rim and the sleeve's quilt guard the knobs; a hard knock on the keyboard's back is only padded by the cloth.
-
-## 6. Why
-- **The stitched outline is FALLBOARD's footprint:** the family outline survives without a tray, so the soft kit still owns the outline.
-- **Green, not walnut:** cloth in walnut brown reads as a sack. A deep green with cream thread reads as a deliberate textile, and the brass ties it to the family.
-- **Corner weights:** they solve wind, give the knot something to hold, and put brass on the cloth.
-
-## 7. Open questions
-1. **Owner:** is a bench-and-table kit acceptable, given that the lap pose is two objects?
-2. **Director:** green for CLOTH's own colour, or a family neutral (oatmeal)? Oatmeal shows dirt in a park; that's why I chose green.
-3. **Parts:** the coated outer fabric, the washable liner, the hem weights (UNVERIFIED products).
+## 8. Open questions
+1. **Systems:** adopt "liner-up always" in the flows.
+2. **Parts:** coated cloth, liner canvas, hem weights (all UNVERIFIED).
+3. **Owner:** the sewing weekend.

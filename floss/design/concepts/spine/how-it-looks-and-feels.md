@@ -1,74 +1,52 @@
 # SPINE: how it looks and feels (visual)
 
-Status: **rev 1, 2026-11-22**, product designer (visual focus), concept round 2. The module's look is in `../module/how-it-looks-and-feels.md`; this file covers the carry. It's read with systems' `how-it-works.md` (the solander box), with my module call applied:
-- **module 280 × 105 × 35**;
-- so **pockets ≈ 59 × 105**, **spine and closed thickness ≈ 56** (61 with a 40-tall module), and **open flat 412 × 340**.
+Status: **rev 2, 2026-11-22**, product designer (visual focus), concept round 2, visual turn 2. Redone for the printed case (PRINCIPLES §7) and the director's R6. **Rev 1's bookcloth trays, brass book corners, cream label, coral line, clip-on lamp and the standing pose are withdrawn.** Systems' `how-it-works.md` rev 2 sets the structure; the module's look is in `../module/how-it-looks-and-feels.md` (knob option A drawn).
 
-**Pictures:**
-- `spine-A-in-use.png`: open flat on a bench or table, standing at ≈ 110° (with the clip-on lamp), open flat on a lap, the keyboard range, the cable path and pockets, the module tray's outer wall.
-- `spine-B-closed-and-packing.png`: closed beside a 16-inch laptop and a hardback, standing in a daypack, end views, weights, and the five packing steps.
-- Source: `../_src/r2.py`.
+**Pictures** (source `../_src/r3.py`, `python3 r3.py spine`):
+- `spine-A-in-use.png`: open flat on a table (412 × 335), **the stop at flat in section at 3 : 1**, on a lap (side and plan), the keyboard range, the lane and bays enlarged, the module tray's far wall, and the closed box seen on its spine.
+- `spine-B-closed-and-packing.png`: closed beside a laptop and a hardback, in the 300 × 450 pack outline with clearance, end views, weights, five packing steps.
 
 ## 1. Point of view
-**A bookbinder's box that holds an instrument.** A solander box is two trays of one outline joined by a cloth spine, closing square; libraries keep their rare things in them. Closed, SPINE is a book on a shelf. Open, it's floss behind a keyboard, with the spine between them as the cable's gutter. It's the smallest rigid kit, the bag-space rival to FALLBOARD.
+**A solander box, printed.** Two black trays of one outline and a spine. Closed it's a plain black book-sized box; open flat it's one surface, keys near you, the module's cream deck across the spine. The bookbinder's form survives without the bookbinding.
 
-## 2. Materials and colour
+## 2. Materials and colour (the family story)
 | Part | Finish |
 |---|---|
-| Trays | binder's board (or thin ply) covered in **walnut-brown bookcloth** |
-| Spine | darker brown bookcloth over a rigid spine board, stop-at-flat (visual turn 5, director ruling 10) |
-| Corners | **brass book corners**, all four, on the outside of the keyboard tray |
-| Label | cream, "floss", one coral line, centred on the keyboard tray's outside (the cover) |
-| Bed, cable strip | near-black coated bookcloth (as FALLBOARD) |
-| Pocket floors | dark brown, one shade lighter |
-| End blocks, scale | the same family parts as FALLBOARD |
-| Strap | a dark woven strap, two loops round the box (bought; UNVERIFIED) |
+| Both trays, spine panel, end blocks | **warm near-black matte PETG**, one colour |
+| Spine beads and knuckles | the same black; the two 5 mm beads and their knuckles stand along the spine's edges |
+| Hinge rods | bought Ø 3 steel, hidden in the knuckles (only the ends show) |
+| Scale and axis tick on the keyboard tray's near lip | **cream** marks (or debossed on one spool) |
+| Strap | bought black webbing, two bands |
+| Name | **none on the carry** (the name is on the module) |
 
-The family's walnut appears as cloth colour here, because SPINE is a bookbinding object, not cabinetwork. Brass corners and the label carry the family across.
+## 3. The stop at flat, as something you see (director R6)
+The geometric stop is two 5 mm beads along the spine panel's edges that bear face-on-face on the trays' 5 mm edge faces below the hinge axis at 180°. **Seen on the closed box, the two beads and their knuckle rows read like a book's raised bands across its spine.** That's the only "decoration" on SPINE, and it's the mechanism. The section at 3 : 1 on sheet A shows the faces meeting (the coral line on the sheet is a drawing mark, not a colour on the object).
 
-## 3. Every state
+## 4. Every state
 | State | Look and feel (sheet) |
 |---|---|
-| **Open flat on a bench or table** (A, top left) | 412 × 340: keyboard tray nearest you, the dark spine band, then the module tray with the cable strip, module and pockets. The module's front face (rail, target, host port) faces you across the spine |
-| **Standing at ≈ 110°** (A, side) | The module tray rises behind the keys like a lectern, panel and speaker toward you. The optional lamp clips to the tray's top edge and throws a warm wash on the keys |
-| **On a lap** (A, right and side) | Open flat across both thighs. The spine runs left to right, supported by both thighs. **It stops at 180°**, so a keypress can't fold it down. It reads as one board with a dark band through the middle. **One trial on the first build:** press the end keys and look for give (systems §3) |
-| **Bridged** (knees apart, slats, lifted by its ends) | The joints can fold upward. Don't play it bridged: it's in the words, not hidden |
-| **Smallest keyboard** (A, range) | nanoKEY2: blocks fully out; ≈ 52 mm of empty bed in front, kept empty |
-| **Largest keyboard** (A, range) | Xkey 25: blocks fully in |
-| **Cable path** (A, enlarged) | From any rear socket a straight plug drops into the **56 mm-wide open spine (the gutter)**, then rises through the cable strip to the **host port on the module's axis**. End sockets pass the block's notch. The cable never crosses hands, speaker or panel |
-| **Pockets** (A, enlarged) | **Left ≈ 59 × 105:** charger. **Cable strip 404 × 30:** the coiled cable and adapter. **Right:** spare cable and card |
-| **Rear** (A, bottom right) | Two windows in the module tray's outer wall, on the module's port facets: power and charging can be reached while playing. Unplug the phones before closing |
-| **No keyboard** | Blocks locked; the box closes the same |
-| **Closed** (B) | A walnut-cloth box with brass corners, the cream label and two strap loops: **412 × 143 × 56** (61). It's carried by the spine, where the cable lives |
-| **In a backpack** (B) | Standing on its short edge, spine up: 143 wide in a ≈ 300 compartment, with room either side |
+| **Open flat on a table** (A, top left) | 412 × 335: keyboard tray nearest you, the 49 mm spine, the module tray. A black surface with one cream stage in it |
+| **On a lap** (A) | Flat across both thighs; the stop takes a keypress. Bridged (supported only at its far edges) it folds toward closed: stated on the sheet |
+| **Standing** | Cut (R6, fewer notes): a standing pose was considered and dropped |
+| **Night** | No lamp; only the module's two amber lights |
+| **Keyboard range** (A) | Same printed blocks and scale as FALLBOARD; the keyboard against the near wall; behind a shallow keyboard the space runs straight into the spine gap (the plug's room) |
+| **Lane and bays** (A, enlarged) | Lane between the module's face and the spine (30 deep, between the bay walls): host port → spine gap. **Left bay: coil and adapter. Right bay: charger, card under it** |
+| **Far wall** (A) | Two windows on the module's facets |
+| **Closed** (B) | **412 × 148 × 59**, a black box, two black straps, the axis seam a thin line, the spine's bands on its back edge |
+| **In a backpack** (B) | **152 mm spare across** a 300-wide compartment: the best in the bag of the enclosing kits |
 
-## 4. Packing (sheet B)
-1. Switch off at the rear, through the module tray's left window.
-2. Unplug the keyboard end. Coil the cable and adapter into the cable strip.
-3. Thumb-lock both end blocks.
-4. Swing the module tray over: panel down onto the keys. The knobs sit under the module's rim, and the rim foam pins the keyboard.
-5. Strap it. Into the backpack, spine up.
+## 5. Size and weight
+- Closed 412 × 148 × 59 (B knobs: 66), ≈ 3.6 L.
+- Carry 0.42–0.52 kg (systems; heavier than rev 1's board-and-cloth); kit + nanoKEY2 1.37–1.73, + K-Board C 1.47–1.83, + Xkey 25 1.73–2.09 kg.
 
-## 5. Size and weight, honestly (sheet B)
-- **Closed: 412 × 143 × 56** [calc]: ≈ 40 % less footprint than FALLBOARD, about 3¼ laptops thick. ≈ 3.3 L [calc].
-- **Weight** (eng estimates; no target, lighter is better):
+## 6. How it compares with the attachment-point answer (YOKE)
+SPINE and YOKE both stack the module over the keyboard, keys toward the module. SPINE adds two trays and a spine around that stack: full protection on all sides, a home for the coil, adapter and charger, and a flat open pose on a lap. YOKE drops all of that: ≈ 0.3–0.4 kg lighter, slightly smaller (≈ 3.4 vs 3.6 L), but the keyboard's front and back edges and the module's panel face the bag, and the charger travels loose. **YOKE is SPINE with the box taken away**; the owner's words decide whether the box is worth its weight.
 
-  | | Weight |
-  |---|---|
-  | Carry parts | ≈ 0.3–0.4 kg |
-  | Module | 0.67–0.93 kg [r2] |
-  | Kit + nanoKEY2 | **1.25–1.61 kg** |
-  | Kit + K-Board C | **1.35–1.71 kg** |
-  | Kit + Xkey 25 | **1.60–1.97 kg** |
+## 7. Why
+- **One outline, one black:** the solander rule solves the "mismatched covers" problem; printing it black keeps it quiet.
+- **The bands are the stop:** the one visible feature is the mechanism that makes the lap work.
 
-## 6. Why
-- **A solander box, not a book:** the module tray is deep and the keyboard tray shallow. A box with trays of one outline closes square where a book with one fat cover can't (director addendum).
-- **The open spine is the gutter:** the gap the hinge needs is exactly the space a straight plug needs, so the cable gets its own channel with no extra part.
-- **The shelf object:** closed, it's handsome between uses (PRINCIPLES §5: coherent form with a clear perspective).
-
-## 7. Open questions
-1. **Owner:** bookbinding craft is new to the family. Is a weekend of solander-box work welcome?
-2. **Director:**
-   - the stop-at-flat spine trial (one trial is the honest cost);
-   - is the clip-on lamp worth showing at all for SPINE?
-3. **Parts:** brass book corners, strap, binder's board (UNVERIFIED products).
+## 8. Open questions
+1. **Director:** the 30 mm lane (systems can't remove it; I agree); counting the lane and bays (systems' areas overlap by 62 × 30 each side; I drew the lane between the bay walls, with an opening into the left bay for the tail).
+2. **Eng:** knuckle sizing (systems §3); strap product.
+3. **Owner:** no standing pose; no name on the box.

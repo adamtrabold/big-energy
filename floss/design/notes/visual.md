@@ -1,6 +1,54 @@
 # floss: visual designer notes
 
-## Where things stand (2026-11-22, concept round 2, my first concept turn)
+## Where things stand (2026-11-22, concept round 2, visual turn 2: new visual designer)
+I took the seat from the notes below (history, not commandment). Read: `PRINCIPLES.md` (new owner principles: case entirely 3D printed, services fine; cloth wrap fine around a printed core; analog-first not digital-free; no paper anchoring; no weight target), `jobs.md` rev 3.1, `eng/module-r2.md`, the director's "new director, concept round 2 steer 1" (R1–R6), systems' rev 2 `module/`, `fallboard/`, `spine/`, `cloth/` how-it-works.
+
+**Mid-turn owner correction** (coordinator, verbatim): "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule". Not a rule; it removes the enclosing assumption. Answered with a sketch, **YOKE** (below). Director decides.
+
+### Draws (python `secrets`)
+- Oblique Strategy "Faced with a choice, do both" → the knob drawn both ways at 1:1; divider TPU strip with a groove fallback.
+- Field: stage lighting → the material story, and YOKE's name.
+- Twist: "the colour comes from the spool, never paint" → every colour is a filament, a bought part or a light.
+
+### Decisions this turn (mine unless marked)
+1. **One material story: stage blacks and spike marks.** Warm near-black matte PETG for everything structural, module and every carry (the house); **cream PETG deck** (the stage, the one lit surface); **cream marks** for anything read or set to on black (rail ticks, target, crown words, wordmark, kit scales, CLOTH's thread); **coral once** (DEPTH); **amber light** for both lights. Two spools + a little TPU. One-spool fallback: debossed marks. Walnut, brass, bookcloth gone. **Carries carry no name**; the name is on the module.
+2. **Dividers: pressed-in black TPU 95A strip 1.6 × 2.0, flush** (felt as a softer, warmer, grippier strip, no edge). Fallback: printed groove 1.0 × 0.4.
+3. **Knob both ways, my pick A.** A: Tayda alu Ø 10 × 8 → 280 × 105 × 35, unit 35, 8:3:1, deck 25, rows y 14/31, crown foot 41, finger room 5. B: family 18T Ø 14.5 × 13.5 → **280 × 112 × 42 restated as unit 14, 20:8:3** (halves 5:4, centre:end 8:5), deck 26.5, rows 14/35.9, foot 48.5, finger room 5. Kits +7 mm with B.
+4. **Grille:** Ø 1.9 holes, 2.6 hex pitch, Ø 46 field on the crown top, clipped to the flat: **260 holes ≈ 737 mm²** (≥ 620), counted in code.
+5. **Wordmark** cream on the crown's rear face between the facets; no words on the front face; target is a cream printed rider (a spike mark); port light amber.
+6. **FALLBOARD** 412 × 265 × 42, all black; keyboard on the front wall; 15 lane; left pocket coil + adapter, right charger + card; lid on a printed over-centre brace; seams left as lines (a deliberate V-groove cross on the lid); no lamp. **35 mm spare in a 300-wide pack (17.5 a side).**
+7. **SPINE** 412 × 148 × 59, all black; the stop's two beads + knuckles read as a book's raised bands (the only visible feature is the mechanism); stop drawn in section at 3:1; standing pose cut; 152 mm spare in the pack.
+8. **CLOTH** near-black coated outer, near-black liner, cream thread on both faces; **spread liner-up always** (coated face meets the world), which also suits systems' grass flow; hem weights hidden; grass pose drawn (sit on the 435 mm near cloth).
+9. **YOKE (sketch):** two printed arms on the module's own ¼"-20 inserts with swivel cups on slots. Carry: keyboard keys-up under the module, ≥ 6 mm air, 396 × 135 × 64 (Xkey), ≈ 3.4 L, carry ≈ 0.08–0.12 kg [est]. Play: arms swing forward, keyboard in front, keys never flip. Strong on weight, simplicity, family reuse (any S4 module); weak on exposure (panel and keyboard edges face the bag) and the loose charger.
+
+### Files (all opened and checked)
+- Source: `concepts/_src/r3.py` (run from `_src`: `python3 r3.py [module fallboard spine cloth yoke]`). `r2.py` is history.
+- `concepts/module/module-1to1-A2.png` + `.pdf` (1:1 on A2, both knobs side by side; the old A3 pair is deleted).
+- `concepts/fallboard/fallboard-A-in-use.png`, `fallboard-B-closed-and-packing.png`; same for `spine/` and `cloth/` (A and B each).
+- `concepts/yoke/yoke-A-carry-and-play.png` (new, on the coordinator's request).
+- Words: `how-it-looks-and-feels.md` rewritten in `module/`, `fallboard/`, `spine/`, `cloth/`; new in `yoke/`. Each kit file has a "how it compares with YOKE" section.
+
+### Key numbers now
+| | FALLBOARD | SPINE | CLOTH | YOKE (sketch) |
+|---|---|---|---|---|
+| Closed (A knobs) | 412 × 265 × 42 | 412 × 148 × 59 | ≈ 400 × 150 × 65 soft | 396 × 135 × 64 |
+| With B knobs | 412 × 272 × 48 | × 66 | × 72 | × 71 |
+| Carry weight | 0.47–0.60 | 0.42–0.52 | 0.23–0.36 | ≈ 0.08–0.12 [est] |
+| Spare in a 300 pack | 35 | 152 | ≈ 150 | 165 |
+
+### Open questions
+1. **Owner:** knob A or B; black/cream/coral/amber replacing walnut and brass; plain unnamed carries; YOKE's exposure vs its weight.
+2. **Director:** YOKE as a concept or not; both lights amber (CATHEDRAL's ring colour not found in the records; match it if it's stated somewhere); one-spool debossed fallback acceptable?; FALLBOARD's lid seam cross vs a six-panel lid.
+3. **Eng:** black and coral Ø 10 × 8 knobs (UNVERIFIED colours; fallback printed coral cap); TPU slot allowance; lid foam ≈ 24–29 mm; YOKE arm stiffness and thumbscrew hold.
+4. **Systems:** "liner-up always" for CLOTH; SPINE's lane/bay area overlap (62 × 30 counted twice); module rows/foot to the chosen knob; YOKE's mechanism if the director takes it.
+
+### Next
+Director rules (YOKE in or out; knob preference to send to the owner). Then, for the approved carry: the handoff's "How it looks and feels" for every state, real 3/4 views, print files' colour split (which parts in which spool), the marking system at 1:1.
+
+---
+
+
+## History: concept round 2, first visual turn (previous designer; walnut, brass, bookcloth, gutter, lamp and engraved line all superseded)
 - **The jam is closed:** director turn 6 plus its addendum. Three kits go to concepts: **FALLBOARD (lead), SPINE (now a solander box), CLOTH**. **One module goes into all three.**
 - **Owner direction since the jam (verbatim, `design/owner.md`):**
   - 13:25 "The module does not have to match keyboard width": **S8 is withdrawn**;
