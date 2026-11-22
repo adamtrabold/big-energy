@@ -634,3 +634,8 @@ Recorded as: floss's playing poses in Adam's order of preference: **angled** fir
 > Multiple angles is fine
 
 Recorded as: floss may offer **more than one playing angle**; one fixed angle isn't required. (Follows his pose order: angled, 90, flat.)
+
+## 2026-11-22 18:53 (chat): GNOMON sent back with a change
+> Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright
+
+Recorded as: GNOMON (director 9) is not approved as is. Change: **reverse the angle of the rear face** (the face behind the speakers), so when floss stands on it the plate **still leans back at a subtle angle** instead of standing at exactly 90°. Not a rejection of the concept's shape; a direction for the next pass.
