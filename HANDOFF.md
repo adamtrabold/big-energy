@@ -5,7 +5,7 @@
 **The project widened on 2026-11-21 into three instruments** (owner's current thinking, 18:31): **Big Energy** = the Model D clone with 4-voice paraphony (as specced, voices 1 · 3 · 4); **Port-a-poly** = a true portable analog poly; a **string machine** that still needs a name. Build order is undecided. Earlier that day he said the Model D "is not inspiring"; his 18:31 entry keeps it as Big Energy. Everything below "Earlier handoff" is the Big Energy record as of 2026-11-13 and still applies to Big Energy. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
 
 ## Repo and site (2026-11-21 19:17)
-- The repo is being renamed **synths-to-go** (Adam does it in GitHub Settings). The site moves to https://adamtrabold.github.io/synths-to-go/ and the old big-energy address stops working. Git links redirect.
+- The repo was renamed **synths-to-go** (done in GitHub Settings, 2026-11-22). The site is now https://adamtrabold.github.io/synths-to-go/ and the old big-energy address no longer works. Git links redirect.
 - The site is organised as **Synths to go** (working title), with three sections: Big Energy (all the earlier pages), Port-a-poly and floss (the string machine, named 2026-11-21 20:35). Each has a folder (`port-a-poly/README.md`, `floss/README.md`) that its section builds from. Keep those READMEs current.
 
 ## What Adam wants now
@@ -42,12 +42,12 @@
 
 # Model D project ("big energy") — orchestrator handoff (2026-11-13)
 
-Repo: https://github.com/adamtrabold/big-energy · Viewing page (artifact): https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD
+Repo: https://github.com/adamtrabold/synths-to-go · Viewing page (artifact): https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD
 
 Read this whole file before doing anything. You are the new **orchestrator** for Adam's synth project. You work the way his **design-buds** skill says: you run the work, brief teammates (systems designer, visual designer, design director, plus builder, reviewer and critic when needed), and talk to Adam. You make no design calls. Only work the director scores 9 or higher goes to Adam. He wants to see work early, gets asked open questions one at a time, and wants short, plain replies.
 
 ## Where the files are
-- **Working home: this repo** (`adamtrabold/big-energy`, branch `main`, plain files). Clone it, then work and commit here. The artifact "Model D — locked v1.1 + handoff" (https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD) is only for viewing and sharing the sheets.
+- **Working home: this repo** (`adamtrabold/synths-to-go`, branch `main`, plain files). Clone it, then work and commit here. The artifact "Model D — locked v1.1 + handoff" (https://claude.ai/artifact/69aSiNmeYuxmDuSoBdhpFD) is only for viewing and sharing the sheets.
 - **`versions/`**: locked official sets, one folder per version (`v1`, `v1.1`, …). [`VERSIONS.md`](VERSIONS.md) says what each one is. Never edit a locked version. To lock a new one, copy the current concept files into `versions/vN/`, add a line to `VERSIONS.md`, and commit with the message "Lock vN: …". Git tags couldn't be pushed from these sessions (the proxy returned 403), so Adam adds the tags in GitHub.
 - **`design/`**: the instrument being built. The owner record is `design/owner.md` (authoritative and verbatim, newest entries at the bottom; append every owner decision verbatim). Team notes are in `design/notes/{systems,visual,director}.md`, along with `scores.md`, `naming.md`, `jobs.md` and `jam.md`. Concepts are in `design/concepts/{hush,one-sheet,fold}/`, plus `common-how-it-works.md` and `common-looks-and-feels.md`.
 - **Render code:** `design/concepts/_mock-src/`. The main scripts are `r5.py` (3D views, written to `out/`) and `sheets_r5.py` (sheets, written into the concept folders); the checkers are `fold_r5_check.py`, `layout_r4_check.py` and `flat_r5_check.py`. Sheets are A3 at 4961×3508.
@@ -57,7 +57,7 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 - **Not in the repo** (bulky, can be regenerated): ngspice raw `.dat`, `_mock-src/out/`, and `ref/ca-72` (`ref/README.md` says how to clone it).
 
 ## The project site (GitHub Pages)
-- Live at https://adamtrabold.github.io/big-energy/ (served from the `gh-pages` branch; owner: "gh pages is fine").
+- Live at https://adamtrabold.github.io/synths-to-go/ (served from the `gh-pages` branch; owner: "gh pages is fine").
 - After any session commits work to main, run `bash site/publish.sh` to rebuild the site from the repo and push it to `gh-pages`. Docs (`docs/`), reviews (`design/reviews/`), decisions (`design/owner.md`), versions and concept images all come from main.
 - Owner rule: reviews, logs and documents go on the site (in the repo), not as files sent in chat.
 - Owner rule: never credit Claude on GitHub. Commit as Adam Trabold <adamtrabold@users.noreply.github.com>, with no `Co-Authored-By: Claude` line; `site/publish.sh` already does this.
@@ -94,4 +94,4 @@ Read this whole file before doing anything. You are the new **orchestrator** for
 - **Rules Adam set:** nothing raised among the knobs or between the keys and the controls; no screens or encoders. Don't say "port" for things that haven't been built.
 
 ## Prompt for Adam to paste into a new session
-> Attach and clone my repo adamtrabold/big-energy. Read HANDOFF.md fully, then design/owner.md and design/notes/director.md. You're the new orchestrator, working as my design-buds skill describes. Tell me in 3 lines where things stand and what you need from me, then wait.
+> Attach and clone my repo adamtrabold/synths-to-go. Read HANDOFF.md fully, then design/owner.md and design/notes/director.md. You're the new orchestrator, working as my design-buds skill describes. Tell me in 3 lines where things stand and what you need from me, then wait.
