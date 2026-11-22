@@ -530,3 +530,8 @@ Recorded as: **S8 ("every module is 400/412 wide") is not adopted.** The module'
 > It needs to fit in a backpack comfortably. Ideally like the size of a sheet of paper length wise. But it also does not have to be a rectangle. It should be a thoughtful ratio base
 
 Recorded as: **the module fits comfortably in a backpack, ideally no longer than a sheet of paper's long side** (US Letter 279 mm / A4 297 mm). **It doesn't have to be a rectangle**; its proportions come from a **deliberate ratio**. Read as the module; the whole kit (module plus a travel keyboard up to ~390 mm) must also fit a backpack comfortably.
+
+## 2026-11-22 13:49 (chat): weight
+> I didn’t create the weight target. The principles are portable.
+
+Recorded as: **T5 (≤ 1.5 kg) was the orchestrator's proposed number, not Adam's.** It's withdrawn as a hard target. The principle is **portable**: lighter is better, and weight is reported and weighed as a trade-off, not pass/fail.
