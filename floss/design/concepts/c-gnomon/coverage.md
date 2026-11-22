@@ -1,4 +1,6 @@
-# GNOMON rev 2: jobs coverage check (systems, 2026-11-22)
+# GNOMON rev 3: jobs coverage check (systems, 2026-11-22)
+
+**Rev 3 update:** the owner's change ("Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright") changes only jobs 30 and 32 below. Every verdict stands.
 
 Checked against `../../jobs.md` **rev 5**: the rev 4 jobs, plus rows 32 and 34 and the angle in 30, which rest on the owner's words already given. Job 3's "or its underside" and S9 are still pending. Sources: `sheet.png` (seven views), `how-it-works.md` rev 2, `how-it-looks-and-feels.md` rev 2, `../c-shoe.md`, director's score (9) and handoff conditions in `../../scores.md`.
 
@@ -32,9 +34,9 @@ Checked against `../../jobs.md` **rev 5**: the rev 4 jobs, plus rows 32 and 34 a
 | 27 | Swap keyboards | S | loose takes any keyboard; SHOE needs pads per keyboard (the card says where) |
 | 28 | One carry-and-connect system for every module | **S/w** | S9 is the same plate and dock everywhere. GNOMON alone needs the stretcher as its bridge. S9 is pending the owner; loose and the TPU band are family-wide anyway |
 | 29 | Why is it silent? | **S/w** | panel lights, as 18 (the port light must stay visible) |
-| 30 | Size and proportion from its own parts | S | T and D from the parts [eng]; rear face 2T; tan θ = T / D ≈ 18.4°. 280 × 122 × 66 fits a backpack's main compartment (bulk named by the director) |
+| 30 | Size and proportion from its own parts | S | T and D from the parts [eng]. **Two angles from them: tan θ = T / D ≈ 18.4° (angled), tan φ = T / 2D ≈ 9.5° (upright lean).** The rear face follows (≈ 67, about 1.9T). Angled footprint 280 × ≈ 99 × 66: better in the bag than rev 2 |
 | 31 | One plane | **S/w** | every playing control is on the plate. **Power, TUNE and MIDI SPLIT sit on the right cheek** with the jacks, as they sat on the rear wall before. If "all controls" means those too, they move to the plate (room UNVERIFIED). An owner clarification, not a blocker |
-| 32 | Poses: angled, 90, flat; several fine; by shape a possibility | **S/w** | angled ≈ 18.4° and upright 90° by shape, no parts (views 4 and 6). Flat not offered, which is allowed (ranked last, not required). Stability is stated per pose. **Upright tips toward the player at ≈ 1.0–1.5 N pulled on the top edge** (presses ≈ 4–5.5 N): fine for standing and light turns, not for hard playing. Open: "90" for playing or standing |
+| 32 | Poses: angled, 90, flat; several fine; by shape a possibility | **S/w** | angled ≈ 18.4°, and upright on the rear face **leaning back ≈ 9.5°** (his "subtle angle"), by shape, no parts. Flat not offered (ranked last, not required). Stability is stated per pose. **Upright tips toward the player at ≈ 1.9 N pulled on the top edge** (rev 2: 1.27). Presses ≈ 4.1–5.3 N. Better, but still a standing / light-turning pose. Open: "90" for playing or standing; my reading of "reverse" (subtle, not the literal 37° mirror) |
 | 33 | Panel protected when packed | **S/w** | no cover; the rim stands 1 mm over the knob tops. That guards against flat surfaces in the bag, not against a hard object pressing between the rims. Margin stated, not tested |
 | 34 | Ports reachable in every pose; a foot carries nothing | **S/w** | the rear face carries nothing; jacks and power on the right cheek and the port mouth on the left work in both poses. **Host port on the front face:** reachable in both (on top when upright), but there the cable pulls the top edge, which is the tipping direction. **Condition (a)** (low on a cheek near the rear-bottom corner) fixes that, at the cost of 18's light (keep it on the plate) and a check against the port mouth and the jacks |
 

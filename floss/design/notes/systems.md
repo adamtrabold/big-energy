@@ -483,3 +483,17 @@
 **jobs.md rev 5 applied:** 32 (poses in his order, verbatim 18:39 / 18:40), 34 (ports per pose; a foot carries nothing), 30 (tan θ = T/D), and detail rows for 31–34. Job 3's "or its underside" and S9 stay pending.
 **New owner question:** does "all controls in one plane" include the set-and-forget controls (power, TUNE, MIDI SPLIT)?
 **Next:** GNOMON goes to the owner. Once he approves, I write the "How it works" part of the handoff, applying handoff items 1–6 from the coverage file.
+
+### 2026-11-22 GNOMON rev 3: the owner's change (systems)
+**Owner, verbatim:** "Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright".
+**My reading (stated plainly in how-it-works):** the rear face tips the other way from square, so the corner behind the speakers closes below 90° and upright the plate leans back. The literal mirror (rear face leaning out 18.4° in the angled view) gives a 37° upright lean, and a vertical rear face gives ≈ 18°: neither is subtle, so his goal decides. Flagged.
+**Geometry [calc]:**
+- Angled θ unchanged (tan θ = T/D ≈ 18.4° / 16.9°).
+- **Upright lean tan φ = T/2D ≈ 9.5° / 8.7°** (half the angled slope); corner ≈ 80.5°.
+- Rear face ≈ 67.2 / 67.7 (≈ 1.9T, no longer 2T; keeping 2T would push θ to 20.0°).
+- Angled footprint 99 / 110 (down from 111 / 120); back still ≈ 66–67; upright top edge ≈ 104 / 114.
+- **Upright forward pull 1.27 → 1.89 N (+49 %)**; presses 4.6 → 4.1 (top row), 5.6 → 5.3 (lower row); forward tilt tolerance 19° → 28°.
+- Stretcher ≈ 19 mm clear of the rear face.
+**Updated:** c-gnomon/how-it-works.md rev 3; coverage.md (jobs 30, 32; verdicts unchanged); jobs.md row 30 detail.
+**Director's calls:** tan φ = T/2D as the derivation; losing exact 2T on the rear face.
+**Next:** the visual designer redraws the end view, the upright view and the two-poses view; the director re-scores.
