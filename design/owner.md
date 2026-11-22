@@ -451,3 +451,8 @@ Recorded as: the order of work changes to **requirements first** (decisions plus
 > Choices *
 
 (Correction to "reliable copies" above.) Recorded as: the keys and pressure sensing must be **reliable choices**, meaning proven parts and approaches, not experimental ones.
+
+## 2026-11-22 09:38 (chat): requirements targets
+> Sure but if we can do better or need to do worse tradeoffs should be discussed
+
+Recorded as: targets T1–T12 in `floss/REQUIREMENTS.md` are **confirmed as the baseline.** Any place engineering could beat a target, or has to miss one, comes to Adam **as a trade-off to discuss**, not decided quietly.

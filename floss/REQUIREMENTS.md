@@ -1,6 +1,6 @@
 # floss: requirements (draft rev 0, 2026-11-22)
 
-Status: **draft for Adam to confirm.** "Decided" lines are Adam's (verbatim record in `design/owner.md`). "Proposed" lines are targets for him to confirm or change; engineering designs against whatever he confirms.
+Status: **rev 1, targets confirmed as the baseline (2026-11-22 09:38).** Adam: "Sure but if we can do better or need to do worse tradeoffs should be discussed": any target we could beat or must miss comes to him as a trade-off. "Decided" lines are Adam's (verbatim record in `design/owner.md`). "Proposed" lines are targets for him to confirm or change; engineering designs against whatever he confirms.
 
 ## What it must do (decided)
 - Analog voices, shimmer and warmth; a portable string machine.
