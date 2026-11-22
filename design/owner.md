@@ -463,3 +463,15 @@ Recorded as: targets T1–T12 in `floss/REQUIREMENTS.md` are **confirmed as the 
 > I don’t like springs because they give over time and also I *am* building this so I want something feasible. Pads are fine imo
 
 Recorded as: floss uses **pressure pads, not moving keys** (keys.md S3 family: LinnStrument/QuNexus-style pads over force sensing). No spring-key mechanism. **Adam builds floss himself**, so feasibility for a home builder is a hard requirement. Whether Big Energy adopts pads too is not decided.
+
+## 2026-11-22 11:14–11:22 (chat): playing surface
+> What about just touch pads?
+> Like metal
+> Can touch pads sense finger placement as well? Eg side to side wiggle?
+> What about layering boards? Like a cut top board that connects traces to a bottom board
+> Or what about a touch strip with predefined areas OR markings that could allow for continuous glide
+> Just exploring options. The cost of pads seems egregious compared to the market
+> I don’t feel like the layered boards would feel very good
+> I like the soft silicone idea if we’re not going button or classic keys
+
+Recorded as: **preferred feel is soft silicone** (LinnStrument/Seaboard-like), if floss doesn't use buttons or classic keys. The ≈ $300 of bought FSRs is **too expensive**: find cheaper reliable sensing under silicone. Side-to-side position, metal tops, layered boards and glide strips were exploration, not requirements. Layered boards are out on feel.
