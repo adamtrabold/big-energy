@@ -26,7 +26,7 @@ Status: **rev 2 (2026-11-22 12:26): floss is a keyless sound module played by a 
 | T1 | Notes at once | All 25 keys sound together | String machines are fully polyphonic |
 | T2 | Battery life | ≥ 4 h playing on the speaker at moderate volume | An afternoon in the park |
 | T3 | Charging | Plays while charging; full in ≤ 4 h over USB-C | As Big Energy |
-| T4 | Size | No bigger than Big Energy's case family (about 290 × 135 mm footprint); module plus controller carry together | Shared universe, portable |
+| T4 | Size | **Module: ideally no longer than a sheet of paper's long side (279–297 mm), not necessarily rectangular, proportions from a deliberate ratio. Kit (module + travel keyboard) fits comfortably in a backpack.** (Adam, 13:29; the module need not match keyboard width, 13:25) | Backpack portable |
 | T5 | Weight | ≤ 1.5 kg | Carry it in a bag all day |
 | T6 | Key to sound | ≤ 5 ms from the controller over USB | Feels instant (rules out BLE for now) |
 | T7 | Hiss, dry path | Output noise ≥ 80 dB below full level (A-weighted) | Quiet on headphones |
