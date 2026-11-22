@@ -409,3 +409,8 @@ Recorded as: floss has **one built-in speaker**, which mutes when headphones are
 > Passive radiator would be cool
 
 Recorded as: look into a **passive radiator** with floss's speaker for fuller sound. It isn't decided yet: it needs a sealed air space inside the case, so the enclosure work has to show it fits.
+
+## 2026-11-21 22:50 (chat): floss shimmer
+> Analog mode on shimmer but modes to use the daisy too
+
+Recorded as: floss's shimmer has an **analog mode** (bucket-brigade ensemble) and **Daisy (digital) modes** as well. Echo and reverb stay on the Daisy, as on Big Energy.

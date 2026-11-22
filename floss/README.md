@@ -18,6 +18,7 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - **Battery powered:** "I want to keep it battery powered". Pack size and runtime wait for a power budget, after the voice and shimmer choices.
 - **One speaker, muted by headphones**, as on Big Energy: "Yeah one speaker unless headphones just as on big energy". Stereo is for headphones and outputs.
 - **Look into a passive radiator** with the speaker ("Passive radiator would be cool"). It needs a sealed air space in the case; to be checked with the enclosure.
+- **Shimmer: an analog mode plus Daisy modes:** "Analog mode on shimmer but modes to use the daisy too". Echo and reverb stay on the Daisy.
 
 ## How string machines work (checked in chat, 2026-11-21)
 - A master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave. Every key has a tone running, so every key can sound at once.
@@ -32,5 +33,5 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - Ideas for something new: per-key swells, pressure-controlled bowing, drift between notes, sine stacking like the Antiphon.
 
 ## Open (Adam's)
-- What else carries over from the Big Energy platform: USB-C charging, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, enclosure work.
+- What else carries over from the Big Energy platform: USB-C charging, MIDI rules, no screens or encoders, real bought knobs and keys, enclosure work.
 - Budget ceiling.
