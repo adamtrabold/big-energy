@@ -614,3 +614,8 @@ Recorded as: **CATHEDRAL is a model to take cues from, not a form to copy.** flo
 > Have an agent Add that line about my ideas and how to think about them to the general working principles .. I think that’d be the Claude.md
 
 Recorded as: CLAUDE.md item 5 quotes "Don’t anchor on my ideas just include them as possibilities." When Adam floats an idea (not a decision), agents treat it as one possibility among others.
+
+## 2026-11-22 18:00 (chat): platform decisions go to the right place
+> We’re defining the beginning of a platform here so there are reusable principles and decisions that impact the individual instrument approaches. That’s the goal of what we’re working on right now alongside defining string machine specifics. So make sure we’re logging those decisions to the right place
+
+Recorded as: the current work defines **the platform** (reusable principles and decisions) alongside floss's specifics. Every decision is logged verbatim here, then routed: family/platform decisions to `PRINCIPLES.md`, instrument decisions to that instrument's `REQUIREMENTS.md` (CLAUDE.md item 3 now says so). floss's form decisions from today were added to `floss/REQUIREMENTS.md`.
