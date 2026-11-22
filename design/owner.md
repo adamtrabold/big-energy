@@ -578,3 +578,7 @@ Recorded as: **not a rule; a correction to an assumption.** The carry must fit a
 > 25 keys idk about voices
 
 Recorded as: the carry fits **25-key** travel controllers. The voice count is undecided by Adam; the engineering recommendation (25) stands as a working assumption, explained to him.
+
+> 25 is good for the string machine.
+
+Recorded as: **floss has 25 voices** (decided).
