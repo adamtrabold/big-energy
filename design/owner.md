@@ -629,3 +629,8 @@ Recorded as: questions to Adam go one at a time (reaffirms the handoff rule; the
 > Honestly my preference order would be angled, 90, flat
 
 Recorded as: floss's playing poses in Adam's order of preference: **angled** first, then **90°** (read as standing upright; to confirm if it matters), then **flat** last. Sitting flat is not required. Logged in floss/REQUIREMENTS.md.
+
+## 2026-11-22 18:40 (chat)
+> Multiple angles is fine
+
+Recorded as: floss may offer **more than one playing angle**; one fixed angle isn't required. (Follows his pose order: angled, 90, flat.)
