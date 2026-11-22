@@ -17,6 +17,7 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - **Pressure destination is selectable:** "Would be cool to select what the pressure strip does"
 - **Battery powered:** "I want to keep it battery powered". Pack size and runtime wait for a power budget, after the voice and shimmer choices.
 - **One speaker, muted by headphones**, as on Big Energy: "Yeah one speaker unless headphones just as on big energy". Stereo is for headphones and outputs.
+- **Look into a passive radiator** with the speaker ("Passive radiator would be cool"). It needs a sealed air space in the case; to be checked with the enclosure.
 
 ## How string machines work (checked in chat, 2026-11-21)
 - A master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave. Every key has a tone running, so every key can sound at once.

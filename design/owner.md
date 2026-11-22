@@ -404,3 +404,8 @@ Recorded as: floss is **battery powered**. Pack size, runtime and the power desi
 > Yeah one speaker unless headphones just as on big energy
 
 Recorded as: floss has **one built-in speaker**, which mutes when headphones are plugged in, as on Big Energy. Stereo is for headphones and outputs. No separate stereo controls for the shimmer were asked for.
+
+## 2026-11-21 22:46 (chat): floss passive radiator
+> Passive radiator would be cool
+
+Recorded as: look into a **passive radiator** with floss's speaker for fuller sound. It isn't decided yet: it needs a sealed air space inside the case, so the enclosure work has to show it fits.
