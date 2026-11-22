@@ -596,3 +596,7 @@ Recorded as: correction. The keyboard **doesn't have to be** permanently attache
 > I hate the shape of these. Let’s take the big energy as the guide
 
 Recorded as: **the module (9) and YOKE (9) are turned down on shape.** Big Energy's design is the guide for floss's form (which design, CATHEDRAL, ONE SHEET or FOLD, to be confirmed). This is the first rejection of 9s in this loop; give it to the director as the signal for what a 9 means to Adam.
+
+> Cathedral but dimensions can change. Log that in a handoff
+
+Recorded as: **floss's form follows Big Energy's CATHEDRAL**, and its dimensions can change to suit the module.
