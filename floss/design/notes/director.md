@@ -122,3 +122,33 @@ The convergence worry didn't recur: BOW and TIDE differ in kind.
 
 ### Next
 Round 2 on BOW and TIDE with the fixes above. Eng sizing (strand chips, lid box and lap, TIDE's depth) is the gate for BOW's next score.
+
+---
+
+# REV 2: the module (concept phase restarted, round counts reset), 2026-11-22
+The owner turned floss into a keyless sound module played by a carried travel keyboard over USB-C. It's a family principle (Big Energy changes too). There are no built-in buttons, and proportions are open. Process: requirements first (`floss/REQUIREMENTS.md` rev 2, T1–T12 baseline; any beat or miss is a trade-off for him), then an engineering gate (`floss/eng/module.md`). **He measures nothing:** choices rest on published evidence. SMD is allowed. Round-1 BOW / TIDE scores are history (they assumed built-in keys).
+
+## Jam-module pass 1, my turn 3
+- Read: the REV 2 brief section, owner.md 09:22 onward, REQUIREMENTS rev 2, the jobs rev 2 table, the eng/module.md highlights, both jam turns, sketch 2a (FALLBOARD). Sketch 2b not opened.
+- Randomness: "Is the tuning appropriate?" (15/20); field: orchestral instrument cases (6/12).
+- **Key insight:** with a borrowed keyboard, floss no longer owns the finger. Lean and lift depend on the guest's sensors. floss owns time and the panel. TIDE's ideas strengthen and BOW's weaken.
+- **Rulings:**
+  - Concepts differ on the **kit only**. **One floss voice** across all kits (systems to write it): TIDE's plant-and-tend HOLD, DRIFT and unplug-proof HOLD; BOW's strands per half; velocity = speed; the PRESSURE fallback ladder. No kit × voice pairing.
+  - **Forward:** FALLBOARD (lead: a rigid bed for the lap, the best lid), SPINE (rival: smallest closed footprint, 400 × 140 × ~55–60), CLOTH (the two-package test; module 270 meets T4).
+  - **Killed:** LAMP (light folded into FALLBOARD and SPINE), TETHER (strap = accessory on the S4 inserts), BACKBONE.
+  - **S8** (every module / kit 400 wide): yes, as a PROPOSAL **for the owner** (a family decision). Pitch: "floss adds no width to the keyboard you already carry." CLOTH's BLOCK is the exception.
+  - Split = fixed note (rule A) + brass target. Learned split (B) rejected.
+  - Two lights (status and port). One power switch on the module (SPINE's open = on dropped). Add job 29.
+  - RAIL one row: keep, but grouped by countable gaps; HOLD with touch; strands as 3 tabs at each end if they survive.
+- **Push:** end blocks hold the keyboard by its ends (no bands across keys; from the orchestral case); an accessory pocket for the cable; "own the outline, host the keys" for every kit; host port centred in the gutter; S4 inserts.
+- **Likely owner objections:**
+  1. 400 vs 290 width;
+  2. weight near T5;
+  3. **eng's slim radiator "needs one acoustic measurement"**, which breaks "measures nothing". Assume a published-data speaker (32–38 mm body) unless eng finds published pairing data. Flagged to the orchestrator for eng now;
+  4. hand-craft steps (bookcloth, sewing, struts) listed honestly;
+  5. a quiet rail reading as an accessory;
+  6. bands over keys (fixed);
+  7. an ungrouped row (fixed).
+- **Watch:** the bed's spare width (67 mm with a 325 mm keyboard) must stay a frame, never a place to put things. The leftover-space pattern from round 1 again.
+- **Owner questions to hold:** S8 / 400 wide; one package or two; slim class only or all (CLOTH carries all).
+- **Next:** pass 2, systems first (the one voice, RAIL fit, end-block range, speaker flag), then visual (the redrawn kits and a closed-kit comparison sheet), then I end the jam and call concepts.

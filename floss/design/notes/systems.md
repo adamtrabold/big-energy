@@ -1,5 +1,123 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22 late): module jam pass 2, my turn 4 done
+- **Jam so far:**
+  - turn 1: me;
+  - turn 2: visual (FALLBOARD; RAIL / SLAB / BLOCK; S8 = 400 wide; brass target; kills LAMP and TETHER);
+  - turn 3: director;
+  - turn 4: me.
+- **Director turn 3 rulings:**
+  - **one floss voice in every kit**, so concepts differ only on the kit (no pairings);
+  - **FALLBOARD (lead), SPINE and CLOTH** go forward; LAMP, TETHER and BACKBONE are killed (LAMP's light goes into the lid, TETHER's strap becomes an S4 accessory);
+  - S8 goes to the owner as a proposal;
+  - split = rule A + brass target (B rejected);
+  - two lights; **one power switch on the module** (SPINE open = on dropped);
+  - job 29 added;
+  - the grouped row: octave | touch | voice | shimmer | room | out | octave, with HOLD in touch;
+  - padded **end blocks** (nothing crosses a key) and an **accessory pocket** in every kit;
+  - **assume the published-data speaker path** (32–38 mm body). That's with eng, who is writing `floss/eng/module-r2.md` (USB-C host, RAIL / SLAB / BLOCK fit, kit weights).
+- **My turn 4 (in `../jam-module.md`):**
+  - **The one voice:**
+    - velocity = speed; release velocity → tail (RELEASE up to ≈ 30 s);
+    - strands per half (low · main · high);
+    - DRIFT knob;
+    - lean **swell · drift · tone · shimmer**, where a full lean on drift speeds it up into vibrato (≈ 0.3 → 5–6 Hz, PROPOSAL);
+    - the lean ladder;
+    - **plant-and-tend HOLD that survives the keyboard, with its scope following the split** (octaves equal = everything; different = left half only; owner to confirm);
+    - CC64 = sustain;
+    - **REPEATS cut** (tied to ECHO).
+  - **Count:** 13 round (4 stepped + 9 pots) + HOLD, TAP, FREE / SYNC + 6 tabs + 2 lights.
+  - **Engine catch:** allocated voices break the 6-line strand gating, so I proposed **fixed voice pools, 12 left / 13 right** (eng to confirm).
+  - **RAIL fit [calc]:**
+    - the full voice in one row doesn't fit 400 (396 needed at pitch 20 vs 384 usable; 428 at 22);
+    - **recommended layout D:** a front row of amounts + a back line of three kinds (PRESSURE behind ATTACK / RELEASE, SHIMMER behind DEPTH, FREE / SYNC behind TIME) on a rail ≈ 400–412 × 95. It needs 372 at pitch 22.
+  - **End blocks:** 8 mm fully in, 32 mm travel each, ≈ 40 out; bed inside 404; **kit ≈ 412**. So S8 at 400 doesn't hold real blocks; proposed ≈ 412 ("about an inch over the widest keyboard"). Also: centring by a shared scale (same graduation as the target rail); a lid foam strip holds the keyboard when packed.
+  - **Pocket:** the gutter (FALLBOARD), the spine plus a cover sleeve (SPINE), the sewn pocket (CLOTH). Rigid kits carry cables, not a charger.
+  - **`jobs.md` rev 3 changes: 14 proposed** (the six held + director's). Not written yet: write them when the jam closes.
+- **[spk] speaker-dependent:** RAIL's speaker volume (≈ 300–400 cm³ at a 32–38 mm body: helps), FALLBOARD closed ≈ 43–45, SPINE closed ≈ 60.
+- **Next:** visual redraws the kits; the director steers; then jobs rev 3 and the concepts. In the concepts I write how each kit works around the one voice (a common how-it-works for the voice and panel, plus a kit file each).
+- **Open:**
+  - **Director:** D vs SLAB everywhere; S8 at 412; self-centring linkage vs scale; REPEATS tie.
+  - **Owner:** split-scoped HOLD; S8 ≈ 412; charger in the kit.
+  - **Eng:** voice pools; body depth; weights at 412; lamp power; coiled-cable products.
+
+## Where things stand (2026-11-22 evening): module jam, turn 1 done (new systems seat)
+- **New seat:** a new agent took over the systems seat from here. The notes below this section are history, not commandment.
+- **Owner direction since the notes below:**
+  - 12:52: the host port is **USB-C**, and proportions are open ("we can riff on the dimension ratios"). T4's 290 mm isn't a hard cap while we explore.
+  - 12:28–12:30: the family principle; Big Energy changes too (later); **no hybrid** (no built-in buttons).
+  - KEPT is dead (director, round 1).
+- **Wrote `../jam-module.md`, turn 1.** It covers:
+  - challenges to `jobs.md` rev 2;
+  - the system's structure and the family standard (S1–S7);
+  - flows (unpack, keyboard missing, swap, friend, home);
+  - the panel principle and its new parts;
+  - four kit directions plus one proposed kill.
+- **Next:** the visual designer's turn, then the director steers. After the jam: `jobs.md` rev 3 (changes listed below), then concepts.
+- **Didn't touch:** `jobs.md` (changes held for rev 3), `concepts/`, git.
+
+### Randomness drawn (module jam turn 1, Python `secrets`)
+- Oblique Strategies: "Look at the order in which you do things" (43/50); "Only one element of each kind" (4/50).
+- Field: bookbinding (16/30), drawn **twice**. Kept it, then drew a third: tea ceremony utensil kits (10/29).
+- Twist: "it is mostly used at night" (2/12).
+- Constraint: "the cable is the handle" (10/10).
+- Proportion: 3 : 1.
+
+### Decisions and proposals so far, and why
+- **floss = "a mind with a sound that borrows hands."** The panel can face anywhere now; the join (cable, carry, attachment) is itself a product; every behaviour needs a "keyboard can't" answer.
+- **Family standard: fix interfaces, not sizes** (the camera tripod thread, not the shipping container). Modules differ in size, and a fixed box recreates the director's "leftover space" problem. PROPOSAL S1–S7:
+  - S1: keyboard envelope ≤ 392 × 139 × 18, ≤ 0.6 kg (eng);
+  - S2: USB-C host, 5 V ≈ 550–600 mA, **on the keyboard-facing edge, never the rear**;
+  - S3: cable owned by the keyboard (right-angle C at the module end, coiled ≈ 0.3 m relaxed to 1 m stretched);
+  - S4: **two ¼"-20 brass inserts underneath at one family spacing** (spacing not set yet); every carry part attaches there, and it mounts on tripods;
+  - S5: any plug order works; unplugging releases notes on their tails; **held notes survive an unplug**; the port light; the keyboard is powered only while the module is on;
+  - S6: a family CC map (CC64 hold, CC1 lean fallback, CC74 tone, CC11 expression, bend ±2);
+  - S7: one split rule.
+- **Panel principle:** it holds what turns notes into floss, and nothing a keyboard already has ("one element of each kind" used as a test). The round-1 panel survives; signal order is unchanged, with the ensemble after the voice (director's BOW fix 1).
+- **Split rule:** PROPOSAL **A (fixed B3 | C4) + C (a bookbinding ribbon laid across the keyboard at the split)**. B (learned per keyboard by USB ID, set by HOLD + key) is offered but hides state.
+- **Port light** next to the host port: off / steady connected / blinks on each note received / fast flash = power fault. The status light keeps its three meanings. "One of each kind" argues against a second light; the director rules.
+- **Lean fallback chain:** poly AT/MPE → channel pressure → CC1 → nothing. It's automatic, the panel is unchanged, and it gives velocity-only players the selector through their mod control (job 9).
+- **BOW's per-note thinning** runs only when per-note pressure is arriving.
+- **Two axes:** kit (SPINE / CLOTH / LAMP / TETHER) × voice life (BOW / TIDE). Proposal: concepts differ on the kit, each paired with one voice (SPINE + BOW, CLOTH + TIDE, LAMP + TIDE or a quiet BOW, TETHER + BOW).
+- **The kits:**
+  - **SPINE** (book): a 390 × 130 module plus a keyboard board with sliding elastic corners, joined by a cloth spine ≈ 55 mm wide that folds both ways: open flat / standing ≈ 110° / closed face to face (≈ 2 mm knob clearance on a 16 mm keyboard [calc]). The cable runs in the spine. Misses T4; weight is at T5's edge.
+  - **CLOTH** (tea kit): a 270 × 90 module plus a quilted furoshiki ≈ 80 cm with a module sleeve and a cable pocket; the cloth is the lap mat, and the unpack is a ritual. The only kit that carries the chunky minis. Weak on impact protection, dirt, and two loose objects.
+  - **LAMP** (night): a 270 × 90-face wedge standing behind the keyboard, with a lip for any depth; a warm LED strip lights the keys in two zones that show the split. Weak on the lap and the carry; it's a night object.
+  - **TETHER** (cable is the handle): a strap with the keyboard cable inside it, anchored to S4, with slack pigtails; play standing or walking. Weak on protection and job 18, and the strap is a custom part.
+  - **BACKBONE** (a clamp-on bar): proposed kill (no protection, near a fitted dock, risks the keyboard).
+
+### jobs.md rev 3 changes held (fold in after the jam)
+1. Job 2: USB-C host port.
+2. Jobs 3 / 28: the carry works with no keyboard in it.
+3. Job 3: chunky minis play but aren't carried unless the owner says "all".
+4. Job 6: keyboards differ in their default lowest note (eng to list them).
+5. Job 23: the cable-length conflict (solo vs friend).
+6. **New job 29 (inferred):** find out from floss why there's no sound.
+
+### Open questions (new)
+1. **Eng:**
+   - `module.md` §3 still says USB-A: revise for USB-C;
+   - each slim keyboard's default lowest note, and its socket position and type;
+   - a full-size keyboard's draw;
+   - phone as host;
+   - over-current retry;
+   - lamp power vs T2;
+   - SPINE's lap mass;
+   - the S4 insert spacing.
+2. **Director:**
+   - which kits go forward;
+   - the BACKBONE kill;
+   - two axes;
+   - one light or two;
+   - split A + ribbon vs B;
+   - SPINE open = on (it needs a second switch for use without the board).
+3. **Owner:**
+   - slim only vs all;
+   - one package vs two;
+   - job 29.
+
+---
+
 ## Where things stand (2026-11-22 afternoon): floss is now a keyless sound module
 - **Owner 12:26:** floss has no built-in keys. A travel USB MIDI controller (K-Board C, Xkey 25, or any class-compliant keyboard) plugs into floss's USB host port, is powered by floss, and is carried with it.
 - **Process changed** (owner 09:2x): requirements (`floss/REQUIREMENTS.md` rev 2, T1–T12 baseline), then an engineering gate, then concepts. Adam measures nothing; choices rest on published evidence; SMD is allowed.
