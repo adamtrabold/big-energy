@@ -320,3 +320,49 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
   - the knob, tab and fret parts chosen;
   - the marking system at 1:1.
 - Keep images to what must be visual (PRINCIPLES §10). The images are for the site, not for print. The 1:1 sheet is the exception the director asked for.
+
+---
+
+## 2026-11-22 (evening): CATHEDRAL-cues form round, jam turn 2
+
+**Where things stand:** the owner turned down the module and YOKE on shape ("I hate the shape of these"). Big Energy's CATHEDRAL is now the guide for cues, not for the form. The case is fully printed, metal included; knobs and similar bought parts are the exception. No bookcloth spine. All controls in one plane. It sits at an angle, by shape if possible (his idea; a possibility, not an anchor; CLAUDE.md item 5). Brief: `BRIEF-CATHEDRAL.md`. Jam: `jam-cathedral.md` (systems turn 1, my turn 2). Sketches: `sketches/cathedral/` (`visual_jam2.py` → `cathedral-jam2-sections.png`, `cathedral-jam2-rose.png`).
+
+**My turn 2, in short:**
+- **What lost (as shape):** the module's arched plan and its separate speaker "house"; YOKE's appendage arms. Rule for myself: **nothing hangs off the body.**
+- **Cues that carry over, ranked:**
+  1. the framed plate (cream in a thick walnut rim, superellipse corners);
+  2. the lancet grille;
+  3. cathedral-grain grooves, with growth rings on the end faces, which now *are* the silhouette;
+  4. brass as the one metal, printed, used only for wear surfaces (runners, foot ring);
+  5. his pipe-façade field;
+  6. the panel language (black, one red hero, Kalam, the 300° system).
+
+  Dropped: hinge, stays-as-legs, the spine.
+- **Verdicts on systems' five:**
+  - WEDGE → sharpened into **DROP**;
+  - TRIPTYCH kept, plus a hinge-free twin, **CASKET** (pencil-tin lid as stand; absorbs SLED);
+  - BAIL killed (an appendage, like YOKE);
+  - SLED merged into CASKET;
+  - RETABLE killed as its own direction, kept as DROP's pose 2;
+  - NAVE kept, with the seams as engraved hairlines.
+- **DROP** (teardrop end, 25° drawn; the pipe at the back is the speaker box, port and handle):
+  - the port mouth sits at the centre of growth-ring grooves on the end face;
+  - "clerestory" lancet slots across the pipe's upper front for the two drivers, so the plate is controls only;
+  - brass runners as feet;
+  - a rear land for a ≈ 65° pose;
+  - keyboard k2 under the base.
+- **ROSE** (differs in kind): a circular plan. Every control sits on one 300° arc, 7 → 5 o'clock, in signal order, round a central lancet window. It's a tilted drum on a brass foot ring. Weak on carry, height (it wants ≈ 12°, not 25°), speaker E (one driver in the centre) and family fit. It risks the same rejection as the arched plan.
+- **Rocker / keel killed [calc]:** a 3 N knob press rocks it about 29° (ESTIMATE). It survives only as a gently curved belly beyond DROP's flat land.
+
+**Randomness used:** SystemRandom drew Oblique "Abandon normal instruments" and "Water"; fields sledge runner, pencil case, font; section teardrop; angle 25°; constraint "two identical halves" (it only half landed: it pushed toward a constant extrusion).
+
+**Director's objections:** none yet this round. Last round's lessons carried: random draws aren't the product's story (each draw here is shown as a tag, and the idea stands on its own reason), and no costume (the round forms come from the driver, the port and the knob sweep).
+
+**Open questions:**
+1. Owner: flat *and* angled, or angled only?
+2. Owner: does lost-wax cast from a printed wax count as "printed metal"?
+3. Eng: DROP's pipe (drivers, port, volume ≈ 1,100 cm³ gross vs E's 190 net); the board under a 25° plate; pose 2's centre of mass; ROSE's driver.
+4. Director: cut DROP's pose 2? Show ROSE as the wild card or kill it on carry?
+5. Systems: derive DROP's ratio from its parts (I drew numbers; I didn't derive them).
+
+**Next:** systems' structural pass on DROP, CASKET and ROSE, then the director steers. For whichever concepts go forward: end-elevation and 3/4 views showing the framed plate, the end grain and the brass, at concept fidelity only (the owner: no deep refinement before he approves one).
