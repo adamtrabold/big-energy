@@ -414,3 +414,8 @@ Recorded as: look into a **passive radiator** with floss's speaker for fuller so
 > Analog mode on shimmer but modes to use the daisy too
 
 Recorded as: floss's shimmer has an **analog mode** (bucket-brigade ensemble) and **Daisy (digital) modes** as well. Echo and reverb stay on the Daisy, as on Big Energy.
+
+## 2026-11-21 22:55 (chat): floss MIDI
+> Yes. Sure midi split could be on/off and yes re the velocity and pressure.
+
+Recorded as: floss **keeps Big Energy's MIDI rules**: USB-MIDI plus TRS in and out, synth settings controllable over MIDI, MIDI never flips switches, knob-only controls send no MIDI, and the echo syncs to MIDI clock. A **MIDI split can be turned on or off**: on, each half has its own channel; off, one channel. **Velocity and pressure go over MIDI**, with polyphonic aftertouch if per-key pressure proves feasible.
