@@ -439,3 +439,27 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
 4. Cast metal counting as printed is now moot unless brass earns a job.
 
 **Next:** the director re-scores GNOMON alone. If it reaches 9, it goes to the owner. After approval, the handoff's "how it looks and feels" for every state (angled, upright, packed with SHOE, loose, no keyboard).
+
+---
+
+## 2026-11-22 (late night): GNOMON rev 3, the owner's upright lean
+
+**State:** the director scored rev 2 at 9; the owner sent it back with one change, verbatim: "Reverse the angle on the side behind the speakers so there's still a subtle angle when upright". Systems rev 3:
+- the corner behind the speakers ≈ 80.5° (tan φ = T / 2D, φ ≈ 9.5°);
+- angled pose unchanged at ≈ 18.4°;
+- rear face ≈ 67.2;
+- footprint 280 × ≈ 99.
+
+**Updated in place:**
+- `concepts/c-gnomon/sheet.png`, with the geometry in `sheet_gnomon()`: `PHI`, the new rear-face point `Rq`, and the slab's rear-bottom corner `Hc`, which is where the hairline now ends.
+- The end view shows the 80.5° arc and a dashed ghost of rev 2's square face.
+- The upright 3/4 is seen more from the side, so the lean shows.
+- The two-poses view has a dashed vertical marked ≈ 9.5°.
+- The title says "≈ 18.4° or upright (≈ 9.5° back)".
+- `how-it-looks-and-feels.md` has a rev 3 section at the top.
+
+**Why:** a lean read off a dashed vertical makes it look deliberate without a dimension. It reads as a music stand or easel, not a radio front.
+
+**Open:** systems' note that if the owner meant the literal mirror (≈ 37° lean), it's one number to change.
+
+**Next:** the director re-checks; then it goes back to the owner.

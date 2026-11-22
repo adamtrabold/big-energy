@@ -1,4 +1,4 @@
-# GNOMON: how it looks and feels (visual, idea level) — rev 2
+# GNOMON: how it looks and feels (visual, idea level) — rev 3
 
 2026-11-22. PROPOSAL (the director's idea). Round 1 score: 8. Rev 2 folds in the director's fixes 1–6 (`notes/director.md`) and systems' `how-it-works.md` rev 2. That file sets the geometry:
 - tan θ = T / D ≈ 18.4° (T 35, D 105);
@@ -7,6 +7,31 @@
 - angled footprint 280 × 111; overall ≈ 280 × 122 × 66, including the front face's forward lean.
 
 Picture: `sheet.png` (14 × 25 in at 200 dpi: end view 3:2, 3/4 views 1:2). Source: `../_src/cathedral_sheets.py`, `sheet_gnomon()`.
+
+
+## Rev 3 (2026-11-22): the owner's change, drawn
+**Owner, verbatim:** "Reverse the angle on the side behind the speakers so there's still a subtle angle when upright".
+
+Systems' `how-it-works.md` rev 3 turns that into geometry:
+- the corner behind the speakers closes to ≈ 80.5° (tan φ = T / 2D, φ ≈ 9.5°);
+- the angled pose is unchanged at ≈ 18.4°;
+- the rear face is ≈ 67.2 (≈ 1.9T);
+- the angled footprint is 280 × ≈ 99 (overall ≈ 280 × 110 × 66).
+
+**On the sheet:**
+- **End view:** the rear face now leans in about half as much as rev 2's. I marked the corner with an arc labelled "rear corner ≈ 80.5°: the upright lean", plus a faint dashed ghost of rev 2's square face. You can read the change without a dimension.
+- **Upright 3/4 (view 4):** seen more from the side (camera 48° round, 14° up), so the end face shows the lean. Caption: "plate leans back ≈ 9.5°, facing you".
+- **Two poses (view 6):** the upright silhouette has a dashed vertical beside the plate, marked ≈ 9.5°. This is where the lean reads as deliberate: small, measured, and from the slab's own numbers.
+- **Title line:** "≈ 18.4° or upright (≈ 9.5° back)".
+- **Hairline:** it now ends where the slab's underside meets the new rear face. It still sits T below the plate, so it still shows the lid plus its own thickness.
+
+**Why it looks right:**
+- Upright, a dead-vertical plate reads as a radio front.
+- Leaning back ≈ 9.5° reads as a music stand or an easel: the face is offered *up* to you, and the drivers aim slightly up toward the ear.
+- From the side, the rear face still leans in like a buttress, now more gently.
+- The angle is half the angled pose's slope (T / 2D against T / D). It's one family of numbers, and that's what makes it look intended rather than off.
+
+**Superseded in the rev 2 text below:** "plate and rear face square", "rear face 2T", "plate exactly vertical", "280 × 111 footprint" and "≈ 122 deep". Read the rev 3 numbers above instead.
 
 ## The idea, as you see it
 CATHEDRAL's lid standing on its own ends. A framed slab of constant thickness. At each end the rim carries on down into a cheek, and the slab is open underneath between the cheeks.

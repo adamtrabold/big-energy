@@ -416,12 +416,22 @@ def sheet_gnomon(path):
     fb, bb, bt, ft = gn_pts()
     cth, sth = math.cos(GN_TH), math.sin(GN_TH)
     # fix 6: the rear face runs square to the plate from bt down to the table
-    Rq = (bt[0] + 2*GN_T*sth, bt[1] - 2*GN_T*cth)     # rear face 2T, square to the plate, lands on the table
+    # rev 3 (owner: "Reverse the angle on the side behind the speakers so there's still a subtle angle when upright"):
+    # the rear face closes to (90 - phi) with the plate, tan(phi) = T / 2D, so upright the plate leans back phi.
+    PHI = math.atan(GN_T/(2*GN_D))
+    dang = GN_TH - math.pi/2 - PHI
+    dv = (math.cos(dang), math.sin(dang))
+    Lr = bt[1]/(-dv[1])
+    Rq = (bt[0] + Lr*dv[0], 0.0)
+    # where the slab's underside line meets the rear face (the hairline's end, the slab's rear-bottom corner)
+    den = cth*dv[1] - sth*dv[0]
+    s_ = ((bt[0]-fb[0])*dv[1] - (bt[1]-fb[1])*dv[0]) / den
+    Hc = (fb[0] + s_*cth, fb[1] + s_*sth)
     LIP_R = 16.0
     prof0 = fillet_radii([fb, Rq, bt, ft], [3, 4, 6, LIP_R])
-    slab0 = fillet_radii([fb, bb, bt, ft], [3, 0.01, 6, LIP_R])
+    slab0 = fillet_radii([fb, Hc, bt, ft], [3, 0.01, 6, LIP_R])
     port0 = (fb[0] + 80*cth - 17.5*sth, fb[1] + 80*sth + 17.5*cth)
-    hair0 = [(fb[0]+3.5*cth, fb[1]+3.5*sth), (bb[0]-0.3*cth, bb[1]-0.3*sth)]
+    hair0 = [(fb[0]+3.5*cth, fb[1]+3.5*sth), (Hc[0]-0.3*cth, Hc[1]-0.3*sth)]
     # jacks on the right end face, in the cheek below the hairline (y, z, kind)
     jk0 = []
     for i, kind in enumerate(["usb", "sw", "pot", "sw", "j", "j", "j", "j"]):
@@ -522,12 +532,12 @@ def sheet_gnomon(path):
     prof, slab, port, hair, ftt, th, jk = geo(ident)
     fig = new_sheet("GNOMON · the lid on its own cheeks",
                     "CATHEDRAL's framed lid standing on its own ends: the rim carries on down into two cheeks, open underneath. "
-                    "Plate and rear face are square: angled on its runners, or upright on its back.",
-                    f"280 × 122 × 66 mm · ≈ {math.degrees(GN_TH):.1f}° or 90° · no moving parts",
+                    "Angled on its runners, or upright on its back, leaning back a touch.",
+                    f"280 × 110 × 66 mm · ≈ {math.degrees(GN_TH):.1f}° or upright (≈ {math.degrees(PHI):.1f}° back) · no parts",
                     scales="end view 3:2, 3/4 views 1:2")
     # 1. end view
     box_mm = (14, 433, 328, 110)
-    heading(fig, box_mm, "1  End view (3:2): a true gnomon (tan θ = T/D, rear face 2T)")
+    heading(fig, box_mm, "1  End view (3:2): tan θ = T/D, rear corner 90° − φ (tan φ = T/2D)")
     ax = axes_mm(fig, box_mm, 1.5, (62, 32))
     poly = Polygon(prof, closed=True, fc=WAL, ec=WALD, lw=2.2, joinstyle="round"); ax.add_patch(poly)
     rmax = max(math.hypot(y-port[0], z-port[1]) for y, z in prof); r = 12.5
@@ -539,10 +549,15 @@ def sheet_gnomon(path):
     for (y0, y1) in ((3, 14), (Rq[0]-14, Rq[0]-3)): ax.add_patch(Rectangle((y0, -1.6), y1-y0, 1.6, fc=TPU, ec="none"))
     ax.add_patch(Rectangle((20, 0), 60, 6, fc="none", ec=INK, lw=1.2, ls=(0, (5, 3))))
     # right-angle mark at bt
-    u = (cth, sth); v = (sth, -cth); k = 6
-    ax.plot([bt[0]-u[0]*k, bt[0]-u[0]*k+v[0]*k, bt[0]+v[0]*k], [bt[1]-u[1]*k, bt[1]-u[1]*k+v[1]*k, bt[1]+v[1]*k], color=CREAM, lw=1.6)
+    a0 = math.atan2(-sth, -cth); a1 = dang; ra = 9
+    arc = [(bt[0]+ra*math.cos(a0+(a1-a0+2*math.pi) % (2*math.pi)*k/30 - 0), bt[1]+ra*math.sin(a0+((a1-a0) % (2*math.pi))*k/30)) for k in range(31)]
+    arc = [(bt[0]+ra*math.cos(a0+((a1-a0) % (2*math.pi))*k/30), bt[1]+ra*math.sin(a0+((a1-a0) % (2*math.pi))*k/30)) for k in range(31)]
+    ax.plot([p[0] for p in arc], [p[1] for p in arc], color=CREAM, lw=1.6)
+    # ghost of rev 2's square rear face, for the eye
+    sq = (bt[0] + 2*GN_T*sth, bt[1] - 2*GN_T*cth)
+    ax.plot([bt[0], sq[0]], [bt[1], sq[1]], color=GREY, lw=1.0, ls=(0, (3, 3)))
     ground(ax, -50, 175)
-    leader(ax, (bt[0]+2, bt[1]-6), "plate and rear face square", (122, 66))
+    leader(ax, (bt[0]+2, bt[1]-6), f"rear corner ≈ {90-math.degrees(PHI):.1f}°:\nthe upright lean", (122, 64))
     leader(ax, (port[0]+5, port[1]+5), "port: grooves only", (122, 50))
     leader(ax, (60, 21.5), "hairline: the lid above,\nits own thickness below", (122, 30))
     leader(ax, (ft[0]+4, ft[1]-2), "lip rounded\ninto the plate", (-48, 50))
@@ -567,14 +582,14 @@ def sheet_gnomon(path):
     hp = camr.p((W/2, 80, 0))
     ax.text(hp[0], hp[1]-22, "open underneath", ha="center", fontsize=SML-2, color=INK)
     # 4. upright on the rear face
-    camu = Cam(180-34, 18); scu = Scene(camu)
+    camu = Cam(180-48, 14); scu = Scene(camu)
     build(scu, camu, tf=tf_up)
     box_mm = (186, 225, 156, 84)
-    heading(fig, box_mm, "4  Upright (1:2): on its back")
+    heading(fig, box_mm, "4  Upright (1:2), leaning back")
     cpt = camu.p((W/2, 30, 50)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0], cpt[1]-8))
     keep = LIGHT; lu = (0.35, 0.75, 0.55); ln = math.sqrt(sum(v*v for v in lu)); LIGHT = tuple(v/ln for v in lu)
     scu.draw(ax); LIGHT = keep
-    ax.text(cpt[0], cpt[1]-84, "plate vertical, turned to face you", ha="center", fontsize=SML-2, color=INK)
+    ax.text(cpt[0], cpt[1]-92, f"plate leans back ≈ {math.degrees(PHI):.1f}°, facing you", ha="center", fontsize=SML-2, color=INK)
     # 5. packed on SHOE
     camp = Cam(36, 24); scp = Scene(camp); build(scp, camp, packed=True, stretcher=True)
     box_mm = (14, 131, 160, 80)
@@ -591,7 +606,12 @@ def sheet_gnomon(path):
     ground(ax, -20, 290)
     ax.text(55, -14, f"angled ≈ {math.degrees(GN_TH):.1f}°", ha="center", va="top", fontsize=SML-1, color=INK)
     upx = sum(y for y, z in pu)/len(pu) + 175
-    ax.text(upx, -14, "upright 90°", ha="center", va="top", fontsize=SML-1, color=INK)
+    zt = max(z for y, z in pu); yt = [y for y, z in pu if z > zt-0.5][0] + 175
+    pb = min(pu, key=lambda p: (abs(p[1]), -p[0]))
+    ybase = max(y for y, z in pu if z < 1.0) + 175
+    ax.plot([ybase+4, ybase+4], [0, zt+6], color=GREY, lw=1.0, ls=(0, (3, 3)))
+    ax.text(ybase+8, zt+2, f"≈ {math.degrees(PHI):.1f}°", ha="left", va="center", fontsize=SML-2, color=INK)
+    ax.text(upx, -14, "upright, leaning back", ha="center", va="top", fontsize=SML-1, color=INK)
     # 7. loose, same size
     caml = Cam(36, 24); scl = Scene(caml)
     build(scl, caml)
