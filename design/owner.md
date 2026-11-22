@@ -456,3 +456,10 @@ Recorded as: the order of work changes to **requirements first** (decisions plus
 > Sure but if we can do better or need to do worse tradeoffs should be discussed
 
 Recorded as: targets T1–T12 in `floss/REQUIREMENTS.md` are **confirmed as the baseline.** Any place engineering could beat a target, or has to miss one, comes to Adam **as a trade-off to discuss**, not decided quietly.
+
+## 2026-11-22 10:09–10:17 (chat): floss keys
+> Let’s talk keys. Make sure we’re not assuming things. All a key has to be is something we can press that can record various pressure levels. We had ideas on big energy but not finals. We can reuse anything we do here there. Look at first principle approaches.
+
+> I don’t like springs because they give over time and also I *am* building this so I want something feasible. Pads are fine imo
+
+Recorded as: floss uses **pressure pads, not moving keys** (keys.md S3 family: LinnStrument/QuNexus-style pads over force sensing). No spring-key mechanism. **Adam builds floss himself**, so feasibility for a home builder is a hard requirement. Whether Big Energy adopts pads too is not decided.
