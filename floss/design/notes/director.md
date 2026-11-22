@@ -193,3 +193,122 @@ The owner turned floss into a keyless sound module played by a carried travel ke
 - **Must-shows amended:** the panel drawn once, shared; each concept accounts for every area of the carry outside the keyboard and module.
 - **Objection 1 eases:** "the module is about the size you asked for; the kit is the size of the keyboard you bring."
 - **Watch next round:** SPINE may not survive the change. If its rework is a book with mismatched covers, it scores low and should be replaced or dropped rather than patched.
+
+---
+
+# Director handover: new director, concept round 2 steer 1 (2026-11-22)
+I took the seat from here. Everything above is history: I use it to stay consistent and I don't defend its scores. Round-1 BOW / TIDE / KEPT scores belong to the keyed instrument and don't carry over.
+
+## What I read
+- `PRINCIPLES.md` (new today; binding), the REV 2 part of `BRIEF-CONTEXT.md`, `REQUIREMENTS.md` rev 2, `jobs.md` rev 3, `design/owner.md` from 09:22 to 13:55, the notes above (REV 2 and the 13:25 addendum).
+- Concept round 2, both designers: `concepts/module/how-it-works.md` (still at 297 × 105 × 40) and `how-it-looks-and-feels.md`; the three kits' how-it-works and how-it-looks-and-feels files; `eng/module-r2.md` (summary, fit, weights).
+- **Images opened and judged:** `module-1to1-A3.png`; `fallboard-A-in-use.png`, `fallboard-B-closed-and-packing.png`; `spine-A-in-use.png`, `spine-B-closed-and-packing.png`; `cloth-A-in-use.png`, `cloth-B-closed-and-packing.png`.
+- I haven't read the jam in full; I worked from the turn-6 rulings and the addendum above.
+
+## Randomness used (real draw: `python3` SystemRandom)
+- Oblique Strategy: **"Use fewer notes."** Field: **sailing (dinghy fittings).**
+- How I applied them: every part of every kit has to earn its place, or it goes (the lamp, filler pockets, the gutter, the engraved sentence, two-shade cloths). From the dinghy: fittings do one job each and sit where the load is. The hull is already sailing; I don't want more nautical styling than that.
+
+## Rulings
+
+### R1. The module: 280 × 105 × 35, 8 : 3 : 1 on a 35 mm unit, hull outline. ACCEPTED.
+- **Why:** each size comes from a part. The panel gives 264 + 2 × 8 = 280, the speaker crown gives 105 and the driver body gives 32 + 3 = 35. The ratio then tunes those sizes rather than inventing them. That's the order PRINCIPLES §2 asks for ("derived from the dimensions of the device"; "make sense and be harmonious"). The halves are 4 : 3 each and the split axis falls between them, so the proportion shows the instrument's real structure, which is better than a story laid on top. The 297 version was anchored on paper, and the owner withdrew paper (13:51).
+- **The hull:** every edge has a job: the straight front faces the keyboard and carries the rail, the 70-deep ends are where you pick it up, and the arc gives depth only where the speaker needs it. It's symmetric about the axis (§6) and it isn't a slab (owner 13:29). Accepted.
+- **Conditions (the ratio has to stay honest):**
+  1. 35 depends on eng confirming the deck-26 stack with the cells beside the crown. **If eng can't confirm it, the height goes to whatever the parts need and we restate the ratio. We don't fake 35.**
+  2. Name the knob part with a published height, and derive the deck from it. Knob tops 8 mm above the deck may be too low to grip; if the knob needs more, the deck drops or the rim rises, and that is said openly.
+  3. **Finger room behind DRIFT, SHIMMER and TIME:** the crown's raked foot (y 47) sits 0.5 mm behind those knobs' rear edges (y 47.5). Give at least 5 mm clear: move the crown foot back, steepen the rake, or reposition the driver (eng's call). Don't shrink the knobs.
+  4. Grille open area ≥ 620 mm² (a Ø 46 field, or Ø 1.9 holes).
+- **Systems must update `module/how-it-works.md` and every kit file:**
+  - 280 wide; every x moves −8.5 (axis 140; frets 45.5 · 74.5 · 125.5 · 154.5 · 205.5 · 234.5); inserts at x 60 and 220 (still 160 apart);
+  - rim and crown at 35 (not 40), deck 26, sunk deck, crown 70 wide on the axis with its raked front; the cells beside the crown (eng to confirm); the U-shaped board around the crown;
+  - **§2: delete the 2√2 / paper argument and the Letter alternative.** Use visual's §1 table as the derivation;
+  - the rear is **two flat port facets on the arc**, replacing "the rear wall stays flat";
+  - every kit's closed thickness: FALLBOARD 43, SPINE 56, CLOTH about 5 mm thinner; the pockets beside the module ≈ 59 × 105 (before R6's changes);
+  - **`jobs.md` job 30 still says "paper length":** rewrite it as "portable, makes sense, harmonious; a ratio derived from the parts; any outline" (owner 13:51, PRINCIPLES §2). Fix the rev-3 change table too;
+  - job 6: drop the engraved line (R4).
+
+### R2. Brass dividers: FLUSH. Raised is out.
+- PRINCIPLES §6 is the owner's own words: "Use another method of separation if you think it's important to feel the sections." A raised fret in a 7 mm gap between Ø 14.9 knobs is exactly what catches the side of a finger turning a knob.
+- **Flush brass inlay**, level with the deck. You find the groups by the wider gap (7 mm more than within a group) and by brass feeling cooler and smoother than the deck. That's the "other method".
+- Making it: a strip glued into a slot printed in the deck, then sanded level. Systems lists the step with its source (job 26). No machining.
+
+### R3. Lights: status stays on TAP's ring. No third dot.
+- It's a shared universe: Big Energy's CATHEDRAL puts status on TAP's ring, so floss does too. A dot under the wordmark would be a third light (turn-3 ruling: two lights).
+- **Priority, written into the states table:** low battery (fast flash) overrides tempo; tempo blink (only in SYNC with no MIDI clock, i.e. TAP tempo) overrides charging; charging pulse overrides steady.
+
+### R4. Words on the instrument: the engraved sentence goes.
+- "keep the keyboard | at its home octave" comes off the module's front face and off CLOTH's stitching. The family rule is one plain word per control, and a sentence on the face is an instruction, not a label. It's also likely an owner objection (it was already listed as one).
+- It moves to the 1:1 card in the pocket and to the site. The brass target and the rail stay.
+- **The wordmark leaves the grille** (in the sheet, "floss" sits on top of the holes). Put it on the **crown's rear face** between the two port facets, where it faces the room, like a nameboard turned outward. Nothing else goes on the deck.
+
+### R5. Speaker: drawn sealed; the owner decides.
+Sealed TEBM28C10-4B, with no passive radiator at this size. Eng's case is published-data and modelled. It reverses the owner's "passive radiator would be cool", so it goes to him as a trade-off (sealed / ported, with the trade-off spelled out), not decided quietly. Ported is only offered if eng shows the folded port fits the hull's crown.
+
+### R6. Kits, "fewer notes". No kills this round; FALLBOARD is on notice.
+- **All kits:**
+  1. **The lamp is cut** (FALLBOARD's strip and SPINE's clip-on). It's a second electrical system serving an invented job. One line in the owner notes: "a lamp was considered and dropped".
+  2. **Every area outside the keyboard and module has one job, or it's removed.** A pocket holding a "spare cable, strap and card" is filler: that's round 1's leftover pattern again.
+  3. **One cloth for the bed and the pocket floors** (the near-black coated bookcloth). Pockets show by their walls, not by a second shade. That settles visual's open call (one shade apart).
+  4. Kit weights in the files follow eng's levers by default (bookcloth over board instead of ply wherever stiffness allows). Lighter is better, and each file says what it gave up for it.
+  5. **The kit's outline:** state plainly what sets each dimension (the keyboard envelope, the module, a wall). Where it costs nothing, relate it to the module's 35 mm unit; where it can't, say so. Don't retrofit a ratio.
+- **FALLBOARD (lead, on notice):**
+  - 412 × 288 "only just" fits a 300-wide compartment, by visual's own account. PRINCIPLES §1 says "comfortably", so as drawn it fails a principle.
+  - **Fix: delete the 35 mm gutter.** The two pockets beside the narrower module take the coil and the adapter (left) and the charger (right): one job each, and the narrower module's spare width becomes the reason the gutter can go. Keep only the ≤ 12–15 mm channel the live run needs along the module's front face. Target ≈ 412 × 255–265 × 43. Show it in the same pack outline.
+  - Also: the lid as bookcloth over board; the heaviest kit has to show it got lighter.
+- **SPINE (rival):**
+  - "One trial on the first build" is a test by Adam (PRINCIPLES §7: he measures nothing; anything needing a test is designed around).
+  - **Make the stop-at-flat geometric:** the two trays' walls meet in compression at 180°, so a keypress loads wall on wall over the thighs and the cloth joint only hinges. No trial, no thicker-board fallback.
+  - The module tray is wider than the module (130 mm) because the solander needs one outline. That's acceptable only if the side areas carry the coil, adapter and charger, one job each, which lets the 30 mm cable strip go too.
+- **CLOTH (third):**
+  - **Not green.** The family palette is walnut, cream and brass (shared universe, §4). Use **the rigid kits' near-black coated cloth**, with cream thread and brass weights. Then the outline is literally the family bed, made soft. Dark coated cloth hides park dirt as well as green does.
+  - Add the **pose on the ground** (sitting on grass, the cloth as the mat). That's the park job (owner 2026-11-13: "take this to the park"), and it's where CLOTH beats the rigid kits. Keep the honest "two objects on a lap".
+  - The stitched outline isn't FALLBOARD's 412 × 288 any more once R6 changes FALLBOARD: take whatever FALLBOARD ends at, so the family footprint is one number.
+
+## Where each concept stands (not formal scores; I score at READY)
+- **Module:** the strongest work in the folder. With R1's conditions met, plus R2 and R4, it could be defended as is. Its weakness is the ratio's dependence on an unconfirmed stack.
+- **FALLBOARD:** the idea is strong (one plane; the lid as stand and shade), but it's the heaviest, it only just fits a pack, and it has filler pockets. If the gutter fix doesn't bring it in comfortably, it drops below SPINE.
+- **SPINE:** the solander answer is real (the addendum's "mismatched covers" problem is solved) and it's the best in the bag. It needs the geometric stop and an honest side area.
+- **CLOTH:** the lightest; it carries everything; on the ground it's the park kit. It's off-palette and weak on a lap.
+
+## Likely owner objections (for every concept, as of now)
+1. "Comfortably in a backpack?" for FALLBOARD (288 in 300).
+2. Weight: every kit is 1.2–2.3 kg with a keyboard, and the module (0.67–0.93) dominates. The printed shell is the lever (eng).
+3. "Passive radiator would be cool" vs eng's sealed pick (R5).
+4. 35 mm (or 40) vs the 23–25 he saw earlier, as a trade-off (eng's trade-off 2).
+5. The engraved instruction (fixed by R4).
+6. Craft load: bookbinding (SPINE), sewing (CLOTH), ply and hinges (FALLBOARD).
+7. A ratio story that sounds like decoration. The answer is that the parts came first; keep the line to one sentence: "the parts set 280 × 105 × 35; it happens to fall on one 35 mm unit, 8 : 3 : 1, a fourth for each half".
+
+## Owner questions, held for the concept send
+- Sealed vs ported speaker (and the passive radiator reversal).
+- The 35 mm module height (eng's trade-off 2).
+- Split-scoped HOLD (proposal).
+- Which carry: board / box / cloth.
+- Slim keyboards only, or chunky minis too (only CLOTH carries those).
+- Craft: is a weekend of bookbinding or sewing welcome?
+
+## Steer to the designers (round 2, second pair of turns)
+**Systems first:**
+1. Rewrite `module/how-it-works.md` to R1: 280 / 35 / hull / facets / crown; delete the paper ratio; x −8.5; inserts at 60 / 220.
+2. Fix jobs.md job 30 and job 6 (R1, R4).
+3. States table: R3's light priority; the flush-fret making step (R2).
+4. FALLBOARD: delete the gutter, give each pocket one job, new depth, cable path (R6).
+5. SPINE: the geometric stop at flat, the side areas taking the coil, adapter and charger, the cable strip removed if it can go (R6).
+6. CLOTH: the ground pose as a flow; the outline equal to FALLBOARD's new footprint.
+7. Eng questions, together in one list: deck-26 stack with cells beside the crown; knob part and height; driver position for ≥ 5 mm finger room; grille ≥ 620; ported fit in the crown; the hull module's weight and the shell lever.
+
+**Then visual:**
+1. Module sheet: flush frets, wordmark on the crown's rear face, no engraved line, finger room behind the crown, the grille at ≥ 620, the port facets drawn in plan.
+2. FALLBOARD and SPINE sheets redrawn to R6. Each closed kit in the same pack outline with its clearance in mm.
+3. CLOTH in the family's near-black, plus the pose on the ground.
+4. No lamp anywhere. Images only where they have to be (PRINCIPLES §10): update the existing sheets, don't add new ones.
+
+## What keeps blocking a 9 (the pattern, carried from round 1 and still live)
+**Leftover space turning into features.** The kits wrap a 280 module in a 412 frame, and the difference becomes pockets, gutters, strips and a lamp. It keeps happening because each kit starts from the keyboard's envelope and then fills what's left. The module was derived from its parts, but the carries weren't. "Use fewer notes" is the fix: start each carry from the two objects and add only what has a job.
+
+## Did the work change since the last score?
+There was no scored round under REV 2; this is the first steer of concept round 2 for me. The module changed materially (297 → 280, hull, crown), and the systems files haven't caught up.
+
+## Next
+Systems turn, then visual turn. Then I rule again or call READY and score the module plus all surviving kits in one pass. If FALLBOARD still doesn't fit a pack comfortably after the gutter fix, it's killed or demoted below SPINE at that point.
