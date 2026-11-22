@@ -455,3 +455,39 @@ Leftover space becoming dressed surface (round 1 bodies, then 412 frames round a
 
 ## Next
 Owner picks. Then the handoff for the approved concept (with E kit totals, the positive arm lock, and the depth settled by eng's detailed box).
+
+---
+
+# CATHEDRAL-cues form round: jam turn 3 (2026-11-22, after 18:00)
+**Context:** the owner turned down my two 9s (module, YOKE) at 15:15: "I hate the shape of these. Let’s take the big energy as the guide" / "Cathedral but dimensions can change." 17:58: case fully printed (metal included), bookcloth spine "feels weird", all controls in one plane, sits at an angle (by shape is a possibility), his ideas are possibilities. Concepts go to him at idea level.
+
+## What I learned about a 9
+- I scored ideas I could defend; he judges the shape first. Both rejects had **a roof on the plan** (arch + crown house) or **parts sticking out** (YOKE). What he liked in CATHEDRAL: **one calm block, soft architectural corners, one framed field**.
+- New bar: from every side it reads as one framed object; no roofs, no appendages, no second house for the speaker; a silhouette he'd want. Be harder on cleverness than on calm.
+
+## Draws (SystemRandom)
+"Do nothing for as long as possible"; "Consider transitions"; hymn board; sundial gnomon; twist "the player's hand is the stand". Used for GNOMON, the angle-from-the-device rule, the pack→play move count, the lip stability rule, CASKET's ledge.
+
+## Rulings this turn
+- **Keep:** DROP (push: pipe Ø from the Ø 55 driver frame, extra volume gets a job or goes, angle derived, end face drawn big); **GNOMON** (new, mine: CATHEDRAL's lid as a constant slab whose rim continues down into wedge cheeks at the ends, open underneath); **CASKET** with TRIPTYCH as a one-line hinged variant.
+- **Cut:** DROP's pose 2; **ROSE** (ignores "Cathedral", repeats the arched-plan risk, no end carry, family scaling unsolved, costs his attention); TRIPTYCH as a separate concept. Confirmed dead: BAIL, SLED, RETABLE, plain WEDGE.
+- **NAVE:** a making method inside concepts, not a concept.
+- **Shared problem flagged:** a ≈ 280 module can't end-hold a 325–388 keyboard without reaching past its ends (YOKE again). Options: strap (owner Q), long-edge hold under the base (changes job 3: owner Q), CASKET lid sized to the keyboard only if the extra has a job, or keyboard loose in the bag (must always work).
+- **Pass-2 rules:** angle derived from the device; end face first; every volume and surface one job; idea level, one sheet per concept (end face, 3/4 play, packed); flat-too stays the owner's fork.
+
+## Likely owner objections (pre-scoring)
+1. DROP: the teardrop reads as a hair dryer / doorstop / vacuum head; CATHEDRAL never had a round mass.
+2. GNOMON: reads as furniture (writing slope, lectern); less surprising.
+3. CASKET: the play pose looks like a box leaning on a tray; 3 moves to play; two objects.
+4. All: how the keyboard comes along without arms.
+
+## What keeps blocking a 9 (carried over and new)
+- Old: leftover space becoming dressed surface. It's back in DROP's drawn pipe (≈ 5× the box E needs).
+- New: shape. I passed defensible ideas whose silhouettes he didn't want. Fix: judge the end face and the 3/4 view first, as he will.
+- Watch: random draws becoming numbers in the product (14°, 25°). Draws are tools; the angle comes from the parts.
+
+## Open questions (owner)
+Flat too, or angled enough? Strap = "knobs and stuff"? Is a metal part cast from a printed wax "3D printed even metal" (my view: casting; direct metal printing is the baseline)? If no strap: may the keyboard be held by its long edges rather than its ends?
+
+## Next
+Systems structural pass on DROP, GNOMON and CASKET, plus the shared carry; then visual draws one idea-level sheet per concept; then I steer and, when the three are honest, call READY and score all three in one pass.

@@ -264,3 +264,79 @@ Sketch: `cathedral-jam2-rose.png`.
 5. **Systems:** DROP's ratio from its own parts (for example the lip : pipe-Ø : depth). I drew numbers that fit; I didn't derive them.
 
 NEXT: systems designer — DROP, CASKET and ROSE need a structural pass (DROP's pipe, port, lands and centre of mass; CASKET's ledge and keyboard on the lid; ROSE's carry, or a reason to kill it) before the director steers.
+
+---
+
+## Turn 3: design director (end of pass 1; no scores)
+
+Read: the brief, PRINCIPLES, turns 1–2, both sketches (`cathedral-jam2-sections.png`, `cathedral-jam2-rose.png`), CATHEDRAL's standing renders (`design/branches/concepts/cathedral/img/cathedral-s14-T4S-standing.jpg`), `eng/module-r3.md` §speaker, the owner record to 18:00.
+
+### 0. What the 15:15 "no" tells me about a 9
+I passed two shapes he hated. Looking back at them beside CATHEDRAL, the pattern is plain:
+- He liked **one calm block with soft architectural corners and one framed field**. Closed, a slab. Open, a picture frame standing up.
+- He hated **a plan with a roof on it** (the module's arch + crown "house") and **parts sticking out** (YOKE's arms).
+- So the bar this round: **from every side, it reads as one framed object.** No roofs, no appendages, no second "house" for the speaker. And the silhouette has to be one he'd *want*, not one we can defend. I'll be harder on cleverness than on calm.
+
+### 1. Real randomness (Python `random.SystemRandom`, drawn, not picked)
+- **Oblique Strategies:** "Do nothing for as long as possible"; "Consider transitions".
+- **Fields (2 of 24):** **hymn board**; **sundial (gnomon)**.
+- **Twist (1 of 8):** "the player's hand is the stand".
+
+How each landed (seriously, not as story):
+- **"Do nothing for as long as possible"** → the least-changed answer is CATHEDRAL's lid itself: a framed slab of constant thickness. Eng has already proved a 35 mm slab holds the knobs, cells, board and speaker E [eng `module-r3.md`: 280 × 105–115 × 35]. What does the *least* added to that slab make it sit at an angle? See GNOMON (§3).
+- **Sundial / gnomon** → a gnomon's angle isn't chosen; it *is* the latitude. **Our angle shouldn't be a draw either.** 14° and 25° were tools to avoid anchoring; they've done that job. From now on the angle comes from the device (§4 rule 1).
+- **"Consider transitions"** → I scored the pack → play move for each direction: how many actions from bag to sound (§2 table).
+- **"The player's hand is the stand"** → the front edge is where the wrist rests, so the hand pushes the module *down*, into its footprint. Any form that tips when you lean on the front edge fails the lap (job 20). It's also the reason DROP's lectern lip is right.
+- **Hymn board** → a framed board with a ledge, leaned or hung. I took one thing: CASKET's lid should hold the module the way a hymn board's ledge holds its numbers, a rail it drops into, not a tray it leans on (§2 CASKET).
+
+### 2. The live directions: keep, push, drop
+
+**DROP: keep, push hard.** It's the most *ownable* of the angle-by-shape answers, and every curve has a job (box, port, handle). But it's also our biggest shape risk after ROSE, and I'd rather say that now than after he sees it.
+- **Likely owner objection:** "I hate the shape," again. A teardrop on its side can read as a hair dryer, a doorstop or a vacuum head. CATHEDRAL never had a round mass. The pipe has to read as the *rim thickening*, not as a log glued to a ramp.
+- **Push 1, size the pipe from a part, not a drawing.** Its Ø is set by the driver frame (Ø 55, 24 deep [eng]), so roughly Ø 62–66 outside is the floor (UNVERIFIED: wall and clearance). Drawn at Ø 72 × 270 it's ≈ 5× E's 190 cm³. **Leftover volume gets a job (cells and board in the pipe: weight low at the back, good for the handle) or the pipe gets shorter. It is never left as dressing.** That's the pattern that blocked every 9 last loop.
+- **Push 2, the angle follows** from the lip (knob stack [eng]) and the pipe Ø over the depth (§4 rule 1). If that comes out at 12° rather than 25°, it's 12°.
+- **Push 3, the end face is the concept.** Show it big: rim, plate, the pipe with growth rings round the port mouth. If that one drawing doesn't make you want it, the direction dies.
+- **Pose 2 (visual's question): cut.** It turns the panel into RETABLE's radio front (already killed), fires the clerestory into the table, rests on an unverified 40 mm land, and adds a pose to explain to an owner who asked for idea-level concepts. If a land on the pipe is useful, it's as a stable side for the bag, nothing more.
+
+**GNOMON: new, mine. PROPOSAL; includes OWNER IDEA (angle by shape, no moving parts).** [do nothing] [gnomon] [hand is the stand]
+- **The idea:** CATHEDRAL's lid, unchanged, standing on its own **cheeks**. A framed slab of constant thickness (the eng-proven slab: plate, rim, soft superellipse corners, speaker under a lancet grille in the plate as CATHEDRAL's lid had it). At each end the rim doesn't stop: **it continues down into a wedge-shaped cheek**, like a piano's cheek blocks or a sundial's gnomon. Between the cheeks the underside is open.
+- **Why it might win him:** from the front and above it *is* CATHEDRAL's standing lid, with the brass stay replaced by the case's own ends. From the end, the cheek is a walnut wedge with growth rings, which is the silhouette. Nothing hangs off it: the cheeks are the rim, not added parts. "Do nothing" also means the internals eng already solved stay where they are.
+- **Structure to check (systems):** the hand on the front edge pushes into the footprint (front edge + two cheek runners), so the lip is stable; a knob press is aimed into the plate. On grass, the cheeks are sledge runners [turn 2's runner draw; brass wear strips under them only if printed metal holds up]. On a lap, two rails across the thighs. Where E's port exits: into the hollow under the slab, or out of a cheek face through the growth-ring centre (eng; UNVERIFIED either way).
+- **Honest costs:** it can't lie flat to play (same as DROP). The open underside is a big surface: it can carry his pipe façade (seen when you lift it, carry it or stand it on a shelf), but it mustn't become a dressed leftover (§4 rule 3). It packs as a wedge, not a slab. **Risk of reading as furniture** (a writing slope, a lectern); that's a nod to classics if it stays plain, and costume if we lean in.
+- **Hard on my own idea:** it's less surprising than DROP. That's fine *if* it's the best answer. He just told us calm CATHEDRAL beats clever; GNOMON is the bet on that.
+
+**CASKET (with TRIPTYCH as its hinged variant): keep, as one concept.** The only answer for **flat and angled** with no moving parts, and **closed it's CATHEDRAL closed**: a calm walnut slab with his pipe façade. That's the family face, and the strongest single read of the lot.
+- **But the play pose in the sketch reads as a box leaning on a tray.** Shape lost last time; this pose would lose too. **Push:** the lid's inside is shaped *for* the module: a rail or ledge it drops into, like a hymn board's ledge [hymn board], so open it reads as a lectern made for this, not a stop.
+- **Transitions [consider transitions]:** lid off, flip, seat = 3 moves vs DROP's and GNOMON's 1. Say so; it's the trade for flat-and-angled and full protection.
+- **TRIPTYCH** goes in as a single line under CASKET ("or hinged to the back edge, if you'd rather it never leaves"), not as a separate concept. He floated "folding cover", so it's shown; he also hoped for no moving parts, so hinge-free leads.
+
+**ROSE: kill (visual's question).** It's brave and it differs in kind, but:
+1. He said **"Cathedral"** for the form, and he rejected an arched plan two hours ago. A circle ignores the first and repeats the risk of the second.
+2. The carry has no end to hold (job 3), and the family scaling to Big Energy's ≈ 40 controls is unsolved.
+3. He's already said we over-design before he's approved anything. A wild card costs his attention, and this one would mostly tell us something we already know.
+- **What survives:** the 300° arc as the marking system is CATHEDRAL's, and it stays on every knob. Panel layout isn't this round's question.
+
+**Already dead, confirmed:** BAIL (an appendage, YOKE's mistake), SLED (in CASKET), RETABLE (radio front), WEDGE as a plain trapezoid (in DROP and GNOMON).
+
+**NAVE: keep as a making method, not a concept.** One line in each concept: "printed in identical bays, seams as engraved hairlines on the section rules." It suits DROP and GNOMON (constant section). Don't show it to the owner as its own idea.
+
+### 3. The keyboard carry: one problem every direction shares (systems, please solve once)
+A module sized by its own parts is ≈ 280 wide [eng]. The keyboards are **325–388** (job 3). **Anything that holds the keyboard by its ends has to reach past the module's ends, and that is YOKE's arms again.** DROP's k2 sketch hides this by showing the section only. Options, none a favourite:
+- **k1, a strap or band** around both, if a strap is "knobs and stuff" (pending owner question). The calmest by far.
+- **Hold the keyboard by its long edges under the base** (nothing across the keys, nothing past the ends). That changes job 3's "by its ends", so it's an owner question, worded as such.
+- **CASKET's lid sized to the keyboard.** Honest only if the extra lid length has a job (cable and adapter), never as dressed surface.
+- The keyboard simply travels in the bag beside it (he said attachment "would just be nice"). Every concept must still work this way.
+
+### 4. Rules for pass 2 (all concepts)
+1. **The angle comes from the device**, like a gnomon from its latitude: front height from the knob stack [eng], rear height from what the back holds (DROP: the pipe Ø; GNOMON: the slab's own thickness and the plate's depth), or from the face's ratio (for example tan θ = the plate's short side ÷ its long side; PROPOSAL, a derivation to try, not a target). State the result; don't pick it.
+2. **Draw the end face first, big.** It's the silhouette now that there's no hinge.
+3. **Every volume and surface has one job.** If a part of the form exists only to reach a shape, it goes.
+4. **Idea level only.** One sheet per concept: the end face, one 3/4 view in the play pose, one packed. No panel layouts, no knob tables.
+5. **Flat-too stays a fork for the owner:** DROP / GNOMON if angled is enough; CASKET if he wants both. Each concept says in one line what it does if the answer goes the other way.
+
+### 5. Where I land at the end of pass 1
+- **Strongest:** CASKET (family face, both poses), then **GNOMON** and **DROP** as the two angle-by-shape answers, which differ in kind (framed slab on cheeks vs one solid tool with a handle). Three concepts for the owner, no more.
+- **Drop:** ROSE, DROP's pose 2, TRIPTYCH as a separate concept.
+- **Owner questions to carry (not new):** flat too? Strap = "stuff"? Plus visual's: does a metal part cast from a printed wax count as "3D printed even metal"? My view: that's casting, so direct metal printing is the baseline and casting is the question.
+
+NEXT: systems designer — structural pass on the three survivors: derive DROP's pipe and angle from E and the knob stack and give its extra volume a job; check GNOMON's cheeks (stability under the hand and a knob press, grass and lap, where E's port exits, how it packs); CASKET's ledge and the 3-move transition; and one shared answer for carrying a 325–388 keyboard with a ≈ 280 module without anything reaching past its ends.
