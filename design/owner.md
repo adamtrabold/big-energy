@@ -582,3 +582,8 @@ Recorded as: the carry fits **25-key** travel controllers. The voice count is un
 > 25 is good for the string machine.
 
 Recorded as: **floss has 25 voices** (decided).
+
+## 2026-11-22 15:11 (chat)
+> I will look at the clamp version but the keyboard does not need to be permanently attached would just be nice for when on the go. I think weee going really hard on design before I’ve even been able to appprove a concept
+
+Recorded as: **the keyboard is never permanently attached**; attaching it is a nice-to-have for on the go. **The team over-designed before concept approval.** Concepts go to Adam now, at idea level, with no more refinement rounds first.
