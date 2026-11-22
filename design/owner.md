@@ -573,3 +573,8 @@ Recorded as: site published. **Speaker: choose whatever will sound best**; seale
 > The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I’m just saying don’t assume not making a rule
 
 Recorded as: **not a rule; a correction to an assumption.** The carry must fit a portable MIDI controller, but **the case doesn't need to surround the keyboard**; an attachment point is a valid answer. The team shouldn't assume an enclosing tray or box.
+
+## 2026-11-22 14:26 (chat)
+> 25 keys idk about voices
+
+Recorded as: the carry fits **25-key** travel controllers. The voice count is undecided by Adam; the engineering recommendation (25) stands as a working assumption, explained to him.
