@@ -33,19 +33,21 @@ floss is a sound module you play from a small MIDI keyboard you carry with it. *
 27. Swap to a different keyboard whenever I like (another model, a broken one replaced, one that goes out of production) and the plugging in and carrying still work.
 28. Use the same way of carrying and connecting a keyboard on every portable sound module we build. Each module is sized by its own parts; the carry takes the keyboard. **changed**
 29. When floss is silent, find out why from floss itself: no keyboard, keyboard not powered, notes not arriving, volume down, or a half turned off. (inferred) **new**
-30. A module that's portable, makes sense and is harmonious: its size and proportions derived from its own parts by a deliberate ratio, in any outline, not necessarily a rectangle. Dimensions are free (the 280 × 105 × 35 module was turned down on shape). **rev 4**
+30. A module that's portable, makes sense and is harmonious: its size and proportions derived from its own parts by a deliberate ratio, in any outline, not necessarily a rectangle. Dimensions are free (the 280 × 105 × 35 module was turned down on shape). **rev 5**
 31. Every control in a single plane. **new, rev 4**
-32. Set floss at an angle facing me; ideally by the case's shape, with no folding or moving parts (owner idea, a possibility). Whether it must *also* sit flat to play is an open question. **new, rev 4**
+32. Set floss in the poses I want, in my order: angled first, then 90° (upright), then flat. Flat isn't required, and more than one angle is fine. By the case's shape, with no moving parts, is a possibility, not a rule. **rev 5**
 33. Pack it with the panel protected, by a cover or by the case itself (a folding cover is an owner idea, a possibility). (inferred) **new, rev 4**
-34. Reach the keyboard port, headphones and power in every pose it sits in. (inferred) **new, rev 4**
+34. Reach the keyboard port, headphones and power in every pose it sits in; a face used as a foot carries nothing. (inferred) **rev 5**
 
 The plan for every synths-to-go instrument: a portable sound module with a way to carry a keyboard with it, not tied to any one keyboard model.
 
 ---
 
-Status: **rev 4, 2026-11-22 (CATHEDRAL form round)**, product designer (systems focus). Rev 4 follows the owner turning down the module and YOKE on shape (15:15) and his 15:11 and 17:58 words (in `BRIEF-CATHEDRAL.md` and `design/owner.md`). It changes jobs 3, 20, 24, 25, 26, 30 and adds 31–34. The detail rows for jobs 3, 24, 26 and 30 below still describe rev 3.2's concepts (YOKE, FALLBOARD, SPINE, the 280 × 105 × 35 hull); where they differ, the short list and the rev 4 table win.
+Status: **rev 5, 2026-11-22**, product designer (systems focus). Rev 5 applies the queued rows that rest on the owner's words already given: **32** (poses, owner 18:39 / 18:40), **34** (ports per pose) and **30** (the angle from the parts, as tan θ = T / D for GNOMON, director-accepted). **Job 3's "or its underside" and S9 stay pending the owner.** Detail rows for 31–34 added below.
 
-## Queued for rev 5 (systems, 2026-11-22; not applied until the director confirms GNOMON's re-score)
+Previous status: **rev 4, 2026-11-22 (CATHEDRAL form round)**, product designer (systems focus). Rev 4 follows the owner turning down the module and YOKE on shape (15:15) and his 15:11 and 17:58 words (in `BRIEF-CATHEDRAL.md` and `design/owner.md`). It changes jobs 3, 20, 24, 25, 26, 30 and adds 31–34. The detail rows for jobs 3, 24, 26 and 30 below still describe rev 3.2's concepts (YOKE, FALLBOARD, SPINE, the 280 × 105 × 35 hull); where they differ, the short list and the rev 4 table win.
+
+## Rev 5 rows (systems, 2026-11-22): 32, 34, 30 **applied**; 3 and 28/S9 **still pending the owner**
 | Job | Queued change | Source |
 |---|---|---|
 | 32 | **Poses, in his order: angled first, then 90° (upright), then flat. Flat is not required. More than one angle is fine.** A concept must show each pose it offers and how stable each is (knob press, a pull on the top edge, grass, lap). Shape-only stays a possibility, not a rule. Open: "90" for playing or for standing; "multiple angles" as fixed poses or a range | owner 18:39: "Honestly my preference order would be angled, 90, flat"; 18:40: "Multiple angles is fine" |
@@ -140,7 +142,11 @@ Previous status line: rev 3.2, 2026-11-22, product designer (systems focus). Rev
 | 27 | Swap keyboards | stated | nothing in floss depends on one keyboard's size, socket or features; the carry takes the whole slim range |
 | 28 | One carry-and-connect system for every module | stated (12:28; 13:25) | the carry and connection are **family interfaces**: S1 keyboard envelope, S2 host port, S3 cable, S4 two ¼"-20 inserts, S5 plug behaviour, S6 CC map, S7 split rule and target (printed). The keyboard bed and end blocks are family parts. **Module size is each instrument's own** |
 | 29 | Why is it silent? | inferred | from the panel alone: port light off (no keyboard / no power), steady with no blink (notes not arriving: dead keyboard or charge-only cable), blinking (notes arriving: check VOLUME, the strand tabs, headphones) |
-| 30 | Module size and shape | stated (13:29 shape and ratio; **13:51** "portable and make sense and be harmonious"; PRINCIPLES §2) | **every size traced to a part** (panel, speaker, driver depth, knobs); a **stated ratio** that tunes those sizes, not one laid on top; **any outline**, not necessarily a rectangle; no anchoring on paper sizes; portable (the kit fits a backpack comfortably). If a part moves a size, the ratio is restated, not faked. Concept: 280 × 105 × 35, one 35 mm unit, 8 : 3 : 1, a hull in plan (module file §2), conditional on the knob height and the driver's position |
+| 30 | Module size and shape | stated (13:29 shape and ratio; **13:51** "portable and make sense and be harmonious"; PRINCIPLES §2) | **every size traced to a part** (panel, speaker, driver depth, knobs); a **stated ratio** that tunes those sizes, not one laid on top; **any outline**, not necessarily a rectangle; no anchoring on paper sizes; portable (the kit fits a backpack comfortably). If a part moves a size, the ratio is restated, not faked. **Rev 5:** the 280 × 105 × 35 hull is history. **An angle, where the form sets one, comes from the parts too** (GNOMON: tan θ = T / D with a rear face of 2T, ≈ 18.4° at D 105 / ≈ 16.9° at D 115; restated, never rounded, if D moves) |
+| 31 | One plane | stated (owner 17:58: "all controls should fit in a single plane") | every playing control on one plate; set-and-forget controls (power, TUNE, MIDI SPLIT) may sit with the jacks, **said so plainly** (if he means literally every control, they move to the plate) |
+| 32 | Poses | stated (owner 18:39: "Honestly my preference order would be angled, 90, flat"; 18:40: "Multiple angles is fine"; 17:58: "maybe the case could do that without needing folding / movable parts and just by shape" as a possibility) | each pose offered, in his order; **for each pose: stability under a knob press, a pull on the top edge, grass and a lap** [calc, mass and COM stated as estimates]; any angle derived from the parts; flat not required. Open: "90" for playing or standing; several poses or a range |
+| 33 | Panel protected packed | inferred (17:58 "even if there is still a folding cover or something tbd") | how the knobs survive the bag: a rim over the knob tops, a cover, or the carry; the margin stated |
+| 34 | Ports in every pose | inferred | for each pose: the host port, headphones, power and the speaker port reachable and unblocked; **a face that is a foot carries nothing**; the keyboard cable mustn't pull a pose over |
 
 **Settled constraints:**
 - no built-in keys; no screens or encoders; battery; echo and reverb on the Daisy;

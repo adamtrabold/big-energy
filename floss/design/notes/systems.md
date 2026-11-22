@@ -476,3 +476,10 @@
 **jobs.md:** a "Queued for rev 5" table added (job 32 poses in his order; 34 ports per pose; 3 and S9 pending the owner; 30 the tan rule). Not applied yet.
 **Owner questions:** "90" for playing or standing; "multiple angles" as fixed poses or a range.
 **Next:** the visual designer's sheet with the upright view; the director re-scores GNOMON; I do the coverage check against jobs once it's 9+.
+
+### 2026-11-22 GNOMON 9: coverage check and jobs rev 5 (systems)
+**Director:** GNOMON rev 2 = 9; tan θ = T/D accepted. Handoff conditions: (a) host port low on a cheek near the rear-bottom corner; (b) mass low and away from the plate; (c) jack row UNVERIFIED; (d) undock before upright.
+**Coverage** (`concepts/c-gnomon/coverage.md`): **all 34 jobs supported, none unsupported.** 11 have stated weaknesses: 3 (SHOE's underside hold pending the owner), 6 (target rail under the r16 lip), 18/29 (condition a would move the port light out of sight, so keep it on the plate), 24 (wedge), 26 (repair access not drawn), 28 (stretcher only on GNOMON; S9 pending), 31 (power / TUNE / SPLIT on the cheek: owner clarification), 32 (upright tips at ≈ 1–1.5 N), 33 (rim 1 mm over the knobs), 34 (host-port cable vs the upright pose → condition a).
+**jobs.md rev 5 applied:** 32 (poses in his order, verbatim 18:39 / 18:40), 34 (ports per pose; a foot carries nothing), 30 (tan θ = T/D), and detail rows for 31–34. Job 3's "or its underside" and S9 stay pending.
+**New owner question:** does "all controls in one plane" include the set-and-forget controls (power, TUNE, MIDI SPLIT)?
+**Next:** GNOMON goes to the owner. Once he approves, I write the "How it works" part of the handoff, applying handoff items 1–6 from the coverage file.
