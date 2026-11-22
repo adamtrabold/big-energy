@@ -568,3 +568,8 @@ Recorded as: soft wraps (CLOTH) are allowed as long as the core (the module case
 > Speaker let’s figure out what will sound best idc method
 
 Recorded as: site published. **Speaker: choose whatever will sound best**; sealed, ported or passive radiator doesn't matter to Adam. The no-measuring rule still applies, so "best" is judged on published data and models.
+
+## 2026-11-22 14:25 (chat): carry
+> The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I’m just saying don’t assume not making a rule
+
+Recorded as: **not a rule; a correction to an assumption.** The carry must fit a portable MIDI controller, but **the case doesn't need to surround the keyboard**; an attachment point is a valid answer. The team shouldn't assume an enclosing tray or box.
