@@ -416,3 +416,42 @@ The same pattern, now visible in the module's own face: **space the parts don't 
 
 ## Next
 I call READY once both turns are in **and** `module-r3.md` has landed and been folded in. Then I score the module, FALLBOARD, SPINE and YOKE in one pass. The knob goes to the owner as a trade-off with the concepts, not before.
+
+---
+
+# Concept round 2: READY and scores (2026-11-22, final for the concept phase)
+**Owner, verbatim (via the coordinator):** "I will look at the clamp version but the keyboard does not need to be permanently attached would just be nice for when on the go. I think weee going really hard on design before I’ve even been able to appprove a concept".
+So: no more refinement rounds. Scored on the idea (brief: concepts aren't final UI). **The keyboard attachment is a nice-to-have for on the go, never permanent:** the module plays with the keyboard simply set in front of it.
+
+**Judged from:**
+- `module/module-1to1-A2.png` (rev 3: walnut, roof, speaker E, A beside B);
+- `yoke/yoke-A-carry-and-play.png` and `yoke/yoke-B-wrap-grass-pack.png`;
+- `fallboard/fallboard-A-in-use.png` and `spine/spine-A-in-use.png` (the earlier, near-black versions; the recolour changes nothing about the idea);
+- the top sections of systems' and visual's notes, for their questions.
+
+## Quick rulings asked for
+- **Gold knobs: accepted.** They're the family's brass, done honestly with a stocked part (black is out of stock until January 2027). They read warm with walnut and cream. Black stays the alternative.
+- **YOKE's 37 mm play height, cap as the rear foot, cups at the rear corners, arms clamped at any angle: accepted as the idea.** Since the attachment is now only for on the go, play never depends on the clamp holding. For the build, prefer a positive lock (printed teeth on the pivot disc) over plain friction on printed plastic.
+- **S4 at 160 mm: kept** as the family standard; the module's insides give way. It's an agent proposal, so it's listed for the owner as a family interface, not a principle.
+- **SPINE's 30 mm lane: accepted, described honestly.** It's the difference that matching the two trays' outlines leaves, and it holds the cable's bend; no job invented for it.
+- **Kit-total text on the B sheets is still pre-E:** fix it in the handoff, not in another round.
+
+## READY: module, YOKE. (FALLBOARD and SPINE scored, not passed.)
+
+## Scores (concept phase: the idea)
+- **Module: 9.** Every size comes from a part (panel 280, speaker 105, driver height 35) and the ratio only tunes them: 8 : 3 : 1 on a 35 mm unit, and each half is 4 : 3 with the split line between them. The hull gives depth only where the speaker is. The cream stage is only where hands work, under a walnut roof that's the speaker box's lid. The panel is mirrored about the axis in signal order (touch → voice → shimmer → echo → out), with one coral control on the axis. It's warm and looks like itself. Its open items are owner choices and eng detail, not flaws in the idea: knob A / B, detent feel, and 105 vs 115 deep (if 115, the ratio is restated, never faked).
+- **YOKE: 9.** It's the owner's own idea made physical: an attachment point, not a case. The module is the carry, two printed arms hang on its own inserts, and any family module of any size gets it free. It's the lightest carry (0.14–0.20 kg) and four small prints. The wrap is optional: protection in the bag and the mat on the grass. With the attachment now only for on the go, its weakest point (does the clamp hold while playing?) stops mattering, because you can just set the keyboard down in front.
+- **SPINE: 7.** A sound, well-solved closed box (geometric stop at flat, 3.6 L). But it's a case, and the owner has said a surround isn't needed. It's heavier (carry 0.42–0.52) and six printed halves plus rods, and "don't hold it bridged" is a use rule. Not passed; it's the fallback if the owner wants full protection.
+- **FALLBOARD: 6.** The lid as stand and shade is lovely. But one plane plus a lid is inherently the biggest (4.6 L) and heaviest (kit 1.51–2.10 kg) answer, the surround it's built on is no longer asked for, and it can't get to 9 without ceasing to be itself. Retired.
+
+## The owner's choices
+1. **Approve the module + YOKE** (arms as an optional on-the-go attachment, never permanent; the wrap optional). SPINE is the fallback if you want a closed box.
+2. **Knob:** A, Ø 10 (280 × 105 × 35, recommended) or B, Ø 14.5 (280 × 112 × 42).
+3. **Stepped controls (octave, pressure, shimmer):** firmware-stepped pots with no click (fits 35) or real rotary switches (about +5 mm of height).
+4. **House:** walnut-brown with gold knobs (recommended) or near-black.
+
+## What blocked a 9 across rounds, for the record
+Leftover space becoming dressed surface (round 1 bodies, then 412 frames round a 280 module, then the cream shoulders). It was fixed once each carry started from the two objects and the face started from the hands (YOKE; the roof). Late on, the pattern was conditional numbers running ahead of eng. And per the owner, we refined before he'd approved a concept: next time, send concepts at the idea stage sooner.
+
+## Next
+Owner picks. Then the handoff for the approved concept (with E kit totals, the positive arm lock, and the depth settled by eng's detailed box).
