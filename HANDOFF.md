@@ -4,7 +4,15 @@
 
 **The project widened on 2026-11-21 into three instruments** (owner's current thinking, 18:31): **Big Energy** = the Model D clone with 4-voice paraphony (as specced, voices 1 · 3 · 4); **Port-a-poly** = a true portable analog poly; a **string machine** that still needs a name. Build order is undecided. Earlier that day he said the Model D "is not inspiring"; his 18:31 entry keeps it as Big Energy. Everything below "Earlier handoff" is the Big Energy record as of 2026-11-13 and still applies to Big Energy. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
 
-## FAMILY PRINCIPLE (2026-11-22 12:28–12:29), read first
+## FLOSS STATUS (2026-11-22 15:15), read first after PRINCIPLES.md
+- floss is a keyless sound module plus a carried 25-key USB-C keyboard. Requirements rev 2 (`floss/REQUIREMENTS.md`), jobs rev 3.2 (`floss/design/jobs.md`), engineering `floss/eng/module-r3.md` (speaker E: two drivers, ported; ASA; deck 25).
+- **Concepts sent to Adam for approval:** the **module** (280 × 105 × 35, walnut-brown printed house, cream deck, gold Ø 10 knobs; director 9) and **YOKE** (printed arms on the module's ¼"-20 inserts to clip any slim keyboard on for the go; optional cloth wrap and grass mat; director 9). SPINE scored 7 (fallback) and FALLBOARD 6 (retired). Files: `floss/design/concepts/{module,yoke}/`; scores in `floss/design/notes/director.md`.
+- **Adam's choices open:** approve the module plus YOKE (or SPINE); knob A (Ø 10, 35 tall) or B (Ø 14.5, 42 tall); stepped controls as firmware-stepped pots or click switches (+5 mm); walnut or black; speaker E or D; module depth 105 or 115 if E needs it; the family's 160 mm insert spacing.
+- Adam's process notes today: stop over-designing before concept approval; keep his words separate from agent proposals; he measures nothing.
+- The keyboard **doesn't have to be** permanently attached (it may be).
+- Agent seats this session: fresh designers and director worked from `floss/design/notes/*.md`, which are current.
+
+## FAMILY PRINCIPLE (2026-11-22 12:28–12:29)
 - Every synths-to-go instrument is **a portable sound module with a way to carry a keyboard**, any USB MIDI travel keyboard in a size range, not one model. Adam: "this is a systems philosophy decision".
 - **Big Energy changes too:** v1.1's built-in keys and aftertouch strip are superseded; the rest of v1.1 needs reviewing against the module shape. Rework not started.
 - floss: requirements rev 2 (`floss/REQUIREMENTS.md`), jobs rev 2 (`floss/design/jobs.md`), eng baseline (`floss/eng/module.md`, in progress). Adam measures nothing; published evidence only.
@@ -39,7 +47,7 @@
 - Budget ceilings for the string machine and Port-a-poly. String-machine name: not a priority; Adam names instruments himself along the way. Don't run a naming round.
 
 ## Prompt for Adam to paste into a new session
-> Attach and clone my repo adamtrabold/synths-to-go. Read HANDOFF.md (the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
+> Attach and clone my repo adamtrabold/synths-to-go. Read PRINCIPLES.md, then HANDOFF.md (the FLOSS STATUS section first, then the current-status section first), then the 2026-11-21 entries at the bottom of design/owner.md. You're the new orchestrator, working as my design-buds skill describes. We're making build plans for a string machine. Tell me in 3 lines where things stand and what you need from me, then wait.
 
 ---
 
