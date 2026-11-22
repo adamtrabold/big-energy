@@ -2,7 +2,9 @@
 
 The string machine: a portable analog string machine. Named by Adam on 2026-11-21: "Call string machine floss".
 
-Status: **next up for build plans**, made the Big Energy way (design loop, first principles, spec, verification) while proving out the shared platform. Which instrument gets built first is undecided.
+**Now a sound module (2026-11-22):** no built-in keys; played by any travel USB MIDI keyboard you carry with it. The current requirements are in `floss/REQUIREMENTS.md` (rev 2), the jobs in `floss/design/jobs.md`, and the engineering baseline in `floss/eng/module.md` and `module-r2.md`. The family principles are in `PRINCIPLES.md`. Some decisions below (keys, pads, pressure sensing) were made before the module decision and are superseded.
+
+Status was: **next up for build plans**, made the Big Energy way (design loop, first principles, spec, verification) while proving out the shared platform. Which instrument gets built first is undecided.
 
 ## What Adam has said (verbatim, 2026-11-21)
 - What draws him: "Analog voices, shimmer and warmth"

@@ -540,3 +540,10 @@ Recorded as: **T5 (≤ 1.5 kg) was the orchestrator's proposed number, not Adam'
 > Also don’t anchor on the page size thing. I’m just giving examples of generic things. It just needs to be portable and make sense and be harmonious
 
 Recorded as: **the sheet-of-paper size was an example, not a target.** The module needs to be **portable, make sense and be harmonious**. Its dimensions and proportions are the team's to derive (from its parts, use and a deliberate ratio). Don't anchor on A4, Letter or A-series ratios because of that remark.
+
+## 2026-11-22 13:54–13:55 (chat): foundational principles; site as source of truth
+> In fact, let’s go back to the overall project principles here. I think we may need to do some foundational work in the GitHub. I don’t want each synth to have the core things relitigated, so let’s start documenting these core principles and goals. The size and principles about harmonious ratios are foundational things, and we have portability as a goal alongside the harmonious principles, so let’s get some good documentation there so that it’s available for every agent on this contextually
+
+> I want the website to serve as the source of truth and guiding light for this project
+
+Recorded as: **`PRINCIPLES.md`** at the repo root holds the family's foundational principles and goals in Adam's words, with dates. **`CLAUDE.md`** tells every agent to read it first. **The project site is the source of truth and guiding light:** it gets a "principles" page (built from PRINCIPLES.md) and leads its overview with it. Repo files feed the site, so the two stay in step.

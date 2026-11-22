@@ -400,7 +400,7 @@ const SECTIONS = [ // build-chain order; the site's whole structure
 const INST = (D.instruments||[]);
 function instName(i){ return i.untitled ? `${esc(i.name)} <span class="ink2" style="font-weight:400">(untitled)</span>` : esc(i.name); }
 function topbar(cur, sub, rule = true){ // synths-to-go | instrument dropdown; no stacked tabs
-  const opts = [["home","overview"]].concat(INST.map(i=>[i.code, i.name]));
+  const opts = [["home","overview"],["principles","principles"]].concat(INST.map(i=>[i.code, i.name]));
   return `<header class="band wrap"><div class="hgrid">
     <div class="name brand"><a href="./">${esc(D.umbrella.name)}</a><span class="pipe" aria-hidden="true">|</span><span class="pick"><select aria-label="Instrument" onchange="location.hash = this.value === 'home' ? '' : this.value">${opts.map(([k,t])=>`<option value="${k}"${k===cur?" selected":""}>${esc(t)}</option>`).join("")}</select></span></div>
     <div class="sub">${sub || esc(D.umbrella.line)}</div>
@@ -410,10 +410,16 @@ function header(sel){
   const n = (D.waiting && D.waiting.items.length) || 0;
   return topbar("big-energy", `${esc(D.project.line)} · <a class="u" href="#version-v1-1">v1.1 locked</a>`, false) + `<div class="wrap"><nav class="filters">${SECTIONS.map(([k,h,t])=>`<a href="${h}" class="${k===sel?"on":""}">${k==="decide"&&n?'<i class="sig" aria-hidden="true"></i>':""}${t}${k==="decide"&&n?" ("+n+")":""}</a>`).join("")}</nav></div>`;
 }
+function vPrinciples(){
+  return topbar("principles") + `<main class="wrap"><div class="ink2" style="font-size:13px;margin-bottom:6px">The source of truth for every instrument · source ${esc(D.principles.path)}</div>
+    <h1 style="margin:0 0 12px">principles and goals</h1><article class="doc-html">${D.principles.html}</article></main>${about()}`;
+}
 function vOverview(){
   const C = G.CATHEDRAL, lead = C && I[C.lead];
   const card = i => `<a class="drow" href="#${i.code}"><span class="t">${instName(i)}</span><span class="c">${esc(i.line)}</span><span class="ink2" style="font-size:13px">${esc(i.status)}</span></a>`;
   return topbar("home") + `<main class="wrap wide">${updatedLine()}<p class="purpose" style="font-size:18px">synths-to-go is a family of portable instruments being designed for you, with analog voices, shimmer and warmth. Pick an instrument below or from the menu at the top to see where it stands and what's waiting on you.</p>
+    <a class="drow" href="#principles"><span class="t">principles and goals</span><span class="c">Portable, harmonious proportion, a sound module plus a carried keyboard, a shared universe. These guide every instrument.</span><span class="ink2" style="font-size:13px">read first</span></a>
+    <h2 class="sec">instruments</h2>
     ${INST.map(card).join("")}
     ${lead ? `<h2 class="sec">Big Energy, current design</h2><a class="nowcard" href="#designs"><img src="${lead.src}" width="${lead.w}" height="${lead.h}" alt="CATHEDRAL, the current Big Energy design"><div><div class="cmeta"><b>CATHEDRAL</b></div><div class="cline">${esc(C.statusLabel)}</div><div class="u" style="margin-top:4px">See every Big Energy design ›</div></div></a>` : ""}
   </main>${about()}`;
@@ -812,6 +818,7 @@ function route(){
   const h = (location.hash || "").slice(1);
   let html, m;
   if (h === "" || h === "home") html = vOverview();
+  else if (h === "principles") html = vPrinciples();
   else if (h === "big-energy") html = vWaiting();
   else if (h === "port-a-poly" || h === "floss") html = vInstrument(h);
   else if ((m = h.match(/^r-([\w-]+)$/))) html = vResearch(m[1]);

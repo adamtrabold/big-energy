@@ -610,13 +610,15 @@ def inst_page(path):
     lines = t.splitlines()
     return {"title": h1(t), "lead": first_para(t), "html": md("\n".join(lines[1:]), src=path), "path": path}
 instruments = [
-    {"code": "big-energy", "name": "big energy", "line": "The Model D clone with 4-voice paraphony", "status": "Case design: CATHEDRAL waiting on you"},
+    {"code": "big-energy", "name": "big energy", "line": "The Model D clone with 4-voice paraphony", "status": "Becoming a sound module (later); v1.1 keys superseded"},
     {"code": "port-a-poly", "name": "port-a-poly", "line": "A true portable analog poly", "status": "Not started", **inst_page("port-a-poly/README.md")},
-    {"code": "floss", "name": "floss", "line": "The string machine: analog strings with shimmer, from first principles", "status": "Next up for build plans", **inst_page("floss/README.md")},
+    {"code": "floss", "name": "floss", "line": "The string machine: a sound module with analog strings and shimmer", "status": "Design loop: module concepts in progress", **inst_page("floss/README.md")},
 ]
 research = [{"slug": s, "path": p, "title": h1(rd(p)), "html": md(rd(p), src=p)} for s, p in RESEARCH]
 
+_pr = rd("PRINCIPLES.md")
 data = {"umbrella": {"name": "synths-to-go", "line": "Portable instruments with analog voices, shimmer and warmth"},
+        "principles": {"html": md("\n".join(_pr.splitlines()[1:]), src="PRINCIPLES.md"), "path": "PRINCIPLES.md"},
         "instruments": instruments, "research": research,
         "project": {"name": "Big Energy", "line": "the Model D clone with 4-voice paraphony", "waiting": "CATHEDRAL approval", "then": "then the handoff",
                     "current": "v1-1", "now": "Lock", "next": "Handoff", "published": "13 Nov 13:20", "last": "CHAMBER rev B"},
