@@ -624,3 +624,8 @@ Recorded as: the current work defines **the platform** (reusable principles and 
 > Ask me one question at a time
 
 Recorded as: questions to Adam go one at a time (reaffirms the handoff rule; the orchestrator had batched five).
+
+## 2026-11-22 18:39 (chat): poses
+> Honestly my preference order would be angled, 90, flat
+
+Recorded as: floss's playing poses in Adam's order of preference: **angled** first, then **90°** (read as standing upright; to confirm if it matters), then **flat** last. Sitting flat is not required. Logged in floss/REQUIREMENTS.md.
