@@ -1,5 +1,28 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22 afternoon): floss is now a keyless sound module
+- **Owner 12:26:** floss has no built-in keys. A travel USB MIDI controller (K-Board C, Xkey 25, or any class-compliant keyboard) plugs into floss's USB host port, is powered by floss, and is carried with it.
+- **Process changed** (owner 09:2x): requirements (`floss/REQUIREMENTS.md` rev 2, T1–T12 baseline), then an engineering gate, then concepts. Adam measures nothing; choices rest on published evidence; SMD is allowed.
+- **`../jobs.md` is rev 2:** 27 jobs, a short paste-ready list at the top with new / changed marks, a rev 1 → rev 2 change table, a detail table, flows F1–F16, and open questions.
+  - **New jobs:** plug in with one cable (2), carry as a kit (3), controller octave buttons vs the split (6), expressive without pressure (9), play from a computer or another keyboard (16), swap controllers (27).
+  - **Changed:** voices allocated (4), split and octaves on floss (5), pressure per note only when the controller sends it (8), tilt / bend / lift where available (10), "keyboard connected" as state (18), duet = one plays, one tends (23).
+- **Concepts are on hold.** The director re-steers after the engineering baseline. **Don't edit `../concepts/` until then.**
+- **What survives from the concepts, as I see it (for the re-steer):**
+  - the breath, octave knobs as the split, the PRESSURE selector, HOLD, FREE / SYNC, the status light, the TOUCH → … → VOLUME order;
+  - TIDE's add-and-pull HOLD and per-voice DRIFT;
+  - KEPT's Solina registers.
+- **What doesn't survive:**
+  - anything about keys (Choc / Hall lift timing, pegs, key colours, the centre-gutter-over-middle-C argument, which assumed physical keys under the panel);
+  - BOW's lid = power (it's still possible, but the "covers the keys" reason is gone);
+  - BOW's per-key thinning in swell, which only works with per-note pressure. With a velocity-only controller it would just sink every note, so it needs a rule.
+- **Eng facts used** (`floss/eng/controller.md` rev 0):
+  - the K-Board C is 325 × 84 × 11 mm, ≈ 0.35 kg, poly AT / MPE / tilt, $139, KMI-branded only until stock sells out;
+  - libDaisy supports USB host MIDI; host and device at the same time is unverified;
+  - the engine becomes 25 allocated voices on the same hardware (a 12-voice option saves ≈ $12–15);
+  - the controller's octave buttons move the split;
+  - only the Seaboard sends lift;
+  - the controller draws ≈ 0.25–0.5 W.
+
 ## Where things stand (2026-11-22, concept round 1: my turn done)
 - Written:
   - `../concepts/common-how-it-works.md` (shared engine and behaviours, panel grammar, common coverage);
