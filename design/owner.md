@@ -561,3 +561,10 @@ Recorded as: **family principle, for now: the case is entirely 3D printed.** Tha
 > Cloth wrapping is fine as long as the core is printed
 
 Recorded as: soft wraps (CLOTH) are allowed as long as the core (the module case and any rigid parts) is printed.
+
+## 2026-11-22 14:24–14:25 (chat)
+> Publish
+
+> Speaker let’s figure out what will sound best idc method
+
+Recorded as: site published. **Speaker: choose whatever will sound best**; sealed, ported or passive radiator doesn't matter to Adam. The no-measuring rule still applies, so "best" is judged on published data and models.
