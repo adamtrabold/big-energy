@@ -2,11 +2,11 @@
 
 ## The jobs, short (for the owner: anything wrong or missing?)
 
-floss is a sound module you play from a small MIDI keyboard you carry with it. **new** = a job added in rev 3; **changed** = reworded in rev 3; **rev 3.1** / **rev 3.2** = reworded in that revision.
+floss is a sound module you play from a small MIDI keyboard you carry with it. **new** = a job added in rev 3; **changed** = reworded in rev 3; **rev 3.1** / **rev 3.2** / **rev 4** = reworded or added in that revision.
 
 1. Play warm, shimmering string chords anywhere: battery, built-in speaker, no setup.
 2. Plug any travel keyboard into floss's USB-C port with one cable and play: floss powers it, and any standard USB MIDI keyboard works, not one model. **changed**
-3. Carry floss and a 25-key portable controller together as one kit, cable included, without damage, in a backpack comfortably. The carry fits the controller but needn't surround it: an attachment point is enough. It holds the keyboard by its ends, never across its keys, takes any slim controller (325–388 mm wide), and still packs neatly with no keyboard in it. **rev 3.2**
+3. Carry floss and a 25-key portable controller together as one kit, cable included, without damage, in a backpack comfortably. The carry fits the controller but needn't surround it: an attachment point is enough. It holds the keyboard by its ends, never across its keys, takes any slim controller (325–388 mm wide), and still packs neatly with no keyboard in it. The keyboard doesn't have to be permanently attached (it may be): the module makes sense on its own. **rev 4**
 4. Play as many notes at once as my keyboard can, every note sounding: 25 voices. **rev 3.2**
 5. Split the keyboard on floss and set each half's octave on floss's knobs; set both the same and it's one keyboard.
 6. Know where the split lands on the keyboard I brought: floss splits at a fixed note and shows where that falls with a marker on its front edge; the card in the kit and the site explain "keep the keyboard at its home octave". (inferred) **rev 3.1**
@@ -23,23 +23,43 @@ floss is a sound module you play from a small MIDI keyboard you carry with it. *
 17. Use it with other gear over MIDI: play other things from it, split the halves onto two channels or not, and send velocity and pressure.
 18. Read everything from floss's panel, with no screen, by eye or by touch, including the split, whether the keyboard is connected and whether notes are arriving. **changed**
 19. Switch on with one switch and be playing within seconds, keyboard included; know the battery and the charging. (inferred) **changed**
-20. Take the kit to the park and play on a bench, my lap or the grass, in sun or shade. (inferred) **rev 3.2**
+20. Take the kit to the park and play on a bench, my lap or the grass, in sun or shade, with floss at an angle. (inferred; the angle is stated, see 32) **rev 4**
 21. Lots of notes don't distort, and one note doesn't sound thin. (inferred)
 22. Play in tune with other instruments.
 23. Share it: a friend holds the keyboard beside me on its cable while I work the knobs. (inferred) **changed**
-24. See one clear point of view in the object, keyboard included, and want to play it.
-25. Belong to the same family as Big Energy: same case family, parts and way of building.
-26. Build it myself from proven parts, with a 3D-printed case (my printer or a print service) and only proven crafts beyond it, knowing every making step before I start, and open it up to fix it. **rev 3.1**
+24. See one clear point of view in the object, and want to play it. Its form takes cues from Big Energy's CATHEDRAL, not CATHEDRAL's form. **rev 4**
+25. Belong to the same family as Big Energy: same case family, parts and way of building. The form answer here is for the whole family. **rev 4**
+26. Build it myself from proven parts, with a case that is entirely 3D printed, metal parts included (my printer or a print service; knobs and similar bought parts excepted), knowing every making step before I start, and open it up to fix it. **rev 4**
 27. Swap to a different keyboard whenever I like (another model, a broken one replaced, one that goes out of production) and the plugging in and carrying still work.
 28. Use the same way of carrying and connecting a keyboard on every portable sound module we build. Each module is sized by its own parts; the carry takes the keyboard. **changed**
 29. When floss is silent, find out why from floss itself: no keyboard, keyboard not powered, notes not arriving, volume down, or a half turned off. (inferred) **new**
-30. A module that's portable, makes sense and is harmonious: its size and proportions derived from its own parts by a deliberate ratio, in any outline, not necessarily a rectangle. **rev 3.1**
+30. A module that's portable, makes sense and is harmonious: its size and proportions derived from its own parts by a deliberate ratio, in any outline, not necessarily a rectangle. Dimensions are free (the 280 × 105 × 35 module was turned down on shape). **rev 4**
+31. Every control in a single plane. **new, rev 4**
+32. Set floss at an angle facing me; ideally by the case's shape, with no folding or moving parts (owner idea, a possibility). Whether it must *also* sit flat to play is an open question. **new, rev 4**
+33. Pack it with the panel protected, by a cover or by the case itself (a folding cover is an owner idea, a possibility). (inferred) **new, rev 4**
+34. Reach the keyboard port, headphones and power in every pose it sits in. (inferred) **new, rev 4**
 
 The plan for every synths-to-go instrument: a portable sound module with a way to carry a keyboard with it, not tied to any one keyboard model.
 
 ---
 
-Status: **rev 3.2, 2026-11-22**, product designer (systems focus). Rev 3.2 folds in the owner's words on the carry ("The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule"), on voices ("25 is good for the string machine") and on the speaker ("Speaker let's figure out what will sound best idc method"), and the director's steer 2 (YOKE replaces CLOTH). Rev 3.1 rewrites job 30 to the owner's 13:51 words and PRINCIPLES §2, takes the sentence off the module in job 6 (director R4), and folds in the owner's 14:08 principle that the case is entirely 3D printed (job 26). Rev 3: It follows the closed module jam (`jam-module.md`, turns 1–6 and the director's addendum) and the owner's direction at 13:25 ("The module does not have to match keyboard width") and 13:29 ("It needs to fit in a backpack comfortably. Ideally like the size of a sheet of paper length wise. But it also does not have to be a rectangle. It should be a thoughtful ratio base"). Rev 2 (12:26, the module shape) and rev 1 (built-in keys) are superseded.
+Status: **rev 4, 2026-11-22 (CATHEDRAL form round)**, product designer (systems focus). Rev 4 follows the owner turning down the module and YOKE on shape (15:15) and his 15:11 and 17:58 words (in `BRIEF-CATHEDRAL.md` and `design/owner.md`). It changes jobs 3, 20, 24, 25, 26, 30 and adds 31–34. The detail rows for jobs 3, 24, 26 and 30 below still describe rev 3.2's concepts (YOKE, FALLBOARD, SPINE, the 280 × 105 × 35 hull); where they differ, the short list and the rev 4 table win.
+
+## What changed from rev 3.2 to rev 4, and why
+| Job | Change | Source (owner's words, verbatim) / proposal |
+|---|---|---|
+| 3 | The keyboard **doesn't have to be permanently attached**; the module stands on its own | owner 15:11: "the keyboard does not need to be permanently attached would just be nice for when on the go"; "I didn’t say never or that it couldn’t be I said it doesn’t have to be." |
+| 20 | Played **at an angle** in the park | owner 17:58 ("capability to sit at an angle") |
+| 24 | Point of view from **CATHEDRAL's cues**, not its form; "keyboard included" dropped, since the keyboard is no longer part of the object | owner 15:15 "take the big energy as the guide"; 17:58 "Cathedral was a model so take the cues we need" |
+| 25 | The form is a **family** answer | owner 17:58: "This should change on the whole family." |
+| 26 | Case **entirely printed, metal included**; bought parts only for knobs and the like; no bookcloth spine as drawn | owner 17:58: "it was all supposed to be 3d printed even metal"; "Case should be 3d printed except for knobs and stuff"; bookcloth spine "feels weird to me" |
+| 30 | **Dimensions free**; the 280 × 105 × 35 hull no longer the concept | owner 15:15 "Cathedral but dimensions can change"; module turned down |
+| 31 | **New: one plane** | owner 17:58: "all controls should fit in a single plane" |
+| 32 | **New: sits at an angle**; by shape alone is a possibility, not a rule; *flat too?* is open | owner 17:58: "I do think it should still have the capability to sit at an angle, but maybe the case could do that without needing folding / movable parts and just by shape" |
+| 33 | **New (inferred):** panel protected when packed; a cover is one way | proposal; owner 17:58 "even if there is still a folding cover or something tbd" (a possibility) |
+| 34 | **New (inferred):** ports reachable in every pose | proposal (a pose may put a face on the table) |
+
+Previous status line: rev 3.2, 2026-11-22, product designer (systems focus). Rev 3.2 folds in the owner's words on the carry ("The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule"), on voices ("25 is good for the string machine") and on the speaker ("Speaker let's figure out what will sound best idc method"), and the director's steer 2 (YOKE replaces CLOTH). Rev 3.1 rewrites job 30 to the owner's 13:51 words and PRINCIPLES §2, takes the sentence off the module in job 6 (director R4), and folds in the owner's 14:08 principle that the case is entirely 3D printed (job 26). Rev 3: It follows the closed module jam (`jam-module.md`, turns 1–6 and the director's addendum) and the owner's direction at 13:25 ("The module does not have to match keyboard width") and 13:29 ("It needs to fit in a backpack comfortably. Ideally like the size of a sheet of paper length wise. But it also does not have to be a rectangle. It should be a thoughtful ratio base"). Rev 2 (12:26, the module shape) and rev 1 (built-in keys) are superseded.
 
 **"Inferred"** means the owner didn't say it. A concept may answer an inferred job weakly but must say so. A stated job a concept can't do sends it back.
 

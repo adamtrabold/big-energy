@@ -417,3 +417,23 @@
 ## Next
 - Fold the owner's answer on the jobs list into `jobs.md` rev 2.
 - Concepts: write how-it-works for BOW, KEPT and TIDE in `../concepts/<name>/`, starting with the shared rules (the split, the half-map, the TOUCH group, the breath, lift, the status light), then check each against `jobs.md`.
+
+---
+
+## 2026-11-22 18:xx: CATHEDRAL form round, jam turn 1 (systems)
+**Where things stand:** the owner turned down the module (280 × 105 × 35 hull) and YOKE on shape (15:15) and pointed at Big Energy's CATHEDRAL as the model for cues (17:58). This round is the module's **form** and how the keyboard comes along, concept level only. I opened `jam-cathedral.md` (turn 1) and moved `jobs.md` to **rev 4**.
+
+**jobs.md rev 4:** changed 3 (keyboard not necessarily attached), 20 (at an angle), 24 (CATHEDRAL cues, keyboard no longer part of the object), 25 (family answer), 26 (fully printed incl. metal), 30 (dimensions free); new 31 (one plane), 32 (at an angle; shape-only is a possibility; flat too? open), 33 inferred (panel protected), 34 inferred (ports in every pose). Detail rows for 3/24/26/30 still describe rev 3.2's concepts; the short list and rev 4 table win. Detail rows for 31–34 not written yet: write them once a direction is picked.
+
+**Randomness drawn:** "Mechanicalize something idiosyncratic", "Remove specifics and convert to ambiguities"; loom, reliquary/triptych, cast-iron skillet; twist "made of identical repeated parts"; angle 14°.
+
+**Key finding [calc]:** angle by shape alone gives robust *angled* or *angled + upright* poses, not *flat + angled*. A two-facet bottom that rests both ways needs the COM inside a ≈ 4–5 mm window: a knife edge. So flat-and-angled needs one moving part or a second object. That's the owner's fork (open question 1).
+**Second finding [calc]:** a 14° wedge over 105 deep (35 → ≈ 61 mm) adds ≈ 385 cm³, twice speaker E's ≈ 190 cm³. In a wedge the angle can be the speaker box and the plan may shrink. For eng.
+
+**Directions proposed (differ in kind):** WEDGE (fixed section; owner's shape-only idea), TRIPTYCH (cover is the stand; owner's folding-cover idea), BAIL (printed-metal handle = stay = keyboard anchor), SLED (angle lives in the keyboard carrier; module flat), RETABLE (stands steep like a radio). Cross-cutting: NAVE (identical printed bays: fits the bed, seams at dividers, family scales by bay count). Keyboard carry kinds k1 strap, k2 back-to-back on S4, k3 on the cover, k4 carrier.
+
+**Structurally meaningful CATHEDRAL cues:** the framed plate (rim guards knobs), the raised panel (angle without the hinge), the stay (now printed metal), soft architectural corners, pipe-line grille as speaker-box bars, bays. Not carried: bookcloth spine, the two-part fold.
+
+**Open questions:** flat too, or angled enough (owner); is a strap "stuff" (owner); printed-metal service/cost, wedge volume, detent wear (eng); the two-facet idea worth chasing (director); which cue carries the look (visual).
+
+**Next:** visual designer's jam turn, then the director's steer; then concepts in `concepts/c-<name>/`, and detail rows for jobs 31–34.
