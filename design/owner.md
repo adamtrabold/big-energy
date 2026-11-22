@@ -491,3 +491,12 @@ Recorded as: **Adam measures nothing.** Choices must rest on published evidence:
 > Yeah research the options
 
 Recorded as: research floss played by an **existing controller**, either separate (USB/BLE MIDI) or **transplanted** inside floss's case (the controller's own board and firmware kept, connected internally over USB). Rewiring bare keys is out (it needs measuring). Candidate donor: KMI QuNexus (silicone keys, velocity, poly aftertouch, tilt).
+
+## 2026-11-22 12:23–12:26 (chat): floss becomes a sound module
+> Do you think do it yourself pads will get us even close to experience parity with an existing solution? Also did the research keyboards too or just pads
+
+> And why did the price drop so much on the keyboard you recommended
+
+> Yeah I don’t think pads are my preferred feel they were just what we were exploring. I like the idea of focusing on the sound module now and making it so a travel MIDI controller can be carried with the module
+
+Recorded as: **floss is a sound module with no built-in keys**, played by a **travel MIDI controller over USB** (floss is the USB host and powers it). Floss is **designed so the controller can be carried with it**. Pads were exploration, not his preferred feel. The silicone-pad and spring-key work is shelved. The split, octave per half and MIDI split live in floss's firmware and panel and work with any controller. Per-key pressure comes from the controller when it sends polyphonic aftertouch or MPE (e.g. CME Xkey 25 with slim keys, Muse Kinetics K-Board C with pads), with a fallback to channel pressure and velocity.
