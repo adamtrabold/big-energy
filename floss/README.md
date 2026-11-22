@@ -14,6 +14,7 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - **Split with octave select for each half:** "it would be nice to octave select each half of the keyboard"
 - **Velocity:** "it would be cool to innovate on the original string synth with velocity"
 - **Pressure:** look into per-key pressure instead of Big Energy's shared strip ("Yes let’s look to innovate"). Feasibility comes first; it isn't decided yet.
+- **Pressure destination is selectable:** "Would be cool to select what the pressure strip does"
 
 ## How string machines work (checked in chat, 2026-11-21)
 - A master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave. Every key has a tone running, so every key can sound at once.

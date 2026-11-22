@@ -383,3 +383,8 @@ Recorded as: floss has **25 keys or fewer**, never an extended keyboard ("portab
 > Yes let’s look to innovate
 
 (Answering: keep Big Energy's shared pressure strip, or look into per-key pressure.) Recorded as: look into **per-key pressure** for floss rather than defaulting to the shared strip. It isn't decided yet: feasibility comes first (key travel, reading the bottom of the press with the Hall sensors).
+
+## 2026-11-21 22:41 (chat): floss pressure destination
+> Would be cool to select what the pressure strip does
+
+Recorded as: the pressure destination on floss is **selectable** by the player (for example volume swell, filter or shimmer depth). This applies whether pressure ends up per-key or a shared strip.
