@@ -429,3 +429,8 @@ Recorded as: floss **keeps Big Energy's MIDI rules**: USB-MIDI plus TRS in and o
 > Yes let’s make these as a shared universe and reuse as much as we can
 
 Recorded as: the synths-to-go instruments form a **shared universe**. floss (and the others) **reuse as much as possible** from Big Energy's enclosure family (ONE SHEET / FOLD formats, CATHEDRAL) and shared parts, changing only what floss's own needs require.
+
+## 2026-11-22 08:34 (chat): floss budget, go
+> Budget ceiling should be what we can to hit the desired goal. Let’s go on the design loop
+
+Recorded as: **no fixed budget ceiling for floss.** Spend what it takes to reach the goal, while still costing everything honestly. **The floss build-plans design loop starts now.** Work folder: `floss/design/`.

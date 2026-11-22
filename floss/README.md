@@ -35,5 +35,8 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - Its own instrument, or a minimal "strings" layer inside Port-a-poly (one level knob).
 - Ideas for something new: per-key swells, pressure-controlled bowing, drift between notes, sine stacking like the Antiphon.
 
-## Open (Adam's)
-- Budget ceiling.
+## Budget
+- No fixed ceiling: "Budget ceiling should be what we can to hit the desired goal." Everything still gets costed.
+
+## Design work
+- Build-plans design loop started 2026-11-22: `floss/design/`.
