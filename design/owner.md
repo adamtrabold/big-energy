@@ -378,3 +378,8 @@ Recorded as: on the site, instrument names and tabs are all lowercase (big energ
 > Re platform I do not want extended keyboard. Portable means 25 or less.
 
 Recorded as: floss has **25 keys or fewer**, never an extended keyboard ("portable means 25 or less"). It has a **split with independent octave select for each half**, and it **uses velocity** to innovate on the classic string machine.
+
+## 2026-11-21 22:41 (chat): floss aftertouch
+> Yes let’s look to innovate
+
+(Answering: keep Big Energy's shared pressure strip, or look into per-key pressure.) Recorded as: look into **per-key pressure** for floss rather than defaulting to the shared strip. It isn't decided yet: feasibility comes first (key travel, reading the bottom of the press with the Hall sensors).
