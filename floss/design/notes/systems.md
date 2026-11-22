@@ -463,3 +463,16 @@
 - **SHOE rocking:** plate plus pads ≈ 5–6 mm vs the keyboard's own feet (UNVERIFIED per model); if taller, peel the plate off to play, or carry loose.
 **Open:** the stretcher (director); the groove's exact y (eng, centre of mass); pad hold, dovetail tolerances, foot heights (eng); the CASKET lid-pocket fit.
 **Next:** the visual designer's sheets; then my coverage check of each 9+ concept against `jobs.md` rev 4 (jobs 31–34 need detail rows first).
+
+### 2026-11-22 round 1 scored; GNOMON rev 2 (systems)
+**Scores:** GNOMON 8, CASKET-B 7, DROP 6 (killed: loaf / hair dryer). **Owner 18:39:** "Honestly my preference order would be angled, 90, flat"; **18:40:** "Multiple angles is fine". CASKET-B retires (flat isn't wanted). **Director fix 6:** GNOMON's rear face square to the plate, so it stands upright by shape; jacks move to the right cheek.
+**c-gnomon rev 2 [calc, mass 0.8 kg and COM ESTIMATES]:**
+- The cheek is front T, plate D, rear 2T, all square to the plate. **The angle rule restated: tan θ = T / D** → 18.4° / 16.9° (sin rule would need a 72 mm rear face). For the director to accept.
+- Angled footprint 111 / 120 (+11–12, not +23); back ≈ 66–67.
+- **Upright on 280 × 70:** the COM is only ≈ 15–20 mm inside the plate-side edge. **A pull toward the player on the top edge tips it at ≈ 1.0–1.5 N** (it lands on the rim); a top-row press tips it back at ≈ 4–4.6 N, a lower row at ≈ 5.5 N; ground tilt forward ≈ 17–22°. A wider rear face helps presses only; forward pull improves only by moving mass away from the plate (≈ 0.07 N per mm). So upright is for standing, listening, a shelf, a friend, light turns, not hard playing.
+- Ports in both poses: speaker best upright; port mouth on the left cheek in the slab band; host port on the front face (right-angle cable angled; from the top upright); jacks on the right cheek (UNVERIFIED above the end cell).
+- **Stretcher** still works: on the runner line, ≈ 30 mm clear of the rear face. Undock before standing upright.
+- Flat: not offered and not faked.
+**jobs.md:** a "Queued for rev 5" table added (job 32 poses in his order; 34 ports per pose; 3 and S9 pending the owner; 30 the tan rule). Not applied yet.
+**Owner questions:** "90" for playing or standing; "multiple angles" as fixed poses or a range.
+**Next:** the visual designer's sheet with the upright view; the director re-scores GNOMON; I do the coverage check against jobs once it's 9+.

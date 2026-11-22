@@ -45,6 +45,15 @@ The plan for every synths-to-go instrument: a portable sound module with a way t
 
 Status: **rev 4, 2026-11-22 (CATHEDRAL form round)**, product designer (systems focus). Rev 4 follows the owner turning down the module and YOKE on shape (15:15) and his 15:11 and 17:58 words (in `BRIEF-CATHEDRAL.md` and `design/owner.md`). It changes jobs 3, 20, 24, 25, 26, 30 and adds 31–34. The detail rows for jobs 3, 24, 26 and 30 below still describe rev 3.2's concepts (YOKE, FALLBOARD, SPINE, the 280 × 105 × 35 hull); where they differ, the short list and the rev 4 table win.
 
+## Queued for rev 5 (systems, 2026-11-22; not applied until the director confirms GNOMON's re-score)
+| Job | Queued change | Source |
+|---|---|---|
+| 32 | **Poses, in his order: angled first, then 90° (upright), then flat. Flat is not required. More than one angle is fine.** A concept must show each pose it offers and how stable each is (knob press, a pull on the top edge, grass, lap). Shape-only stays a possibility, not a rule. Open: "90" for playing or for standing; "multiple angles" as fixed poses or a range | owner 18:39: "Honestly my preference order would be angled, 90, flat"; 18:40: "Multiple angles is fine" |
+| 34 | Ports reachable **in every pose**: a face used as a foot carries nothing (GNOMON: jacks on the right cheek; the host port on the face that's on top when upright) | systems; director fix 6 |
+| 3 | "held by its ends" → "held by its ends **or its underside**" (SHOE), **only if the owner agrees** | systems turn 4; director turn 5 |
+| 28 | Adds family interface **S9: the SHOE dock** (front-to-back dovetail, detent), pending the owner | director turn 5 (agent proposal, not a principle) |
+| 30 | GNOMON's angle rule: **tan θ = T / D** with a rear face of 2T (if the director accepts the restatement) | systems, c-gnomon rev 2 |
+
 ## What changed from rev 3.2 to rev 4, and why
 | Job | Change | Source (owner's words, verbatim) / proposal |
 |---|---|---|

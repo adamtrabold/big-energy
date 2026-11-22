@@ -536,3 +536,15 @@ These are new concepts, scored for the first time. The turned-down module and YO
 
 ## Next
 A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the owner "sit flat too?" now (it's already pending): yes → a TRIPTYCH pass for CASKET; no → GNOMON alone. SHOE stays the shared carry, pending the owner's answers on pads and the underside hold.
+
+## Plan change after the owner's answer (2026-11-22)
+**Owner, verbatim (via the coordinator):** "Honestly my preference order would be angled, 90, flat". The orchestrator's reading (not confirmed): angled first, upright at 90° second, flat last; flat not required.
+- **CASKET-B retires**, as planned. GNOMON carries the round.
+- **GNOMON gets the 90° pose by shape, with no added parts. Fix 6 (new):** cut the **rear face square to the plate** instead of vertical. The end face then becomes a true gnomon: plate and rear face are the two legs of a right angle, and the table line is the hypotenuse. Angled pose: on the runners, θ = asin(T/D). Upright pose: stood on the rear face, the plate is exactly vertical (turn it round to face you). From the side, the rear face is battered like a buttress (it leans in toward the top by θ). That's a cathedral cue with a structural reason, not costume.
+  - **Costs [calc, rough]:** the angled footprint grows by about rear height × sin θ ≈ 68 × 0.33 ≈ 23 mm, unless D gives some back.
+  - **The jacks must leave the rear face**, because it's a foot in the upright pose. They move to the right cheek face (the left cheek is the port mouth); the host port stays on the lip, which is on top when upright.
+  - **Systems to check (UNVERIFIED):** upright stability on a ≈ 66-deep rear face. The slab is at the plate edge, so the centre of mass sits near that edge; a knob press pushes into the footprint, and a pull on the top edge is the risk. Also that the speaker, port and every port work in both poses.
+- **Visual:** add the upright pose as a small fourth view on the GNOMON sheet. Don't add a separate concept.
+- **Question for the owner (clarify, don't block):** is "90" for **playing** upright (knobs on a vertical face, like a radio) or for **standing it up** (a shelf, display, storage, a friend across the table)? It changes how much the upright pose has to be tuned for hands. Note: I killed RETABLE for knobs on a steep face; his ranking overrides my taste here.
+- **Re-score:** GNOMON alone, from the revised sheet, owner objections first.
+- **Owner follow-up, verbatim:** "Multiple angles is fine". Folded in: it backs GNOMON having two poses by shape (angled on the runners, 90° on the square rear face). The plan stays the same: no added parts, and no adjustable mechanism is introduced on the strength of this. If the owner means a range of angles rather than several fixed poses, that's for him to say; ask it alongside the "90 for playing or for standing?" question.
