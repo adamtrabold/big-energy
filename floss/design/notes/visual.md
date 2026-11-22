@@ -366,3 +366,37 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
 5. Systems: derive DROP's ratio from its parts (I drew numbers; I didn't derive them).
 
 **Next:** systems' structural pass on DROP, CASKET and ROSE, then the director steers. For whichever concepts go forward: end-elevation and 3/4 views showing the framed plate, the end grain and the brass, at concept fidelity only (the owner: no deep refinement before he approves one).
+
+---
+
+## 2026-11-22 (late): concept sheets for DROP, GNOMON, CASKET-B
+
+**Rulings since my jam turn 2** (director turns 3 and 5; systems turn 4):
+- ROSE is dead; its 300° arc lives on as the knob marking.
+- DROP's pose 2 is cut. DROP is 2 rows, ≈ 37°, 260 × 88 × 62.
+- GNOMON is the director's idea: sin θ = T / D ≈ 19.5°, the back ≈ 2T.
+- CASKET-B (lid under the back, ≈ 11°, closes ≈ 50). CASKET-A is dead. TRIPTYCH is one line under it.
+- SHOE is the shared carry (pending the owner), with loose-in-bag and a printed TPU band as fallbacks.
+- The façade goes only where it's seen: on CASKET's lid, nowhere else.
+
+**Made:**
+- `concepts/c-drop/sheet.png`, `c-gnomon/sheet.png`, `c-casket/sheet.png`, 2800 × 4000 (14 × 20 in at 200 dpi).
+- **Same scales on all three:** end view 3:2, 3/4 views 1:2, bag inset 1:4.
+- Each sheet has: the end view big and first; a 3/4 view playing, keyboard in front; packed with SHOE; a loose-in-bag inset. CASKET adds closed (façade) and the underside (SHOE dock y 10–70, catch groove y 80–92).
+- A short `how-it-looks-and-feels.md` in each folder.
+- Source: `concepts/_src/cathedral_sheets.py`, a tiny flat-shaded painter's renderer with extruded end profiles.
+
+**Visual decisions and why:**
+- **DROP:** the cream field turns over the pipe's upper front inside the same end rims, and one bead line runs round the whole end face. That's the director's "rim wraps plate and pipe as one line" test. Growth rings across the whole end, centred on the port, make the wedge and pipe read as one block.
+- **GNOMON:** the end face is flush (slab and cheek one surface, rings across both). The stretcher is shown dashed in the end view and docked in the packed view, as the SHOE variant, for the director to rule.
+- **CASKET:** the lid is the same walnut as the module (one slab closed, with a seam line). The angled pose shows the lid ≈ 80 behind, honestly. I drew ≈ 10° from asin(15 / 86); systems says ≈ 11°.
+- **Shared:** the port mouth sits at the centre of the left end face's growth rings (systems' proposed family rule). The brass ring is drawn, marked "only if cast counts".
+
+**Open:**
+1. DROP's hair-dryer risk.
+2. GNOMON's stretcher.
+3. CASKET's lid-behind read, and 10° vs 11°.
+4. Façade placeholder, his to design.
+5. Cast metal counting as printed (owner).
+
+**Next:** the director scores. Then fix what's objected to. Once one is approved, write the handoff's "how it looks and feels" for every state in systems' how-it-works.

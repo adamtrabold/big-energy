@@ -451,3 +451,15 @@
 **Brass:** brass runners alone slide on a smooth table, so TPU strips do the gripping; brass only where it doesn't need grip.
 **jobs.md changes queued (after the owner answers):** job 3 "ends or underside"; S9; detail row for job 32 (the angle rule).
 **Next:** the director steers on DROP's rows, CASKET A/B and the angle rule; then the visual designer draws the end faces.
+
+### 2026-11-22 concept building, turn 1 (systems)
+**Director turn 5:** DROP 2 rows ≈ 37°, 260 × 88 × 62; CASKET-B ≈ 11°, closes as a calm slab (A dead; TRIPTYCH one line); GNOMON sin θ = T/D accepted (back ≈ 70 = 2T); SHOE accepted as the shared carry pending the owner (conditions: pads only on a free flat underside; a positive detent; one family part S9; the keyboard plays with the shoe on, no rocking); fallbacks loose → printed TPU band; façade only where seen (CASKET lid yes; GNOMON underside no; DROP none).
+**Wrote:** `concepts/c-drop/how-it-works.md`, `c-gnomon/how-it-works.md`, `c-casket/how-it-works.md`, `concepts/c-shoe.md` (≈ a page each: structure, poses, moves, ports/speaker, owner forks, UNVERIFIED).
+**Decisions in them (proposals):**
+- **S9 dock slides front to back on every module**, entered from the front edge, y ≈ 10–70, with a detent at the end.
+- **CASKET-B catch groove** across the base at y ≈ 80–92: 10 mm clear of the dock. Both are recesses, so the flat pose stays flat. The lid lies behind the groove and shows ≈ 75–80 mm behind the module's back while angled (footprint ≈ 190), flagged as the shape risk.
+- **GNOMON gets a stretcher** (a bar between the cheeks at table level) **only if SHOE is chosen**: the 200 plate can't span the 280 runners. It also stiffens the cheeks and floors the cable bay. Needs the director's OK (it changes "open underneath").
+- **Family port rule:** the port mouth is at the centre of the left end grain (DROP's end face, GNOMON's cheek, CASKET's end face).
+- **SHOE rocking:** plate plus pads ≈ 5–6 mm vs the keyboard's own feet (UNVERIFIED per model); if taller, peel the plate off to play, or carry loose.
+**Open:** the stretcher (director); the groove's exact y (eng, centre of mass); pad hold, dovetail tolerances, foot heights (eng); the CASKET lid-pocket fit.
+**Next:** the visual designer's sheets; then my coverage check of each 9+ concept against `jobs.md` rev 4 (jobs 31–34 need detail rows first).
