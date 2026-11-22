@@ -395,3 +395,12 @@ Recorded as: the pressure destination on floss is **selectable** by the player (
 > I want to keep it battery powered
 
 Recorded as: floss is **battery powered**. Pack size, runtime and the power design wait for a proper power budget, once the voice and shimmer choices are made.
+
+## 2026-11-21 22:44–22:46 (chat): floss speaker
+> Yes speaker let’s see what two would mean but I’m not sure— would we need stereo controls for the shimmer? How do other synths do it
+
+> Is the op 1 field analog
+
+> Yeah one speaker unless headphones just as on big energy
+
+Recorded as: floss has **one built-in speaker**, which mutes when headphones are plugged in, as on Big Energy. Stereo is for headphones and outputs. No separate stereo controls for the shimmer were asked for.
