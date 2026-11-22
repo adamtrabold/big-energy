@@ -500,3 +500,8 @@ Recorded as: research floss played by an **existing controller**, either separat
 > Yeah I don’t think pads are my preferred feel they were just what we were exploring. I like the idea of focusing on the sound module now and making it so a travel MIDI controller can be carried with the module
 
 Recorded as: **floss is a sound module with no built-in keys**, played by a **travel MIDI controller over USB** (floss is the USB host and powers it). Floss is **designed so the controller can be carried with it**. Pads were exploration, not his preferred feel. The silicone-pad and spring-key work is shelved. The split, octave per half and MIDI split live in floss's firmware and panel and work with any controller. Per-key pressure comes from the controller when it sends polyphonic aftertouch or MPE (e.g. CME Xkey 25 with slim keys, Muse Kinetics K-Board C with pads), with a fallback to channel pressure and velocity.
+
+## 2026-11-22 12:28 (chat): family principle
+> This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard.
+
+Recorded as: **a synths-to-go family principle.** Every portable synth in the family is a portable sound module with a way to carry a keyboard with it. The carrying method and the connection must be **flexible and not tied to one keyboard model**: any class-compliant USB MIDI controller within a size range, with no fitted dock for one product. Whether this changes Big Energy's locked v1.1 (which has built-in keys) is open; ask Adam.

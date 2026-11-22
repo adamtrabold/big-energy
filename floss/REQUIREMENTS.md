@@ -2,6 +2,9 @@
 
 Status: **rev 2 (2026-11-22 12:26): floss is a keyless sound module played by a carried travel controller.** Rev 1, targets confirmed as the baseline (2026-11-22 09:38).** Adam: "Sure but if we can do better or need to do worse tradeoffs should be discussed": any target we could beat or must miss comes to him as a trade-off. "Decided" lines are Adam's (verbatim record in `design/owner.md`). "Proposed" lines are targets for him to confirm or change; engineering designs against whatever he confirms.
 
+## Family principle (Adam, 2026-11-22 12:28)
+"This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard."
+
 ## What it must do (decided)
 - Analog voices, shimmer and warmth; a portable string machine.
 - **No built-in keys (rev 2).** floss is a sound module played by a travel MIDI controller over USB; floss is the USB host and powers it. It's designed so the controller can be carried with it.
