@@ -24,6 +24,9 @@ Status: **not started**. Build plans come after the string machine's. Which inst
 - [Polyphonic and hybrid clones](../explore/poly-hybrid.md) (2026-11-13): a 4-voice Juno-style "Little J" at ≈ $350–520, and a Prophet-600-ish voice at ≈ $380–560, for one unit. Both are estimates.
 - Reference: the Behringer Pro-800 has 8 voices with 2 CoolAudio 3340 VCOs and a V3320 filter per voice. Its envelopes and LFO are computed in firmware (checked in GliGli's open p600fw).
 
+## Decided across synths-to-go
+- Shared universe: "Yes let’s make these as a shared universe and reuse as much as we can" (2026-11-22).
+
 ## Open (Adam's)
 - What carries over from the Big Energy platform.
 - Budget ceiling.

@@ -21,6 +21,7 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - **Shimmer: an analog mode plus Daisy modes:** "Analog mode on shimmer but modes to use the daisy too". Echo and reverb stay on the Daisy.
 - **MIDI: Big Energy's rules**, plus a **MIDI split you can turn on or off** (one channel per half), and **velocity and pressure over MIDI** (polyphonic aftertouch if per-key pressure works out).
 - **Try it without screens or encoders**, using real bought knobs and keys ("Let’s try without"). The designers have to be strict about which choices get a control.
+- **Enclosure: a shared universe with Big Energy, reusing as much as possible:** "Yes let’s make these as a shared universe and reuse as much as we can".
 
 ## How string machines work (checked in chat, 2026-11-21)
 - A master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave. Every key has a tone running, so every key can sound at once.
@@ -35,5 +36,4 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - Ideas for something new: per-key swells, pressure-controlled bowing, drift between notes, sine stacking like the Antiphon.
 
 ## Open (Adam's)
-- What else carries over from the Big Energy platform: USB-C charging, enclosure work.
 - Budget ceiling.

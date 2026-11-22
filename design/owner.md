@@ -424,3 +424,8 @@ Recorded as: floss **keeps Big Energy's MIDI rules**: USB-MIDI plus TRS in and o
 > Let’s try without
 
 (Answering: should floss keep "no screens, no encoders, real knobs and keys"?) Recorded as: **try floss without screens or encoders**, using real bought knobs and keys, as on Big Energy. The designers must be strict about which choices earn a physical control. Read as "try without screens"; if Adam meant without the rules, this entry is wrong.
+
+## 2026-11-22 08:29 (chat): enclosure, shared universe
+> Yes let’s make these as a shared universe and reuse as much as we can
+
+Recorded as: the synths-to-go instruments form a **shared universe**. floss (and the others) **reuse as much as possible** from Big Energy's enclosure family (ONE SHEET / FOLD formats, CATHEDRAL) and shared parts, changing only what floss's own needs require.
