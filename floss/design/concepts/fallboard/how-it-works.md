@@ -1,164 +1,185 @@
 # FALLBOARD: how it works (systems)
 
-Status: **rev 1, 2026-11-22**, product designer (systems focus), concept round 2. The one module (297 × 105 × 40 at the rim) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** `floss/eng/module-r2.md` · **[eng]** `module.md` · **[calc]** · **PROPOSAL** · **UNVERIFIED**.
+Status: **rev 2, 2026-11-22**, product designer (systems focus), concept round 2, second systems turn. Brought to the director's R6 ("fewer notes": no gutter, one job per area, lighter lid, no lamp) and to the owner's 14:08 principle that **the case is entirely 3D printed**. The one module (280 × 105 × 35, hull) is in `../module/how-it-works.md`; this file covers only the carry. Marks: **[r2]** `floss/eng/module-r2.md` · **[calc]** · **[est]** · **PROPOSAL** · **UNVERIFIED** · **ENG**.
 
-**The idea:** one plane, one lid. A piano puts the keys in front, the works behind and a fallboard over both. FALLBOARD is a shallow walnut tray: the guest keyboard lies in a bed at the front, floss sits behind it, and one lid closes over the pair. It's the lead kit (director, turn 6).
+**The idea:** one plane, one lid. A piano puts the keys in front, the works behind and a fallboard over both. FALLBOARD is a shallow printed tray: the guest keyboard lies in a bed at the front, floss sits behind it, and one lid closes over the pair. It's the lead kit, on notice (director R6).
 
 ## 1. Structure
-**Plan, front to back** [calc]:
-- **Front wall:** 4 mm.
-- **Keyboard bed:** 404 × 140, with end blocks and the brass scale on the front lip.
-- **Gutter:** **404 × 35** (deepened from 12; see §3). The cable's path while playing, and its pocket when packed.
-- **Rear band:** 404 × 105. **The module (297 × 105) is centred**, with **a pocket on each side**, 53.5 × 105 each.
-- **Rear wall:** 4 mm.
-- **Lid:** 412 × 288 on **lift-off hinges** along the rear top edge, with a **lid stay** at ≈ 100°.
+**Plan, front to back [calc]:**
+
+| Band | Depth | Set by | Its one job |
+|---|---|---|---|
+| Front wall | 4 | structure | **the keyboard's datum:** every keyboard sits against it |
+| **Keyboard bed** | **137** | the deepest slim keyboard (Xkey 25, 135) + 2 | the keyboard, between end blocks. **Behind a shallower keyboard, the bed is the plug's room** (§3) |
+| **Cable lane** | **15** | a flat right-angle plug (≈ 10–15 [r2 §6]) | the cable from the host port: to the keyboard when open, to the left pocket when packed |
+| **Module bay** | **105** | the module | floss, in a printed socket that follows the hull, with a **pocket on each side** |
+| Rear wall | 4 | structure | with **two windows** in line with the module's port facets |
 
 | | Value |
 |---|---|
-| Footprint, open or closed | **412 × 288** [calc] |
-| Closed thickness | **≈ 48 mm** [r2: module 40 + 4 clearance + 4 lid] |
-| Carry weight | **≈ 0.5–0.7 kg** [r2: 0.40–0.55 for 400 × 230, scaled to 412 × 288 with the pocket walls; calc] |
-| **Kit weight** (module 0.67–0.93 [r2] + carry + cable and adapter ≈ 35 g) | nanoKEY2 ≈ 1.45–1.91 · K-Board C ≈ 1.55–2.01 · Xkey 25 ≈ 1.8–2.27 kg [calc]. **T5 (1.5 kg) only with the nanoKEY2 at the light end.** §9 |
+| **Footprint** | **412 × 265** (was 412 × 288 with the 35 mm gutter) [calc] |
+| **Closed thickness** | **≈ 42** (floor 1.2 + module 35 + 4 clearance + lid skin ≈ 1) [calc]. ≈ 48 if the module goes to 41 (module §2.1) |
+| **Carry weight** | **≈ 0.52–0.60 kg** printed; **≈ 0.47–0.55** with the open-grid bed (§8) [calc/est, ENG] |
+| **Kit weight** (module 0.67–0.93 [r2] + carry + cable and adapter ≈ 35 g) | nanoKEY2 ≈ 1.42–1.81 · K-Board C ≈ 1.52–1.91 · Xkey 25 ≈ 1.78–2.17 kg [calc]. Add ≈ 0.06–0.1 if the charger rides along (product UNVERIFIED). T5 withdrawn: reported, lighter is better |
+
+**What sets the outline (director R6.5):**
+- **412** = the bed's 404 inside (the Xkey's 388 + two end blocks fully in at 8 each) + two 4 mm walls.
+- **265** = 4 + 137 + 15 + 105 + 4.
+- **Neither is a multiple of the module's 35 mm unit, and I haven't forced one** (412 ≈ 11.8 units, 265 ≈ 7.6). Where it costs nothing, the unit shows: the lid's ribs and the open bed's grid are on a 35 mm pitch.
 
 **Where the module sits, and why:** behind the keyboard, in the same plane, open and packed.
 - **One rigid board:** on a lap it doesn't fold (job 20).
 - **The per-half mapping holds:** the module is centred behind a centred keyboard, so each jamb sits behind its half (job 18).
 - **The shortest cable path of any kit.**
 
-**Every square centimetre of 412 × 288 (1,187 cm²) [calc]:**
-| Area | cm² | Its job |
-|---|---|---|
-| Keyboard bed, 404 × 140 | 566 | the keyboard (273–524 cm²) + **end-block travel**. The front strip a shallow keyboard leaves (≈ 57 mm) **stays empty bed** (director's ruling) |
-| Gutter, 404 × 35 | 141 | the cable's path for a socket anywhere along the rear edge, straight plug included; packed: the cable and the C-to-A adapter |
-| Module | 312 | floss |
-| Left pocket, 53.5 × 105 | 56 | **the charger** and its cable (a compact USB-C charger, ≈ 30 mm cube class, fits 53 × 105 × ≈ 36 inside; product UNVERIFIED) |
-| Right pocket, 53.5 × 105 | 56 | a spare cable, the strap (on the S4 inserts), the 1:1 card |
-| Walls | 56 | structure |
+**Every area of 412 × 265 (1,092 cm²) and its one job [calc]:**
 
-**The narrower module, and the choice (director's addendum):**
-- **A, recommended:** a rectangular tray with two pockets. The space beside the module carries the charger, so "a charger in the kit?" is yes for FALLBOARD too. Simple rectangular lid.
-- **B:** a **stepped tray**, with the rear band only as wide as the module (305 with walls). It saves 112 cm² and ≈ 0.05 kg, but the lid becomes T-shaped and there's no charger. Shown for comparison; I'd keep A.
+| Area | cm² | Its one job |
+|---|---|---|
+| Keyboard bed, 404 × 137 | 553 | the keyboard (273–524 cm²) + end-block travel; behind a shallow keyboard, the plug's room |
+| Cable lane, 404 × 15 | 61 | the cable's run |
+| Module (hull) | 262 | floss |
+| **Left pocket**, 62 × 105 + the crescent behind the module's shoulder (≈ 16) | ≈ 81 | **the cable's coil and the C-to-A adapter** |
+| **Right pocket**, the same | ≈ 81 | **the charger** and its cable (a compact USB-C charger, ≈ 30 mm cube class, fits 62 × 105 × ≈ 35 inside; product UNVERIFIED) |
+| Walls | ≈ 54 | structure |
+
+- **No gutter, no spare pocket, no lamp, no strap, no card pocket.** The 1:1 card (CC map, the home-octave line) lies flat in the right pocket under the charger. It's paper and needs no place of its own.
+- **Why the gutter could go:** the narrower module left a pocket at each end, so the coil moved there (director R6); and the flat right-angle cable (§3) needs only the 15 mm lane.
 
 ## 2. Keyboard range (job 3, 27)
-| Keyboard | W × D × H [eng] | End blocks | Bed left over |
+| Keyboard | W × D × H [eng] | End blocks | Room behind it (bed + lane) |
 |---|---|---|---|
-| CME Xkey 25 (largest) | 388 × 135 × 16 | **fully in, 8 mm each** | 5 mm at the front |
-| K-Board C / nanoKEY2 / QuNexus (smallest) | 325 × 83–84 × 11–16 | **fully out, ≈ 40 mm each** | ≈ 57 mm at the front, empty |
+| CME Xkey 25 (largest) | 388 × 135 × 16 | **fully in, 8 mm each** | 17: **flat right-angle plug** |
+| K-Board C / nanoKEY2 / QuNexus (smallest) | 325 × 83–84 × 11–16 | **fully out, ≈ 40 mm each** | **68–69**: a straight plug, or the adapter |
 | Chunky minis | up to 406 × 192 × 49 | — | **don't fit**: they play beside the kit. CLOTH carries them |
 
-**End blocks:**
-- Each block: a carriage on a track, 80 deep, set against the gutter, with a padded face (≈ 2 mm give), a lip with ≈ 6 mm of foam over the end cap, a thumb lock and a brass knob.
-- **Each block has a ≥ 15 mm notch at its back corner** [r2], so a plug in a keyboard's end socket passes the block and turns into the gutter.
-- **Nothing crosses a key.** Both blocks are set to the **same number on the one brass scale** (0–32, on the bed's front lip), so the keyboard is centred.
+**The keyboard sits against the front wall (PROPOSAL; this reverses rev 1's "keyboard against the gutter, empty strip in front").**
+- **Why:** the strip a shallow keyboard leaves then falls behind it, where the plug is, so it has a job. Every keyboard packs to the same datum.
+- **Cost:** a shallow keyboard's rear edge is up to 52 mm further from the module's front row than an Xkey's. The reach is still short (≈ 84 mm from the keyboard's rear edge to the front row) [calc].
+
+**End blocks (printed):**
+- Each block is a printed carriage running in a T-slot printed into the bed floor, 80 deep from the front wall.
+  - It has a padded face (bought closed-cell foam, ≈ 2 mm give), a lip with ≈ 6 mm of foam over the end cap, and a bought thumbscrew lock.
+  - **Each block has a ≥ 15 mm notch at its back corner** [r2], so a plug in an end socket passes the block and turns into the room behind the keyboard.
+- **Nothing crosses a key.** Both blocks are set to the **same number on the printed scale** (0–32, printed in relief on the bed's front lip), so the keyboard is centred.
 - **Empty:** both locked.
-- **Closed:** a foam strip under the lid presses on the keyboard's top.
+- **Closed:** a foam strip under the lid presses on the keyboard's top; the blocks clamp its ends; the front wall stops it.
 
 ## 3. Cable path (job 2, 20, 23)
-- **Where sockets are:** keyboard sockets can be anywhere along the rear edge or on either end; positions are mostly unpublished [r2 §6]. A straight plug sticks out ≈ 25–35 mm, a right-angle one ≈ 10–15 [r2].
-- **So the gutter is 35 mm:** it takes a straight plug from any rear position, so no keyboard needs a particular right-angle cable. End sockets go through the end block's notch into the gutter.
-- **Cable:** 0.3–0.5 m [r2] along the gutter to the **host port at the module's centre**, port light beside it.
-  - USB-C keyboards use C-to-C.
-  - Others use their own cable on the **C-to-A adapter** that lives in the gutter.
-- **It never crosses hands, speaker or panel:** hands over the bed, speaker in the module's rear band, panel above the cable line.
-- **Friend:** a 0.5 m cable lets a friend beside you on the bench hold the keyboard. For a separate lap, the optional coiled cable (≈ 1 m stretched; product UNVERIFIED).
-- **Packed:** the cable stays in the host port, its keyboard end unplugged, coiled in the gutter.
+- **Where sockets are:** anywhere along the keyboard's rear edge or on either end. Positions are mostly unpublished [r2 §6].
+- **The kit cable** (module §9 S3, PROPOSAL): **0.3–0.5 m C-to-C with flat right-angle plugs at both ends.**
+  - A USB-C plug is reversible, so a flat right-angle plug exits left or right by flipping it. The "which way does the angle point" problem that drove the 35 mm gutter [r2 §6] goes away for any USB-C keyboard whose socket is mounted flat (UNVERIFIED per model; ENG).
+  - It sticks out ≈ 10–15 mm [r2]: inside the lane at the module end, and behind even an Xkey at the keyboard end (17 mm).
+- **Keyboards without USB-C** use their own cable on the **C-to-A adapter** at the host port. That's ≈ 50–60 mm out from the module's face [est]. It fits behind any keyboard ≤ ≈ 92 mm deep, which covers the nanoKEY2 (mini-B, 83 deep).
+  - **Residual: a micro-B Xkey 25 (older units)** has only 17 mm, so it needs a right-angle micro-B-to-C cable (product UNVERIFIED) or plays lifted out of the bed. Named, not hidden.
+- **It never crosses hands, speaker or panel:** hands over the bed, cable in the lane and behind the keyboard, panel above it, speaker on the crown.
+- **Friend:** a 0.5 m cable lets a friend beside you on the bench hold the keyboard. For a separate lap, the optional coiled cable (product UNVERIFIED).
+- **Packed:** the cable stays in the host port. Its tail runs along the lane, and the coil and adapter lie in the left pocket.
 
-## 4. The split target and the line (job 6)
-On the module's front face, facing the bed: set the brass target over B | C once; the line is engraved there (module §4). The lid's inside carries the 1:1 card: the CC map and the line again.
+## 4. The split target (job 6)
+The module's printed target and rail face the bed: set the target over B | C once. **No sentence on the module or the tray** (director R4). The 1:1 card in the right pocket carries the home-octave line and the CC map.
 
-## 5. Lid states
+## 5. Lid
+- **Printed, in four quarters** (206 × 132.5 each), joined into one panel: a 0.8–1.2 mm skin with ribs underneath on the 35 mm grid, 3–4 mm deep [calc].
+  - The ribs sit inside the 4 mm clearance over the module's rim; over the keyboard there's plenty of room.
+  - ≈ 0.14–0.20 kg [calc], against rev 1's ply lid (≈ 0.22–0.28 scaled). The bookcloth-over-board lever [r2] isn't available any more (printed case), so this is the lighter lid that's possible.
+  - **Lid stiffness at a 0.8 mm skin: ENG.**
+- **Hinges: printed lift-off knuckle hinges** (two, on the rear top edge), each with a bought steel pin fixed in one leaf. Lift the lid at "open" and it comes off.
+- **Stay: a printed over-centre brace** (as on a folding chair: two printed links that lock straight at ≈ 100° and fold flat inside the lid). It's geometric, so it needs no fitting by trial.
+- **Catch:** two bought magnets in printed pockets at the front edge.
+
 | State | How | For |
 |---|---|---|
-| **Closed** | foam strip on the keyboard; a front catch (product UNVERIFIED) | carry |
-| **Standing ≈ 100°** | lid stay | a bench or table: music stand, shade when the sun is low in front |
-| **Lit** | a lamp strip on the lid's top edge, **on its own 2 × AAA cells with its own switch** [r2 option b: ≈ 14 h at 0.1 W, +25 g]. ≈ 10 warm 2835 LEDs at 1–2 mA, ≈ 20–50 lux on the keys [r2] | night, shown once for the owner (objection 5) |
-| **Off** | lift-off hinges | **on a lap** (412 × 288 board), or a desk |
+| **Closed** | magnets; foam strip on the keyboard | carry |
+| **Standing ≈ 100°** | the brace locks straight | a bench or table: music stand, shade when the sun is low in front |
+| **Off** | lift-off hinges | **on a lap** (412 × 265 board), or a desk |
 
-- **Why self-powered** (not [r2] option a, wired through the hinge): it keeps the module identical in every kit, with no kit-only connector. If the owner calls it clutter, it goes, and nothing else changes.
+**The lamp is cut** (director R6.1): a lamp was considered and dropped. At night the module's TAP ring and port light are the only lights.
 
 ## 6. Flows
-**Unpack and play (the tea-box order):**
-1. Lay the kit flat. Undo the catch.
-2. Lift the lid to standing (bench), or off (lap).
-3. Lift the cable's keyboard end out of the gutter and plug it in (adapter if needed).
-4. Switch on at the module's rear. The status light goes steady; the port light goes steady.
+**Unpack and play:**
+1. Lay the kit flat. Lift the lid off its magnets.
+2. Lid to standing (bench), or off (lap).
+3. Lift the cable's free end out of the left pocket and plug it into the keyboard (adapter if needed).
+4. Switch on at the module's rear facet, through the window. The ring goes steady; the port light goes steady.
 5. Play.
 
 **Pack:**
 1. Switch off.
-2. Unplug the keyboard end; coil the cable and adapter into the gutter.
+2. Unplug the keyboard end. Lay the tail along the lane; coil it, with the adapter, into the left pocket.
 3. Blocks locked.
-4. Lid closed: the foam pins the keyboard.
-5. Catch. Into the backpack.
+4. Lid closed: the foam pins the keyboard; the magnets catch.
+5. Into the backpack.
 
 **Keyboard missing:** blocks locked, the lid closes the same. Play from a computer or TRS; a planted chord keeps sounding.
 
 **Swap:**
 1. Unlock and slide the blocks out.
-2. Change the keyboard.
+2. Change the keyboard, against the front wall.
 3. Slide the blocks in to the same number; lock them.
-4. Re-set the brass target.
+4. Re-set the target.
+
+**Charge:** the charger from the right pocket into the module's rear USB-C, through the window.
 
 **Home:** two thumbscrews from underneath free the module (S4).
 
 ## 7. States (carry; the module's are in its file)
 | State | What happens |
 |---|---|
-| Closed, keyboard in | foam pins it; blocks locked |
-| Closed, empty | blocks locked; nothing rattles |
+| Closed, keyboard in | foam pins it; blocks locked; front wall stops it |
+| Closed, empty | blocks locked; nothing rattles (the coil and charger sit in their pockets) |
 | Bench, lid standing | play; the lid shades the panel |
 | Lap, lid off | one stiff board |
-| Night | lamp on |
-| Friend | the cable lifts out of the gutter at the back corner |
+| Friend | the cable leaves the room behind the keyboard at a back corner |
+| Xkey (micro-B, old) | needs a right-angle micro-B-to-C cable, or plays lifted (§3) |
 | Chunky mini | plays beside the kit; doesn't pack |
+| Charging in the kit | the charger stays in its pocket, its lead through the rear window |
 
 ## 8. Making steps outside the electronics (job 26)
-| Step | Craft | Source or product | Needs trial or measuring? |
+**Everything rigid is printed** (owner 14:08). Bought: hinge pins, magnets, thumbscrews, M3 screws, heat-set inserts, foam.
+
+| Step | Craft | Source or method | Needs trial or measuring? |
 |---|---|---|---|
-| Tray and lid, walnut-faced ply, rabbeted corners | basic woodworking (Big Energy's case method) | family method; **we supply 1:1 printed templates** | no |
-| Floor cut-out under the module, pocket dividers | woodworking | templates | no |
-| Bed lining, coated bookcloth | bookbinding gluing (PVA) | library-binding cloth, UNVERIFIED | no |
-| End-block track and carriages, with the 15 mm notch | woodworking + bought hardware | mini T-track, T-bolts, knobs (UNVERIFIED) | no |
-| Pads, lip foam, lid strip | cutting closed-cell foam bought at a stated thickness | — | no |
-| **Brass scale** | cutting | **a bought brass or steel ruler cut to length**, so the graduation is published | no |
-| Lift-off hinges, lid stay, catch | fitting bought hardware | UNVERIFIED | **some:** place the stay from its product's instructions to get ≈ 100° |
-| Lamp (optional) | fitting a bought strip and AAA holder | UNVERIFIED | no |
+| **Tray, in four printed quarters**, split on the axis and on the lane's centre line: front quarters 206 × 148.5 × ≈ 40, rear quarters 206 × 116.5 × ≈ 40 | 3D printing | our files. **Each quarter fits a 220 × 220 bed** [calc]. The seams fall on lines the instrument already has (its axis and the lane). **Or one piece from an outside service** with a bed ≥ 420 mm (availability UNVERIFIED) | no |
+| Quarter joints | printed keyed lap joints + M3 screws into heat-set inserts along the seam ribs | standard printed-part practice | no |
+| Module socket (follows the hull), pocket walls, rear windows, two floor bars under the inserts | printed with the rear quarters | our files | no |
+| **Open-grid bed floor (lever, PROPOSAL):** the bed's floor as ribs on the 35 mm grid, open between; saves ≈ 50 g [calc] | printed | our files | no (ENG: lap stiffness) |
+| End-block T-slots, carriages, the scale in relief | printed | our files | no |
+| Lid, four quarters, ribbed | printed + the same joints | our files | no |
+| Lift-off hinges, over-centre brace | printed + bought steel pins | our files | no |
+| Magnets, foam pads, lid strip | fitting bought parts; cutting foam bought at a stated thickness | UNVERIFIED products | no |
 | Thumbscrews | fitting | ¼"-20 | no |
 
-**Honest load:** a woodworked box, a lining, a track, and four kinds of bought hardware. The heaviest craft list of the three.
+**Honest load:** about eleven printed parts plus small hardware. No woodworking, no lining and no measured fitting. The print time is the cost (not estimated; ENG).
 
 ## 9. Owner objections and trade-offs, up front
-1. **Size:** "the module is about a sheet of A4 long; the kit is the size of the keyboard you bring." Closed 412 × 288 × 48: about a 16-inch laptop's footprint plus 56 × 40 mm, and ≈ 3 times as thick.
-   - **Backpack:** it stands in a daypack's main compartment on its 288 edge if the pack is ≥ ≈ 420 mm tall inside (general pack sizes UNVERIFIED).
+1. **Size:** closed 412 × 265 × ≈ 42, about a 15-inch laptop's footprint and 2.5 times as thick.
+   - **Backpack:** 265 in a ≈ 300 mm compartment leaves ≈ 35 mm (was 12). It stands on its 265 edge in a pack ≥ ≈ 420 mm tall inside (general pack sizes UNVERIFIED).
    - It's too big for a laptop sleeve.
-2. **Weight (trade-off): FALLBOARD misses T5** with every keyboard except the nanoKEY2 at the light end (§1). Eng's levers [r2 §4]:
-   - a bookcloth-over-2 mm-board lid: −80 to −120 g;
-   - thinner shell walls: −60 to −110 g;
-   - lighter knobs: −40 to −80 g.
-   - Together they bring a K-Board C kit to ≈ 1.25–1.6 kg [r2]. **No version carries an Xkey 25 within 1.5 kg** [r2].
-3. **Craft:** §8.
-4. **Home octave:** module §4's one line.
-5. **Lamp:** §5, once.
-6. **Speaker:** sealed, published data [r2]. Passive radiator dropped (module §11: owner trade-off).
+2. **Weight:** carry ≈ 0.47–0.60 kg printed. It's lighter than rev 1 (0.5–0.7) at the top end, from the shallower tray, the cut lamp and the ribbed lid, but **printing removed the bookcloth-lid lever**, so the gain is modest. The heaviest kit still.
+3. **Craft:** printing only, with joints (§8).
+4. **The keyboard against the front wall**, not the module (§2).
+5. **Speaker:** sealed, published [r2]. Passive radiator dropped (module §13).
 
 ## 10. Family reuse (job 28)
-- **Unchanged for Big Energy and port-a-poly:** the 404 bed, the end blocks and track, the brass scale, the gutter, the lid hinge and stay, the thumbscrews.
-- **Per instrument:** the rear band's module bay. A wider module means smaller pockets. A deeper module means a deeper tray, so the lid changes. A module wider than 404 doesn't fit.
+- **Unchanged for Big Energy and port-a-poly:** the 404 × 137 bed, the end blocks and T-slot, the printed scale, the 15 mm lane, the kit cable, the lid hinge and brace, the thumbscrews.
+- **Per instrument:** the module bay. A wider module means smaller pockets; a deeper module means a deeper tray and lid; a module wider than 404 doesn't fit.
 
-## 11. Coverage (kit jobs; the rest are in the module's file)
+## 11. Coverage (kit jobs, against `jobs.md` rev 3.1; the rest are in the module's file)
 | Job | Supported? | Where |
 |---|---|---|
-| 3 one kit, backpack, no damage | **yes; T5 missed** (trade-off) | §1, §2, §6, §9 |
+| 3 one kit, backpack comfortably, no damage | **yes**: 265 in a 300 compartment | §1, §9 |
 | 3 held by the ends, nothing across keys | yes | §2 |
 | 3 packs empty | yes | §2, §7 |
-| 3 cable place | yes (gutter; charger in a pocket) | §1, §3 |
+| 3 cable, any socket position | **yes**, with the flat right-angle cable; **residual: an old micro-B Xkey** (§3) | §3 |
+| 3 every area one job | yes | §1 |
 | 20 park: bench and lap | yes | §5 |
 | 23 share | yes (0.5 m beside you; coiled option) | §3 |
 | 24 one point of view | yes: owns the outline, hosts the keys | §1 |
-| 25 family | yes | §8, §10 |
-| 26 making steps | yes | §8 |
-| 27 swap | yes, any socket position | §2, §3, §6 |
+| 25 family | yes: printed, as Big Energy's case | §8, §10 |
+| 26 printed case; making steps | yes: all printed, with the split stated; no trial steps | §8 |
+| 27 swap | yes | §2, §6 |
 | 28 one system | yes | §10 |
-| 30 module paper-length | yes (module §2) | — |
+| 30 module | yes (module §2) | — |
 
-**Unsupported jobs: none. At risk: T5.**
+**Unsupported jobs: none.** **At risk:** the flat right-angle cable (product; socket orientation per keyboard); the old micro-B Xkey; lid stiffness at a 0.8 mm skin.

@@ -1,5 +1,74 @@
 # floss: systems designer notes
 
+## Where things stand (2026-11-22, round 2 second systems turn; new systems seat)
+- **New seat:** a new agent took the seat from here. Everything below is history, not commandment.
+- **Owner since the last section:**
+  - 13:49 T5 withdrawn ("The principles are portable");
+  - 13:51 "don't anchor on the page size thing … portable and make sense and be harmonious";
+  - 14:06 the family goal is analog-first, and "shimmer and warmth" is floss's own;
+  - **14:08 "for now the case will be entirely 3d printed"**, then "Cloth wrapping is fine as long as the core is printed" (PRINCIPLES §7). So: no walnut, ply, bookcloth or brass on any case; hinges and stops printed or bought; state print-bed splits or a service.
+- **Director (new) steer 1, R1–R6, done:** see `director.md` "Director handover".
+- **Written this turn (no git):**
+  - `../jobs.md` → **rev 3.1**:
+    - job 30 rewritten (portable, makes sense, harmonious; sizes from parts; ratio; any outline);
+    - job 6: no sentence on the module; the card and the site carry it;
+    - job 26: printed case, splits stated, no trial steps;
+    - job 3: flat right-angle cable as the alternative to a gutter; every area one job;
+    - "brass target" → "target";
+    - a printed-case constraint added;
+    - a rev 3 → 3.1 change table.
+  - `../concepts/module/how-it-works.md` **rev 2**:
+    - 280 × 105 × 35, 8 : 3 : 1, the hull, the crown, two facets (plan-left set-once ports, plan-right sound and MIDI);
+    - x −8.5 everywhere (axis 140; dividers 45.5 / 74.5 / 125.5 / 154.5 / 205.5 / 234.5; inserts at 60 / 220);
+    - the paper argument and the Letter alternative deleted; visual's derivation table used;
+    - dividers flush and printed (three making methods; the look is visual's);
+    - TAP's ring as status, priority low battery > tempo (SYNC, no clock) > charging > steady;
+    - the engraved sentence removed;
+    - a printed case, with the bed size stated (≥ 300 or a service; axis split as fallback);
+    - §11, one ENG list.
+  - `../concepts/fallboard/how-it-works.md` **rev 2**: **412 × 265 × ≈ 42.**
+    - The gutter is gone; a 15 mm lane is left.
+    - **The keyboard sits against the front wall** (it reverses rev 1), so a shallow keyboard's leftover strip is the plug's room.
+    - The pockets: left = coil + adapter, right = charger (+ the card, flat).
+    - A printed ribbed lid (35 grid), printed lift-off hinges with steel pins, an over-centre brace stay, magnet catch.
+    - Tray and lid in four quarters each (220 beds), seams on the axis and the lane; or a service.
+    - No lamp.
+    - Carry ≈ 0.47–0.60.
+  - `../concepts/spine/how-it-works.md` **rev 2**:
+    - printed trays, open toward the spine;
+    - **geometric stop:** hinge axes 5 mm up; 5 mm beads on the spine meet the trays' 5 mm edge faces at 180°, full length, in compression; Ø 3 steel rods, which also tie the axis seams;
+    - spine 49; closed 412 × 148 × 59 (+3 on the director's 56 for the stop face);
+    - **"standing" cut** (two hinges can't hold an angle without a brace);
+    - bays: left coil + adapter, right charger; the 30 mm lane stays as the cable's run (can't go: one outline set by the Xkey);
+    - straight plugs fit any keyboard (49 mm gap);
+    - carry ≈ 0.42–0.52 (heavier than rev 1: printing).
+  - `../concepts/cloth/how-it-works.md` **rev 2**:
+    - near-black coated cloth, cream thread;
+    - outline 412 × 265, set 100 from the far edge, so ≈ 435 of near cloth is the seat;
+    - **the ground pose** as a flow;
+    - the sleeve on a stated ease (no fitting);
+    - corner weights' finish is visual's;
+    - no stitched sentence;
+    - the core printed (owner: fine).
+- **Key findings this turn (for the director):**
+  1. **R1 conditions 2 and 3 are one problem: the knob.** The deck is rim − 1 − knob − 1 seat. The family's 18T 14.5 × 13.5 → rim ≈ 41; KN1250 14.86 × 10.45 → ≈ 36.5; Tayda aluminium Ø 10 × 8 (CATHEDRAL) → deck 25 and 35 holds. Finger room: with Ø 14.9 the Ø 55 driver needs ≈ 108–110 deep (even rows pulled to y 14 / 35.9 miss by ≈ 1 mm). With Ø 10 rows at y 14 / 31, the crown foot is at 41 and the driver ends at 96 (6.5 spare). **Systems prefers Ø 10 × 8, keeping the family 22 pitch** (director to confirm, or the width reopens). Visual's sheet shows Ø 14.9 / rows 16 / 40; all positions in the module file are for that, with the Ø 10 alternative stated.
+  2. **The cells beside the crown:** x 49–109 / 171–231, y 38–88, ≈ 0 margin to the hull wall, ≈ 1 mm to the insert bosses. ENG.
+  3. **Ported won't fit the crown** (≈ 76 cm³ vs ≥ 130). ENG to confirm.
+  4. **Printing made the rigid kits no lighter:** FALLBOARD's bookcloth-lid lever is gone (≈ 0.47–0.60 vs 0.5–0.7); SPINE got heavier (0.42–0.52 vs 0.3–0.4).
+  5. **Removing FALLBOARD's gutter rests on a flat right-angle C-to-C cable** (a reversible plug exits either way). Products and socket orientation are UNVERIFIED. Residual: the old micro-B Xkey.
+- **Randomness used** (Python `secrets`): Oblique "Repetition is a form of change" → tray and lid from repeated quarters, seams on lines the instrument already has (axis, lane), ribs on the module's 35 grid. Fields: "folding chairs" → FALLBOARD's over-centre brace stay. "Bicycle racks" → a quick-release cam for the end blocks, **not taken** (a thumbscrew is fewer notes).
+- **Next:** visual's turn:
+  - the module sheet (flush printed dividers, wordmark on the crown's rear face, no sentence, finger room, grille ≥ 620, facets in plan, and **the knob question drawn both ways if it helps the director**);
+  - FALLBOARD at 412 × 265 with the keyboard at the front wall, and SPINE with the bead stop, in the same pack outline;
+  - CLOTH in near-black, plus the ground pose;
+  - no lamp; everything printed.
+  - Then the director rules or calls READY, and **I do the 9+ coverage check** against rev 3.1.
+- **Open:**
+  - **Director:** knob Ø 10 × 8 vs Ø 14.9 (and the 22 pitch); FALLBOARD's keyboard at the front wall; SPINE's 30 mm lane staying, closed at 59, standing cut; CLOTH's offset outline.
+  - **Visual:** the dividers' printed look; the corner weights' finish; how a split seam reads if the module can't print in one piece; the bed and lid colour now the bookcloth is gone.
+  - **Eng:** module §11 (stack, knob, driver, grille, ported, weight, print bed, ¼"-20 heat-set, flat right-angle cable); FALLBOARD lid stiffness at a 0.8 skin, quarter joints, print time; SPINE knuckle strength at ≈ 95 N each.
+  - **Owner (with the concepts):** sealed / ported; knob size and height; board, box or cloth; split-scoped HOLD; slim only or all; charger in the kit.
+
 ## Where things stand (2026-11-22 evening): jam closed; jobs rev 3 written; concepts round 2 started (my turn done)
 - **Owner direction since the jam:**
   - **13:25** "The module does not have to match keyboard width" → S8 and layout D withdrawn; **one module in all three kits**, sized by its parts.
