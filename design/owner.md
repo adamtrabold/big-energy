@@ -510,3 +510,8 @@ Recorded as: **a synths-to-go family principle.** Every portable synth in the fa
 > I’m saying big energy has to change too yes this is a systems philosophy decision
 
 Recorded as: **a systems philosophy decision for the whole family. Big Energy changes too:** it becomes a portable sound module with a carried keyboard, like floss. That supersedes v1.1's built-in keys and aftertouch strip; the rest of v1.1 (voice, filter, effects, panel work) is reviewed against the module shape. port-a-poly follows the same principle. When the Big Energy rework starts is open.
+
+## 2026-11-22 12:30 (chat)
+> No hybrid. We’ll go back to big energy later
+
+Recorded as: **no built-in buttons** (no Organelle-style hybrid). The Big Energy module rework comes **later**, after floss.
