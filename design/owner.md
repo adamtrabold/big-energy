@@ -419,3 +419,8 @@ Recorded as: floss's shimmer has an **analog mode** (bucket-brigade ensemble) an
 > Yes. Sure midi split could be on/off and yes re the velocity and pressure.
 
 Recorded as: floss **keeps Big Energy's MIDI rules**: USB-MIDI plus TRS in and out, synth settings controllable over MIDI, MIDI never flips switches, knob-only controls send no MIDI, and the echo syncs to MIDI clock. A **MIDI split can be turned on or off**: on, each half has its own channel; off, one channel. **Velocity and pressure go over MIDI**, with polyphonic aftertouch if per-key pressure proves feasible.
+
+## 2026-11-22 08:27 (chat): floss panel rules
+> Let’s try without
+
+(Answering: should floss keep "no screens, no encoders, real knobs and keys"?) Recorded as: **try floss without screens or encoders**, using real bought knobs and keys, as on Big Energy. The designers must be strict about which choices earn a physical control. Read as "try without screens"; if Adam meant without the rules, this entry is wrong.
