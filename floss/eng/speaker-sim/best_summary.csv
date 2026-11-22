@@ -1,0 +1,11 @@
+opt,driver,loading,Vb_cm3,amp_W,SPL_1W_150_800,f3,f6,rel100,maxSPL_100_200,maxSPL_200_800,W_for_80dB,spread_90_400,port,size
+A,TEBM28C10-4B,sealed,76,2.0,77.8,255,190,-15.2,73.2,81.8,1.657,1.1,,"as drawn: crown 70 wide, 35 tall, 105 deep"
+B,TEBM28C10-4B,ported,76,2.0,80.1,167,140,-14.3,76.9,83.6,0.969,2.5,"D12 x 192 mm, 9.4 m/s @1W",crown as drawn; port 192 mm long = 22 cm3 of a 76 cm3 box: impractical
+C,TEBM28C10-4B,ported,120,2.0,79.9,140,118,-10.6,79.4,83.1,1.029,2.9,"D12 x 155 mm, 11.3 m/s @1W","one driver, ~1.6x the crown's box, 35 tall"
+D,2xTEBM28C10-4B,sealed,150,4.0,80.8,255,190,-15.2,79.2,87.8,0.829,1.1,,"two drivers, ~2x the crown's box, 35 tall"
+E,2xTEBM28C10-4B,ported,190,4.0,83.2,152,131,-13.3,84.0,89.5,0.482,2.7,"D16 x 140 mm, 8.2 m/s @1W","two drivers, ~2.5x the crown's box, 35 tall"
+E2,2xTEBM28C10-4B,ported,250,4.0,82.8,138,117,-10.2,85.4,89.1,0.522,2.9,"D16 x 133 mm, 9.0 m/s @1W","two drivers, ~3.3x the crown's box, 35 tall"
+G,AS05804PS,ported,150,2.0,80.2,129,108,-7.9,80.4,83.4,0.946,2.8,"D12 x 144 mm, 12.5 m/s @1W",body ~42 at the crown
+H,2xAS05804PS,ported,250,4.0,83.4,138,116,-9.5,85.6,89.7,0.456,2.7,"D16 x 135 mm, 9.2 m/s @1W","body ~42, two drivers"
+I,AS06504PS,sealed,150,2.0,79.8,277,194,-14.3,75.7,83.8,1.048,1.0,,"body ~45, 65 mm square"
+J,AS06504PS,ported,200,2.0,81.9,135,117,-10.9,81.6,85.1,0.645,3.1,"D16 x 164 mm, 8.3 m/s @1W","body ~45, 65 mm square"
