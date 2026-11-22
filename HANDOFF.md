@@ -4,6 +4,11 @@
 
 **The project widened on 2026-11-21 into three instruments** (owner's current thinking, 18:31): **Big Energy** = the Model D clone with 4-voice paraphony (as specced, voices 1 · 3 · 4); **Port-a-poly** = a true portable analog poly; a **string machine** that still needs a name. Build order is undecided. Earlier that day he said the Model D "is not inspiring"; his 18:31 entry keeps it as Big Energy. Everything below "Earlier handoff" is the Big Energy record as of 2026-11-13 and still applies to Big Energy. The owner's exact words are at the bottom of `design/owner.md` (entries dated 2026-11-21).
 
+## FAMILY PRINCIPLE (2026-11-22 12:28–12:29), read first
+- Every synths-to-go instrument is **a portable sound module with a way to carry a keyboard**, any USB MIDI travel keyboard in a size range, not one model. Adam: "this is a systems philosophy decision".
+- **Big Energy changes too:** v1.1's built-in keys and aftertouch strip are superseded; the rest of v1.1 needs reviewing against the module shape. Rework not started.
+- floss: requirements rev 2 (`floss/REQUIREMENTS.md`), jobs rev 2 (`floss/design/jobs.md`), eng baseline (`floss/eng/module.md`, in progress). Adam measures nothing; published evidence only.
+
 ## Repo and site (2026-11-21 19:17)
 - The repo was renamed **synths-to-go** (done in GitHub Settings, 2026-11-22). The site is now https://adamtrabold.github.io/synths-to-go/ and the old big-energy address no longer works. Git links redirect.
 - The site is organised as **Synths to go** (working title), with three sections: Big Energy (all the earlier pages), Port-a-poly and floss (the string machine, named 2026-11-21 20:35). Each has a folder (`port-a-poly/README.md`, `floss/README.md`) that its section builds from. Keep those READMEs current.

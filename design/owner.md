@@ -505,3 +505,8 @@ Recorded as: **floss is a sound module with no built-in keys**, played by a **tr
 > This is the plan for all modular portable synths that we build — portable sound modules with a way to carry a keyboard with it. It should be flexible and not reliant on a single model of keyboard.
 
 Recorded as: **a synths-to-go family principle.** Every portable synth in the family is a portable sound module with a way to carry a keyboard with it. The carrying method and the connection must be **flexible and not tied to one keyboard model**: any class-compliant USB MIDI controller within a size range, with no fitted dock for one product. Whether this changes Big Energy's locked v1.1 (which has built-in keys) is open; ask Adam.
+
+## 2026-11-22 12:29 (chat): Big Energy changes too
+> I’m saying big energy has to change too yes this is a systems philosophy decision
+
+Recorded as: **a systems philosophy decision for the whole family. Big Energy changes too:** it becomes a portable sound module with a carried keyboard, like floss. That supersedes v1.1's built-in keys and aftertouch strip; the rest of v1.1 (voice, filter, effects, panel work) is reviewed against the module shape. port-a-poly follows the same principle. When the Big Energy rework starts is open.
