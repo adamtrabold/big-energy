@@ -15,6 +15,7 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - **Velocity:** "it would be cool to innovate on the original string synth with velocity"
 - **Pressure:** look into per-key pressure instead of Big Energy's shared strip ("Yes let’s look to innovate"). Feasibility comes first; it isn't decided yet.
 - **Pressure destination is selectable:** "Would be cool to select what the pressure strip does"
+- **Battery powered:** "I want to keep it battery powered". Pack size and runtime wait for a power budget, after the voice and shimmer choices.
 
 ## How string machines work (checked in chat, 2026-11-21)
 - A master clock of several MHz feeds a top-octave divider (12 notes), then flip-flops halve each note for every lower octave. Every key has a tone running, so every key can sound at once.
@@ -29,5 +30,5 @@ Status: **next up for build plans**, made the Big Energy way (design loop, first
 - Ideas for something new: per-key swells, pressure-controlled bowing, drift between notes, sine stacking like the Antiphon.
 
 ## Open (Adam's)
-- What else carries over from the Big Energy platform: battery and USB-C, built-in speaker, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, enclosure work.
+- What else carries over from the Big Energy platform: USB-C charging, built-in speaker, the Daisy with echo and reverb, MIDI rules, no screens or encoders, real bought knobs and keys, enclosure work.
 - Budget ceiling.

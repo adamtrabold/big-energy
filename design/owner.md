@@ -388,3 +388,10 @@ Recorded as: floss has **25 keys or fewer**, never an extended keyboard ("portab
 > Would be cool to select what the pressure strip does
 
 Recorded as: the pressure destination on floss is **selectable** by the player (for example volume swell, filter or shimmer depth). This applies whether pressure ends up per-key or a shared strip.
+
+## 2026-11-21 22:42 (chat): floss power
+> I’d like to know more about power tradeoffs before making any decisions there
+
+> I want to keep it battery powered
+
+Recorded as: floss is **battery powered**. Pack size, runtime and the power design wait for a proper power budget, once the voice and shimmer choices are made.
