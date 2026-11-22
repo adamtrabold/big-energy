@@ -557,3 +557,7 @@ Recorded as: PRINCIPLES.md and CLAUDE.md trimmed to what's necessary. **"Analog 
 > Let’s make it an overarching principle that for now the case will be entirely 3d printed
 
 Recorded as: **family principle, for now: the case is entirely 3D printed.** That covers the module enclosure and any rigid carry; no walnut, ply, bookcloth or brass on the case. (Earlier, 2026-11-13: "They can be printed externally too", so outside print services are fine.) Whether CLOTH's soft wrap counts as a case is open.
+
+> Cloth wrapping is fine as long as the core is printed
+
+Recorded as: soft wraps (CLOTH) are allowed as long as the core (the module case and any rigid parts) is printed.
