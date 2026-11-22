@@ -1,6 +1,55 @@
 # floss: visual designer notes
 
-## Where things stand (2026-11-22, concept round 2, visual turn 2: new visual designer)
+## Where things stand (2026-11-22, concept round 2, visual turn 3: after the director's steer 2)
+**Inputs:** the director's "Concept round 2, steer 2" (S1–S5) in `notes/director.md`; `eng/module-r3.md` (speaker E: two TEBM28C10-4B in one ported ≈ 190 cm³ box filling the rear region, a ≈ 125 crown with two grilles, 105 conditional / ≈ 115 safe, grille Ø 2.0 on 2.6 pitch in Ø 46 fields, rake ≥ 63°, ASA, knob stock: gold 3010 in stock, black out until 3 Jan 2027, stepped controls become firmware-stepped 9 mm pots, FALLBOARD lid needs a 17.5 rib grid or a 1.2 skin); systems' `module/how-it-works.md` rev 3 and `yoke/how-it-works.md` rev 1 (cups at the keyboard's rear corners reaching forward, arms clamped at any angle by the module thumbscrew, the cap required as carry cover and play rear foot, stack ≈ 395 × 135 × 74).
+
+### Director's rulings I worked to
+- S1: **YOKE is a concept and absorbs CLOTH** (wrap + grass mat are YOKE options). CLOTH killed as a standalone.
+- S2: **knob A baseline**, B a column; recommendation A; no new knob images.
+- S3: **house = warm walnut-brown**, not near-black. Keep the colour-from-the-spool system, cream stage and marks, one coral, amber lights, unnamed carries, one-spool deboss as a fallback (not baseline). **Drop "stage blacks and spike marks" as the story** (a draw isn't the product's idea). TPU colour is my call with one line why.
+- S4: **cream stage ends a few mm behind the rear row; the brown roof rises behind it holding the crown**; **one fair arc + exactly two flat facets** (no gable).
+- S5: FALLBOARD's four-panel lid with the seam cross accepted; liner-up carries to YOKE's wrap; SPINE area count is systems'.
+
+### Decisions this turn (mine unless marked)
+1. **The colour's idea, from floss itself:** a string machine is furniture you play: a warm wooden house with a lit keyboard of controls. Walnut-brown ASA/PETG house (no imitation grain); cream stage only where hands work; cream marks on brown; **gold knurled knobs** (Tayda 3010 gold in stock [r3]; the family's brass, honestly; director may overrule); **black only for what you flip or press** (tabs, HOLD, TAP, toggle) and the TPU strips; one coral; amber light. Black house = the owner's alternative, in one line.
+2. **TPU dividers stay black:** the stock colour, reads as a drawn rule on cream, matches the touch parts; they hide the split-print seams at x 74.5 / 205.5 [r3].
+3. **The roof:** full width behind the stage at rim height (it's E's box lid, systems); raked front edge ≥ 63° drawn as a darker band; **all rear-row words on the rake, cream on brown**; front-row words on the stage in brown.
+4. **The crown:** E's airtight box part, ≈ 125 wide, set in the roof with a hairline seam; two grilles at x 140 ± 31, y 73 (A): **259 holes ≈ 814 mm² per driver** (counted).
+5. **Outline:** pure arc in plan; **facets are chords under the roof's lip** (dashed in plan, flat bays from behind). Same volume as rev 2's chords; no gable. ENG: lip overhang ≈ 2–3 mm.
+6. **Host port in a recessed pocket** on the front (systems from r3).
+7. **YOKE in the house brown** (arms, cups, cap); cream index rings on the pivot discs; black thumbscrews; the **wrap stays near-black** (soft outer layer and mat; dirt; S1's words).
+8. **FALLBOARD and SPINE recoloured in place**; FALLBOARD's closed lid shows the 17.5 rib grid ghosted (1.2 skin).
+9. **Withdrawn:** rev 2's B ratio story (14 unit, 20:8:3), "stage blacks", black knobs.
+
+### Files (all opened and checked)
+- Source `concepts/_src/r3.py` (run from `_src`: `python3 r3.py [module fallboard spine yoke]`; cloth functions remain only because YOKE B reuses them).
+- `concepts/module/module-1to1-A2.png` + `.pdf` (A beside B, brown, roof, E crown, smooth arc).
+- `concepts/yoke/yoke-A-carry-and-play.png` (redrawn to systems' mechanism) and **`yoke-B-wrap-grass-pack.png`** (new: grass plan + side, wrapped bundle, in a pack bare / wrapped / module + cap, weights, wrap steps).
+- `concepts/fallboard/fallboard-A-in-use.png`, `-B-closed-and-packing.png`; `concepts/spine/spine-A-in-use.png`, `-B-closed-and-packing.png` (recoloured; the B sheets' module row notes r3's 0.70–0.85 with E; kit totals still from systems rev 2).
+- `concepts/cloth/*.png` **not updated** (retired; its looks file is marked superseded).
+- Words: `module/`, `yoke/` looks-and-feels rewritten; `fallboard/`, `spine/` recoloured in place (rev 3 headers); `cloth/` marked superseded.
+
+### Key numbers now
+| | YOKE | FALLBOARD | SPINE |
+|---|---|---|---|
+| Carried (A knobs, Xkey) | 395 × 135 × 74 ≈ 3.9 L (wrapped ≈ 425 × 165 × 95 [est]) | 412 × 265 × 42 | 412 × 148 × 59 |
+| Carry parts | 0.14–0.20 kg (+ wrap 0.23–0.36) | 0.47–0.60 | 0.42–0.52 |
+| Spare in a 300 pack | 165 (wrapped ≈ 135) | 35 | 152 |
+| Module | 280 × 105 × 35 (≈ 115 if E's margin fails); 0.70–0.85 kg with E [r3] | | |
+
+### Open questions
+1. **Owner:** knob A or B; brown (or black) house; gold knobs; firmware steps with no detent feel; YOKE's set-up screws and plinth-high play pose.
+2. **Director:** gold knobs; the play pose's 37 mm plinth in YOKE; whether the kit sheets' kit totals should wait for systems to restate them with E.
+3. **Eng:** coral DEPTH knob (none found in the 3010 range); brown ASA shade; roof lip at the facets; 105 vs 115.
+4. **Systems:** kit weight totals with E's module; the module's foot sockets for YOKE's cap pegs (drawn as stated, not detailed).
+
+### Next
+The director calls READY once both turns are in (and r3 is folded in, which it is), then scores the module, FALLBOARD, SPINE and YOKE together. For the approved concept: the handoff's "How it looks and feels" for every state, 3/4 views, the print colour split (which part in which filament), and the marking system at 1:1.
+
+---
+
+
+## History: visual turn 2 (near-black "stage blacks", superseded by steer 2 S3)
 I took the seat from the notes below (history, not commandment). Read: `PRINCIPLES.md` (new owner principles: case entirely 3D printed, services fine; cloth wrap fine around a printed core; analog-first not digital-free; no paper anchoring; no weight target), `jobs.md` rev 3.1, `eng/module-r2.md`, the director's "new director, concept round 2 steer 1" (R1–R6), systems' rev 2 `module/`, `fallboard/`, `spine/`, `cloth/` how-it-works.
 
 **Mid-turn owner correction** (coordinator, verbatim): "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule". Not a rule; it removes the enclosing assumption. Answered with a sketch, **YOKE** (below). Director decides.

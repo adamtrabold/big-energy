@@ -1,3 +1,5 @@
+> **SUPERSEDED (2026-11-22, director steer 2, S1):** CLOTH as a standalone kit is killed; its wrap and its grass mat are now YOKE's options. See `../yoke/how-it-looks-and-feels.md` and `yoke-B-wrap-grass-pack.png`. The two CLOTH sheets in this folder still show rev 2's near-black module and aren't updated. Kept as history.
+
 # CLOTH: how it looks and feels (visual)
 
 Status: **rev 2, 2026-11-22**, product designer (visual focus), concept round 2, visual turn 2. Redone to the director's R6: **near-black coated cloth, cream thread, the pose on the grass**. Rev 1's slate green, brass corner weights, lighter-green pocket and the stitched home-octave sentence are withdrawn. Systems' `how-it-works.md` rev 2 sets the structure.

@@ -1,55 +1,65 @@
-# YOKE: an attachment-point answer (visual sketch, not yet a concept)
+# YOKE: how it looks and feels (visual)
 
-Status: **sketch, 2026-11-22**, product designer (visual focus). Prompted by the owner's correction, relayed by the coordinator (verbatim): *"The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule"*. It's **not a rule**: it removes the assumption that the carry encloses or wraps the keyboard, which all three kits made. **The director decides whether YOKE becomes a concept.** Systems hasn't seen it; every number here is visual's [calc] or [est].
+Status: **rev 1, 2026-11-22**, product designer (visual focus), visual turn 3. YOKE became a concept in the director's steer 2 (S1) and **absorbs CLOTH** (its wrap and its grass mat are YOKE's options; `../cloth/` is retired). The mechanism is systems' `how-it-works.md` rev 1 (cups at the keyboard's rear corners, arms clamped at any angle, the cap as the rear foot). The module's look is in `../module/how-it-looks-and-feels.md`. My turn-2 sketch's mechanism (cups at the end's middle, a fixed detent) is superseded.
 
-**Picture:** `yoke-A-carry-and-play.png` (source `../_src/r3.py`, `python3 r3.py yoke`): play plan, carry plan (X-ray, the module dashed), carry end view with the stack, end views against SPINE and FALLBOARD, one arm, and a comparison table.
+**Pictures** (source `../_src/r3.py`, `python3 r3.py yoke`):
+- `yoke-A-carry-and-play.png`: play on a bench (plan), carry (plan, X-ray), carry and play end views, one arm and the cup in section, and a three-concept comparison.
+- `yoke-B-wrap-grass-pack.png`: on the grass with the wrap as the mat (plan and side), the wrapped bundle, in a pack (bare, wrapped, module + cap alone), weights, four wrapping steps.
 
-## 1. The idea
-**The module is the carry; the attachment points are the ones it already has.** Every family module has two ¼"-20 inserts underneath, 160 mm apart (S4). YOKE adds **two printed arms**, one on each insert under its thumbscrew. Each arm carries a **swivel cup** that slides along a slot and holds one **end** of the keyboard.
-- **Carry:** the arms swing out sideways; the keyboard hangs **keys-up under the module**, held by its two ends, ≥ 6 mm of air between the keys and the arms/module. Nothing touches a key; the module's flat underside is the keys' lid.
-- **Play:** loosen the thumbscrews, swing both arms forward-and-out to their detent, slide the cups, and the keyboard sits **in front of the module, keys still up**, 15 mm from the host port. One rigid instrument on a bench or a lap. The keyboard never flips.
-- **Name:** a stage light hangs in a **yoke** that holds the fixture by its two ends and lets it swing (this turn's draw: stage lighting).
+Owner (verbatim, via the coordinator): "The carry should fit a portable MIDI controller but the case does not need to surround it just have an attachment point. I'm just saying don't assume not making a rule".
 
-## 2. How it looks
-- **Two black PETG arms**, ≈ (reach + 14) × 22, 4 mm plate rising to a 14 mm cup boss, mirror pair; the pivot disc doubles as the module's foot. A black, foam-lined cup with a lip over the keyboard's end cap and a 15 mm notch for an end socket.
-- **Nothing else.** In carry, from above, you see floss's cream deck, and below it the keyboard's two ends in black cups: a module with a keyboard slung under it. In play, the arms are hidden under the module and keyboard except two short black wedges and the cups at the keyboard's ends.
-- Same story as the family: black house, the cream stage, the cups as the only new parts.
+## 1. Point of view
+**The module is the carry.** No tray, no box: two arms on the module's own inserts hold the keyboard by its ends, like a stage light hangs in its yoke. Everything added is the same walnut-brown as the module, so the carried thing reads as **one brown instrument with a keyboard slung under it**, and in play as one brown instrument with a keyboard in front.
 
-## 3. Numbers [calc/est]
-| | YOKE |
+## 2. Materials and colour (the family system)
+| Part | Finish |
 |---|---|
-| Reach from pivot to cup | 89 (nanoKEY2 carry) to 165 (Xkey play): one 95 mm slot covers 325–388 keyboards both ways |
-| Carry stack | cup floor 3 + keyboard 16 + air 6 + arm plate 4 + module 35 = **≈ 64** (option B: 71) |
-| Carried size | **396 × 135 × 64** with an Xkey ≈ 3.4 L; ≈ 333 × 105 × 59 with a nanoKEY2 |
-| Carry parts | **≈ 0.08–0.12 kg** [est: 2 arms + 2 cups in PETG + foam] |
-| Kit + Xkey | ≈ module 0.67–0.93 + 0.1 + keyboard ≈ 0.6 + cable ≈ 1.4–1.7 kg [est] |
-| Makes | 4 small prints, all on a 220 bed; two bought ¼"-20 thumbscrews (the module's own) and two pins |
+| Arms, cups, cap | walnut-brown ASA (or PETG), the module's filament |
+| Arm rib | the same brown; in plan it reads a shade lighter because it stands up |
+| Index ring on each pivot disc | cream marks (equal marks both sides = the keyboard sits centred) |
+| Pivot thumbscrews, cup thumbscrews | black (bought; "black for what you turn or press") |
+| Cup foam | black closed-cell |
+| Wrap (option) | near-black coated quilted cloth, near-black liner, cream thread (outline, centre line, pocket edge), hem weights hidden |
+| Name | none on the carry; "floss" is on the module's rear |
+
+**Why the wrap stays near-black, not brown:** it's a bag-like soft good that meets grass and the floor; near-black hides dirt, and the director's S1 names it so. The wrap sits outside the instrument's colour system the way a case cover would.
+
+## 3. Every state
+| State | Look and feel (sheet) |
+|---|---|
+| **Play on a bench** (A) | Three points: the two cups in front and the cap behind. Keyboard in front, rear edge 15 mm from the module's face; the arms run from the pivots under the module out to the keyboard's rear corners, behind and outside the keys. The cap stands rim-down behind the module (≈ 47 mm showing) as its rear foot. The module sits level at 37 mm: a small stage on a plinth. No tilt, no shade (said plainly) |
+| **Carry** (A) | Keyboard keys-up under the module, its rear edge under the module's rear; arms swung ≈ 31° back; ≥ 9 mm of air from the keys to the arms' ribs. The cap clips over the rim and covers the panel, grilles, facets and front. ≈ 395 × 135 × 74 with an Xkey |
+| **On a lap** | One piece: the cap pegs into the module's foot sockets (systems); keyboard and cap on your thighs |
+| **The arm and cup** (A) | Arm: a pivot disc Ø 30 with a cream index ring, a T-section bar with its rib on top, a 45 mm slot near the tip. Cup: lower jaw under the keyboard, end wall, a lip ≤ 8 mm over the end cap, foam on both jaws: it grips 11–16 mm of thickness, never the shape of the end |
+| **Swap** | loosen the cups, change the keyboard, the cups find the new ends; re-set the target |
+| **Keyboard missing** | arms off; the module with its cap: ≈ 283 × 108 × 37, the smallest bundle of any kit |
+| **On the grass** (B) | The wrap spread liner-up (coated face to the damp); the yoked instrument on the stitched outline (the cap stands just past it); you sit cross-legged on the 435 mm of near cloth; the drivers fire up through the roof. A brown instrument on a black mat on green |
+| **Wrapped** (B) | A soft near-black bundle with a knot handle, ≈ 425 × 165 × 95 [est]. The pocket carries the charger and the card, so with the wrap nothing rides loose |
+| **In a pack** (B) | Bare: 165 mm spare across a 300 compartment. Wrapped: ≈ 135. Module + cap alone: easily |
 
 ## 4. How it compares
-| | YOKE | FALLBOARD | SPINE | CLOTH |
-|---|---|---|---|---|
-| Carry parts | ≈ 0.08–0.12 | 0.47–0.60 | 0.42–0.52 | 0.23–0.36 |
-| Closed (Xkey) | 396 × 135 × 64 | 412 × 265 × 42 | 412 × 148 × 59 | ≈ 400 × 150 × 65, soft |
-| Keys protected by | the module, 6 mm above | lid | module tray | quilted sleeve |
-| Module panel protected by | its own rim only | lid | keyboard tray | sleeve |
-| Cable, adapter, charger | cable stays plugged; adapter on a clip on one arm (PROPOSAL); **charger loose in the bag** | pockets | bays | pocket |
-| Bench | rigid pair, no stand | lid as stand and shade | flat | framed on the cloth |
-| Lap | **one rigid piece** | one board | flat, stopped | two objects |
-| Ground | sits on the grass as is | board | flat box | the mat |
-| Family reuse | **any module with S4**, whatever its size | bed, blocks, lid | trays, spine | cloth, outline |
+| | **YOKE** | FALLBOARD | SPINE |
+|---|---|---|---|
+| Kind | no case: attachment point | open frame + lid | closed box |
+| Carry parts | **0.14–0.20 kg** (+ wrap 0.23–0.36) | 0.47–0.60 | 0.42–0.52 |
+| Carried (Xkey) | 395 × 135 × 74 ≈ 3.9 L | 412 × 265 × 42 ≈ 4.6 L | 412 × 148 × 59 ≈ 3.6 L |
+| Keys protected by | the module, 9 mm above | lid | module tray |
+| Panel protected by | the cap | lid | keyboard tray |
+| Charger | loose, or in the wrap's pocket | right pocket | right bay |
+| Bench | level on three points; no stand, no shade | lid as stand and shade | flat |
+| Lap | one piece | one board | flat, stopped |
+| Ground | on the wrap as the mat | board | flat box |
+| Family reuse | **any module with S4** | bed, blocks, lid | trays, spine |
 
-**Where it's strongest:** weight (the lightest by 0.15–0.5 kg), simplicity (4 prints), and the family argument: it attaches to the S4 interface every module already has, so Big Energy and port-a-poly get it free whatever their size. It's also the only answer whose carry pose *is* nearly its play pose.
+(CLOTH's gifts are folded in: the wrap and the mat.)
 
-**Where it's weakest (said plainly):**
-1. **Exposure:** the keyboard's front and back edges and the module's panel face the bag. The rim keeps things off the knobs, but nothing stops a book pressing a knob sideways.
-2. **No home for the charger**, and the adapter needs a clip; job 3's "one place for the cable" is met only by the cable staying plugged.
-3. **"Every area has one job"** is trivially met (there is no area), but the director's rule was written for enclosing kits.
-4. **Lap rigidity** rests on two thumbscrews and the arms' stiffness under a keypress (ENG); on a bench or the grass it's irrelevant.
-5. **Chunky minis:** cups up to 49 tall would be needed; not drawn.
-6. **Job 3 "without damage"** is weaker than in any enclosing kit; a padded sleeve would fix it but brings back a "case".
+## 5. Why
+- **No leftover:** it starts from the two objects (the director's "what keeps blocking a 9"); every part has a job, the cap has two.
+- **One colour:** arms, cups and cap in the module's brown make the carry part of the instrument, not an accessory.
+- **The wrap near-black:** it's the soft outer layer and the mat; dirt-hiding matters more there than family colour.
 
-## 5. Open questions
-1. **Director:** does YOKE become a concept, replace one, or stay a sketch? (My reading: it beats SPINE on weight and family reuse and loses on protection; it could also ride with CLOTH, wrapped.)
-2. **Systems:** the cup's swivel and slot as a mechanism; detents; whether the keyboard's end caps take a cup's grip on every slim model (end shapes unpublished: UNVERIFIED).
-3. **Eng:** arm stiffness at 4 mm PETG with a 165 mm reach; thumbscrew torque holding the play angle.
-4. **Owner:** is an exposed panel and a loose charger an acceptable price for ≈ 0.1 kg of carry?
+## 6. Open questions
+1. **Owner:** four screws to set up; no tilt or shade; the module 37 mm up in play; the cap as a part you place.
+2. **Eng:** arm stiffness and the thumbscrew's hold (systems §5).
+3. **Director:** whether the play pose's plinth (module at 37 on arms + cap) reads well enough, or wants a lower answer (it would need the cups to flip, which systems ruled out).
+4. **Parts:** foam, wrap cloth, hem weights (UNVERIFIED).
