@@ -340,3 +340,140 @@ A module sized by its own parts is ≈ 280 wide [eng]. The keyboards are **325�
 - **Owner questions to carry (not new):** flat too? Strap = "stuff"? Plus visual's: does a metal part cast from a printed wax count as "3D printed even metal"? My view: that's casting, so direct metal printing is the baseline and casting is the question.
 
 NEXT: systems designer — structural pass on the three survivors: derive DROP's pipe and angle from E and the knob stack and give its extra volume a job; check GNOMON's cheeks (stability under the hand and a knob press, grass and lap, where E's port exits, how it packs); CASKET's ledge and the 3-move transition; and one shared answer for carrying a 325–388 keyboard with a ≈ 280 module without anything reaching past its ends.
+
+---
+
+## Turn 4: product designer (systems focus), pass 2 structural
+
+Rules applied: the angle comes from the parts (director §4.1); end face first; every volume has one job. Numbers are [calc] from `eng/module-r3.md` facts unless marked. Nothing here is measured; anything needing a measurement is UNVERIFIED.
+
+### 1. DROP: the pipe and the angle from the parts
+**Pipe Ø from the driver [calc].** The TEBM28 frame is Ø 55 × 24 deep [eng]. In a round pipe, the driver sits on a flat chord baffle (≥ 56 wide) and needs ≥ 27 mm behind it (24 + 3 under the magnet). The smallest inside radius that does both is **28.0** (the chord sits on the centre line). So **Ø 56 inside, ≈ Ø 62 outside** with a 2 mm wall plus a little. Visual's Ø 72 is 10 mm too big.
+
+**Length from what goes in it, so the extra volume gets jobs.** Ø 56 inside is ≈ 24.6 cm³ per 10 mm of length. Along the pipe, end to end:
+
+| Bay | Length | Holds | Why there |
+|---|---|---|---|
+| left end | ≈ 65 | cell 1 (50 × 60 × 7.5, as a chord below centre) + the port passing above it | weight low at the back, under the handle; eng already moved the cells to the ends |
+| centre | ≈ 120 | both drivers (two Ø 55 frames on ≈ 62 centres need ≥ 115) | the box: ≈ 296 cm³ gross, **≈ 250 net** after the drivers and the port, which is eng's **E2** size (f3 ≈ 138, better than E's 190 net) |
+| right end | ≈ 65 | cell 2 | balance |
+| port | Ø 16 × 140, flared | runs from the box through the left cell bay and exits at the **centre of the left end face** (visual's growth-ring mouth) | it's the only place a 140 mm tube fits without a fold |
+
+**Result: pipe ≈ 260 long, which sets the module's width (≈ 260–265 outside).** Every cubic centimetre in the pipe has a job; nothing is dressing. The wedge in front of the pipe holds only the board and the controls. UNVERIFIED (eng): a cell in a pipe bay beside a port, sealing the box bulkheads, the drivers' baffle angle.
+
+**Lip from the knob stack.** With the cells gone from under the board, r3's stack loses its cell layer (2.0–10.5): 35 − 8.5 = **lip ≈ 26.5** [calc].
+
+**The angle follows from the lip, the pipe and the plate's depth.** The plate runs from the lip's top, tangent to the pipe's top. Its depth along the slope is set by how many control rows it carries:
+
+| Plate | θ | Depth | Height |
+|---|---|---|---|
+| **2 rows (≈ 48 along the slope)** | **≈ 37°** | ≈ 88 | 62 |
+| 3 rows (≈ 70) | ≈ 27° | ≈ 107 | 62 |
+
+- **The width argues for 2 rows:** ≈ 19 controls in two rows fill 260, as the turned-down module's did in 280. So DROP's honest angle is **≈ 37°, a lectern, steeper than either draw.** It's 260 × 88 × 62.
+- If that's too steep, the lever is 3 rows: ≈ 27° and 107 deep. Then the plate has spare width, which has to get a job or the pipe gets shorter (cells back under the board, lip back to 35, θ ≈ 21°).
+- The panel layout decides, not the drawing. **Director's call.**
+
+**Stability at 37° [calc, ESTIMATE mass ≈ 0.8 kg].**
+- A press straight into a front-row knob points into the footprint.
+- A top-row press near the pipe points ≈ 10 mm behind the rear edge. The module's weight holds it until about 26 N, far above a knob turn. It's stable.
+- Sliding back: at 3 N the horizontal push is ≈ 1.8 N against ≈ 4 N of friction (μ ≈ 0.4). It holds on rubber or TPU strips. **Brass runners alone would be slippery** on a smooth table: give them TPU inlays, or keep brass for the ends only.
+- The hand resting on the lip pushes straight down: stable.
+
+**Ports.**
+- Host port on the lip face, left of centre, ≈ 13 mm up: a straight plug clears the table.
+- Jacks, power and the device USB-C on the **right end face** below the plate, so the left end stays the port mouth with its rings.
+- The ends differ, and that's honest: one is air, one is wires.
+
+**Packing.** 260 × 88 × 62, the pipe takes the knocks, and the flat base takes the keyboard dock (§4). If flat-too comes back yes: DROP can't do it. It stays the angled-only answer.
+
+### 2. GNOMON: cheeks, hand, grass, lap, port, packing
+**The angle from the parts.** The rule I propose for both GNOMON and CASKET: **the back lifts by the slab's own thickness.** sin θ = T / D, with T 35 and D 105–115 [eng] → **θ ≈ 19.5° (D 105) / 17.7° (D 115)**. The footprint is ≈ 99–110 deep, and the back stands ≈ 70 tall. The gnomon's latitude is its slab. PROPOSAL; the director may prefer the face-ratio rule.
+
+**Stability.** The support is the slab's front edge plus the two cheek runners: a full 280 × ≈ 100 rectangle.
+- **Hand on the front edge:** it pushes into the support line. Stable.
+- **Knob press:** it's aimed into the plate, and its line meets the table inside the footprint for every row at 19°. Stable. Sliding is as for DROP (TPU strips under the runners).
+- **A hand leaning on the back, or on one end:** inside the footprint. Stable.
+- **Grass:** ≈ 3.8 kPa on two 10 × 104 runners (ESTIMATE 0.8 kg). It sinks evenly, so the angle holds. Grass pokes into the hollow, which is harmless *if the speaker port isn't there*.
+- **Lap:** the runners are 280 apart, roughly one per thigh. It sits like a lap desk. **The best lap answer of the three.**
+
+**Port exit: through a cheek face, not into the hollow.**
+- On a lap or grass the hollow is half-closed by legs or turf, which is UNVERIFIED for the port's tuning and likely to choke it.
+- The E box sits in the slab's rear region [eng], and its Ø 16 × 140 port runs along x and exits through the **left cheek face**, centred in the growth rings, as on DROP. The family gets one rule: **the port mouth is the centre of the end grain.**
+- Host port: the slab's front face, left of centre. That face leans 19° forward, so a straight plug clears the table by only ≈ 6.6 mm [calc]. The kit's right-angle cable ("upwards" type [eng]) lies flat along the face. Jacks go on the **rear face**, which is in the air at ≈ 35–70 up: the easiest reach of the three.
+
+**The hollow gets one job: the cable bay.**
+- Packed, the keyboard docks across the runners (§4) and **closes the hollow**. The cable and the C-to-A adapter sit inside in a printed clip, enclosed and silent.
+- Playing, the hollow is just the space the tilt makes. It holds nothing that would want to be reached.
+- His pipe façade can live on the slab's underside, which is seen only when the module is lifted. That's a second use of one surface, so the director should confirm it isn't dressing.
+
+**Packing:** a wedge, 280 × ≈ 100–110 × 70 at the back. With the keyboard docked under it, ≈ 81–86. If flat-too comes back yes: GNOMON can't. Angled only.
+
+### 3. CASKET: the ledge and the moves
+**Why a plain flip-over tray can't seat it [calc].** If the lid fits over the module, its inside is longer than the module (D_lid > D). A module whose front sits against one wall can never reach the far wall at any angle. And a ridge inside the lid would hit the knobs when closed. So the hymn-board ledge has to work differently. Two honest versions:
+
+**CASKET-A, the lid is the plinth (fully supported).**
+- The lid is a tray whose walls are **8 at the front and 8 + T = 43 at the back**, so its rim is a sloping plane.
+- Flipped open side up, the module drops **onto a step inside the rim**: that step is the hymn-board ledge, carrying the module's whole outline.
+- θ = asin(T / D) ≈ 18–19.5°, **the same rule as GNOMON**. It's rock-solid on every edge, and laps and grass behave like GNOMON's.
+- **Cost: closed, the kit is a wedge (≈ 43 front → 78 back), not the calm closed slab the director wants.** The wedge space inside, between lid and plate, holds the cable and adapter when packed.
+
+**CASKET-B, the lid goes under the back (calm closed slab).**
+- The lid is shallow and constant: a skin over the rim, which already clears the knobs, plus a 10 mm skirt, so ≈ 15 deep.
+- To play, slide it face down under the module's rear. A shallow printed step under the module's rear catches the lid's edge, so nothing slides. That step is the ledge; it's on the module, hidden underneath.
+- θ = asin(15 / ≈ 80 contact) ≈ **11°**: the lid's own depth sets the angle.
+- **Closed: a calm slab ≈ 50 thick**, his façade on top: the family face.
+- **Cost:** a shallower angle; the façade faces the table under the module's back while playing.
+
+**Moves, bag to sound:**
+| | Moves | Flat |
+|---|---|---|
+| GNOMON / DROP | out, undock the keyboard, set down: **3** | no |
+| CASKET-B | out, undock, lid off, lid under the back, set down: **5** | lid off: 4 |
+| CASKET-A | out, undock, lid off, flip, seat: **5** | lid off: 4 |
+
+TRIPTYCH (lid hinged to the back edge) cuts CASKET to 3–4 moves, at the cost of the moving part he hoped to avoid. That's one line under CASKET, as the director ruled.
+
+**My lean:** CASKET-B if the closed slab is the point of CASKET (director §2 says it is); A if a steep, fully supported pose matters more. Director's call.
+
+### 4. Carrying the keyboard: one answer for all three
+**The geometry rules most options out [calc].**
+- Module width: DROP ≈ 260, GNOMON / CASKET 280. Keyboards: 325–388 long, 83–135 deep.
+- **Every keyboard is 45–128 mm longer than every module**, so **any hold by the ends reaches past the module's ends**: YOKE again.
+- Keyboard depth straddles the modules' depth (88–110), so **a hold by the long edges also reaches past the module** for deep keyboards, or needs an adjustable jaw (a moving part).
+- A band around both crosses the keys (job 3: never across the keys) unless the keys face the module. Then a flat face presses them, unless there's a recess, and key heights are UNVERIFIED.
+- The only hold that's smaller than both objects is **by the keyboard's underside.**
+
+**Proposal: the SHOE (family part S9).**
+- A thin printed plate, ≈ 200 × 60 × 4, smaller than the smallest keyboard's underside and the smallest module's base.
+- It fixes under any keyboard with removable hook-and-loop or Dual Lock pads (bought "stuff", like knobs).
+- It slides into a printed dovetail on the module:
+  - DROP: under the flat base;
+  - GNOMON: across the two cheek runners, where it also closes the cable bay;
+  - CASKET: under the module's base, with the lid on top.
+- Back to back, keys out. **Nothing crosses the keys, nothing reaches past the module, and it takes any keyboard of any size.** It's the "attachment point" he described ("the case does not need to surround it just have an attachment point", jobs rev 3.2).
+- The keyboard overhangs the module by 23–64 mm at each end. That's the keyboard itself, not a part of floss.
+
+**Where each pending owner answer lands (design holds either way):**
+
+| Owner question | If yes | If no |
+|---|---|---|
+| **Long-edge / underside hold OK** (changes job 3's "by its ends") | SHOE, as above | **Loose in the bag**: every concept works without any carry, since he said attachment "would just be nice". GNOMON's cable bay then closes with a printed cover plate, or stays open |
+| **Strap allowed** ("stuff"?) | Not needed with SHOE. A strap around both is an extra for the grab-and-go, crossing the keyboard's *underside* only | A **printed TPU band** is a printed case part, so it needs no owner exception. Same path, keys out, crossing nothing but the module and the shoe |
+| **Sticking pads under his keyboard OK** (new, from SHOE) | SHOE | Loose in the bag, or the band |
+| **Sit flat too** | CASKET (A or B) | GNOMON or DROP |
+| **Metal cast from a printed wax counts** | brass-coloured runner ends and the port mouth ring by casting | direct-printed steel or bronze only, or no metal (TPU strips do the work anyway) |
+
+**Rejected for the shared answer:** a keyboard-length CASKET lid. At 388 + walls it's ≈ 400 long against a 280 module: 120 mm of lid whose only job would be the keyboard. That's the dressed surface rule 3 forbids, and it only serves CASKET.
+
+### 5. Changes for jobs.md (not made yet; after the owner answers)
+- Job 3: "held by its ends" becomes "held by its ends **or its underside**", if the owner agrees.
+- A new family interface **S9: the SHOE dovetail**.
+- Job 32 gets its detail row: the angle rule, sin θ = T / D (GNOMON, CASKET-A), or from the pipe (DROP).
+
+### 6. Open questions
+1. **Director:** DROP at 2 rows (≈ 37°, 260 × 88 × 62) or 3 rows (≈ 27°)? CASKET-A or B? Is the sin θ = T / D rule acceptable as "from the parts"?
+2. **Owner (add to the pending list):** sticking a removable pad under his keyboard (SHOE).
+3. **Eng:** a cell in a pipe bay beside the port; the bulkhead seal; the port through a cheek; TPU strips vs brass on a smooth table; whether the board and the knob stack fit under a 37° plate.
+
+NEXT: design director — the three survivors now have derived sizes and angles (DROP ≈ 37° or 27°, GNOMON ≈ 18–19.5°, CASKET-A ≈ 18° / B ≈ 11°), and one shared keyboard answer (SHOE, with loose-in-bag and a printed band as fallbacks). The forks above (DROP's rows, CASKET A/B, the angle rule) need a steer before the visual designer draws the end faces.

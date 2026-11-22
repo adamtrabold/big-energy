@@ -437,3 +437,17 @@
 **Open questions:** flat too, or angled enough (owner); is a strap "stuff" (owner); printed-metal service/cost, wedge volume, detent wear (eng); the two-facet idea worth chasing (director); which cue carries the look (visual).
 
 **Next:** visual designer's jam turn, then the director's steer; then concepts in `concepts/c-<name>/`, and detail rows for jobs 31–34.
+
+### 2026-11-22 pass 2 (jam turn 4, systems)
+**Director's turn 3 rulings:** survivors CASKET (TRIPTYCH as a one-line hinged variant), GNOMON (constant slab, rim continues into wedge cheeks, open underneath), DROP (teardrop/pipe; pose 2 cut). Dead: ROSE, BAIL, SLED, RETABLE, plain WEDGE. NAVE = a making method only. Rules: angle from the parts; end face first; every volume and surface has one job.
+
+**What I derived [calc]:**
+- **DROP:** pipe Ø 56 inside / ≈ 62 outside (driver chord + 27 mm depth). Length ≈ 260 = cell bay 65 + box 120 (≈ 250 net, eng's E2) + cell bay 65; port Ø 16 × 140 through the left cell bay to the left end face's centre. Lip ≈ 26.5 (r3 stack minus the cell layer). θ from the lip, the pipe and the plate rows: 2 rows → ≈ 37°, 260 × 88 × 62; 3 rows → ≈ 27°, 107 deep. Stable (a top-row press tips it only above ≈ 26 N). Jacks on the right end; host port on the lip.
+- **GNOMON:** rule sin θ = T / D → 17.7–19.5°. Stable under the hand and knob presses; grass ≈ 3.8 kPa on the runners; best lap answer (runners one per thigh). Port through the left cheek (the hollow would choke on a lap or grass). Host port on the leaning front face needs the right-angle cable (a straight plug clears by ≈ 6.6). Jacks on the raised rear face. Hollow = cable bay, closed by the docked keyboard.
+- **CASKET:** a flip-over tray can't seat the module (D_lid > D; an inside ridge hits the knobs). **A:** a wedge lid (8 → 43 walls) as a plinth, same rule ≈ 18–19.5°, but closed it's a wedge 43 → 78. **B:** a shallow lid (≈ 15) slid under the back, caught by a step on the module, ≈ 11°; closed it's a calm ≈ 50 slab. Moves: 5 vs 3 for GNOMON/DROP.
+- **Keyboard:** ends and long-edge holds must reach past a 260–280 module for 325–388 × 83–135 keyboards; a band crosses the keys. **Proposal: SHOE (family S9)**, a printed plate on removable pads under any keyboard, sliding into a dovetail under each module, back to back, keys out. Fallbacks: loose in the bag (always works); a printed TPU band (printed, so no owner exception). The keyboard-length lid was rejected (dressed surface, CASKET only).
+
+**Owner questions:** flat too; strap; cast-from-printed-wax metal; long-edge/underside hold; **new:** pads stuck under his keyboard (SHOE).
+**Brass:** brass runners alone slide on a smooth table, so TPU strips do the gripping; brass only where it doesn't need grip.
+**jobs.md changes queued (after the owner answers):** job 3 "ends or underside"; S9; detail row for job 32 (the angle rule).
+**Next:** the director steers on DROP's rows, CASKET A/B and the angle rule; then the visual designer draws the end faces.
