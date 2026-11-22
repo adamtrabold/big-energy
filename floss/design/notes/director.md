@@ -491,3 +491,12 @@ Flat too, or angled enough? Strap = "knobs and stuff"? Is a metal part cast from
 
 ## Next
 Systems structural pass on DROP, GNOMON and CASKET, plus the shared carry; then visual draws one idea-level sheet per concept; then I steer and, when the three are honest, call READY and score all three in one pass.
+
+## Pass 2 rulings (jam turn 5, 2026-11-22)
+- **DROP: 2 rows, ≈ 37°, 260 × 88 × 62.** Derived, and it fills the pipe's width. It also makes DROP a different kind of object from GNOMON (steep lectern with a grip vs low slab on cheeks). The 3-row fallback (≈ 27°) is notes only. Watch: the rim must wrap plate and pipe as one line, or it fails on shape.
+- **CASKET-B (≈ 11°, closes as a ≈ 50 slab with the façade). A killed:** it closes as a wedge and plays as a weaker GNOMON. The catch step and SHOE's dovetail share the underside, and systems must place them without clashing. TRIPTYCH stays one line.
+- **GNOMON: sin θ = T/D accepted** as from the parts (T from the stack and driver, D from the box and board). The back stands at 2T, a visible proportion that scales to Big Energy. It replaces my face-ratio idea, which was aesthetic.
+- **SHOE (S9) accepted** as the shared carry, pending the owner. Conditions: pads only on a flat, free underside (per model, UNVERIFIED); a positive detent; a family part listed for the owner, not written into PRINCIPLES; plays with the shoe on. Fallbacks: loose in the bag (drawn for every concept), then a printed TPU band.
+- **Façade only on a seen surface:** CASKET-B's lid, yes; GNOMON's underside, no (decoration); DROP none (its lancets do the job).
+- The three concepts now hold whatever the owner answers on flat, strap, hold, pads and casting; each answer has a strong option (table in jam turn 5 §6).
+- **Next:** visual draws one idea-level sheet per concept, all at the same scale (end face big, 3/4 play, packed with SHOE plus a loose-in-bag inset; CASKET-B closed too). Then READY and score all three in one pass, owner objections first.

@@ -477,3 +477,73 @@ TRIPTYCH (lid hinged to the back edge) cuts CASKET to 3–4 moves, at the cost o
 3. **Eng:** a cell in a pipe bay beside the port; the bulkhead seal; the port through a cheek; TPU strips vs brass on a smooth table; whether the board and the knob stack fit under a 37° plate.
 
 NEXT: design director — the three survivors now have derived sizes and angles (DROP ≈ 37° or 27°, GNOMON ≈ 18–19.5°, CASKET-A ≈ 18° / B ≈ 11°), and one shared keyboard answer (SHOE, with loose-in-bag and a printed band as fallbacks). The forks above (DROP's rows, CASKET A/B, the angle rule) need a steer before the visual designer draws the end faces.
+
+---
+
+## Turn 5: design director, pass 2 (rulings on the forks; no scores)
+
+Read: systems turn 4. The rule I'm holding everything to is the same as last turn: it reads as one framed object from every side, with nothing reaching out. When a fork is close, the tie-breaker is **which option makes the three concepts differ more in kind**, so the owner gets three real choices, not three variations.
+
+### 1. DROP: **2 rows, ≈ 37°, 260 × 88 × 62.** Ruled.
+- It's the derived answer: about 19 controls in two rows fill the 260 the pipe sets. Three rows leaves spare width that needs an invented job, or it pulls the cells back and the pipe loses its reason to exist. That's exactly the drift rule 3 exists to stop.
+- **It makes DROP a different kind of object from GNOMON:** a steep, compact lectern you grip by the pipe, against a low slab on cheeks. That's two real choices rather than two angles of one idea.
+- 37° on a lap is a gift: you look down at the knees, so a steeper face meets the eye. On a table it sits about where a music desk does.
+- **Watch (visual):** at 37° and 62 tall, the end face is now mostly pipe. The rim must visibly wrap the plate *and* the pipe as one continuous line. If the pipe reads as a separate log behind a ramp, the concept fails on shape, and I'll say so at scoring.
+- Systems' 3-row fallback (≈ 27°, cells back under the board) stays a line in the notes, not a drawing.
+
+### 2. CASKET: **B (shallow lid under the back, ≈ 11°, closes as a calm slab ≈ 50 thick).** A dies.
+- CASKET exists for two things: **flat and angled, and closed it's CATHEDRAL closed.** A closes as a wedge, which throws away the second, and its play pose is GNOMON's angle reached with extra steps. That makes it a weaker GNOMON, not a different idea.
+- **B's 11° isn't a weakness for this concept:** it's the low, desk-synth answer beside GNOMON's ≈ 19° and DROP's 37°. Three angles, each from its own parts.
+- **Fix before drawing:** the catch step under the module's rear (for the lid) and SHOE's dovetail (§4) share the underside. Systems places both so they never clash; visual draws the underside once.
+- The façade facing the table while playing is fine: CATHEDRAL's façade faced away while open too. It's the closed face, and that's its job.
+- TRIPTYCH stays one line under CASKET-B: "or hinged, so the lid never leaves (one moving part)."
+
+### 3. GNOMON's angle: **sin θ = T / D counts as "from the parts". Accepted.**
+- T (35) is set by the knob stack and the driver depth; D (105–115) by the box and the board [eng]. Neither is a taste number.
+- It also gives a proportion you can see: **the back stands at twice the slab's thickness (≈ 70 = 2T)**, so the end face is the slab plus its own thickness again. That's PRINCIPLES §2 (scale from the device's own dimensions) in one line, and it scales to Big Energy by the same rule. I prefer it to my face-ratio suggestion, which was an aesthetic ratio dressed up as a derivation.
+- If eng's D settles at 115, θ is 17.7° and nobody rounds it.
+
+### 4. SHOE: **accepted as the shared keyboard carry, pending the owner.**
+- It's the first carry that is **smaller than both objects**: nothing crosses the keys, nothing of floss reaches past the module, and any keyboard fits. It's his own "just have an attachment point" with YOKE's arms taken out. The keyboard overhanging the module's ends is the keyboard, not a floss part, so it doesn't count against shape.
+- **Conditions:**
+  1. Pads go only where a keyboard's underside is flat and free. Feet, battery doors and labels vary by model, so it's UNVERIFIED per keyboard and the card says where. If a keyboard has no free 200 × 60, the fallbacks apply.
+  2. The dovetail holds positively (a printed detent you feel), never by friction alone.
+  3. SHOE is a **family part (S9)**, the same plate and dovetail on every module. It's an agent proposal, so it's listed for the owner as a family interface, not written into PRINCIPLES.
+  4. The keyboard plays with the shoe still on. It mustn't rock at 4 mm, so the plate needs no lip.
+- **Fallback chain:** loose in the bag (must always work, and every concept is drawn that way once) → **printed TPU band**, keys out. It's a printed case part, so it sidesteps the strap question entirely.
+
+### 5. One more ruling: the pipe façade goes only where someone sees it
+His façade belongs on a surface that's seen in a normal state, never on one that's only seen when you turn the thing over.
+- **CASKET-B:** on the lid. It's the closed face: yes.
+- **GNOMON:** **not on the underside.** Packed, the keyboard covers it; playing, it faces the table. It would be decoration. GNOMON's walnut story is the cheeks' growth rings with the port mouth at their centre, plus the lancet grille in the plate.
+- **DROP:** no façade. The clerestory lancets on the pipe are its pipe lines, and they do a job.
+
+### 6. Each pending owner answer has a strong option
+
+| Owner question | Yes | No |
+|---|---|---|
+| Sit flat too? | **CASKET-B** | **GNOMON** or **DROP** |
+| Strap counts as "knobs and stuff"? | not needed (SHOE); optional extra | printed TPU band, no exception needed |
+| Underside / long-edge hold instead of "by its ends"? | **SHOE** | loose in the bag; the band |
+| Pads stuck under his keyboard? | **SHOE** | loose in the bag; the band |
+| Metal cast from a printed wax counts? | brass port-mouth ring and runner ends by casting | direct-printed metal only, or none: TPU strips do the grip anyway (systems: brass alone slides on a smooth table) |
+
+Nothing in the three concepts depends on any of these answers. He can approve a concept before answering them.
+
+### 7. Likely owner objections, as they stand
+1. **DROP:** the round mass. Does it read as one rim, or as a hair dryer? It's 62 tall, so it's the chunkiest in the bag.
+2. **GNOMON:** furniture (a writing slope). It's the calmest and the least surprising. A wedge in the bag.
+3. **CASKET-B:** 5 moves from bag to sound, two objects, and a shallow angle.
+4. **SHOE:** "stick something on my keyboard?" That's why loose-in-bag is drawn for every concept.
+
+### 8. For the visual designer: what to draw (idea level, one sheet per concept, nothing more)
+- **Same scale on all three sheets**, so he can compare sizes at a glance.
+- Per concept:
+  - **the end face, big**, first: rim, plate, and the pipe or cheek with growth rings round the port mouth;
+  - **one 3/4 view in the play pose**, keyboard in front;
+  - **one packed view**, with SHOE docked (and a small loose-in-the-bag inset).
+- **CASKET-B also gets closed** (the façade face), since that's its point.
+- **No panel layouts, no knob tables, no dimensions beyond the overall three.** Knobs are dots in the right rows.
+- Materials: walnut-brown printed body, cream plate, black knobs and one red, brass only where it touches the ground (or the port ring) and marked "if cast counts".
+
+NEXT: visual designer — the forks are settled (DROP 2 rows ≈ 37°, CASKET-B ≈ 11°, GNOMON sin θ = T/D ≈ 18–19.5°, SHOE as the shared carry). The three concepts need their idea-level sheets, end face first, all at the same scale, before I call READY and score.
