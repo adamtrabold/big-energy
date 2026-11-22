@@ -535,3 +535,8 @@ Recorded as: **the module fits comfortably in a backpack, ideally no longer than
 > I didn’t create the weight target. The principles are portable.
 
 Recorded as: **T5 (≤ 1.5 kg) was the orchestrator's proposed number, not Adam's.** It's withdrawn as a hard target. The principle is **portable**: lighter is better, and weight is reported and weighed as a trade-off, not pass/fail.
+
+## 2026-11-22 13:51 (chat): don't anchor on paper size
+> Also don’t anchor on the page size thing. I’m just giving examples of generic things. It just needs to be portable and make sense and be harmonious
+
+Recorded as: **the sheet-of-paper size was an example, not a target.** The module needs to be **portable, make sense and be harmonious**. Its dimensions and proportions are the team's to derive (from its parts, use and a deliberate ratio). Don't anchor on A4, Letter or A-series ratios because of that remark.
