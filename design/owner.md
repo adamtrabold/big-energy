@@ -369,3 +369,12 @@ Recorded as: the site header reads "synths-to-go | <instrument>", where the inst
 > Call string machine floss
 
 Recorded as: on the site, instrument names and tabs are all lowercase (big energy, port-a-poly, floss; to decide, designs, …). The string machine is named **floss**, and its folder is `floss/`.
+
+## 2026-11-21 22:38 (chat): floss keys
+> Re range it would be nice to octave select each half of the keyboard
+>
+> Re velocity it would be cool to innovate on the original string synth with velocity
+>
+> Re platform I do not want extended keyboard. Portable means 25 or less.
+
+Recorded as: floss has **25 keys or fewer**, never an extended keyboard ("portable means 25 or less"). It has a **split with independent octave select for each half**, and it **uses velocity** to innovate on the classic string machine.
