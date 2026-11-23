@@ -720,3 +720,8 @@ Recorded as: the director's score, opinion and changes are shown **on the low-fi
 > I want to see the earlier rejected ones too
 
 Recorded as: rejected/killed concepts are shown to him too, with the director's score and reason, not filtered out.
+
+## 2026-11-23 00:28 (chat)
+> Draw all those ones rejected before the draw and send me triangle and hull
+
+Recorded as: quick sketches of every idea killed before it was drawn (HANDLE, TRIPTYCH, TURNING CHEEKS, BAIL, ROSE, RETABLE, plus SLED and plain WEDGE), each with why it was killed; and TRIANGLE and HULL sent to him when sketched.
