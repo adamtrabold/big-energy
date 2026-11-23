@@ -648,3 +648,44 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **EASEL:** equal 60° faces (280 × 79 × 86, TPU strips). Utilities in a slim top band with the lights, on the plate (job 31, "single plane"), which also fills the old empty field. The back face goes to the owner as one line only.
 - **LOW GNOMON:** angled-only; the slab ≈ 2 mm proud of the cheeks as the lid's rim (no book language: the bookcloth spine was "weird"). Flag: if it reads as SILL tilted, it's under 9; no added detail to fake distinctiveness.
 - **Next:** visual line-sketches both; then I score.
+
+---
+
+# Director handover 2: new seat, round 2 candidates scored (2026-11-22)
+I took the seat here. Everything above is history: I use it for consistency and don't defend its scores.
+
+## Read
+- `PRINCIPLES.md`, `floss/REQUIREMENTS.md`, `BRIEF-CATHEDRAL.md`, `jobs.md` rev 6, `scores.md` (all), the notes above (CATHEDRAL round onward in full), and `design/owner.md` 15:11–23:50 verbatim.
+- EASEL rev 2.3 and LOW GNOMON: all md files.
+- **Images opened:** `r2-sketches.png`, `r2-easel/sketch.png`, `r2-lowgnomon/sketch.png`, `r2-compare.png`.
+
+## Calibration I carry (from his words since 15:15)
+- He judges the shape pose by pose, as pictures, from the 3/4 and the end view.
+- He keeps CATHEDRAL's softness and square, calm faces.
+- He needs 2–4 options side by side; "distinctive regardless".
+- One speaker; sketches, not renders; ask one question at a time.
+- His ideas are possibilities, never anchors.
+- He has objected to off-centre middles before.
+
+## Draw (SystemRandom)
+"Change instrument roles" × canoe hulls → a possible low-slot concept: **HULL**, a rockered base with two chines (flat on one, ≈ 10° rolled onto the other), one piece, zero parts. Watch the round-mass trap. Only if he says "join".
+
+## Scores
+- **EASEL rev 2.3: 8**, held.
+  - **Likely objections:** (1) the face is off centre (6 | lights | 5), and the drawn count (22 + 3) is wrong; (2) the lancets at z 4–16 are masked by a 11–16-tall keyboard pushed up to the predella (a director finding; UNVERIFIED); (3) a Toblerone read (possible); (4) the knobs exposed when packed; (5) a 5 N slide from the end toggles; (6) the scope question.
+  - **Fixes:** mirrored face with the true 21; slots at z ≥ 18 with the host port beside them; recessed end controls; one caption line on packed protection.
+- **LOW GNOMON: 6, replace, don't send.** It reads as SILL tilted (visual agrees), does less than SILL (no flat) and is no more distinctive. It can't reach 9 without decoration.
+
+## What keeps blocking a 9
+Distinctive vs calm. EASEL escaped through the pose. The low slot keeps converging on a slab because it's been treated as "SILL plus a trick"; it needs its own principle.
+
+## Open questions (owner, one at a time)
+1. **Next to ask:** EASEL replaces or joins flat-or-slightly-angled?
+2. Later: SHOE / underside hold; cast vs printed metal; packed protection for EASEL (a cover is his possibility, not ours).
+
+## Next
+1. Visual + systems do EASEL's fix pass (one redraw; eng gives one line on slot height).
+2. I re-score EASEL.
+3. Orchestrator asks the owner the replace-or-join question with the fixed EASEL and SILL's column.
+   - **Replace:** EASEL goes at 9.
+   - **Join:** a short jam for one distinctive low concept (HULL as one possibility among others), then score.

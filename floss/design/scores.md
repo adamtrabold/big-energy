@@ -112,3 +112,37 @@ Judged from `concepts/r2-compare.png` (the phone sheet he'll judge from), each c
 **What keeps blocking a 9:** distinctive vs calm. Every distinctive idea today has either added a visible mechanism (CRADLE's cheeks, PLINTH's block) or left dressed space (EASEL's empty upper face, DROP's pipe, CASKET's lid). Every calm one has been called not distinctive (SILL). The way through is the one GNOMON showed: **a distinctive silhouette that is itself the structure**, with no leftover. EASEL is closest; its leftover is fixable.
 
 **Changed since my last score?** SILL: no (score lowered on his word, not raised). CRADLE, PLINTH, EASEL: first scores.
+
+## Round 2 candidates: EASEL rev 2.3 and LOW GNOMON (2026-11-22, director, new seat)
+Judged from the sketches, as the owner asked (21:08); sketchiness isn't marked down. **Views:** `concepts/r2-sketches.png` (the side-by-side he'd see), `r2-easel/sketch.png` (right-end view and 3/4 with the keyboard), `r2-lowgnomon/sketch.png` (the same views), each concept's three md files, and `r2-compare.png` for SILL's angled pose. **Owner signals used, verbatim:** "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; "I do wish it was more distinctive refardless"; "one arrangement that can either be flat or slightly angled"; "Drop to one speaker"; "Face or edge imo". Whether EASEL replaces or joins "flat or slightly angled" is still unanswered.
+
+**EASEL rev 2.3: 8** (was 8; the work changed). The driver is in the foot, the plate is sized to two rows, the empty upper field is gone, the utilities are on the right end per "Face or edge", and it's 280 × 79 × 80. It's the most distinctive silhouette of the round and exactly his 20:46 ask: a soft A, with lancets in the predella and end grain. The idea is sound. What holds it under 9 is mostly drawing-level, plus one acoustic flaw in the idea.
+- **Likely owner objections:**
+  1. **The face is off centre in the middle.** Each row is 6 knobs, then the lights, then 5. He has objected to exactly this before ("off center in that middle section is bad looking"; PRINCIPLES §6). Also, the sketch draws 22 knobs on the face *and* 3 utilities on the end, which matches no real count (jobs.md has 21 playing controls). **Likely.**
+  2. **The speaker fires into the keyboard.** The lancets sit at z ≈ 4–16, and a slim keyboard is 11–16 tall. Pushed up to the predella ("the keyboard tucks right in front"), the keyboard's back edge masks the slots, and that's the shimmer band he cares about. On top of that, the slot-loaded chamber is an UNVERIFIED low-pass. He may not see this in the sketch, but it's real. [director's reading of systems' section; UNVERIFIED]
+  3. "A Toblerone / doorstop" read of the prism in the 3/4. Possible, not likely: it's the pose he asked for, and the end view is soft.
+  4. Packed, the knobs face out on a 60° face with a 1 mm rim (job 33, the weakest of the round).
+  5. Flicking an end toggle slides it at ≈ 5 N, so you steady it with the other hand (stated on the caption).
+  6. Neither flat nor slightly angled (the scope question).
+- **Fixes to 9 (one quick sketch pass, no new analysis rounds):**
+  1. **Redraw the face mirrored about the axis with the true count.** 21 playing controls means 10 | HOLD or DEPTH on the axis | 10, or tabs at 15 pitch, in signal order. The lights go on the axis, or mirrored. No 6/5 split.
+  2. **Raise the lancets above keyboard height** (slot bottoms at z ≥ 18, inside the 36 predella). The host USB-C goes beside them, not under them, with the plenum to suit (eng, published-data model). If that can't be done, state a keyboard gap on the caption.
+  3. **Recess the three end controls** (sunk in a pocket on the end flat, flush with the rolled edge), so nothing stands proud in the bag. Keep the slide note.
+  4. Packed protection: one line on the caption (for example, carried plate-down against the keyboard on SHOE, or a printed slip cover as an owner possibility). Don't draw a cover.
+
+**LOW GNOMON: 6. Replace; don't send.** The previous director's kill condition is met, and visual says so too: at sketch size it **reads as SILL tilted, without the leg** (280 × 104 × 52 against SILL's 280 × 105 × 35 + bar). The 2 mm proud rim is invisible in the 3/4. It's calm and the steadiest, with zero parts. But measured against his two words it **does less than SILL** (no flat) and is **no more distinctive** ("more distinctive regardless"). Shown next to EASEL, it makes the comparison look like one real idea and a filler.
+- **Likely owner objections:**
+  1. "That's SILL again." **Certain.**
+  2. No flat pose.
+  3. It's bulkier than SILL packed (52 vs 35 tall), for nothing he asked for.
+- **Why it can't reach 9:** adding detail to make it look different would be decoration, and taking the wedge away makes it SILL. Its distinctiveness lived in GNOMON's upright pose, which he dropped.
+
+**What keeps blocking a 9, across rounds:** *distinctive vs calm.* Distinctive ideas add a mechanism or leave dressed space; calm ones read as SILL. EASEL broke out of that by changing the pose, not the detail. In the low-angle slot no concept has yet had a distinctive silhouette that is also its structure, because at ≈ 10° every single-piece answer converges on a slab. The likely reason: the low slot has been designed as "SILL plus a shape trick". Its own point of view needs a different principle. One to try: a hull section from the draw "Change instrument roles" × canoe hulls. That's a soft rockered base with two chines: it rests flat on one and rolls onto the other for ≈ 10°, one piece, zero parts. Watch the round-mass trap (DROP).
+
+**Changed since the last score?** EASEL: yes (rev 2.3: utilities on the end, the section restated). The score holds at 8 because new likely objections surfaced; it wasn't raised. LOW GNOMON: first score.
+
+**Goes to the owner:** neither at 9. **Recommendation:**
+1. Do EASEL's fix pass (fixes 1–3 are a redraw plus one eng line).
+2. Then ask him **one question**, with the fixed EASEL sketch and SILL's existing column as the low reference: **"Does the steep, narrow one replace flat-or-slightly-angled, or do you want both to choose from?"**
+   - **Replace:** EASEL goes alone, at 9.
+   - **Join:** the team builds one genuinely distinctive low concept (hull, above) before he compares. LOW GNOMON is not shown.
