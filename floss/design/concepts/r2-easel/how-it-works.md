@@ -1,6 +1,24 @@
-# EASEL: how it works (systems, idea level) — rev 2.1
+# EASEL: how it works (systems, idea level) — rev 2.2
 
-2026-11-22, round 2. PROPOSAL. Rev 2 applied the director's four fixes (EASEL 8, `../../scores.md`). **Rev 2.1 is a check of rev 2 by a new systems seat: rev 2's 68 × 68 section doesn't close, so the section grows. The idea and the fixes stand.**
+2026-11-22, round 2. PROPOSAL. Rev 2 applied the director's four fixes (EASEL 8, `../../scores.md`). Rev 2.1 found that rev 2's 68 × 68 section doesn't close, so the section grows. **Rev 2.2 adds the director's top band (power / TUNE / SPLIT and the lights on the plate) as variant B, beside variant A (utilities on the back face). Which one depends on the owner's answer.** Sections below this block are rev 2.1 (variant A) unless stated.
+
+## Rev 2.2: the two variants [calc; mass 0.68–0.72 kg, COM ≈ 0.46 F back and ≈ 0.36 H up: ESTIMATES]
+**Visual's geometry is right.** With both faces at 60°, footprint = plate + predella / tan 60° (F = L + f / 1.732). Every mm added to the plate adds 1 mm of foot and 0.87 mm of height. At predella 36: plate 75 → **≈ 96 × 95** (r 6 top); a 10 mm band (plate 68) → **≈ 89 × 89**. My rev 2.1 line "third row = +15 tall" left out the +17 of foot. That was wrong.
+
+**A correction to both of us:** the predella was ≈ 36 only because the 60° back pinched the flat driver. A longer plate moves the back rearward, so the driver can sit further back (centre ≈ 44–47) and **the predella can drop**. That gets the height back:
+
+| Variant | Plate | Predella | Footprint × height (r 6 top) | Top-row press tips | Utility press tips | Pull at top |
+|---|---|---|---|---|---|---|
+| **A: utilities on the back** (rev 2.1) | 58 | 36 | **79 × 80** (86 sharp) | 12.5 N | — (on the back face) | ≈ 3.0 N |
+| **B: 10 mm band, low predella** | 68 | **28** | **84 × 81** | ≈ 24 N | **≈ 9.8 N (s 50)** | ≈ 3.3 N |
+| **B: 17 mm band, low predella** | 75 | **22** | **88 × 81** | ≈ 54 N | **≈ 10 N (s 58)** | ≈ 3.5 N |
+| B as sketched (17 band, predella 36) | 75 | 36 | 96 × 95 | ≈ 26 N | ≈ 8.8 N (s 58) | ≈ 3.3 N |
+| B, 10 band, predella 36 | 68 | 36 | 89 × 89 | ≈ 19 N | ≈ 9.0 N (s 50) | ≈ 3.2 N |
+
+- **A utility toggle press tips it at ≈ 9–10 N.** That's about 2–4× a toggle's throw force (UNVERIFIED per part). On TPU it slides back at ≈ 12 N first, so it's fine for set-and-forget switches. A steadying finger on the end is natural anyway.
+- **Recommendation if the owner keeps the utilities on the plate: B with a 10 mm band and a ≈ 28 predella, 84 × 81.** It costs +5 mm of foot over A, with no extra height, and it's steadier. With a 22 predella the host USB-C has to sit beside the lancets, not above them (the lancets need z ≈ 4–16). The 28 predella keeps it above them.
+- **If he says the utilities may go on the back: A, 79 × 80**, the narrowest.
+- In every variant the driver fit depends on its basket shape (± 2 mm on the predella, UNVERIFIED). The box has room in every variant.
 
 **Owner, verbatim (20:46):** "I do like one that sits up at an angle with a narrow footprint, I feel like that wil be most convenient for tables on the go esp with an external keyboard — like cathedral at least but without the keyboard"; "Why would I have two mono speakers that’s stupid. Drop to one speaker".
 

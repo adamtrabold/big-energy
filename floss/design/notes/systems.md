@@ -633,3 +633,9 @@ jobs.md is unchanged (rev 6 still fits).
 - **Owner (one question at a time, via orchestrator):** EASEL replaces or joins flat-or-slight; does "flat too" still stand; set-and-forget controls off the plate (job 31); SHOE / loose.
 
 **Next:** director rules; visual sketches EASEL rev 2.1 and LOW GNOMON (end view + one view, line sketches per 21:08); I re-check coverage against the sketches.
+
+### 2026-11-22 EASEL rev 2.2 (coordinator follow-up on visual's sketch)
+- Visual is right: F = L + f/1.732 with both faces 60°. Plate 75 / predella 36 → 96 × 95 (r 6 top); plate 68 → 89 × 89. My rev 2.1 "+15 tall" for a third row ignored the +17 of foot: wrong.
+- **Correction to both:** a longer plate moves the back rearward, so the flat driver can sit further back and the predella can drop. Minimum predella (band 22, strips incl. the top band): plate 68 → f 28 (84 × 81 with r 6); plate 75 → f 22 (88 × 81).
+- Utility press (at the band centre) tips at ≈ 9–10 N; slides at ≈ 12 N on TPU first. Top row 19–54 N.
+- Recommend B = 10 band, f 28, 84 × 81 if the utilities stay on the plate; A = 79 × 80 if the owner allows the back. Owner question in flight (coordinator).
