@@ -604,3 +604,32 @@ jobs.md is unchanged (rev 6 still fits).
 - **Owner:** does EASEL replace or join flat-or-slightly-angled.
 
 **Next:** visual adds EASEL to the comparison sheet; the director scores the four; I re-check coverage against the sheets.
+
+### 2026-11-22 round 2, turn 6: EASEL rev 2.1 + LOW GNOMON (new systems seat)
+**Took over the seat** mid-task from turn 5 above. Inputs: director's comparison scores (EASEL 8 with fixes 1–4; SILL 8; PLINTH, CRADLE 7 killed) and turn 5 (LOW GNOMON); owner 21:08 asks for line sketches from now on.
+
+**EASEL rev 2 checked → rev 2.1** (`concepts/r2-easel/how-it-works.md`, `coverage.md`) [calc; scripts were throwaway in /tmp]:
+- **Rev 2's 68 × 68 doesn't close.** The knob band behind the plate is ≈ 22 deep (deck 10 below the rim + pots/board ≈ 12, from eng r3's stack). A Ø 55 × 24 driver lying flat over a 6 mm chamber must sit behind it and inside the 60° back. Minimum predella: ≈ 28 (band 13, flush deck), ≈ 33 (18), ≈ 35 (20), **≈ 37 (22)**. Used f ≈ 36 → **280 × 79 × 86, ≈ 1.10 L**, driver centre ≈ 38 back.
+- **Ratio:** both faces 60° (equal pitches) recommended; a square only exists at ≈ 68. Square at 86 = back ≈ 56.5°, foot 86, top-row tip 17 N, pull 3.1 N: not worth 7 mm since sliding governs.
+- **Forces (mass 0.68, COM 36/30 ESTIMATES):** lower row tip 49 N; top row 12.5 N; lights band 7.8 N; **slides at ≈ 11.5 N (μ 0.8 TPU) / ≈ 5.4 N (μ 0.5 bare)** → TPU required; pull at apex 2.8 N; palm on apex safe within 19° fwd / 30° back of vertical at any force; tilt 50° / 55°. Rev 2's 15 N / 2.2 N didn't follow from its own mass/COM (I got 19.3 / 2.6).
+- **Corners:** two r 17.5 fit below z ≈ 56; end flat ≈ 38 wide at z 10, ≈ 26 at z 30. Jacks stay on the back face.
+- **Box:** ≈ 1,450 mm² behind the band above z 10 (≈ 290 cm³ / 200 mm) vs C ≈ 150 gross. Port mouth at the centroid (≈ 32, 30), inside the box. Lancets 8 × 8 × 12 need a ≈ 9 mm plenum in front of the frame.
+- **Controls:** 22 positions. Drawn 19 + 3 fit exactly. **jobs.md inventory = 12 rotaries + 6 tabs + HOLD + TAP + FREE/SYNC = 21, + 3 utilities = 24, + gutter ≈ 1 per row.** Fits only with tabs/buttons at ≈ 15 pitch (≈ 435 of 464) AND utilities on the back face (job 31 answer); else a third row (+17 along the slope, ≈ +15 tall, pull ≈ 2.4 N).
+- SHOE in the base adds ≈ 3.5 to the predella (recess under the chamber).
+
+**LOW GNOMON** (`concepts/r2-lowgnomon/how-it-works.md`, `coverage.md`):
+- tan θ = T/2D = 9.46°; points (front-bottom origin): (0,0), (−5.8, 34.5), (97.8, 51.8), (97.8, 0). 280 × 103.6 × 51.8; centroid (50.7, 22.1); section ≈ 4,370 mm².
+- **Closed base** (the hollow would be ≤ 16.3 tall: no job). Wedge = box floor + cell bay. Box section ≈ 1,640 slab rear band + ≈ 600 wedge. Port mouth at the centroid; jacks one row right end; host front face (straight plug clears ≈ 3 at 9.5°).
+- Stability (0.8 kg, COM 50–55 / 18–20 ESTIMATES): presses never tip/slide; pull 7.6 N (top-back) / ≈ 11 N (lip); tilt ≈ 68° / 67°; grass 2 kPa on strips.
+- S9 front entry y 10–70 unchanged (dips ≤ 1.8 into the slab floor; SILL takes 3.5). No stretcher.
+- **Flat test: NO.** Heel pivot, front +16.1, back leans 9.5° (against 19:02), wedge-on-stilt read, recess crosses the S9 entry.
+- Distinctiveness risk named: outline ≈ SILL tilted, gap filled. Randomness ("Remove ambiguities and convert to specifics" + bookbinding) → **"the squares"**: slab 2 mm proud of the wedge at the ends (visual's call).
+
+**Jam:** turn 6 appended to `jam-cathedral.md`. jobs.md unchanged (rev 6); job 32 rev 7 wording still proposed in `r2-easel/coverage.md`, now also relevant to LOW GNOMON's dropped flat.
+
+**Open:**
+- **Director:** accept EASEL at 79 × 86 (or the square); panel route for EASEL; LOW GNOMON without flat; the squares step.
+- **Eng:** driver basket shape (sets EASEL's predella ± 2); slot/plenum low-pass; one-driver box for both; TPU μ; mass/COM; the D 105 driver frame vs the rear row's right pot (shared slab flag).
+- **Owner (one question at a time, via orchestrator):** EASEL replaces or joins flat-or-slight; does "flat too" still stand; set-and-forget controls off the plate (job 31); SHOE / loose.
+
+**Next:** director rules; visual sketches EASEL rev 2.1 and LOW GNOMON (end view + one view, line sketches per 21:08); I re-check coverage against the sketches.

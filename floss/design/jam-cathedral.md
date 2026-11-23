@@ -900,3 +900,37 @@ NEXT: visual designer — add EASEL (B, with A's outline as a small inset) as th
 NEXT: systems designer (after EASEL's fixes) — structure LOW GNOMON at tan θ = T/2D: the section at D 105 with option C's box in the tall back, stability (table, lap, grass), the front-bar flat test with a yes/no on whether it looks propped, coverage. Then visual draws it at the comparison's scales.
 
 **Process (owner, verbatim):** "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?" From now on, idea-level concepts are **quick line sketches**: an end view plus one or two simple views, loose line work, few labels. Fuller drawings only after he approves one. EASEL's fix and LOW GNOMON are drawn this way. The director scores sketches on the idea and the silhouette, with no mark-down for being sketches.
+
+---
+
+## Round 2, turn 6: product designer (systems focus): EASEL rev 2 checked; LOW GNOMON structured (new systems seat)
+
+Owner, verbatim: "So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be"; "I do wish it was more distinctive refardless"; "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; "Drop to one speaker". [calc] = mine; masses and COMs are ESTIMATES. Randomness (`secrets`): Oblique "Remove ambiguities and convert to specifics" + "bookbinding".
+
+### 1. EASEL rev 2 → **rev 2.1: the idea holds, the section doesn't close at 68 × 68.**
+- **The driver in the foot doesn't fit behind the knob band** (≈ 22 deep: deck 10 + pots and board 12) in an 18 predella; even a flush deck needs ≈ 28. **It first fits at a predella ≈ 36: 280 × 79 × 86, ≈ 1.10 L.** No empty field, but as big as rev 1, lower and deeper; still the narrowest footprint.
+- **Ratio:** a square only exists at ≈ 68 with two 60° faces. I recommend **equal 60° pitches** as the rule (a square at 86 costs 7 mm of foot for tip margin that sliding cancels).
+- **Forces:** top row tips at ≈ 12.5 N, **but slides back first** (≈ 11.5 N on TPU, ≈ 5 N on bare print): **TPU strips required.** Pull at the apex ≈ 2.8 N. **A palm on the apex never tips it** within ≈ 19° toward you / 30° away from vertical.
+- **r 17.5 corners:** fit below z ≈ 56 of 86, hipped above; end flat ≈ 26–38 wide: port mouth yes, jack row no (jacks stay low on the back).
+- **Box:** ≈ 290 cm³ available vs C's ≈ 150; port mouth at the end grain's centroid (≈ y 32, z 30), inside the box. Lancets need a ≈ 9 mm plenum to be 12 tall; the low-pass is still eng's main risk.
+- **Controls, plainly:** 2 × 11 = 22 positions. The drawn 19 + 3 utilities fit exactly. **jobs.md's real inventory is 21 + 3, plus the centre gutter: two short.** It fits two rows only with tabs and buttons at ≈ 15 pitch **and** the utilities on the back face (needs his job 31 answer); otherwise a third row (+≈ 15 tall).
+- Coverage: all but job 32 as worded (scope question, unchanged).
+
+### 2. LOW GNOMON: **survives, slightly angled by shape, zero moving parts. Flat: no.**
+- **Section:** tan θ = T/2D → **9.46°**; front 35 (square to the plate), back **vertical 51.8**, base 97.8; **280 × 104 × 52**, ≈ 1.2 L. Closed base (an open hollow ≤ 16 tall has no job).
+- **The tall back is the box:** slab rear band + wedge ≈ 2,240 mm² of section; C needs ≈ 70–120 mm of it. Cells flat in the wedge floor (low, back). Port mouth at the end grain's centroid (≈ 51, 22), in the slab band. Jacks one row on the right end; host on the front face (a straight plug clears by ≈ 3).
+- **Stability:** presses never tip or slide it; pull ≈ 7.6–11 N; lap runners = TPU end strips; grass ≈ 2 kPa. The steadiest of the round.
+- **SHOE:** S9 front entry at y 10–70 as on the slabs, dipping ≤ 1.8 into the slab floor; no stretcher. Loose works.
+- **Flat test (front bar): no.** The body pivots on its heel, the front rises ≈ 16, **the vertical back leans 9.5°**: it reads as a wedge on a stilt, and it breaks his 19:02 words exactly where they apply. Its recess also crosses the S9 entry. If he wants flat too, SILL already answers it.
+- **Honest distinctiveness note:** the outline is close to SILL tilted with the gap filled; the end face carries the difference. **One possibility for visual** (bookbinding → "the squares"): the slab stands ≈ 2 mm proud of the wedge at each end, so the hairline becomes a shadow step and can't read as a seam; port and jacks both sit on the proud slab band.
+- Coverage: every job except flat in 32.
+
+### 3. Comparison-sheet lines
+| | Pieces | Moving | Packed | Angle | Footprint |
+|---|---|---|---|---|---|
+| EASEL rev 2.1 | 1 | 0 | 280 × 79 × 86, ≈ 1.10 L | 60° | 280 × 79 |
+| LOW GNOMON | 1 | 0 | 280 × 104 × 52, ≈ 1.2 L | 9.46° | 280 × 98 |
+
+Director's calls: EASEL's equal pitches vs the square; accept 79 × 86; the panel route (15 pitch + utilities on the back, or a third row); LOW GNOMON without flat; the "squares" step.
+
+NEXT: design director — rule on EASEL rev 2.1's grown section and panel route, and on LOW GNOMON without flat; then visual sketches both (end view + one view each).
