@@ -572,3 +572,13 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Objections:** (1) his two notes trade: upright now leans ≈ 18.4°, not the "subtle" ≈ 9.5°; tell him plainly; (2) upright stability under firm top-row presses; (3) more of a plain wedge (his direction).
 - **Handoff condition (a) is still open:** the host port is on the top edge when upright. Move it low near the rear-bottom corner of a cheek.
 - **Next:** back to the owner. If approved: the handoff; I check it against his 18:39–19:02 words, including the angle trade and the host-port move.
+
+# GNOMON rev 5 re-score (2026-11-22): 9, held
+- **Owner, verbatim:** "I miss the subtle rounded shape of cathedral"; and the idea "And w what if the speakers were on each side left and right so up or down didn’t matter".
+- **Calibration:** that's the third fine-tune of the same concept. He keeps the concept and polishes its silhouette toward CATHEDRAL. Softness is part of the family face, and I let it slip when rev 4 squared the back. **Every rev must keep CATHEDRAL's n 5 corners and eased edges by default.**
+- **The rounding answers his note** in plan and in the 3/4 views. The gap is the tight r 4 at the top-back (the tipping edge) and the base-to-back (his 90°), held for stability and squareness; the owner sees the trade (r 8 → pull ≈ 1.6 N).
+- **Side speakers:** I concur with systems' "not recommended": the player would be off-axis in both poses, it's quieter and duller, and it loses the port, jacks and end grain. The plate drivers already face him in both poses. Give him the gains and ask what problem he sees.
+- **Condition (a) revised:** the host port stays on the front face (a cheek receptacle is UNVERIFIED; a cable's weight is ≪ the pull-to-tip).
+- **Watch:** panel creep (power / TUNE / SPLIT on the plate). Fine for now; the panel layout is a handoff job, not a concept feature.
+- **Changed:** yes. **Objections:** the softness at the back corners, panel creep, side speakers, upright pull ≈ 2.1 N.
+- **Next:** back to the owner. If approved: the handoff, checked against his 18:39–19:14 words (pose order, "reverse", base ⟂ back, the rounding, and the side-speaker answer).
