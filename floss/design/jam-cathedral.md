@@ -872,3 +872,8 @@ Director's calls:
 - the job 32 scope question goes to the owner with the sheet.
 
 NEXT: visual designer — add EASEL (B, with A's outline as a small inset) as the fourth column of the same-scale comparison sheet, controls in the plate's lower ≈ 45 mm around the one centred grille. Redraw the slabs at D 105 if the director rules it. Then the director scores all four.
+
+**Director quick rulings (after systems turn 5):**
+1. **EASEL B** (footprint : face 1 : 1.618, ≈ 61 deep, rounded top). A's sharp top breaks CATHEDRAL's softness, which he's asked for all day, and B's extra 11 mm buys press stability. The ratio is deliberate, so it isn't a pick.
+2. **All three slabs at D 105** now that one driver frees the box. State each derived angle (SILL 10.1°, CRADLE 10.3°, PLINTH 9.6°); don't round them to match. Eng's one-driver box volume stays UNVERIFIED.
+3. **EASEL's costs go on the comparison sheet's trade line as they are:** every control in the lower 45 mm, tips forward at ≈ 1.5–2 N, four boards, the weakest panel protection, and job 32 unsupported (steep, by his own request).

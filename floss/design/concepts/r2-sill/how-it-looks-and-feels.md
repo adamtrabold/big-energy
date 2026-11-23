@@ -1,6 +1,6 @@
 # SILL: how it looks and feels (visual, idea level)
 
-2026-11-22, round 2. PROPOSAL. Read with systems' `how-it-works.md`, which owns the geometry.
+2026-11-22, round 2. PROPOSAL. **Rev 2 (late): D 105 and one speaker** (director, after the owner's "Drop to one speaker"); the sheet is re-rendered and the numbers below restated. Read with systems' `how-it-works.md`, which owns the geometry.
 
 **Picture:** `sheet.png` (14 × 27 in at 200 dpi; end view 3:2; 3/4 views and underside 1:2; the CHOCK inset 3:2). These are GNOMON rev 5's scales.
 
@@ -17,11 +17,11 @@ A single full-width printed bar lies flush in the rear of the base. Flip it down
 ## Geometry, as drawn ([calc] from the director's rulings and systems' file; nothing measured)
 | | Value |
 |---|---|
-| Slab | 280 × 115 × 35 (D 115: the director's ruling, for speaker E's margin) |
+| Slab | 280 × 105 × 35 (D 105: the director's ruling once one driver freed the box) |
 | Bar | h = T/2 = 17.5 deep, ≈ 3.5 thick, ≈ 236 long, hinged at the rear-bottom edge |
-| Tilt | θ = asin(h / (D − 5)) ≈ **9.2°** |
-| Flat | 280 × 115 footprint, 35 tall |
-| Tilted | footprint ≈ 280 × 112 (front foot to bar foot); overall ≈ 119 deep (the plate's front edge leans forward of the foot) × ≈ 53 tall at the back |
+| Tilt | θ = asin(h / (D − 5)) ≈ **10.1°** |
+| Flat | 280 × 105 footprint, 35 tall |
+| Tilted | footprint ≈ 280 × 103 (front foot to bar foot); overall ≈ 108 deep × ≈ 51 tall at the back |
 | Plan corners | n 5 superellipse, r 17.5 = T/2 (as GNOMON rev 5); plate r 10 concentric |
 | Edges | front-top r 8, back-top r 6, bottom edges r 3; end-face edges rolled 3 |
 
@@ -35,10 +35,10 @@ A single full-width printed bar lies flush in the rear of the base. Flip it down
 |---|---|
 | Framed plate | Cream plate in a walnut rim, concentric soft corners |
 | Soft architectural corners | n 5 plan corners at T/2, eased edges, rolled end faces (GNOMON rev 5) |
-| Lancet grille | Two round lancet windows in the plate, over the drivers (speaker on the plate until he answers on end speakers) |
+| Lancet grille | **One** round lancet window (owner 2026-11-22: "Drop to one speaker"), at the output (right) end of the rear band, x ≈ 243; power, TUNE and split moved to that band's left end. Sheet re-rendered |
 | Cathedral grain | Growth rings on both end faces, centred on the port mouth (left end) |
 | Brass | None drawn. Grooves at the port; the hinge pin is steel or printed metal, hidden |
-| Black knobs, one red hero | Two rows, DEPTH in red; power, TUNE and split at the plate's right end; split rail on the front rim |
+| Black knobs, one red hero | Two rows, DEPTH in red; power, TUNE and split at the rear band's left end; split rail on the front rim |
 
 GNOMON's cheeks and its section hairline are gone, because there's no lid-plus-thickness to show. The end grain and the port mouth stay.
 

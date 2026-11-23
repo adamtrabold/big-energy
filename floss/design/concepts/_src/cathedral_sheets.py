@@ -697,7 +697,7 @@ def sheet_sill(path):
     Director round 2: h = T/2 = 17.5, D 115, theta = asin(h / (D - 5)) ~ 9.2 deg. CHOCK as a small inset."""
     global FIG_H, LIGHT
     old_h = FIG_H; FIG_H = 27.0
-    W = 280.0; T = 35.0; D = 115.0; H = T/2; BAR_T = 3.5
+    W = 280.0; T = 35.0; D = 105.0; H = T/2; BAR_T = 3.5   # director: D 105 with one driver
     TH = math.asin(H/(D-5))
     RPLAN = T/2; ROLL = 3.0; RPLATE = 10.0
     QS = [(0, 0), (D, 0), (D, T), (0, T)]
@@ -787,17 +787,17 @@ def sheet_sill(path):
         P, n = plate_frame(tf((0, T)), th, W)
         L2 = sc.layer(); squircle_field(L2, cam, P, n, 8, W-8, 9, D-8, RPLATE)
         L3 = sc.layer()
-        for xc in (W*0.36, W*0.64): lancet_window(L3, cam, P, n, xc, 80, lw=1.3)
+        lancet_window(L3, cam, P, n, xs2[-1], 72, R=21.0, lw=1.3)      # owner 2026-11-22: one speaker, at the output end (r2_sheets.py)
         add_line(L3, cam, [P(40, 4.6, 0.4), P(W-40, 4.6, 0.4)], CREAM, 0.8)
         for i in range(21):
             sx = 40 + i*(W-80)/20
             add_line(L3, cam, [P(sx, 3.4, 0.4), P(sx, 5.8, 0.4)], CREAM, 0.8 if i % 5 else 1.4)
         L4 = sc.layer()
-        for x in xs1: knob(L4, cam, P, n, x, 24)
-        for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 46, col=RED if i == 4 else BLACK)
-        knob(L4, cam, P, n, 222, 92, col=(0.62, 0.62, 0.60), d=4.5, h=6)
-        knob(L4, cam, P, n, 236, 92, col=BLACK, d=7, h=5)
-        knob(L4, cam, P, n, 250, 92, col=(0.62, 0.62, 0.60), d=4.5, h=6)
+        for x in xs1: knob(L4, cam, P, n, x, 22)
+        for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 42, col=RED if i == 4 else BLACK)
+        knob(L4, cam, P, n, 30, 72, col=(0.62, 0.62, 0.60), d=4.5, h=6)
+        knob(L4, cam, P, n, 44, 72, col=BLACK, d=7, h=5)
+        knob(L4, cam, P, n, 58, 72, col=(0.62, 0.62, 0.60), d=4.5, h=6)
         if kb_front: keyboard(sc, cam, W/2-KB_W/2, -KB_D-60)
 
     th_deg = math.degrees(TH)
@@ -809,7 +809,7 @@ def sheet_sill(path):
     fig = new_sheet("SILL · the lid lying down, with a sill",
                     "GNOMON's slab, CATHEDRAL's lid, sitting flat. A full-width printed bar lies flush in the rear of the base; "
                     "flip it down with a fingertip and the back lifts slightly. The panel is the same in both.",
-                    f"280 × 115 × 35 mm flat · ≈ {th_deg:.1f}° tilted (bar down) · one moving part",
+                    f"280 × {D:.0f} × 35 mm flat · ≈ {th_deg:.1f}° tilted (bar down) · one moving part",
                     scales="end view 3:2, 3/4 views and underside 1:2")
     # 1. end view: flat above, tilted below
     box_mm = (14, 395, 328, 190)

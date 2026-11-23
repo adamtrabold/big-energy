@@ -551,3 +551,41 @@ Rev 4 was a sharp extrusion.
 
 **Next:** the director scores SILL.
 - SILL, after systems rev 2: two knuckles (x ≈ 30 / 250); CHOCK redrawn as a uniform 236 × 17.5 × 3.5 strip, stored flat and stood in a rear-wall slot, labelled as a fallback. Sheet and md updated.
+
+---
+
+## 2026-11-22: round 2, CRADLE + PLINTH sheets and the comparison sheet (new visual seat)
+**Took over from the notes above.** Owner, verbatim: "So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be"; "I can only see one version how am I supposed to judge"; "I do wish it was more distinctive refardless"; mid-turn: "Why would I have two mono speakers that’s stupid. Drop to one speaker". The coordinator also said a 4th concept (narrow, steep like CATHEDRAL's standing lid) is coming from systems: leave a column for it.
+
+**Made (all opened and checked):**
+- `concepts/r2-cradle/sheet.png` (14 × 27 in): end view flat and tilted (3:2, cheek solid, slab and rail dashed); tilted 3/4 with keyboard; flat 3/4; from behind tilted (rail, port mouth); packed on SHOE; cheek B inset (3:4); the thumbnail test (all end outlines in solid black, 3:5).
+- `concepts/r2-plinth/sheet.png` (14 × 27 in): end view module alone and on its plinth (3:2); tilted 3/4 with keyboard; module alone flat; plinth alone, drawer out; packed docked; packed with keyboard under; apart (1:1).
+- `concepts/r2-compare.png` (14 × 20 in, 2800 × 4000): **four column slots** (4th dashed "coming next"), rows end flat, end tilted (3:5), tilted with keyboard (1:5, keyboard 25 in front), packed (1:4), the trade (pieces, moving parts, packed mm, L, angle, a red "watch" line). Big type for a phone. Dark brown marks the part that makes the angle in every column.
+- `how-it-looks-and-feels.md` in r2-cradle/ and r2-plinth/; SILL's md updated for one speaker.
+- Code: `concepts/_src/r2_sheets.py` (imports cathedral_sheets' renderer; `COLUMNS[3]` is the slot for the 4th concept: name, idea, end/kb/pack builders, trade). Run `python3 r2_sheets.py [cradle plinth compare]` from `_src`. `cathedral_sheets.py` `sheet_sill()` now has one grille; `r2-sill/sheet.png` re-rendered.
+
+**Decisions (mine):**
+1. **One speaker:** one lancet grille at the output (right) end of the rear band, centred over the last knob column (x ≈ 243, t 80). Power, TUNE and split move to the rear band's left end (x 30/44/58), mirroring it. Signal order reads left to right; nothing off-centre in the middle of a face. Applied to all three.
+2. **CRADLE:** cheek A, with the cheek top = the tilted plate's own line (front 33.2, back 54.1 vs systems' 35/52.5), so "flush" is exact. The rings are struck from the pivot pin (draw: "sundials"): the end face reads as a quadrant. Jacks: one row of 6 on the front face, right of centre.
+3. **PLINTH:** the plinth in a darker brown (second filament) with a 3 mm rebate gap: the lid floats on its shadow. Alternative: the same walnut.
+4. Draws (`secrets`): Oblique "Remove specifics and convert to ambiguities" → CRADLE's argument, one outline holding two states; "sundials" → the pivot rings; "pottery kilns" (kiln shelf on props) → the PLINTH float, already there.
+
+**Distinctiveness, honestly:** CRADLE A passes the thumbnail test in both states. PLINTH passes tilted only; flat it's SILL's block, and no module surface fixes that without decoration. I looked for a bigger CRADLE move (an arc back struck from the pin: only ≈ 3 mm of bulge, not visible at thumbnail size, and it risks his "base and back 90°" note) and dropped it.
+
+**Open:**
+1. Systems: cheek heights 33.2 / 54.1; the single driver's place under x ≈ 243 vs E's box.
+2. Eng: one driver changes speaker E (volume, port).
+3. Director: the darker plinth; cheek A.
+4. Owner: jacks on CRADLE's front face; second piece OK?; steel pin.
+
+**Next:** systems structures the 4th concept; I add it as `COLUMNS[3]` plus its own sheet; then the director scores all four in one pass.
+
+### Same turn, after the director's quick rulings (EASEL B, D 105, EASEL's costs on the trade line)
+- **EASEL** (B: footprint : height 1 : 1.618 → 61 × 98.6; plate 60°, L 100): new `concepts/r2-easel/sheet.png` (14 × 27: end view 3:2 with A's outline dashed, the controls band s ≤ 45 marked, the 1.5–2 N forward-tip arrow; playing with keyboard; face on, low; from behind; packed with the keyboard on its back via SHOE; packed alone; the thumbnail test) and `how-it-looks-and-feels.md`. **Plan corners at r 8, not T/2** (≈ 11 thick at the roof; T/2 eats the top). The section is built by half-plane clipping and resampled (`easel_section`, `resample`) because its vertex count changes along the round.
+- **D 105 for all slabs:** SILL 10.1° (280 × 105 × 35), CRADLE 10.3° (306 × 117, cheeks 33.1 / 54.4), PLINTH 9.6° (plinth 260 × 85, 11.7 → 26.0; bundle 280 × 109 × 62). At D 105 the knob rows move to t 22 / 42 and the grille to t 72 with a Ø 42 field (was Ø 46): **flag for eng**. All three sheets and their mds are restated; SILL re-rendered via `cathedral_sheets.py` (D 105, one grille).
+- **The comparison sheet** is now four columns (14 × 22 in, 2800 × 4400), titled "floss: four ways it can sit". EASEL's flat cell says "no flat pose", and its angled cell shows its one pose. Its trade line lists every cost the director named. EASEL's volume is from its section area (1.07 L), not its bounding box.
+- The thumbnail test (all six end outlines at 2:5) is on the CRADLE and EASEL sheets.
+
+**Open (added):** EASEL's control re-flow around the centred grille (5 + 4 columns plus a small column; not counted against the 19 of the slabs); the Ø 42 grille at D 105; job 32 scope (owner).
+
+**Next:** the director scores all four in one pass from `r2-compare.png`.

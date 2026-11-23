@@ -624,3 +624,4 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Main risk:** tip-back under knob presses on a narrow footprint; weak on grass and lap. Systems states the honest cost.
 - **The comparison is now four columns:** SILL, CRADLE, PLINTH, EASEL. HANDLE is dropped.
 - **Owner decision, verbatim:** "Why would I have two mono speakers that’s stupid. Drop to one speaker". One driver in every concept, one grille on the axis; stereo on headphones/outputs. EASEL's stereo option is withdrawn. Eng re-picks the box (r3 option C ≈ 120 cm³ as the starting point; UNVERIFIED). The smaller box may shrink the forms.
+- Quick rulings: EASEL B (1:1.618, rounded top); slabs at D 105 with derived angles; EASEL's costs stated on the comparison trade line.
