@@ -557,3 +557,11 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Objections and handoff conditions:** see `scores.md`. The key handoff item: host port low near the rear-bottom corner of a cheek, so the keyboard cable can't tip the upright pose.
 - **What blocked a 9 this round, for the record:** concepts whose idea showed in section but not in the object (DROP, GNOMON rev 1); angle-by-adding leaving leftovers (CASKET's lid behind); round masses reading as household objects. All three were fixed by staying inside CATHEDRAL's slab-and-frame language and judging from the views the owner will look at.
 - **Next:** GNOMON goes to the owner at idea level, with one line each on DROP and CASKET-B and the open questions (90 for playing or standing; poses or a range; SHOE pads / underside hold; cast metal). If he turns it down, his reason is the next calibration of a 9, especially on shape.
+
+# GNOMON rev 3 re-score (2026-11-22): 9, held
+- **Owner, verbatim:** "Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright". This was a direction, not a rejection: the first time a concept came back from him with its shape intact. **Calibration:** he looks at every pose as an image. A dead-vertical 90° read as less alive than CATHEDRAL's raised lid, which leaned back.
+- **Ruled:** "reverse" is read by its purpose ("subtle angle when upright"), not as a literal mirror (≈ 37°), and the owner note flags that reading in one line. tan φ = T/2D is accepted (≈ 9.5°). The ≈ 1.9T rear face is accepted; the 2T claim moves to the hairline, and stale "2T" lines get cleaned in the handoff.
+- **Changed since the last score:** yes (rear corner ≈ 80.5°, upright lean, footprint 99, pull-to-tip +49 %). It's held at 9 rather than raised, because 9 is the ceiling for "I'd defend it as is".
+- **Objections:** the reading of "reverse"; upright pull ≈ 1.9 N; bulk; the hairline as a seam.
+- **Handoff conditions:** as rev 2. (a) The host port goes low on a cheek near the rear-bottom corner; rev 3 hasn't moved it. Make depth 110 vs footprint 99 consistent.
+- **Next:** back to the owner. If approved: the handoff, and I check `handoff.md` against his words, including the "reverse" reading and the host-port move.
