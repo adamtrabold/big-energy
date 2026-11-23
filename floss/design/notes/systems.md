@@ -524,3 +524,13 @@
 - It displaces the port (sealed), the jacks (under the eave) and the end-grain cue.
 - ≈ −5.5 dB (cone area) and off-axis at the player in both poses (beams above ≈ 3 kHz).
 - **Verdict: not recommended as a replacement**; the plate drivers already face the player in both poses. Gains: a controls-only plate, maybe a smaller D, sound for a circle. Best version described. Owner question: what "up or down" problem he's picturing.
+
+### 2026-11-22 round 2, turn 1 (systems): bases for flat / slightly angled
+**Owner 19:23** (verbatim in owner.md): upright dropped; "one arrangement that can either be flat or slightly angled". Speakers on the ends: asked, unanswered; plate drivers stay the default. **Director's round 2:** keep the rev 5 slab; redesign only underneath. Candidates were SILL, TRIPTYCH and TURNING CHEEKS.
+**Results [calc]:**
+- **SILL survives.** A full-width printed bar flush in the rear band of the base flips down to a past-90° stop, where load drives it into the stop. θ = asin(h/(D−5)): T/3 → 6.7° / 6.1°, T/2 → 10.1° / 9.2° (I lean T/3). Knuckles on pin stubs; a flexure detent (magnet fallback). Packed = the slab (280 × 105–115 × 35). **Its recess eats E's 4 % margin at D 105, so D 115 or a 3 mm bar.**
+- **TRIPTYCH killed:** one hinge can't close over the plate (top edge) and fold under the base (bottom edge, 35 lower); it needs two hinges plus a catch. The rim already protects the panel.
+- **TURNING CHEEKS killed:** the cam can't be the whole end cap (180° symmetric); an eccentric disc reads as a knob; the rod runs through E's sealed box.
+- Offered **CHOCK** (a loose printed wedge stored in the same recess) as a second, different-in-kind choice, only if the director wants one.
+**Files:** jam turn; `concepts/r2-sill/how-it-works.md`; jobs.md rev 6 (job 32 short list and detail row).
+**Next:** the director steers T/3 vs T/2, D 115, CHOCK yes/no; then the visual designer draws.

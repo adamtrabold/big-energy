@@ -590,3 +590,61 @@ NEXT: visual designer — the forks are settled (DROP 2 rows ≈ 37°, CASKET-B 
 - **Idea level: one sheet per direction**, with the flat view, the angled view and the closed/packed view at the same scale. No panel work.
 
 NEXT: systems designer — pressure-test the three bases (hinge and detent feasibility in print, the angle each gives from its own parts, stability flat and angled on a table, lap and grass, packed size), and kill any that can't be simple, before the visual designer draws.
+
+---
+
+## Round 2, turn 1: product designer (systems focus): pressure-testing the three bases
+
+Owner 19:23, verbatim (in the director's steer above): "…So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be". The slab is GNOMON rev 5's, unchanged; only what's underneath changes. [calc] = my arithmetic; mass 0.8 kg is an ESTIMATE; UNVERIFIED = needs eng or a trial.
+
+### 1. SILL: **survives.** One flush bar, one job.
+- **Structure:** a printed full-width bar, ≈ 280 × h × 3–4, sits flush in a recess along the base's rear band. It hinges at the rear-bottom edge and flips down 90° to stand under the back.
+- **Angle from its own parts:** θ = asin(h / ≈ (D − 5)), the contact span from the front foot to the bar's foot.
+  - **h = T/3 ≈ 11.7 → θ ≈ 6.7° (D 105) / 6.1° (D 115).**
+  - h = T/2 = 17.5 → 10.1° / 9.2°.
+  - Both sit inside "slightly". I lean T/3: the bar is a third of the slab, the lowest step that still reads as tilted. **Director's call.**
+- **Why the load locks it:** set the stop a few degrees past 90°. Tilted, the bar's foot then sits slightly behind its hinge, so pressing on the plate drives the bar *into* its stop, never back toward stowed [calc]. No latch is needed for loads; a detent only keeps it shut in the bag.
+- **Printability:**
+  - **Hinge:** printed knuckles on short pin stubs at each end. A bought Ø 3 steel pin, or printed metal stubs if "stuff" excludes a pin. Eng already checked printed knuckles on a Ø 3 rod at ≈ 95 N with > 15× margin (r3 §6d).
+  - A print-in-place hinge also works. Its ≈ 0.4 mm clearance wobble doesn't matter, because the load sits in the stop.
+  - **Detents:** a printed flexure tongue in the recess presses a flat on each knuckle, one flat at 0° and one at the stop. Fatigue in ASA / PETG is UNVERIFIED (low cycle count). Fallback: two small magnets (bought).
+- **Stability:**
+  - **Flat:** on the whole base.
+  - **Angled:** front foot plus the full-width bar line (280 wide, ≈ 100 deep). A knob press and the hand on the front edge land inside it.
+  - **Lap:** two full-width lines across both thighs.
+  - **Grass:** ≈ 3.5 kPa under the bar's 4 mm edge, fine.
+  - Nothing tips at 6–10°.
+- **Packed:** the slab itself, 280 × 105–115 × 35. The bar is flush and nothing hangs off it. **The smallest packed size possible.**
+- **Clash checks:**
+  - **SHOE dock** (y 10–70) vs the SILL recess (y ≈ 85–105): clear. The bar can't deploy with a keyboard docked, which only happens when packed.
+  - **Speaker E: a real issue.** The recess takes ≈ 11–22 cm³ from E's rear-region box, and **at D 105, E has only ≈ 4 % margin** [eng r3]. So SILL wants **D 115** (eng's "safe" depth), or a 3 mm bar at T/3 (≈ 11.5 cm³). UNVERIFIED (eng).
+- **One move to tilt:** a finger notch at the bar's free edge, hidden underneath when flat.
+
+### 2. TRIPTYCH (revived): **killed: it can't stay simple.**
+- **A flat cover with one hinge can't both close over the plate and fold flat under the base [calc]:**
+  - to close over the plate, the hinge must be at the **top** rear edge;
+  - to fold flat under the base, it must be at the **bottom** rear edge, 35 mm lower.
+- Doing both needs **two hinges** (a back panel plus a top panel), or a 35 mm swing arm, which is an appendage.
+- **The slight angle then needs a third state**: a triangle with a catch.
+- That's three parts and three states for what SILL does with one, and protection isn't needed: the rim stands 1 mm over the knob tops (job 33).
+- **Keep:** if he ever wants a cover, it's a separate printed lid, not a stand.
+
+### 3. TURNING CHEEKS: **killed: not simple.**
+- **A cam can't be the whole end cap.** Rotating the end face's rounded rectangle 180° about its centre gives the same outline, so there's no lift [calc].
+  - The lift needs an **eccentric disc** at the back of each end: ≤ Ø 30 inside the 35 slab, e ≈ h/2 ≈ 6–9.
+  - It shows on the end face as a round thing to twist: **it reads as a knob**, which is the gimmick risk.
+- **The link:** a rod along x for 280 mm, **through or under E's sealed box**. That means two shaft seals or a lost cell layer, two bearings and two detent sets.
+- You'd also turn it with the module's weight on the cams.
+- **The port mouth on the axis** would make the port a rotating hollow shaft. No.
+- Its one good idea, that the ends stay the identity, is kept by SILL, which never touches them.
+
+### 4. Where that leaves the round
+- **One survivor: SILL.** That's thin for "three ideas", but the other two failed on simplicity, which was the condition for keeping them.
+- **If the director wants a second choice that differs in kind,** the honest one is **CHOCK**: no hinge at all. A printed full-width wedge slides out of the same rear recess and drops under the back, a second piece stored inside the outline. The cost: it can be lost (and then floss just plays flat).
+- Not written up unless the director asks for it.
+
+### 5. Changes
+- **jobs.md job 32:** rewritten to his 19:23 words. Flat **and** slightly angled; one arrangement; no upright; panel identical in both.
+- **Speaker location:** independent of SILL. If he answers yes to end speakers, SILL is unchanged; only the slab's insides move.
+
+NEXT: design director — one base survives (SILL; TRIPTYCH and TURNING CHEEKS fail on simplicity). Steer h = T/3 (≈ 6–7°) vs T/2 (≈ 9–10°), D 115 for E's margin, and whether CHOCK goes in as the second choice, before the visual designer draws.
