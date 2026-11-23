@@ -1,4 +1,4 @@
-# GNOMON: how it works (systems, idea level) — rev 4
+# GNOMON: how it works (systems, idea level) — rev 5
 
 2026-11-22. PROPOSAL (the director's idea, turn 3). Scores: 8 (rev 1), 9 (rev 2). **Rev 4** folds in the owner's change to rev 3, verbatim: **"I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat"**. Rev 3 had folded in "Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright". Rev 2 folded in his 18:39 / 18:40 pose words and director fix 6.
 
@@ -37,6 +37,24 @@ That's his first two choices, both by shape, with no parts.
   - the drivers aim ≈ 18° up.
 - **Underside:** open between the cheeks. No façade.
 
+## Rev 5: checking the visual designer's rounding
+Owner, verbatim: "I miss the subtle rounded shape of cathedral". Visual's rev 5 uses n = 5 superellipse corners: plan corners r 17.5, plate r 10, top-back edge r 8, base-to-back r 4, end-face edges rolled 3, cheeks 10 thick. The poses don't change. My check [calc; UNVERIFIED where marked]:
+
+| Effect | Verdict |
+|---|---|
+| End face flat ≈ 64 in the slab band; port mouth at ≈ 60 along the plate | **OK.** The mouth with its groove (≈ Ø 40) spans ≈ 40–80, inside the flat (≈ 20.5–84.5), and still inside E's rear-region box |
+| **Jacks in two rows at ≈ 11 and ≈ 24 below the plate** | **Must change.** The upper row hits the deck (its underside is ≈ 12 below the plate), and the lower row hits the right end cell (≈ 25.5–33 below the plate) if the cell sits under that jamb [eng r3 stack]. Only **one row**, centred ≈ 17–20 below the plate, fits between them. **Fix:** move power, TUNE and MIDI SPLIT off the end face (onto the plate, which also answers the job 31 question), leaving **5 items: phones, line, MIDI in, MIDI out, device USB-C at ≈ 12 pitch = 60 ≤ 64: one row**. Fallback: cell 2 moves ≥ 20 inboard, and two rows at ≈ 16 and ≈ 28 below the plate. UNVERIFIED (eng) |
+| **Top-back edge r 8 (the upright foot's player-side edge)** | **Must change.** At the 71.6° corner, an r 8 moves the tipping edge ≈ 11 mm inward, so upright **rocks toward the player at ≈ 1.64 N** (rev 4: 2.52). **Use r ≤ 4 there:** r 4 → ≈ 2.08 N; r 3 → ≈ 2.19 N. The other edges can stay soft |
+| Base-to-back r 4 (the upright foot's far edge) | OK. The top-row press drops to ≈ 3.4 N, the lower row to ≈ 4.5 N (rev 4: 3.9 / 5.1). A firm top-row press already wanted a steadying hand |
+| Back's flat contact ≈ 245 of 280 | OK. Side-to-side tipping is nowhere near critical with the COM centred |
+| Runners ≈ 7 of 10 flat | OK. ≈ 6.3 kPa on grass (rev 4: 4.4), far below a footprint's pressure. TPU strips 7 wide |
+| Rounded footprint corners | OK. The effective playing footprint is ≈ 81 deep after the foot radii, with the COM still near its middle |
+| Front face (host port) | OK, with a note. The flat strip is ≈ 16 high (35 − lip r 16 − foot r 3). A USB-C receptacle fits (overmold clearance UNVERIFIED). **The split target rail no longer fits there too:** it moves to the plate's front rim (job 6). Director condition (a) (host port low on a cheek) needs the receptacle in a 10 mm cheek, which is UNVERIFIED; the front face is the safer home |
+| Knob rows 24 in from the ends | OK. That leaves ≈ 232 of width, so ≈ 10 per row at ≈ 23 pitch for Ø 10 knobs |
+| Cheek 10 thick | OK. The plan corner finishes in the slab; the stretcher fits ≈ 260 between the cheeks |
+
+**Rev 5 upright numbers with the top-back edge at r 4** (D 105; mass 0.8 kg and COM are ESTIMATES): pull ≈ **2.1 N**; presses ≈ **3.4 N** (top row) / **4.5 N** (lower row); tip angles ≈ 32° forward / 36° back.
+
 ## What lives where
 | Volume / surface | Job |
 |---|---|
@@ -52,7 +70,8 @@ That's his first two choices, both by shape, with no parts.
 | Drivers (E) | lancet grille in the plate | fire up and forward | **fire at the player, ≈ 18° up** (best) |
 | Port Ø 16 × 140 | along x in the slab, mouth on the **left cheek**, in the slab band (≈ 17 from the plate) | end face vertical: open | end face vertical: open |
 | USB-C host | slab front face, left of centre | the face leans 18° forward: **right-angle cable** lies flat (a straight plug clears by ≈ 6.6) | the face is **the top** (tilted ≈ 18° back): plug from above, and the cable falls toward the keyboard (0.3–0.5 m reaches) |
-| Jacks, power, device USB-C, TUNE, MIDI SPLIT | **right cheek face**, in the slab band (fix 6) | reachable | reachable |
+| Jacks and device USB-C (rev 5: **5 items, one row**, ≈ 17–20 below the plate) | **right end face**, in the slab band | reachable | reachable |
+| Power, TUNE, MIDI SPLIT | **rev 5: onto the plate** (proposal; see the rounding check) | seen | seen |
 | Lights | plate | seen | seen |
 
 - **Visual:** the port mouth sits in the slab band, not at the cheek face's centroid. The growth rings centre on the mouth.

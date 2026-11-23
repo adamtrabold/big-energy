@@ -1,5 +1,7 @@
 # GNOMON rev 4: jobs coverage check (systems, 2026-11-22)
 
+**Rev 5 update:** the rounding check changes the jacks (one row of 5; power, TUNE and SPLIT onto the plate, which makes **job 31 S**), the split target (onto the plate's front rim, job 6), and the upright numbers with the top-back edge at r ≤ 4 (job 32: pull ≈ 2.1 N, presses ≈ 3.4 / 4.5 N). Verdicts otherwise stand; nothing is unsupported.
+
 **Rev 4 update:** the owner's change ("I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat") changes only jobs 30 and 32 below. Every verdict stands.
 
 Checked against `../../jobs.md` **rev 5**: the rev 4 jobs, plus rows 32 and 34 and the angle in 30, which rest on the owner's words already given. Job 3's "or its underside" and S9 are still pending. Sources: `sheet.png` (seven views), `how-it-works.md` rev 2, `how-it-looks-and-feels.md` rev 2, `../c-shoe.md`, director's score (9) and handoff conditions in `../../scores.md`.

@@ -510,3 +510,17 @@
 - **Stretcher moved forward to y ≈ 15–75** (≈ 13.5 mm clear of the back at D 105; at y 20–80 it would be 8.5).
 **Updated:** c-gnomon/how-it-works.md rev 4; coverage.md (jobs 30, 32; verdicts unchanged); jobs.md row 30 detail.
 **Next:** the visual designer redraws the end view, the upright view and the two-poses view; the director re-scores.
+
+### 2026-11-22 GNOMON rev 5 rounding check + side-speaker idea (systems)
+**Owner:** "I miss the subtle rounded shape of cathedral" → visual's rev 5 rounding. **Checked (how-it-works rev 5):**
+- port mouth at ≈ 60 OK;
+- **jacks must change:** two rows clash with the deck (upper row) and the end cell (lower row). One row of 5 (phones, line, MIDI in/out, device USB-C) fits 64; power, TUNE and SPLIT move onto the plate (which also answers job 31). Fallback: cell 2 inboard and two rows at ≈ 16 / 28;
+- **top-back edge r 8 must drop to r ≤ 4:** at the 71.6° corner r 8 moves the upright tipping edge ≈ 11 mm in, so it rocks at 1.64 N; r 4 → 2.08 N, r 3 → 2.19 N;
+- presses ≈ 3.4 / 4.5 N; runners 6.3 kPa OK; the front-face flat ≈ 16 holds the host port, but the split target moves to the plate's front rim;
+- coverage updated (jobs 6, 31, 32).
+
+**Owner idea:** "And w what if the speakers were on each side left and right so up or down didn’t matter". → `c-gnomon/side-speakers.md`.
+- Ø 55 doesn't fit the end faces; a 40 mm class (≈ 40 × 40 × 18.3, RS listing) fits only high at the back, straddling slab and cheek.
+- It displaces the port (sealed), the jacks (under the eave) and the end-grain cue.
+- ≈ −5.5 dB (cone area) and off-axis at the player in both poses (beams above ≈ 3 kHz).
+- **Verdict: not recommended as a replacement**; the plate drivers already face the player in both poses. Gains: a controls-only plate, maybe a smaller D, sound for a circle. Best version described. Owner question: what "up or down" problem he's picturing.
