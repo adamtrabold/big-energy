@@ -638,3 +638,8 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Pick:** LOW GNOMON, rev 5's soft wedge (shape = structure; the tall back is the one-driver box), slightly angled by shape at tan θ = T/2D ≈ 9.5°. Flat is only via a flush front bar, kept only if it doesn't look propped; otherwise it's offered as slightly angled only, with zero parts.
 - **Why it's most likely to reach 9:** it's the shape he refined four times and never rejected (only its upright pose went). It's distinctive at thumbnail size and differs in kind from EASEL.
 - **Risk:** without the flat pose it doesn't fully answer "flat or slightly angled"; with it, the propped-wedge look. His "replace or join" answer may settle it.
+
+## Process change (owner, verbatim): "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?"
+- **From now on, idea-level concepts are quick line sketches:** an end view plus one or two simple views, loose line work, few labels. Fuller drawings come only after he approves one.
+- **Scoring:** I score EASEL and LOW GNOMON from sketches and never mark down for sketchiness (the brief already says don't mark down unpolished concepts). I judge the idea and the silhouette.
+- **Calibration:** the renders were part of the over-design he flagged at 15:11. A sketch shows the shape faster, and shape is what he judges.

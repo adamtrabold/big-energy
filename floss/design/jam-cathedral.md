@@ -898,3 +898,5 @@ NEXT: visual designer — add EASEL (B, with A's outline as a small inset) as th
 **The comparison he'd see:** **EASEL** (steep, narrow, by shape) beside **LOW GNOMON** (slight, low, by shape; flat if it survives), with **SILL** as the calm baseline only if it helps him judge. SILL is scored 8, so it goes only as labelled context, the orchestrator's call.
 
 NEXT: systems designer (after EASEL's fixes) — structure LOW GNOMON at tan θ = T/2D: the section at D 105 with option C's box in the tall back, stability (table, lap, grass), the front-bar flat test with a yes/no on whether it looks propped, coverage. Then visual draws it at the comparison's scales.
+
+**Process (owner, verbatim):** "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?" From now on, idea-level concepts are **quick line sketches**: an end view plus one or two simple views, loose line work, few labels. Fuller drawings only after he approves one. EASEL's fix and LOW GNOMON are drawn this way. The director scores sketches on the idea and the silhouette, with no mark-down for being sketches.
