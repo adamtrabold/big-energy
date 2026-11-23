@@ -26,7 +26,7 @@ Status: **rev 2 (2026-11-22 12:26): floss is a keyless sound module played by a 
 - **Carry:** fits a portable 25-key MIDI controller; the case needn't surround it, an attachment point is valid (14:25). The keyboard **doesn't have to be** permanently attached (15:11).
 - **Form follows Big Energy's CATHEDRAL as a model for cues, not a form to copy; dimensions can change** (15:16, 17:58).
 - **All controls in a single plane** (17:58).
-- **Can sit at an angle** (17:58). Pose preference (18:39): angled, then 90° (upright), then flat; flat isn't required. Multiple angles are fine (18:40). Doing it by the case's shape alone, or a folding cover, are his ideas as possibilities, not requirements.
+- **One arrangement that sits flat or slightly angled** (19:23): "one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be". No upright pose (labels and knob pointers read one way up). Supersedes 17:58–18:40 pose notes. Doing it by the case's shape alone, or a folding cover, are his ideas as possibilities, not requirements.
 
 ## Measurable targets (proposed, to confirm)
 | # | Target | Proposed | Why |

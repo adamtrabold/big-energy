@@ -654,3 +654,9 @@ Recorded as: GNOMON rev 4 not approved as is. It lost CATHEDRAL's subtle rounded
 > And w what if the speakers were on each side left and right so up or down didn’t matter
 
 Recorded as: an idea to explore, not a decision (CLAUDE.md item 5): GNOMON's speakers on the left and right end faces, so the sound is the same whichever pose it's in.
+
+## 2026-11-22 19:23 (chat): one arrangement, flat or slightly angled; speakers on the ends?
+> Why would they not fit on the ends? We can do whatever we want. That way I can position the synth in either orientation. But honestly your idea of multiple placements doesn’t work anyways because the knobs will have to be twisted one certain way and labels would
+> Be upside down and stuff. So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be
+
+Recorded as: **the upright pose is dropped** (knob pointers and labels only read one way up). floss has **one arrangement that can sit either flat or slightly angled**; that's as many poses as it should have. This supersedes his 18:39 order ("angled, 90, flat") and makes flat a wanted pose again. On end speakers he pushed back on "they don't fit": dimensions can change ("We can do whatever we want"). Whether he still wants end speakers now that there's one orientation: asked.
