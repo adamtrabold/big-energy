@@ -592,3 +592,9 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **My early lean, to be hard on:** TRIPTYCH, because its moving part does two jobs and closed it's CATHEDRAL closed. Risk: its thickness when flat, and the catch. SILL is the safest. TURNING CHEEKS is the wild card.
 - **Owner objections to expect:** a hinge on a printed part rattling or failing; visible mechanism; a thicker kit with a cover; the flat pose being the default he actually uses.
 - **Next:** systems first (feasibility, angles, stability, kills); then visual (one sheet per survivor); then I steer and score.
+
+# Round 2 steer 2 (2026-11-22)
+- **Kills accepted:** TRIPTYCH (needs two hinges and three states) and TURNING CHEEKS (an eccentric reads as a knob; a rod through E's box). **SILL forward.**
+- **Ruled:** h = T/2 (θ ≈ 9.2° at D 115), because "slightly" must read in a picture and he accepted ≈ 9.5° as subtle. **D 115** (E's margin back). **CHOCK** as a one-line variant and inset on the SILL sheet, not a concept.
+- **Expected objections:** "a slab with keyboard feet"; a printed hinge; losing the cheeks.
+- **Next:** visual draws the SILL sheet; then I score SILL (CHOCK as its variant), owner objections first.

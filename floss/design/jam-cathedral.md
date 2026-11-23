@@ -648,3 +648,20 @@ Owner 19:23, verbatim (in the director's steer above): "…So one arrangement th
 - **Speaker location:** independent of SILL. If he answers yes to end speakers, SILL is unchanged; only the slab's insides move.
 
 NEXT: design director — one base survives (SILL; TRIPTYCH and TURNING CHEEKS fail on simplicity). Steer h = T/3 (≈ 6–7°) vs T/2 (≈ 9–10°), D 115 for E's margin, and whether CHOCK goes in as the second choice, before the visual designer draws.
+
+---
+
+## Round 2, turn 2: design director steer (short)
+
+**Accepted:** the kills of TRIPTYCH (two hinges and three states for one job) and TURNING CHEEKS (an eccentric that reads as a knob, plus a rod through E's box). Failing on simplicity was the condition, and both failed it. **SILL goes forward.**
+
+**Forks:**
+1. **Bar depth: h = T/2 → θ ≈ 9.2° at D 115.** "Slightly" has to *read* as tilted in his pictures, and he's judged every pose as an image. At 6° it looks like a drafting error. He also accepted ≈ 9.5° as "subtle" at 18:53. Still from the slab's own number (half its thickness).
+2. **D 115.** It's eng's safe depth, and it gives E back the 11–22 cm³ the recess takes (at 105 the margin is ≈ 4 %). The plan corners stay r 17.5 = T/2; restate the footprint, don't fake 105.
+3. **CHOCK: in, as a one-line variant on the SILL sheet, not a separate concept.** "Or no hinge at all: a loose full-width wedge stored in the same recess." It differs in kind (no moving part vs one), and that's his trade to make (a hinge vs something you can lose). Show it as a small inset at the same scale.
+
+**Hold:** the panel is identical in both states; nothing outside the outline; n 5 corners and eased edges; SHOE / loose / band for the keyboard; the speaker stays on the plate until he answers on end speakers (SILL doesn't depend on it).
+
+**Likely objections already:** "a slab with keyboard feet" (conventional: fine if it's the best answer, and it's CATHEDRAL's lid); a hinge on a printed part (the load sits in the stop; the detent only for the bag); losing GNOMON's cheeks (the end grain and port mouth stay).
+
+NEXT: visual designer — one idea-level SILL sheet at the same scales as GNOMON rev 5: the end view flat and tilted (bar down, θ ≈ 9.2°), a 3/4 playing view tilted with the keyboard in front, a 3/4 flat, the underside showing the flush bar and finger notch (and the SHOE dock clear of it), packed (the slab alone, plus SHOE), and a small CHOCK inset.
