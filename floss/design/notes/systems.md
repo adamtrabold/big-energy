@@ -534,3 +534,14 @@
 - Offered **CHOCK** (a loose printed wedge stored in the same recess) as a second, different-in-kind choice, only if the director wants one.
 **Files:** jam turn; `concepts/r2-sill/how-it-works.md`; jobs.md rev 6 (job 32 short list and detail row).
 **Next:** the director steers T/3 vs T/2, D 115, CHOCK yes/no; then the visual designer draws.
+
+### 2026-11-22 round 2: SILL checked against the sheet (systems)
+**Director:** h = T/2 = 17.5, D 115, θ ≈ 9.2°; CHOCK as an inset.
+**Checked:**
+- Bar ≈ 236 is right: the n 5 plan corners curve the rear edge, so a straight flush bar only fits ≈ 280 − 2 × 17.5 − walls.
+- **Knuckles: two (x ≈ 30 / 250), not four.** The load goes through a full-length stop, and each Ø 9 knuckle needs a ≈ 10 mm pocket, so fewer pockets means less of E's box lost (recess 16 + pockets ≈ 5 ≈ 21 cm³, affordable at D 115, UNVERIFIED).
+- Centre notch OK and clear of SHOE.
+- Tilted footprint ≈ 280 × 111, overall ≈ 119 × 53: matches.
+- **CHOCK as drawn won't store** (6 mm taper > 3.5 recess; 280 > 236). The working version is a uniform 236 × 17.5 × 3.5 strip that presses into a slot along the recess's rear wall. Keep it only as the fallback if no pin is acceptable.
+**Coverage** (`concepts/r2-sill/coverage.md`, jobs rev 6): all supported; weaknesses 3, 15, 26, 28, 33.
+**Next:** the sheet fixes (knuckles, CHOCK); the director scores SILL.
