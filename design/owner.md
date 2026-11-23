@@ -700,3 +700,8 @@ Recorded as: power, TUNE and MIDI SPLIT go **on the face or on an edge**, not th
 > I want options. Do one that’s a triangle too
 
 Recorded as: he wants **several options to choose from**, not one. EASEL doesn't replace flat-or-slightly-angled; options of both kinds come to him. Plus "one that's a triangle too" (asked what he means, since EASEL's section is already a triangle).
+
+## 2026-11-23 00:20 (chat)
+> The end view I’d not a triangle
+
+Recorded as: EASEL's end view isn't a true triangle (its 37 mm front face cuts it). He wants an option whose **end view is a true triangle**, alongside the others.
