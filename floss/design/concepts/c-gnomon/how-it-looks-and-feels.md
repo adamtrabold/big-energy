@@ -29,7 +29,7 @@
 **What I changed (all on the surface; rev 4's poses stay as he set them):**
 - **Plan corners:** the same n = 5 superellipse at all four corners of the slab and cheeks (the end faces turning into the front and the back). **r = T/2 = 17.5**, CATHEDRAL's own proportion: 28.3 on a 55.2 case is ≈ half its thickness [calc].
 - **Plate:** the cream field's corners are concentric superellipses, r 10. The walnut frame shows on all four sides, ≈ 8 at the ends.
-- **Long edges eased:** lip r 16 (unchanged), back-top r 8 (was 6), front foot r 3. **The base-to-back corner stays a tight r 4**, so his 90° still reads as square.
+- **Long edges eased:** lip r 16 (unchanged), front foot r 3. **The top-back edge stays at r 4:** it's the upright foot's tipping edge, and systems found r 8 drops the pull-to-tip to 1.64 N (rev 5 check). **The base-to-back corner is also a tight r 4**, so his 90° still reads as square.
 - **Every edge of each end face rolled 3 mm,** so the ends read as one soft block. In the end view, the lighter band is the rounding turning away and the darker field is the flat face. The growth rings and the hairline sit on the flat face.
 - **Not blobby:** the end-view silhouette is unchanged, and the rounding is ≈ 6 % of the length. No round masses (the lesson of DROP).
 - **On the sheet:** view 8 sets a crop of CATHEDRAL's standing render beside GNOMON's corner at 3:4, so he can judge them side by side.
@@ -37,7 +37,7 @@
 **For systems to check: geometry systems owns that the rounding changes** ([calc], UNVERIFIED):
 1. **End faces:** the flat end face shrinks. In the slab band it's ≈ 64 long instead of ≈ 105, because ≈ 20.5 comes off at the front and at the back.
    - **The port mouth moves forward** to ≈ 60 along the plate (was ≈ 80), so the mouth and its groove sit on the flat.
-   - **The jacks (8 items) become two rows of 4** at ≈ 12 pitch, ≈ 11 and ≈ 24 below the plate, about 30–66 along it. One row at 12 pitch (≈ 96) no longer fits the flat.
+   - **Jacks (systems rev 5, drawn):** one row of 5 on the right end face, centred ≈ 18.5 below the plate: phones, line, MIDI in, MIDI out, device USB-C. **Power, TUNE and MIDI SPLIT move onto the plate,** drawn as two small toggles and a small knob at the plate's right end behind the knob rows. **The split-target rail moves to the plate's front rim,** drawn as a fine cream scale on the walnut rim in front of the field.
 2. **Back (the upright foot):** the flat contact runs ≈ 245 instead of 280, with rounded ends. The TPU strips get shorter. That matters for side-to-side upright stability, not front-to-back.
 3. **Runners:** the 3 mm roll on the outer edge leaves ≈ 7 of each 10 mm cheek flat, so ground pressure on grass rises (≈ 3.8 → ≈ 5.4 kPa if the cheeks are the only contact). At the very ends the runner contact also curves away with the plan corner.
 4. **Footprint:** still ≈ 280 × 88.5, now with rounded corners. The front foot line is shortened at its ends.
@@ -86,7 +86,8 @@ Turn it onto that back and it stands upright, with the plate offered up to you a
 
 ## Ports, as drawn
 - **Port mouth:** left end, slab band, ≈ 60 along the plate (moved forward to sit on the flat end face).
-- **Jacks, power, device USB-C, TUNE, split:** two rows of four in the slab band of the right end (the flat is shorter now).
+- **Jacks:** one row of 5 in the slab band of the right end (phones, line, MIDI in, MIDI out, device USB-C).
+- **On the plate:** power, TUNE and MIDI SPLIT at its right end; the split-target rail on its front rim.
 - **Host USB-C:** on the front face, which is on top when upright (not drawn at this scale).
 - **Back:** the upright foot, with TPU strips and nothing mounted.
 

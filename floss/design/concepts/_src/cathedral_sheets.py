@@ -445,17 +445,16 @@ def sheet_gnomon(path):
     dang = -math.pi/2
     Rq = (bt[0], 0.0)
     Hc = (bt[0], bt[0]*sth/cth)                       # slab underside meets the vertical back
-    RAD_U = [3, 4, 8, 16]                              # fb, Rq, bt, ft
-    RAD_S = [3, 0.6, 8, 16]                            # fb, Hc, bt, ft
+    RAD_U = [3, 4, 4, 16]                              # fb, Rq, bt (upright tipping edge: r <= 4, systems rev 5), ft
+    RAD_S = [3, 0.6, 4, 16]                            # fb, Hc, bt, ft
     QU = [fb, Rq, bt, ft]; QS = [fb, Hc, bt, ft]
     prof0 = fillet_radii(QU, RAD_U)
     port0 = (fb[0] + 60*cth - 17.5*sth, fb[1] + 60*sth + 17.5*cth)
     hair0 = [(fb[0]+3.5*cth, fb[1]+3.5*sth), (Hc[0]-0.3*cth, Hc[1]-0.3*sth)]
-    jk0 = []
-    for row, hh in enumerate((11.0, 24.0)):
-        for i, kind in enumerate((["usb", "sw", "pot", "sw"], ["j", "j", "j", "j"])[row]):
-            t = 30 + i*12
-            jk0.append((ft[0] + t*cth + hh*sth, ft[1] + t*sth - hh*cth, kind))
+    jk0 = []      # systems rev 5: one row of 5 (phones, line, MIDI in, MIDI out, device USB-C), 18.5 below the plate
+    for i, kind in enumerate(["j", "j", "j", "j", "usb"]):
+        t = 30 + i*9
+        jk0.append((ft[0] + t*cth + 18.5*sth, ft[1] + t*sth - 18.5*cth, kind))
 
     def section(quad, rad, d):
         pl = squircle_delta(d, RPLAN); rl = roll_delta(d, ROLL)
@@ -575,6 +574,16 @@ def sheet_gnomon(path):
         L4 = sc.layer()
         for x in xs1: knob(L4, cam, P, n, x, 22)
         for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 42, col=RED if i == 4 else BLACK)
+        # power, TUNE, MIDI SPLIT moved onto the plate (systems rev 5), at its right end behind the knob rows
+        knob(L4, cam, P, n, 222, 74, col=(0.62, 0.62, 0.60), d=4.5, h=6)      # split toggle
+        knob(L4, cam, P, n, 236, 74, col=BLACK, d=7, h=5)                     # TUNE
+        knob(L4, cam, P, n, 250, 74, col=(0.62, 0.62, 0.60), d=4.5, h=6)      # power toggle
+        # split-target rail on the plate's front rim
+        L5 = sc.layer()
+        add_line(L5, cam, [P(40, 4.6, 0.4), P(W-40, 4.6, 0.4)], CREAM, 0.8)
+        for i in range(21):
+            sx = 40 + i*(W-80)/20
+            add_line(L5, cam, [P(sx, 3.4, 0.4), P(sx, 5.8, 0.4)], CREAM, 0.8 if i % 5 else 1.4)
         if kb_front: keyboard(sc, cam, W/2-KB_W/2, -KB_D-60)
 
     T0, prof, port, hair, ftt, th, jk = geo(ident)
@@ -623,8 +632,8 @@ def sheet_gnomon(path):
     box_mm = (14, 225+SH, 160, 84)
     heading(fig, box_mm, "3  From behind (1:2)")
     cpt = camr.p((W/2, 55, 30)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0]+10, cpt[1]+6)); scr.draw(ax)
-    jp = camr.p((W, jk[5][0][0], jk[5][0][1]))
-    leader(ax, jp, "jacks: right end,\ntwo rows", (jp[0]-20, jp[1]+70), size=SML-2, ha="center")
+    jp = camr.p((W, jk[2][0][0], jk[2][0][1]))
+    leader(ax, jp, "jacks: right end,\none row of 5", (jp[0]-20, jp[1]+70), size=SML-2, ha="center")
     hp = camr.p((W/2, 70, 0))
     ax.text(hp[0], hp[1]-22, "open underneath", ha="center", fontsize=SML-2, color=INK)
     # 4. upright

@@ -525,3 +525,12 @@ Rev 4 was a sharp extrusion.
 - the cheek thickness of 10 is my assumption.
 
 **Next:** systems checks those, then the director, then the owner.
+
+---
+
+## 2026-11-22: GNOMON rev 5, systems' check folded in
+- The top-back edge goes back to r 4: it's the upright tipping edge, and r 8 cut pull-to-tip to 1.64 N.
+- Jacks: one row of 5 on the right end (phones, line, MIDI in, MIDI out, device USB-C), ≈ 18.5 below the plate.
+- Power, TUNE and MIDI SPLIT move onto the plate's right end (two small toggles and a small knob).
+- The split-target rail is now a fine cream scale on the plate's front rim.
+- `sheet.png` and the md are updated. Side speakers: assessed by systems, not recommended; nothing drawn.
