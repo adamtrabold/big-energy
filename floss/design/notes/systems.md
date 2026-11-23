@@ -644,3 +644,9 @@ jobs.md is unchanged (rev 6 still fits).
 - The right end face takes power / TUNE / SPLIT: ≈ 27 flat at z ≈ 19, three at ≈ 12 pitch, z 14–24 over the right cell, x 262–278. No clash (jacks are on the back, the port is on the left). Section stays **79 × 80**. A sideways press slides it at ≈ 5 N on TPU, so steady it.
 - Top-edge land: possible but cramped, the toggles are unprotected on the highest point, and it breaks the A. Rejected.
 - Recommend the right end; fallback the 10 mm band, 84 × 81.
+
+### 2026-11-23 EASEL rev 2.4 (director handover 2: EASEL 8, LOW GNOMON 6 replaced)
+- Lancets to z 18–32 (6 × 8 × 14 ≈ 670 mm²), fed by an 8 mm plenum (y 2–10, ≈ 880 mm²); host USB-C beside them. Needs driver centre ≥ 38.5 → predella ≈ 37; section ≈ 280 × 79–80 × 80–81, unchanged in effect. Controllers taller than ≈ 18 at the back edge: a 2 cm gap. The plenum adds acoustic mass (eng).
+- True count 21 → 10 | TAP | 10 at 22 pitch on the current 58 plate; the 22nd position = port/battery lights in the lower-row gutter. Top row: ATTACK RELEASE PRESSURE SHIMMER DEPTH | TAP | ECHO TIME REPEATS REVERB VOLUME. Lower row: OCT L, three L tabs, HOLD | lights | FREE/SYNC, three R tabs, OCT R.
+- End controls in a 27 × 14 × 8 pocket, flush; ≈ 18 into the end bay, 4 clear of the last pots (UNVERIFIED).
+- LOW GNOMON killed by the director (reads as SILL tilted). The director suggests a canoe-hull low concept only if the owner says "join".

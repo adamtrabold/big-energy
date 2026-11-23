@@ -1,6 +1,32 @@
-# EASEL: how it works (systems, idea level) — rev 2.3
+# EASEL: how it works (systems, idea level) — rev 2.4
 
 2026-11-22, round 2. PROPOSAL. Rev 2 applied the director's four fixes (EASEL 8, `../../scores.md`). Rev 2.1 found that rev 2's 68 × 68 section doesn't close, so the section grows. **Rev 2.2 adds the director's top band (power / TUNE / SPLIT and the lights on the plate) as variant B, beside variant A (utilities on the back face). Which one depends on the owner's answer.** Sections below this block are rev 2.1 (variant A) unless stated.
+
+## Rev 2.4: the director's structural fixes (EASEL 8, `../../scores.md` end) [calc; UNVERIFIED as marked]
+**1. Lancets above the keyboard.**
+- **The slots move to z ≈ 18–32 in the ≈ 36 predella:** 6 slots × 8 × 14 ≈ 670 mm² (≥ 620).
+- They're fed by a **plenum ≈ 8 deep** (y ≈ 2–10) rising from the 6 mm chamber under the driver. The plenum is ≈ 8 × 110 ≈ 880 mm² of section, about the cone area, so it doesn't choke the flow. It's clear of the knob band (the lower row's band starts at s 7, above z 36 at the front).
+- **Host USB-C beside the slots** (left of them), at the same height.
+- **Cost to the section: none worth drawing.** The plenum needs the driver centre ≥ ≈ 38.5 back, and that first fits at predella ≈ 37 (rev 2.1 used 36 ± 2). **Section ≈ 280 × 79–80 × 80–81 (r 6 top), unchanged in effect.**
+- **What it covers:** slim keyboards (11–16 tall) pushed right up to the front face no longer mask the slots. A controller taller than ≈ 18 at its back edge would mask the lower part: then leave a ≈ 2 cm gap (caption line).
+- **UNVERIFIED (eng, published-data model):** the chamber plus a ≈ 30 mm plenum is an acoustic mass, so the low-pass risk grows. It's still the main acoustic risk, and wants a listening print early.
+
+**2. The true count, mirrored, two rows: it fits at the current plate (58).**
+- **jobs.md:** 12 rotaries (OCTAVE L / R, ATTACK, RELEASE, PRESSURE, SHIMMER, DEPTH, ECHO, TIME, REPEATS, REVERB, VOLUME) + 6 strand tabs + HOLD, TAP, FREE / SYNC = **21**.
+- **Positions:** 2 rows × 11 at 22 pitch = 22 (230 of 232 mm). **21 = 10 | TAP | 10, and the 22nd position is the lights.** No 15 mm pitch needed.
+- **Top row (signal order):** ATTACK · RELEASE · PRESSURE · SHIMMER · DEPTH | **TAP** (its ring = tempo / status, per the panel grammar) | ECHO · TIME · REPEATS · REVERB · VOLUME.
+- **Lower row (mirrored by half):** OCTAVE L · L-low · L-main · L-high · HOLD | **port + battery lights** (the gutter over B3 | C4) | FREE / SYNC · R-high · R-main · R-low · OCTAVE R.
+  - Each half's octave sits at its outer end and its tabs beside it.
+  - HOLD and FREE / SYNC (both small switches) mirror each other.
+  - The tab order within a half is visual's call.
+- **Power, TUNE, SPLIT stay on the right end** (owner: "Face or edge imo"). The face holds exactly the 21 playing controls and the lights.
+
+**3. The end controls recessed.**
+- A **pocket ≈ 27 × 14 × 8 deep** in the right end flat (z ≈ 12–26) holds a sub-miniature toggle (power), a Ø 7 × 5 trimmer knob (TUNE) and a toggle (SPLIT). The lever and knob tops stay flush with the rolled edge, and the 14 mm opening takes a fingertip.
+- **Depth:** pocket 8 + switch bodies ≈ 10 ≈ 18 into the end bay (x ≈ 260–280), which clears the last pots (x ≈ 256) by ≈ 4. UNVERIFIED per part.
+- Flicking a toggle still slides it at ≈ 5 N on TPU: steady it with the other hand (caption line).
+
+**Packed protection (caption line, not drawn):** carry it plate-down against the keyboard on SHOE, or a printed slip cover as an owner possibility.
 
 ## Rev 2.3: the owner's answer, and where the utilities go
 **Owner, verbatim:** "Face or edge imo" (power / TUNE / MIDI SPLIT: on the face or an edge, not the back face). So variant A's back-face option is out. [calc; ESTIMATES as below]
