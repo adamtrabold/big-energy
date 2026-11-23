@@ -660,3 +660,8 @@ Recorded as: an idea to explore, not a decision (CLAUDE.md item 5): GNOMON's spe
 > Be upside down and stuff. So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be
 
 Recorded as: **the upright pose is dropped** (knob pointers and labels only read one way up). floss has **one arrangement that can sit either flat or slightly angled**; that's as many poses as it should have. This supersedes his 18:39 order ("angled, 90, flat") and makes flat a wanted pose again. On end speakers he pushed back on "they don't fit": dimensions can change ("We can do whatever we want"). Whether he still wants end speakers now that there's one orientation: asked.
+
+## 2026-11-22 20:25 (chat)
+> I can only see one version how am I supposed to judge
+
+Recorded as: SILL (director 9) was sent alone; Adam needs **several concepts side by side to judge**. The team brings 2–4 distinct concepts for flat-or-slightly-angled, SILL among them, before he decides.
