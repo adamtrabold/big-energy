@@ -146,3 +146,33 @@ Judged from the sketches, as the owner asked (21:08); sketchiness isn't marked d
 2. Then ask him **one question**, with the fixed EASEL sketch and SILL's existing column as the low reference: **"Does the steep, narrow one replace flat-or-slightly-angled, or do you want both to choose from?"**
    - **Replace:** EASEL goes alone, at 9.
    - **Join:** the team builds one genuinely distinctive low concept (hull, above) before he compares. LOW GNOMON is not shown.
+
+## Round 2: EASEL rev 2.4 re-score (2026-11-23, director)
+Judged from the rev 2.4 `r2-easel/sketch.png` (right-end view, 3/4 with the keyboard pushed up to the front, a face-on strip, two captions), how-it-works.md rev 2.4 and the rev 2.4 section of how-it-looks-and-feels.md.
+
+**Did the work change?** Yes. All four fixes landed:
+1. **The face is mirrored about the axis with the true 21 controls.** Top row: ATTACK · RELEASE · PRESSURE · SHIMMER · DEPTH | TAP | ECHO · TIME · REPEATS · REVERB · VOLUME, so the effects and output read in signal order. Lower row: OCT L · three tabs · HOLD | lights | FREE / SYNC · three tabs · OCT R, so each half's controls sit over that half. There's no 6 / 5 split, and it fits at 22 pitch without growing the plate.
+2. **The slots moved to z 18–32** with the socket beside them, so a slim keyboard (11–16 tall) pushed right up no longer masks them. The section is effectively unchanged (280 × 79 × 81).
+3. **The end controls sit in a flush pocket**, so nothing stands proud in the bag, and the end view stays calm (rings, pocket).
+4. A packing caption.
+
+**EASEL: 9.** It's the narrowest, most distinctive silhouette the team has drawn, and it's his 20:46 words made physical: a soft A at CATHEDRAL's 60°, one piece, nothing hanging off it. The face is all controls and symmetric, the one speaker speaks through lancets in the predella, and it has end grain. Every remaining objection is either a stated trade or the scope question; none is a flaw in the idea I'd expect him to raise against the shape.
+
+**Strongest likely owner objections (none likely enough to hold it under 9):**
+1. **Scope:** it isn't flat or slightly angled. That's his open question to answer, not a defect.
+2. **The prism read** ("Toblerone / doorstop") in the 3/4. Possible. The soft apex and the end grain argue against it, and it's the pose he asked for.
+3. **The end switches slide it at ≈ 5 N.** Stated on the caption, and they're set-and-forget controls.
+4. **Acoustics:** the slotted chamber plus a ≈ 30 mm plenum may lose treble (UNVERIFIED; eng's published-data model first, a listening print early in the handoff). A keyboard taller than ≈ 18 at its back edge needs a ≈ 2 cm gap.
+
+**One text fix before it's sent (not a re-score):** the packing caption says "plate-down against the keyboard (on SHOE)". SHOE docks in the base, and plate-down would rest the rim across the keys, which job 3 rules out ("never across its keys"). Reword it as: "packed: SHOE in the base, the rim 1 mm over the knobs; a printed slip cover is optional." Or drop the plate-down clause.
+
+**Handoff conditions:**
+- Eng models the slot and plenum low-pass, and confirms the driver basket against the 37 predella.
+- The end-pocket parts with published dimensions (≈ 4 mm clearance to the last pots).
+- TPU strips are required on the foot.
+- The order of the tabs within each half (visual).
+- The SHOE / underside hold, still pending the owner.
+
+**What kept blocking a 9 (for the record):** distinctive vs calm. EASEL got out by changing the pose, then losing its leftovers (the empty upper field went when the speaker moved to the foot; the face then came from the true count). Late on, the blocks were drawing-level: an off-centre middle, and slots at keyboard height.
+
+**Goes to the owner:** yes, once the caption is fixed. Send it with **one question**, using SILL's existing column as the low reference (not LOW GNOMON): **"Does the steep, narrow one replace flat-or-slightly-angled, or do you want both to choose from?"** If he says both, the team builds one genuinely distinctive low concept before he compares (HULL is one possibility).

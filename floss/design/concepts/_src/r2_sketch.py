@@ -873,7 +873,7 @@ def single_easel(path):
     easel_face(a3)
     a3.text(-4, 59, "the face, mirrored about its centre line (signal order left to right)", fontsize=11,
             color=SOFT, va="bottom", ha="left")
-    fig.text(0.05, 0.045, "Packing: carry it plate-down against the keyboard (on SHOE); a printed slip cover is optional.",
+    fig.text(0.05, 0.045, "Packed: SHOE in the base, the rim 1 mm over the knobs; a printed slip cover is optional.",
              fontsize=12.5, color=INK, va="top")
     fig.text(0.05, 0.025, "Flicking an end switch slides it at ≈ 5 N: steady it with the other hand.",
              fontsize=12.5, color=SOFT, va="top")
@@ -931,7 +931,7 @@ def compare(path):
              fontsize=14, color=SOFT, va="top")
     cols = [("EASEL", easel_end, easel_34,
              "280 × 79 × 81 mm · 60° · narrow and upright; face mirrored,\n"
-             "packs plate-down against the keyboard"),
+             "packed: SHOE in the base, rim over the knobs"),
             ("LOW GNOMON", lg_end, lg_34,
              "280 × 104 × 52 mm · ≈ 9.5° · the steadiest, zero parts,\n"
              "but no flat pose, and it reads close to SILL tilted")]

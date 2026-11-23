@@ -689,3 +689,10 @@ Distinctive vs calm. EASEL escaped through the pose. The low slot keeps convergi
 3. Orchestrator asks the owner the replace-or-join question with the fixed EASEL and SILL's column.
    - **Replace:** EASEL goes at 9.
    - **Join:** a short jam for one distinctive low concept (HULL as one possibility among others), then score.
+
+# EASEL rev 2.4 re-score (2026-11-23): 9
+- **Changed:** yes. The face is mirrored 10 | TAP | 10 with the lights on the axis (the true 21, in signal order), the slots are at z 18–32 with the socket beside them, the end controls are in a flush pocket, and there's a packing caption. 280 × 79 × 81.
+- **Why 9:** his 20:46 words made physical, one piece, a symmetric all-controls face, a calm end view. The remaining objections are a stated trade (5 N slide), the scope question, a possible prism read, and an UNVERIFIED slot low-pass.
+- **Caption fix before sending:** "plate-down on SHOE" conflicts with SHOE in the base and puts the rim across the keys (job 3). Reword it.
+- **Handoff conditions:** the eng low-pass model and listening print, the driver basket vs the 37 predella, the pocket parts, TPU strips, the tab order, SHOE pending.
+- **Next:** the orchestrator sends EASEL with SILL's column and the one question (replace or join). Join → a short jam for one distinctive low concept (HULL as one possibility); LOW GNOMON is not shown. Approved alone → the handoff, which I check against his 20:46 and 23:50 words.
