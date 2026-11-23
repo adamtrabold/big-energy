@@ -690,3 +690,8 @@ Recorded as: **floss has one built-in speaker (one driver).** Speaker E's two mo
 > Do you have the ability to have them draw sketches somehow instead of these complex renders every time?
 
 Recorded as: a question; answered yes. From now on idea-level concepts are shown as **quick line sketches** (end view plus one or two simple views, loose line work, few labels), not shaded multi-view renders. Fuller drawings only once he approves a concept.
+
+## 2026-11-22 23:50 (chat): EASEL's utility controls
+> Face or edge imo
+
+Recorded as: power, TUNE and MIDI SPLIT go **on the face or on an edge**, not the back face. (Face = the slim top band, ≈84 deep; edge = an end face or the top edge, if one fits.) Team to pick and show.
