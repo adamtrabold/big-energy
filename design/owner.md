@@ -675,3 +675,8 @@ Recorded as: SILL isn't distinctive enough for him, whatever the comparison show
 > I do worry about the speakers being so close for steeeo sepsrstion
 
 Recorded as: a concern, not yet a decision. Context given to him: floss's two drivers play **mono** by the current requirement ("one built-in speaker"; stereo on headphones and outputs; eng module-r3 speaker E). Asked whether he wants stereo from the built-in speakers.
+
+## 2026-11-22 20:46 (chat)
+> I do like one that sits up at an angle with a narrow footprint, I feel like that wil be most convenient for tables on the go esp with an external keyboard — like cathedral at least but without the keyboard
+
+Recorded as: he likes **a concept that sits up at an angle with a narrow footprint**, for small tables on the go with an external keyboard in front: **at least as upright as CATHEDRAL's standing lid, without the keyboard part.** Added to the concepts he'll compare (alongside flat-or-slightly-angled). Whether it replaces "flat or slightly angled" isn't stated.
