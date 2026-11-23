@@ -649,3 +649,8 @@ Recorded as: GNOMON rev 3 not approved as is. In the pose resting on its base (t
 > I miss the subtle rounded shape of cathedral
 
 Recorded as: GNOMON rev 4 not approved as is. It lost CATHEDRAL's subtle rounded shape; bring that back (team to show what it means for GNOMON, within his 18:39–19:02 pose notes). Related earlier words (2026-11-13 20:45): "I kinda want the corners to be softer and to be more architectural like how Apple does theirs".
+
+## 2026-11-22 19:14 (chat): idea
+> And w what if the speakers were on each side left and right so up or down didn’t matter
+
+Recorded as: an idea to explore, not a decision (CLAUDE.md item 5): GNOMON's speakers on the left and right end faces, so the sound is the same whichever pose it's in.
