@@ -685,3 +685,8 @@ Recorded as: he likes **a concept that sits up at an angle with a narrow footpri
 > Why would I have two mono speakers that’s stupid. Drop to one speaker
 
 Recorded as: **floss has one built-in speaker (one driver).** Speaker E's two mono drivers are dropped. Stereo stays on headphones and outputs. Engineering re-picks the best single driver and box on published data.
+
+## 2026-11-22 21:08 (chat)
+> Do you have the ability to have them draw sketches somehow instead of these complex renders every time?
+
+Recorded as: a question; answered yes. From now on idea-level concepts are shown as **quick line sketches** (end view plus one or two simple views, loose line work, few labels), not shaded multi-view renders. Fuller drawings only once he approves a concept.
