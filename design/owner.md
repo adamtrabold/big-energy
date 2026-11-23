@@ -670,3 +670,8 @@ Recorded as: SILL (director 9) was sent alone; Adam needs **several concepts sid
 > I do wish it was more distinctive refardless
 
 Recorded as: SILL isn't distinctive enough for him, whatever the comparison shows. The new concepts must be more distinctive, while keeping his rules (one arrangement, flat or slightly angled; CATHEDRAL cues; printed case).
+
+## 2026-11-22 20:45 (chat)
+> I do worry about the speakers being so close for steeeo sepsrstion
+
+Recorded as: a concern, not yet a decision. Context given to him: floss's two drivers play **mono** by the current requirement ("one built-in speaker"; stereo on headphones and outputs; eng module-r3 speaker E). Asked whether he wants stereo from the built-in speakers.
