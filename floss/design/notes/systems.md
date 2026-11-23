@@ -639,3 +639,8 @@ jobs.md is unchanged (rev 6 still fits).
 - **Correction to both:** a longer plate moves the back rearward, so the flat driver can sit further back and the predella can drop. Minimum predella (band 22, strips incl. the top band): plate 68 → f 28 (84 × 81 with r 6); plate 75 → f 22 (88 × 81).
 - Utility press (at the band centre) tips at ≈ 9–10 N; slides at ≈ 12 N on TPU first. Top row 19–54 N.
 - Recommend B = 10 band, f 28, 84 × 81 if the utilities stay on the plate; A = 79 × 80 if the owner allows the back. Owner question in flight (coordinator).
+
+### 2026-11-22 EASEL rev 2.3: owner "Face or edge imo" (utilities)
+- The right end face takes power / TUNE / SPLIT: ≈ 27 flat at z ≈ 19, three at ≈ 12 pitch, z 14–24 over the right cell, x 262–278. No clash (jacks are on the back, the port is on the left). Section stays **79 × 80**. A sideways press slides it at ≈ 5 N on TPU, so steady it.
+- Top-edge land: possible but cramped, the toggles are unprotected on the highest point, and it breaks the A. Rejected.
+- Recommend the right end; fallback the 10 mm band, 84 × 81.

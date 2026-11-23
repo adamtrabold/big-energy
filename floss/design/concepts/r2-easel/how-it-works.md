@@ -1,6 +1,18 @@
-# EASEL: how it works (systems, idea level) — rev 2.2
+# EASEL: how it works (systems, idea level) — rev 2.3
 
 2026-11-22, round 2. PROPOSAL. Rev 2 applied the director's four fixes (EASEL 8, `../../scores.md`). Rev 2.1 found that rev 2's 68 × 68 section doesn't close, so the section grows. **Rev 2.2 adds the director's top band (power / TUNE / SPLIT and the lights on the plate) as variant B, beside variant A (utilities on the back face). Which one depends on the owner's answer.** Sections below this block are rev 2.1 (variant A) unless stated.
+
+## Rev 2.3: the owner's answer, and where the utilities go
+**Owner, verbatim:** "Face or edge imo" (power / TUNE / MIDI SPLIT: on the face or an edge, not the back face). So variant A's back-face option is out. [calc; ESTIMATES as below]
+
+| Option | Section | Fits? | Press issue |
+|---|---|---|---|
+| **Right end face, recommended** | **79 × 80** (A's; r 6 top) | **Yes.** The jacks are on the back face and the port mouth is on the left end, so the right end is free. The flat (between the r 17.5 plan corners, minus the 3 mm rolls) is ≈ 27 wide at z ≈ 19. Three small controls in a row at ≈ 12 pitch (toggle, TUNE Ø 7, toggle) take ≈ 24 + margins, at z ≈ 14–24, above the right cell. They mount on the end board, x ≈ 262–278, clear of the knob rows (which end at x ≈ 256) and the box (which ends at x ≈ 230) | A sideways push can't tip a 280-wide body, but **it slides at ≈ 5 N on TPU** (μ ≈ 0.8 × 6.7 N). That's about a toggle's throw force (UNVERIFIED per part), so steady the far end with the other hand. Set-and-forget controls, so that's acceptable. Labels are read from the side; power state also shows on the face's light |
+| Soft top edge | ≈ 79 × 78 (the apex flattened to a ≈ 12 land) | Only just: a ≈ 12 land leaves ≈ 21 inside at 11 deep for the switch bodies, and needs its own small board up in the apex | Presses are near-vertical, so never a tip problem. But **the toggles stand above the highest point, unprotected in the bag**, and they break the soft A |
+| Face, 10 mm top band (rev 2.2 B) | 84 × 81 (predella ≈ 28) | Yes | A utility press tips it at ≈ 9.8 N and slides it at ≈ 12 N: fine |
+
+- **Recommendation: the right end face, 79 × 80.** It keeps the narrowest footprint (5 mm less than the band) and the A outline, adds nothing to the face, and is the family's "edge" (GNOMON's jacks lived on its right end). Its only cost is a sideways slide at ≈ 5 N, so you steady it with a hand. If the director prefers everything readable from the seat, the 10 mm band (84 × 81) is the fallback.
+- The lights (port, battery, tempo) stay on the face (s ≈ 45) in every option.
 
 ## Rev 2.2: the two variants [calc; mass 0.68–0.72 kg, COM ≈ 0.46 F back and ≈ 0.36 H up: ESTIMATES]
 **Visual's geometry is right.** With both faces at 60°, footprint = plate + predella / tan 60° (F = L + f / 1.732). Every mm added to the plate adds 1 mm of foot and 0.87 mm of height. At predella 36: plate 75 → **≈ 96 × 95** (r 6 top); a 10 mm band (plate 68) → **≈ 89 × 89**. My rev 2.1 line "third row = +15 tall" left out the +17 of foot. That was wrong.
