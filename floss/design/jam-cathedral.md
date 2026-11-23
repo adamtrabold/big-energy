@@ -547,3 +547,46 @@ Nothing in the three concepts depends on any of these answers. He can approve a 
 - Materials: walnut-brown printed body, cream plate, black knobs and one red, brass only where it touches the ground (or the port ring) and marked "if cast counts".
 
 NEXT: visual designer — the forks are settled (DROP 2 rows ≈ 37°, CASKET-B ≈ 11°, GNOMON sin θ = T/D ≈ 18–19.5°, SHOE as the shared carry). The three concepts need their idea-level sheets, end face first, all at the same scale, before I call READY and score.
+
+---
+
+## Round 2 opens: director steer (new direction, 2026-11-22, after 19:14)
+
+**Owner, verbatim:** "Why would they not fit on the ends? We can do whatever we want. That way I can position the synth in either orientation. But honestly your idea of multiple placements doesn’t work anyways because the knobs will have to be twisted one certain way and labels would Be upside down and stuff. So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be"
+
+**What it changes:**
+- **The upright pose is dropped.** floss is **one arrangement that sits flat *or* slightly angled**. This supersedes "angled, 90, flat".
+- GNOMON's identity was *two poses by shape*, and that's gone. **What survives from GNOMON:** CATHEDRAL's lid as the instrument (a framed slab, n 5 corners, eased edges, the plate with the drivers, end grain with the port mouth, the jacks on the right end).
+- **Settled by systems (turn 1 §3 Q2):** shape alone can't give both flat and a slight angle stably. So **one moving part, or a second piece, is now allowed by his words.** It has to earn its place, and **nothing may hang off the body** (YOKE).
+- **Speakers on the ends:** asked separately, not answered. Keep the speaker location independent of the base answer; plate drivers stay the default until he answers.
+
+**Real randomness** (SystemRandom): typewriter **paper bail**; **skateboard truck**; "**Mute and continue**".
+- "Mute and continue": keep the slab exactly as rev 5 (plate, corners, ports, end grain). **This round only redesigns what's underneath.**
+- **Paper bail:** a full-width bar that flips down. A slight-angle foot should be **full width** (stable on a lap and grass), not a narrow kickstand.
+- **Skateboard truck:** a pivot hidden under the deck. The moving part lives *under* the slab, invisible from above and from the player's seat.
+
+**Three directions, differing in kind** (none is a favourite; each derives its angle from a part, "slightly" ≈ 5–10°, never picked):
+1. **SILL (the bail): the lid lying down, with one flush full-width foot.**
+   - The slab sits flat on its base.
+   - A printed full-width bar, recessed flush into the base's rear edge, flips down to tilt it. The angle is asin(bar depth ÷ footprint).
+   - One moving part with one job; invisible when flat.
+   - Check: hinge (print-in-place or a printed-metal pin), a positive detent at both ends of travel, and lap and grass stability.
+2. **TRIPTYCH revived: the cover is the stand.**
+   - A printed cover hinged at the module's rear base edge. Closed, it's CATHEDRAL closed: a calm slab, his façade on the cover.
+   - Open, it folds under the base: lying flat under it = flat; propped as a shallow triangle = slight angle. **Contained in the footprint**, not 80 mm behind as CASKET-B was.
+   - One moving part with two jobs (protection + stand).
+   - Check: the triangle's catch, the angle from the cover's own depth, and the extra thickness when flat.
+3. **TURNING CHEEKS (GNOMON's successor): the cheeks are cams.**
+   - GNOMON's two end caps turn half a turn, joined through the slab so you turn one and both move. One way, flat; the other way, a lobe lifts the back.
+   - The ends carry the growth rings and stay the identity; nothing is added outside the outline.
+   - Check: the link (a printed-metal rod?), detents, the port mouth (could it sit on the axis?), and whether a turning end reads as a knob or a gimmick.
+   - **Kill it fast if the mechanism isn't simple.**
+
+**Rules this round:**
+- n 5 corners and eased edges by default.
+- Nothing outside the outline in either state.
+- The panel is identical flat or angled: no upside-down labels.
+- The keyboard carry stays SHOE / loose / band.
+- **Idea level: one sheet per direction**, with the flat view, the angled view and the closed/packed view at the same scale. No panel work.
+
+NEXT: systems designer — pressure-test the three bases (hinge and detent feasibility in print, the angle each gives from its own parts, stability flat and angled on a table, lap and grass, packed size), and kill any that can't be simple, before the visual designer draws.

@@ -582,3 +582,13 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Watch:** panel creep (power / TUNE / SPLIT on the plate). Fine for now; the panel layout is a handoff job, not a concept feature.
 - **Changed:** yes. **Objections:** the softness at the back corners, panel creep, side speakers, upright pull ≈ 2.1 N.
 - **Next:** back to the owner. If approved: the handoff, checked against his 18:39–19:14 words (pose order, "reverse", base ⟂ back, the rounding, and the side-speaker answer).
+
+# New direction: flat or slightly angled (2026-11-22, after 19:14). Round count restarts
+- **Owner, verbatim:** "…So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be". The upright pose is dropped; "angled, 90, flat" is superseded. End-firing speakers are pending with the coordinator.
+- **GNOMON's identity (two poses by shape) is gone.** What survives is the slab: framed plate, n 5 corners, eased edges, end grain and port mouth, jacks on the right end.
+- **Shape alone can't give flat + a slight angle** (systems turn 1). One moving part or a second piece is allowed; it must earn its place, and nothing may hang off the body.
+- **Draws:** paper bail; skateboard truck; "Mute and continue". So: keep the slab, redesign only the underside; a full-width foot; the pivot hidden under the deck.
+- **Directions:** SILL (a flush full-width flip-down bar), TRIPTYCH revived (the cover hinged at the rear base edge, folding under within the footprint: flat or triangle), TURNING CHEEKS (the end caps as linked cams; kill fast if not simple).
+- **My early lean, to be hard on:** TRIPTYCH, because its moving part does two jobs and closed it's CATHEDRAL closed. Risk: its thickness when flat, and the catch. SILL is the safest. TURNING CHEEKS is the wild card.
+- **Owner objections to expect:** a hinge on a printed part rattling or failing; visible mechanism; a thicker kit with a cover; the flat pose being the default he actually uses.
+- **Next:** systems first (feasibility, angles, stability, kills); then visual (one sheet per survivor); then I steer and score.
