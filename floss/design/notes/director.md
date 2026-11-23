@@ -632,3 +632,9 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Recommendation:** send the comparison as a direction check with the scores shown (his explicit process request), or hold for the EASEL fix. The orchestrator's call; this deviates from "only 9s", on the owner's own words.
 - **Pattern:** distinctive ideas add a mechanism or leave dressed space; calm ones aren't distinctive. Target: a distinctive silhouette that is the structure, with no leftover (GNOMON did it; EASEL can, with the speaker in the foot).
 - **Next:** either the owner picks a direction from the comparison, or a systems + visual pass on the EASEL fix, then a re-score.
+
+# Round 2 steer 5: LOW GNOMON as the second candidate (2026-11-22)
+- **Need:** a second 9 beside EASEL, so he can compare; it should answer flat-or-slightly-angled.
+- **Pick:** LOW GNOMON, rev 5's soft wedge (shape = structure; the tall back is the one-driver box), slightly angled by shape at tan θ = T/2D ≈ 9.5°. Flat is only via a flush front bar, kept only if it doesn't look propped; otherwise it's offered as slightly angled only, with zero parts.
+- **Why it's most likely to reach 9:** it's the shape he refined four times and never rejected (only its upright pose went). It's distinctive at thumbnail size and differs in kind from EASEL.
+- **Risk:** without the flat pose it doesn't fully answer "flat or slightly angled"; with it, the propped-wedge look. His "replace or join" answer may settle it.

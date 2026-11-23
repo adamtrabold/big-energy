@@ -877,3 +877,24 @@ NEXT: visual designer — add EASEL (B, with A's outline as a small inset) as th
 1. **EASEL B** (footprint : face 1 : 1.618, ≈ 61 deep, rounded top). A's sharp top breaks CATHEDRAL's softness, which he's asked for all day, and B's extra 11 mm buys press stability. The ratio is deliberate, so it isn't a pick.
 2. **All three slabs at D 105** now that one driver frees the box. State each derived angle (SILL 10.1°, CRADLE 10.3°, PLINTH 9.6°); don't round them to match. Eng's one-driver box volume stays UNVERIFIED.
 3. **EASEL's costs go on the comparison sheet's trade line as they are:** every control in the lower 45 mm, tips forward at ≈ 1.5–2 N, four boards, the weakest panel protection, and job 32 unsupported (steep, by his own request).
+
+---
+
+## Round 2, turn 5: director steer, a second candidate beside EASEL: LOW GNOMON (short)
+
+**Why:** if only EASEL reaches 9, he sees one version again ("I can only see one version how am I supposed to judge"). The second candidate must answer **flat-or-slightly-angled**, be **distinctive**, and follow the lesson: **a distinctive shape that is itself the structure, with nothing left over.**
+
+**The pick: LOW GNOMON.** Not a new invention. It's the form he spent four passes refining (rev 5 scored 9; he only dropped its *upright pose*, never its shape), brought down to his new "slightly angled".
+- **Shape = structure:** GNOMON rev 5's soft wedge. Two cheeks carrying the rings, a framed plate, n 5 corners and eased edges, base ⟂ back (his 19:02 rule).
+- **The tall back is the one-driver speaker box** (eng option C, ≈ 120 cm³; UNVERIFIED for this form), so the wedge's volume has a job.
+- **Slightly angled by shape, no parts:** the back rises **half the slab** (tan θ = T/2D → ≈ 9.5° at D 105), the same rule as every other column, so the comparison is fair. That's lower and calmer than rev 5's 18°.
+- **Why distinctive where SILL isn't:** the end silhouette is GNOMON's soft wedge with end grain, recognisable at thumbnail size, and it differs in kind from EASEL (low and wide vs steep and narrow).
+- **Flat:** test one option and keep it only if it looks right:
+  - **a flush full-width bar under the *front* edge** (SILL's bar, reversed), lifting the front by the same T/2 so the plate goes level.
+  - **If the flat state reads as "a wedge propped on a stilt", drop flat** and present LOW GNOMON honestly as *slightly angled by shape, zero moving parts*. His "replace or join" answer may make flat moot anyway.
+- **Keep the GNOMON details that earned the 9:** the hairline at T, the port mouth at the rings' centre, jacks one row on the right end, the host port on the front face, SHOE / loose.
+- **Not revived:** PLINTH and CRADLE (scored 7). The flat state of a plain module can't be distinctive, and CRADLE's flat state reads as bookends.
+
+**The comparison he'd see:** **EASEL** (steep, narrow, by shape) beside **LOW GNOMON** (slight, low, by shape; flat if it survives), with **SILL** as the calm baseline only if it helps him judge. SILL is scored 8, so it goes only as labelled context, the orchestrator's call.
+
+NEXT: systems designer (after EASEL's fixes) — structure LOW GNOMON at tan θ = T/2D: the section at D 105 with option C's box in the tall back, stability (table, lap, grass), the front-bar flat test with a yes/no on whether it looks propped, coverage. Then visual draws it at the comparison's scales.
