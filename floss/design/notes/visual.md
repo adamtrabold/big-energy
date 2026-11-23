@@ -550,3 +550,4 @@ Rev 4 was a sharp extrusion.
 **Flag:** a true 17.5 wedge can't store in the 3.5 recess, so CHOCK is drawn as a loose tapered strip stood in a groove. Systems to confirm.
 
 **Next:** the director scores SILL.
+- SILL, after systems rev 2: two knuckles (x ≈ 30 / 250); CHOCK redrawn as a uniform 236 × 17.5 × 3.5 strip, stored flat and stood in a rear-wall slot, labelled as a fallback. Sheet and md updated.

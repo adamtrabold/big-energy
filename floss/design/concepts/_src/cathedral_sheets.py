@@ -871,7 +871,7 @@ def sheet_sill(path):
     ax.text(W/2, 40, "SHOE dock, y 10–70", ha="center", va="center", fontsize=SML-3, color=CREAM)
     ax.add_patch(Rectangle((22, D-2-H), W-44, H, fc=(0.30, 0.19, 0.11), ec=(0.2, 0.12, 0.07), lw=1.0))
     ax.add_patch(Wedge((W/2, D-2-H), 7, 0, 180, fc=(0.16, 0.10, 0.06), ec="none"))
-    for kx in (30, 90, W-90, W-30): ax.add_patch(Rectangle((kx-5, D-3.5), 10, 3, fc=(0.20, 0.12, 0.06), ec="none"))
+    for kx in (30, W-30): ax.add_patch(Rectangle((kx-5, D-3.5), 10, 3, fc=(0.20, 0.12, 0.06), ec="none"))
     ax.add_patch(Rectangle((40, 2), W-80, 4, fc=TPU, ec="none"))
     ax.text(W+4, D-12, "bar,\nflush", fontsize=SML-3, color=INK, va="center")
     ax.text(W+4, D-36, "notch", fontsize=SML-3, color=INK, va="center")
@@ -888,16 +888,17 @@ def sheet_sill(path):
     cp = camq.p((W/2, 55, 8)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+6)); scq.draw(ax)
     # 7. CHOCK inset
     box_mm = (14, 20, 328, 86)
-    heading(fig, box_mm, "7  Or CHOCK (3:2): no hinge, a loose strip stored in the same recess")
+    heading(fig, box_mm, "7  Fallback, CHOCK (3:2): no hinge, the same strip loose")
     ax = axes_mm(fig, box_mm, 1.5, (100, 24))
     tf = tfT
     prof = [tf(p) for p in prof_flat]; z0 = min(z for y, z in prof)
     hx, hz = tf((D-10, 0.0)); hz -= z0
-    ch = [(hx-3.2, 0.0), (hx+3.2, 0.0), (hx+1.6, hz+1.5), (hx-1.6, hz+1.5)]
+    hx, hz = tf((D-2-BAR_T/2, 0.0)); hz -= z0
+    ch = [(hx-BAR_T/2, 0.0), (hx+BAR_T/2, 0.0), (hx+BAR_T/2, hz+2.0), (hx-BAR_T/2, hz+2.0)]
     ax.add_patch(Polygon(ch, closed=True, fc=(0.30, 0.19, 0.11), ec=WALD, lw=1.2))
     ax.add_patch(Polygon([(y, z - z0) for y, z in prof], closed=True, fc=WAL, ec=WALD, lw=2.0))
     ax.plot([-8, 135], [0, 0], color=GREY, lw=1.2)
-    leader(ax, (hx, hz/2), "a tapered strip, 280 long, stood\non edge in a groove under the back:\nabout the same angle", (138, 36))
+    leader(ax, (hx, hz/2), "a plain 236 × 17.5 × 3.5 strip:\nstored flat in the recess, stood up\nin a snug slot at its rear wall", (138, 36))
     ax.text(138, 8, "no moving part, but it can be\nlost (then it plays flat)", fontsize=SML-2, color=INK, va="center")
     save(fig, path)
     FIG_H = old_h

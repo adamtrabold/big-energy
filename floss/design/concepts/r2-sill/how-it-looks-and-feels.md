@@ -48,10 +48,10 @@ GNOMON's cheeks and its section hairline are gone, because there's no lid-plus-t
 | 1. End view (3:2) | Flat, with the bar flush in its recess at the back of the base; tilted, with the bar down under the back at ≈ 9.2°. The front TPU strip shows in both |
 | 2. Tilted 3/4, keyboard in front | The play pose. The bar is hidden behind the slab, which is the point |
 | 3. Flat 3/4 | The same panel, level |
-| 4. Underside (plan) | The flush bar at the rear (y ≈ 95–113) with its centre finger notch and hinge knuckles; the SHOE dock (y 10–70), clear of it; the front TPU strip |
+| 4. Underside (plan) | The flush bar at the rear (y ≈ 95–113) with its centre finger notch and **two hinge knuckles at x ≈ 30 and 250** (loads go into a full-length stop; each knuckle pocket costs speaker volume, systems rev 2); the SHOE dock (y 10–70), clear of it; the front TPU strip |
 | 5. Packed | The slab alone |
 | 6. Packed | With the keyboard on SHOE |
-| 7. CHOCK inset | The no-hinge variant: a loose strip stood under the back |
+| 7. CHOCK inset (fallback only) | The no-hinge variant: the same strip, loose, stood in a slot under the back |
 
 ## Feel
 - **Flat:** a quiet slab you can put anywhere: table, lap or grass.
@@ -59,15 +59,11 @@ GNOMON's cheeks and its section hairline are gone, because there's no lid-plus-t
 - **Playing:** a low desk angle, your wrist on the soft front edge. From the player's side it looks like the lid simply rests at a slight lean.
 - **In the bag:** the smallest object of the loop, 280 × 115 × 35, with nothing sticking out.
 
-## CHOCK (inset): an honest note for systems
-The director asked for "a loose full-width wedge stored in the same recess". **A true wedge 17.5 tall won't fit a 3.5 mm recess**, and a recess deep enough for one would take ≈ 50 cm³ from E's box [calc, rough]. So I drew CHOCK as a **loose tapered strip** (≈ 17.5 × 6 at the foot × 280). It lies flat in the bar's recess and stands on edge in a shallow groove under the back.
+## CHOCK (inset): a one-line fallback
+Systems rev 2 settles it. **A uniform 236 × 17.5 × 3.5 strip** lies flat in the same recess. To tilt, it stands up in a snug slot along the recess's rear wall, giving the same ≈ 9.2°. A tapered strip wouldn't store, so it's gone.
 
-That makes it functionally a bar with no hinge. Its trade, unchanged: **no moving part, but it can be lost** (then floss plays flat). **Systems: please confirm the groove, or say whether CHOCK means something else.**
+Trade: no moving part, but it can be lost (then floss plays flat). Systems recommends it **only as a fallback**, so the inset is labelled that way.
 
 ## Open
-- **For systems:**
-  - the bar's length (drawn ≈ 236, inside the n 5 corners);
-  - the knuckle positions (drawn at x 30 / 90 / 190 / 250);
-  - the notch at centre;
-  - CHOCK's groove (above).
+- **Systems confirmed:** the bar ≈ 236 long, the centre notch, two knuckles at x ≈ 30 / 250, and CHOCK as a uniform strip in a rear-wall slot.
 - **For the owner:** end speakers or the plate (pending); whether a steel pin counts as "stuff"; the carry (SHOE / loose / band).
