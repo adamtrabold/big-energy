@@ -665,3 +665,8 @@ Recorded as: **the upright pose is dropped** (knob pointers and labels only read
 > I can only see one version how am I supposed to judge
 
 Recorded as: SILL (director 9) was sent alone; Adam needs **several concepts side by side to judge**. The team brings 2–4 distinct concepts for flat-or-slightly-angled, SILL among them, before he decides.
+
+## 2026-11-22 20:27 (chat)
+> I do wish it was more distinctive refardless
+
+Recorded as: SILL isn't distinctive enough for him, whatever the comparison shows. The new concepts must be more distinctive, while keeping his rules (one arrangement, flat or slightly angled; CATHEDRAL cues; printed case).
