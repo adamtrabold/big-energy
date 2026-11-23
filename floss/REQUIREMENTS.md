@@ -22,7 +22,7 @@ Status: **rev 2 (2026-11-22 12:26): floss is a keyless sound module played by a 
 
 ## Form and decisions since rev 2 (decided, Adam's words in `design/owner.md`)
 - **25 voices** (14:26): "25 is good for the string machine."
-- **Speaker:** whatever will sound best, any method (14:24), judged on published data.
+- **Speaker:** whatever will sound best, any method (14:24), judged on published data. **One driver** (20:46): "Why would I have two mono speakers that’s stupid. Drop to one speaker". Stereo on headphones and outputs only.
 - **Carry:** fits a portable 25-key MIDI controller; the case needn't surround it, an attachment point is valid (14:25). The keyboard **doesn't have to be** permanently attached (15:11).
 - **Form follows Big Energy's CATHEDRAL as a model for cues, not a form to copy; dimensions can change** (15:16, 17:58).
 - **All controls in a single plane** (17:58).

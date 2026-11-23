@@ -680,3 +680,8 @@ Recorded as: a concern, not yet a decision. Context given to him: floss's two dr
 > I do like one that sits up at an angle with a narrow footprint, I feel like that wil be most convenient for tables on the go esp with an external keyboard — like cathedral at least but without the keyboard
 
 Recorded as: he likes **a concept that sits up at an angle with a narrow footprint**, for small tables on the go with an external keyboard in front: **at least as upright as CATHEDRAL's standing lid, without the keyboard part.** Added to the concepts he'll compare (alongside flat-or-slightly-angled). Whether it replaces "flat or slightly angled" isn't stated.
+
+## 2026-11-22 20:46 (chat): one speaker
+> Why would I have two mono speakers that’s stupid. Drop to one speaker
+
+Recorded as: **floss has one built-in speaker (one driver).** Speaker E's two mono drivers are dropped. Stereo stays on headphones and outputs. Engineering re-picks the best single driver and box on published data.
