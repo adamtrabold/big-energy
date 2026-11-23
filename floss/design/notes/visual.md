@@ -494,3 +494,34 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
 2. D 105 vs 115 (eng).
 
 **Next:** the director re-checks, then it goes back to the owner.
+
+---
+
+## 2026-11-22 (late night, 3): GNOMON rev 5, CATHEDRAL's soft shape
+
+**Owner, verbatim:** "I miss the subtle rounded shape of cathedral". His CATHEDRAL words (2026-11-13 20:45): "I kinda want the corners to be softer and to be more architectural like how Apple does theirs". The poses stay as rev 4.
+
+**What I read:** CATHEDRAL's softness came from:
+- superellipse plan corners (n 5, r 28.3 case / 24 plate, concentric);
+- eased rim edges.
+
+Rev 4 was a sharp extrusion.
+
+**Changes:**
+- n 5 plan corners at r = T/2 = 17.5 (CATHEDRAL's ≈ half-thickness proportion);
+- plate field corners r 10, concentric;
+- back-top r 8; base-back kept r 4 so the 90° reads;
+- every end-face edge rolled 3;
+- the silhouette unchanged.
+
+**Code:** `sheet_gnomon()` now builds swept meshes from rounded cross-sections (`offset_edges`, `squircle_delta`, `roll_delta`, `mesh`). The sheet is 14 × 29 in; view 8 is CATHEDRAL's render corner beside GNOMON's.
+
+**For systems (listed in the md):**
+- the flat end face shrinks to ≈ 64 in the slab band: the port moves forward to ≈ 60, the jacks go to two rows of 4;
+- the back foot's flat runs ≈ 245;
+- runner flat ≈ 7 of 10;
+- footprint corners rounded;
+- knob rows start at 24;
+- the cheek thickness of 10 is my assumption.
+
+**Next:** systems checks those, then the director, then the owner.

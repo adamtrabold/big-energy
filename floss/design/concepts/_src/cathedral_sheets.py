@@ -406,40 +406,63 @@ def fillet_radii(poly, radii, n=10):
             aa = a1 + da*k/n; out.append((c[0]+rr*math.cos(aa), c[1]+rr*math.sin(aa)))
     return out
 
+def offset_edges(poly, ds):
+    """inward offset of a convex CCW polygon, a different distance per edge (edge i = poly[i] -> poly[i+1])."""
+    m = len(poly); lines = []
+    for i in range(m):
+        p, q = poly[i], poly[(i+1) % m]
+        dx, dy = q[0]-p[0], q[1]-p[1]; L = math.hypot(dx, dy)
+        nx, ny = -dy/L, dx/L
+        lines.append(((p[0]+nx*ds[i], p[1]+ny*ds[i]), (dx/L, dy/L)))
+    out = []
+    for i in range(m):
+        (p1, d1), (p2, d2) = lines[i-1], lines[i]
+        den = d1[0]*d2[1]-d1[1]*d2[0]
+        t = ((p2[0]-p1[0])*d2[1]-(p2[1]-p1[1])*d2[0])/den
+        out.append((p1[0]+d1[0]*t, p1[1]+d1[1]*t))
+    return out
+
+def squircle_delta(d, r, n=5.0):
+    if d >= r: return 0.0
+    u = (r-d)/r
+    return r - r*(1 - u**n)**(1/n)
+
+def roll_delta(d, e):
+    if d >= e: return 0.0
+    return e - math.sqrt(max(0.0, e*e - (e-d)**2))
+
 def sheet_gnomon(path):
-    """GNOMON pass 2: director fixes 1-6. Hairline one slab-thickness below the plate; rear 3/4 with the open
-    underside; port as grooves only; lip rounded into the plate; packed on SHOE and loose at the same size;
-    rear face square to the plate (a true gnomon), so it also stands upright with the plate vertical."""
+    """GNOMON rev 5 (owner: "I miss the subtle rounded shape of cathedral"), on rev 4's geometry (base and back square,
+    playing ~18.4 deg, upright leaning back ~18.4 deg). CATHEDRAL's soft corners carried over: superellipse (n 5) plan corners
+    r = T/2 (CATHEDRAL: 28.3 on a 55.2 case), concentric plate corners, long edges eased, every end-face edge rolled 3 mm."""
     global FIG_H, LIGHT
-    old_h = FIG_H; FIG_H = 25.0
+    old_h = FIG_H; FIG_H = 29.0
     W = 280.0; CHK = 10.0
+    RPLAN = GN_T/2; ROLL = 3.0; RPLATE = 10.0
     fb, bb, bt, ft = gn_pts()
     cth, sth = math.cos(GN_TH), math.sin(GN_TH)
-    # fix 6: the rear face runs square to the plate from bt down to the table
-    # rev 3 (owner: "Reverse the angle on the side behind the speakers so there's still a subtle angle when upright"):
-    # the rear face closes to (90 - phi) with the plate, tan(phi) = T / 2D, so upright the plate leans back phi.
-    PHI = GN_TH     # rev 4 (owner: "Make the base and the back 90 degrees when sitting flat"): back vertical, upright lean = theta
-    dang = GN_TH - math.pi/2 - PHI
-    dv = (math.cos(dang), math.sin(dang))
-    Lr = bt[1]/(-dv[1])
-    Rq = (bt[0] + Lr*dv[0], 0.0)
-    # where the slab's underside line meets the rear face (the hairline's end, the slab's rear-bottom corner)
-    den = cth*dv[1] - sth*dv[0]
-    s_ = ((bt[0]-fb[0])*dv[1] - (bt[1]-fb[1])*dv[0]) / den
-    Hc = (fb[0] + s_*cth, fb[1] + s_*sth)
-    LIP_R = 16.0
-    prof0 = fillet_radii([fb, Rq, bt, ft], [3, 4, 6, LIP_R])
-    slab0 = fillet_radii([fb, Hc, bt, ft], [3, 0.01, 6, LIP_R])
-    port0 = (fb[0] + 80*cth - 17.5*sth, fb[1] + 80*sth + 17.5*cth)
+    PHI = GN_TH
+    dang = -math.pi/2
+    Rq = (bt[0], 0.0)
+    Hc = (bt[0], bt[0]*sth/cth)                       # slab underside meets the vertical back
+    RAD_U = [3, 4, 8, 16]                              # fb, Rq, bt, ft
+    RAD_S = [3, 0.6, 8, 16]                            # fb, Hc, bt, ft
+    QU = [fb, Rq, bt, ft]; QS = [fb, Hc, bt, ft]
+    prof0 = fillet_radii(QU, RAD_U)
+    port0 = (fb[0] + 60*cth - 17.5*sth, fb[1] + 60*sth + 17.5*cth)
     hair0 = [(fb[0]+3.5*cth, fb[1]+3.5*sth), (Hc[0]-0.3*cth, Hc[1]-0.3*sth)]
-    # jacks on the right end face, in the cheek below the hairline (y, z, kind)
     jk0 = []
-    for i, kind in enumerate(["usb", "sw", "pot", "sw", "j", "j", "j", "j"]):
-        t = 34 + i*8.5
-        jk0.append((fb[0] + t*cth - 17.5*sth, fb[1] + t*sth + 17.5*cth, kind))
-    jk0 = [(y, z, k) for (y, z, k) in jk0]
+    for row, hh in enumerate((11.0, 24.0)):
+        for i, kind in enumerate((["usb", "sw", "pot", "sw"], ["j", "j", "j", "j"])[row]):
+            t = 30 + i*12
+            jk0.append((ft[0] + t*cth + hh*sth, ft[1] + t*sth - hh*cth, kind))
 
-    ang_up = -(math.pi - math.atan2(bt[1]-Rq[1], Rq[0]-bt[0]))     # puts the rear face on the table
+    def section(quad, rad, d):
+        pl = squircle_delta(d, RPLAN); rl = roll_delta(d, ROLL)
+        ds = [rl, pl + rl, rl, pl + rl]                 # base/underside, back, plate, front
+        return fillet_radii(offset_edges(quad, ds), rad, n=8)
+
+    ang_up = -(math.pi - math.atan2(bt[1]-Rq[1], Rq[0]-bt[0]))
     def tf_up(p):
         y, z = p[0]-Rq[0], p[1]-Rq[1]
         c, s_ = math.cos(ang_up), math.sin(ang_up)
@@ -447,15 +470,44 @@ def sheet_gnomon(path):
     ident = lambda p: (p[0], p[1])
 
     def geo(tf):
-        prof = ccw([tf(p) for p in prof0]); slab = ccw([tf(p) for p in slab0])
-        zmin = min(z for y, z in prof)
-        sh = lambda p: (p[0], p[1]-zmin)
-        prof = [sh(p) for p in prof]; slab = [sh(p) for p in slab]
-        port = sh(tf(port0)); hair = [sh(tf(p)) for p in hair0]
-        ftt, btt = sh(tf(ft)), sh(tf(bt))
+        full = [tf(p) for p in prof0]
+        zmin = min(z for y, z in full)
+        T_ = lambda p: (tf(p)[0], tf(p)[1]-zmin)
+        ftt, btt = T_(ft), T_(bt)
         th = math.atan2(btt[1]-ftt[1], btt[0]-ftt[0])
-        jk = [(sh(tf((y, z))), k) for y, z, k in jk0]
-        return prof, slab, port, hair, ftt, th, jk
+        return T_, ccw([T_(p) for p in prof0]), T_(port0), [T_(p) for p in hair0], ftt, th, [(T_((y, z)), k) for y, z, k in jk0]
+
+    def mesh(L, cam, T_, quad, rad, x0, x1, ends, col, cap0=None, cap1=None):
+        """ends: which ends are rounded: 'both', 'left' (x0), 'right' (x1)."""
+        xs = set()
+        for dd in [0, 0.4, 1.0, 1.8, 3.0, 4.5, 6.5, 9.0, 12.0, 15.0, RPLAN]:
+            if ends in ("both", "left") and x0+dd <= x1: xs.add(x0+dd)
+            if ends in ("both", "right") and x1-dd >= x0: xs.add(x1-dd)
+        xs.add(x0); xs.add(x1)
+        xs = sorted(xs)
+        def dist(x):
+            if ends == "both": return min(x-x0, x1-x)
+            if ends == "left": return x-x0
+            return x1-x
+        secs = [[T_(p) for p in section(quad, rad, dist(x))] for x in xs]
+        secs = [ccw(sec) if area(sec) > 0 else sec[::-1] for sec in secs]
+        cy = sum(y for y, z in secs[len(secs)//2])/len(secs[0]); cz = sum(z for y, z in secs[len(secs)//2])/len(secs[0])
+        cx = (x0+x1)/2
+        for k in range(len(xs)-1):
+            A, B = secs[k], secs[k+1]; m = len(A)
+            for i in range(m):
+                P0 = (xs[k], A[i][0], A[i][1]); P1 = (xs[k], A[(i+1) % m][0], A[(i+1) % m][1])
+                P2 = (xs[k+1], B[(i+1) % m][0], B[(i+1) % m][1]); P3 = (xs[k+1], B[i][0], B[i][1])
+                u_ = [P2[j]-P0[j] for j in range(3)]; v_ = [P3[j]-P1[j] for j in range(3)]
+                nn = (u_[1]*v_[2]-u_[2]*v_[1], u_[2]*v_[0]-u_[0]*v_[2], u_[0]*v_[1]-u_[1]*v_[0])
+                ln = math.sqrt(sum(c*c for c in nn)) or 1
+                nn = tuple(c/ln for c in nn)
+                qc = [(P0[j]+P1[j]+P2[j]+P3[j])/4 for j in range(3)]
+                if (qc[0]-cx)*nn[0]*0.0 + (qc[1]-cy)*nn[1] + (qc[2]-cz)*nn[2] + (qc[0]-cx)*nn[0]*(1 if abs(nn[0]) > 0.7 else 0) < 0:
+                    nn = tuple(-c for c in nn)
+                add_face(L, cam, [P0, P1, P2, P3], nn, col)
+        add_face(L, cam, [(xs[0], y, z) for y, z in secs[0][::-1]], (-1.0, 0.0, 0.0), col, extra=cap0)
+        add_face(L, cam, [(xs[-1], y, z) for y, z in secs[-1]], (1.0, 0.0, 0.0), col, extra=cap1)
 
     def rings(ax, cam, x, prof, port, patch, step=6.0):
         rmax = max(math.hypot(y-port[0], z-port[1]) for y, z in prof)
@@ -468,7 +520,7 @@ def sheet_gnomon(path):
         def extra(ax, cam, patch):
             rings(ax, cam, 0, prof, port, patch)
             h = [cam.p((0, y, z)) for y, z in hair]
-            ax.plot([h[0][0], h[1][0]], [h[0][1], h[1][1]], color=(0.20, 0.12, 0.06), lw=1.3)
+            ax.plot([h[0][0], h[1][0]], [h[0][1], h[1][1]], color=(0.20, 0.12, 0.06), lw=1.3, clip_path=patch)
             pts = [cam.p((0, port[0]+8*math.cos(t), port[1]+8*math.sin(t))) for t in [2*math.pi*k/40 for k in range(40)]]
             ax.add_patch(Polygon(pts, closed=True, fc=(0.10, 0.07, 0.05), ec="none"))
             pts = [cam.p((0, port[0]+10.5*math.cos(t), port[1]+10.5*math.sin(t))) for t in [2*math.pi*k/60 for k in range(61)]]
@@ -478,7 +530,7 @@ def sheet_gnomon(path):
         def extra(ax, cam, patch):
             rings(ax, cam, W, prof, port, patch)
             h = [cam.p((W, y, z)) for y, z in hair]
-            ax.plot([h[0][0], h[1][0]], [h[0][1], h[1][1]], color=(0.20, 0.12, 0.06), lw=1.3)
+            ax.plot([h[0][0], h[1][0]], [h[0][1], h[1][1]], color=(0.20, 0.12, 0.06), lw=1.3, clip_path=patch)
             for (y, z), k in jk:
                 if k == "j": r = 3.2; col = (0.09, 0.08, 0.07)
                 elif k == "pot": r = 2.4; col = (0.75, 0.73, 0.70)
@@ -486,100 +538,99 @@ def sheet_gnomon(path):
                 if r:
                     pts = [cam.p((W+0.3, y+r*math.cos(t), z+r*math.sin(t))) for t in [2*math.pi*q/24 for q in range(24)]]
                 else:
-                    w, hh = (4.5, 2.0) if k == "usb" else (4.0, 2.0)
+                    w, hh = (4.5, 2.0) if k == "usb" else (4.0, 2.0); col = (0.09, 0.08, 0.07)
                     pts = [cam.p((W+0.3, y+dy, z+dz)) for dy, dz in ((-w, -hh), (w, -hh), (w, hh), (-w, hh))]
-                    col = (0.09, 0.08, 0.07)
                 ax.add_patch(Polygon(pts, closed=True, fc=col, ec="none"))
         return extra
 
-    xs1 = [22 + i*(W-44)/9 for i in range(10)]; xs2 = [22 + (i+0.5)*(W-44)/9 for i in range(9)]
+    xs1 = [24 + i*(W-48)/9 for i in range(10)]; xs2 = [24 + (i+0.5)*(W-48)/9 for i in range(9)]
+
+    def squircle_field(L, cam, P, n, s0, s1, t0, t1, r, lift=0.3, N=10):
+        pts = []
+        corners = [((s1-r, t1-r), 0), ((s0+r, t1-r), 90), ((s0+r, t0+r), 180), ((s1-r, t0+r), 270)]
+        for (cs, ct), a0 in corners:
+            for k in range(N+1):
+                t = math.radians(a0 + 90*k/N); c, s_ = math.cos(t), math.sin(t)
+                ex = abs(c)**(2/5)*(1 if c >= 0 else -1); ey = abs(s_)**(2/5)*(1 if s_ >= 0 else -1)
+                pts.append(P(cs + r*ex, ct + r*ey, lift))
+        add_face(L, cam, pts, n, CREAM, ec=(0.80, 0.76, 0.69))
 
     def build(sc, cam, tf=ident, kb_front=False, packed=False, plate=True, stretcher=False):
-        prof, slab, port, hair, ftt, th, jk = geo(tf)
+        T_, prof, port, hair, ftt, th, jk = geo(tf)
         if packed: keyboard(sc, cam, W/2-KB_W/2, 4, z0=-KB_H, keys_up=False)
         far_is_right = cam.c[0] < 0
-        Lfar = sc.layer()
-        if far_is_right: extrude(Lfar, cam, prof, W-CHK, W, WAL, ec=WALD)
-        else: extrude(Lfar, cam, prof, 0, CHK, WAL, cap_extra=cap_left(prof, port, hair), ec=WALD)
+        cl = cap_left(prof, port, hair); cr = cap_right(prof, port, hair, jk)
+        def left_cheek(L): mesh(L, cam, T_, QU, RAD_U, 0, CHK, "left", WAL, cap0=cl)
+        def right_cheek(L): mesh(L, cam, T_, QU, RAD_U, W-CHK, W, "right", WAL, cap1=cr)
+        Lf = sc.layer(); (right_cheek if far_is_right else left_cheek)(Lf)
         if stretcher:
             Ls = sc.layer(); box(Ls, cam, CHK, W-CHK, 15, 75, 0, 6, WALD)
-        L = sc.layer(); extrude(L, cam, slab, CHK, W-CHK, WAL)
-        Lnear = sc.layer()
-        if far_is_right:
-            extrude(Lnear, cam, prof, 0, CHK, WAL, cap_extra=cap_left(prof, port, hair), ec=WALD)
-        else:
-            Lr = Lnear
-            prof_c = ccw(prof)
-            m = len(prof_c)
-            for i in range(m):
-                (y1, z1), (y2, z2) = prof_c[i], prof_c[(i+1) % m]
-                dy, dz = y2-y1, z2-z1; Ln = math.hypot(dy, dz)
-                if Ln < 1e-9: continue
-                nn = (0.0, dz/Ln, -dy/Ln)
-                add_face(Lr, cam, [(W-CHK, y1, z1), (W, y1, z1), (W, y2, z2), (W-CHK, y2, z2)], nn, WAL, ec=WAL)
-            add_face(Lr, cam, [(W, y, z) for y, z in prof_c], (1.0, 0.0, 0.0), WAL, ec=WALD, extra=cap_right(prof, port, hair, jk))
-            add_face(Lr, cam, [(W-CHK, y, z) for y, z in prof_c[::-1]], (-1.0, 0.0, 0.0), WAL)
+        L = sc.layer(); mesh(L, cam, T_, QS, RAD_S, 0, W, "both", WAL)
+        Ln = sc.layer(); (left_cheek if far_is_right else right_cheek)(Ln)
         if not plate: return
         P, n = plate_frame(ftt, th, W)
-        L2 = sc.layer(); field(L2, cam, P, n, 8, W-8, 9, GN_D-5)
+        L2 = sc.layer(); squircle_field(L2, cam, P, n, 8, W-8, 9, GN_D-7, RPLATE)
         L3 = sc.layer()
-        for xc in (W*0.36, W*0.64): lancet_window(L3, cam, P, n, xc, 74, lw=1.3)
+        for xc in (W*0.36, W*0.64): lancet_window(L3, cam, P, n, xc, 72, lw=1.3)
         L4 = sc.layer()
-        for x in xs1: knob(L4, cam, P, n, x, 20)
-        for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 41, col=RED if i == 4 else BLACK)
+        for x in xs1: knob(L4, cam, P, n, x, 22)
+        for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 42, col=RED if i == 4 else BLACK)
         if kb_front: keyboard(sc, cam, W/2-KB_W/2, -KB_D-60)
 
-    prof, slab, port, hair, ftt, th, jk = geo(ident)
+    T0, prof, port, hair, ftt, th, jk = geo(ident)
+    cap_flat = ccw(section(QU, RAD_U, 0.0))
     fig = new_sheet("GNOMON · the lid on its own cheeks",
-                    "CATHEDRAL's framed lid standing on its own ends: the rim carries on down into two cheeks, open underneath. "
+                    "CATHEDRAL's framed lid standing on its own ends, with CATHEDRAL's soft architectural corners. "
                     "Angled on its runners, back square to the base; or upright on that back.",
                     f"280 × 100 × 66 mm · ≈ {math.degrees(GN_TH):.1f}° or upright (≈ {math.degrees(PHI):.1f}° back) · no parts",
                     scales="end view 3:2, 3/4 views 1:2")
+    SH = 92
     # 1. end view
-    box_mm = (14, 433, 328, 110)
-    heading(fig, box_mm, "1  End view (3:2): tan θ = T/D, base and back square")
+    box_mm = (14, 433+SH, 328, 110)
+    heading(fig, box_mm, "1  End view (3:2): base and back square, every edge eased")
     ax = axes_mm(fig, box_mm, 1.5, (62, 32))
-    poly = Polygon(prof, closed=True, fc=WAL, ec=WALD, lw=2.2, joinstyle="round"); ax.add_patch(poly)
+    poly = Polygon(prof, closed=True, fc=(0.47, 0.31, 0.19), ec=WALD, lw=2.2, joinstyle="round"); ax.add_patch(poly)
+    flat = Polygon(cap_flat, closed=True, fc=WAL, ec=(0.55, 0.38, 0.24), lw=1.0); ax.add_patch(flat)
     rmax = max(math.hypot(y-port[0], z-port[1]) for y, z in prof); r = 12.5
     while r < rmax:
-        ax.add_patch(Circle(port, r, fc="none", ec=WALD, lw=0.8, clip_path=poly)); r += 6.0*(1 + 0.035*(r/10))
-    ax.plot([hair[0][0], hair[1][0]], [hair[0][1], hair[1][1]], color=(0.20, 0.12, 0.06), lw=1.8)
+        ax.add_patch(Circle(port, r, fc="none", ec=WALD, lw=0.8, clip_path=flat)); r += 6.0*(1 + 0.035*(r/10))
+    hl, = ax.plot([hair[0][0], hair[1][0]], [hair[0][1], hair[1][1]], color=(0.20, 0.12, 0.06), lw=1.8); hl.set_clip_path(flat)
     ax.add_patch(Circle(port, 8, fc=(0.10, 0.07, 0.05), ec="none"))
     ax.add_patch(Circle(port, 10.5, fc="none", ec=(0.20, 0.12, 0.06), lw=1.4))
-    for (y0, y1) in ((3, 14), (Rq[0]-14, Rq[0]-3)): ax.add_patch(Rectangle((y0, -1.6), y1-y0, 1.6, fc=TPU, ec="none"))
+    for (y0, y1) in ((3, 14), (Rq[0]-14, Rq[0]-4)): ax.add_patch(Rectangle((y0, -1.6), y1-y0, 1.6, fc=TPU, ec="none"))
     ax.add_patch(Rectangle((15, 0), 60, 6, fc="none", ec=INK, lw=1.2, ls=(0, (5, 3))))
-    # right-angle mark at bt
-    k = 7; cx, cz = Rq[0]-1.2, 1.2
+    k = 7; cx, cz = Rq[0]-1.5, 1.5
     ax.plot([cx-k, cx-k, cx], [cz, cz+k, cz+k], color=CREAM, lw=1.8)
     ground(ax, -50, 175)
-    leader(ax, (Rq[0]-5, 5), "base and back: 90°", (122, 10))
-    leader(ax, (port[0]+5, port[1]+5), "port: grooves only", (122, 50))
-    leader(ax, (60, 21.5), "hairline: the lid above,\nits own thickness below", (122, 30))
+    leader(ax, (Rq[0]-8, 9), "base and back: 90°", (122, 8))
+    leader(ax, (port[0]+5, port[1]+5), "port: grooves only", (122, 52))
+    leader(ax, (bt[0]-6, bt[1]-8), "lighter band: the soft corners\nturning away (flat face inside)", (122, 60))
+    leader(ax, (55, 18.3), "hairline: the lid above,\nits own thickness below", (122, 30))
     leader(ax, (ft[0]+4, ft[1]-2), "lip rounded\ninto the plate", (-48, 50))
     leader(ax, (45, 4), "stretcher:\nSHOE only", (-48, 14))
-    scale_bar(ax, 122, 66, 50, "50 mm (at 3:2)")
+    scale_bar(ax, -46, 66, 50, "50 mm (at 3:2)")
     # 2. playing
     cam = Cam(46, 20); sc = Scene(cam); build(sc, cam, kb_front=True)
-    box_mm = (14, 321, 328, 100)
+    box_mm = (14, 321+SH, 328, 100)
     heading(fig, box_mm, "2  Playing angled (1:2), the keyboard in front")
     cpt = cam.p((W/2, -45, 22)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0]+10, cpt[1]+12)); sc.draw(ax)
-    hl = cam.p((0, (hair[0][0]+hair[1][0])/2, (hair[0][1]+hair[1][1])/2))
-    leader(ax, hl, "hairline: the slab\non its own cheek", (hl[0]-150, hl[1]+12), ha="left")
-    # 3. from behind, right end: open underneath, the jacks
+    hlp = cam.p((0, (hair[0][0]+hair[1][0])/2, (hair[0][1]+hair[1][1])/2))
+    leader(ax, hlp, "hairline: the slab\non its own cheek", (hlp[0]-150, hlp[1]+12), ha="left")
+    # 3. from behind
     camr = Cam(180+56, 12); scr = Scene(camr)
     Lg = scr.layer(); add_face(Lg, camr, [(-6, -14, -0.2), (W+6, -14, -0.2), (W+6, Rq[0]+6, -0.2), (-6, Rq[0]+6, -0.2)], (0, 0, 1), (0.86, 0.83, 0.78), ec=(0.86, 0.83, 0.78))
     build(scr, camr, plate=False)
-    box_mm = (14, 225, 160, 84)
+    box_mm = (14, 225+SH, 160, 84)
     heading(fig, box_mm, "3  From behind (1:2)")
-    cpt = camr.p((W/2, 60, 30)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0]+10, cpt[1]+6)); scr.draw(ax)
-    jp = camr.p((W, jk[4][0][0], jk[4][0][1]))
-    leader(ax, jp, "jacks on the\nright end", (jp[0]-20, jp[1]+70), size=SML-2, ha="center")
-    hp = camr.p((W/2, 80, 0))
+    cpt = camr.p((W/2, 55, 30)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0]+10, cpt[1]+6)); scr.draw(ax)
+    jp = camr.p((W, jk[5][0][0], jk[5][0][1]))
+    leader(ax, jp, "jacks: right end,\ntwo rows", (jp[0]-20, jp[1]+70), size=SML-2, ha="center")
+    hp = camr.p((W/2, 70, 0))
     ax.text(hp[0], hp[1]-22, "open underneath", ha="center", fontsize=SML-2, color=INK)
-    # 4. upright on the rear face
+    # 4. upright
     camu = Cam(180-48, 14); scu = Scene(camu)
     build(scu, camu, tf=tf_up)
-    box_mm = (186, 225, 156, 84)
+    box_mm = (186, 225+SH, 156, 84)
     heading(fig, box_mm, "4  Upright (1:2), leaning back")
     cpt = camu.p((W/2, 30, 50)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0], cpt[1]-8))
     keep = LIGHT; lu = (0.35, 0.75, 0.55); ln = math.sqrt(sum(v*v for v in lu)); LIGHT = tuple(v/ln for v in lu)
@@ -587,34 +638,47 @@ def sheet_gnomon(path):
     ax.text(cpt[0], cpt[1]-92, f"plate leans back ≈ {math.degrees(PHI):.1f}°, facing you", ha="center", fontsize=SML-2, color=INK)
     # 5. packed on SHOE
     camp = Cam(36, 24); scp = Scene(camp); build(scp, camp, packed=True, stretcher=True)
-    box_mm = (14, 131, 160, 80)
+    box_mm = (14, 131+SH, 160, 80)
     heading(fig, box_mm, "5  Packed, SHOE (1:2)")
-    cp = camp.p((W/2, 40, 12)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+6)); scp.draw(ax)
-    # 6. the two poses by shape, end silhouettes at 1:2
-    box_mm = (186, 131, 156, 80)
+    cp = camp.p((W/2, 40, 12)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+8)); scp.draw(ax)
+    # 6. two poses
+    box_mm = (186, 131+SH, 156, 80)
     heading(fig, box_mm, "6  Two poses, one shape (1:2)")
     ax = axes_mm(fig, box_mm, 0.5, (125, 52))
-    pu, _, _, hu, _, _, _ = geo(tf_up)
+    _, pu, _, hu, _, _, _ = geo(tf_up)
     for pp, hh, dx in ((prof, hair, 0), (pu, hu, 175)):
         ax.add_patch(Polygon([(y+dx, z) for y, z in pp], closed=True, fc=WAL, ec=WALD, lw=1.4))
         ax.plot([hh[0][0]+dx, hh[1][0]+dx], [hh[0][1], hh[1][1]], color=(0.20, 0.12, 0.06), lw=1.0)
     ground(ax, -20, 290)
-    ax.text(55, -14, f"angled ≈ {math.degrees(GN_TH):.1f}°", ha="center", va="top", fontsize=SML-1, color=INK)
+    ax.text(45, -14, f"angled ≈ {math.degrees(GN_TH):.1f}°", ha="center", va="top", fontsize=SML-1, color=INK)
     upx = sum(y for y, z in pu)/len(pu) + 175
-    zt = max(z for y, z in pu); yt = [y for y, z in pu if z > zt-0.5][0] + 175
-    pb = min(pu, key=lambda p: (abs(p[1]), -p[0]))
+    zt = max(z for y, z in pu)
     ybase = max(y for y, z in pu if z < 1.0) + 175
     ax.plot([ybase+4, ybase+4], [0, zt+6], color=GREY, lw=1.0, ls=(0, (3, 3)))
     ax.text(ybase+8, zt+2, f"≈ {math.degrees(PHI):.1f}°", ha="left", va="center", fontsize=SML-2, color=INK)
     ax.text(upx, -14, "upright, leaning back", ha="center", va="top", fontsize=SML-1, color=INK)
-    # 7. loose, same size
+    # 7. loose
     caml = Cam(36, 24); scl = Scene(caml)
     build(scl, caml)
     keyboard(scl, caml, W-10, -170)
-    box_mm = (14, 22, 328, 97)
+    box_mm = (14, 22+SH, 328, 97)
     heading(fig, box_mm, "7  Or loose (1:2, same size): no carry part, no stretcher")
     m_ = caml.p((W/2, 55, 30)); k_ = caml.p((W-10+KB_W/2, -125, 8))
     ax = axes_mm(fig, box_mm, 0.5, ((m_[0]+k_[0])/2 + 6, (m_[1]+k_[1])/2 - 4)); scl.draw(ax)
+    # 8. the CATHEDRAL cue beside GNOMON's corner
+    box_mm = (14, 42, 328, 64)
+    heading(fig, box_mm, "8  The cue he misses: CATHEDRAL's corner, and GNOMON's")
+    W_, H_ = FIG_W*MM, FIG_H*MM
+    import matplotlib.image as mpimg
+    img = mpimg.imread("/home/claude/synths-to-go/design/branches/concepts/cathedral/img/cathedral-s14-T4S-standing.jpg")
+    axl = fig.add_axes([14/W_, 42/H_, 160/W_, 64/H_]); axl.imshow(img[120:620, 40:800]); axl.axis("off")
+    axl.text(0.0, -0.06, "CATHEDRAL (Nov 14 render): superellipse corners,\nr 28.3 case / 24 plate, soft rim edge",
+             transform=axl.transAxes, fontsize=14, color=INK, va="top")
+    camc = Cam(40, 26); scc = Scene(camc); build(scc, camc)
+    axr = axes_mm(fig, (186, 42, 156, 64), 0.75, (camc.p((40, 35, 40))[0]+12, camc.p((40, 35, 40))[1]-2))
+    scc.draw(axr)
+    axr.text(0.0, -0.06, f"GNOMON (3:4): same n 5 curve, r {RPLAN:.1f} = T/2,\nplate r {RPLATE:.0f}, every edge rolled {ROLL:.0f}",
+             transform=axr.transAxes, fontsize=14, color=INK, va="top")
     save(fig, path)
     FIG_H = old_h
 
