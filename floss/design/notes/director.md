@@ -706,3 +706,21 @@ Distinctive vs calm. EASEL escaped through the pose. The low slot keeps convergi
 - **TRIANGLE:** derived. (a) equilateral vs (b) base ⟂ back. Visual draws the one that reads more clearly as a triangle and differs more from EASEL. Costs: the lowest row rises; the speaker moves to the plate, an end or the back (systems recommends one); the host port goes low on an end.
 - **HULL:** a rockered underside with two facets ≈ 9–10° apart, flat and slight by shape, zero parts. Draw "Emphasize the flaws" × ceramic glazing → the curve is shown, with a glaze line between the slab top and the hull foot. Kill it if a press rocks it or it needs a detent. Watch the round-mass trap; judge it from the 3/4.
 - **Next:** systems, then visual, then I score all four in one pass.
+
+# Process change (owner 00:21, verbatim): "I want to try a riff on the standard design buds setting for this early stage concepting - rather than not see until 9 I want to see every round but with the directors score, opinion, and what they’d change"
+- **From now on, in concepting:** every round goes to him, whatever the score. The 9 gate no longer holds sending back. It still means "I'd defend it as is". Score honestly; no inflating because he'll see it, and no softening.
+- **For every concept I score, write three short owner-facing lines** (plain words, no jargon, no internal job numbers):
+  1. **Score:** n / 10.
+  2. **Opinion:** one or two sentences.
+  3. **What I'd change:** numbered, brief.
+- These go in `scores.md` under each round, as an "Owner lines" block the orchestrator can paste. The full reasoning stays below them for the team.
+- His replies to every round are now the main calibration signal, not only replies to 9s.
+
+## Owner lines for the current anchors (for the round 3 sheet)
+**EASEL: 9**
+- Opinion: the narrow, steep one you asked for. CATHEDRAL's 60° lid standing on its own, with a calm, symmetric face of controls and the speaker speaking through slots low on the front. I'd defend it as is.
+- What I'd change: (1) the packing caption: SHOE docks in the base, so it shouldn't say plate-down; (2) in the build, confirm the speaker slots don't dull the treble.
+
+**SILL: 8**
+- Opinion: the calmest answer. CATHEDRAL's lid as a soft slab, with a bar that flips down for the slight angle. But you said it isn't distinctive enough, and I agree.
+- What I'd change: (1) nothing that keeps it SILL would make it more distinctive. It stays as the calm reference beside the new options.

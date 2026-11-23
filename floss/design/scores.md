@@ -176,3 +176,6 @@ Judged from the rev 2.4 `r2-easel/sketch.png` (right-end view, 3/4 with the keyb
 **What kept blocking a 9 (for the record):** distinctive vs calm. EASEL got out by changing the pose, then losing its leftovers (the empty upper field went when the speaker moved to the foot; the face then came from the true count). Late on, the blocks were drawing-level: an off-centre middle, and slots at keyboard height.
 
 **Goes to the owner:** yes, once the caption is fixed. Send it with **one question**, using SILL's existing column as the low reference (not LOW GNOMON): **"Does the steep, narrow one replace flat-or-slightly-angled, or do you want both to choose from?"** If he says both, the team builds one genuinely distinctive low concept before he compares (HULL is one possibility).
+
+## Process note (2026-11-23): owner sees every round
+Owner, 00:21, verbatim: "I want to try a riff on the standard design buds setting for this early stage concepting - rather than not see until 9 I want to see every round but with the directors score, opinion, and what they’d change". From round 3 on, each concept's score here starts with a short **Owner lines** block (score, opinion, what I'd change). A 9 still means "I'd defend it as is".
