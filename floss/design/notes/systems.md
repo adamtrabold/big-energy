@@ -545,3 +545,41 @@
 - **CHOCK as drawn won't store** (6 mm taper > 3.5 recess; 280 > 236). The working version is a uniform 236 × 17.5 × 3.5 strip that presses into a slot along the recess's rear wall. Keep it only as the fallback if no pin is acceptable.
 **Coverage** (`concepts/r2-sill/coverage.md`, jobs rev 6): all supported; weaknesses 3, 15, 26, 28, 33.
 **Next:** the sheet fixes (knuckles, CHOCK); the director scores SILL.
+
+### 2026-11-22 round 2, turn 4: CRADLE / PLINTH / HANDLE (new systems seat)
+**Took over the seat** from the notes above. **Owner since SILL:** 20:25 "I can only see one version how am I supposed to judge"; 20:27 "I do wish it was more distinctive refardless". **Director turn 3 + amendment:** SILL is the calm baseline. The new concepts must be clearly more distinctive in silhouette and idea, through one strong move of form, calm and soft, and each recognisable from its end view at thumbnail size.
+
+**Randomness (`secrets`):**
+- "piano music desks" → CRADLE's ledge;
+- "Japanese joinery" → wedged tenons for the cheeks, and S9 seen as a sliding dovetail;
+- Oblique "Give way to your worst impulse" → the plinth as a bass chamber (rejected).
+
+**Decisions (proposals) and why:**
+- **Shared angle rule: the back rises T/2.** SILL 9.2°, CRADLE ≈ 9.4°, PLINTH ≈ 8.75°. Comparable columns.
+- **CRADLE survives with a rail ledge, not a detent.** A detent needs ≈ 100 N at r 8 (≈ 0.8 N·m of load).
+  - The geometry: rail seat at T/2 just behind the slab; pins Ø 4 at (8, 8) in 5 mm slots; front-bottom r 8 arc centred on the pin. Tilt = lift, push away 5, set down; the front lip moves 0.7 mm.
+  - Consequences: jacks to the front face (lip r ≤ 12), port mouth to the rear face (elbow), 306 × 127, no E loss.
+  - **Cheek A (top at θ, 35 → 52.5) recommended** for the thumbnail test; B (35 tall) fails it flat.
+- **PLINTH survives.** 260 × 95, 11.7 → 26.3, S9 tongue on top (dock downhill toward the player, so gravity holds it), S9 dock below, right-end drawer. Fully printed with no metal; packed = play-ready.
+- **HANDLE killed** on four counts:
+  - a shallow lever at ≈ 9° (≈ 1.4 N·m → sprung toothed hubs);
+  - the carry and stand pivots conflict;
+  - ASA creep;
+  - a 28 cm³ groove, and SILL's end view at rest.
+- **Coverage:** both survivors support all 34 jobs. CRADLE's new weakness is 34 (the front-face row); PLINTH's is 32 (the second piece).
+
+**Files:**
+- `concepts/r2-cradle/{how-it-works,coverage}.md`
+- `concepts/r2-plinth/{how-it-works,coverage}.md`
+- `concepts/r2-handle/how-it-works.md` (kill record)
+- jam turn 4
+
+jobs.md is unchanged (rev 6 still fits).
+
+**Open:**
+- **Director:** cheek A vs B; accept the rail ledge in place of "a detent"; jacks on CRADLE's front face; D 105 vs 115 (neither survivor recesses into E).
+- **Visual:** the cheek A outline and the rings centred on the pivot; PLINTH's reveal depth; front lip r ≤ 12 for CRADLE.
+- **Eng:** CRADLE's port elbow on the rear face, rail stiffness (10 × 10 ASA), front-face connector row; S9 tolerance (shared); the real mass and COM.
+- **Owner (with the sheet):** which column; is a pin "stuff"; is a second piece OK; SHOE / loose; end speakers (CRADLE's cheeks would cover them).
+
+**Next:** visual draws CRADLE (A, with B as an inset), PLINTH and the same-scale comparison sheet. The director scores all three. I re-check coverage against the sheets for any 9+.

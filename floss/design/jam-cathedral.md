@@ -727,3 +727,58 @@ NEXT: systems designer — structure PLINTH and HANDLE (angle from their parts, 
 4. **HANDLE: optional.** Only if the flush bail can be **a visible design line** (a printed-bronze arc round the rear and ends) rather than a hidden mechanism. Kill if it's neither simple nor distinctive.
 
 **NEXT unchanged in order:** systems structures CRADLE, PLINTH (and HANDLE if it survives) and kills what can't stay simple; then visual draws each sheet and the **one same-scale comparison sheet**; then I score all of them in one pass.
+
+---
+
+## Round 2, turn 4: product designer (systems focus): CRADLE, PLINTH, HANDLE structured (new systems seat)
+
+Owner 20:25, verbatim: "I can only see one version how am I supposed to judge"; 20:27: "I do wish it was more distinctive refardless". Same slab everywhere (280 × 115 × 35, E, plate drivers). The angle rule is shared: **the back rises T/2**. [calc] = mine; mass ≈ 0.8 kg is an ESTIMATE. Randomness (`secrets`): "piano music desks", "Japanese joinery", Oblique "Give way to your worst impulse".
+
+### 1. CRADLE: **survives, with one change: the detent becomes a ledge.** (`concepts/r2-cradle/`)
+- **A detent at the pivot can't hold the angle.** That needs ≈ 0.8 N·m (weight plus a resting palm): ≈ 100 N at an 8 mm radius, or ≈ 9 N even at the back.
+- **The music-desk fix:** a full-width **rail just behind the slab, its seat at T/2**, which is also the stretcher, held by wedged tenons from underneath.
+  - Front pins Ø 4 at (8, 8) in 5 mm slots, and the slab's front-bottom edge is an r 8 arc on the pin, so it rolls without digging in.
+  - To tilt, lift the back, push it away 5 and set it down on the rail. **θ ≈ 9.4°.** Every press drives it deeper into the seat. With a line contact plus a full-width seat, it doesn't rock. A pull toward the player can't free it (2 mm channel).
+  - **The front lip moves only 0.7 mm** between states.
+- **Consequences:**
+  - the cheeks cover the ends, so **the jacks move to the front face** (one row of 6; needs a lip r ≤ 12);
+  - **the port mouth moves to the rear face** above the rail (elbow, UNVERIFIED);
+  - overall **306 × 127**;
+  - nothing is recessed into E (D 105 possible).
+- **Fork for visual and director, the cheek:**
+  - **A** tops at θ, 35 → 52.5 (1.5T), so angled the plate is flush with the cheek tops and the end view is one soft wedge in both states. **Passes the thumbnail test.** Packed 1.70 L.
+  - **B** is 35 tall, the slab rising out of it. Flat, its end view is SILL's rectangle: **fails the test flat.** Packed 1.36 L.
+  - I recommend A.
+- **Not bookends:** in the angled pose the plate and the cheek tops make one plane, and the rail ties the cheeks behind.
+
+### 2. PLINTH: **survives. The simplest of the three to build.** (`concepts/r2-plinth/`)
+- **Plinth:** 260 × 95 (inset 10), front T/3 ≈ 11.7 → back 26.3, so **θ = asin(T/2 ÷ D) ≈ 8.75°**. A 3 mm reveal under the slab gives the float line.
+- **Docking:** the S9 tongue on top. You **slide the module downhill toward you** to dock, so gravity (≈ 1.2 N) keeps it seated; the detent only matters for the bag. S9 dock underneath for SHOE. Right-end drawer for the cable, the adapter and the card.
+- **Fully printed: no metal, pin or spring;** fits a 256 bed on the diagonal. Plinth ≈ 0.14–0.17 kg.
+- **Packed = play-ready angled: 2 moves bag to sound.** The bundle is a wedge ≈ 280 × 120 × 45 / 62 (1.8 L), ≈ 75–80 with a keyboard under it.
+- **Its flat end view is SILL's** (it's the bare slab); only the angled view is distinctive.
+- Weakness: forget the plinth and you only play flat.
+- **Worst-impulse draw (the plinth as a bass chamber): rejected.** floss would sound different flat and angled.
+
+### 3. HANDLE: **killed.** (`concepts/r2-handle/how-it-works.md`)
+- **The arithmetic:** at ≈ 9° the bail stops only ≈ 14° below the base, a shallow lever with ≈ 1.4 N·m trying to fold it. It would need sprung toothed hubs and a release.
+- **The pivots:** the carry wants pivots at mid-end (balance), the stand wants them at the front.
+- **Materials:** a printed ASA U creeps.
+- **E's box:** the groove takes ≈ 28 cm³.
+- **The thumbnail:** at rest it's SILL's rectangle. Neither simple nor distinctive.
+
+### 4. Coverage (jobs rev 6)
+- **CRADLE:** all supported. Weaknesses 3, 15, 26 (pins), 28, 33, **34** (the front-face row).
+- **PLINTH:** all supported. Weaknesses 3, 28, 33, **32** (a second piece).
+- Files: `r2-cradle/coverage.md`, `r2-plinth/coverage.md`.
+
+### 5. The comparison sheet's trade lines
+| | Pieces | Moving | Packed | Angle |
+|---|---|---|---|---|
+| SILL | 1 | 1 (bar) | 280 × 115 × 35, 1.13 L | 9.2° |
+| CRADLE (A) | 1 | 1 (the slab) | 306 × 127 × 35 / 52.5, 1.70 L | 9.4° |
+| PLINTH | 2 | 0 | 280 × 120 × 45 / 62, 1.80 L (bundle) | 8.75° |
+
+**Thumbnail end view:** SILL a rectangle (plus a leg when angled); CRADLE A a soft wedge in both states; PLINTH a slab floating over a smaller wedge (angled), the bare slab flat.
+
+NEXT: visual designer — draw the CRADLE (cheek A, with B as a small inset) and PLINTH sheets plus the one same-scale comparison sheet with SILL, using the geometry in the two how-it-works files. Then the director scores all three in one pass.
