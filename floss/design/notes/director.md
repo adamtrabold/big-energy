@@ -565,3 +565,10 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Objections:** the reading of "reverse"; upright pull ≈ 1.9 N; bulk; the hairline as a seam.
 - **Handoff conditions:** as rev 2. (a) The host port goes low on a cheek near the rear-bottom corner; rev 3 hasn't moved it. Make depth 110 vs footprint 99 consistent.
 - **Next:** back to the owner. If approved: the handoff, and I check `handoff.md` against his words, including the "reverse" reading and the host-port move.
+
+# GNOMON rev 4 re-score (2026-11-22): 9, held
+- **Owner, verbatim:** "I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat". He's the second time fine-tuning one face of the end view, which confirms he's judging the silhouette pose by pose, as pictures. **Calibration:** he prefers right angles against the table (base ⟂ back) to derived lean angles on the back. Calm, architectural geometry wins over clever ratios.
+- **Changed:** the back is vertical when playing; one angle (≈ 18.4°) serves both poses; the corner is ≈ 71.6°; the footprint is 88.5; upright pull 2.52 N. tan φ = T/2D is retired. My earlier "not subtle" objection to a vertical back is superseded by his call.
+- **Objections:** (1) his two notes trade: upright now leans ≈ 18.4°, not the "subtle" ≈ 9.5°; tell him plainly; (2) upright stability under firm top-row presses; (3) more of a plain wedge (his direction).
+- **Handoff condition (a) is still open:** the host port is on the top edge when upright. Move it low near the rear-bottom corner of a cheek.
+- **Next:** back to the owner. If approved: the handoff; I check it against his 18:39–19:02 words, including the angle trade and the host-port move.

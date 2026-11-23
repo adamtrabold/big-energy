@@ -40,3 +40,13 @@ The owner sent rev 2 back with one change, verbatim: "Reverse the angle on the s
   3. The wedge's bulk in the bag (unchanged), and the end-face hairline possibly reading as a seam (unchanged).
 - **Handoff conditions:** the rev 2 list stands. Most important is (a): the host port goes low on a cheek near the rear-bottom corner. Rev 3 still has it on the top face when upright, where the cable pulls in the tipping direction. Also: make the overall depth (110) and the footprint (99) consistent on the sheet and in the docs.
 - Nothing blocks: **GNOMON rev 3 goes back to the owner.**
+
+## CATHEDRAL-cues round: GNOMON rev 4 re-score (2026-11-22, director)
+Owner change to rev 3, verbatim: "I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat". Judged from the rev 4 `c-gnomon/sheet.png` (end view, upright and two-poses views changed) and both rev 4 md files. His call supersedes my earlier objection that a vertical back wasn't "subtle" when upright.
+- **GNOMON: 9 (held).** The work changed: the back is vertical in the playing pose (base and back at 90°); one angle (≈ 18.4°, tan θ = T/D) now serves both poses, playing and the upright lean; the corner behind the speakers is ≈ 71.6°; the footprint is 280 × ≈ 88.5 (overall 280 × 100 × 66); and the upright pull-to-tip rises to 2.52 N, double rev 2's. The end view is now the calmest yet, and literally a sundial gnomon (base, vertical back, and the plate as the hypotenuse at its "latitude"). Rev 3's tan φ = T/2D rule is retired, and rightly: fewer rules, one angle.
+- **Strongest likely owner objections:**
+  1. **Upright now leans back ≈ 18.4°, about twice the "subtle" ≈ 9.5° from his 18:53 note.** His two notes trade against each other: a vertical back when sitting on its base fixes the upright lean at the playing angle. Show him that trade in one line; don't hide it. (A smaller upright lean only comes back by re-angling the back, which is what he just rejected, or by lowering the playing angle.)
+  2. Upright stability: a forward pull ≈ 2.5 N, top-row presses ≈ 3.9 N. Fine for standing and light playing; firm presses on HOLD or TAP may want a hand. "90 for playing or standing?" is still unanswered.
+  3. "It's a wedge": more so now that the back is vertical. It's his direction, so it isn't held against the concept.
+- **Handoff conditions:** unchanged, and (a) is still not done: the host USB-C sits on the front face, **which is the top edge when upright**, so the keyboard cable pulls in the tipping direction. Move it low on a cheek near the rear-bottom corner (low in both poses). The rest of the rev 2 list stands.
+- Nothing blocks: **GNOMON rev 4 goes back to the owner**, with the trade in objection 1 stated.
