@@ -1,6 +1,31 @@
 # EASEL: how it looks and feels (visual, idea level)
 
-## Rev 2.3 sketch (2026-11-22, round 2): this section supersedes everything below it
+## Rev 2.4 sketch (2026-11-23, round 2, after the director's 8): this section supersedes everything below it
+
+**Picture:** `sketch.png`. It has an end view from the right end, a 3/4 view with the keyboard pushed right up to the front, a face-on strip of the panel, and two caption lines. **Source:** `../_src/r2_sketch.py`, `single_easel()`. Size **280 × 79 × 81** (predella ≈ 37, plate 58, both faces 60°, r 6 top). Systems rev 2.4 owns the geometry.
+
+**The face, mirrored about its centre line** (21 playing controls + the lights = 2 × 11 at 22 pitch):
+- **Top row:** ATTACK · RELEASE · PRESSURE · SHIMMER · DEPTH | **TAP** (on the axis; its ring = tempo / status) | ECHO · TIME · REPEATS · REVERB · VOLUME.
+- **Lower row:** OCT L · three tabs · HOLD | **two lights** (on the axis) | FREE / SYNC · three tabs · OCT R.
+  - The two octaves bracket the row, the two small switches flank the lights, and the tabs mirror.
+  - Within a half the tabs are drawn as plain tabs; their order is mine to set later.
+- No 6 / 5 split any more: the axis goes through TAP and the lights.
+
+**Front face:** six lancets at z 18–32, so they clear a slim keyboard pushed up to the face (the end view shows it). The host USB-C sits beside them, on the left. The plenum is dashed red on the end view.
+
+**Right end:** power / TUNE / SPLIT sit in a **flush, recessed pocket** ≈ 27 × 14 (rounded) on the end flat. Nothing stands proud in the bag.
+
+**Captions:**
+- Packing: carry it plate-down against the keyboard (on SHOE); a printed slip cover is optional.
+- Flicking an end switch slides it at ≈ 5 N: steady it with the other hand.
+
+**Open:**
+- A keyboard taller than ≈ 18 at its back edge would still mask the lower slots (systems: then leave a ≈ 2 cm gap).
+- The slot low-pass is still eng's main acoustic risk.
+
+---
+
+## Superseded: rev 2.3 sketch
 
 **Owner, verbatim, on power / TUNE / MIDI SPLIT:** "Face or edge imo" (not the back). Systems' rev 2.3 picks the **right end face**.
 

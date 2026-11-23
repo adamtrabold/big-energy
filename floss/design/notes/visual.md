@@ -612,3 +612,15 @@ Rev 4 was a sharp extrusion.
 
 **Next:** systems checks EASEL's grown section; then the director scores both sketches.
 - **Same night, EASEL rev 2.3** (owner, verbatim: "Face or edge imo"; systems picked the right end face). `r2-easel/sketch.png` redrawn at **280 × 79 × 80**: toggle, TUNE and toggle on the right end at z ≈ 14–24 (shown face-on in the end view and in the 3/4), lights on the face, the 10 mm face band (84 × 81) as a small dashed inset. All end views now look from the **right end** and the 3/4 views from the front-right (`FLIP`, `Cam(-34, 24)` in `r2_sketch.py`), so LOW GNOMON's sketch shows its jack row. `r2-sketches.png` caption: EASEL's trade-off is now "utilities on the right end slide it at ≈ 5 N". Mds updated. Every PNG opened.
+
+## 2026-11-23: EASEL rev 2.4 sketch (after the director's 8; LOW GNOMON scored 6, "replace; don't send")
+- `r2-easel/sketch.png` redrawn per systems rev 2.4, 280 × 79 × 81:
+  - the face is mirrored about the axis: TAP over the lights, 10 | 1 | 10 in each row, in jobs.md's true count;
+  - six lancets raised to z 18–32, with the host USB-C beside them;
+  - power / TUNE / SPLIT sit in a flush pocket on the right end;
+  - the 3/4 view has the keyboard pushed right up to the front (the point of raising the slots);
+  - a face-on strip with the names;
+  - two caption lines (packing plate-down on SHOE, slip cover optional; the 5 N slide).
+- Code: `single_easel()`, `easel_face()` and the rev 2.4 constants in `r2_sketch.py`; they override the earlier defs.
+- `r2-sketches.png` was re-rendered with the new EASEL column. It still has LOW GNOMON, which the director says not to send: drop or replace that column before anything goes to the owner.
+- Next, per the director: one question to the owner (replace or join) with EASEL beside SILL's column; if he says "join", a new low concept (hull idea).

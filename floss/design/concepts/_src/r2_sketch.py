@@ -689,6 +689,197 @@ def easel_34(ax, cam, kb=True):
     if kb: draw_keyboard(ax, cam, W/2 - 165, -60 - 90)
 
 
+
+# ---- EASEL rev 2.4 (systems, after the director's 8): mirrored face, true count,
+# lancets raised above keyboard height, end controls in a flush pocket.
+EA_F = 37.0                                     # predella ≈ 37 (plenum needs driver centre ≥ 38.5 back)
+EA_H = EA_F + EA_PL*S60
+EA_D = EA_AY + EA_H/math.tan(math.radians(60))
+EA_TOP = EA_H - EA_TOP_R*(1/math.sin(math.radians(30)) - 1)
+EA_POCKET = (34, 19, 27, 14)                    # centre y, centre z, width, height on the right end
+EA_POCKET_CTRL = [(25, "t"), (34, "k"), (43, "t")]
+COLS = [140 + (i - 5)*22 for i in range(11)]
+TOP_ROW = ["ATTACK", "RELEASE", "PRESSURE", "SHIMMER", "DEPTH", "TAP",
+           "ECHO", "TIME", "REPEATS", "REVERB", "VOLUME"]
+LOW_ROW = ["OCT L", "tab", "tab", "tab", "HOLD", "lights",
+           "FREE/\nSYNC", "tab", "tab", "tab", "OCT R"]
+SLOT_X = [140 + (k - 2.5)*13 for k in range(6)]  # 6 lancets, z 18–32
+SLOT_Z0, SLOT_Z1 = 18.0, 32.0
+HOST_X = SLOT_X[0] - 20
+
+
+def easel_section(pl=EA_PL, f=None):
+    f = EA_F if f is None else f
+    h = f + pl*S60; ay = pl*C60; d = ay + h/math.tan(math.radians(60))
+    return [(0, 0), (d, 0), (ay, h), (0, f)], d, h
+
+
+def _pocket_2d():
+    y, z, w, h = EA_POCKET
+    return rounded([(y - w/2, z - h/2), (y + w/2, z - h/2), (y + w/2, z + h/2), (y - w/2, z + h/2)],
+                   [3, 3, 3, 3], per=5)[0]
+
+
+def easel_end(ax, ox=0, oz=0, labels=True, kb=True, ghost=False):
+    pts, d, h = easel_section()
+    sec, _ = rounded(pts, [3, 4, EA_TOP_R, 4], per=10)
+    U = lambda p: np.column_stack([ox - p[:, 0], oz + p[:, 1]])
+    for arc in rings_2d((34, 31), sec, [12, 24, 38]):
+        wob(ax, U(arc), lw=0.9, color=SOFT, amp=0.2, passes=1, over=0)
+    wob(ax, U(sec), lw=2.4, closed=True)
+    # driver in the foot + plenum up the front to the raised slots (dashed, red)
+    drv = np.array([(12, 6), (67, 6), (67, 30), (12, 30)])
+    wob(ax, U(drv), lw=1.1, color=RED, closed=True, passes=1, dashed=True, amp=0.15)
+    wob(ax, U(np.array([(10, 6), (10, SLOT_Z1)])), lw=1.0, color=RED, passes=1, dashed=True, amp=0.1, over=0)
+    for zz in (19.5, 25, 30.5):
+        wob(ax, U(np.array([(4, zz), (-6, zz)])), lw=1.0, color=RED, passes=1, amp=0.1, over=0)
+    # the flush pocket on this (right) end, controls inside, nothing proud
+    wob(ax, U(_pocket_2d()), lw=1.5, closed=True, passes=1, amp=0.05)
+    for y, kind in EA_POCKET_CTRL:
+        r = 3.5 if kind == "k" else 2.2
+        c = plane_circle(np.array([y, EA_POCKET[1], 0.0]), np.array([1, 0, 0]), np.array([0, 1, 0]), r, n=16)[:, :2]
+        wob(ax, U(c), lw=1.2, closed=True, passes=1, amp=0.04)
+    o = np.array([0, EA_F]); ev = np.array([C60, S60]); en = np.array([-S60, C60])
+    for s_, hh, ww in [(14, 11, 12), (31, 11, 12)]:
+        b = o + ev*s_
+        q = np.array([b - ev*ww/2, b - ev*ww/2 + en*hh, b + ev*ww/2 + en*hh, b + ev*ww/2])
+        wob(ax, U(q), lw=1.5, passes=1, amp=0.12, over=0)
+    wob(ax, [(ox - d - 30, oz), (ox + 230, oz)], lw=1.2, color=SOFT, passes=1, amp=0.15)
+    if kb:
+        kq = np.array([(-6, 0), (-96, 0), (-96, 16), (-6, 16)])   # pushed right up to the front
+        wob(ax, U(kq), lw=1.2, color=SOFT, closed=True, passes=1, amp=0.15)
+        label(ax, ox + 51, oz + 8, "keyboard, pushed up", size=10.5, color=SOFT, ha="center")
+    if labels:
+        aa = np.radians(np.linspace(0, 60, 16))
+        wob(ax, np.column_stack([ox - d + 16*np.cos(aa), oz + 16*np.sin(aa)]),
+            lw=1.0, color=SOFT, passes=1, amp=0.08, over=0)
+        leader(ax, (ox - d + 2, oz + 66), (ox - EA_AY - 30, oz + 52))
+        label(ax, ox - d, oz + 70, "both faces 60°", size=12, color=SOFT, ha="right")
+        wob(ax, [(ox - d, oz - 12), (ox, oz - 12)], lw=1.0, color=INK, passes=1, amp=0.1, over=0)
+        label(ax, ox - d/2, oz - 22, f"≈ {d:.0f} deep", ha="center", size=13)
+        label(ax, ox + 12, oz + EA_TOP, f"≈ {EA_TOP:.0f} tall", size=13, va="bottom")
+        wob(ax, [(ox - EA_AY, oz + EA_TOP), (ox + 10, oz + EA_TOP)], lw=0.8, color=SOFT, passes=1,
+            amp=0.1, over=0, dashed=True)
+        leader(ax, (ox + 58, oz + 64), U(np.array([o + ev*22 + en*11]))[0])
+        label(ax, ox + 61, oz + 64, "two rows of 11, mirrored", size=12)
+        leader(ax, (ox + 60, oz + 36), (ox - 6, oz + 27))
+        label(ax, ox + 63, oz + 38, "speaker slots raised to 18–32 mm,\nclear of the keyboard",
+              size=12, color=RED)
+        leader(ax, (ox - 62, oz + 99), U(np.array([(EA_POCKET[0] + 10, EA_POCKET[1] + 4)]))[0])
+        label(ax, ox - 62, oz + 101, "power / TUNE / SPLIT in a flush pocket", size=12, ha="center",
+              va="bottom")
+    return d
+
+
+def _tab(ax, cam, o, eu, ev, en, x, s_):
+    q = np.array([o + eu*(x-3.5) + ev*(s_-6), o + eu*(x+3.5) + ev*(s_-6),
+                  o + eu*(x+3.5) + ev*(s_+6), o + eu*(x-3.5) + ev*(s_+6)])
+    top = q + en*4
+    P = cam.P(np.vstack([q, top])); hull = ConvexHull(P); hp = P[hull.vertices]
+    ax.fill(hp[:, 0], hp[:, 1], color=PAPER, zorder=6.2)
+    wob(ax, hp, lw=1.3, amp=0.1, closed=True, passes=1, z=6.3)
+    wob(ax, cam.P(top), lw=0.9, amp=0.08, closed=True, passes=1, z=6.4)
+
+
+def easel_34(ax, cam, kb=True):
+    M, sec = easel_mesh()
+    draw_mesh(ax, cam, M)
+    o, eu, ev, en = easel_plate_frame()
+    s0, s1 = 4, EA_PL - 11
+    q = np.array([o + eu*14 + ev*s0, o + eu*(W-14) + ev*s0, o + eu*(W-14) + ev*s1, o + eu*14 + ev*s1])
+    wob(ax, cam.P(q), lw=1.0, color=SOFT, closed=True, passes=1, amp=0.2, z=5.6)
+    for x in SLOT_X:
+        sl = np.array([[x-3.5, -0.1, SLOT_Z0], [x+3.5, -0.1, SLOT_Z0], [x+3.5, -0.1, SLOT_Z1-4],
+                       [x, -0.1, SLOT_Z1], [x-3.5, -0.1, SLOT_Z1-4]])
+        wob(ax, cam.P(sl), lw=1.1, closed=True, passes=1, amp=0.1, z=5.6)
+    hp = np.array([[HOST_X-5, -0.1, 23.5], [HOST_X+5, -0.1, 23.5], [HOST_X+5, -0.1, 27], [HOST_X-5, -0.1, 27]])
+    wob(ax, cam.P(hp), lw=1.0, closed=True, passes=1, amp=0.08, z=5.6)
+    items = []
+    for i, nm in enumerate(TOP_ROW): items.append((COLS[i], 31, nm))
+    for i, nm in enumerate(LOW_ROW): items.append((COLS[i], 14, nm))
+    items.sort(key=lambda t: -cam.depth(o + eu*t[0] + ev*t[1]))
+    for x, s_, nm in items:
+        if nm == "TAP":
+            knob3d(ax, cam, o + eu*x + ev*s_, eu, ev, en, r=5.0, h=3, tick=False)
+            wob(ax, cam.P(plane_circle(o + eu*x + ev*s_, eu, ev, 7.5)), lw=0.9, color=SOFT,
+                closed=True, passes=1, amp=0.05, z=6.1)
+        elif nm == "tab":
+            _tab(ax, cam, o, eu, ev, en, x, s_)
+        elif nm in ("HOLD", "FREE/\nSYNC"):
+            knob3d(ax, cam, o + eu*x + ev*s_, eu, ev, en, r=3.0, h=5, tick=False)
+        elif nm == "lights":
+            for dx in (-4.5, 4.5):
+                c = plane_circle(o + eu*(x+dx) + ev*s_, eu, ev, 1.8, n=12)
+                pc = cam.P(c); ax.fill(pc[:, 0], pc[:, 1], color=INK, zorder=6.5)
+        else:
+            knob3d(ax, cam, o + eu*x + ev*s_, eu, ev, en, r=6.5, h=8)
+    cap = M.R[-1]; xc = cap[0, 0]
+    for arc in rings_2d((34, 31), cap[:, 1:], [12, 24]):
+        P3 = np.column_stack([np.full(len(arc), xc), arc])
+        wob(ax, cam.P(P3), lw=0.8, color=SOFT, amp=0.15, passes=1, over=0, z=5.6)
+    pk = _pocket_2d()
+    wob(ax, cam.P(np.column_stack([np.full(len(pk), xc), pk])), lw=1.2, closed=True, passes=1, amp=0.05, z=5.7)
+    for y, kind in EA_POCKET_CTRL:
+        c = plane_circle(np.array([xc, y, EA_POCKET[1]]), np.array([0, 1, 0]), np.array([0, 0, 1]),
+                         3.5 if kind == "k" else 2.2, n=14)
+        wob(ax, cam.P(c), lw=1.0, closed=True, passes=1, amp=0.04, z=5.8)
+    if kb: draw_keyboard(ax, cam, W/2 - 165, -6 - 90)
+
+
+def easel_face(ax):
+    """Face-on strip: the mirrored layout with names (signal order left to right)."""
+    wob(ax, rounded([(0, 0), (W, 0), (W, 56), (0, 56)], [6, 6, 6, 6], per=5)[0], lw=1.6, closed=True, passes=1)
+    wob(ax, [(140, 2), (140, 54)], lw=0.8, color=SOFT, passes=1, dashed=True, amp=0.05, over=0)
+    for row, zc in ((TOP_ROW, 41), (LOW_ROW, 17)):
+        for x, nm in zip(COLS, row):
+            if nm == "tab":
+                wob(ax, rounded([(x-3.5, zc-5), (x+3.5, zc-5), (x+3.5, zc+5), (x-3.5, zc+5)], [1.5]*4, per=3)[0],
+                    lw=1.2, closed=True, passes=1, amp=0.05)
+            elif nm == "lights":
+                for dx in (-4.5, 4.5): ax.plot(x+dx, zc, "o", ms=4, color=INK)
+            elif nm in ("HOLD", "FREE/\nSYNC"):
+                wob(ax, plane_circle(np.array([x, zc, 0.]), np.array([1, 0, 0]), np.array([0, 1, 0]), 3)[:, :2],
+                    lw=1.2, closed=True, passes=1, amp=0.04)
+            elif nm == "TAP":
+                wob(ax, plane_circle(np.array([x, zc, 0.]), np.array([1, 0, 0]), np.array([0, 1, 0]), 5)[:, :2],
+                    lw=1.3, closed=True, passes=1, amp=0.04)
+                wob(ax, plane_circle(np.array([x, zc, 0.]), np.array([1, 0, 0]), np.array([0, 1, 0]), 7.5)[:, :2],
+                    lw=0.8, color=SOFT, closed=True, passes=1, amp=0.04)
+            else:
+                wob(ax, plane_circle(np.array([x, zc, 0.]), np.array([1, 0, 0]), np.array([0, 1, 0]), 6.5)[:, :2],
+                    lw=1.3, closed=True, passes=1, amp=0.05)
+            nm2 = {"tab": "", "lights": "lights", "FREE/\nSYNC": "FREE/SYNC"}.get(nm, nm)
+            if nm2:
+                ax.text(x, zc - 8.5, nm2, fontsize=7, color=SOFT, ha="center", va="top", linespacing=0.9)
+
+
+def single_easel(path):
+    global B34
+    if B34 is None: B34 = scene_bounds()
+    fig = plt.figure(figsize=(9, 13.4), dpi=170, facecolor=PAPER)
+    fig.text(0.05, 0.977, "EASEL", fontsize=26, weight="bold", color=INK, va="top")
+    fig.text(0.05, 0.947, f"sketch · 280 × {EA_D:.0f} × {EA_TOP:.0f} mm · both faces 60° · one piece, no moving parts",
+             fontsize=13.5, color=SOFT, va="top")
+    a1 = fig.add_axes([0.03, 0.60, 0.94, 0.33]); setup(a1, END_XL, END_XR, END_ZB, END_ZT, flip=FLIP)
+    easel_end(a1)
+    label(a1, END_XR - 2, END_ZT - 4, "from the right end", size=12, color=SOFT, va="top", ha="right")
+    wob(a1, [(150, END_ZB + 6), (200, END_ZB + 6)], lw=1.4, passes=1, amp=0.05, over=0)
+    label(a1, 175, END_ZB + 12, "50 mm", size=10.5, color=SOFT, ha="center")
+    a2 = fig.add_axes([0.03, 0.20, 0.94, 0.40]); setup(a2, *B34)
+    easel_34(a2, CAM)
+    a2.text(B34[0] + 2, B34[3] - 4, "3/4, keyboard pushed up to the front", fontsize=12, color=SOFT,
+            va="top", ha="left")
+    a3 = fig.add_axes([0.06, 0.07, 0.88, 0.13]); setup(a3, -4, W + 4, -4, 62)
+    easel_face(a3)
+    a3.text(-4, 59, "the face, mirrored about its centre line (signal order left to right)", fontsize=11,
+            color=SOFT, va="bottom", ha="left")
+    fig.text(0.05, 0.045, "Packing: carry it plate-down against the keyboard (on SHOE); a printed slip cover is optional.",
+             fontsize=12.5, color=INK, va="top")
+    fig.text(0.05, 0.025, "Flicking an end switch slides it at ≈ 5 N: steady it with the other hand.",
+             fontsize=12.5, color=SOFT, va="top")
+    fig.savefig(path, facecolor=PAPER); plt.close(fig)
+
+
 # =============================================================== sheets
 CAM = Cam(-34, 24)
 END_XL, END_XR, END_ZB, END_ZT = -125, 245, -36, 128      # mm, end-view frame (u, z)
@@ -739,8 +930,8 @@ def compare(path):
     fig.text(0.03, 0.937, "one ground line, the same keyboard, the same scale: only the shape changes",
              fontsize=14, color=SOFT, va="top")
     cols = [("EASEL", easel_end, easel_34,
-             "280 × 79 × 80 mm · 60° · narrow and upright, but the\n"
-             "utilities on the right end slide it at ≈ 5 N"),
+             "280 × 79 × 81 mm · 60° · narrow and upright; face mirrored,\n"
+             "packs plate-down against the keyboard"),
             ("LOW GNOMON", lg_end, lg_34,
              "280 × 104 × 52 mm · ≈ 9.5° · the steadiest, zero parts,\n"
              "but no flat pose, and it reads close to SILL tilted")]
@@ -760,9 +951,7 @@ def compare(path):
 if __name__ == "__main__":
     import os
     here = os.path.dirname(os.path.abspath(__file__))
-    single("easel", easel_end, easel_34, "EASEL",
-           f"sketch · 280 × {EA_D:.0f} × {EA_TOP:.0f} mm · both faces 60° · utilities on the right end",
-           os.path.join(here, "..", "r2-easel", "sketch.png"))
+    single_easel(os.path.join(here, "..", "r2-easel", "sketch.png"))
     single("lowgnomon", lg_end, lg_34, "LOW GNOMON",
            "sketch · 280 × 104 × 52 mm · ≈ 9.5° by shape · base and back 90° · no moving parts",
            os.path.join(here, "..", "r2-lowgnomon", "sketch.png"))
