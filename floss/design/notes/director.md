@@ -598,3 +598,11 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Ruled:** h = T/2 (θ ≈ 9.2° at D 115), because "slightly" must read in a picture and he accepted ≈ 9.5° as subtle. **D 115** (E's margin back). **CHOCK** as a one-line variant and inset on the SILL sheet, not a concept.
 - **Expected objections:** "a slab with keyboard feet"; a printed hinge; losing the cheeks.
 - **Next:** visual draws the SILL sheet; then I score SILL (CHOCK as its variant), owner objections first.
+
+# Round 2: SILL scored 9 (2026-11-22)
+- **Why 9:** flat, it's CATHEDRAL's lid (soft slab, framed plate, end grain); it packs as the slab itself (280 × 115 × 35); one move gives ≈ 9.2° from h = T/2; the panel is identical in both states; nothing outside the outline; the load goes into the stop, not the hinge; every job supported. It's the calm, square, soft object his four GNOMON send-backs pointed toward.
+- **Hard on it:** it's conventional and the least distinctive concept today. Allowed, because it's the best answer to his own words. The real shape risk is the tilted end view's thin bar reading as a spindly leg; the option is printed bronze (the CATHEDRAL stay) if metal is acceptable.
+- **Objections:** the thin leg in side view; "a box with a flip foot"; the printed hinge / pin; the utility cluster on the plate.
+- **Handoff conditions:** E's net volume at D 115 (eng); a detent trial or magnets; owner answers (pin, SHOE, cast metal, end speakers); utilities layout.
+- **What blocked 9s today, for the record:** shape seen pose by pose (module, YOKE, DROP); ideas that live in section, not in the object (GNOMON rev 1); leftovers from adding parts (CASKET); and, after approval-level fine-tuning, drift from CATHEDRAL's softness and square faces. **Lesson: start every concept from CATHEDRAL's calm soft slab and add only what a job needs.**
+- **Next:** the owner. If approved: the handoff; I check it against his 17:58–19:23 words.
