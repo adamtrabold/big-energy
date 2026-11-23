@@ -625,3 +625,10 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **The comparison is now four columns:** SILL, CRADLE, PLINTH, EASEL. HANDLE is dropped.
 - **Owner decision, verbatim:** "Why would I have two mono speakers that’s stupid. Drop to one speaker". One driver in every concept, one grille on the axis; stereo on headphones/outputs. EASEL's stereo option is withdrawn. Eng re-picks the box (r3 option C ≈ 120 cm³ as the starting point; UNVERIFIED). The smaller box may shrink the forms.
 - Quick rulings: EASEL B (1:1.618, rounded top); slabs at D 105 with derived angles; EASEL's costs stated on the comparison trade line.
+
+# Round 2 comparison scored (2026-11-22)
+- **Scores:** EASEL 8 (fixable: driver into the foot firing through the front face, plate sized to the controls, r 17.5 corners); SILL 8 (lowered from 9 on his "more distinctive regardless"; unchanged work); PLINTH 7 (flat = SILL's block; replace); CRADLE 7 (flat looks like sofa arms or bookends, jacks on the front face, biggest; kill). **No 9s.**
+- **Rulings:** slab grille at the output end with utilities mirrored left (accepted); CRADLE rings on the pivot (accepted); darker plinth (accepted); EASEL corners r 8 → r 17.5.
+- **Recommendation:** send the comparison as a direction check with the scores shown (his explicit process request), or hold for the EASEL fix. The orchestrator's call; this deviates from "only 9s", on the owner's own words.
+- **Pattern:** distinctive ideas add a mechanism or leave dressed space; calm ones aren't distinctive. Target: a distinctive silhouette that is the structure, with no leftover (GNOMON did it; EASEL can, with the speaker in the foot).
+- **Next:** either the owner picks a direction from the comparison, or a systems + visual pass on the EASEL fix, then a re-score.

@@ -74,3 +74,41 @@ New direction, verbatim: "So one arrangement that can either be flat or slightly
   4. Carried over: the small utility cluster (power / TUNE / SPLIT) at the plate's top right. Note it as panel work for the handoff.
 - **Handoff conditions:** eng confirms E's net volume at D 115 after the ≈ 21 cm³ the recess and knuckles take; a detent trial (or magnets); owner answers on the pin, SHOE pads / underside hold, cast metal, and end speakers (SILL holds whatever the answers); the panel layout of the utilities is settled in the handoff, not the concept.
 - First score for this concept (new direction). **SILL goes to the owner**, with CHOCK as one line and the end-speaker question still open.
+
+## Round 2 comparison: SILL, CRADLE, PLINTH, EASEL (2026-11-22, director)
+Judged from `concepts/r2-compare.png` (the phone sheet he'll judge from), each concept's `sheet.png` and its md files. Owner signals used, verbatim: "I can only see one version how am I supposed to judge"; "I do wish it was more distinctive refardless"; "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; one speaker. EASEL replacing or joining flat-or-slightly-angled is still pending.
+
+**Rulings on visual's calls:**
+- **Slabs: grille at the output (right) end of the rear band, with power / TUNE / SPLIT mirrored at the left. Accepted.** The speaker is the end of the signal order, and the mirror keeps the face balanced. EASEL's centred grille is accepted too, because its face is one short band.
+- **CRADLE: cheek tops follow the tilted plate line, with the rings centred on the pivot. Accepted** (the rings say what the slab turns about).
+- **PLINTH darker (a second filament): accepted.** The colour comes from the spool, and it matches the sheet's legend ("dark = the part that makes the angle").
+- **EASEL plan corners r 8: change to the family's r 17.5** unless it fouls the end faces. The corner is the family face, and softness is what he keeps asking for.
+
+**Scores (on the idea):**
+- **EASEL: 8.** The most distinctive silhouette of the day: a tall soft triangle with end grain, CATHEDRAL's raised lid without the stay, and exactly his 20:46 ask (steep, narrow, a table on the go). Likely owner objections:
+  1. **The upper half of the face is empty**, a cream field with three lights. The plate is 100 long only because the driver needs depth behind it, and controls can't go high because a press would tip it. It's the old "leftover surface dressed" pattern, visible at a glance.
+  2. It tips forward at ≈ 1.5–2 N pulled at the top.
+  3. It's cramped: two low rows.
+  4. Packed with the keyboard on its back, it's the tallest bundle.
+  5. Not flat or slightly angled (pending whether it replaces that).
+
+  **Fixes to reach 9:**
+  1. Take the driver out of the plate, into the foot, firing forward through lancet slots in the low front face (the "predella"). Then size the plate to the controls (≈ 2 rows, ≈ 55–60 along the slope), so the triangle gets shorter and lower and the empty field disappears.
+  2. Restate the 1 : 1.618 footprint ratio on the new height, and the tip forces (lower and narrower; UNVERIFIED that the narrow foot still holds a top-row press).
+  3. Plan corners at r 17.5.
+  4. Eng: one ported box in the foot (option C, ≈ 120 cm³) and the port mouth staying at the rings' centre.
+- **SILL: 8 (was 9; the work didn't change except D 105 and one speaker).** Lowered by his word, not by new flaws: "more distinctive regardless" is now a known objection, so it can't be a 9. It stays the calm baseline column. It can't reach 9 without stopping being SILL.
+- **PLINTH: 7.** Its genuine plus: it packs *as* the angled pose, two moves from bag to sound, and lid-plus-base is CATHEDRAL's lineage. Likely objections: flat, it's SILL's plain block (visual's own note), so it isn't more distinctive where it matters; two pieces, and the plinth can stay home; tilted, it reads as a slab on a block. To reach 9 it would need a distinctive flat state, which a plain module can't have. **Replace rather than fix.**
+- **CRADLE: 7.** Tilted, it's one soft wedge (GNOMON's silhouette, distinctive and liked). Likely objections:
+  1. **Flat, the cheeks rise above the plate at both ends like sofa arms or bookends**, the read I set as its kill condition.
+  2. **The six jacks moved to the front face**, so cables come toward the player and keyboard.
+  3. It's the biggest and heaviest (306 × 117 × 54, 1.57 L).
+  4. A two-step move (push back 5 mm, lift onto the rail) on bought pins.
+
+  Cheek B (low cheeks) fixes 1 but goes back to SILL's plain block. It can't reach 9 without losing what makes it distinctive. **Kill.**
+
+**Which go to the owner:** **none is at 9.** But he has explicitly asked to judge options side by side at idea level, and he has said we over-design before he approves a concept. My recommendation to the orchestrator: **send the comparison sheet now as a direction check, labelled with these scores and one line each**: "EASEL is the most distinctive and what you asked for at 20:46; its fix is to move the speaker into the foot so the face is all controls. SILL is the calm baseline. PLINTH and CRADLE we'd drop, and why." Or hold for the EASEL fix first (one systems and visual pass). Sending is a deviation from "only 9s", made on his own process words; that's the orchestrator's call to make with him.
+
+**What keeps blocking a 9:** distinctive vs calm. Every distinctive idea today has either added a visible mechanism (CRADLE's cheeks, PLINTH's block) or left dressed space (EASEL's empty upper face, DROP's pipe, CASKET's lid). Every calm one has been called not distinctive (SILL). The way through is the one GNOMON showed: **a distinctive silhouette that is itself the structure**, with no leftover. EASEL is closest; its leftover is fixable.
+
+**Changed since my last score?** SILL: no (score lowered on his word, not raised). CRADLE, PLINTH, EASEL: first scores.
