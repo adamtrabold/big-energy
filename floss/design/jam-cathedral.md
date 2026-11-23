@@ -665,3 +665,65 @@ NEXT: design director — one base survives (SILL; TRIPTYCH and TURNING CHEEKS f
 **Likely objections already:** "a slab with keyboard feet" (conventional: fine if it's the best answer, and it's CATHEDRAL's lid); a hinge on a printed part (the load sits in the stop; the detent only for the bag); losing GNOMON's cheeks (the end grain and port mouth stay).
 
 NEXT: visual designer — one idea-level SILL sheet at the same scales as GNOMON rev 5: the end view flat and tilted (bar down, θ ≈ 9.2°), a 3/4 playing view tilted with the keyboard in front, a 3/4 flat, the underside showing the flush bar and finger notch (and the SHOE dock clear of it), packed (the slab alone, plus SHOE), and a small CHOCK inset.
+
+---
+
+## Round 2, turn 3: director steer, more concepts to compare (short)
+
+**Owner on SILL, verbatim:** "I can only see one version how am I supposed to judge". He's right: one concept gives him nothing to compare against. He gets **three concepts side by side, differing in principle**, all for "one arrangement that can either be flat or slightly angled".
+
+**Draws** (SystemRandom): **drawer**; **toolbox handle**; "**The inconsistency principle**". So the three concepts don't share a principle. Each answers the angle a different way:
+
+| | Principle | Pieces | Moving parts |
+|---|---|---|---|
+| **SILL** (scored 9) | a part *of the module* moves: a flush flip-down bar | 1 | 1 |
+| **PLINTH** (new) | a **second piece**, nothing moves | 2 | 0 |
+| **HANDLE** (BAIL revived, made flush) | **one part, two jobs**: the stand is also the carry handle | 1 | 1 |
+
+**PLINTH: CATHEDRAL's lid and base, reborn.** [drawer]
+- A separate printed **wedge base** with the module's own plan and soft corners. The module docks onto it by the S9 dovetail.
+- **Alone: flat. On the plinth: slightly angled.** The angle comes from the plinth's rear height (say T/2, as SILL).
+- The plinth's inside is a **drawer** for the cable and the C-to-A adapter, so it has a job even when you play flat.
+- A matching dovetail slot underneath takes SHOE, so packed it stacks **module / plinth / keyboard** as one bundle. The plinth becomes the family's "base" that joins every module to its keyboard.
+- **Costs:** two pieces; a wedge-shaped, thicker kit; it can be left at home (then it plays flat).
+
+**HANDLE: the toolbox handle that's also the stand.** [toolbox handle] Revives BAIL, killed earlier as an appendage, and only worth it if it's flush.
+- A U-shaped printed bail (printed metal if allowed) **lies flush in a groove** round the base's rear and ends, inside the outline. It pivots near the front of each end.
+- **Flush: flat. Swung down past the base: it props the back** (slight angle, from the arm length). **Swung up: a carry handle** for the park.
+- **Kill it if** it reads as an appendage at rest, if the groove fights the soft corners, or if the up position can hit the knobs.
+
+**Stay dead:** TRIPTYCH (two hinges), TURNING CHEEKS (eccentrics), CASKET (the lid 80 mm behind), the upright pose (his call).
+
+**Rules for all three:** CATHEDRAL's soft slab, the same as SILL's (n 5 corners, eased edges, framed plate, end grain); printed case; nothing outside the outline at rest or while playing; the panel identical in both states; the angle derived from a part, about 9°; the keyboard via SHOE / loose / band; the speaker on the plate until he answers on end speakers.
+
+**The deliverable he judges from:** **one comparison sheet, all three at the same scale, in columns**, with rows for:
+- the end view flat;
+- the end view tilted;
+- the 3/4 tilted with the keyboard;
+- packed;
+- one trade line each (pieces · moving parts · packed size · angle).
+
+Plus each concept's own idea-level sheet.
+
+NEXT: systems designer — structure PLINTH and HANDLE (angle from their parts, dovetail and drawer, pivot and groove inside the r 17.5 corners, handle clearance over the knobs, stability on a table, lap and grass, packed size, coverage), and kill either one if it can't stay simple. Then visual draws both, plus the comparison sheet.
+
+### Turn 3 amendment: "more distinctive" (owner follow-up)
+**Owner, verbatim:** "I do wish it was more distinctive refardless".
+- **SILL stays as the calm baseline column, not the answer.** The new concepts must be **clearly more distinctive in silhouette and in idea**.
+- His GNOMON send-backs still hold: calm, soft, square faces. **Distinctive ≠ busy.** It comes from **one strong move of form**, never from added detail.
+
+**Test for every concept:** recognisable from its **end silhouette alone at thumbnail size**, and unlike the other columns.
+
+**Revised line-up (2–4 for the comparison sheet):**
+1. **SILL:** the calm baseline. One optional distinctive touch, if cast or printed metal counts: the bar in bronze, so a single brass line shows at the rear edge (CATHEDRAL's stay).
+2. **CRADLE (new, lead): the instrument tilts within its own cheeks.** GNOMON's lineage, the most distinctive silhouette he's already warmed to.
+   - Two **end blocks** (cheeks), deeper than the slab and carrying the growth rings, sit flat on the table, joined low by a stretcher.
+   - The slab hangs between them on **trunnion pins at its front edge**. Level with the cheek tops = flat; rotated up ≈ 9° on a detent, the back rises above the cheeks = slightly angled. Like a cheval mirror or a piano's cheek blocks.
+   - One moving part (the slab itself), with nothing outside the outline. The panel is identical; the jacks and port live on the slab, so no wiring crosses the pivot.
+   - Kill if: the detent can't hold a knob press, or the cheeks read as bookends rather than one body.
+3. **PLINTH, sharpened for distinctiveness: the lid floating on its base.**
+   - Set the wedge plinth **in from the slab's outline with a deep shadow gap**, so in profile the soft slab appears to hover over a darker base: CATHEDRAL's lid and base, read in one glance.
+   - Everything else as above (second piece, cable drawer, S9 stack).
+4. **HANDLE: optional.** Only if the flush bail can be **a visible design line** (a printed-bronze arc round the rear and ends) rather than a hidden mechanism. Kill if it's neither simple nor distinctive.
+
+**NEXT unchanged in order:** systems structures CRADLE, PLINTH (and HANDLE if it survives) and kills what can't stay simple; then visual draws each sheet and the **one same-scale comparison sheet**; then I score all of them in one pass.

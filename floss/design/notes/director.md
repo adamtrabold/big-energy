@@ -606,3 +606,13 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Handoff conditions:** E's net volume at D 115 (eng); a detent trial or magnets; owner answers (pin, SHOE, cast metal, end speakers); utilities layout.
 - **What blocked 9s today, for the record:** shape seen pose by pose (module, YOKE, DROP); ideas that live in section, not in the object (GNOMON rev 1); leftovers from adding parts (CASKET); and, after approval-level fine-tuning, drift from CATHEDRAL's softness and square faces. **Lesson: start every concept from CATHEDRAL's calm soft slab and add only what a job needs.**
 - **Next:** the owner. If approved: the handoff; I check it against his 17:58–19:23 words.
+
+# Round 2 steer 3: three concepts to compare (2026-11-22)
+- **Owner, verbatim:** "I can only see one version how am I supposed to judge". **Calibration:** a 9 alone isn't judgeable. He needs 2–4 concepts that differ in principle, side by side at one scale. Don't send single concepts again.
+- **Draws:** drawer; toolbox handle; "The inconsistency principle". These give three different principles: SILL (a moving part of the module), PLINTH (a second piece; nothing moves; a cable drawer; stacks module / plinth / keyboard via S9), HANDLE (a flush bail, stand plus carry handle; kill if it reads as an appendage).
+- **Deliverable:** one same-scale comparison sheet (flat end, tilted end, tilted 3/4, packed, one trade line each) plus each concept's own sheet.
+- **Expected objections:** PLINTH, two pieces and a wedge-shaped kit; HANDLE, YOKE's appendage risk when up and a printed pivot; SILL, the thin leg in side view.
+- **Next:** systems structures PLINTH and HANDLE (kill if not simple); visual draws them and the comparison sheet; then I score all three in one pass, SILL re-judged beside them (no raise for unchanged work).
+- **Amendment, owner verbatim:** "I do wish it was more distinctive refardless". SILL is the calm baseline, not the answer. The new concepts must be clearly more distinctive in silhouette and idea, through one strong move of form, not detail (calm and soft still hold). Test: recognisable from the end silhouette at thumbnail size.
+- **Line-up:** SILL (baseline; optional bronze bar line); **CRADLE (lead: the slab tilts on front trunnions between flat-standing cheeks; GNOMON's lineage)**; PLINTH (the slab floating on an inset wedge base with a shadow gap); HANDLE optional (only as a visible bronze line, else kill).
+- **Calibration:** "conventional and the best answer" isn't enough for him. Distinctiveness is part of a 9. Re-judge SILL in the comparison; its 9 was on fit, and it's now marked down on distinctiveness by his word.
