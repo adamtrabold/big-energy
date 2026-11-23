@@ -179,3 +179,34 @@ Judged from the rev 2.4 `r2-easel/sketch.png` (right-end view, 3/4 with the keyb
 
 ## Process note (2026-11-23): owner sees every round
 Owner, 00:21, verbatim: "I want to try a riff on the standard design buds setting for this early stage concepting - rather than not see until 9 I want to see every round but with the directors score, opinion, and what they’d change". From round 3 on, each concept's score here starts with a short **Owner lines** block (score, opinion, what I'd change). A 9 still means "I'd defend it as is".
+
+## Round 3: EASEL, SILL, TRIANGLE, HULL (2026-11-23, director)
+Judged from `concepts/r3-sketches.png` (2 × 2, same scale), `r3-triangle/sketch.png`, systems' `r3-triangle/how-it-works.md` + `coverage.md` and `r3-hull/how-it-works.md`. **Owner, verbatim:** "I want options. Do one that’s a triangle too"; "The end view I’d not a triangle"; "I still want to see sketches of failed ideas in this design buds riff". Every option goes to him (00:21 process).
+
+**Owner lines** (also in `concepts/_src/r3_director.json`):
+- **EASEL: 9.** The steep, narrow one you asked for: CATHEDRAL's 60° lid standing on its own, with a calm mirrored face and the speaker in the front. I'd defend it as is. Change: 1. In the build, check the front slots don't dull the treble.
+- **SILL: 8.** The calmest: CATHEDRAL's soft slab with a flip-down bar for the slight angle. You said it isn't distinctive enough, and I agree. Change: 1. Nothing that keeps it SILL fixes that. It stays as the calm reference.
+- **TRIANGLE: 7.** A true triangle from the end, with the back square to the base as you like. But the controls sit low and the top third of the face is empty, and it's bigger than EASEL. Change: 1. Spread the controls over the whole face (3 rows) and narrow the body. 2. Keep the grille on the centre line. 3. Drop the equilateral version.
+- **HULL: killed.** A curved base that sits flat or tilts by shape alone. The physics says no: under 1 N of touch rocks it between poses, so it would need a click-stop. Change: 1. Nothing; it's dropped. 2. Its "finished top, plain foot" line could carry over to other options.
+
+**TRIANGLE (b), right triangle at 45°, 280 × 91 × 91: 7.** It's his exact ask (three faces), the vertical back is his 19:02 rule, base = back is a real ratio (the parts leave the angle free), and the grille on the axis keeps the face symmetric.
+- **Likely owner objections:**
+  1. **The empty upper plate.** The rows sit at z 36 / 48 and TAP at 69, and the plate runs ≈ 129 along the slope to the apex, so about the top third is blank. That's the same objection EASEL rev 1 drew, and it's visible at a glance in the 3/4. **Likely.**
+  2. Bigger than EASEL (91 × 91 vs 79 × 81) with no gain he asked for.
+  3. A prism / "Toblerone" read (possible).
+  4. The face isn't all controls (the grille).
+  5. TAP tips it back at ≈ 7 N.
+  6. Steep, so it's not flat or slightly angled. That's fine now: he wants options of both kinds.
+- **Fixes:**
+  1. Let the plate the driver forces carry the controls. Use 3 rows (for example 7 + 7 + 7, mirrored, with the grille on the axis between the half-groups), and narrow the body to suit (≈ 220–230 wide, systems to size). Restate the tip forces for the top row (presses ≈ 2–5 N must stay well under them).
+  2. Width then stops being tight (257 of 260).
+  3. Keep base = back.
+- **(a) equilateral, 108 × 94:** bigger and no clearer as a triangle. Drop it; don't redraw it. (Systems is right that it isn't "EASEL minus 37": the predella was the speaker's home.)
+
+**HULL: killed** (systems' physics). Two facets 9.5° apart leave a ≈ 3–4.5 mm stability window, and it rocks at ≈ 0.3–1.8 N (a lower-row press is ≈ 0.6 N). Holding a pose needs a detent, which meets my kill rule. Visual's possible mirrored-facet note doesn't change that. Shown to him as a failed idea, at his request.
+
+**EASEL** and **SILL:** unchanged work, scores held (EASEL's packing-caption fix is a text edit).
+
+**What keeps blocking a 9:** leftover face area, again. When a form is set by the driver rather than the controls (EASEL rev 1, now TRIANGLE), the plate grows past the controls and the empty field shows. The fix that worked for EASEL is to let the controls set the plate, or fill the plate the driver forces with the controls. The low slot is still open: HULL failed on physics, and no distinctive low one-piece answer exists yet.
+
+**Changed since the last score?** TRIANGLE and HULL: first scores. EASEL and SILL: no change.

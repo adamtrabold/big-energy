@@ -724,3 +724,11 @@ Distinctive vs calm. EASEL escaped through the pose. The low slot keeps convergi
 **SILL: 8**
 - Opinion: the calmest answer. CATHEDRAL's lid as a soft slab, with a bar that flips down for the slight angle. But you said it isn't distinctive enough, and I agree.
 - What I'd change: (1) nothing that keeps it SILL would make it more distinctive. It stays as the calm reference beside the new options.
+
+# Round 3 scored (2026-11-23)
+- **Owner, verbatim:** "I still want to see sketches of failed ideas in this design buds riff". Killed ideas go on the sheet with their owner lines.
+- **Scores:** EASEL 9 (held), SILL 8 (held), **TRIANGLE (b) 7**, HULL killed (rocks at 0.3–1.8 N; needs a detent). (a) equilateral dropped.
+- **TRIANGLE's main objection:** the empty upper third of the plate (leftover again). Fix: 3 mirrored rows with the grille on the axis, body narrowed (≈ 220–230), tip forces restated.
+- **Owner lines JSON:** `concepts/_src/r3_director.json`.
+- **Open:** the low slot has no distinctive one-piece answer (LOW GNOMON = SILL, HULL = physics). If he wants another low option, a new principle is needed (one moving or second part allowed, earning its place). Ask him rather than force one.
+- **Next:** the owner reacts to round 3. If TRIANGLE is liked, systems and visual do the 3-row fix and I re-score.

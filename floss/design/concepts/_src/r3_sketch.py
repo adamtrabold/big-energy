@@ -448,7 +448,7 @@ def compare(path):
                     ha="center", va="center", rotation=12, weight="bold", zorder=20)
         fig.text(cx + 0.01, cy - 0.318, trade, fontsize=13.5, color=INK, va="top", linespacing=1.35)
         # director block
-        bx, by, bw, bh = cx + 0.005, cy - 0.465, cw - 0.01, 0.1
+        bx, by, bw, bh = cx + 0.005, cy - 0.472, cw - 0.01, 0.107
         fig.patches.append(plt.Rectangle((bx, by), bw, bh, transform=fig.transFigure, fill=False,
                                          ec=SOFT, lw=1.2, ls=(0, (4, 3))))
         t = D.get(nm, ["[pending]", "[pending]", "[pending]"])
@@ -457,9 +457,10 @@ def compare(path):
         for k, v in lines:
             fig.text(bx + 0.008, yy, f"{k}: ", fontsize=13, weight="bold", color=INK, va="top")
             import textwrap
-            fig.text(bx + 0.008, yy - 0.0105, "\n".join(textwrap.wrap(v, 78)) or v, fontsize=12,
+            wl = textwrap.wrap(v, 78) or [v]
+            fig.text(bx + 0.008, yy - 0.0105, "\n".join(wl), fontsize=12,
                      color=INK if v != "[pending]" else SOFT, va="top", linespacing=1.2)
-            yy -= 0.031
+            yy -= 0.0105 + 0.0078 * len(wl) + 0.005
     # one scale bar
     a = fig.axes[0]
     wob(a, [(70, -22), (120, -22)], lw=1.4, passes=1, amp=0.05, over=0)
