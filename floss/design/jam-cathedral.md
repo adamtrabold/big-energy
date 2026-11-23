@@ -952,3 +952,69 @@ NEXT: design director — rule on EASEL rev 2.1's grown section and panel route,
 3. **Honest flag:** its outline is close to SILL tilted. I won't let detail manufacture distinctiveness (distinctive ≠ busy). If the sketch reads as SILL without the leg, it scores under 9.
 
 NEXT: visual designer — quick line sketches (the owner's new rule): EASEL (end view plus one 3/4 with the keyboard, showing the top utility band) and LOW GNOMON (end view plus one 3/4). Loose line work, few labels, same scale, no renders.
+
+---
+
+## Round 3 steer (director, 2026-11-23): four options, one sheet
+
+**Owner, verbatim:**
+- 00:09 "I want options. Do one that’s a triangle too"
+- 00:20 "The end view I’d not a triangle"
+
+**Read:**
+- EASEL doesn't replace flat-or-slightly-angled. He wants several options of both kinds.
+- Add one option whose end view is a **true triangle**: three faces, no front face (predella).
+
+**The set (3–4 options, one same-scale quick-sketch sheet):**
+1. **EASEL rev 2.4.** Anchor at 9, unchanged. Fix only the packing caption, which conflicts with SHOE in the base and puts the rim across the keys.
+2. **SILL.** The flat-and-slight anchor, as he's seen it, redrawn as a sketch at the same scale.
+3. **TRIANGLE (new).**
+4. **HULL (new).**
+
+**Draw (SystemRandom):** "Emphasize the flaws" × ceramic glazing. I used it for HULL below.
+
+### TRIANGLE: a true three-faced end view
+- **Faces:** plate, back and base only. Corners soft at the family radii, but never so soft that the end view stops reading as a triangle at thumbnail size.
+- **Which triangle: derived, not picked.** Systems sizes the smallest triangle that holds:
+  - the knob band (≈ 22 behind the plate);
+  - one driver plus its box;
+  - the cells and the boards;
+  - a first knob row high enough above the table edge for fingers.
+
+  Two rules go to the sheet, and only the winner is drawn:
+  - **(a) Equilateral:** EASEL's equal 60° pitches, with the predella removed.
+  - **(b) Right triangle with base ⟂ back:** his 19:02 words ("make the base and the back 90 degrees"), with the plate at whatever angle the parts give.
+
+  Visual picks the one that reads more clearly as a triangle and is more distinctive next to EASEL. If (a) comes out as EASEL minus 37 mm, say so plainly.
+- **What it costs (state each on the trade line):**
+  - **The lowest row rises.** With no front face the plate starts at the table, so the first row sits higher and the triangle grows. Give the size honestly.
+  - **The speaker needs a new home.** Compare on published data and recommend one:
+    - a grille in the plate (fires at the player; the face is no longer all controls; put it on the axis or at the output end, mirrored);
+    - an end face (his own earlier idea; off-axis, quieter; systems' earlier numbers);
+    - the back face (fires away from the player; weakest in a park).
+  - **The host USB-C** moves low on an end face, near the base and the front corner, so the cable can't pull it over. A face that's a foot carries nothing (job 34).
+  - Stability: press, pull at the apex, lap, grass. A front corner with no foot slides earlier.
+
+### HULL: distinctive and low; flat or slightly angled by shape
+- **The idea:** the underside is the character. A soft, rockered hull section with two flat facets about 9–10° apart. On one facet the plate is flat; rolled back onto the other it's slightly angled. One piece, zero parts, the panel identical in both poses.
+  - It would be the first low option to do both of his poses by shape alone, which is where the SILL family can't go.
+- **From the draw:** "emphasize the flaws" means the curve that makes it rock is shown, not hidden. From ceramics: the **glaze line**. The plate and the upper walls are the finished top, the hull underneath is the plain foot, and one clear line runs between them, like the unglazed foot of a pot. That line is structure (the shell's split line), not decoration.
+- **Systems must show, or kill it:**
+  - each facet wide enough that the centre of mass sits well inside it in both poses;
+  - knob presses (and a palm on the front edge) don't rock it from one pose to the other;
+  - the move is a deliberate roll, not an accident;
+  - where the driver, cells and box sit in the deepest part of the hull;
+  - ports reachable in both poses (job 34);
+  - the angle derived from a part, never picked.
+
+  **If it rocks under a top-row press, or needs a detent, kill it and say why.**
+- **Shape risk:** round masses have landed as household objects before (DROP was a hair dryer). The hull must stay a slab above the glaze line: CATHEDRAL's calm block with a shaped foot, not a pebble or a boat. Judge it from the 3/4 first.
+
+### Sheet rules
+- One sheet, four columns, at the same scale.
+- Per option: the end view (both poses where it has two) and one 3/4 with the keyboard.
+- One trade line each: pieces, moving parts, size, angle, the one thing to watch.
+- Quick line sketches, few labels, no renders.
+- Each new option gets its own sketch plus how-it-works, how-it-looks-and-feels and coverage files, at idea level.
+
+NEXT: product designer (systems). Size TRIANGLE (a) vs (b), speaker home and port, stability. Check HULL's facets and its rocking, or kill it. Then visual draws the four-column sheet. Then I score all four in one pass.

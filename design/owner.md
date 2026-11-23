@@ -705,3 +705,8 @@ Recorded as: he wants **several options to choose from**, not one. EASEL doesn't
 > The end view I’d not a triangle
 
 Recorded as: EASEL's end view isn't a true triangle (its 37 mm front face cuts it). He wants an option whose **end view is a true triangle**, alongside the others.
+
+## 2026-11-23 00:21 (chat): process change for early concepting
+> I want to try a riff on the standard design buds setting for this early stage concepting - rather than not see until 9 I want to see every round but with the directors score, opinion, and what they’d change
+
+Recorded as: during early concepting, **Adam sees every round's concepts**, whatever the score, each with **the director's score, opinion and what the director would change**. Replaces design-buds' "only 9s reach the owner" for this stage. (Offered to add it to CLAUDE.md so it persists.)

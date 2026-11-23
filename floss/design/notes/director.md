@@ -696,3 +696,13 @@ Distinctive vs calm. EASEL escaped through the pose. The low slot keeps convergi
 - **Caption fix before sending:** "plate-down on SHOE" conflicts with SHOE in the base and puts the rim across the keys (job 3). Reword it.
 - **Handoff conditions:** the eng low-pass model and listening print, the driver basket vs the 37 predella, the pocket parts, TPU strips, the tab order, SHOE pending.
 - **Next:** the orchestrator sends EASEL with SILL's column and the one question (replace or join). Join → a short jam for one distinctive low concept (HULL as one possibility); LOW GNOMON is not shown. Approved alone → the handoff, which I check against his 20:46 and 23:50 words.
+
+# Round 3 steer (2026-11-23)
+- **Owner, verbatim:**
+  - 00:09 "I want options. Do one that’s a triangle too"
+  - 00:20 "The end view I’d not a triangle"
+- **Calibration:** EASEL joins, it doesn't replace. He wants several options of both kinds every time, plus a true three-faced triangle.
+- **Set:** EASEL (9, anchor; caption fix only), SILL (anchor), TRIANGLE (new), HULL (new). One same-scale four-column sketch sheet.
+- **TRIANGLE:** derived. (a) equilateral vs (b) base ⟂ back. Visual draws the one that reads more clearly as a triangle and differs more from EASEL. Costs: the lowest row rises; the speaker moves to the plate, an end or the back (systems recommends one); the host port goes low on an end.
+- **HULL:** a rockered underside with two facets ≈ 9–10° apart, flat and slight by shape, zero parts. Draw "Emphasize the flaws" × ceramic glazing → the curve is shown, with a glaze line between the slab top and the hull foot. Kill it if a press rocks it or it needs a detent. Watch the round-mass trap; judge it from the 3/4.
+- **Next:** systems, then visual, then I score all four in one pass.
