@@ -497,3 +497,16 @@
 **Updated:** c-gnomon/how-it-works.md rev 3; coverage.md (jobs 30, 32; verdicts unchanged); jobs.md row 30 detail.
 **Director's calls:** tan φ = T/2D as the derivation; losing exact 2T on the rear face.
 **Next:** the visual designer redraws the end view, the upright view and the two-poses view; the director re-scores.
+
+### 2026-11-22 GNOMON rev 4: back square to the base (systems)
+**Owner, verbatim:** "I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat". Read as: in the playing pose (on the runners) the back is vertical.
+**Geometry [calc]:**
+- θ unchanged (tan θ = T/D ≈ 18.4° / 16.9°); the corner behind the speakers is 90° − θ ≈ 71.6°.
+- **Upright lean = θ ≈ 18.4°** (rev 3's tan φ = T/2D is dropped; one angle, two poses).
+- Rear face = back height ≈ 66.4 / 67.0.
+- Playing footprint 88.5 / 99.8 (rev 3: 99 / 110); overall ≈ 100 / 110 × 66.
+- Upright top edge ≈ 100 / 110.
+- **Upright:** pull 2.52 N (rev 3: 1.89; rev 2: 1.27); presses 3.9 (top row) / 5.1 (lower row); tip angles ≈ 37° forward / 39° back, balanced. Grass ≈ 4.4 kPa angled.
+- **Stretcher moved forward to y ≈ 15–75** (≈ 13.5 mm clear of the back at D 105; at y 20–80 it would be 8.5).
+**Updated:** c-gnomon/how-it-works.md rev 4; coverage.md (jobs 30, 32; verdicts unchanged); jobs.md row 30 detail.
+**Next:** the visual designer redraws the end view, the upright view and the two-poses view; the director re-scores.
