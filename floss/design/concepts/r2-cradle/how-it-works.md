@@ -74,3 +74,10 @@ The rail's seat height is T/2. θ is whatever angle puts the slab's rear-bottom 
 - Port elbow.
 - Front-face connector fit at r ≤ 12.
 - Wedge-tenon tolerance.
+
+## One speaker (owner 20:46: "Drop to one speaker")
+- **The box:** one TEBM28 ported, eng's C: ≈ 120 cm³ net, port Ø 12 × 155, in place of E's 190. It takes ≈ ⅓–½ of the rear region behind the knob rows. **D 105 now holds comfortably**, so CRADLE is **306 × 117** (cheek A 35 → 52.5; θ ≈ 10.3° by the same T/2 rule) [calc]. UNVERIFIED (eng re-picks the driver and box).
+- **Going below ≈ 103 deep** would need the grille beside the knob rows rather than behind them. That's a panel change (visual and director).
+- **The grille:** one, on the axis.
+- **The cells** can come back beside the box.
+- **The port:** the rear-face mouth (now Ø 12) still needs the elbow.

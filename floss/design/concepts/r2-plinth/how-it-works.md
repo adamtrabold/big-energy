@@ -67,3 +67,9 @@ The plinth is an S9 part on both faces (a tongue on top, a dock below). **One pl
 - Dovetail tolerances (trial).
 - Drawer catch feel.
 - The coiled cable's real thickness.
+
+## One speaker (owner 20:46: "Drop to one speaker")
+- **The box:** one TEBM28 ported, eng's C: ≈ 120 cm³, port Ø 12 × 155. **D 105 holds comfortably** [calc; UNVERIFIED, eng re-picks].
+- **New sizes:** the module 280 × 105 × 35; the plinth 260 × 85, 11.7 → 26.1; θ = asin(T/2 ÷ 105) ≈ 9.6°. Bundle ≈ 280 × 110 × 45 / 62.
+- **Going below ≈ 103 deep** needs the grille beside the knob rows (a panel change).
+- **The grille:** one, on the axis.

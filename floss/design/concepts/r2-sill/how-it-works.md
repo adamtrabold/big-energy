@@ -78,3 +78,6 @@ CATHEDRAL's lid lying down, with one flush bar in its base. Flat, it's a calm sl
 - detent fatigue in ASA / PETG;
 - knuckle clearance and wobble;
 - the bar's stiffness over 280 mm under ≈ 0.4 kg (a 4 mm printed bar on its edge is very stiff in that direction [est]).
+
+## One speaker (owner 20:46)
+D 115 was ruled for E's margin. With one TEBM28 ported (eng's C, ≈ 120 cm³), SILL's recess plus knuckles (≈ 21 cm³) fit at **D 105**: θ = asin(17.5 / 100) ≈ 10.1°, packed 280 × 105 × 35. That's the director's call; UNVERIFIED (eng re-picks). One grille, on the axis.

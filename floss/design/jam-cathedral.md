@@ -813,3 +813,62 @@ NEXT: systems designer (fresh) — structure EASEL: the 60° derivation, tip-bac
 - **floss has one driver.** Stereo is on the headphones and outputs only, so EASEL's stereo end-driver option above is **withdrawn**.
 - Every concept shows **one** lancet grille. Put it on the axis, the panel's one centred element (PRINCIPLES §6: no arbitrary off-centre element), unless the panel's signal order puts it at the output end.
 - Box volume and position for one driver are eng's to re-pick (option C in r3 was one TEBM28 ported at ≈ 120 cm³; UNVERIFIED for the new forms). A smaller box may also let EASEL's foot or SILL's depth shrink. Systems: say so where it does.
+
+---
+
+## Round 2, turn 5: product designer (systems focus): EASEL structured; one-speaker effects
+
+Owner 20:46, verbatim: "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; "Why would I have two mono speakers that’s stupid. Drop to one speaker". [calc] = mine; mass ≈ 0.66 kg and the COM are ESTIMATES. Randomness (`secrets`): "bookends". File: `concepts/r2-easel/`.
+
+### 1. EASEL: **survives, honestly costed.**
+- **60°:** CATHEDRAL's lid angle, and "at least" means not less.
+- **Plate L ≈ 100 is set by the one driver.** TEBM28's 24 mm depth plus air needs ≈ 30 behind the plate over the magnet, and in this section that band first exists at L ≈ 95.
+- **Shape:** front face 12 (host port), back 98.6, vertical.
+- **Footprint:**
+  - **A**, the director's "half the face", F = 50: a 30-60-90 section with a 30° apex.
+  - **B**, foot : height = 1 : φ, F ≈ 61: a soft flat roof at the apex, and the cells lie flat on the floor at the back.
+  - **I recommend B.** It's steadier, and only a B apex can actually be rounded (a 30° apex with an r 8 round loses ≈ 23 mm).
+- **Inside:**
+  - eng's C box (one TEBM28 ported, ≈ 120 cm³, Ø 12 × 155; UNVERIFIED here) low behind the centre, with the one grille on the axis;
+  - port mouth on the left end, jacks in two rows on the right end, host on the front face;
+  - four boards (two pot boards beside the box, two vertical in the bays): more build steps than the slab.
+- **Stability, pressing square to the plate:**
+
+  | Control height | A tips back at | B tips back at |
+  |---|---|---|
+  | s 20 | 17 N | 70 N |
+  | s 40 (top row) | 4.6 N | 7.5 N |
+  | s 60 | 2.6 N | 4.0 N |
+
+  - **Controls must stay in the lower ≈ 45 mm of the plate.** The thin upper plate carries only the lights.
+  - A pull toward you at the ridge tips it forward at **≈ 1.5–2 N on every version**; a wider foot barely helps.
+  - A palm on top steadies it.
+  - Plugging in at the end or the front face is safe.
+- **What narrow costs:**
+  - the controls stay low;
+  - B is 11 mm wider than A, though still about half of SILL's depth;
+  - the lap is the weak case;
+  - grass is fine if the ground is firm.
+- **Packing:** a prism 280 × 61 × 98.6 ≈ 1.08 L, the smallest volume of the four. SHOE docks on the vertical back face (sliding down). The plate faces out (job 33, weakest).
+- **Coverage:** every job except **32 as rev 6 words it** (EASEL is steep, not flat / slight). That's a scope question for the owner, since 20:46 asked for it. A rev 7 wording is proposed in `r2-easel/coverage.md`, not applied.
+
+### 2. One speaker: what it changes elsewhere
+- **The box:** eng's C (≈ 120 cm³) replaces E (190) and takes ≈ ⅓–½ of a slab's rear region. **D 105 now holds comfortably for SILL, CRADLE and PLINTH.**
+  - SILL: θ ≈ 10.1°, packed 280 × 105 × 35.
+  - CRADLE: 306 × 117, θ ≈ 10.3°.
+  - PLINTH: 260 × 85 plinth, θ ≈ 9.6°.
+  - Added to each how-it-works. UNVERIFIED (eng re-picks).
+- **Below ≈ 103** a slab would need the grille beside the knob rows rather than behind them. That's a panel change for visual and the director.
+- **The cells** can return beside the box.
+
+### 3. Comparison-sheet line for EASEL
+| | Pieces | Moving | Packed | Angle | Footprint |
+|---|---|---|---|---|---|
+| EASEL (B) | 1 | 0 | 280 × 61 × 98.6, 1.08 L | 60° | 280 × 61 |
+
+Director's calls:
+- A or B;
+- D 105 for all slabs now (one speaker);
+- the job 32 scope question goes to the owner with the sheet.
+
+NEXT: visual designer — add EASEL (B, with A's outline as a small inset) as the fourth column of the same-scale comparison sheet, controls in the plate's lower ≈ 45 mm around the one centred grille. Redraw the slabs at D 105 if the director rules it. Then the director scores all four.

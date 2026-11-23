@@ -583,3 +583,24 @@ jobs.md is unchanged (rev 6 still fits).
 - **Owner (with the sheet):** which column; is a pin "stuff"; is a second piece OK; SHOE / loose; end speakers (CRADLE's cheeks would cover them).
 
 **Next:** visual draws CRADLE (A, with B as an inset), PLINTH and the same-scale comparison sheet. The director scores all three. I re-check coverage against the sheets for any 9+.
+
+### 2026-11-22 round 2, turn 5: EASEL + one speaker (systems)
+**Owner 20:46:** "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; "Why would I have two mono speakers that’s stupid. Drop to one speaker" (REQUIREMENTS updated by the coordinator). **Director turn 4:** EASEL as the fourth column (60°, triangular ends, narrowest footprint); stereo end drivers withdrawn; one grille on the axis.
+
+**EASEL** (`concepts/r2-easel/`) [calc; mass 0.66 kg and COM ESTIMATES]:
+- **Geometry:** 60° from CATHEDRAL; plate L ≈ 100 set by the driver (≈ 30 depth over the magnet; it first fits at L ≈ 95); front face 12; back 98.6.
+- **Footprint:** A F = 50 ("half the face") or **B F ≈ 61 (foot : height 1 : φ), recommended** (cells flat on the floor; a roundable apex).
+- **Tip-back, pressing square to the plate:** at s 40, A 4.6 N / B 7.5 N; at s 60, 2.6 / 4.0. So the controls go in the lower ≈ 45 mm and the upper plate carries lights only.
+- **Pull at the ridge:** ≈ 1.5–2 N forward on every version.
+- **Inside:** C box low-centre; port on the left end; jacks two rows on the right end; host on the front face; four boards.
+- **Packed and coverage:** packed 1.08 L; SHOE on the back face. Coverage: all jobs except 32 as worded (scope question for the owner; rev 7 wording proposed, not applied).
+- **Randomness:** "bookends" → cells low and back.
+
+**One speaker:** C box ≈ 120 cm³, so D 105 now fits SILL, CRADLE and PLINTH (notes added to each how-it-works: SILL θ 10.1°, CRADLE 306 × 117 / 10.3°, PLINTH plinth 260 × 85 / 9.6°). Below ≈ 103 needs the grille beside the rows (panel).
+
+**Open:**
+- **Director:** A or B; D 105 for all slabs; job 32 scope.
+- **Eng:** re-pick the single driver and box; C in the triangle; the magnet size; four boards; tact-switch forces.
+- **Owner:** does EASEL replace or join flat-or-slightly-angled.
+
+**Next:** visual adds EASEL to the comparison sheet; the director scores the four; I re-check coverage against the sheets.
