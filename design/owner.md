@@ -695,3 +695,8 @@ Recorded as: a question; answered yes. From now on idea-level concepts are shown
 > Face or edge imo
 
 Recorded as: power, TUNE and MIDI SPLIT go **on the face or on an edge**, not the back face. (Face = the slim top band, ≈84 deep; edge = an end face or the top edge, if one fits.) Team to pick and show.
+
+## 2026-11-23 00:09 (chat)
+> I want options. Do one that’s a triangle too
+
+Recorded as: he wants **several options to choose from**, not one. EASEL doesn't replace flat-or-slightly-angled; options of both kinds come to him. Plus "one that's a triangle too" (asked what he means, since EASEL's section is already a triangle).
