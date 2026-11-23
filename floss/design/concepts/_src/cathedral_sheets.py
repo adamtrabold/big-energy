@@ -6,7 +6,7 @@ import math
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Polygon, Circle, Ellipse, PathPatch, FancyBboxPatch, Rectangle
+from matplotlib.patches import Polygon, Circle, Ellipse, PathPatch, FancyBboxPatch, Rectangle, Wedge
 from matplotlib.path import Path
 plt.rcParams["font.family"] = "Inter"
 
@@ -688,6 +688,217 @@ def sheet_gnomon(path):
     scc.draw(axr)
     axr.text(0.0, -0.06, f"GNOMON (3:4): same n 5 curve, r {RPLAN:.1f} = T/2,\nplate r {RPLATE:.0f}, every edge rolled {ROLL:.0f}",
              transform=axr.transAxes, fontsize=14, color=INK, va="top")
+    save(fig, path)
+    FIG_H = old_h
+
+# ======================= SILL (round 2) =======================
+def sheet_sill(path):
+    """SILL: GNOMON rev 5's slab lying flat; a full-width printed bar, flush in the rear of the base, flips down to tilt it.
+    Director round 2: h = T/2 = 17.5, D 115, theta = asin(h / (D - 5)) ~ 9.2 deg. CHOCK as a small inset."""
+    global FIG_H, LIGHT
+    old_h = FIG_H; FIG_H = 27.0
+    W = 280.0; T = 35.0; D = 115.0; H = T/2; BAR_T = 3.5
+    TH = math.asin(H/(D-5))
+    RPLAN = T/2; ROLL = 3.0; RPLATE = 10.0
+    QS = [(0, 0), (D, 0), (D, T), (0, T)]
+    RAD = [3, 3, 6, 8]
+    port0 = (78.0, 17.5)
+    jk0 = [(32 + i*9, 17.5, k) for i, k in enumerate(["j", "j", "j", "j", "usb"])]
+
+    def section(d):
+        pl = squircle_delta(d, RPLAN); rl = roll_delta(d, ROLL)
+        return fillet_radii(offset_edges(QS, [rl, pl+rl, rl, pl+rl]), RAD, n=8)
+    def make_tf(th):
+        c, s_ = math.cos(th), math.sin(th)
+        return lambda p: (p[0]*c - p[1]*s_, p[0]*s_ + p[1]*c)
+    prof_flat = ccw(section(100.0))      # the silhouette (mid-length section)
+    face_flat = ccw(section(0.0))        # the flat end face itself
+
+    def mesh(L, cam, tf, col, cap0=None, cap1=None):
+        xs = set()
+        for dd in [0, 0.4, 1.0, 1.8, 3.0, 4.5, 6.5, 9.0, 12.0, 15.0, RPLAN]:
+            xs.add(dd); xs.add(W-dd)
+        xs = sorted(xs)
+        secs = [ccw([tf(p) for p in section(min(x, W-x))]) for x in xs]
+        cyz = [sum(v[i] for v in secs[len(secs)//2])/len(secs[0]) for i in (0, 1)]
+        for k in range(len(xs)-1):
+            A, B = secs[k], secs[k+1]; m = len(A)
+            for i in range(m):
+                P0 = (xs[k], *A[i]); P1 = (xs[k], *A[(i+1) % m]); P2 = (xs[k+1], *B[(i+1) % m]); P3 = (xs[k+1], *B[i])
+                u_ = [P2[j]-P0[j] for j in range(3)]; v_ = [P3[j]-P1[j] for j in range(3)]
+                nn = (u_[1]*v_[2]-u_[2]*v_[1], u_[2]*v_[0]-u_[0]*v_[2], u_[0]*v_[1]-u_[1]*v_[0])
+                ln = math.sqrt(sum(c*c for c in nn)) or 1; nn = tuple(c/ln for c in nn)
+                qc = [(P0[j]+P1[j]+P2[j]+P3[j])/4 for j in range(3)]
+                out = (qc[1]-cyz[0])*nn[1] + (qc[2]-cyz[1])*nn[2] + ((qc[0]-W/2)*nn[0] if abs(nn[0]) > 0.7 else 0)
+                if out < 0: nn = tuple(-c for c in nn)
+                add_face(L, cam, [P0, P1, P2, P3], nn, col)
+        add_face(L, cam, [(xs[0], y, z) for y, z in secs[0][::-1]], (-1.0, 0.0, 0.0), col, extra=cap0)
+        add_face(L, cam, [(xs[-1], y, z) for y, z in secs[-1]], (1.0, 0.0, 0.0), col, extra=cap1)
+
+    def rings_on(ax, cam, x, tf, patch):
+        port = tf(port0); prof = [tf(p) for p in prof_flat]
+        rmax = max(math.hypot(y-port[0], z-port[1]) for y, z in prof); r = 12.5
+        while r < rmax:
+            pts = [cam.p((x, port[0]+r*math.cos(t), port[1]+r*math.sin(t))) for t in [2*math.pi*k/90 for k in range(91)]]
+            ax.plot([q[0] for q in pts], [q[1] for q in pts], color=WALD, lw=0.5, clip_path=patch)
+            r += 6.0*(1 + 0.035*(r/10))
+    def cap_left(tf):
+        def extra(ax, cam, patch):
+            rings_on(ax, cam, 0, tf, patch)
+            port = tf(port0)
+            pts = [cam.p((0, port[0]+8*math.cos(t), port[1]+8*math.sin(t))) for t in [2*math.pi*k/40 for k in range(40)]]
+            ax.add_patch(Polygon(pts, closed=True, fc=(0.10, 0.07, 0.05), ec="none"))
+            pts = [cam.p((0, port[0]+10.5*math.cos(t), port[1]+10.5*math.sin(t))) for t in [2*math.pi*k/60 for k in range(61)]]
+            ax.plot([q[0] for q in pts], [q[1] for q in pts], color=(0.20, 0.12, 0.06), lw=0.9)
+        return extra
+    def cap_right(tf):
+        def extra(ax, cam, patch):
+            rings_on(ax, cam, W, tf, patch)
+            for y, z, k in jk0:
+                yy, zz = tf((y, z))
+                if k == "j":
+                    pts = [cam.p((W+0.3, yy+3.2*math.cos(t), zz+3.2*math.sin(t))) for t in [2*math.pi*q/24 for q in range(24)]]
+                else:
+                    pts = [cam.p((W+0.3, yy+dy, zz+dz)) for dy, dz in ((-4.5, -2), (4.5, -2), (4.5, 2), (-4.5, 2))]
+                ax.add_patch(Polygon(pts, closed=True, fc=(0.09, 0.08, 0.07), ec="none"))
+        return extra
+
+    xs1 = [24 + i*(W-48)/9 for i in range(10)]; xs2 = [24 + (i+0.5)*(W-48)/9 for i in range(9)]
+    def squircle_field(L, cam, P, n, s0, s1, t0, t1, r, lift=0.3, N=10):
+        pts = []
+        for (cs, ct), a0 in [((s1-r, t1-r), 0), ((s0+r, t1-r), 90), ((s0+r, t0+r), 180), ((s1-r, t0+r), 270)]:
+            for k in range(N+1):
+                t = math.radians(a0 + 90*k/N); c, s_ = math.cos(t), math.sin(t)
+                pts.append(P(cs + r*abs(c)**0.4*(1 if c >= 0 else -1), ct + r*abs(s_)**0.4*(1 if s_ >= 0 else -1), lift))
+        add_face(L, cam, pts, n, CREAM, ec=(0.80, 0.76, 0.69))
+
+    def bar_pts(th):
+        """the flipped bar in section: from the hinge at the rear-bottom edge straight down to the table, foot a touch behind."""
+        tf = make_tf(th); hx, hz = tf((D-2.5, 0.0))
+        return [(hx-BAR_T/2, hz), (hx+BAR_T/2, hz), (hx+BAR_T/2+0.8, 0.0), (hx-BAR_T/2+0.8, 0.0)]
+
+    def build(sc, cam, th=0.0, kb_front=False, packed=False):
+        tf = make_tf(th)
+        if packed: keyboard(sc, cam, W/2-KB_W/2, 12, z0=-KB_H, keys_up=False)
+        if th > 0:
+            Lb = sc.layer(); bp = bar_pts(th)
+            extrude(Lb, cam, [(y, z) for y, z in bp], 22, W-22, (0.36, 0.23, 0.14), ec=WALD)
+        L = sc.layer(); mesh(L, cam, tf, WAL, cap0=cap_left(tf), cap1=cap_right(tf))
+        P, n = plate_frame(tf((0, T)), th, W)
+        L2 = sc.layer(); squircle_field(L2, cam, P, n, 8, W-8, 9, D-8, RPLATE)
+        L3 = sc.layer()
+        for xc in (W*0.36, W*0.64): lancet_window(L3, cam, P, n, xc, 80, lw=1.3)
+        add_line(L3, cam, [P(40, 4.6, 0.4), P(W-40, 4.6, 0.4)], CREAM, 0.8)
+        for i in range(21):
+            sx = 40 + i*(W-80)/20
+            add_line(L3, cam, [P(sx, 3.4, 0.4), P(sx, 5.8, 0.4)], CREAM, 0.8 if i % 5 else 1.4)
+        L4 = sc.layer()
+        for x in xs1: knob(L4, cam, P, n, x, 24)
+        for i, x in enumerate(xs2): knob(L4, cam, P, n, x, 46, col=RED if i == 4 else BLACK)
+        knob(L4, cam, P, n, 222, 92, col=(0.62, 0.62, 0.60), d=4.5, h=6)
+        knob(L4, cam, P, n, 236, 92, col=BLACK, d=7, h=5)
+        knob(L4, cam, P, n, 250, 92, col=(0.62, 0.62, 0.60), d=4.5, h=6)
+        if kb_front: keyboard(sc, cam, W/2-KB_W/2, -KB_D-60)
+
+    th_deg = math.degrees(TH)
+    tfT = make_tf(TH)
+    tilted = ccw([tfT(p) for p in prof_flat])
+    zmin = min(z for y, z in tilted)
+    depth_t = max(y for y, z in tilted) - min(y for y, z in tilted)
+    hgt_t = max(z for y, z in tilted) - zmin
+    fig = new_sheet("SILL · the lid lying down, with a sill",
+                    "GNOMON's slab, CATHEDRAL's lid, sitting flat. A full-width printed bar lies flush in the rear of the base; "
+                    "flip it down with a fingertip and the back lifts slightly. The panel is the same in both.",
+                    f"280 × 115 × 35 mm flat · ≈ {th_deg:.1f}° tilted (bar down) · one moving part",
+                    scales="end view 3:2, 3/4 views and underside 1:2")
+    # 1. end view: flat above, tilted below
+    box_mm = (14, 395, 328, 190)
+    heading(fig, box_mm, "1  End view (3:2): flat, and tilted on its bar")
+    ax = axes_mm(fig, box_mm, 1.5, (100, 50))
+    def end_face(dz, tf, bar):
+        prof = [tf(p) for p in prof_flat]; face = [tf(p) for p in face_flat]
+        z0 = min(z for y, z in prof)
+        sh = lambda pts: [(y, z - z0 + dz) for y, z in pts]
+        if bar:
+            ax.add_patch(Polygon([(y, max(z - z0 + dz, dz)) for y, z in bar_pts(TH)], closed=True, fc=(0.30, 0.19, 0.11), ec=WALD, lw=1.2))
+        poly = Polygon(sh(prof), closed=True, fc=(0.47, 0.31, 0.19), ec=WALD, lw=2.0); ax.add_patch(poly)
+        fl = Polygon(sh(face), closed=True, fc=WAL, ec=(0.55, 0.38, 0.24), lw=1.0); ax.add_patch(fl)
+        port = sh([tf(port0)])[0]
+        rmax = 120; r = 12.5
+        while r < rmax:
+            ax.add_patch(Circle(port, r, fc="none", ec=WALD, lw=0.7, clip_path=fl)); r += 6.0*(1 + 0.035*(r/10))
+        ax.add_patch(Circle(port, 8, fc=(0.10, 0.07, 0.05), ec="none"))
+        ax.add_patch(Circle(port, 10.5, fc="none", ec=(0.20, 0.12, 0.06), lw=1.2))
+        ax.plot([-8, 135], [dz, dz], color=GREY, lw=1.2)
+        return sh, port
+    sh0, p0 = end_face(68, make_tf(0), False)
+    rec = [(D-2-H, 0.2), (D-2, 0.2), (D-2, BAR_T), (D-2-H, BAR_T)]
+    ax.add_patch(Polygon([(y, z+68) for y, z in rec], closed=True, fc=(0.30, 0.19, 0.11), ec="none"))
+    ax.add_patch(Rectangle((8, 66.4), 12, 1.6, fc=TPU, ec="none"))
+    sh1, p1 = end_face(0, tfT, True)
+    ax.add_patch(Rectangle((1, -1.6), 12, 1.6, fc=TPU, ec="none"))
+    leader(ax, (D-10, 69.8), "the bar, flush in its recess", (140, 74))
+    leader(ax, (p0[0]+5, p0[1]+5), "port: grooves, the heart\nof the end grain", (140, 94))
+    bp = bar_pts(TH)
+    leader(ax, (bp[1][0], bp[1][1]/2), f"bar down: h = T/2 = 17.5\n→ ≈ {th_deg:.1f}°", (140, 14))
+    leader(ax, (60, 32), "panel the same,\nonly the slope changes", (140, 40))
+    ax.text(-6, 108, "flat", fontsize=SML, color=INK, weight="bold")
+    ax.text(-6, 58, "tilted", fontsize=SML, color=INK, weight="bold")
+    scale_bar(ax, 140, -2, 50, "50 mm (at 3:2)")
+    # 2. tilted 3/4 with keyboard
+    cam = Cam(40, 22); sc = Scene(cam); build(sc, cam, th=TH, kb_front=True)
+    box_mm = (14, 290, 328, 96)
+    heading(fig, box_mm, "2  Tilted (1:2), the keyboard in front")
+    cpt = cam.p((W/2, -45, 20)); ax = axes_mm(fig, box_mm, 0.5, (cpt[0]+8, cpt[1]+10)); sc.draw(ax)
+    # 3. flat 3/4
+    camf = Cam(40, 22); scf = Scene(camf); build(scf, camf)
+    box_mm = (14, 204, 160, 76)
+    heading(fig, box_mm, "3  Flat (1:2)")
+    cp = camf.p((W/2, 55, 15)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+6)); scf.draw(ax)
+    # 4. underside plan
+    box_mm = (186, 204, 156, 76)
+    heading(fig, box_mm, "4  Underside (1:2), front at the bottom")
+    ax = axes_mm(fig, box_mm, 0.5, (W/2+8, D/2-2))
+    def sq_rect(x0, y0, x1, y1, r, N=12):
+        pts = []
+        for (cx, cy), a0 in [((x1-r, y1-r), 0), ((x0+r, y1-r), 90), ((x0+r, y0+r), 180), ((x1-r, y0+r), 270)]:
+            for k in range(N+1):
+                t = math.radians(a0 + 90*k/N); c, s_ = math.cos(t), math.sin(t)
+                pts.append((cx + r*abs(c)**0.4*(1 if c >= 0 else -1), cy + r*abs(s_)**0.4*(1 if s_ >= 0 else -1)))
+        return pts
+    ax.add_patch(Polygon(sq_rect(0, 0, W, D, RPLAN), closed=True, fc=WAL, ec=WALD, lw=1.4))
+    ax.add_patch(Rectangle((W/2-100, 10), 200, 60, fc=WALD, ec=(0.2, 0.12, 0.07), lw=1.0))
+    ax.text(W/2, 40, "SHOE dock, y 10–70", ha="center", va="center", fontsize=SML-3, color=CREAM)
+    ax.add_patch(Rectangle((22, D-2-H), W-44, H, fc=(0.30, 0.19, 0.11), ec=(0.2, 0.12, 0.07), lw=1.0))
+    ax.add_patch(Wedge((W/2, D-2-H), 7, 0, 180, fc=(0.16, 0.10, 0.06), ec="none"))
+    for kx in (30, 90, W-90, W-30): ax.add_patch(Rectangle((kx-5, D-3.5), 10, 3, fc=(0.20, 0.12, 0.06), ec="none"))
+    ax.add_patch(Rectangle((40, 2), W-80, 4, fc=TPU, ec="none"))
+    ax.text(W+4, D-12, "bar,\nflush", fontsize=SML-3, color=INK, va="center")
+    ax.text(W+4, D-36, "notch", fontsize=SML-3, color=INK, va="center")
+    ax.annotate("", (W/2+6, D-2-H+3), (W+3, D-36), arrowprops=dict(arrowstyle="-", color=GREY, lw=0.8))
+    ax.text(W+4, 4, "front", fontsize=SML-3, color=INK, va="center")
+    # 5. packed: slab alone, and with SHOE
+    camp = Cam(36, 26); scp = Scene(camp); build(scp, camp)
+    box_mm = (14, 116, 160, 78)
+    heading(fig, box_mm, "5  Packed (1:2): the slab alone")
+    cp = camp.p((W/2, 55, 15)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+6)); scp.draw(ax)
+    camq = Cam(36, 26); scq = Scene(camq); build(scq, camq, packed=True)
+    box_mm = (186, 116, 156, 78)
+    heading(fig, box_mm, "6  Packed (1:2): + keyboard on SHOE")
+    cp = camq.p((W/2, 55, 8)); ax = axes_mm(fig, box_mm, 0.5, (cp[0], cp[1]+6)); scq.draw(ax)
+    # 7. CHOCK inset
+    box_mm = (14, 20, 328, 86)
+    heading(fig, box_mm, "7  Or CHOCK (3:2): no hinge, a loose strip stored in the same recess")
+    ax = axes_mm(fig, box_mm, 1.5, (100, 24))
+    tf = tfT
+    prof = [tf(p) for p in prof_flat]; z0 = min(z for y, z in prof)
+    hx, hz = tf((D-10, 0.0)); hz -= z0
+    ch = [(hx-3.2, 0.0), (hx+3.2, 0.0), (hx+1.6, hz+1.5), (hx-1.6, hz+1.5)]
+    ax.add_patch(Polygon(ch, closed=True, fc=(0.30, 0.19, 0.11), ec=WALD, lw=1.2))
+    ax.add_patch(Polygon([(y, z - z0) for y, z in prof], closed=True, fc=WAL, ec=WALD, lw=2.0))
+    ax.plot([-8, 135], [0, 0], color=GREY, lw=1.2)
+    leader(ax, (hx, hz/2), "a tapered strip, 280 long, stood\non edge in a groove under the back:\nabout the same angle", (138, 36))
+    ax.text(138, 8, "no moving part, but it can be\nlost (then it plays flat)", fontsize=SML-2, color=INK, va="center")
     save(fig, path)
     FIG_H = old_h
 

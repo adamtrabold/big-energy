@@ -534,3 +534,19 @@ Rev 4 was a sharp extrusion.
 - Power, TUNE and MIDI SPLIT move onto the plate's right end (two small toggles and a small knob).
 - The split-target rail is now a fine cream scale on the plate's front rim.
 - `sheet.png` and the md are updated. Side speakers: assessed by systems, not recommended; nothing drawn.
+
+---
+
+## 2026-11-22: round 2, SILL sheet
+**Owner 19:23:** upright is dropped. "one arrangement that can either be flat or slightly angled". Director round 2: SILL, h = T/2 → ≈ 9.2° at D 115; CHOCK as an inset only.
+
+**Made:**
+- `concepts/r2-sill/sheet.png` (14 × 27 in): end view flat and tilted (3:2); tilted 3/4 with the keyboard; flat 3/4; underside plan (bar, notch, knuckles, SHOE dock clear); packed alone and on SHOE; CHOCK inset (3:2).
+- `concepts/r2-sill/how-it-looks-and-feels.md`.
+- Code: `sheet_sill()` in `_src/cathedral_sheets.py`, reusing rev 5's rounded-section mesh.
+
+**Geometry stated honestly:** flat 280 × 115 × 35. Tilted: footprint ≈ 280 × 112, overall ≈ 119 × 53.
+
+**Flag:** a true 17.5 wedge can't store in the 3.5 recess, so CHOCK is drawn as a loose tapered strip stood in a groove. Systems to confirm.
+
+**Next:** the director scores SILL.
