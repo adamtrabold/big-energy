@@ -710,3 +710,8 @@ Recorded as: EASEL's end view isn't a true triangle (its 37 mm front face cuts i
 > I want to try a riff on the standard design buds setting for this early stage concepting - rather than not see until 9 I want to see every round but with the directors score, opinion, and what they’d change
 
 Recorded as: during early concepting, **Adam sees every round's concepts**, whatever the score, each with **the director's score, opinion and what the director would change**. Replaces design-buds' "only 9s reach the owner" for this stage. (Offered to add it to CLAUDE.md so it persists.)
+
+## 2026-11-23 00:22 (chat)
+> In the low fidelity sketch
+
+Recorded as: the director's score, opinion and changes are shown **on the low-fidelity sketch sheet itself**, under each concept.
