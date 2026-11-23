@@ -715,3 +715,8 @@ Recorded as: during early concepting, **Adam sees every round's concepts**, what
 > In the low fidelity sketch
 
 Recorded as: the director's score, opinion and changes are shown **on the low-fidelity sketch sheet itself**, under each concept.
+
+## 2026-11-23 00:22 (chat)
+> I want to see the earlier rejected ones too
+
+Recorded as: rejected/killed concepts are shown to him too, with the director's score and reason, not filtered out.
