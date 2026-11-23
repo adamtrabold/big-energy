@@ -624,3 +624,14 @@ Rev 4 was a sharp extrusion.
 - Code: `single_easel()`, `easel_face()` and the rev 2.4 constants in `r2_sketch.py`; they override the earlier defs.
 - `r2-sketches.png` was re-rendered with the new EASEL column. It still has LOW GNOMON, which the director says not to send: drop or replace that column before anything goes to the owner.
 - Next, per the director: one question to the owner (replace or join) with EASEL beside SILL's column; if he says "join", a new low concept (hull idea).
+
+## 2026-11-23: round 3 sketches
+- Owner, verbatim: "I want options. Do one that’s a triangle too"; "The end view I’d not a triangle"; "I want to see every round but with the directors score, opinion, and what they’d change" / "In the low fidelity sketch"; "I want to see the earlier rejected ones too"; "send me triangle and hull".
+- Made:
+  - `concepts/r3-sketches.png`, a 2 × 2 grid (phone-legible) instead of 4 columns: EASEL rev 2.4 · SILL · TRIANGLE (b) with (a) as an inset · HULL (killed).
+  - Each cell has an end view and a 3/4 view with the keyboard (one scale for all end views, one for all 3/4 views), a trade line, and a dashed director block (score / opinion / what I'd change).
+  - Individual `r3-triangle/sketch.png` and `r3-hull/sketch.png`.
+  - Code: `concepts/_src/r3_sketch.py`. To fill the director blocks, write `_src/r3_director.json` as {"EASEL": [score, opinion, change], "SILL": …, "TRIANGLE": …, "HULL": …} and re-run.
+- HULL drawn honestly. Flat on the rear facet, angled by rolling forward onto the front facet, so the back rises. In that geometry, a press behind the ridge tips it back flat when it's angled, and a lower-row press tips it onto the angle when it's flat.
+- **Flag:** systems' table has those two loads the other way round; it reads as if its facets were mirrored. The kill and the ≈ 0.6 N figure stand either way.
+- Not yet done: the "every round" ask, i.e. earlier rounds and rejected concepts with the director's notes. This sheet covers round 3 only.
