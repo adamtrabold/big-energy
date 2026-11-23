@@ -725,3 +725,8 @@ Recorded as: rejected/killed concepts are shown to him too, with the director's 
 > Draw all those ones rejected before the draw and send me triangle and hull
 
 Recorded as: quick sketches of every idea killed before it was drawn (HANDLE, TRIPTYCH, TURNING CHEEKS, BAIL, ROSE, RETABLE, plus SLED and plain WEDGE), each with why it was killed; and TRIANGLE and HULL sent to him when sketched.
+
+## 2026-11-23 00:31 (chat)
+> I still want to see sketches of failed ideas in this design buds riff
+
+Recorded as: part of this concepting riff: failed/killed ideas are always sketched and shown, with why they failed.
