@@ -2,7 +2,7 @@
 
 2026-11-22, round 2. PROPOSAL. Read with systems' `how-it-works.md` rev 1, which owns the geometry.
 
-**Picture:** `sketch.png` (loose line sketch: end view + one 3/4 with the keyboard in front), and the right column of `../r2-sketches.png` (same scale as EASEL). **Source:** `../_src/r2_sketch.py`.
+**Picture:** `sketch.png` (loose line sketch: end view + one 3/4 with the keyboard in front), and the right column of `../r2-sketches.png` (same scale as EASEL). **Source:** `../_src/r2_sketch.py`. Both views now show the **right end** (to match EASEL's utilities end): the end view shows the jack row (5, ≈ 18.5 below the plate) instead of the port mouth, which stays on the left end.
 
 **Owner, verbatim:** "So one arrangement that can either be flat or slightly angled is the best multiple arrangements it can be"; "I do wish it was more distinctive refardless"; "Make the base and the back 90 degrees when sitting flat"; "Drop to one speaker"; "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?"
 

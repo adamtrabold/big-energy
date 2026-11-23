@@ -1,6 +1,30 @@
 # EASEL: how it looks and feels (visual, idea level)
 
-## Rev 2.1 sketch (2026-11-22, round 2, after the director's turn 7): this section supersedes everything below it
+## Rev 2.3 sketch (2026-11-22, round 2): this section supersedes everything below it
+
+**Owner, verbatim, on power / TUNE / MIDI SPLIT:** "Face or edge imo" (not the back). Systems' rev 2.3 picks the **right end face**.
+
+**Picture:** `sketch.png` (line sketch: end view **from the right end**, plus a 3/4 view from front-right with the keyboard in front), and the left column of `../r2-sketches.png`. **Source:** `../_src/r2_sketch.py` (`EA_PL = 58`; `FLIP` and `Cam(-34, 24)` show the right end).
+
+**Geometry drawn (systems rev 2.3):**
+- predella 36, both faces 60°, plate 58, soft top r 6;
+- **280 × 79 × 80** (86 to the sharp point).
+
+**Looks:**
+- **Face:** two rows of 11 knobs and four amber lights between the top row and the rim. Nothing else; the face is calm.
+- **Right end face:** a toggle, the TUNE knob (Ø 7) and a toggle, in one row ≈ 12 apart at z ≈ 14–24, on the flat between the plan corners. The end view shows them face-on. Growth rings stay on both ends; the port mouth is on the left end.
+- **One speaker:** the driver lies in the foot (dashed red on the end view) and fires out 8 lancet slots in the low front face, with the host USB-C above them.
+- **Fallback:** the 10 mm face band (84 × 81, predella 28) is a small dashed inset on the end view, not drawn full size.
+
+**Feel:** a small lectern, the narrowest stance of the round. The utilities are set-and-forget controls, reached from the side, like a radio's edge switches. Power state also shows on a face light.
+
+**The one trade-off (the sheet's caption):** a sideways flick of an end toggle slides it at ≈ 5 N on TPU (systems), so you steady the far end with the other hand.
+
+**Open:** labels for the end controls are read from the side (they're legible, but not from the seat). Which toggle is which is the director's call.
+
+---
+
+## Superseded: rev 2.1 sketch (top band, 96 × 95)
 
 **Picture:** `sketch.png` (loose line sketch: end view + one 3/4 with the keyboard in front), and the left column of `../r2-sketches.png` (same scale as LOW GNOMON). **Source:** `../_src/r2_sketch.py`. The owner's rule (21:08): "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?"
 
