@@ -650,3 +650,14 @@ jobs.md is unchanged (rev 6 still fits).
 - True count 21 → 10 | TAP | 10 at 22 pitch on the current 58 plate; the 22nd position = port/battery lights in the lower-row gutter. Top row: ATTACK RELEASE PRESSURE SHIMMER DEPTH | TAP | ECHO TIME REPEATS REVERB VOLUME. Lower row: OCT L, three L tabs, HOLD | lights | FREE/SYNC, three R tabs, OCT R.
 - End controls in a 27 × 14 × 8 pocket, flush; ≈ 18 into the end bay, 4 clear of the last pots (UNVERIFIED).
 - LOW GNOMON killed by the director (reads as SILL tilted). The director suggests a canoe-hull low concept only if the owner says "join".
+
+### 2026-11-23 round 3, turn 1: TRIANGLE + HULL (systems)
+**Owner 00:09 / 00:20:** "I want options. Do one that’s a triangle too"; "The end view I’d not a triangle". Also 00:21–00:22: he sees every round with the director's score, opinion and changes on the sketch sheet.
+- **TRIANGLE:** foot-driver killed (bottom-strip slots masked; the duct crosses row-1 pots). Speaker: plate grille recommended; end face needs a bigger triangle (≥ 104 equilateral / ≥ 142 right) and 90° off-axis is UNVERIFIED (TEBM28 datasheet: "wide directivity", 55 × 24, 58 g, 13 cc; polar Fig. 3.3.1 not readable); back face killed.
+  - Layout: 5 | grille | 5 per row + TAP/lights on the axis above. Width 257 of ≈ 260.
+  - Sizes: (a) equilateral 108 × 94; **(b) right 45°: 91 × 91** (area 4,160; flat 4,030–4,280 from 35° to 60°, so 45° = base = back by ratio). 55°: 75 × 107; 60°: 69 × 119.
+  - Stability (0.8 kg, COM 55/35): rows ≥ 39 N (slides at 44); TAP 7 N; apex pull 3.5 N.
+  - Ports: host left end low front (y 35, z 10); port mouth at the centroid (61, 30); jacks on the back; utilities in the right pocket.
+- **HULL killed:** window h·tanφ ≈ 2.8 (slab) / 4.5 (10 mm hull); restoring ≈ 17 N·mm; lower-row press rocks it at 0.6 N angled, a palm at 0.3 N; needs a detent.
+- Files: `concepts/r3-triangle/{how-it-works,coverage}.md`, `concepts/r3-hull/{how-it-works,coverage}.md`; jam round 3 turn 1. jobs.md unchanged.
+- **Open:** director: (b) vs (a), the angle, a HULL replacement. Eng: the plate-grille box, width fit, TEBM28 polar. Owner: options of both kinds (scope of 32).

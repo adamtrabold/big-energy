@@ -1018,3 +1018,37 @@ NEXT: visual designer — quick line sketches (the owner's new rule): EASEL (end
 - Each new option gets its own sketch plus how-it-works, how-it-looks-and-feels and coverage files, at idea level.
 
 NEXT: product designer (systems). Size TRIANGLE (a) vs (b), speaker home and port, stability. Check HULL's facets and its rocking, or kill it. Then visual draws the four-column sheet. Then I score all four in one pass.
+
+---
+
+## Round 3, turn 1: product designer (systems focus): TRIANGLE sized, HULL killed
+
+Owner, verbatim: "I want options. Do one that’s a triangle too"; "The end view I’d not a triangle". [calc] = mine (section searches over angle and size); masses and COMs ESTIMATES. Files: `concepts/r3-triangle/`, `concepts/r3-hull/`.
+
+### TRIANGLE: **survives as (b), a right triangle at 45°, ≈ 280 × 91 × 91.**
+- **Without a front face the foot can't hold the driver.** Slots in the plate's bottom strip are masked by the keyboard, and the duct to them crosses the lower row's pots.
+- **Speaker home:**
+  - **plate grille, recommended:** on-axis, the only published response, and the smallest section;
+  - end face: needs an end inscribed circle ≥ Ø 59, so ≥ 104 equilateral / ≥ 142 right (*bigger*), and the 90° loss is UNVERIFIED (datasheet: "wide directivity", polar not readable);
+  - back face: killed (180°).
+- **The layout that keeps it small:** each row is 5 | grille | 5, with TAP + lights on the axis above the grille. That's 21 controls, mirrored. Width ≈ 257 of ≈ 260: tight.
+- **(a) equilateral: 108 × 94. (b) right, base ⟂ back: 91 × 91**, ≈ 18 % smaller in section. The parts leave the angle free (< 7 % change from 35° to 60°), so the deliberate ratio sets it: base = back → 45°. (55°: 75 × 107; 60°: 69 × 119.)
+- **Not "EASEL minus 37":** the true triangle is *bigger* than EASEL (79 × 80), because EASEL's front face was where the driver lived.
+- **Stability:** knob presses never tip it (≥ 39 N, slides first); **TAP at z ≈ 69 tips back at ≈ 7 N**; pull at the apex ≈ 3.5 N; lap and grass fine.
+- **Ports:** host low on the left end near the front corner; port mouth at the left end's centroid; jacks low on the vertical back; utilities in the right-end pocket.
+- **Coverage:** all but 32 as worded (the same scope as EASEL).
+
+### HULL: **killed.**
+- Two facets 9.5° apart hold only if the COM sits within **h · tan 9.5° ≈ 3–4.5 mm** of the ridge. A rocker arc shrinks that window.
+- The restoring moment is ≈ 17 N·mm in each pose. The rows sit ahead of the mid-slab ridge, so **a lower-row press in the angled pose rocks it flat at ≈ 0.6 N**, and a palm on the front edge at ≈ 0.3 N.
+- It needs a detent, which is the director's kill rule. Moving the cells shifts the COM ≈ 10, against the ≈ 40 needed.
+- The glaze-line visual idea survives for any concept.
+
+### Comparison-sheet line
+| | Pieces | Moving | Size | Angle | Watch |
+|---|---|---|---|---|---|
+| TRIANGLE (b) | 1 | 0 | 280 × 91 × 91, ≈ 1.16 L | 45° | grille on the face; width tight; TAP ≈ 7 N |
+
+Director's calls: (b) vs (a); 45° vs 55–60° (narrower, taller); the grille between the half-groups; a low option to replace HULL, if any.
+
+NEXT: design director — rule on TRIANGLE (b) at 45° and accept HULL's kill (decide whether the low slot needs another idea or SILL stands alone); then visual draws the sheet (EASEL rev 2.4, SILL, TRIANGLE).
