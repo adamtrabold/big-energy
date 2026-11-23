@@ -418,7 +418,7 @@ def sheet_gnomon(path):
     # fix 6: the rear face runs square to the plate from bt down to the table
     # rev 3 (owner: "Reverse the angle on the side behind the speakers so there's still a subtle angle when upright"):
     # the rear face closes to (90 - phi) with the plate, tan(phi) = T / 2D, so upright the plate leans back phi.
-    PHI = math.atan(GN_T/(2*GN_D))
+    PHI = GN_TH     # rev 4 (owner: "Make the base and the back 90 degrees when sitting flat"): back vertical, upright lean = theta
     dang = GN_TH - math.pi/2 - PHI
     dv = (math.cos(dang), math.sin(dang))
     Lr = bt[1]/(-dv[1])
@@ -502,7 +502,7 @@ def sheet_gnomon(path):
         if far_is_right: extrude(Lfar, cam, prof, W-CHK, W, WAL, ec=WALD)
         else: extrude(Lfar, cam, prof, 0, CHK, WAL, cap_extra=cap_left(prof, port, hair), ec=WALD)
         if stretcher:
-            Ls = sc.layer(); box(Ls, cam, CHK, W-CHK, 20, 80, 0, 6, WALD)
+            Ls = sc.layer(); box(Ls, cam, CHK, W-CHK, 15, 75, 0, 6, WALD)
         L = sc.layer(); extrude(L, cam, slab, CHK, W-CHK, WAL)
         Lnear = sc.layer()
         if far_is_right:
@@ -532,12 +532,12 @@ def sheet_gnomon(path):
     prof, slab, port, hair, ftt, th, jk = geo(ident)
     fig = new_sheet("GNOMON · the lid on its own cheeks",
                     "CATHEDRAL's framed lid standing on its own ends: the rim carries on down into two cheeks, open underneath. "
-                    "Angled on its runners, or upright on its back, leaning back a touch.",
-                    f"280 × 110 × 66 mm · ≈ {math.degrees(GN_TH):.1f}° or upright (≈ {math.degrees(PHI):.1f}° back) · no parts",
+                    "Angled on its runners, back square to the base; or upright on that back.",
+                    f"280 × 100 × 66 mm · ≈ {math.degrees(GN_TH):.1f}° or upright (≈ {math.degrees(PHI):.1f}° back) · no parts",
                     scales="end view 3:2, 3/4 views 1:2")
     # 1. end view
     box_mm = (14, 433, 328, 110)
-    heading(fig, box_mm, "1  End view (3:2): tan θ = T/D, rear corner 90° − φ (tan φ = T/2D)")
+    heading(fig, box_mm, "1  End view (3:2): tan θ = T/D, base and back square")
     ax = axes_mm(fig, box_mm, 1.5, (62, 32))
     poly = Polygon(prof, closed=True, fc=WAL, ec=WALD, lw=2.2, joinstyle="round"); ax.add_patch(poly)
     rmax = max(math.hypot(y-port[0], z-port[1]) for y, z in prof); r = 12.5
@@ -547,22 +547,17 @@ def sheet_gnomon(path):
     ax.add_patch(Circle(port, 8, fc=(0.10, 0.07, 0.05), ec="none"))
     ax.add_patch(Circle(port, 10.5, fc="none", ec=(0.20, 0.12, 0.06), lw=1.4))
     for (y0, y1) in ((3, 14), (Rq[0]-14, Rq[0]-3)): ax.add_patch(Rectangle((y0, -1.6), y1-y0, 1.6, fc=TPU, ec="none"))
-    ax.add_patch(Rectangle((20, 0), 60, 6, fc="none", ec=INK, lw=1.2, ls=(0, (5, 3))))
+    ax.add_patch(Rectangle((15, 0), 60, 6, fc="none", ec=INK, lw=1.2, ls=(0, (5, 3))))
     # right-angle mark at bt
-    a0 = math.atan2(-sth, -cth); a1 = dang; ra = 9
-    arc = [(bt[0]+ra*math.cos(a0+(a1-a0+2*math.pi) % (2*math.pi)*k/30 - 0), bt[1]+ra*math.sin(a0+((a1-a0) % (2*math.pi))*k/30)) for k in range(31)]
-    arc = [(bt[0]+ra*math.cos(a0+((a1-a0) % (2*math.pi))*k/30), bt[1]+ra*math.sin(a0+((a1-a0) % (2*math.pi))*k/30)) for k in range(31)]
-    ax.plot([p[0] for p in arc], [p[1] for p in arc], color=CREAM, lw=1.6)
-    # ghost of rev 2's square rear face, for the eye
-    sq = (bt[0] + 2*GN_T*sth, bt[1] - 2*GN_T*cth)
-    ax.plot([bt[0], sq[0]], [bt[1], sq[1]], color=GREY, lw=1.0, ls=(0, (3, 3)))
+    k = 7; cx, cz = Rq[0]-1.2, 1.2
+    ax.plot([cx-k, cx-k, cx], [cz, cz+k, cz+k], color=CREAM, lw=1.8)
     ground(ax, -50, 175)
-    leader(ax, (bt[0]+2, bt[1]-6), f"rear corner ≈ {90-math.degrees(PHI):.1f}°:\nthe upright lean", (122, 64))
+    leader(ax, (Rq[0]-5, 5), "base and back: 90°", (122, 10))
     leader(ax, (port[0]+5, port[1]+5), "port: grooves only", (122, 50))
     leader(ax, (60, 21.5), "hairline: the lid above,\nits own thickness below", (122, 30))
     leader(ax, (ft[0]+4, ft[1]-2), "lip rounded\ninto the plate", (-48, 50))
-    leader(ax, (50, 4), "stretcher:\nSHOE only", (-48, 14))
-    scale_bar(ax, 122, 4, 50, "50 mm (at 3:2)")
+    leader(ax, (45, 4), "stretcher:\nSHOE only", (-48, 14))
+    scale_bar(ax, 122, 66, 50, "50 mm (at 3:2)")
     # 2. playing
     cam = Cam(46, 20); sc = Scene(cam); build(sc, cam, kb_front=True)
     box_mm = (14, 321, 328, 100)

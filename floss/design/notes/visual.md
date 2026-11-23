@@ -463,3 +463,34 @@ Director rules (YOKE in or out; knob preference to send to the owner). Then, for
 **Open:** systems' note that if the owner meant the literal mirror (≈ 37° lean), it's one number to change.
 
 **Next:** the director re-checks; then it goes back to the owner.
+
+---
+
+## 2026-11-22 (late night, 2): GNOMON rev 4, base and back square
+
+**Owner, verbatim:** "I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat".
+
+**Systems rev 4:**
+- the back is vertical in the playing pose (square to the base);
+- the corner behind the speakers is 90° − θ ≈ 71.6°;
+- playing angle ≈ 18.4°; upright the plate leans back ≈ 18.4° (one angle for both poses; tan φ = T/2D dropped);
+- the back ≈ 66.4; footprint 280 × ≈ 88.5; overall ≈ 100 × 66;
+- stretcher at y ≈ 15–75.
+
+**Updated in place:**
+- **`sheet.png`:**
+  - end view: a right-angle mark at the base/back corner, labelled "base and back: 90°"; rev 3's 80.5° arc and the ghost line are gone; the scale bar moved top right;
+  - the stretcher moved;
+  - the upright view and the two-poses view now show the ≈ 18.4° lean (the two-poses view with a dashed vertical);
+  - title "280 × 100 × 66 mm · ≈ 18.4° or upright (≈ 18.4° back)".
+
+  Code: `PHI = GN_TH` in `sheet_gnomon()`.
+- **`how-it-looks-and-feels.md`** rewritten clean as rev 4. The stale rev 2 and rev 3 claims (2T back, square plate-to-back corner, 9.5° lean, 111 / 99 footprints) are gone.
+
+**Visual read:** one slope for both poses reads simply. On the table the square back makes a quiet, architectural block; upright it's a music stand, not a radio front.
+
+**Open:**
+1. Upright for playing or for display (owner).
+2. D 105 vs 115 (eng).
+
+**Next:** the director re-checks, then it goes back to the owner.
