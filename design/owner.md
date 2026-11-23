@@ -644,3 +644,8 @@ Recorded as: GNOMON (director 9) is not approved as is. Change: **reverse the an
 > I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat
 
 Recorded as: GNOMON rev 3 not approved as is. In the pose resting on its base (the angled playing pose, which he calls "laying flat" / "sitting flat"), **the back face is at 90° to the base** (vertical). Orchestrator reading: upright then leans back by the playing angle (≈18°), which supersedes the 18:53 "subtle" reading's ≈9.5°.
+
+## 2026-11-22 19:08 (chat): GNOMON rev 4
+> I miss the subtle rounded shape of cathedral
+
+Recorded as: GNOMON rev 4 not approved as is. It lost CATHEDRAL's subtle rounded shape; bring that back (team to show what it means for GNOMON, within his 18:39–19:02 pose notes). Related earlier words (2026-11-13 20:45): "I kinda want the corners to be softer and to be more architectural like how Apple does theirs".
