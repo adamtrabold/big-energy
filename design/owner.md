@@ -639,3 +639,8 @@ Recorded as: floss may offer **more than one playing angle**; one fixed angle is
 > Reverse the angle on the side behind the speakers so there’s still a subtle angle when upright
 
 Recorded as: GNOMON (director 9) is not approved as is. Change: **reverse the angle of the rear face** (the face behind the speakers), so when floss stands on it the plate **still leans back at a subtle angle** instead of standing at exactly 90°. Not a rejection of the concept's shape; a direction for the next pass.
+
+## 2026-11-22 19:02 (chat): GNOMON rear face square to the base
+> I don’t like the angle on the back when laying flat. Make the base and the back 90 degrees when sitting flat
+
+Recorded as: GNOMON rev 3 not approved as is. In the pose resting on its base (the angled playing pose, which he calls "laying flat" / "sitting flat"), **the back face is at 90° to the base** (vertical). Orchestrator reading: upright then leans back by the playing angle (≈18°), which supersedes the 18:53 "subtle" reading's ≈9.5°.
