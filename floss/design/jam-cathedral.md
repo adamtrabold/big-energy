@@ -782,3 +782,34 @@ Owner 20:25, verbatim: "I can only see one version how am I supposed to judge"; 
 **Thumbnail end view:** SILL a rectangle (plus a leg when angled); CRADLE A a soft wedge in both states; PLINTH a slab floating over a smaller wedge (angled), the bare slab flat.
 
 NEXT: visual designer — draw the CRADLE (cheek A, with B as a small inset) and PLINTH sheets plus the one same-scale comparison sheet with SILL, using the geometry in the two how-it-works files. Then the director scores all three in one pass.
+
+---
+
+## Round 2, turn 4: director steer, the fourth concept: EASEL (steep, narrow) (short)
+
+**Owner, verbatim (20:46):** "I do like one that sits up at an angle with a narrow footprint, I feel like that wil be most convenient for tables on the go esp with an external keyboard — like cathedral at least but without the keyboard".
+- CATHEDRAL's lid stood at 120° to its base, so the plate was ≈ 60° from the table (`design/branches/concepts/cathedral/how-it-works.md`).
+- It's one fixed arrangement, so his upside-down-labels objection doesn't apply. It joins the comparison as the fourth column beside SILL, CRADLE and PLINTH.
+- **This reverses my earlier kill of RETABLE** (knobs on a steep face). It's his call.
+
+**Also (20:45):** "I do worry about the speakers being so close for steeeo sepsrstion". The drivers play mono by requirement today; the coordinator has asked whether he wants stereo. **This concept should keep that option open.**
+
+**EASEL: CATHEDRAL's lid, standing on its own.** PROPOSAL.
+- **The idea:** the framed plate stands at **≈ 60°**, the angle of CATHEDRAL's raised lid, on a body whose end faces are **tall soft triangles**: GNOMON's cheeks grown into an easel, carrying the growth rings.
+- **The angle comes from a ratio:** footprint depth = half the plate depth (cos θ = ½ → 60°). "The footprint is half the face." Systems may find a better derivation, but don't pick a number.
+- **Narrow:** at plate depth D ≈ 100–115, the footprint is ≈ 50–60 + whatever the foot needs. That's the narrowest of the four, which is his point (small café and train tables, the keyboard in front).
+- **What's distinctive:** from the end, a tall soft triangle with end grain. From the front, CATHEDRAL's standing lid with no stay. Nobody else's synth looks like this. One move of form, no detail.
+- **Stereo, if he wants it:** steep end faces are tall enough for the Ø 55 drivers [eng], about 280 apart, firing sideways. Plate drivers firing straight at the player stay the default. **Draw the default and name the stereo option in one line; don't draw both.**
+- **Systems must solve:**
+  1. **Stability under a knob press.** At 60°, a press into the face pushes mostly *backward*, so the footprint must carry it. Put the mass low and back (cells, E's box in the foot). State the tip-back force at the top row, and what foot depth it needs. **If the narrow footprint can't hold a press, say what "narrow" honestly costs.**
+  2. **Where the speaker box, board, cells and ports go** in a triangular section.
+  3. **Packed size and shape:** a triangular prism. Does it pack calmly? Can the keyboard dock (SHOE) on the flat back or the base?
+  4. **Lap and grass:** a narrow tall object on grass is the weak case. Say so.
+- **Rules:** CATHEDRAL's soft slab language (n 5 corners, eased edges, framed plate); printed case; nothing outside the outline; one arrangement; no moving parts unless a job needs one.
+
+NEXT: systems designer (fresh) — structure EASEL: the 60° derivation, tip-back stability under a top-row press against footprint depth, the internal layout (E's box, cells, board, ports), packed size with SHOE, lap and grass, coverage. Then visual adds it as the fourth column on the same-scale comparison sheet.
+
+**Update (owner decision, verbatim):** "Why would I have two mono speakers that’s stupid. Drop to one speaker".
+- **floss has one driver.** Stereo is on the headphones and outputs only, so EASEL's stereo end-driver option above is **withdrawn**.
+- Every concept shows **one** lancet grille. Put it on the axis, the panel's one centred element (PRINCIPLES §6: no arbitrary off-centre element), unless the panel's signal order puts it at the output end.
+- Box volume and position for one driver are eng's to re-pick (option C in r3 was one TEBM28 ported at ≈ 120 cm³; UNVERIFIED for the new forms). A smaller box may also let EASEL's foot or SILL's depth shrink. Systems: say so where it does.

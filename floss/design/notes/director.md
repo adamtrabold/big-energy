@@ -616,3 +616,11 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **Amendment, owner verbatim:** "I do wish it was more distinctive refardless". SILL is the calm baseline, not the answer. The new concepts must be clearly more distinctive in silhouette and idea, through one strong move of form, not detail (calm and soft still hold). Test: recognisable from the end silhouette at thumbnail size.
 - **Line-up:** SILL (baseline; optional bronze bar line); **CRADLE (lead: the slab tilts on front trunnions between flat-standing cheeks; GNOMON's lineage)**; PLINTH (the slab floating on an inset wedge base with a shadow gap); HANDLE optional (only as a visible bronze line, else kill).
 - **Calibration:** "conventional and the best answer" isn't enough for him. Distinctiveness is part of a 9. Re-judge SILL in the comparison; its 9 was on fit, and it's now marked down on distinctiveness by his word.
+
+# Round 2 steer 4: EASEL (2026-11-22, after 20:46)
+- **Owner, verbatim:** "I do like one that sits up at an angle with a narrow footprint … like cathedral at least but without the keyboard"; and "I do worry about the speakers being so close for steeeo sepsrstion".
+- **Calibration:** he wants the steep CATHEDRAL lid pose for small tables. My RETABLE kill is overridden by his call.
+- **EASEL:** the plate at ≈ 60° (CATHEDRAL's 120° lid), derived as footprint = half the plate depth; end faces as tall soft triangles (GNOMON's cheeks grown up); the narrowest footprint; stereo end drivers possible as an option.
+- **Main risk:** tip-back under knob presses on a narrow footprint; weak on grass and lap. Systems states the honest cost.
+- **The comparison is now four columns:** SILL, CRADLE, PLINTH, EASEL. HANDLE is dropped.
+- **Owner decision, verbatim:** "Why would I have two mono speakers that’s stupid. Drop to one speaker". One driver in every concept, one grille on the axis; stereo on headphones/outputs. EASEL's stereo option is withdrawn. Eng re-picks the box (r3 option C ≈ 120 cm³ as the starting point; UNVERIFIED). The smaller box may shrink the forms.
