@@ -934,3 +934,21 @@ Owner, verbatim: "So one arrangement that can either be flat or slightly angled 
 Director's calls: EASEL's equal pitches vs the square; accept 79 × 86; the panel route (15 pitch + utilities on the back, or a third row); LOW GNOMON without flat; the "squares" step.
 
 NEXT: design director — rule on EASEL rev 2.1's grown section and panel route, and on LOW GNOMON without flat; then visual sketches both (end view + one view each).
+
+---
+
+## Round 2, turn 7: director rulings (short)
+
+**EASEL**
+1. **Section: equal 60° faces, accepted.** An equilateral-based section with a soft top (r per the family) is the cleanest rule the form can have: it derives from itself and reads as one calm A-shape. 280 × 79 × 86, TPU strips under it as required. Restate the earlier 1 : 1.618 note as superseded.
+2. **Panel: utilities stay on the plate.** His words are "all controls should fit in a single plane", so the back face isn't the default.
+   - **Put power / TUNE / SPLIT in a slim top band, with the lights.** That is the third row, and it fills the upper field that was empty last time.
+   - Set-and-forget controls up there are rarely pressed, so the top-press tipping matters least there. Systems: confirm the ≈ 15 mm growth and the tip force for a utility press.
+   - The back face goes to the owner as one line ("or move power / TUNE / SPLIT to the back to keep it lower"). It isn't drawn.
+
+**LOW GNOMON**
+1. **Angled-only, accepted.** A flat option would break his base ⟂ back rule. It goes to him as *slightly angled by shape, zero moving parts*. His "replace or join" answer decides whether flat matters.
+2. **End-face cue: accept the slab standing ≈ 2 mm proud of the cheeks, but call it the lid's rim, not a bookbinding cue.** He called the bookcloth spine weird, so no book language. It reads as "the lid on its own cheeks" with a shadow line, and it's structure (the rim), not added detail.
+3. **Honest flag:** its outline is close to SILL tilted. I won't let detail manufacture distinctiveness (distinctive ≠ busy). If the sketch reads as SILL without the leg, it scores under 9.
+
+NEXT: visual designer — quick line sketches (the owner's new rule): EASEL (end view plus one 3/4 with the keyboard, showing the top utility band) and LOW GNOMON (end view plus one 3/4). Loose line work, few labels, same scale, no renders.

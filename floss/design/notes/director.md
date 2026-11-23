@@ -643,3 +643,8 @@ A visual pass on GNOMON (fixes 1–5), then I re-score GNOMON alone. Ask the own
 - **From now on, idea-level concepts are quick line sketches:** an end view plus one or two simple views, loose line work, few labels. Fuller drawings come only after he approves one.
 - **Scoring:** I score EASEL and LOW GNOMON from sketches and never mark down for sketchiness (the brief already says don't mark down unpolished concepts). I judge the idea and the silhouette.
 - **Calibration:** the renders were part of the over-design he flagged at 15:11. A sketch shows the shape faster, and shape is what he judges.
+
+# Round 2 rulings 7 (2026-11-22)
+- **EASEL:** equal 60° faces (280 × 79 × 86, TPU strips). Utilities in a slim top band with the lights, on the plate (job 31, "single plane"), which also fills the old empty field. The back face goes to the owner as one line only.
+- **LOW GNOMON:** angled-only; the slab ≈ 2 mm proud of the cheeks as the lid's rim (no book language: the bookcloth spine was "weird"). Flag: if it reads as SILL tilted, it's under 9; no added detail to fake distinctiveness.
+- **Next:** visual line-sketches both; then I score.
