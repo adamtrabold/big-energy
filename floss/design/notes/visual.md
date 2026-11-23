@@ -589,3 +589,25 @@ Rev 4 was a sharp extrusion.
 **Open (added):** EASEL's control re-flow around the centred grille (5 + 4 columns plus a small column; not counted against the 19 of the slabs); the Ø 42 grille at D 105; job 32 scope (owner).
 
 **Next:** the director scores all four in one pass from `r2-compare.png`.
+
+---
+
+## 2026-11-22 (late): round 2, quick line sketches of EASEL and LOW GNOMON (new visual seat)
+**Owner rule, verbatim (21:08):** "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?" From now on, idea-level concepts are shown as loose line sketches: an end view plus one 3/4, few labels, no shading, legible on a phone.
+
+**Made (each PNG opened and checked):**
+- `concepts/r2-easel/sketch.png`: end view (rev 2.1's outline dashed, the driver dashed in red, a top band callout) and a 3/4 with the keyboard in front.
+- `concepts/r2-lowgnomon/sketch.png`: end view (90° mark, hairline = the lid's rim, cheek callout) and a 3/4 with the keyboard in front.
+- `concepts/r2-sketches.png`: both side by side, same scale, one ground line and the same keyboard, a one-line caption each.
+- `how-it-looks-and-feels.md`: new in r2-lowgnomon/; in r2-easel/ a rev 2.1 section on top supersedes the rev 1 text.
+- **Code:** `concepts/_src/r2_sketch.py` (`python3 r2_sketch.py`). Hand line = resampled path with smooth noise drawn in two passes (`wob`). The 3/4 views come from swept meshes with eased ends (n 5 plan corners r 17.5 on upright faces, roll 3 on flat ones): visible faces are filled with paper, then only silhouettes and feature lines are inked. Meshes drawn later need a higher zorder, or the earlier mesh's lines show through (that bug hit LOW GNOMON's wedge).
+- **Draws (`secrets`):** Oblique "Repetition is a form of change" + "architect elevation". I used them for the comparison sheet: one ground line, the same keyboard and the same scale in both columns, so only the shape changes.
+
+**Findings:**
+1. **EASEL's top band costs the footprint.** Both faces at 60° means +17 of plate = +15 of height **and +17 of foot**. So it's ≈ 280 × 96 × 95 (top after the r 6 round; 101 to the sharp apex), not 79 deep. [calc, mine; systems to confirm] A 10 mm band would give ≈ 89 × 89; utilities on the back keep 79 × 86.
+2. **LOW GNOMON reads as SILL tilted without the leg** at sketch size. The 2 mm rim barely shows in the 3/4. I didn't dress it up. I'd expect it to score under 9 by the director's own rule.
+3. EASEL is clearly the distinctive one (an even soft A). Its open question is whether the band is worth ≈ 17 mm of foot.
+
+**Open:** systems confirm EASEL's section with the band, plus the tip force for a utility press; director: does LOW GNOMON still go to the owner, or does SILL take the slight-angle seat; owner: band vs back for the utilities, and replace or join.
+
+**Next:** systems checks EASEL's grown section; then the director scores both sketches.

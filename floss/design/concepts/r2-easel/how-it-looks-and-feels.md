@@ -1,5 +1,33 @@
 # EASEL: how it looks and feels (visual, idea level)
 
+## Rev 2.1 sketch (2026-11-22, round 2, after the director's turn 7): this section supersedes everything below it
+
+**Picture:** `sketch.png` (loose line sketch: end view + one 3/4 with the keyboard in front), and the left column of `../r2-sketches.png` (same scale as LOW GNOMON). **Source:** `../_src/r2_sketch.py`. The owner's rule (21:08): "Do you have the ability to have them draw sketches somehow instead of these complex renders every time?"
+
+**Geometry drawn** (systems' rev 2.1 + the director's top band): predella 36 (vertical front face), **both faces 60°**, soft top r 6, plate 58 + 17 = 75 to the sharp apex.
+- Sharp apex 101; **real top ≈ 95** (the r 6 round takes ≈ 6).
+- **Footprint ≈ 96, not 79.** With equal 60° pitches, every mm the plate grows widens the foot too: +17 of plate = +15 of height **and** +17 of foot. [calc, mine] Systems hasn't confirmed this; the brief's "≈ 79 × 86, 15 mm taller" can't hold with both faces at 60°.
+- Rev 2.1's 79 × 86 outline is dashed on the end view, so the cost of the band shows.
+- The 1 : 1.618 note (version B) is superseded by equal pitches (director, turn 7).
+
+**Looks:**
+- From the end, a soft A with an even point: the cleanest outline of the round. Growth rings centred on the port mouth (≈ y 34, z 31 on the left end).
+- Plate: two rows of 11 knobs (a small centre gutter), then the **slim top band** holding three small toggles (power, TUNE, SPLIT) at the left and four amber lights in the middle. The band fills what was an empty upper field, so the face reads as three calm rows rather than "controls at the bottom, nothing on top".
+- **One speaker:** the driver lies flat in the foot (dashed, red, on the end view) and speaks through **8 lancet slots in the low front face**, with the host USB-C above them. No grille on the plate: the face is all controls.
+- Jacks low on the back face (not seen in these views).
+
+**Feel:** a small lectern; the keyboard tucks right in front. Knobs at the wrist, utilities up top where they're rarely touched. Lift it by the ends; a pull at the top tips it forward (≈ 2.8 N in rev 2.1; systems to restate for the taller section).
+
+**The one trade-off (on the sheet's caption):** the top band costs the narrow footprint he asked for: ≈ 96 deep, about LOW GNOMON's 98. **Moving power / TUNE / SPLIT to the back keeps it at 79 × 86** (the director's one-line owner question).
+
+**Open:**
+1. Systems: confirm 96 × 95 (or a slimmer band: a 10 mm band gives ≈ 89 × 89 [calc]); the tip force for a utility press at s ≈ 48.
+2. Owner: utilities in the top band (≈ 96 deep) or on the back (79 deep).
+
+---
+
+## Earlier (rev 1, superseded)
+
 2026-11-22, round 2. PROPOSAL. Read it with systems' `how-it-works.md` rev 1, which owns the geometry. The director's ruling is **version B** (footprint : height = 1 : 1.618).
 
 **Pictures:** `sheet.png` (14 × 27 in; end view 3:2, 3/4 views 1:2, the same scales as the others) and the fourth column of `../r2-compare.png`. **Source:** `../_src/r2_sheets.py`, `sheet_easel()`.
